@@ -3,9 +3,10 @@ import React, { ChangeEvent } from 'react';
 interface LayoutSelectorProps {
   layoutType: string;
   onLayoutChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  showHint?: boolean;
 }
 
-export default function LayoutSelector({ layoutType, onLayoutChange }: LayoutSelectorProps) {
+export default function LayoutSelector({ layoutType, onLayoutChange, showHint = true }: LayoutSelectorProps) {
   return (
     <div className="form-group">
       <label htmlFor="layoutType" className="agent_question">Layout Type </label>
@@ -17,9 +18,15 @@ export default function LayoutSelector({ layoutType, onLayoutChange }: LayoutSel
         className="form-control-static"
         required
       >
-        <option value="research">Research - Traditional research layout with detailed results</option>
-        <option value="copilot">Copilot - Side-by-side research and chat interface</option>
+        <option value="research">Research - 单列报告布局</option>
+        <option value="copilot">Copilot - 左右分屏（报告 + 对话）</option>
       </select>
+      {showHint && (
+        <p className="mt-2 text-xs text-gray-400 leading-relaxed">
+          仅对「Write Report」研究报告生效；Chat 模式始终为全屏对话。
+          若当前正在查看报告，切换后界面会立即更新。
+        </p>
+      )}
     </div>
   );
 } 

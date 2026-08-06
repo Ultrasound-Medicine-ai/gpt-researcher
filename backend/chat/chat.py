@@ -42,7 +42,7 @@ def get_tools():
             "type": "function",
             "function": {
                 "name": "quick_search",
-                "description": "Search for current events or online information when you need new knowledge that doesn't exist in the current context",
+                "description": "Search the web for current information. Always available during chat — use before or after a report is generated whenever web results would improve the answer.",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -203,37 +203,75 @@ class ChatAgentWithMemory:
         return response, processed_metadata
 
 
-    async def chat(self, messages, websocket=None):
+    async def chat(self, messages, websocket=None, research_topic="", research_context=""):
         """Chat with configured LLM provider (supports OpenAI, Google Gemini, Anthropic, etc.)
         
         Args:
             messages: List of chat messages with role and content
             websocket: Optional websocket for streaming responses
+            research_topic: Original research question / report topic
+            research_context: Gathered sources, sub-queries, and search snippets
         
         Returns:
             tuple: (str: The AI response message, dict: metadata about tool usage)
         """
         try:
-            
-            # Format system prompt with the report context
+            has_report = bool(self.report and self.report.strip())
+            topic = (research_topic or "").strip()
+            context = (research_context or "").strip()
+
+            if has_report:
+                context_section = f"""
+            Research topic: {topic or "Not specified"}
+
+            Research report:
+            {self.report}
+
+            Additional research context:
+            {context or "None"}
+            """
+                phase_note = "The user has a completed research report and is continuing the conversation in chat."
+                material_list = """
+            - The completed research report
+            - Research context (sources, sub-queries, gathered notes, prior web search snippets)
+            - The full conversation history"""
+            else:
+                context_section = f"""
+            Research topic (main report question):
+            {topic or "Not specified — infer from conversation if possible"}
+
+            Prior research context (if any):
+            {context or "None yet"}
+            """
+                phase_note = "The user is preparing a research report. No final report has been generated yet."
+                material_list = """
+            - The research topic (main report question)
+            - The full conversation history
+            - Any prior research context (sources, sub-queries, web search snippets from earlier chat)"""
+
             system_prompt = f"""
-            You are GPT Researcher, an autonomous research agent created by an open source community at https://github.com/assafelovic/gpt-researcher, homepage: https://gptr.dev. 
+            You are GPT Researcher, an autonomous research agent created by an open source community at https://github.com/assafelovic/gpt-researcher, homepage: https://gptr.dev.
             To learn more about GPT Researcher you can suggest to check out: https://docs.gptr.dev.
-            
-            This is a chat about a research report that you created. Answer based on the given context and report.
-            You must include citations to your answer based on the report.
-            
-            You may use the quick_search tool when the user asks about information that might require current data 
-            not found in the report, such as recent events, updated statistics, or news. If there's no report available,
-            you can use the quick_search tool to find information online.
-            
-            You must respond in markdown format. You must make it readable with paragraphs, tables, etc when possible. 
-            Remember that you're answering in a chat not a report.
-            
+
+            {phase_note}
+
+            You ALWAYS have the quick_search tool for live web search — before or after a report is generated.
+            Use it whenever web search would help answer better: current events, missing facts, verification,
+            statistics, or anything not fully covered by the material below. Do not wait until other sources fail.
+
+            Your job is to give the best possible answer to the user's latest question.
+            Look across ALL available material and pick what is most relevant:
+            {material_list}
+            - Live web results via quick_search (always available)
+
+            Prefer existing report/context when it already answers the question; supplement or override with
+            quick_search when fresher or more complete web information is needed.
+
+            Do NOT answer from the latest message alone. Synthesize a direct, helpful chat reply — not a new report.
+
             Assume the current time is: {datetime.now()}.
-            
-            Report: {self.report}
-            
+
+            {context_section}
             """
             
             # Format message history for OpenAI input

@@ -10,6 +10,8 @@ type TInputAreaProps = {
   disabled?: boolean;
   reset?: () => void;
   isStopped?: boolean;
+  placeholder?: string;
+  submitLabel?: string;
 };
 
 // Debounce function to limit the rate at which a function can fire
@@ -33,10 +35,11 @@ const InputArea: FC<TInputAreaProps> = ({
   disabled,
   reset,
   isStopped,
+  placeholder = "Enter your topic, question, or area of interest...",
+  submitLabel = "Research",
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const placeholder = "Enter your topic, question, or area of interest...";
 
   // Auto-focus the textarea when component mounts
   useEffect(() => {

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import FileUpload from "../Settings/FileUpload";
 import ToneSelector from "../Settings/ToneSelector";
 import MCPSelector from "../Settings/MCPSelector";
-import LayoutSelector from "../Settings/LayoutSelector";
 import DomainFilter from "./DomainFilter";
 import { useAnalytics } from "../../hooks/useAnalytics";
 import { ChatBoxSettings, Domain, MCPConfig } from '@/types/data';
@@ -28,7 +27,7 @@ export default function ResearchForm({
   const [newDomain, setNewDomain] = useState('');
 
   // Destructure necessary fields from chatBoxSettings
-  let { report_type, report_source, tone, layoutType } = chatBoxSettings;
+  let { report_type, report_source, tone } = chatBoxSettings;
 
   const [domains, setDomains] = useState<Domain[]>(() => {
     if (typeof window !== 'undefined') {
@@ -71,14 +70,6 @@ export default function ResearchForm({
     setChatBoxSettings((prevSettings: any) => ({
       ...prevSettings,
       tone: value,
-    }));
-  };
-
-  const onLayoutChange = (e: { target: { value: any } }) => {
-    const { value } = e.target;
-    setChatBoxSettings((prevSettings: any) => ({
-      ...prevSettings,
-      layoutType: value,
     }));
   };
 
@@ -160,8 +151,6 @@ export default function ResearchForm({
         mcpConfigs={chatBoxSettings.mcp_configs || []}
         onMCPChange={onMCPChange}
       />
-      
-      <LayoutSelector layoutType={layoutType || 'copilot'} onLayoutChange={onLayoutChange} />
 
       {/** TODO: move the below to its own component */}
       {(chatBoxSettings.report_source === "web" || chatBoxSettings.report_source === "hybrid") && (

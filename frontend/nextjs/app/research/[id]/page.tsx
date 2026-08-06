@@ -7,17 +7,15 @@ import { preprocessOrderedData } from "@/utils/dataProcessing";
 import { ChatBoxSettings, Data, ChatData, ChatMessage, QuestionData } from "@/types/data";
 import { toast } from "react-hot-toast";
 import { getAppropriateLayout } from "@/utils/getLayout";
+import { DEFAULT_CHAT_BOX_SETTINGS, readChatBoxSettingsFromStorage } from "@/config/researchSettings";
+import { buildResearchContext } from "@/utils/buildChatContext";
 
 import ResearchPageLayout from "@/components/layouts/ResearchPageLayout";
 import CopilotLayout from "@/components/layouts/CopilotLayout";
-import ResearchContent from "@/components/research/ResearchContent";
 import CopilotResearchContent from "@/components/research/CopilotResearchContent";
 import NotFoundContent from "@/components/research/NotFoundContent";
 import LoadingDots from "@/components/LoadingDots";
 import ResearchSidebar from "@/components/ResearchSidebar";
-
-// Import mobile components
-import MobileResearchContent from "@/components/mobile/MobileResearchContent";
 
 export default function ResearchPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -32,40 +30,10 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
   const [currentResearchId, setCurrentResearchId] = useState<string | null>(null);
   const [isProcessingChat, setIsProcessingChat] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [chatBoxSettings, setChatBoxSettings] = useState<ChatBoxSettings>(() => {
-    // Default settings
-    const defaultSettings = {
-      report_source: "web",
-      report_type: "research_report",
-      tone: "Objective",
-      domains: [],
-      defaultReportType: "research_report",
-      layoutType: 'copilot',
-      mcp_enabled: false,
-      mcp_configs: [],
-      mcp_strategy: "fast",
-    };
-
-    // Try to load all settings from localStorage
-    if (typeof window !== 'undefined') {
-      const savedSettings = localStorage.getItem('chatBoxSettings');
-      if (savedSettings) {
-        try {
-          const parsedSettings = JSON.parse(savedSettings);
-          return {
-            ...defaultSettings,
-            ...parsedSettings, // Override defaults with saved settings
-          };
-        } catch (e) {
-          console.error('Error parsing saved settings:', e);
-        }
-      }
-    }
-    return defaultSettings;
-  });
+  const [chatBoxSettings, setChatBoxSettings] = useState<ChatBoxSettings>(DEFAULT_CHAT_BOX_SETTINGS);
   const [notFound, setNotFound] = useState(false);
   const [fetchAttempted, setFetchAttempted] = useState(false);
+  const settingsHydratedRef = useRef(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const toastShownRef = useRef(false);
 
@@ -93,8 +61,14 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
 
   // Save chatBoxSettings to localStorage when they change
   useEffect(() => {
+    if (!settingsHydratedRef.current) return;
     localStorage.setItem('chatBoxSettings', JSON.stringify(chatBoxSettings));
   }, [chatBoxSettings]);
+
+  useEffect(() => {
+    setChatBoxSettings(readChatBoxSettingsFromStorage());
+    settingsHydratedRef.current = true;
+  }, []);
 
   // Load research data on mount
   useEffect(() => {
@@ -307,24 +281,8 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     }
   }, [orderedData, isProcessingChat]);
 
-  // Check if on mobile
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Initial check
-    checkIfMobile();
-    
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
   const handleChat = async (message: string) => {
-    if (!currentResearchId || !answer) return;
+    if (!currentResearchId) return;
     
     setIsProcessingChat(true);
     setChatPromptValue("");
@@ -362,8 +320,10 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          report: answer,
-          messages: formattedMessages
+          report: answer || "",
+          messages: formattedMessages,
+          research_topic: question.trim() || message,
+          research_context: buildResearchContext(orderedData),
         }),
       });
       
@@ -444,42 +404,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     }
   };
 
-  // Render mobile content
-  const renderMobileContent = () => {
-    if (notFound) {
-      return <NotFoundContent onNewResearch={handleNewResearch} />;
-    }
-    
-    if (loading) {
-      return (
-        <div className="min-h-[100vh] flex items-center justify-center">
-          <LoadingDots />
-        </div>
-      );
-    }
-    
-    // Make sure we're loading chat messages for the current research
-    const chatMessages = currentResearchId ? getChatMessages(currentResearchId) : [];
-    
-    return (
-      <MobileResearchContent
-        orderedData={orderedData}
-        answer={answer}
-        loading={false}
-        isStopped={isStopped}
-        chatPromptValue={chatPromptValue}
-        setChatPromptValue={setChatPromptValue}
-        handleChat={handleChat}
-        isProcessingChat={isProcessingChat}
-        onNewResearch={handleNewResearch}
-        currentResearchId={currentResearchId || undefined}
-        onShareClick={handleCopyUrl}
-      />
-    );
-  };
-
-  // Loading state
-  if (loading && !isMobile) {
+  if (loading) {
     return getAppropriateLayout({
       loading,
       isStopped,
@@ -496,8 +421,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     });
   }
 
-  // Not found state for desktop
-  if (notFound && !isMobile) {
+  if (notFound) {
     return getAppropriateLayout({
       loading: false,
       isStopped: false,
@@ -510,23 +434,6 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     });
   }
 
-  // Mobile layout
-  if (isMobile) {
-    return getAppropriateLayout({
-      loading,
-      isStopped,
-      showResult: true,
-      onNewResearch: handleNewResearch,
-      chatBoxSettings,
-      setChatBoxSettings,
-      toastOptions,
-      toggleSidebar,
-      isProcessingChat,
-      children: renderMobileContent()
-    });
-  }
-
-  // Normal state - research found on desktop
   return getAppropriateLayout({
     loading: false,
     isStopped,
@@ -545,49 +452,28 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           isOpen={sidebarOpen}
           toggleSidebar={toggleSidebar}
         />
-        
-        {chatBoxSettings.layoutType === 'copilot' ? (
-          <CopilotResearchContent
-            orderedData={orderedData}
-            answer={answer}
-            allLogs={allLogs}
-            chatBoxSettings={chatBoxSettings}
-            loading={false}
-            isStopped={isStopped}
-            promptValue=""
-            chatPromptValue={chatPromptValue}
-            setPromptValue={() => {}}
-            setChatPromptValue={setChatPromptValue}
-            handleDisplayResult={() => {}}
-            handleChat={handleChat}
-            handleClickSuggestion={() => {}}
-            currentResearchId={currentResearchId || undefined}
-            onShareClick={handleCopyUrl}
-            isProcessingChat={isProcessingChat}
-            onNewResearch={handleNewResearch}
-          />
-        ) : (
-          <ResearchContent
-            showResult={true}
-            orderedData={orderedData}
-            answer={answer}
-            allLogs={allLogs}
-            chatBoxSettings={chatBoxSettings}
-            loading={false}
-            isInChatMode={true}
-            isStopped={isStopped}
-            promptValue=""
-            chatPromptValue={chatPromptValue}
-            setPromptValue={() => {}}
-            setChatPromptValue={setChatPromptValue}
-            handleDisplayResult={() => {}}
-            handleChat={handleChat}
-            handleClickSuggestion={() => {}}
-            currentResearchId={currentResearchId || undefined}
-            onShareClick={handleCopyUrl}
-            isProcessingChat={isProcessingChat}
-          />
-        )}
+        <CopilotResearchContent
+          orderedData={orderedData}
+          answer={answer}
+          allLogs={allLogs}
+          chatBoxSettings={chatBoxSettings}
+          loading={false}
+          isStopped={isStopped}
+          promptValue=""
+          chatPromptValue={chatPromptValue}
+          setPromptValue={() => {}}
+          setChatPromptValue={setChatPromptValue}
+          handleDisplayResult={() => {}}
+          handleChat={handleChat}
+          handleClickSuggestion={() => {}}
+          currentResearchId={currentResearchId || undefined}
+          onShareClick={handleCopyUrl}
+          isProcessingChat={isProcessingChat}
+          onNewResearch={handleNewResearch}
+          toggleSidebar={toggleSidebar}
+          isInChatMode={true}
+          sessionMode={answer ? 'research' : null}
+        />
       </div>
     )
   });

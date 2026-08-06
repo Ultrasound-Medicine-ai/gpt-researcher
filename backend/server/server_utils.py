@@ -224,7 +224,12 @@ async def handle_chat_command(websocket, data: str):
         )
         
         # Process the chat
-        response_content, tool_calls_metadata = await chat_agent.chat(messages, websocket)
+        response_content, tool_calls_metadata = await chat_agent.chat(
+            messages,
+            websocket,
+            research_topic=chat_data.get("research_topic", ""),
+            research_context=chat_data.get("research_context", ""),
+        )
         
         # Send response back via WebSocket
         await websocket.send_json({

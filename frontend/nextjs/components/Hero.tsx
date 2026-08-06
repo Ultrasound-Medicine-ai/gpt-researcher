@@ -6,18 +6,29 @@ import { motion, AnimatePresence } from "framer-motion";
 type THeroProps = {
   promptValue: string;
   setPromptValue: React.Dispatch<React.SetStateAction<string>>;
-  handleDisplayResult: (query : string) => void;
+  handleDisplayResult: (query: string) => void;
+  handleStartChat?: (query: string) => void;
+  defaultInputMode?: InputMode;
 };
+
+type InputMode = "research" | "chat";
 
 const Hero: FC<THeroProps> = ({
   promptValue,
   setPromptValue,
   handleDisplayResult,
+  handleStartChat,
+  defaultInputMode = "research",
 }) => {
+  const [inputMode, setInputMode] = useState<InputMode>(defaultInputMode);
   const [isVisible, setIsVisible] = useState(false);
   const [showGradient, setShowGradient] = useState(true);
   const particlesContainerRef = useRef<HTMLDivElement>(null);
   
+  useEffect(() => {
+    setInputMode(defaultInputMode);
+  }, [defaultInputMode]);
+
   useEffect(() => {
     setIsVisible(true);
     
@@ -92,6 +103,22 @@ const Hero: FC<THeroProps> = ({
     setPromptValue(value);
   };
 
+  const handleSubmit = () => {
+    const query = promptValue.trim();
+    if (!query) return;
+    if (inputMode === "chat" && handleStartChat) {
+      handleStartChat(query);
+    } else {
+      handleDisplayResult(query);
+    }
+    setPromptValue("");
+  };
+
+  const inputPlaceholder =
+    inputMode === "chat"
+      ? "Ask anything — search the web without generating a full report first..."
+      : "Enter your topic, question, or area of interest...";
+
   // Animation variants for consistent animations
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -114,10 +141,41 @@ const Hero: FC<THeroProps> = ({
         <motion.h1 
           variants={fadeInUp}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-white mb-8 sm:mb-10 md:mb-12 px-4"
+          className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-white mb-6 sm:mb-8 px-4"
         >
-          What would you like to research next?
+          {inputMode === "chat"
+            ? "Chat with GPT Researcher"
+            : "What would you like to research next?"}
         </motion.h1>
+
+        <motion.div
+          variants={fadeInUp}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="flex justify-center gap-2 mb-4 px-4"
+        >
+          <button
+            type="button"
+            onClick={() => setInputMode("research")}
+            className={`px-4 py-1.5 rounded-full text-sm transition-colors ${
+              inputMode === "research"
+                ? "bg-teal-600 text-white"
+                : "bg-gray-800/60 text-gray-400 hover:text-gray-200"
+            }`}
+          >
+            Write Report
+          </button>
+          <button
+            type="button"
+            onClick={() => setInputMode("chat")}
+            className={`px-4 py-1.5 rounded-full text-sm transition-colors ${
+              inputMode === "chat"
+                ? "bg-teal-600 text-white"
+                : "bg-gray-800/60 text-gray-400 hover:text-gray-200"
+            }`}
+          >
+            Chat
+          </button>
+        </motion.div>
 
         {/* Input section with enhanced styling */}
         <motion.div 
@@ -131,7 +189,9 @@ const Hero: FC<THeroProps> = ({
               <InputArea
                 promptValue={promptValue}
                 setPromptValue={setPromptValue}
-                handleSubmit={handleDisplayResult}
+                handleSubmit={handleSubmit}
+                placeholder={inputPlaceholder}
+                submitLabel={inputMode === "chat" ? "Chat" : "Research"}
               />
             </div>
           </div>

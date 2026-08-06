@@ -4,7 +4,6 @@ import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useWebSocket } from '@/hooks/useWebSocket';
 import { useResearchHistoryContext } from '@/hooks/ResearchHistoryContext';
-import { useScrollHandler } from '@/hooks/useScrollHandler';
 import { startLanggraphResearch } from '../components/Langgraph/Langgraph';
 import findDifferences from '../helpers/findDifferences';
 import { Data, ChatBoxSettings, QuestionData, ChatMessage, ChatData } from '../types/data';
@@ -13,17 +12,12 @@ import { toast } from "react-hot-toast";
 import { v4 as uuidv4 } from 'uuid';
 
 import Hero from "@/components/Hero";
-import ResearchPageLayout from "@/components/layouts/ResearchPageLayout";
-import CopilotLayout from "@/components/layouts/CopilotLayout";
-import ResearchContent from "@/components/research/ResearchContent";
 import CopilotResearchContent from "@/components/research/CopilotResearchContent";
 import HumanFeedback from "@/components/HumanFeedback";
 import ResearchSidebar from "@/components/ResearchSidebar";
 import { getAppropriateLayout } from "@/utils/getLayout";
-
-// Import the mobile components
-import MobileHomeScreen from "@/components/mobile/MobileHomeScreen";
-import MobileResearchContent from "@/components/mobile/MobileResearchContent";
+import { buildResearchContext } from '@/utils/buildChatContext';
+import { DEFAULT_CHAT_BOX_SETTINGS, readChatBoxSettingsFromStorage } from "@/config/researchSettings";
 
 export default function Home() {
   const router = useRouter();
@@ -33,37 +27,7 @@ export default function Home() {
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
   const [isInChatMode, setIsInChatMode] = useState(false);
-  const [chatBoxSettings, setChatBoxSettings] = useState<ChatBoxSettings>(() => {
-    // Default settings
-    const defaultSettings = {
-      report_type: "research_report",
-      report_source: "web",
-      tone: "Objective",
-      domains: [],
-      defaultReportType: "research_report",
-      layoutType: 'copilot',
-      mcp_enabled: false,
-      mcp_configs: [],
-      mcp_strategy: "fast",
-    };
-
-    // Try to load all settings from localStorage
-    if (typeof window !== 'undefined') {
-      const savedSettings = localStorage.getItem('chatBoxSettings');
-      if (savedSettings) {
-        try {
-          const parsedSettings = JSON.parse(savedSettings);
-          return {
-            ...defaultSettings,
-            ...parsedSettings, // Override defaults with saved settings
-          };
-        } catch (e) {
-          console.error('Error parsing saved settings:', e);
-        }
-      }
-    }
-    return defaultSettings;
-  });
+  const [chatBoxSettings, setChatBoxSettings] = useState<ChatBoxSettings>(DEFAULT_CHAT_BOX_SETTINGS);
   const [question, setQuestion] = useState("");
   const [orderedData, setOrderedData] = useState<Data[]>([]);
   const [showHumanFeedback, setShowHumanFeedback] = useState(false);
@@ -73,29 +37,17 @@ export default function Home() {
   const mainContentRef = useRef<HTMLDivElement>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [currentResearchId, setCurrentResearchId] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
   const [isProcessingChat, setIsProcessingChat] = useState(false);
+  const [sessionMode, setSessionMode] = useState<'research' | 'chat' | null>(null);
+  const [homeInputMode, setHomeInputMode] = useState<'research' | 'chat'>('research');
+  const settingsHydratedRef = useRef(false);
 
-  // Use our custom scroll handler
-  const { showScrollButton, scrollToBottom } = useScrollHandler(mainContentRef);
-
-  // Check if we're on mobile
   useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Initial check
-    checkIfMobile();
-    
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', checkIfMobile);
+    setChatBoxSettings(readChatBoxSettingsFromStorage());
+    settingsHydratedRef.current = true;
   }, []);
 
-  const { 
+  const {
     history, 
     saveResearch, 
     updateResearch,
@@ -124,130 +76,68 @@ export default function Home() {
     setShowHumanFeedback(false);
   };
 
-  const handleChat = async (message: string) => {
-    if (!currentResearchId && !answer) {
-      // On mobile, if there's no research yet, treat this as a new research request
-      if (isMobile) {
-        // Show immediate feedback for better UX
-        setShowResult(true);
-        setPromptValue(message); // Keep the message visible
-        
-        // Start the research with the chat message
-        handleDisplayResult(message);
-        return;
+  const extractChatMessagesFromOrderedData = (data: Data[]) => {
+    return data.flatMap((item) => {
+      if (item.type === 'question') {
+        return [{ role: 'user', content: item.content }];
       }
-    }
-    
+      if (item.type === 'chat') {
+        return [{ role: 'assistant', content: item.content }];
+      }
+      return [];
+    });
+  };
+
+  const handleStartChat = async (message: string) => {
+    const trimmed = message.trim();
+    if (!trimmed) return;
+    setSessionMode('chat');
+    setIsInChatMode(true);
+    setShowResult(true);
+    setAnswer('');
+    setQuestion(trimmed);
+    setCurrentResearchId(null);
+    setOrderedData([]);
+    setLoading(false);
+    await handleChat(trimmed);
+  };
+
+  const handleChat = async (message: string) => {
+    setIsInChatMode(true);
     setShowResult(true);
     setIsProcessingChat(true);
     setChatPromptValue("");
     
-    // Create a user message
     const userMessage: ChatMessage = {
       role: 'user',
       content: message,
       timestamp: Date.now()
     };
     
-    // Add question to display in research results immediately
     const questionData: QuestionData = { type: 'question', content: message };
-    setOrderedData(prevOrder => [...prevOrder, questionData]);
-    
-    // Add user message to history asynchronously
-    if (currentResearchId) {
-      addChatMessage(currentResearchId, userMessage).catch(error => {
+    let researchId = currentResearchId;
+
+    if (!researchId) {
+      try {
+        researchId = await saveResearch(message, '', [questionData]);
+        setCurrentResearchId(researchId);
+      } catch (error) {
+        console.error('Error creating chat session:', error);
+      }
+    } else {
+      addChatMessage(researchId, userMessage).catch(error => {
         console.error('Error adding chat message to history:', error);
       });
     }
+
+    setOrderedData(prevOrder => [...prevOrder, questionData]);
     
-    // Mobile implementation - simplified for chat only
-    if (isMobile) {
-      try {
-        // Direct API call instead of websockets
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            messages: [{ role: 'user', content: message }],
-            report: answer || '',
-          }),
-        });
-        
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data.response && data.response.content) {
-          // Add AI response to chat history asynchronously
-          if (currentResearchId) {
-            addChatMessage(currentResearchId, data.response).catch(error => {
-              console.error('Error adding AI response to history:', error);
-            });
-            
-            // Also update the research with the new messages
-            const chatData: ChatData = { 
-              type: 'chat', 
-              content: data.response.content,
-              metadata: data.response.metadata 
-            };
-            
-            setOrderedData(prevOrder => [...prevOrder, chatData]);
-            
-            // Get current ordered data and add new messages
-            const updatedOrderedData = [...orderedData, questionData, chatData];
-            
-            // Update research in history
-            updateResearch(
-              currentResearchId, 
-              answer, 
-              updatedOrderedData
-            ).catch(error => {
-              console.error('Error updating research:', error);
-            });
-          } else {
-            // If no research ID, just update the UI
-            setOrderedData(prevOrder => [...prevOrder, { 
-              type: 'chat', 
-              content: data.response.content,
-              metadata: data.response.metadata
-            } as ChatData]);
-          }
-        } else {
-          // Show error message
-          setOrderedData(prevOrder => [...prevOrder, { 
-            type: 'chat', 
-            content: 'Sorry, something went wrong. Please try again.' 
-          } as ChatData]);
-        }
-      } catch (error) {
-        console.error('Error during chat:', error);
-        
-        // Add error message
-        setOrderedData(prevOrder => [...prevOrder, { 
-          type: 'chat', 
-          content: 'Sorry, there was an error processing your request. Please try again.' 
-        } as ChatData]);
-      } finally {
-        setIsProcessingChat(false);
-      }
-      return;
-    }
-    
-    // Desktop implementation (unchanged)
+    // Desktop: call chat API
     try {
-      // Fetch all chat messages for this research
-      let chatMessages: { role: string; content: string }[] = [];
+      const chatMessages = researchId
+        ? getChatMessages(researchId)
+        : extractChatMessagesFromOrderedData(orderedData);
       
-      if (currentResearchId) {
-        // If we have a research ID, get all messages from history
-        chatMessages = getChatMessages(currentResearchId);
-      }
-      
-      // Format messages to ensure they only contain role and content properties
       const formattedMessages = [...chatMessages, userMessage].map(msg => ({
         role: msg.role,
         content: msg.content
@@ -259,7 +149,9 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           report: answer || "",
-          messages: formattedMessages
+          messages: formattedMessages,
+          research_topic: question.trim() || message,
+          research_context: buildResearchContext(orderedData),
         }),
       });
       
@@ -279,14 +171,10 @@ export default function Home() {
             content: 'I apologize, but I couldn\'t generate a proper response. Please try asking your question again.' 
           }]);
         } else {
-          // Add AI response to chat history asynchronously
-          if (currentResearchId) {
-            addChatMessage(currentResearchId, data.response).catch(error => {
-              console.error('Error adding AI response to history:', error);
-            });
+          if (researchId) {
+            addChatMessage(researchId, data.response).catch(console.error);
           }
           
-          // Add response to display in research results
           setOrderedData(prevOrder => {
             return [...prevOrder, { 
               type: 'chat', 
@@ -294,9 +182,18 @@ export default function Home() {
               metadata: data.response.metadata
             }];
           });
+
+          const chatData: ChatData = {
+            type: 'chat',
+            content: data.response.content,
+            metadata: data.response.metadata,
+          };
+          const updatedOrderedData = [...orderedData, questionData, chatData];
+          if (researchId) {
+            updateResearch(researchId, answer || '', updatedOrderedData).catch(console.error);
+          }
         }
         
-        // Explicitly enable chat mode after getting a response
         if (!isInChatMode) {
           setIsInChatMode(true);
         }
@@ -322,107 +219,41 @@ export default function Home() {
   };
 
   const handleDisplayResult = async (newQuestion: string) => {
-    // Exit chat mode when starting a new research
-    setIsInChatMode(false);
+    setSessionMode('research');
+    setIsInChatMode(true);
     setShowResult(true);
-    setLoading(true);
+    setLoading(false);
     setQuestion(newQuestion);
     setPromptValue("");
     setAnswer("");
-    setCurrentResearchId(null); // Reset current research ID for new research
-    setOrderedData((prevOrder) => [...prevOrder, { type: 'question', content: newQuestion }]);
+    setCurrentResearchId(null);
+    setOrderedData([{ type: 'question', content: newQuestion }]);
 
-    // For mobile, use a simplified approach without websockets
-    if (isMobile) {
-      try {
-        // Create a new unique ID for this research
-        const newResearchId = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
-        
-        // First save the initial question to history - with proper parameters
-        const initialOrderedData: Data[] = [{ type: 'question', content: newQuestion } as QuestionData];
-        await saveResearch(
-          newQuestion,  // question
-          '',           // empty answer initially
-          initialOrderedData  // ordered data
-        );
-        
-        // Make direct API call to get response
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            messages: [{ role: 'user', content: newQuestion }],
-            // No report since this is a new research
-          }),
-        });
-        
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data.response && data.response.content) {
-          // Add the AI response to the ordered data
-          const chatData: ChatData = { 
-            type: 'chat', 
-            content: data.response.content,
-            metadata: data.response.metadata 
-          };
-          
-          // Set the answer
-          const chatAnswer = data.response.content;
-          setAnswer(chatAnswer);
-          setOrderedData(prevOrder => [...prevOrder, chatData]);
-          
-          // Update the research with the answer
-          const updatedOrderedData: Data[] = [
-            { type: 'question', content: newQuestion } as QuestionData,
-            chatData
-          ];
-          
-          // Save the completed research with proper parameters
-          await updateResearch(
-            newResearchId,    // id
-            chatAnswer,       // answer
-            updatedOrderedData // ordered data
-          );
-          
-          // Set current research ID so we can continue the conversation
-          setCurrentResearchId(newResearchId);
-        } else {
-          // Handle error
-          setOrderedData(prevOrder => [...prevOrder, { 
-            type: 'chat', 
-            content: 'Sorry, I couldn\'t generate a research response. Please try again.' 
-          } as ChatData]);
-        }
-      } catch (error) {
-        console.error('Error in mobile research:', error);
-        // Show error message
-        setOrderedData(prevOrder => [...prevOrder, { 
-          type: 'chat', 
-          content: 'Sorry, there was an error processing your request. Please try again.' 
-        } as ChatData]);
-      } finally {
-        setLoading(false);
-      }
-      return;
+    try {
+      const researchId = await saveResearch(newQuestion, '', [{ type: 'question', content: newQuestion }]);
+      setCurrentResearchId(researchId);
+    } catch (error) {
+      console.error('Error saving research prep session:', error);
     }
+  };
+
+  const handleGenerateReport = async () => {
+    const topic = question.trim();
+    if (!topic || loading) return;
+
+    setLoading(true);
+    setIsInChatMode(true);
 
     const storedConfig = localStorage.getItem('apiVariables');
     const apiVariables = storedConfig ? JSON.parse(storedConfig) : {};
     const langgraphHostUrl = apiVariables.LANGGRAPH_HOST_URL;
 
-    // Starting new research - tracking for redirection once complete
-    const newResearchStarted = Date.now().toString();
-    // We'll use this as a temporary ID to keep track of this research
-    const tempResearchId = `temp-${newResearchStarted}`;
-
     if (chatBoxSettings.report_type === 'multi_agents' && langgraphHostUrl) {
-      let { streamResponse, host, thread_id } = await startLanggraphResearch(newQuestion, chatBoxSettings.report_source, langgraphHostUrl);
+      const { streamResponse, host, thread_id } = await startLanggraphResearch(
+        topic,
+        chatBoxSettings.report_source,
+        langgraphHostUrl
+      );
       const langsmithGuiLink = `https://smith.langchain.com/studio/thread/${thread_id}?baseUrl=${host}`;
       setOrderedData((prevOrder) => [...prevOrder, { type: 'langgraphButton', link: langsmithGuiLink }]);
 
@@ -431,8 +262,6 @@ export default function Home() {
         if (chunk.data.report != null && chunk.data.report != "Full report content here") {
           setOrderedData((prevOrder) => [...prevOrder, { ...chunk.data, output: chunk.data.report, type: 'report' }]);
           setLoading(false);
-        
-          // Save research and navigate to its unique URL once it's complete
           setAnswer(chunk.data.report);
         } else if (previousChunk) {
           const differences = findDifferences(previousChunk, chunk);
@@ -441,219 +270,12 @@ export default function Home() {
         previousChunk = chunk;
       }
     } else {
-      initializeWebSocket(newQuestion, chatBoxSettings);
-    }
-  };
-
-  // Mobile-specific implementation for research
-  const handleMobileDisplayResult = async (newQuestion: string) => {
-    // Update UI state
-    setIsInChatMode(false);
-    setShowResult(true);
-    setLoading(true);
-    setQuestion(newQuestion);
-    setPromptValue("");
-    setAnswer("");
-    setCurrentResearchId(null);
-    
-    // Start with just the question
-    setOrderedData([{ type: 'question', content: newQuestion } as QuestionData]);
-    
-    try {
-      // Generate unique ID for this research
-      const mobileResearchId = `mobile-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
-      
-      // Save initial research with just the question
-      const initialOrderedData: Data[] = [{ type: 'question', content: newQuestion } as QuestionData];
-      
-      // Save to research history
-      await saveResearch(
-        newQuestion,  // question
-        '',           // empty answer initially
-        initialOrderedData  // ordered data
-      );
-      
-      // Make direct API call instead of using websockets
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: [{ role: 'user', content: newQuestion }],
-          // Include the required parameters
-          report: '',  // No report since this is a new research
-          report_source: chatBoxSettings.report_source || 'web',
-          tone: chatBoxSettings.tone || 'Objective'
-        }),
-        // Set reasonable timeout
-        signal: AbortSignal.timeout(30000) // 30-second timeout
-      });
-      
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      
-      if (data.response && data.response.content) {
-        // Extract the response
-        const responseContent = data.response.content;
-        
-        // Update UI with the answer
-        setAnswer(responseContent);
-        
-        // Create chat data object
-        const chatData: ChatData = { 
-          type: 'chat', 
-          content: responseContent,
-          metadata: data.response.metadata 
-        };
-        
-        // Update ordered data to include the response
-        setOrderedData(prevData => [...prevData, chatData]);
-        
-        // Update the complete research
-        const updatedOrderedData: Data[] = [
-          { type: 'question', content: newQuestion } as QuestionData,
-          chatData
-        ];
-        
-        // Update research history with the answer
-        await updateResearch(
-          mobileResearchId,
-          responseContent,
-          updatedOrderedData
-        );
-        
-        // Set current research ID for future interactions
-        setCurrentResearchId(mobileResearchId);
-      } else {
-        // Handle error in response
-        setOrderedData(prevData => [
-          ...prevData, 
-          { 
-            type: 'chat', 
-            content: "I'm sorry, I couldn't generate a complete response. Please try rephrasing your question." 
-          } as ChatData
-        ]);
-      }
-    } catch (error) {
-      console.error('Mobile research error:', error);
-      
-      // Show error in UI
-      setOrderedData(prevData => [
-        ...prevData, 
-        { 
-          type: 'chat', 
-          content: "Sorry, there was an error processing your request. Please try again." 
-        } as ChatData
-      ]);
-    } finally {
-      // Always finish loading state
-      setLoading(false);
-    }
-  };
-
-  // Mobile-specific chat handler
-  const handleMobileChat = async (message: string) => {
-    // Set states for UI feedback
-    setIsProcessingChat(true);
-    
-    // Format user message
-    const userMessage = {
-      role: 'user',
-      content: message
-    };
-    
-    // Add question to UI immediately
-    const questionData: QuestionData = { 
-      type: 'question', 
-      content: message 
-    };
-    
-    setOrderedData(prevOrder => [...prevOrder, questionData]);
-    
-    try {
-      // Direct API call instead of websockets
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: [userMessage],
-          report: answer || '',
-          report_source: chatBoxSettings.report_source || 'web',
-          tone: chatBoxSettings.tone || 'Objective'
-        }),
-        // Set reasonable timeout
-        signal: AbortSignal.timeout(20000) // 20-second timeout
-      });
-      
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      
-      if (data.response && data.response.content) {
-        // Add AI response to chat history asynchronously
-        if (currentResearchId) {
-          addChatMessage(currentResearchId, data.response).catch(error => {
-            console.error('Error adding AI response to history:', error);
-          });
-          
-          // Also update the research with the new messages
-          const chatData: ChatData = { 
-            type: 'chat', 
-            content: data.response.content,
-            metadata: data.response.metadata 
-          };
-          
-          setOrderedData(prevOrder => [...prevOrder, chatData]);
-          
-          // Get current ordered data and add new messages
-          const updatedOrderedData = [...orderedData, questionData, chatData];
-          
-          // Update research in history
-          updateResearch(
-            currentResearchId, 
-            answer, 
-            updatedOrderedData
-          ).catch(error => {
-            console.error('Error updating research:', error);
-          });
-        } else {
-          // If no research ID, just update the UI
-          setOrderedData(prevOrder => [...prevOrder, { 
-            type: 'chat', 
-            content: data.response.content,
-            metadata: data.response.metadata
-          } as ChatData]);
-        }
-      } else {
-        // Show error message
-        setOrderedData(prevOrder => [...prevOrder, { 
-          type: 'chat', 
-          content: 'Sorry, something went wrong. Please try again.' 
-        } as ChatData]);
-      }
-    } catch (error) {
-      console.error('Error during mobile chat:', error);
-      
-      // Add error message
-      setOrderedData(prevOrder => [...prevOrder, { 
-        type: 'chat', 
-        content: 'Sorry, there was an error processing your request. Please try again.' 
-      } as ChatData]);
-    } finally {
-      setIsProcessingChat(false);
-      setChatPromptValue('');
+      initializeWebSocket(topic, chatBoxSettings);
     }
   };
 
   const reset = () => {
+    setSessionMode(null);
     // Reset UI states
     setShowResult(false);
     setPromptValue("");
@@ -661,6 +283,7 @@ export default function Home() {
     setIsInChatMode(false);
     setCurrentResearchId(null); // Reset research ID
     setIsProcessingChat(false);
+    setChatPromptValue("");
     
     // Clear previous research data
     setQuestion("");
@@ -677,6 +300,16 @@ export default function Home() {
       socket.close();
     }
     setLoading(false);
+  };
+
+  const handleGoHome = (mode: 'research' | 'chat' = 'research') => {
+    reset();
+    setHomeInputMode(mode);
+    setSidebarOpen(false);
+  };
+
+  const handleStartNewChat = () => {
+    handleGoHome('chat');
   };
 
   const handleClickSuggestion = (value: string) => {
@@ -713,8 +346,7 @@ export default function Home() {
    * - Closes any existing WebSocket connections
    */
   const handleStartNewResearch = () => {
-    reset();
-    setSidebarOpen(false);
+    handleGoHome('research');
   };
 
   const handleCopyUrl = () => {
@@ -844,6 +476,7 @@ export default function Home() {
 
   // Save chatBoxSettings to localStorage when they change
   useEffect(() => {
+    if (!settingsHydratedRef.current) return;
     localStorage.setItem('chatBoxSettings', JSON.stringify(chatBoxSettings));
   }, [chatBoxSettings]);
 
@@ -854,40 +487,38 @@ export default function Home() {
     }
   }, [showResult, loading, answer, isInChatMode]);
 
-  // Update the renderMobileContent function to use both mobile-specific functions
-  const renderMobileContent = () => {
-    if (!showResult) {
-      return (
-        <MobileHomeScreen
-          promptValue={promptValue}
-          setPromptValue={setPromptValue}
-          handleDisplayResult={handleMobileDisplayResult}
-          isLoading={loading}
-        />
-      );
-    } else {
-      return (
-        <MobileResearchContent
-          orderedData={orderedData}
-          answer={answer}
-          loading={loading}
-          isStopped={isStopped}
-          chatPromptValue={chatPromptValue}
-          setChatPromptValue={setChatPromptValue}
-          handleChat={handleMobileChat} // Use mobile-specific chat handler
-          isProcessingChat={isProcessingChat}
-          onNewResearch={handleStartNewResearch}
-          currentResearchId={currentResearchId || undefined}
-          onShareClick={currentResearchId ? handleCopyUrl : undefined}
-        />
-      );
-    }
-  };
+  const copilotContent = (
+    <CopilotResearchContent
+      orderedData={orderedData}
+      answer={answer}
+      allLogs={allLogs}
+      chatBoxSettings={chatBoxSettings}
+      loading={loading}
+      isStopped={isStopped}
+      promptValue={promptValue}
+      chatPromptValue={chatPromptValue}
+      setPromptValue={setPromptValue}
+      setChatPromptValue={setChatPromptValue}
+      handleDisplayResult={handleDisplayResult}
+      handleChat={handleChat}
+      handleClickSuggestion={handleClickSuggestion}
+      currentResearchId={currentResearchId || undefined}
+      onShareClick={currentResearchId ? handleCopyUrl : undefined}
+      reset={reset}
+      isProcessingChat={isProcessingChat}
+      onNewResearch={handleStartNewResearch}
+      toggleSidebar={toggleSidebar}
+      isInChatMode={isInChatMode}
+      sessionMode={sessionMode}
+      onGenerateReport={handleGenerateReport}
+      onGoHome={() => handleGoHome('research')}
+      onNewChat={handleStartNewChat}
+    />
+  );
 
   return (
     <>
-      {isMobile ? (
-        // Mobile view - simplified layout with focus on chat
+      {!showResult ? (
         getAppropriateLayout({
           loading,
           isStopped,
@@ -898,22 +529,6 @@ export default function Home() {
           setChatBoxSettings,
           mainContentRef,
           toggleSidebar,
-          isProcessingChat,
-          children: renderMobileContent()
-        })
-      ) : !showResult ? (
-        // Desktop view - home page
-        getAppropriateLayout({
-          loading,
-          isStopped,
-          showResult,
-          onStop: handleStopResearch,
-          onNewResearch: handleStartNewResearch,
-          chatBoxSettings,
-          setChatBoxSettings,
-          mainContentRef,
-          showScrollButton,
-          onScrollToBottom: scrollToBottom,
           children: (
             <>
               <ResearchSidebar
@@ -924,17 +539,17 @@ export default function Home() {
                 isOpen={sidebarOpen}
                 toggleSidebar={toggleSidebar}
               />
-              
               <Hero
                 promptValue={promptValue}
                 setPromptValue={setPromptValue}
                 handleDisplayResult={handleDisplayResult}
+                handleStartChat={handleStartChat}
+                defaultInputMode={homeInputMode}
               />
             </>
-          )
+          ),
         })
       ) : (
-        // Desktop view - research results
         getAppropriateLayout({
           loading,
           isStopped,
@@ -944,6 +559,7 @@ export default function Home() {
           chatBoxSettings,
           setChatBoxSettings,
           mainContentRef,
+          toggleSidebar,
           children: (
             <div className="relative">
               <ResearchSidebar
@@ -954,53 +570,7 @@ export default function Home() {
                 isOpen={sidebarOpen}
                 toggleSidebar={toggleSidebar}
               />
-              
-              {chatBoxSettings.layoutType === 'copilot' ? (
-                <CopilotResearchContent
-                  orderedData={orderedData}
-                  answer={answer}
-                  allLogs={allLogs}
-                  chatBoxSettings={chatBoxSettings}
-                  loading={loading}
-                  isStopped={isStopped}
-                  promptValue={promptValue}
-                  chatPromptValue={chatPromptValue}
-                  setPromptValue={setPromptValue}
-                  setChatPromptValue={setChatPromptValue}
-                  handleDisplayResult={handleDisplayResult}
-                  handleChat={handleChat}
-                  handleClickSuggestion={handleClickSuggestion}
-                  currentResearchId={currentResearchId || undefined}
-                  onShareClick={currentResearchId ? handleCopyUrl : undefined}
-                  reset={reset}
-                  isProcessingChat={isProcessingChat}
-                  onNewResearch={handleStartNewResearch}
-                  toggleSidebar={toggleSidebar}
-                />
-              ) : (
-                <ResearchContent
-                  showResult={showResult}
-                  orderedData={orderedData}
-                  answer={answer}
-                  allLogs={allLogs}
-                  chatBoxSettings={chatBoxSettings}
-                  loading={loading}
-                  isInChatMode={isInChatMode}
-                  isStopped={isStopped}
-                  promptValue={promptValue}
-                  chatPromptValue={chatPromptValue}
-                  setPromptValue={setPromptValue}
-                  setChatPromptValue={setChatPromptValue}
-                  handleDisplayResult={handleDisplayResult}
-                  handleChat={handleChat}
-                  handleClickSuggestion={handleClickSuggestion}
-                  currentResearchId={currentResearchId || undefined}
-                  onShareClick={currentResearchId ? handleCopyUrl : undefined}
-                  reset={reset}
-                  isProcessingChat={isProcessingChat}
-                />
-              )}
-              
+              {copilotContent}
               {showHumanFeedback && false && (
                 <HumanFeedback
                   questionForHuman={questionForHuman}
@@ -1009,7 +579,7 @@ export default function Home() {
                 />
               )}
             </div>
-          )
+          ),
         })
       )}
     </>

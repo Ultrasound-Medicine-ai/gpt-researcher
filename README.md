@@ -123,14 +123,22 @@ See the [Documentation](https://docs.gptr.dev/docs/gpt-researcher/getting-starte
     export OPENAI_BASE_URL={Your custom API base URL here}
     ```
 
-4. Install dependencies and start the server:
+4. Install dependencies and start the API server:
 
     ```bash
     pip install -r requirements.txt
-    python -m uvicorn main:app --reload
+    python main.py
     ```
 
-Visit [http://localhost:8000](http://localhost:8000) to start.
+5. Start the Next.js UI (recommended):
+
+    ```bash
+    cd frontend/nextjs
+    npm install --legacy-peer-deps
+    npm run dev
+    ```
+
+Open [http://localhost:3000](http://localhost:3000) for the UI. The API runs at [http://localhost:8000](http://localhost:8000) (`/docs`, `/ws`, `/api/chat`).
 
 For other setups (e.g., Poetry or virtual environments), check the [Getting Started page](https://docs.gptr.dev/docs/gpt-researcher/getting-started).
 
@@ -257,7 +265,7 @@ export DOC_PATH="./my-docs"
 ```
 
 Step 2: 
- - If you're running the frontend app on localhost:8000, simply select "My Documents" from the "Report Source" Dropdown Options.
+ - In the Next.js app at [http://localhost:3000](http://localhost:3000), select **My Documents** from the **Report Source** dropdown.
  - If you're running GPT Researcher with the [PIP package](https://docs.tavily.com/guides/gpt-researcher/gpt-researcher#pip-package), pass the `report_source` argument as "local" when you instantiate the `GPTResearcher` class [code sample here](https://docs.gptr.dev/docs/gpt-researcher/context/tailored-research).
 
 

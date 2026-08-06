@@ -1,85 +1,54 @@
 # Frontend Application
 
-This frontend project aims to enhance the user experience of GPT-Researcher, providing an intuitive and efficient interface for automated research. It offers two deployment options to suit different needs and environments.
+The GPT Researcher UI is the **Next.js** app in `frontend/nextjs/`. The Python backend on port **8000** is API-only (`/ws`, `/api/chat`, `/docs`); use port **3000** for the web interface.
 
-## Option 1: Static Frontend (FastAPI)
+## Prerequisites
 
-A lightweight solution using FastAPI to serve static files.
-
-#### Prerequisites
-- Python 3.11+
-- pip
-
-#### Setup and Running
-
-1. Install required packages:
-   ```
-   pip install -r requirements.txt
-   ```
-
-2. Start the server:
-   ```
-   python -m uvicorn main:app
-   ```
-
-3. Access at `http://localhost:8000`
-
-#### Demo
-https://github.com/assafelovic/gpt-researcher/assets/13554167/dd6cf08f-b31e-40c6-9907-1915f52a7110
-
-## Option 2: NextJS Frontend
-
-A more robust solution with enhanced features and performance.
-
-#### Prerequisites
 - Node.js (v18.17.0 recommended)
 - npm
+- Backend API running (`python main.py` from the repo root)
 
-#### Setup and Running
+## Setup and Running
 
-1. Navigate to NextJS directory:
+1. Navigate to the Next.js directory:
+
    ```
-   cd nextjs
+   cd frontend/nextjs
    ```
 
-2. Set up Node.js:
+2. Set up Node.js (optional, if using nvm):
+
    ```
    nvm install 18.17.0
    nvm use v18.17.0
    ```
 
 3. Install dependencies:
+
    ```
    npm install --legacy-peer-deps
    ```
 
-4. Start development server:
+4. Start the development server:
+
    ```
    npm run dev
    ```
 
-5. Access at `http://localhost:3000`
+5. Open [http://localhost:3000](http://localhost:3000)
 
-Note: Requires backend server on `localhost:8000` as detailed in option 1.
+Set `NEXT_PUBLIC_GPTR_API_URL` in `.env` if the backend is not on `http://localhost:8000`.
 
-#### Demo
-https://github.com/user-attachments/assets/092e9e71-7e27-475d-8c4f-9dddd28934a3
+## Legacy static frontend
 
-## Choosing an Option
+The files `frontend/index.html` and `frontend/scripts.js` are no longer served by the backend. They remain in the repo for reference only; do not use them as the primary UI.
 
-- Static Frontend: Quick setup, lightweight deployment.
-- NextJS Frontend: Feature-rich, scalable, better performance and SEO.
+## Features
 
-For production, NextJS is recommended.
+1. Intuitive research interface with Preferences / Settings
+2. Real-time progress via WebSocket
+3. Report generation and post-report chat (with web search)
+4. Multi Agents and MCP configuration
+5. Responsive layout (desktop + mobile)
 
-## Frontend Features
-
-Our frontend enhances GPT-Researcher by providing:
-
-1. Intuitive Research Interface: Streamlined input for research queries.
-2. Real-time Progress Tracking: Visual feedback on ongoing research tasks.
-3. Interactive Results Display: Easy-to-navigate presentation of findings.
-4. Customizable Settings: Adjust research parameters to suit specific needs.
-5. Responsive Design: Optimal experience across various devices.
-
-These features aim to make the research process more efficient and user-friendly, complementing GPT-Researcher's powerful agent capabilities.
+For production, use the Next.js build (`npm run build` / Docker `gptr-nextjs` service).

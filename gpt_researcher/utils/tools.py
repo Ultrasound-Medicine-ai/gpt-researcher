@@ -239,7 +239,7 @@ def create_search_tool(search_function: Callable[[str], Dict]) -> Callable:
     """
     @tool
     def search_tool(query: str) -> str:
-        """Search for current events or online information when you need new knowledge that doesn't exist in the current context"""
+        """Search the web for current information. Always available during chat — use whenever web results would improve the answer."""
         try:
             results = search_function(query)
             if results and 'results' in results:

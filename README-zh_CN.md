@@ -121,14 +121,21 @@ $ export TAVILY_API_KEY={Your Tavily API Key here}
 - **我们强烈建议使用 [OpenAI GPT](https://platform.openai.com/docs/guides/gpt) 模型和 [Tavily Search API](https://app.tavily.com) 以获得最佳性能。**
 <br />
 
-> **第 4 步** - 使用 FastAPI 运行代理
+> **第 4 步** - 启动 API 服务
 
 ```bash
-$ uvicorn main:app --reload
+python main.py
 ```
-<br />
 
-> **第 5 步** - 在任何浏览器上访问 http://localhost:8000，享受研究乐趣！
+> **第 5 步** - 启动 Next.js 前端并访问 UI
+
+```bash
+cd frontend/nextjs
+npm install --legacy-peer-deps
+npm run dev
+```
+
+在浏览器打开 [http://localhost:3000](http://localhost:3000) 使用界面；API 在 [http://localhost:8000](http://localhost:8000)（`/docs`、`/ws`、`/api/chat`）。
 
 要了解如何开始使用 Docker 或了解有关功能和服务的更多信息，请访问 [documentation](https://docs.gptr.dev) 页面。
 

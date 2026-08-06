@@ -23,6 +23,11 @@ interface CopilotResearchContentProps {
   isProcessingChat?: boolean;
   onNewResearch?: () => void;
   toggleSidebar?: () => void;
+  isInChatMode?: boolean;
+  sessionMode?: 'research' | 'chat' | null;
+  onGenerateReport?: () => void;
+  onGoHome?: () => void;
+  onNewChat?: () => void;
 }
 
 export default function CopilotResearchContent({
@@ -44,40 +49,24 @@ export default function CopilotResearchContent({
   reset,
   isProcessingChat = false,
   onNewResearch,
-  toggleSidebar
+  toggleSidebar,
+  isInChatMode = false,
+  sessionMode = null,
+  onGenerateReport,
+  onGoHome,
+  onNewChat,
 }: CopilotResearchContentProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
-  // Initialize copilot as hidden when loading
-  const [isCopilotVisible, setIsCopilotVisible] = useState(false);
+  const [isCopilotVisible, setIsCopilotVisible] = useState(true);
   const [showAnimation, setShowAnimation] = useState(false);
-  // Track if user manually closed the copilot panel
   const [userClosedCopilot, setUserClosedCopilot] = useState(false);
-  // State for split pane resizing
   const [resizingActive, setResizingActive] = useState(false);
-  const [researchPanelWidth, setResearchPanelWidth] = useState(58); // percentage
-  const [isMobile, setIsMobile] = useState(false);
+  const [researchPanelWidth, setResearchPanelWidth] = useState(58);
   const containerRef = useRef<HTMLDivElement>(null);
   const widthRef = useRef(researchPanelWidth);
   const researchPanelRef = useRef<HTMLDivElement>(null);
   const chatPanelRef = useRef<HTMLDivElement>(null);
   const lastUpdateTimeRef = useRef(0);
-  
-  // Check if we're on mobile
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-    
-    // Initial check
-    checkIfMobile();
-    
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-  
   // Create a memoized toggle function that's compatible with Dispatch<SetStateAction<boolean>>
   const toggleCopilotVisibility: Dispatch<SetStateAction<boolean>> = useCallback((value) => {
     // Handle both function and direct value cases
@@ -115,23 +104,20 @@ export default function CopilotResearchContent({
       setUserClosedCopilot(false);
     }
     
-    // Automatically open the copilot when research completes BUT only if user hasn't manually closed it
-    if (!loading && answer && !isCopilotVisible && !userClosedCopilot) {
-      // Add a slight delay before showing the copilot for a better UX
+    // Open chat when user starts chat-only mode or when research completes
+    if (!loading && (isInChatMode || answer) && !isCopilotVisible && !userClosedCopilot) {
       const timer = setTimeout(() => {
         setIsCopilotVisible(true);
         setShowAnimation(true);
-      }, 800);
+      }, isInChatMode && !answer ? 0 : 800);
       
       return () => clearTimeout(timer);
     }
-  }, [loading, answer, isCopilotVisible, userClosedCopilot]);
-  
-  // Extract the initial question from orderedData
+  }, [loading, answer, isInChatMode, isCopilotVisible, userClosedCopilot]);
+
   const initialQuestion = orderedData.find(data => data.type === 'question');
   const questionText = initialQuestion?.content || '';
 
-  // Handle resize start
   const handleResizeStart = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     setResizingActive(true);
@@ -194,7 +180,7 @@ export default function CopilotResearchContent({
   return (
     <div 
       ref={containerRef}
-      className="flex flex-col lg:flex-row w-full h-screen gap-1 px-2 lg:px-2 relative"
+      className="flex flex-row w-full h-screen gap-1 px-2 relative"
     >
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900/5 via-gray-800/5 to-gray-900/5 pointer-events-none"></div>
@@ -203,8 +189,8 @@ export default function CopilotResearchContent({
       <div 
         ref={researchPanelRef}
         data-panel="research"
-        className={`w-full ${isCopilotVisible ? '' : 'lg:w-full'} h-full overflow-hidden flex flex-col bg-gray-900/30 backdrop-blur-sm rounded-lg border border-gray-800/50 shadow-lg ${!resizingActive ? 'transition-width duration-300' : ''}`}
-        style={isCopilotVisible && !isMobile ? { width: `${researchPanelWidth}%` } : {}}
+        className={`h-full overflow-hidden flex flex-col bg-gray-900/30 backdrop-blur-sm rounded-lg border border-gray-800/50 shadow-lg ${!resizingActive ? 'transition-width duration-300' : ''}`}
+        style={isCopilotVisible ? { width: `${researchPanelWidth}%` } : { width: '100%' }}
       >
         <ResearchPanel 
           orderedData={orderedData}
@@ -219,6 +205,10 @@ export default function CopilotResearchContent({
           onNewResearch={onNewResearch}
           loading={loading}
           toggleSidebar={toggleSidebar}
+          sessionMode={sessionMode}
+          onGenerateReport={onGenerateReport}
+          onGoHome={onGoHome}
+          onNewChat={onNewChat}
         />
       </div>
 
@@ -239,10 +229,10 @@ export default function CopilotResearchContent({
         <div 
           ref={chatPanelRef}
           data-panel="chat"
-          className={`w-full h-1/2 lg:h-full overflow-hidden flex flex-col bg-gray-900/30 backdrop-blur-sm rounded-lg border border-gray-800/50 shadow-lg ${!resizingActive ? 'transition-width duration-300' : ''} ${
+          className={`h-full overflow-hidden flex flex-col bg-gray-900/30 backdrop-blur-sm rounded-lg border border-gray-800/50 shadow-lg ${!resizingActive ? 'transition-width duration-300' : ''} ${
             showAnimation ? 'animate-copilot-entrance' : ''
           }`}
-          style={!isMobile ? { width: `${100 - researchPanelWidth}%` } : {}}
+          style={{ width: `${100 - researchPanelWidth}%` }}
         >
           <CopilotPanel
             question={questionText}

@@ -15,7 +15,7 @@ from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect, File, Uplo
 from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
+from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, ConfigDict
 
 # Add the parent directory to sys.path to make sure we can import from server
@@ -64,8 +64,10 @@ class ResearchRequest(BaseModel):
 class ChatRequest(BaseModel):
     model_config = ConfigDict(extra="allow")  # Allow extra fields in the request
     
-    report: str
+    report: str = ""
     messages: List[Dict[str, Any]]
+    research_topic: str = ""
+    research_context: str = ""
 
 
 @asynccontextmanager
@@ -73,21 +75,6 @@ async def lifespan(app: FastAPI):
     # Startup
     os.makedirs("outputs", exist_ok=True)
     app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
-    
-    # Mount frontend static files
-    frontend_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "frontend")
-    if os.path.exists(frontend_path):
-        app.mount("/site", StaticFiles(directory=frontend_path), name="frontend")
-        logger.debug(f"Frontend mounted from: {frontend_path}")
-        
-        # Also mount the static directory directly for assets referenced as /static/
-        static_path = os.path.join(frontend_path, "static")
-        if os.path.exists(static_path):
-            app.mount("/static", StaticFiles(directory=static_path), name="static")
-            logger.debug(f"Static assets mounted from: {static_path}")
-    else:
-        logger.warning(f"Frontend directory not found: {frontend_path}")
-    
     logger.info("GPT Researcher API ready - local mode (no database persistence)")
     yield
     # Shutdown
@@ -104,6 +91,8 @@ ALLOWED_ORIGINS = (
     else [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3001",
         "https://app.gptr.dev",
     ]
 )
@@ -121,14 +110,6 @@ app.add_middleware(
 
 # Use default JSON response class
 
-# Mount static files for frontend
-# Get the absolute path to the frontend directory
-frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend"))
-
-# Mount static directories
-app.mount("/static", StaticFiles(directory=os.path.join(frontend_dir, "static")), name="static")
-app.mount("/site", StaticFiles(directory=frontend_dir), name="site")
-
 # WebSocket manager
 manager = WebSocketManager()
 
@@ -144,19 +125,16 @@ DOC_PATH = os.getenv("DOC_PATH", "./my-docs")
 
 
 # Routes
-@app.get("/", response_class=HTMLResponse)
-async def serve_frontend():
-    """Serve the main frontend HTML page."""
-    frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend"))
-    index_path = os.path.join(frontend_dir, "index.html")
-    
-    if not os.path.exists(index_path):
-        raise HTTPException(status_code=404, detail="Frontend index.html not found")
-    
-    with open(index_path, "r", encoding="utf-8") as f:
-        content = f.read()
-    
-    return HTMLResponse(content=content)
+@app.get("/")
+async def api_root():
+    """API-only root. Use the Next.js app (default http://localhost:3000) for the UI."""
+    return {
+        "service": "GPT Researcher API",
+        "ui": os.getenv("NEXT_PUBLIC_APP_URL", "http://localhost:3000"),
+        "docs": "/docs",
+        "websocket": "/ws",
+        "chat": "/api/chat",
+    }
 
 
 @app.get("/.well-known/agent-discovery.json")
@@ -386,15 +364,18 @@ async def chat(chat_request: ChatRequest):
     try:
         logger.info(f"Received chat request with {len(chat_request.messages)} messages")
 
-        # Create chat agent with the report
         chat_agent = ChatAgentWithMemory(
             report=chat_request.report,
             config_path="default",
             headers=None
         )
 
-        # Process the chat and get response with metadata
-        response_content, tool_calls_metadata = await chat_agent.chat(chat_request.messages, None)
+        response_content, tool_calls_metadata = await chat_agent.chat(
+            chat_request.messages,
+            None,
+            research_topic=chat_request.research_topic,
+            research_context=chat_request.research_context,
+        )
         logger.info(f"response_content: {response_content}")
         logger.info(f"Got chat response of length: {len(response_content) if response_content else 0}")
         
@@ -434,7 +415,12 @@ async def research_report_chat(research_id: str, request: Request):
         )
 
         # Process the chat and get response with metadata
-        response_content, tool_calls_metadata = await chat_agent.chat(data.get("messages", []), None)
+        response_content, tool_calls_metadata = await chat_agent.chat(
+            data.get("messages", []),
+            None,
+            research_topic=data.get("research_topic", ""),
+            research_context=data.get("research_context", ""),
+        )
         
         if tool_calls_metadata:
             logger.info(f"Tool calls used: {json.dumps(tool_calls_metadata)}")

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ChatBoxSettings } from "@/types/data";
 import { useResearchHistoryContext } from "@/hooks/ResearchHistoryContext";
 import { formatDistanceToNow } from "date-fns";
+import { toast } from "react-hot-toast";
 
 interface MobileLayoutProps {
   children: React.ReactNode;
@@ -241,14 +242,15 @@ export default function MobileLayout({
               </div>
               
               <div>
-                <label className="block text-xs text-gray-400 mb-1">Research Source</label>
+                <label className="block text-xs text-gray-400 mb-1">Report Source</label>
                 <select 
                   className="w-full bg-gray-900 border border-gray-700 rounded-md py-1.5 px-2 text-sm text-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:border-teal-500"
                   value={chatBoxSettings.report_source}
                   onChange={(e) => setChatBoxSettings({...chatBoxSettings, report_source: e.target.value})}
                 >
-                  <option value="web">Web</option>
-                  <option value="scholar">Scholar</option>
+                  <option value="web">The Internet</option>
+                  <option value="local">My Documents</option>
+                  <option value="hybrid">Hybrid</option>
                 </select>
               </div>
               
@@ -259,13 +261,9 @@ export default function MobileLayout({
                   value={chatBoxSettings.tone}
                   onChange={(e) => setChatBoxSettings({...chatBoxSettings, tone: e.target.value})}
                 >
-                  <option value="Objective">Objective - Impartial and unbiased presentation of facts</option>
-                  <option value="Formal">Formal - Adheres to academic standards</option>
-                  <option value="Analytical">Analytical - Critical evaluation of data</option>
-                  <option value="Persuasive">Persuasive - Convincing viewpoint</option>
-                  <option value="Informative">Informative - Clear, comprehensive information</option>
-                  <option value="Simple">Simple - Basic vocabulary and clear explanations</option>
-                  <option value="Casual">Casual - Conversational style</option>
+                  <option value="Objective">Objective - Impartial presentation of facts</option>
+                  <option value="Formal">Formal - Academic standards</option>
+                  <option value="Analytical">Analytical - Critical evaluation</option>
                 </select>
               </div>
               
@@ -273,12 +271,18 @@ export default function MobileLayout({
                 <label className="block text-xs text-gray-400 mb-1">Layout</label>
                 <select 
                   className="w-full bg-gray-900 border border-gray-700 rounded-md py-1.5 px-2 text-sm text-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:border-teal-500"
-                  value={chatBoxSettings.layoutType}
-                  onChange={(e) => setChatBoxSettings({...chatBoxSettings, layoutType: e.target.value})}
+                  value={chatBoxSettings.layoutType === 'document' ? 'research' : chatBoxSettings.layoutType}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setChatBoxSettings({ ...chatBoxSettings, layoutType: value });
+                    const label = value === 'copilot' ? 'Copilot 分屏' : 'Research 单列';
+                    toast.success(`布局已切换为 ${label}`, { duration: 2500 });
+                  }}
                 >
-                  <option value="copilot">Copilot - Chat style layout</option>
-                  <option value="document">Document - Traditional report layout</option>
+                  <option value="copilot">Copilot - 左右分屏</option>
+                  <option value="research">Research - 单列报告</option>
                 </select>
+                <p className="mt-1 text-[10px] text-gray-500">仅 Write Report 模式生效</p>
               </div>
             </div>
           </div>

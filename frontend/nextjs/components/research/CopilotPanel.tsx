@@ -18,6 +18,11 @@ interface CopilotPanelProps {
   bottomRef: React.RefObject<HTMLDivElement>;
   isCopilotVisible?: boolean;
   setIsCopilotVisible?: Dispatch<SetStateAction<boolean>>;
+  chatOnly?: boolean;
+  onGoHome?: () => void;
+  onNewChat?: () => void;
+  onStartResearch?: () => void;
+  toggleSidebar?: () => void;
 }
 
 const CopilotPanel: React.FC<CopilotPanelProps> = ({
@@ -31,15 +36,20 @@ const CopilotPanel: React.FC<CopilotPanelProps> = ({
   isStopped,
   bottomRef,
   isCopilotVisible,
-  setIsCopilotVisible
+  setIsCopilotVisible,
+  chatOnly = false,
+  onGoHome,
+  onNewChat,
+  onStartResearch,
+  toggleSidebar,
 }) => {
-  // Filter to only get chat messages (questions and responses) after the initial question
   const chatMessages = orderedData.filter((data, index) => {
-    // Include all questions except the first one
+    if (chatOnly) {
+      return data.type === 'question' || data.type === 'chat';
+    }
     if (data.type === 'question') {
       return index > 0;
     }
-    // Include all chat responses
     return data.type === 'chat';
   });
 
@@ -79,30 +89,87 @@ const CopilotPanel: React.FC<CopilotPanelProps> = ({
       <div className="flex justify-between items-center px-2 py-3 border-b border-gray-800/60 bg-gray-900/40">
         {/* Left side */}
         <div className="flex items-center">
-          <a href="/" className="mr-3">
-            <img
-              src="/img/gptr-logo.png"
-              alt="logo"
-              width={32}
-              height={32}
-              className="rounded-md"
-            />
-          </a>
+          {chatOnly && onGoHome ? (
+            <button
+              type="button"
+              onClick={onGoHome}
+              className="mr-3 rounded-md hover:opacity-80 transition-opacity"
+              aria-label="返回首页"
+            >
+              <img
+                src="/img/gptr-logo.png"
+                alt="logo"
+                width={32}
+                height={32}
+                className="rounded-md"
+              />
+            </button>
+          ) : (
+            <a href="/" className="mr-3">
+              <img
+                src="/img/gptr-logo.png"
+                alt="logo"
+                width={32}
+                height={32}
+                className="rounded-md"
+              />
+            </a>
+          )}
           <h2 className="text-base font-medium text-gray-200">
-            GPT Researcher
+            {chatOnly ? 'Chat' : 'GPT Researcher'}
           </h2>
         </div>
         
         {/* Right side */}
-        <div className="flex items-center gap-3">
-          {/* Connection status indicator */}
+        <div className="flex items-center gap-2">
+          {chatOnly && (
+            <div className="flex items-center gap-1.5 mr-1">
+              {toggleSidebar && (
+                <button
+                  type="button"
+                  onClick={toggleSidebar}
+                  className="px-2.5 py-1 text-xs rounded-md bg-gray-800/80 hover:bg-gray-700 text-gray-300 border border-gray-700/50"
+                >
+                  历史
+                </button>
+              )}
+              {onNewChat && (
+                <button
+                  type="button"
+                  onClick={onNewChat}
+                  className="px-2.5 py-1 text-xs rounded-md bg-teal-800/60 hover:bg-teal-700/70 text-teal-100 border border-teal-700/50"
+                >
+                  新建对话
+                </button>
+              )}
+              {onStartResearch && (
+                <button
+                  type="button"
+                  onClick={onStartResearch}
+                  className="px-2.5 py-1 text-xs rounded-md bg-sky-800/60 hover:bg-sky-700/70 text-sky-100 border border-sky-700/50"
+                >
+                  写报告
+                </button>
+              )}
+              {onGoHome && (
+                <button
+                  type="button"
+                  onClick={onGoHome}
+                  className="px-2.5 py-1 text-xs rounded-md bg-gray-800/80 hover:bg-gray-700 text-gray-300 border border-gray-700/50"
+                >
+                  首页
+                </button>
+              )}
+            </div>
+          )}
           <div className="flex items-center">
             <div className={`w-1.5 h-1.5 rounded-full ${loading || isProcessingChat ? 'bg-amber-500 animate-pulse' : 'bg-teal-500'} mr-2`}></div>
-            <span className="text-xs text-gray-400">{loading ? 'researching' : isProcessingChat ? 'thinking' : 'active'}</span>
+            <span className="text-xs text-gray-400">
+              {chatOnly ? (isProcessingChat ? 'thinking' : 'chat') : loading ? 'researching' : isProcessingChat ? 'thinking' : 'active'}
+            </span>
           </div>
           
-          {/* Toggle button */}
-          {setIsCopilotVisible && (
+          {setIsCopilotVisible && !chatOnly && (
             <button 
               onClick={(e) => {
                 e.preventDefault();
@@ -134,7 +201,9 @@ const CopilotPanel: React.FC<CopilotPanelProps> = ({
                 </svg>
               </div>
               <div className="text-gray-300 text-sm">
-                {loading ? (
+                {chatOnly ? (
+                  <p>直接对话模式：无需先生成报告。我会结合 Tavily 联网检索回答你的问题。</p>
+                ) : loading ? (
                   <p>Working on your research... I&apos;ll analyze the results once they&apos;re complete.</p>
                 ) : (
                   <p>I&apos;ve analyzed all the research results and can answer any questions about it. How can I help?</p>
@@ -185,6 +254,7 @@ const CopilotPanel: React.FC<CopilotPanelProps> = ({
             setPromptValue={setChatPromptValue}
             handleSubmit={handleChat}
             disabled={loading || isProcessingChat}
+            placeholder={chatOnly ? "继续提问，无需先生成报告..." : undefined}
           />
         )}
         {isStopped && (

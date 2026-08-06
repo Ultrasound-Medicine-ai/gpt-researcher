@@ -8,25 +8,34 @@ interface MobileHomeScreenProps {
   promptValue: string;
   setPromptValue: React.Dispatch<React.SetStateAction<string>>;
   handleDisplayResult: (newQuestion: string) => Promise<void>;
+  handleStartChat?: (message: string) => Promise<void>;
   isLoading?: boolean;
   placeholder?: string;
   handleKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+  defaultInputMode?: 'research' | 'chat';
 }
 
 export default function MobileHomeScreen({
   promptValue,
   setPromptValue,
   handleDisplayResult,
+  handleStartChat,
   isLoading = false,
   placeholder = "What would you like to research today?",
-  handleKeyDown
+  handleKeyDown,
+  defaultInputMode = 'research',
 }: MobileHomeScreenProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { history } = useResearchHistoryContext();
   const [recentHistory, setRecentHistory] = useState<ResearchHistoryItem[]>([]);
   const [isFocused, setIsFocused] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [inputMode, setInputMode] = useState<'research' | 'chat'>(defaultInputMode);
   const submissionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    setInputMode(defaultInputMode);
+  }, [defaultInputMode]);
 
   // Get recent research history
   useEffect(() => {
@@ -86,8 +95,11 @@ export default function MobileHomeScreen({
         // First show visual feedback
         const trimmedPrompt = promptValue.trim();
         
-        // Call the display result handler from props
-        await handleDisplayResult(trimmedPrompt);
+        if (inputMode === 'chat' && handleStartChat) {
+          await handleStartChat(trimmedPrompt);
+        } else {
+          await handleDisplayResult(trimmedPrompt);
+        }
         
         // Clear the timeout since we successfully completed
         if (submissionTimeoutRef.current) {
@@ -115,7 +127,12 @@ export default function MobileHomeScreen({
         submissionTimeoutRef.current = null;
       }
     }
-  }, [promptValue, isLoading, isSubmitting, handleDisplayResult]);
+  }, [promptValue, isLoading, isSubmitting, handleDisplayResult, handleStartChat, inputMode]);
+
+  const activePlaceholder =
+    inputMode === 'chat'
+      ? 'Ask anything — chat with web search, no report required...'
+      : placeholder;
 
   // Handle enter key for submission
   const handleKeyPress = useCallback((e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -148,13 +165,37 @@ export default function MobileHomeScreen({
 
       {/* Search Box */}
       <div className="px-4 md:px-8 w-full max-w-lg mx-auto">
+        <div className="flex justify-center gap-2 mb-3">
+          <button
+            type="button"
+            onClick={() => setInputMode('research')}
+            className={`px-3 py-1 rounded-full text-xs ${
+              inputMode === 'research'
+                ? 'bg-sky-600 text-white'
+                : 'bg-gray-800 text-gray-400'
+            }`}
+          >
+            Write Report
+          </button>
+          <button
+            type="button"
+            onClick={() => setInputMode('chat')}
+            className={`px-3 py-1 rounded-full text-xs ${
+              inputMode === 'chat'
+                ? 'bg-sky-600 text-white'
+                : 'bg-gray-800 text-gray-400'
+            }`}
+          >
+            Chat
+          </button>
+        </div>
         <div 
           className={`relative bg-gray-800 border ${isFocused ? 'border-sky-500/70 input-glow-active' : 'border-gray-700/50 input-glow-subtle'} rounded-xl shadow-lg transition-all duration-300`}
         >
           <textarea
             ref={textareaRef}
             className="w-full bg-transparent text-gray-200 px-4 pt-4 pb-12 focus:outline-none resize-none rounded-xl"
-            placeholder={placeholder}
+            placeholder={activePlaceholder}
             value={promptValue}
             onChange={handlePromptChange}
             onKeyDown={handleKeyPress}

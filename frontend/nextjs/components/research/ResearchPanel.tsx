@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ResearchResults } from '@/components/ResearchResults';
 import { Data, ChatBoxSettings } from '@/types/data';
 import LoadingDots from '@/components/LoadingDots';
@@ -17,6 +17,10 @@ interface ResearchPanelProps {
   onNewResearch?: () => void;
   loading?: boolean;
   toggleSidebar?: () => void;
+  sessionMode?: 'research' | 'chat' | null;
+  onGenerateReport?: () => void;
+  onGoHome?: () => void;
+  onNewChat?: () => void;
 }
 
 const ResearchPanel: React.FC<ResearchPanelProps> = ({
@@ -31,12 +35,18 @@ const ResearchPanel: React.FC<ResearchPanelProps> = ({
   setIsCopilotVisible,
   onNewResearch,
   loading,
-  toggleSidebar
+  toggleSidebar,
+  sessionMode,
+  onGenerateReport,
+  onGoHome,
+  onNewChat,
 }) => {
-  // Determine if research is complete (has answer) and copilot should be highlighted
   const researchComplete = Boolean(answer && answer.length > 0);
-  const [isNotificationDismissed, setIsNotificationDismissed] = useState(false);
-  
+  const reportPrepMode = sessionMode === 'research' && !researchComplete && !loading;
+  const chatOnlyLeft = sessionMode === 'chat' && !researchComplete && !loading;
+  const initialQuestion = orderedData.find((d) => d.type === 'question');
+  const questionText = initialQuestion?.content || '';
+
   return (
     <>
       {/* Panel Header */}
@@ -47,7 +57,33 @@ const ResearchPanel: React.FC<ResearchPanelProps> = ({
         
         {/* Right side - Action buttons */}
         <div className="flex items-center gap-2">
-          {/* New Research button */}
+          {toggleSidebar && (
+            <button
+              type="button"
+              onClick={toggleSidebar}
+              className="px-2.5 py-1 text-xs rounded-md bg-gray-800/80 hover:bg-gray-700 text-gray-300 border border-gray-700/50"
+            >
+              历史
+            </button>
+          )}
+          {onNewChat && (
+            <button
+              type="button"
+              onClick={onNewChat}
+              className="px-2.5 py-1 text-xs rounded-md bg-teal-800/60 hover:bg-teal-700/70 text-teal-100 border border-teal-700/50"
+            >
+              新建对话
+            </button>
+          )}
+          {onGoHome && (
+            <button
+              type="button"
+              onClick={onGoHome}
+              className="px-2.5 py-1 text-xs rounded-md bg-gray-800/80 hover:bg-gray-700 text-gray-300 border border-gray-700/50"
+            >
+              首页
+            </button>
+          )}
           {onNewResearch && (
             <button 
               onClick={onNewResearch}
@@ -92,8 +128,38 @@ const ResearchPanel: React.FC<ResearchPanelProps> = ({
       </div>
       
       <div className="flex-1 overflow-y-auto p-2 custom-scrollbar bg-gray-900/20">
-        {/* Filter out chat messages so they only show in the chat panel */}
-        <div className="space-y-4 relative">          
+        {(reportPrepMode || chatOnlyLeft) && (
+          <div className="mb-4 p-4 rounded-lg border border-gray-700/50 bg-gray-800/30">
+            {reportPrepMode ? (
+              <>
+                <h3 className="text-sm font-medium text-teal-300 mb-2">调研准备</h3>
+                {questionText && (
+                  <p className="text-gray-200 text-sm mb-3">{questionText}</p>
+                )}
+                <p className="text-gray-400 text-xs mb-4 leading-relaxed">
+                  可在右侧对话中澄清需求、补充背景。准备好后点击「生成报告」启动完整调研流水线。
+                </p>
+                {onGenerateReport && (
+                  <button
+                    type="button"
+                    onClick={onGenerateReport}
+                    className="px-4 py-2 text-sm font-medium rounded-md bg-teal-600 hover:bg-teal-500 text-white shadow-sm"
+                  >
+                    生成报告
+                  </button>
+                )}
+              </>
+            ) : (
+              <>
+                <h3 className="text-sm font-medium text-teal-300 mb-2">直接对话</h3>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  无需生成完整报告。在右侧提问，我会按需联网检索回答。
+                </p>
+              </>
+            )}
+          </div>
+        )}
+        <div className="space-y-4 relative">
           <ResearchResults
             orderedData={orderedData.filter(data => {
               // Keep everything except chat responses
