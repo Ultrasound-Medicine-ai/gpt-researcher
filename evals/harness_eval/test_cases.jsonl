@@ -1,0 +1,3 @@
+{"id": "web-001", "question": "What is GPT Researcher and what are its main features?", "report_source": "web", "min_sources": 1}
+{"id": "web-002", "question": "What is LangGraph used for in AI agent systems?", "report_source": "web", "min_sources": 1}
+{"id": "hybrid-001", "question": "Based on the uploaded document, summarize its key points and supplement with recent information from the web.", "report_source": "hybrid", "fixtures": ["sample.pdf"], "must_mention": [], "min_sources": 1}
