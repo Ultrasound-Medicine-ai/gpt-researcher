@@ -25,6 +25,8 @@ class DetailedReport:
         mcp_configs=None,
         mcp_strategy=None,
         max_search_results=None,
+        total_words=None,
+        report_language=None,
     ):
         self.query = query
         self.report_type = report_type
@@ -39,8 +41,7 @@ class DetailedReport:
         self.headers = headers or {}
         self.complement_source_urls = complement_source_urls
         self.max_search_results = max_search_results
-        
-        # Generate a unique research ID for this report
+        self.total_words = total_words
         self.research_id = self._generate_research_id(query)
         
         # Initialize researcher with optional MCP parameters
@@ -69,6 +70,10 @@ class DetailedReport:
         # Override max_search_results_per_query if provided by user
         if max_search_results is not None:
             self.gpt_researcher.cfg.max_search_results_per_query = int(max_search_results)
+        if total_words is not None:
+            self.gpt_researcher.cfg.total_words = int(total_words)
+        if report_language is not None:
+            self.gpt_researcher.cfg.report_language = str(report_language).lower()
         self.existing_headers: List[Dict] = []
         self.global_context: List[str] = []
         self.global_written_sections: List[str] = []
@@ -160,6 +165,8 @@ class DetailedReport:
         # Propagate max_search_results override to subtopic researcher
         if self.max_search_results is not None:
             subtopic_assistant.cfg.max_search_results_per_query = int(self.max_search_results)
+        if self.total_words is not None:
+            subtopic_assistant.cfg.total_words = int(self.total_words)
 
         subtopic_assistant.context = list(set(self._hashable_context(self.global_context)))
         await subtopic_assistant.conduct_research()

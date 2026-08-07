@@ -68,6 +68,7 @@ class ChatRequest(BaseModel):
     messages: List[Dict[str, Any]]
     research_topic: str = ""
     research_context: str = ""
+    report_language: str = "chinese"
 
 
 @asynccontextmanager
@@ -375,6 +376,7 @@ async def chat(chat_request: ChatRequest):
             None,
             research_topic=chat_request.research_topic,
             research_context=chat_request.research_context,
+            report_language=chat_request.report_language,
         )
         logger.info(f"response_content: {response_content}")
         logger.info(f"Got chat response of length: {len(response_content) if response_content else 0}")
@@ -420,6 +422,7 @@ async def research_report_chat(research_id: str, request: Request):
             None,
             research_topic=data.get("research_topic", ""),
             research_context=data.get("research_context", ""),
+            report_language=data.get("report_language", "chinese"),
         )
         
         if tool_calls_metadata:

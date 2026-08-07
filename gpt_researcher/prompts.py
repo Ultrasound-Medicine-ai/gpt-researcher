@@ -250,6 +250,14 @@ Use this context to inform and refine your search queries. The context provides 
 Assume the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')} if required.
 
 {context_prompt}
+Query generation rules:
+- Preserve the research intent from the task regardless of input language.
+- You MUST return exactly {max_iterations} queries (no more, no less).
+- If the task is in Chinese or mixed language, include BOTH Chinese queries (for Chinese sources) AND English keyword queries (for high-quality global sources such as arXiv, Nature, IEEE).
+- If the task is in English, you may include one Chinese query when regional Chinese sources would improve coverage.
+- Do NOT translate the task into a different topic or change its scope.
+- At least one query should closely match the original task wording.
+
 You must respond with a list of strings in the following format: [{dynamic_example}].
 The response should contain ONLY the list.
 """
@@ -263,6 +271,7 @@ The response should contain ONLY the list.
         total_words=1000,
         tone=None,
         language="english",
+        citation_style="apa",
     ):
         """Generates the report prompt for the given question and research summary.
         Args: question (str): The question to generate the report prompt for
@@ -270,21 +279,47 @@ The response should contain ONLY the list.
         Returns: str: The report prompt for the given question and research summary
         """
 
-        reference_prompt = ""
-        if report_source == ReportSource.Web.value:
-            reference_prompt = f"""
+        tone_prompt = f"Write the report in a {tone.value} tone." if tone else ""
+        citation_style = (citation_style or "apa").lower()
+
+        if citation_style == "numbered":
+            citation_guidelines = """
+- Use ONLY numbered in-text citations such as [1], [2], etc. at the end of sentences or paragraphs that draw on a source.
+- Each number MUST match a source id in the numbered context above ([1], [2], ...).
+- Reuse the same number when citing the same source again.
+- Do NOT invent citation numbers that are not present in the context.
+- Do NOT use APA format, parenthetical citations, hyperlinked citations, or lines like "Source: (Author, n.d.)".
+- Do NOT write a References or 参考文献 section at the end — it will be added automatically.
+"""
+            format_guideline = "- Use clear markdown structure (# ## ###). Citation style is numbered [n], NOT APA."
+            reference_prompt = ""
+        else:
+            citation_guidelines = f"""
+- Use in-text citation references in {report_format} format and make it with markdown hyperlink placed at the end of the sentence or paragraph that references them like this: ([in-text citation](url)).
+- Don't forget to add a reference list at the end of the report in {report_format} format and full url links without hyperlinks.
+"""
+            format_guideline = f"- You MUST write the report with markdown syntax and {report_format} format."
+            if report_source == ReportSource.Web.value:
+                reference_prompt = f"""
 You MUST write all used source urls at the end of the report as references, and make sure to not add duplicated sources, but only one reference for each.
 Every url should be hyperlinked: [url website](url)
 Additionally, you MUST include hyperlinks to the relevant URLs wherever they are referenced in the report:
 
 eg: Author, A. A. (Year, Month Date). Title of web page. Website Name. [url website](url)
 """
-        else:
-            reference_prompt = f"""
+            else:
+                reference_prompt = """
 You MUST write all used source document names at the end of the report as references, and make sure to not add duplicated sources, but only one reference for each."
 """
 
-        tone_prompt = f"Write the report in a {tone.value} tone." if tone else ""
+        scope_guidelines = f"""
+- The research query may include "Additional requirements from preparation conversation" — follow ALL of them (time range, scope, focus).
+- Write ONLY about the research query. Use ONLY facts supported by the provided context and numbered sources.
+- Do NOT invent partnerships, projects, or claims not present in the sources.
+- Write the entire report in {language} only.
+- Source snippets may be in any language; synthesize and cite faithfully in {language}.
+- Do NOT mix languages in the report body except for proper nouns, URLs, and citations.
+"""
 
         return f"""
 Information: "{context}"
@@ -296,15 +331,14 @@ You should strive to write the report as long as you can using all relevant and 
 
 Please follow all of the following guidelines in your report:
 - You MUST determine your own concrete and valid opinion based on the given information. Do NOT defer to general and meaningless conclusions.
-- You MUST write the report with markdown syntax and {report_format} format.
+{format_guideline}
+{scope_guidelines}
 - Structure your report with clear markdown headers: use # for the main title, ## for major sections, and ### for subsections.
 - Use markdown tables when presenting structured data or comparisons to enhance readability.
 - You MUST prioritize the relevance, reliability, and significance of the sources you use. Choose trusted sources over less reliable ones.
 - You must also prioritize new articles over older articles if the source can be trusted.
 - You MUST NOT include a table of contents, but DO include proper markdown headers (# ## ###) to structure your report clearly.
-- Use in-text citation references in {report_format} format and make it with markdown hyperlink placed at the end of the sentence or paragraph that references them like this: ([in-text citation](url)).
-- Don't forget to add a reference list at the end of the report in {report_format} format and full url links without hyperlinks.
-- {reference_prompt}
+{citation_guidelines}- {reference_prompt}
 - {tone_prompt}
 You MUST write the report in the following language: {language}.
 Please do your best, this is very important to my career.

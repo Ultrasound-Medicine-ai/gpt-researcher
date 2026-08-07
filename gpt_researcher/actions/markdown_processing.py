@@ -91,6 +91,77 @@ def table_of_contents(markdown_text: str) -> str:
         print("table_of_contents Exception : ", e)
         return markdown_text
 
+def strip_apa_inline_citations(report_markdown: str) -> str:
+    """Remove APA-style inline source lines such as 'Source: (Author, n.d.)'."""
+    cleaned = re.sub(
+        r"\n\s*Source:\s*\([^)\n]+\)\s*",
+        "\n",
+        report_markdown,
+        flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(
+        r"\n\s*Source:\s*\[[^\]\n]+\]\([^)\n]+\)\s*",
+        "\n",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    return cleaned
+
+
+def strip_existing_references_section(report_markdown: str) -> str:
+    """
+    Remove an LLM-generated References / 参考文献 section from the report tail.
+
+    Args:
+        report_markdown: The markdown report text.
+
+    Returns:
+        Report markdown without a trailing references section.
+    """
+    patterns = [
+        r"\n##\s*(References|参考文献)\s*\n[\s\S]*$",
+        r"\n#\s*(References|参考文献)\s*\n[\s\S]*$",
+        r"\n(?:References|参考文献)\s*\n[\s\S]*$",
+    ]
+    cleaned = report_markdown
+    for pattern in patterns:
+        cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
+    return cleaned.rstrip()
+
+
+def add_numbered_references(
+    report_markdown: str,
+    registry,
+    references_heading: str | None = None,
+) -> str:
+    """
+    Append a deterministic numbered reference list to the report.
+
+    Args:
+        report_markdown: The markdown report text.
+        registry: SourceRegistry instance with numbered sources.
+        references_heading: Optional markdown heading for the references section.
+
+    Returns:
+        Report markdown with numbered references appended.
+    """
+    reference_section = registry.format_reference_list(references_heading)
+    if not reference_section:
+        return report_markdown
+    return f"{report_markdown.rstrip()}\n\n{reference_section}"
+
+
+def normalize_numbered_report(
+    report_markdown: str,
+    registry,
+    references_heading: str | None = None,
+) -> str:
+    """Strip APA-style citations and append deterministic numbered references."""
+    cleaned = strip_apa_inline_citations(report_markdown)
+    cleaned = strip_existing_references_section(cleaned)
+    return add_numbered_references(cleaned, registry, references_heading)
+
+
 def add_references(report_markdown: str, visited_urls: set) -> str:
     """
     Add references to the markdown report.

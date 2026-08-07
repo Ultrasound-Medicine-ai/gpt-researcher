@@ -42,12 +42,14 @@ export interface ChatBoxSettings {
   report_type: string;
   report_source: string;
   tone: string;
+  total_words: number;
   domains: string[];
   defaultReportType: string;
   layoutType: string;
   mcp_enabled: boolean;
   mcp_configs: MCPConfig[];
   mcp_strategy?: string;
+  report_language: 'chinese' | 'english';
 }
 
 export interface Domain {

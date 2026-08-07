@@ -9,6 +9,12 @@ from ..utils.enum import Tone
 logger = get_formatted_logger()
 
 
+def get_effective_report_language(cfg) -> str:
+    """Resolve report output language from user override or config fallback."""
+    lang = getattr(cfg, "report_language", None) or getattr(cfg, "language", None) or "chinese"
+    return str(lang).lower()
+
+
 async def write_report_introduction(
     query: str,
     context: str,
@@ -42,7 +48,7 @@ async def write_report_introduction(
                 {"role": "user", "content": prompt_family.generate_report_introduction(
                     question=query,
                     research_summary=context,
-                    language=config.language
+                    language=get_effective_report_language(config)
                 )},
             ],
             temperature=0.25,
@@ -94,7 +100,7 @@ async def write_conclusion(
                     "role": "user",
                     "content": prompt_family.generate_report_conclusion(query=query,
                                                                         report_content=context,
-                                                                        language=config.language),
+                                                                        language=get_effective_report_language(config)),
                 },
             ],
             temperature=0.25,
@@ -251,11 +257,15 @@ async def generate_report(
     report = ""
 
     if report_type == "subtopic_report":
-        content = f"{generate_prompt(query, existing_headers, relevant_written_contents, main_topic, context, report_format=cfg.report_format, tone=tone, total_words=cfg.total_words, language=cfg.language)}"
+        content = f"{generate_prompt(query, existing_headers, relevant_written_contents, main_topic, context, report_format=cfg.report_format, tone=tone, total_words=cfg.total_words, language=get_effective_report_language(cfg))}"
     elif custom_prompt:
         content = f"{custom_prompt}\n\nContext: {context}"
     else:
-        content = f"{generate_prompt(query, context, report_source, report_format=cfg.report_format, tone=tone, total_words=cfg.total_words, language=cfg.language)}"
+        report_language = get_effective_report_language(cfg)
+        if report_type == "research_report":
+            content = f"{generate_prompt(query, context, report_source, report_format=cfg.report_format, tone=tone, total_words=cfg.total_words, language=report_language, citation_style=getattr(cfg, 'citation_style', 'apa'))}"
+        else:
+            content = f"{generate_prompt(query, context, report_source, report_format=cfg.report_format, tone=tone, total_words=cfg.total_words, language=report_language)}"
     
     # Add available images instruction if images were pre-generated
     if available_images:

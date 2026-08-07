@@ -41,12 +41,14 @@ export const GPTResearcher = ({
     report_source: 'web', 
     report_type: 'research_report', 
     tone: 'Objective',
+    total_words: 1200,
     domains: [],
     defaultReportType: 'research_report',
     layoutType: 'default',
     mcp_enabled: false,
     mcp_configs: [],
     mcp_strategy: 'fast',
+    report_language: 'chinese',
   });
   const [question, setQuestion] = useState("");
   const [orderedData, setOrderedData] = useState<Data[]>([]);

@@ -22,6 +22,8 @@ class BasicReport:
         mcp_configs=None,
         mcp_strategy=None,
         max_search_results=None,
+        total_words=None,
+        report_language=None,
     ):
         self.query = query
         self.query_domains = query_domains
@@ -62,6 +64,10 @@ class BasicReport:
         # Override max_search_results_per_query if provided by user
         if max_search_results is not None:
             self.gpt_researcher.cfg.max_search_results_per_query = int(max_search_results)
+        if total_words is not None:
+            self.gpt_researcher.cfg.total_words = int(total_words)
+        if report_language is not None:
+            self.gpt_researcher.cfg.report_language = str(report_language).lower()
 
     def _generate_research_id(self, query: str) -> str:
         """Generate a unique research ID from query and timestamp."""

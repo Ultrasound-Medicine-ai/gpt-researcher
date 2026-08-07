@@ -223,4 +223,16 @@
     margin-left: 2em;
     margin-bottom: 0.5em;
   }
+
+  a.ref-link {
+    color: #93c5fd;
+    text-decoration: none;
+    font-weight: 600;
+    vertical-align: super;
+    font-size: 0.85em;
+  }
+
+  a.ref-link:hover {
+    text-decoration: underline;
+  }
 } 

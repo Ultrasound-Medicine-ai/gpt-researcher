@@ -11,7 +11,12 @@ import { Compatible } from "vfile";
 export const addTargetBlankToLinks = (htmlContent: string): string => {
   return htmlContent.replace(
     /<a(.*?)href="(.*?)"(.*?)>/gi,
-    '<a$1href="$2"$3 target="_blank" rel="noopener noreferrer">'
+    (match, before, href, after) => {
+      if (href.startsWith('#')) {
+        return `<a${before}href="${href}"${after} class="ref-link">`;
+      }
+      return `<a${before}href="${href}"${after} target="_blank" rel="noopener noreferrer">`;
+    }
   );
 };
 
@@ -32,16 +37,33 @@ export const fixListItemParagraphIssue = (htmlContent: string): string => {
 };
 
 /**
+ * Turn standalone [n] citation markers into anchor links, without touching markdown links.
+ */
+export const linkCitationNumbers = (markdown: string): string => {
+  const referenceHeading = /^##\s*(参考文献|References)\s*$/m;
+  const match = markdown.match(referenceHeading);
+
+  if (!match || match.index === undefined) {
+    return markdown.replace(/\[(\d{1,3})\](?!\()/g, '[$1](#ref-$1)');
+  }
+
+  const body = markdown.slice(0, match.index).replace(/\[(\d{1,3})\](?!\()/g, '[$1](#ref-$1)');
+  const tail = markdown.slice(match.index);
+  return body + tail;
+};
+
+/**
  * Converts markdown to HTML with GitHub Flavored Markdown support and adds target="_blank" to links
  * @param markdown - The markdown content to convert
  * @returns Promise with the HTML content
  */
 export const markdownToHtml = async (markdown: Compatible | string): Promise<string> => {
   try {
+    const linkedMarkdown = linkCitationNumbers(String(markdown));
     const result = await remark()
       .use(remarkGfm) // Add GitHub Flavored Markdown support (tables, strikethrough, etc.)
       .use(html, { sanitize: false })
-      .process(markdown);
+      .process(linkedMarkdown);
     
     // Get the HTML string
     let htmlString = result.toString();

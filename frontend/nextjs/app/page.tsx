@@ -16,7 +16,11 @@ import CopilotResearchContent from "@/components/research/CopilotResearchContent
 import HumanFeedback from "@/components/HumanFeedback";
 import ResearchSidebar from "@/components/ResearchSidebar";
 import { getAppropriateLayout } from "@/utils/getLayout";
-import { buildResearchContext } from '@/utils/buildChatContext';
+import {
+  buildCombinedResearchContext,
+  buildConversationMessages,
+  buildResearchTask,
+} from '@/utils/buildChatContext';
 import { DEFAULT_CHAT_BOX_SETTINGS, readChatBoxSettingsFromStorage } from "@/config/researchSettings";
 
 export default function Home() {
@@ -77,15 +81,7 @@ export default function Home() {
   };
 
   const extractChatMessagesFromOrderedData = (data: Data[]) => {
-    return data.flatMap((item) => {
-      if (item.type === 'question') {
-        return [{ role: 'user', content: item.content }];
-      }
-      if (item.type === 'chat') {
-        return [{ role: 'assistant', content: item.content }];
-      }
-      return [];
-    });
+    return buildConversationMessages(data, question.trim());
   };
 
   const handleStartChat = async (message: string) => {
@@ -134,14 +130,11 @@ export default function Home() {
     
     // Desktop: call chat API
     try {
-      const chatMessages = researchId
-        ? getChatMessages(researchId)
-        : extractChatMessagesFromOrderedData(orderedData);
-      
-      const formattedMessages = [...chatMessages, userMessage].map(msg => ({
-        role: msg.role,
-        content: msg.content
-      }));
+      const formattedMessages = buildConversationMessages(
+        orderedData,
+        question.trim(),
+        userMessage
+      );
       
       // Call the chat API
       const response = await fetch(`/api/chat`, {
@@ -151,7 +144,8 @@ export default function Home() {
           report: answer || "",
           messages: formattedMessages,
           research_topic: question.trim() || message,
-          research_context: buildResearchContext(orderedData),
+          research_context: buildCombinedResearchContext(orderedData, question.trim()),
+          report_language: chatBoxSettings.report_language || 'chinese',
         }),
       });
       
@@ -213,7 +207,6 @@ export default function Home() {
         content: 'Sorry, there was an error processing your request. Please try again.' 
       }]);
     } finally {
-      setLoading(false);
       setIsProcessingChat(false);
     }
   };
@@ -238,11 +231,12 @@ export default function Home() {
   };
 
   const handleGenerateReport = async () => {
-    const topic = question.trim();
-    if (!topic || loading) return;
+    const task = buildResearchTask(question, orderedData).trim();
+    if (!task || loading) return;
 
     setLoading(true);
     setIsInChatMode(true);
+    setAnswer("");
 
     const storedConfig = localStorage.getItem('apiVariables');
     const apiVariables = storedConfig ? JSON.parse(storedConfig) : {};
@@ -250,7 +244,7 @@ export default function Home() {
 
     if (chatBoxSettings.report_type === 'multi_agents' && langgraphHostUrl) {
       const { streamResponse, host, thread_id } = await startLanggraphResearch(
-        topic,
+        task,
         chatBoxSettings.report_source,
         langgraphHostUrl
       );
@@ -270,7 +264,7 @@ export default function Home() {
         previousChunk = chunk;
       }
     } else {
-      initializeWebSocket(topic, chatBoxSettings);
+      initializeWebSocket(task, chatBoxSettings);
     }
   };
 

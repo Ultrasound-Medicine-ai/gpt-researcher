@@ -203,7 +203,7 @@ class ChatAgentWithMemory:
         return response, processed_metadata
 
 
-    async def chat(self, messages, websocket=None, research_topic="", research_context=""):
+    async def chat(self, messages, websocket=None, research_topic="", research_context="", report_language="chinese"):
         """Chat with configured LLM provider (supports OpenAI, Google Gemini, Anthropic, etc.)
         
         Args:
@@ -211,6 +211,7 @@ class ChatAgentWithMemory:
             websocket: Optional websocket for streaming responses
             research_topic: Original research question / report topic
             research_context: Gathered sources, sub-queries, and search snippets
+            report_language: Preferred output language for chat replies (english or chinese)
         
         Returns:
             tuple: (str: The AI response message, dict: metadata about tool usage)
@@ -219,6 +220,8 @@ class ChatAgentWithMemory:
             has_report = bool(self.report and self.report.strip())
             topic = (research_topic or "").strip()
             context = (research_context or "").strip()
+            normalized_language = (report_language or "chinese").lower()
+            language_label = "Chinese" if normalized_language in ("chinese", "zh", "zh-cn", "zh-tw") else "English"
 
             if has_report:
                 context_section = f"""
@@ -227,26 +230,28 @@ class ChatAgentWithMemory:
             Research report:
             {self.report}
 
-            Additional research context:
+            Full session context (preparation conversation, sources, notes, prior searches):
             {context or "None"}
             """
                 phase_note = "The user has a completed research report and is continuing the conversation in chat."
                 material_list = """
             - The completed research report
+            - The original research topic and ALL preparation conversation before the report was generated
             - Research context (sources, sub-queries, gathered notes, prior web search snippets)
-            - The full conversation history"""
+            - The full conversation history after the report was generated"""
             else:
                 context_section = f"""
             Research topic (main report question):
             {topic or "Not specified — infer from conversation if possible"}
 
-            Prior research context (if any):
+            Preparation conversation and gathered context:
             {context or "None yet"}
             """
                 phase_note = "The user is preparing a research report. No final report has been generated yet."
                 material_list = """
-            - The research topic (main report question)
-            - The full conversation history
+            - The research topic (main report question) — this is what the report will be about
+            - Every user refinement in the preparation conversation (e.g. time range, scope, angle) — treat these as constraints ON the research topic, not separate unrelated questions
+            - The full conversation history including your prior replies
             - Any prior research context (sources, sub-queries, web search snippets from earlier chat)"""
 
             system_prompt = f"""
@@ -268,6 +273,9 @@ class ChatAgentWithMemory:
             quick_search when fresher or more complete web information is needed.
 
             Do NOT answer from the latest message alone. Synthesize a direct, helpful chat reply — not a new report.
+            When the user adds a short refinement (e.g. "last two years only", "我要近两年的"), combine it with the research topic and answer about that combined intent.
+
+            Respond in {language_label} only. Match the user's selected report output language even if they write in another language.
 
             Assume the current time is: {datetime.now()}.
 

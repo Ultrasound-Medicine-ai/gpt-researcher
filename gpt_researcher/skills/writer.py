@@ -14,6 +14,13 @@ from ..actions import (
     write_conclusion,
     write_report_introduction,
 )
+from ..actions.citation_registry import SourceRegistry, references_heading_for_language
+from ..actions.markdown_processing import (
+    add_numbered_references,
+    normalize_numbered_report,
+    strip_existing_references_section,
+)
+from ..actions.report_generation import get_effective_report_language
 from ..utils.llm import construct_subtopics
 
 
@@ -75,6 +82,27 @@ class ReportGenerator:
             )
 
         context = ext_context or self.researcher.context
+        citation_style = getattr(self.researcher.cfg, "citation_style", "apa").lower()
+        source_registry = None
+
+        if (
+            self.researcher.report_type in ("research_report", "deep")
+            and citation_style == "numbered"
+            and not custom_prompt
+        ):
+            source_registry = SourceRegistry.from_research_sources(
+                self.researcher.get_research_sources(),
+                fallback_urls=list(self.researcher.visited_urls),
+            )
+            numbered_context = source_registry.build_numbered_context()
+            if numbered_context:
+                if context:
+                    context = (
+                        f"Numbered sources:\n{numbered_context}\n\n"
+                        f"---\n\nAdditional research context:\n{context}"
+                    )
+                else:
+                    context = f"Numbered sources:\n{numbered_context}"
         
         # Log image availability
         if available_images and self.researcher.verbose:
@@ -94,6 +122,7 @@ class ReportGenerator:
             )
 
         report_params = self.research_params.copy()
+        report_params["query"] = self.researcher.query
         if not report_params["agent_role_prompt"]:
             report_params["agent_role_prompt"] = self.researcher.cfg.agent_role or self.researcher.role
         report_params["context"] = context
@@ -111,6 +140,29 @@ class ReportGenerator:
             report_params["cost_callback"] = self.researcher.add_costs
 
         report = await generate_report(**report_params, **self.researcher.kwargs)
+
+        if (
+            self.researcher.report_type in ("research_report", "deep")
+            and citation_style == "numbered"
+            and not custom_prompt
+        ):
+            if source_registry is None:
+                source_registry = SourceRegistry.from_research_sources(
+                    self.researcher.get_research_sources(),
+                    fallback_urls=list(self.researcher.visited_urls),
+                )
+            references_heading = references_heading_for_language(
+                get_effective_report_language(self.researcher.cfg)
+            )
+            report = normalize_numbered_report(
+                report,
+                source_registry,
+                references_heading=references_heading,
+            )
+            if self.researcher.websocket:
+                await self.researcher.websocket.send_json(
+                    {"type": "report_complete", "output": report}
+                )
 
         if self.researcher.verbose:
             await stream_output(

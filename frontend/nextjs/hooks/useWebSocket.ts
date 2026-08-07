@@ -72,7 +72,7 @@ export const useWebSocket = (
         
         const domainFilters = JSON.parse(localStorage.getItem('domainFilters') || '[]');
         const domains = domainFilters ? domainFilters.map((domain: any) => domain.value) : [];
-        const { report_type, report_source, tone, mcp_enabled, mcp_configs, mcp_strategy } = chatBoxSettings;
+        const { report_type, report_source, tone, total_words, report_language, mcp_enabled, mcp_configs, mcp_strategy } = chatBoxSettings;
         
         // Start a new research
         try {
@@ -82,6 +82,8 @@ export const useWebSocket = (
             report_type, 
             report_source, 
             tone,
+            total_words: total_words || 1200,
+            report_language: report_language || 'chinese',
             query_domains: domains,
             mcp_enabled: mcp_enabled || false,
             mcp_strategy: mcp_strategy || "fast",
@@ -113,16 +115,32 @@ export const useWebSocket = (
           } else if (data.type === 'human_feedback' && data.content === 'request') {
             setQuestionForHuman(data.output);
             setShowHumanFeedback(true);
+          } else if (data.type === 'report_complete') {
+            console.log('Received complete report with numbered references');
+            setAnswer(data.output);
+            setOrderedData((prevOrder) => {
+              const withoutReportBlocks = prevOrder.filter(
+                (item) => {
+                  const itemType = (item as { type?: string }).type;
+                  return itemType !== 'report' && itemType !== 'report_complete';
+                }
+              );
+              return [
+                ...withoutReportBlocks,
+                {
+                  type: 'report_complete',
+                  output: data.output,
+                  content: 'report',
+                  contentAndType: 'report-report_complete',
+                },
+              ];
+            });
           } else {
             const contentAndType = `${data.content}-${data.type}`;
             setOrderedData((prevOrder) => [...prevOrder, { ...data, contentAndType }]);
 
             if (data.type === 'report') {
               setAnswer((prev: string) => prev + data.output);
-            } else if (data.type === 'report_complete') {
-              // Replace entire report with the complete version (includes images)
-              console.log('Received complete report with images');
-              setAnswer(data.output);
             } else if (data.type === 'path') {
               setLoading(false);
             }

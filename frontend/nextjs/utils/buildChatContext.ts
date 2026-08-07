@@ -1,6 +1,114 @@
-import { Data } from '../types/data';
+import { ChatMessage, Data } from '../types/data';
 
 const MAX_CONTEXT_LENGTH = 12000;
+
+export function buildConversationMessages(
+  orderedData: Data[],
+  researchTopic: string,
+  pendingUserMessage?: Pick<ChatMessage, 'role' | 'content'>
+): Array<{ role: string; content: string }> {
+  const messages: Array<{ role: string; content: string }> = [];
+  const topic = researchTopic.trim();
+
+  for (const item of orderedData) {
+    if (item.type === 'question') {
+      const content = item.content?.trim();
+      if (content) {
+        messages.push({ role: 'user', content });
+      }
+    } else if (item.type === 'chat') {
+      const content = item.content?.trim();
+      if (content) {
+        messages.push({ role: 'assistant', content });
+      }
+    }
+  }
+
+  if (pendingUserMessage?.content?.trim()) {
+    const last = messages[messages.length - 1];
+    const pendingContent = pendingUserMessage.content.trim();
+    if (!last || last.role !== pendingUserMessage.role || last.content !== pendingContent) {
+      messages.push({
+        role: pendingUserMessage.role,
+        content: pendingContent,
+      });
+    }
+  }
+
+  if (messages.length === 0 && topic) {
+    messages.push({ role: 'user', content: topic });
+  }
+
+  return messages;
+}
+
+export function buildPrepConversationSummary(
+  orderedData: Data[],
+  researchTopic: string
+): string {
+  const topic = researchTopic.trim();
+  const lines: string[] = [];
+
+  for (const item of orderedData) {
+    if (item.type === 'question') {
+      const content = item.content?.trim();
+      if (!content) continue;
+      if (content === topic) {
+        lines.push(`User (main research topic): ${content}`);
+      } else {
+        lines.push(`User (refinement): ${content}`);
+      }
+    } else if (item.type === 'chat') {
+      const content = item.content?.trim();
+      if (content) {
+        lines.push(`Assistant: ${content.slice(0, 800)}`);
+      }
+    }
+  }
+
+  if (!lines.length) {
+    return topic ? `User (main research topic): ${topic}` : '';
+  }
+
+  return `Preparation conversation:\n${lines.join('\n')}`;
+}
+
+export function buildResearchTask(researchTopic: string, orderedData: Data[]): string {
+  const topic = researchTopic.trim();
+  if (!topic) return '';
+
+  const refinements: string[] = [];
+  for (const item of orderedData) {
+    if (item.type !== 'question') continue;
+    const content = item.content?.trim();
+    if (!content || content === topic) continue;
+    refinements.push(content);
+  }
+
+  if (refinements.length === 0) {
+    return topic;
+  }
+
+  return `${topic}\n\nAdditional requirements from preparation conversation:\n${refinements
+    .map((item) => `- ${item}`)
+    .join('\n')}`;
+}
+
+export function buildCombinedResearchContext(
+  orderedData: Data[],
+  researchTopic: string
+): string {
+  const sections = [
+    buildPrepConversationSummary(orderedData, researchTopic),
+    buildResearchContext(orderedData),
+  ].filter(Boolean);
+
+  let result = sections.join('\n\n');
+  if (result.length > MAX_CONTEXT_LENGTH) {
+    result = `${result.slice(0, MAX_CONTEXT_LENGTH)}\n...(truncated)`;
+  }
+  return result;
+}
 
 export function buildResearchContext(orderedData: Data[]): string {
   const sections: string[] = [];

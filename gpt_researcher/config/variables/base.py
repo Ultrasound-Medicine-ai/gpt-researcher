@@ -20,9 +20,11 @@ class BaseConfig(TypedDict):
     MEMORY_BACKEND: str
     TOTAL_WORDS: int
     REPORT_FORMAT: str
+    CITATION_STYLE: str
     CURATE_SOURCES: bool
     MAX_ITERATIONS: int
     LANGUAGE: str
+    REPORT_LANGUAGE: str
     AGENT_ROLE: Union[str, None]
     SCRAPER: str
     MAX_SCRAPER_WORKERS: int

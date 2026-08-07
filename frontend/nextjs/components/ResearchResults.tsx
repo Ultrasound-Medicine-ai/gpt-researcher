@@ -67,6 +67,12 @@ export const ResearchResults: React.FC<ResearchResultsProps> = ({
     .pop();
   const subqueriesComponent = groupedData.find(data => data.content === 'subqueries');
 
+  // Prefer post-processed answer (includes numbered references) over streamed chunks
+  const reportContent =
+    answer && answer.trim().length > 0
+      ? answer
+      : finalReport?.content || '';
+
   return (
     <>
       {initialQuestion && <Question question={initialQuestion.content} />}
@@ -79,7 +85,7 @@ export const ResearchResults: React.FC<ResearchResultsProps> = ({
       )}
       {sourceComponents}
       {imageComponents}
-      {finalReport && <Report answer={finalReport.content} researchId={currentResearchId} />}
+      {reportContent && <Report answer={reportContent} researchId={currentResearchId} />}
       {pathData && <AccessReport accessData={pathData.output} report={answer} chatBoxSettings={chatBoxSettings} onShareClick={onShareClick} />}
       {chatComponents}
     </>

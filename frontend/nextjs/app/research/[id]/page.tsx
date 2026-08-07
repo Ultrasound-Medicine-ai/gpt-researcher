@@ -8,7 +8,7 @@ import { ChatBoxSettings, Data, ChatData, ChatMessage, QuestionData } from "@/ty
 import { toast } from "react-hot-toast";
 import { getAppropriateLayout } from "@/utils/getLayout";
 import { DEFAULT_CHAT_BOX_SETTINGS, readChatBoxSettingsFromStorage } from "@/config/researchSettings";
-import { buildResearchContext } from "@/utils/buildChatContext";
+import { buildCombinedResearchContext, buildConversationMessages } from "@/utils/buildChatContext";
 
 import ResearchPageLayout from "@/components/layouts/ResearchPageLayout";
 import CopilotLayout from "@/components/layouts/CopilotLayout";
@@ -306,14 +306,11 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     });
     
     try {
-      // Get all chat messages for this research
-      const chatMessages = getChatMessages(currentResearchId);
-      
-      // Format messages to ensure they only contain role and content properties
-      const formattedMessages = [...chatMessages, userMessage].map(msg => ({
-        role: msg.role,
-        content: msg.content
-      }));
+      const formattedMessages = buildConversationMessages(
+        orderedData,
+        question.trim(),
+        userMessage
+      );
       
       // Call the chat API
       const response = await fetch(`/api/chat`, {
@@ -323,7 +320,8 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           report: answer || "",
           messages: formattedMessages,
           research_topic: question.trim() || message,
-          research_context: buildResearchContext(orderedData),
+          research_context: buildCombinedResearchContext(orderedData, question.trim()),
+          report_language: chatBoxSettings.report_language || 'chinese',
         }),
       });
       

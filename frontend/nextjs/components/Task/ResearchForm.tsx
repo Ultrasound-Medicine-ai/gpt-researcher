@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import FileUpload from "../Settings/FileUpload";
 import ToneSelector from "../Settings/ToneSelector";
+import ReportLengthSelector from "../Settings/ReportLengthSelector";
+import ReportLanguageSelector from "../Settings/ReportLanguageSelector";
 import MCPSelector from "../Settings/MCPSelector";
 import DomainFilter from "./DomainFilter";
 import { useAnalytics } from "../../hooks/useAnalytics";
@@ -27,7 +29,7 @@ export default function ResearchForm({
   const [newDomain, setNewDomain] = useState('');
 
   // Destructure necessary fields from chatBoxSettings
-  let { report_type, report_source, tone } = chatBoxSettings;
+  let { report_type, report_source, tone, total_words, report_language } = chatBoxSettings;
 
   const [domains, setDomains] = useState<Domain[]>(() => {
     if (typeof window !== 'undefined') {
@@ -70,6 +72,22 @@ export default function ResearchForm({
     setChatBoxSettings((prevSettings: any) => ({
       ...prevSettings,
       tone: value,
+    }));
+  };
+
+  const onTotalWordsChange = (e: { target: { value: any } }) => {
+    const { value } = e.target;
+    setChatBoxSettings((prevSettings: any) => ({
+      ...prevSettings,
+      total_words: Number(value),
+    }));
+  };
+
+  const onReportLanguageChange = (e: { target: { value: any } }) => {
+    const { value } = e.target;
+    setChatBoxSettings((prevSettings: any) => ({
+      ...prevSettings,
+      report_language: value,
     }));
   };
 
@@ -145,6 +163,16 @@ export default function ResearchForm({
       ) : null}
       
       <ToneSelector tone={tone} onToneChange={onToneChange} />
+
+      <ReportLengthSelector
+        totalWords={total_words}
+        onTotalWordsChange={onTotalWordsChange}
+      />
+
+      <ReportLanguageSelector
+        reportLanguage={report_language}
+        onReportLanguageChange={onReportLanguageChange}
+      />
 
       <MCPSelector 
         mcpEnabled={chatBoxSettings.mcp_enabled || false}
