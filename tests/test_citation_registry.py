@@ -109,6 +109,20 @@ def test_format_reference_list_english_heading():
     assert "原文片段" not in refs
 
 
+def test_format_reference_list_omits_unavailable_snippet():
+    registry = SourceRegistry.from_research_sources(
+        [{"url": "https://blocked.example/page", "title": "", "raw_content": ""}],
+        fallback_urls=["https://only-url.example/x"],
+    )
+    refs = registry.format_reference_list()
+
+    assert "URL: https://blocked.example/page" in refs
+    assert "URL: https://only-url.example/x" in refs
+    assert "原文片段" not in refs
+    assert "原文不可用" not in refs
+    assert "Excerpt:" not in refs
+
+
 def test_normalize_numbered_report_english_heading():
     from gpt_researcher.actions.markdown_processing import normalize_numbered_report
 

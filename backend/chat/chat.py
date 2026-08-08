@@ -203,7 +203,15 @@ class ChatAgentWithMemory:
         return response, processed_metadata
 
 
-    async def chat(self, messages, websocket=None, research_topic="", research_context="", report_language="chinese"):
+    async def chat(
+        self,
+        messages,
+        websocket=None,
+        research_topic="",
+        research_context="",
+        report_language="chinese",
+        research_id: str | None = None,
+    ):
         """Chat with configured LLM provider (supports OpenAI, Google Gemini, Anthropic, etc.)
         
         Args:
@@ -212,6 +220,7 @@ class ChatAgentWithMemory:
             research_topic: Original research question / report topic
             research_context: Gathered sources, sub-queries, and search snippets
             report_language: Preferred output language for chat replies (english or chinese)
+            research_id: Optional session id for vector enrichment (append-only, never replaces context)
         
         Returns:
             tuple: (str: The AI response message, dict: metadata about tool usage)
@@ -220,6 +229,32 @@ class ChatAgentWithMemory:
             has_report = bool(self.report and self.report.strip())
             topic = (research_topic or "").strip()
             context = (research_context or "").strip()
+            # Optional RAG enrichment: APPEND retrieved chunks only when present.
+            # Never clears or replaces the caller's research_context.
+            if research_id:
+                try:
+                    from gpt_researcher.vector_store.research_persist import (
+                        get_research_vector_store,
+                    )
+
+                    latest_user = ""
+                    for msg in reversed(messages or []):
+                        if isinstance(msg, dict) and msg.get("role") == "user":
+                            latest_user = str(msg.get("content") or "")
+                            break
+                    query_text = latest_user or topic
+                    store = get_research_vector_store()
+                    docs = store.similarity_search(query_text, research_id=research_id, k=6)
+                    retrieved = store.format_context(docs)
+                    if retrieved.strip():
+                        context = (
+                            f"{context}\n\n---\nRetrieved research chunks:\n{retrieved}".strip()
+                            if context
+                            else f"Retrieved research chunks:\n{retrieved}"
+                        )
+                except Exception as enrich_exc:
+                    logger.debug("Chat vector enrichment skipped (non-fatal): %s", enrich_exc)
+
             normalized_language = (report_language or "chinese").lower()
             language_label = "Chinese" if normalized_language in ("chinese", "zh", "zh-cn", "zh-tw") else "English"
 

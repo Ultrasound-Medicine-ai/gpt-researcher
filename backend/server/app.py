@@ -7,6 +7,11 @@ import sys
 import warnings
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(_REPO_ROOT / ".env")
+
 # Suppress Pydantic V2 migration warnings
 warnings.filterwarnings("ignore", message="Valid config keys have changed in V2")
 warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
@@ -35,8 +40,36 @@ from gpt_researcher.utils.enum import Tone
 from chat.chat import ChatAgentWithMemory
 
 from server.report_store import ReportStore
+from server.auth import resolve_user_id, resolve_tenant_id
 
-# MongoDB services removed - no database persistence needed
+# Optional SaaS persistence (falls back to JSON when DATABASE_URL unset)
+try:
+    from db.report_store_factory import create_report_store
+    from db.session import init_db, close_db, is_db_enabled
+except ImportError:
+    create_report_store = None  # type: ignore
+    init_db = None  # type: ignore
+    close_db = None  # type: ignore
+    def is_db_enabled() -> bool:  # type: ignore
+        return False
+
+try:
+    from jobs import create_job, get_job, update_job, cancel_job
+    from jobs.worker import enqueue_research_job, run_research_job
+except ImportError:
+    create_job = None  # type: ignore
+    get_job = None  # type: ignore
+    update_job = None  # type: ignore
+    cancel_job = None  # type: ignore
+    enqueue_research_job = None  # type: ignore
+    run_research_job = None  # type: ignore
+
+try:
+    from storage import get_object_store
+except ImportError:
+    get_object_store = None  # type: ignore
+
+# MongoDB services removed - optional PostgreSQL via DATABASE_URL
 
 # Setup logging
 logger = logging.getLogger(__name__)
@@ -69,6 +102,8 @@ class ChatRequest(BaseModel):
     research_topic: str = ""
     research_context: str = ""
     report_language: str = "chinese"
+    session_id: str | None = None
+    research_id: str | None = None
 
 
 @asynccontextmanager
@@ -76,9 +111,43 @@ async def lifespan(app: FastAPI):
     # Startup
     os.makedirs("outputs", exist_ok=True)
     app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
-    logger.info("GPT Researcher API ready - local mode (no database persistence)")
+
+    global report_store
+    json_path = Path(os.getenv("REPORT_STORE_PATH", os.path.join("data", "reports.json")))
+    db_ok = False
+    if init_db is not None:
+        try:
+            db_ok = await init_db()
+        except Exception as exc:
+            logger.warning("DB init failed — falling back to JSON store: %s", exc)
+            db_ok = False
+
+    if create_report_store is not None and db_ok:
+        report_store = create_report_store(json_path)
+    else:
+        report_store = ReportStore(json_path)
+
+    if get_object_store is not None:
+        try:
+            get_object_store()
+        except Exception as exc:
+            logger.warning("Object store init skipped: %s", exc)
+
+    mode = "postgresql" if db_ok else "local JSON"
+    logger.info("GPT Researcher API ready — persistence mode: %s", mode)
+    logger.info(
+        "LLM config: FAST=%s SMART=%s EMBEDDING=%s",
+        os.getenv("FAST_LLM", "(default)"),
+        os.getenv("SMART_LLM", "(default)"),
+        os.getenv("EMBEDDING", "(default)"),
+    )
     yield
     # Shutdown
+    if close_db is not None:
+        try:
+            await close_db()
+        except Exception:
+            pass
     logger.info("Research API shutting down")
 
 # App initialization
@@ -114,7 +183,8 @@ app.add_middleware(
 # WebSocket manager
 manager = WebSocketManager()
 
-report_store = ReportStore(Path(os.getenv('REPORT_STORE_PATH', os.path.join('data', 'reports.json'))))
+# Lazily replaced in lifespan; JSON fallback so imports never break report path
+report_store = ReportStore(Path(os.getenv("REPORT_STORE_PATH", os.path.join("data", "reports.json"))))
 
 # Constants
 DOC_PATH = os.getenv("DOC_PATH", "./my-docs")
@@ -158,17 +228,22 @@ async def read_report(request: Request, research_id: str):
     return FileResponse(docx_path)
 
 
-# Simplified API routes - no database persistence
+# Report routes — user isolation via X-User-Id when provided
 @app.get("/api/reports")
-async def get_all_reports(report_ids: str = None):
+async def get_all_reports(request: Request, report_ids: str = None):
+    user_id = resolve_user_id(request)
     report_ids_list = report_ids.split(",") if report_ids else None
-    reports = await report_store.list_reports(report_ids_list)
+    # anonymous lists all (legacy); named users see only their reports
+    filter_user = None if user_id == "anonymous" else user_id
+    reports = await report_store.list_reports(report_ids_list, user_id=filter_user)
     return {"reports": reports}
 
 
 @app.get("/api/reports/{research_id}")
-async def get_report_by_id(research_id: str):
-    report = await report_store.get_report(research_id)
+async def get_report_by_id(research_id: str, request: Request):
+    user_id = resolve_user_id(request)
+    filter_user = None if user_id == "anonymous" else user_id
+    report = await report_store.get_report(research_id, user_id=filter_user)
     if report is None:
         raise HTTPException(status_code=404, detail="Report not found")
     return {"report": report}
@@ -179,6 +254,7 @@ async def create_or_update_report(request: Request):
     try:
         data = await request.json()
         research_id = data.get("id", "temp_id")
+        user_id = resolve_user_id(request)
 
         now_ms = int(time.time() * 1000)
         existing = await report_store.get_report(research_id)
@@ -194,9 +270,15 @@ async def create_or_update_report(request: Request):
             "orderedData": data.get("orderedData") or [],
             "chatMessages": data.get("chatMessages") or [],
             "timestamp": timestamp,
+            "user_id": user_id,
+            "report_language": data.get("report_language")
+            or (existing or {}).get("report_language")
+            or "chinese",
+            "status": data.get("status") or (existing or {}).get("status") or "completed",
+            "job_id": data.get("job_id") or (existing or {}).get("job_id"),
         }
 
-        await report_store.upsert_report(research_id, report)
+        await report_store.upsert_report(research_id, report, user_id=user_id)
         return {"success": True, "id": research_id}
     except Exception as e:
         logger.error(f"Error processing report creation: {e}")
@@ -205,7 +287,9 @@ async def create_or_update_report(request: Request):
 
 @app.put("/api/reports/{research_id}")
 async def update_report(research_id: str, request: Request):
-    existing = await report_store.get_report(research_id)
+    user_id = resolve_user_id(request)
+    filter_user = None if user_id == "anonymous" else user_id
+    existing = await report_store.get_report(research_id, user_id=filter_user)
     if existing is None:
         raise HTTPException(status_code=404, detail="Report not found")
 
@@ -217,23 +301,28 @@ async def update_report(research_id: str, request: Request):
         **{k: v for k, v in data.items() if v is not None},
         "id": research_id,
         "timestamp": now_ms,
+        "user_id": existing.get("user_id") or user_id,
     }
 
-    await report_store.upsert_report(research_id, updated)
+    await report_store.upsert_report(research_id, updated, user_id=filter_user)
     return {"success": True, "id": research_id}
 
 
 @app.delete("/api/reports/{research_id}")
-async def delete_report(research_id: str):
-    existed = await report_store.delete_report(research_id)
+async def delete_report(research_id: str, request: Request):
+    user_id = resolve_user_id(request)
+    filter_user = None if user_id == "anonymous" else user_id
+    existed = await report_store.delete_report(research_id, user_id=filter_user)
     if not existed:
         raise HTTPException(status_code=404, detail="Report not found")
     return {"success": True}
 
 
 @app.get("/api/reports/{research_id}/chat")
-async def get_report_chat(research_id: str):
-    report = await report_store.get_report(research_id)
+async def get_report_chat(research_id: str, request: Request):
+    user_id = resolve_user_id(request)
+    filter_user = None if user_id == "anonymous" else user_id
+    report = await report_store.get_report(research_id, user_id=filter_user)
     if report is None:
         raise HTTPException(status_code=404, detail="Report not found")
     return {"chatMessages": report.get("chatMessages") or []}
@@ -241,11 +330,17 @@ async def get_report_chat(research_id: str):
 
 @app.post("/api/reports/{research_id}/chat")
 async def add_report_chat_message(research_id: str, request: Request):
-    report = await report_store.get_report(research_id)
+    user_id = resolve_user_id(request)
+    filter_user = None if user_id == "anonymous" else user_id
+    report = await report_store.get_report(research_id, user_id=filter_user)
     if report is None:
         raise HTTPException(status_code=404, detail="Report not found")
 
     message = await request.json()
+    # If body looks like a chat completion request (has messages), run chat agent
+    if isinstance(message, dict) and "messages" in message:
+        return await _run_session_chat(research_id, message, user_id=filter_user)
+
     chat_messages = report.get("chatMessages") or []
     if isinstance(chat_messages, list):
         chat_messages = [*chat_messages, message]
@@ -259,7 +354,7 @@ async def add_report_chat_message(research_id: str, request: Request):
         "timestamp": now_ms,
     }
 
-    await report_store.upsert_report(research_id, updated)
+    await report_store.upsert_report(research_id, updated, user_id=filter_user)
     return {"success": True, "id": research_id}
 
 
@@ -353,30 +448,60 @@ async def websocket_endpoint(websocket: WebSocket):
         await manager.disconnect(websocket)
 
 @app.post("/api/chat")
-async def chat(chat_request: ChatRequest):
+async def chat(chat_request: ChatRequest, request: Request):
     """Process a chat request with a report and message history.
 
-    Args:
-        chat_request: ChatRequest object containing report text and message history
-
-    Returns:
-        JSON response with the assistant's message and any tool usage metadata
+    When session_id/research_id is set, server-side report/context is loaded and
+    merged without discarding client-provided context (append/enrich only).
     """
     try:
         logger.info(f"Received chat request with {len(chat_request.messages)} messages")
+        user_id = resolve_user_id(request)
+        filter_user = None if user_id == "anonymous" else user_id
+        session_id = chat_request.session_id or chat_request.research_id
+
+        report_text = chat_request.report or ""
+        research_topic = chat_request.research_topic or ""
+        research_context = chat_request.research_context or ""
+        report_language = chat_request.report_language or "chinese"
+        messages = chat_request.messages
+
+        if session_id:
+            try:
+                ctx = await report_store.get_session_context(session_id, user_id=filter_user)
+                if ctx:
+                    stored_report = (ctx.get("report") or {}).get("answer") or ""
+                    if stored_report and not report_text.strip():
+                        report_text = stored_report
+                    if not research_topic.strip():
+                        research_topic = ctx.get("research_topic") or research_topic
+                    # Append server sources to client context; never wipe client context
+                    server_ctx = (ctx.get("research_context") or "").strip()
+                    if server_ctx:
+                        research_context = (
+                            f"{research_context}\n\n{server_ctx}".strip()
+                            if research_context.strip()
+                            else server_ctx
+                        )
+                    report_language = ctx.get("report_language") or report_language
+                    if not messages and ctx.get("messages"):
+                        messages = ctx["messages"]
+            except Exception as ctx_exc:
+                logger.warning("Session context load failed (using request body): %s", ctx_exc)
 
         chat_agent = ChatAgentWithMemory(
-            report=chat_request.report,
+            report=report_text,
             config_path="default",
             headers=None
         )
 
         response_content, tool_calls_metadata = await chat_agent.chat(
-            chat_request.messages,
+            messages,
             None,
-            research_topic=chat_request.research_topic,
-            research_context=chat_request.research_context,
-            report_language=chat_request.report_language,
+            research_topic=research_topic,
+            research_context=research_context,
+            report_language=report_language,
+            research_id=session_id,
         )
         logger.info(f"response_content: {response_content}")
         logger.info(f"Got chat response of length: {len(response_content) if response_content else 0}")
@@ -400,57 +525,128 @@ async def chat(chat_request: ChatRequest):
         logger.error(f"Error processing chat request: {str(e)}", exc_info=True)
         return {"error": str(e)}
 
-@app.post("/api/reports/{research_id}/chat")
-async def research_report_chat(research_id: str, request: Request):
-    """Handle chat requests for a specific research report.
-    Directly processes the raw request data to avoid validation errors.
-    """
+
+async def _run_session_chat(research_id: str, data: dict, user_id: str | None = None):
+    """Shared chat path for /api/reports/{id}/chat completion bodies."""
+    ctx = {}
     try:
-        # Get raw JSON data from request
-        data = await request.json()
-        
-        # Create chat agent with the report
-        chat_agent = ChatAgentWithMemory(
-            report=data.get("report", ""),
-            config_path="default",
-            headers=None
+        ctx = await report_store.get_session_context(research_id, user_id=user_id) or {}
+    except Exception as exc:
+        logger.warning("Session context unavailable: %s", exc)
+
+    stored = ctx.get("report") or {}
+    report_text = data.get("report") or stored.get("answer") or ""
+    research_topic = data.get("research_topic") or ctx.get("research_topic") or stored.get("question") or ""
+    research_context = data.get("research_context") or ""
+    server_ctx = (ctx.get("research_context") or "").strip()
+    if server_ctx:
+        research_context = (
+            f"{research_context}\n\n{server_ctx}".strip()
+            if research_context.strip()
+            else server_ctx
         )
+    report_language = data.get("report_language") or ctx.get("report_language") or "chinese"
 
-        # Process the chat and get response with metadata
-        response_content, tool_calls_metadata = await chat_agent.chat(
-            data.get("messages", []),
-            None,
-            research_topic=data.get("research_topic", ""),
-            research_context=data.get("research_context", ""),
-            report_language=data.get("report_language", "chinese"),
-        )
-        
-        if tool_calls_metadata:
-            logger.info(f"Tool calls used: {json.dumps(tool_calls_metadata)}")
+    chat_agent = ChatAgentWithMemory(
+        report=report_text,
+        config_path="default",
+        headers=None,
+    )
+    response_content, tool_calls_metadata = await chat_agent.chat(
+        data.get("messages", []),
+        None,
+        research_topic=research_topic,
+        research_context=research_context,
+        report_language=report_language,
+        research_id=research_id,
+    )
+    response_message = {
+        "role": "assistant",
+        "content": response_content,
+        "timestamp": int(time.time() * 1000),
+        "metadata": {"tool_calls": tool_calls_metadata} if tool_calls_metadata else None,
+    }
+    return {"response": response_message}
 
-        # Format response as a ChatMessage object
-        response_message = {
-            "role": "assistant",
-            "content": response_content,
-            "timestamp": int(time.time() * 1000),
-            "metadata": {
-                "tool_calls": tool_calls_metadata
-            } if tool_calls_metadata else None
-        }
 
-        return {"response": response_message}
-    except Exception as e:
-        logger.error(f"Error in research report chat: {str(e)}", exc_info=True)
-        return {"error": str(e)}
+@app.get("/api/jobs/{job_id}")
+async def get_research_job(job_id: str, request: Request):
+    """Poll research job status. PostgreSQL is authoritative when configured."""
+    if get_job is None:
+        raise HTTPException(status_code=501, detail="Job tracking unavailable")
+    user_id = resolve_user_id(request)
+    tenant_id = resolve_tenant_id(request, user_id=user_id)
+    filter_user = None if user_id == "anonymous" else user_id
+    job = await get_job(job_id, tenant_id=tenant_id, user_id=filter_user)
+    if job is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+    return {"job": job}
 
-@app.put("/api/reports/{research_id}")
-async def update_report(research_id: str, request: Request):
-    """Update a specific research report by ID - no database configured."""
-    logger.debug(f"Update requested for report {research_id} - no database configured, not persisted")
-    return {"success": True, "id": research_id}
 
-@app.delete("/api/reports/{research_id}")
-async def delete_report(research_id: str):
-    """Delete a specific research report by ID - no database configured."""
-    logger.debug(f"Delete requested for report {research_id} - no database configured, nothing to delete")
-    return {"success": True, "id": research_id}
+@app.post("/api/jobs/{job_id}/cancel")
+async def cancel_research_job(job_id: str, request: Request):
+    if cancel_job is None:
+        raise HTTPException(status_code=501, detail="Job cancel unavailable")
+    user_id = resolve_user_id(request)
+    tenant_id = resolve_tenant_id(request, user_id=user_id)
+    filter_user = None if user_id == "anonymous" else user_id
+    ok = await cancel_job(job_id, tenant_id=tenant_id, user_id=filter_user)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Job not found or not cancellable")
+    return {"success": True, "job_id": job_id, "status": "cancelled"}
+
+
+@app.post("/api/jobs/research")
+async def submit_research_job(request: Request):
+    """
+    Enqueue research asynchronously. Job status is stored in PostgreSQL when
+    DATABASE_URL is set; Redis is only the queue transport.
+    """
+    if create_job is None:
+        raise HTTPException(status_code=501, detail="Job tracking unavailable")
+
+    import asyncio
+
+    from security import filter_safe_urls, sanitize_mcp_configs, tenant_id_for
+
+    data = await request.json()
+    user_id = resolve_user_id(request)
+    tenant_id = resolve_tenant_id(request, user_id=user_id) or tenant_id_for(user_id)
+    session_id = data.get("session_id") or data.get("research_id")
+    mcp_configs = sanitize_mcp_configs(data.get("mcp_configs") or [])
+    mcp_enabled = bool(data.get("mcp_enabled", False)) and bool(mcp_configs)
+    payload = {
+        "task": data.get("task") or data.get("query") or "",
+        "report_type": data.get("report_type", "research_report"),
+        "report_source": data.get("report_source", "web"),
+        "tone": data.get("tone", "Objective"),
+        "source_urls": filter_safe_urls(data.get("source_urls") or []),
+        "document_urls": filter_safe_urls(data.get("document_urls") or []),
+        "headers": data.get("headers"),
+        "query_domains": data.get("query_domains") or [],
+        "mcp_enabled": mcp_enabled,
+        "mcp_strategy": data.get("mcp_strategy") or "fast",
+        "mcp_configs": mcp_configs,
+        "max_search_results": data.get("max_search_results"),
+        "total_words": data.get("total_words"),
+        "report_language": data.get("report_language") or "chinese",
+        "session_id": session_id,
+        "user_id": user_id,
+        "tenant_id": tenant_id,
+    }
+    if not payload["task"]:
+        raise HTTPException(status_code=400, detail="task is required")
+
+    job_id = await create_job(
+        user_id=user_id,
+        tenant_id=tenant_id,
+        session_id=session_id,
+        payload=payload,
+        idempotency_key=data.get("idempotency_key"),
+    )
+    queued = False
+    if enqueue_research_job is not None:
+        queued = await enqueue_research_job(job_id, payload)
+    if not queued and run_research_job is not None:
+        asyncio.create_task(run_research_job({}, job_id, payload))
+    return {"job_id": job_id, "queued": queued, "session_id": session_id, "tenant_id": tenant_id}

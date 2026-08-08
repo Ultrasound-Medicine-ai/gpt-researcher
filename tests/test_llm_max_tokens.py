@@ -41,3 +41,27 @@ async def test_create_chat_completion_rejects_absurd_max_tokens():
             )
 
     mock_get_llm.assert_not_called()
+
+
+@pytest.mark.asyncio
+async def test_smart_llm_uses_next_configured_model_after_failures(monkeypatch):
+    first = MagicMock()
+    first.get_chat_response = AsyncMock(side_effect=RuntimeError("quota exhausted"))
+    second = MagicMock()
+    second.get_chat_response = AsyncMock(return_value="report completed")
+    monkeypatch.setenv("SMART_LLM", "dashscope:qwen3.7-plus")
+    monkeypatch.setenv("SMART_LLM_FALLBACKS", "dashscope:qwen-max")
+
+    with patch(
+        "gpt_researcher.utils.llm.get_llm", side_effect=[first, second]
+    ) as mock_get_llm:
+        result = await create_chat_completion(
+            messages=[{"role": "user", "content": "Generate a report"}],
+            model="qwen3.7-plus",
+            llm_provider="dashscope",
+        )
+
+    assert result == "report completed"
+    assert [call.kwargs["model"] for call in mock_get_llm.call_args_list] == [
+        "qwen3.7-plus", "qwen-max"
+    ]

@@ -38,6 +38,41 @@ def get_llm(llm_provider: str, **kwargs):
     return GenericLLMProvider.from_provider(llm_provider, **kwargs)
 
 
+def _smart_llm_candidates(model: str, llm_provider: str | None) -> list[tuple[str, str | None]]:
+    """Return the primary Smart LLM followed by its configured failover models.
+
+    ``SMART_LLM_FALLBACKS`` is intentionally scoped to the configured Smart
+    model.  Fast and strategic calls keep their own configured models, while
+    report writing and other Smart-LLM work can survive an exhausted quota.
+    Entries use the normal ``provider:model`` format and are comma-separated.
+    """
+    primary = os.getenv("SMART_LLM", "")
+    try:
+        primary_provider, primary_model = primary.split(":", 1)
+    except ValueError:
+        return [(model, llm_provider)]
+
+    if (model, llm_provider) != (primary_model, primary_provider):
+        return [(model, llm_provider)]
+
+    candidates: list[tuple[str, str | None]] = [(model, llm_provider)]
+    for entry in os.getenv("SMART_LLM_FALLBACKS", "").split(","):
+        entry = entry.strip()
+        if not entry:
+            continue
+        try:
+            provider, fallback_model = entry.split(":", 1)
+        except ValueError:
+            logging.getLogger(__name__).warning(
+                "Ignoring invalid SMART_LLM_FALLBACKS entry; expected provider:model"
+            )
+            continue
+        candidate = (fallback_model, provider)
+        if candidate not in candidates:
+            candidates.append(candidate)
+    return candidates
+
+
 async def create_chat_completion(
         messages: list[dict[str, str]],
         model: str | None = None,
@@ -80,73 +115,75 @@ async def create_chat_completion(
             "STRATEGIC_TOKEN_LIMIT env vars for typos."
         )
 
-    # Get the provider from supported providers
-    provider_kwargs = {'model': model}
-
-    if llm_kwargs:
-        provider_kwargs.update(llm_kwargs)
-
-    if model in SUPPORT_REASONING_EFFORT_MODELS:
-        provider_kwargs['reasoning_effort'] = reasoning_effort
-
-    if model not in NO_SUPPORT_TEMPERATURE_MODELS:
-        provider_kwargs['temperature'] = temperature
-        provider_kwargs['max_tokens'] = max_tokens
-    else:
-        provider_kwargs['temperature'] = None
-        provider_kwargs['max_tokens'] = None
-
-    if llm_provider == "openai":
-        base_url = os.environ.get("OPENAI_BASE_URL", None)
-        if base_url:
-            provider_kwargs['openai_api_base'] = base_url
-
-    provider = get_llm(llm_provider, **provider_kwargs)
-    response = ""
-    # create response
-    max_attempts = 1 if (stream and websocket is not None) else 10
+    candidates = _smart_llm_candidates(model, llm_provider)
+    # A quota error is not improved by retrying the same model. Two attempts
+    # still cover brief provider/network failures before failover.
+    max_attempts = 1 if (stream and websocket is not None) else 2
     last_exception: Exception | None = None
-    for attempt in range(1, max_attempts + 1):
-        try:
-            response = await provider.get_chat_response(
-                messages, stream, websocket, **kwargs
-            )
-        except Exception as exc:
-            last_exception = exc
+    for candidate_index, (candidate_model, candidate_provider) in enumerate(candidates):
+        provider_kwargs = {'model': candidate_model}
+        if llm_kwargs:
+            provider_kwargs.update(llm_kwargs)
+        if candidate_model in SUPPORT_REASONING_EFFORT_MODELS:
+            provider_kwargs['reasoning_effort'] = reasoning_effort
+        if candidate_model not in NO_SUPPORT_TEMPERATURE_MODELS:
+            provider_kwargs['temperature'] = temperature
+            provider_kwargs['max_tokens'] = max_tokens
+        else:
+            provider_kwargs['temperature'] = None
+            provider_kwargs['max_tokens'] = None
+        if candidate_provider == "openai":
+            base_url = os.environ.get("OPENAI_BASE_URL", None)
+            if base_url:
+                provider_kwargs['openai_api_base'] = base_url
+
+        provider = get_llm(candidate_provider, **provider_kwargs)
+        for attempt in range(1, max_attempts + 1):
+            try:
+                response = await provider.get_chat_response(messages, stream, websocket, **kwargs)
+            except Exception as exc:
+                last_exception = exc
+                logging.getLogger(__name__).warning(
+                    "LLM request failed for %s (attempt %s/%s): %s",
+                    candidate_model, attempt, max_attempts, exc,
+                )
+                if attempt < max_attempts:
+                    await asyncio.sleep(min(2 ** (attempt - 1), 8))
+                    continue
+                break
+
+            if not response:
+                last_exception = RuntimeError("Empty response from LLM provider")
+                logging.getLogger(__name__).warning(
+                    "LLM returned an empty response from %s (attempt %s/%s)",
+                    candidate_model, attempt, max_attempts,
+                )
+                if attempt < max_attempts:
+                    await asyncio.sleep(min(2 ** (attempt - 1), 8))
+                    continue
+                break
+
+            if cost_callback:
+                llm_costs = calculate_llm_cost(
+                    llm_provider=candidate_provider,
+                    model=candidate_model,
+                    input_content=str(messages),
+                    output_content=response,
+                    response_metadata=provider.last_response_metadata,
+                    usage_metadata=provider.last_usage_metadata,
+                    request_options=provider_kwargs,
+                )
+                cost_callback(llm_costs)
+            return response
+
+        if candidate_index < len(candidates) - 1:
             logging.getLogger(__name__).warning(
-                f"LLM request failed (attempt {attempt}/{max_attempts}): {exc}"
+                "Switching Smart LLM from %s to configured fallback %s",
+                candidate_model, candidates[candidate_index + 1][0],
             )
-            if attempt < max_attempts:
-                await asyncio.sleep(min(2 ** (attempt - 1), 8))
-                continue
-            break
 
-        if not response:
-            last_exception = RuntimeError("Empty response from LLM provider")
-            logging.getLogger(__name__).warning(
-                f"LLM returned empty response (attempt {attempt}/{max_attempts})"
-            )
-            if attempt < max_attempts:
-                await asyncio.sleep(min(2 ** (attempt - 1), 8))
-                continue
-            break
-
-        if cost_callback:
-            llm_costs = calculate_llm_cost(
-                llm_provider=llm_provider,
-                model=model,
-                input_content=str(messages),
-                output_content=response,
-                response_metadata=provider.last_response_metadata,
-                usage_metadata=provider.last_usage_metadata,
-                request_options=provider_kwargs,
-            )
-            cost_callback(llm_costs)
-
-        return response
-
-    logging.error(f"Failed to get response from {llm_provider} API")
-    raise RuntimeError(f"Failed to get response from {llm_provider} API") from last_exception
+    logging.error("Failed to get a response from all configured LLM candidates")
+    raise RuntimeError("Failed to get a response from all configured LLM candidates") from last_exception
 
 
 async def construct_subtopics(

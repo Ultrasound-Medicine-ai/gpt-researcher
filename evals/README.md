@@ -205,3 +205,39 @@ The `-n` parameter determines how many queries to evaluate from the test set (de
   ]
 }
 ```
+
+## Product Harness (`harness_eval/`)
+
+Lightweight JSONL harness for **product-quality regressions** (language, citations, retrieval tokens, session isolation). Extends the existing runner — does not replace SimpleQA / hallucination suites.
+
+### Quality invariant
+
+Harness **only evaluates** finished outputs. It never changes GPTResearcher prompts, retrieval, or generation parameters.
+
+### Suites (gates)
+
+| Suite | Command | When | Contents |
+|-------|---------|------|----------|
+| **cheap** (CI / PR) | `python evals/harness_eval/run_eval.py --suite cheap` | Every PR / after each architecture phase | Offline deterministic cases + optional session probe (soft-pass if API down) |
+| **full** | `python evals/harness_eval/run_eval.py --suite full` | Manual / staging | Live web/hybrid research cases |
+| **nightly** | `python evals/harness_eval/run_eval.py --suite nightly` then SimpleQA + hallucination | Nightly / pre-release | Expensive factuality & faithfulness baselines |
+
+Companion unit tests (no LLM):
+
+```bash
+python -m pytest tests/test_harness_scorers.py tests/test_deterministic_cite.py tests/test_citation_registry.py tests/test_report_language.py -q
+```
+
+### Scorers
+
+- `scorers/language.py` — Chinese/English ratio + references heading
+- `scorers/citations.py` — `[n]` ⊆ references, no dangling cites
+- `scorers/retrieval.py` — `must_mention` fixture tokens
+- `scorers/session.py` — `X-User-Id` isolation via HTTP (skips offline)
+
+### Example
+
+```bash
+python evals/harness_eval/run_eval.py --suite cheap
+python evals/harness_eval/run_eval.py --suite full --limit 1
+```

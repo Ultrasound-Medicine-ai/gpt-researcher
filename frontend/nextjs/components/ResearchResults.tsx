@@ -1,8 +1,6 @@
 import React from 'react';
 import Question from './ResearchBlocks/Question';
 import Report from './ResearchBlocks/Report';
-import Sources from './ResearchBlocks/Sources';
-import ImageSection from './ResearchBlocks/ImageSection';
 import SubQuestions from './ResearchBlocks/elements/SubQuestions';
 import LogsSection from './ResearchBlocks/LogsSection';
 import AccessReport from './ResearchBlocks/AccessReport';
@@ -49,19 +47,6 @@ export const ResearchResults: React.FC<ResearchResultsProps> = ({
       }
     });
 
-  const sourceComponents = groupedData
-    .filter(data => data.type === 'sourceBlock')
-    .map((data, index) => (
-      <Sources key={`sourceBlock-${index}`} sources={data.items}/>
-    ));
-
-  const imageComponents = groupedData
-    .filter(data => data.type === 'imagesBlock')
-    .map((data, index) => (
-      <ImageSection key={`images-${index}-${data.metadata?.length || 0}`} metadata={data.metadata} />
-    ));
-
-  const initialReport = groupedData.find(data => data.type === 'reportBlock');
   const finalReport = groupedData
     .filter(data => data.type === 'reportBlock')
     .pop();
@@ -83,8 +68,6 @@ export const ResearchResults: React.FC<ResearchResultsProps> = ({
           handleClickSuggestion={handleClickSuggestion}
         />
       )}
-      {sourceComponents}
-      {imageComponents}
       {reportContent && <Report answer={reportContent} researchId={currentResearchId} />}
       {pathData && <AccessReport accessData={pathData.output} report={answer} chatBoxSettings={chatBoxSettings} onShareClick={onShareClick} />}
       {chatComponents}

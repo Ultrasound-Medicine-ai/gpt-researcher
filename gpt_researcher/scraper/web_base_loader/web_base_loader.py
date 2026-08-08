@@ -1,7 +1,5 @@
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
 import requests
-from ..utils import get_relevant_images, extract_title
+from ..utils import get_relevant_images, extract_title, soup_from_http_response
 
 class WebBaseLoaderScraper:
 
@@ -30,7 +28,7 @@ class WebBaseLoaderScraper:
                 content += doc.page_content
 
             response = self.session.get(self.link)
-            soup = BeautifulSoup(response.content, 'html.parser')
+            soup = soup_from_http_response(response, parser="html.parser")
             image_urls = get_relevant_images(soup, self.link)
             
             # Extract the title using the utility function

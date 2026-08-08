@@ -29,29 +29,69 @@ class ReportStore:
         tmp_path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
         tmp_path.replace(self._path)
 
-    async def list_reports(self, report_ids: List[str] | None = None) -> List[Dict[str, Any]]:
+    async def list_reports(
+        self,
+        report_ids: List[str] | None = None,
+        user_id: str | None = None,
+    ) -> List[Dict[str, Any]]:
         async with self._lock:
             data = await self._read_all_unlocked()
-            if report_ids is None:
-                return list(data.values())
-            return [data[report_id] for report_id in report_ids if report_id in data]
+            values = list(data.values()) if report_ids is None else [
+                data[report_id] for report_id in report_ids if report_id in data
+            ]
+            if user_id:
+                values = [
+                    r for r in values
+                    if not r.get("user_id") or r.get("user_id") == user_id
+                ]
+            return values
 
-    async def get_report(self, report_id: str) -> Dict[str, Any] | None:
+    async def get_report(
+        self, report_id: str, user_id: str | None = None
+    ) -> Dict[str, Any] | None:
         async with self._lock:
             data = await self._read_all_unlocked()
-            return data.get(report_id)
+            report = data.get(report_id)
+            if report and user_id and report.get("user_id") and report.get("user_id") != user_id:
+                return None
+            return report
 
-    async def upsert_report(self, report_id: str, report: Dict[str, Any]) -> None:
+    async def upsert_report(
+        self,
+        report_id: str,
+        report: Dict[str, Any],
+        user_id: str | None = None,
+    ) -> None:
         async with self._lock:
             data = await self._read_all_unlocked()
+            if user_id:
+                report = {**report, "user_id": user_id}
             data[report_id] = report
             await self._write_all_unlocked(data)
 
-    async def delete_report(self, report_id: str) -> bool:
+    async def delete_report(self, report_id: str, user_id: str | None = None) -> bool:
         async with self._lock:
             data = await self._read_all_unlocked()
-            existed = report_id in data
-            if existed:
-                del data[report_id]
-                await self._write_all_unlocked(data)
-            return existed
+            existing = data.get(report_id)
+            if existing is None:
+                return False
+            if user_id and existing.get("user_id") and existing.get("user_id") != user_id:
+                return False
+            del data[report_id]
+            await self._write_all_unlocked(data)
+            return True
+
+    async def get_session_context(
+        self, report_id: str, user_id: str | None = None
+    ) -> Dict[str, Any]:
+        """JSON-mode session context for Chat (report + stored messages only)."""
+        report = await self.get_report(report_id, user_id=user_id)
+        if report is None:
+            return {}
+        return {
+            "report": report,
+            "research_topic": report.get("question") or "",
+            "research_context": "",
+            "messages": report.get("chatMessages") or [],
+            "report_language": report.get("report_language") or "chinese",
+        }

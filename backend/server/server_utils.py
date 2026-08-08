@@ -146,6 +146,18 @@ async def handle_start_command(websocket, data: str, manager):
         print("Error: Missing task or report_type")
         return
 
+    # Security: SSRF filter + reject user stdio MCP commands
+    try:
+        from security import filter_safe_urls, sanitize_mcp_configs, sanitize_markdown
+
+        source_urls = filter_safe_urls(source_urls or [])
+        document_urls = filter_safe_urls(document_urls or [])
+        mcp_configs = sanitize_mcp_configs(mcp_configs or [])
+        if mcp_enabled and not mcp_configs:
+            mcp_enabled = False
+    except Exception as sec_exc:
+        logger.warning("Security sanitize skipped: %s", sec_exc)
+
     # Create logs handler with websocket and task
     logs_handler = CustomLogsHandler(websocket, task)
     # Initialize log content with query
@@ -176,6 +188,12 @@ async def handle_start_command(websocket, data: str, manager):
         report_language,
     )
     report = str(report)
+    try:
+        from security import sanitize_markdown
+
+        report = sanitize_markdown(report)
+    except Exception:
+        pass
     file_paths = await generate_report_files(report, sanitized_filename)
     # Add JSON log path to file_paths
     file_paths["json"] = os.path.relpath(logs_handler.log_file)
@@ -302,15 +320,61 @@ def update_environment_variables(config: Dict[str, str]):
 
 
 async def handle_file_upload(file, DOC_PATH: str) -> Dict[str, str]:
-    file_path = os.path.join(DOC_PATH, os.path.basename(file.filename))
+    from security import (
+        ALLOWED_UPLOAD_EXTENSIONS,
+        DEFAULT_MAX_UPLOAD_BYTES,
+        DEFAULT_MAX_UPLOADS,
+        validate_upload_filename,
+    )
+
+    os.makedirs(DOC_PATH, exist_ok=True)
+    existing = [
+        name
+        for name in os.listdir(DOC_PATH)
+        if os.path.isfile(os.path.join(DOC_PATH, name))
+    ]
+    if len(existing) >= DEFAULT_MAX_UPLOADS:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Upload limit reached ({DEFAULT_MAX_UPLOADS} files)",
+        )
+
+    try:
+        safe_name = validate_upload_filename(file.filename)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    # Read with size cap
+    chunks = []
+    total = 0
+    while True:
+        chunk = await file.read(1024 * 1024)
+        if not chunk:
+            break
+        total += len(chunk)
+        if total > DEFAULT_MAX_UPLOAD_BYTES:
+            raise HTTPException(
+                status_code=400,
+                detail=f"File too large (max {DEFAULT_MAX_UPLOAD_BYTES} bytes)",
+            )
+        chunks.append(chunk)
+
+    # Basic content sniff: reject empty / executable magic
+    data = b"".join(chunks)
+    if not data:
+        raise HTTPException(status_code=400, detail="Empty file")
+    if data[:2] == b"MZ" or data[:4] == b"\x7fELF":
+        raise HTTPException(status_code=400, detail="Executable files are not allowed")
+
+    file_path = os.path.join(DOC_PATH, safe_name)
     with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+        buffer.write(data)
     print(f"File uploaded to {file_path}")
 
     document_loader = DocumentLoader(DOC_PATH)
     await document_loader.load()
 
-    return {"filename": file.filename, "path": file_path}
+    return {"filename": safe_name, "path": file_path}
 
 
 async def handle_file_deletion(filename: str, DOC_PATH: str) -> JSONResponse:

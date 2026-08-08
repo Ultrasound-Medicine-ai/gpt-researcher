@@ -1,12 +1,10 @@
-from bs4 import BeautifulSoup
-
 from gpt_researcher.retrievers.tavily.key_pool import (
     get_current_tavily_key,
     mark_tavily_key_exhausted,
     should_rotate_tavily_key,
     with_tavily_key_rotation,
 )
-from ..utils import get_relevant_images, extract_title
+from ..utils import get_relevant_images, extract_title, soup_from_http_response
 
 
 class TavilyExtract:
@@ -56,9 +54,7 @@ class TavilyExtract:
                 return "", [], ""
 
             response_bs = self.session.get(self.link, timeout=4)
-            soup = BeautifulSoup(
-                response_bs.content, "lxml", from_encoding=response_bs.encoding
-            )
+            soup = soup_from_http_response(response_bs, parser="lxml")
 
             content = response["results"][0]["raw_content"]
             image_urls = get_relevant_images(soup, self.link)

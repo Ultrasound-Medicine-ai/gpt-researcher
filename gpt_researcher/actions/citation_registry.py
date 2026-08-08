@@ -16,15 +16,43 @@ def extract_domain(url: str) -> str:
         return "unknown"
 
 
+def _count_cjk(text: str) -> int:
+    return sum(1 for ch in text if "\u4e00" <= ch <= "\u9fff")
+
+
+def maybe_repair_mojibake(text: str) -> str:
+    """Cheap Latin-1/UTF-8 mojibake repair when Chinese was decoded wrongly.
+
+    Only applies when the text has almost no CJK but latin-1→utf-8 yields more.
+    """
+    if not text or _count_cjk(text) >= 3:
+        return text
+    if not any(ch in text for ch in ("Ã", "Â", "ç", "ä", "å", "é", "è", "ï")):
+        return text
+    try:
+        repaired = text.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return text
+    if _count_cjk(repaired) > _count_cjk(text):
+        return repaired
+    return text
+
+
 def extract_snippet(raw_content: str, max_len: int = 280) -> str:
-    """Extract a readable text snippet from raw HTML or plain content."""
+    """Extract a readable text snippet from raw HTML or plain content.
+
+    Returns an empty string when no usable text is available so callers can
+    omit the snippet line entirely.
+    """
     if not raw_content or not str(raw_content).strip():
-        return "（原文不可用）"
+        return ""
 
     text = re.sub(r"<[^>]+>", " ", str(raw_content))
+    # Repair before whitespace collapse — \x85 is both UTF-8 mid-byte and \s.
+    text = maybe_repair_mojibake(text)
     text = re.sub(r"\s+", " ", text).strip()
     if not text:
-        return "（原文不可用）"
+        return ""
     if len(text) <= max_len:
         return f"「{text}」"
     return f"「{text[:max_len].rstrip()}...」"
@@ -107,10 +135,13 @@ class SourceRegistry:
             snippet = extract_snippet(entry.get("raw_content", ""))
             lines.append(f'<a id="ref-{index}"></a>**[{index}]** {domain} — {title}')
             lines.append(f"URL: {entry['url']}")
-            if use_chinese_labels:
-                lines.append(f"原文片段：{snippet}")
-            else:
-                lines.append(f"Excerpt: {snippet}")
+            # Only show snippet when scrape actually yielded text — avoid
+            # noisy "原文不可用" placeholders for blocked/failed pages.
+            if snippet:
+                if use_chinese_labels:
+                    lines.append(f"原文片段：{snippet}")
+                else:
+                    lines.append(f"Excerpt: {snippet}")
             lines.append("")
 
         return "\n".join(lines).rstrip()

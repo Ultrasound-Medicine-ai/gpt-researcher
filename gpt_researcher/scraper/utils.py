@@ -12,6 +12,82 @@ from urllib.parse import parse_qs, urljoin, urlparse
 import bs4
 from bs4 import BeautifulSoup
 
+# requests often defaults text/* without charset to ISO-8859-1, mangling UTF-8 Chinese.
+_UNRELIABLE_ENCODINGS = frozenset(
+    {
+        "iso-8859-1",
+        "latin-1",
+        "latin1",
+        "ascii",
+        "us-ascii",
+        "windows-1252",
+        "cp1252",
+    }
+)
+_META_CHARSET_RE = re.compile(
+    br"""charset\s*=\s*["']?\s*([a-zA-Z0-9_\-]+)""",
+    re.IGNORECASE,
+)
+_CONTENT_TYPE_CHARSET_RE = re.compile(
+    r"charset\s*=\s*['\"]?\s*([^\s;'\"]+)",
+    re.IGNORECASE,
+)
+
+
+def decode_html_bytes(
+    content: bytes,
+    declared_encoding: str | None = None,
+    content_type: str | None = None,
+) -> str:
+    """Decode HTML bytes without expensive charset detection (no chardet).
+
+    Order: Content-Type charset → meta charset (first 2KB) → trusted declared
+    encoding → utf-8 → gb18030 → utf-8 with replacement.
+    """
+    if not content:
+        return ""
+
+    candidates: list[str] = []
+
+    if content_type:
+        match = _CONTENT_TYPE_CHARSET_RE.search(content_type)
+        if match:
+            candidates.append(match.group(1).strip())
+
+    meta_match = _META_CHARSET_RE.search(content[:2048])
+    if meta_match:
+        candidates.append(meta_match.group(1).decode("ascii", errors="ignore"))
+
+    if declared_encoding:
+        normalized = declared_encoding.strip().lower().replace("_", "-")
+        if normalized not in _UNRELIABLE_ENCODINGS:
+            candidates.append(declared_encoding.strip())
+
+    candidates.extend(("utf-8", "gb18030"))
+
+    seen: set[str] = set()
+    for encoding in candidates:
+        key = encoding.lower().replace("_", "-")
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        try:
+            return content.decode(encoding)
+        except (LookupError, UnicodeDecodeError):
+            continue
+
+    return content.decode("utf-8", errors="replace")
+
+
+def soup_from_http_response(response, parser: str = "lxml") -> BeautifulSoup:
+    """Build BeautifulSoup from a requests-like response with correct encoding."""
+    html = decode_html_bytes(
+        response.content,
+        declared_encoding=getattr(response, "encoding", None),
+        content_type=(getattr(response, "headers", None) or {}).get("content-type"),
+    )
+    return BeautifulSoup(html, parser)
+
 
 def get_relevant_images(soup: BeautifulSoup, url: str) -> list:
     """Extract relevant images from the page"""

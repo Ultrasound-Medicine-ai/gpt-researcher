@@ -523,9 +523,25 @@ class ResearchConductor:
                 self.logger.info(f"Scraped data size: {len(scraped_data)}")
 
             # Get similar content based on scraped data
+            # QUALITY: compression path below is unchanged and remains the
+            # sole source of context for report generation.
             if scraped_data:
                 web_context = await self.researcher.context_manager.get_similar_content_by_query(sub_query, scraped_data)
                 self.logger.info(f"Web content found for sub-query: {len(str(web_context)) if web_context else 0} chars")
+                # Best-effort vector persistence AFTER context is built.
+                # Failures never alter web_context or the research pipeline.
+                try:
+                    from gpt_researcher.vector_store.research_persist import (
+                        maybe_persist_scraped_documents,
+                    )
+
+                    maybe_persist_scraped_documents(
+                        self.researcher._generate_research_id(), scraped_data
+                    )
+                except Exception as persist_exc:
+                    self.logger.debug(
+                        "Vector persist skipped (non-fatal): %s", persist_exc
+                    )
 
             # Combine MCP context with web context intelligently
             combined_context = self._combine_mcp_and_web_context(mcp_context, web_context, sub_query)

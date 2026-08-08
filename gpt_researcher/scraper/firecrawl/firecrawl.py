@@ -1,6 +1,5 @@
-from bs4 import BeautifulSoup
 import os
-from ..utils import get_relevant_images
+from ..utils import get_relevant_images, soup_from_http_response
 
 class FireCrawl:
 
@@ -68,9 +67,7 @@ class FireCrawl:
 
             # Parse the HTML content of the response to create a BeautifulSoup object for the utility functions
             response_bs = self.session.get(self.link, timeout=4)
-            soup = BeautifulSoup(
-                response_bs.content, "lxml", from_encoding=response_bs.encoding
-            )
+            soup = soup_from_http_response(response_bs, parser="lxml")
 
             # Get relevant images using the utility function
             image_urls = get_relevant_images(soup, self.link)
