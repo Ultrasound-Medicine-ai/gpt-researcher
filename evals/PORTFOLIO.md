@@ -9,7 +9,7 @@
 ## 简历可直接粘贴（中文）
 
 **项目二 · Agent 评测与观测体系（GPT-Researcher 二次开发）**  
-为多用户研究/对话 SaaS 搭建七支柱评测：对话覆盖、工具链、记忆一致性、回归基准（SimpleQA/幻觉）、Fuzz 弱点回流、P95 压测门禁、本地看板与回归队列。实现 `cheap / full / nightly` 分层门禁与 GitHub Actions cheap CI；抽样默认 `seed=42` 可复现。本机抽样（n=10，2026-08-10）：cheap PASS；live chat 工具路由 3/3；SimpleQA accuracy/F1 **70%**；幻觉 MAJOR rate **50%**（多源 evidence pack + MAJOR-only judge）。  
+为多用户研究/对话 SaaS 搭建七支柱评测：对话覆盖、工具链、记忆一致性、回归基准（SimpleQA/幻觉）、Fuzz 弱点回流、P95 压测门禁、本地看板与回归队列。实现 `cheap / full / nightly` 分层门禁与 GitHub Actions cheap CI；抽样默认 `seed=42` 可复现。本机抽样（n=10，2026-08-10）：cheap PASS；live chat 工具路由 3/3；Chat P95 ≈ **2.4s**（阈值 8s）；SimpleQA accuracy/F1 **70%**；幻觉 MAJOR rate **50%**（多源 evidence pack + MAJOR-only judge）。  
 *技术栈：Python / pytest / FastAPI 契约评测 / JSONL case / LLM-as-judge（Matpool）*
 
 **面试 30 秒版：**  
@@ -72,6 +72,7 @@ nightly / portfolio（质量基准）
 从 `evals/results/PORTFOLIO_METRICS.md` 抄最新值。本机 2026-08-10 **n=10** 样例：
 
 - Cheap / full harness / live chat：**PASS**（live chat 3/3）
+- Chat P95（live，并发 5、n=10）：**≈ 2.4s**（阈值 8s，PASS）
 - SimpleQA：**accuracy / F1 = 70%**（7/10 CORRECT），成本 ≈ **$0.47**
 - Hallucination（MAJOR）：**50%**（5/10；severity: MAJOR 5 / MINOR 1 / NONE 4），成本 ≈ **$0.53**
   - judge=`lite` + **multi-source evidence pack** + 仅计 MAJOR（虚构实体/数字/错误归因）

@@ -1,8 +1,8 @@
 # Project-2 evaluation dashboard
 
-- Generated (UTC): `2026-08-10T11:37:19.493790+00:00`
+- Generated (UTC): `2026-08-10T11:46:54.218194+00:00`
 - Regression queue size: **8**
-- Trace spans indexed: **6**
+- Trace spans indexed: **9**
 
 ## Gate layers
 
@@ -11,7 +11,7 @@
 | cheap | True | offline dialogue/tool/memory/fuzz/perf-schema |
 | portfolio | True | resume pack present=yes |
 | live chat | True | 3/3 |
-| perf | True | cheap |
+| perf | True | full |
 
 ## Quality headlines
 
@@ -22,8 +22,8 @@
 
 ## Perf P95
 
-- PASS `perf-chat-p95-001` mode=schema
-- PASS `perf-job-queue-p95-001` mode=schema
+- PASS `perf-chat-p95-001` p95=2395.33ms (max 8000.0ms, n=10)
+- SKIP `perf-job-queue-p95-001`: job P95 skipped (set --include-jobs to enable)
 
 ## Regression queue (top 20)
 
