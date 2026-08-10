@@ -776,6 +776,43 @@ async def cancel_research_job(job_id: str, request: Request):
     return {"success": True, "job_id": job_id, "status": status}
 
 
+@app.post("/api/research/intent")
+async def resolve_research_intent(request: Request):
+    """
+    Pre-flight intent / disambiguation before creating a research Job.
+
+    Returns action=proceed|clarify with expanded_task / options.
+    """
+    from jobs.planning_context import resolve_report_intent
+
+    data = await request.json()
+    ident = resolve_identity(request)
+    user_id = ident.user_id
+    await ensure_user(user_id, kind=ident.kind)
+    task = (data.get("task") or data.get("query") or "").strip()
+    if not task:
+        raise HTTPException(status_code=400, detail="task is required")
+
+    client_msgs = data.get("recent_chat_messages") or data.get("chat_messages") or []
+    if not isinstance(client_msgs, list):
+        client_msgs = []
+
+    try:
+        result = await resolve_report_intent(
+            task=task,
+            user_id=user_id,
+            report_store=report_store,
+            parent_chat_id=data.get("parent_chat_id") or data.get("parent_session_id"),
+            client_messages=client_msgs,
+            force_domain=data.get("force_domain"),
+            force_sense=data.get("force_sense"),
+        )
+    except Exception as exc:
+        logger.exception("resolve_research_intent failed")
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    return result
+
+
 @app.post("/api/jobs/research")
 async def submit_research_job(request: Request):
     """
@@ -884,8 +921,47 @@ async def submit_research_job(request: Request):
 
     mcp_configs = sanitize_mcp_configs(data.get("mcp_configs") or [])
     mcp_enabled = bool(data.get("mcp_enabled", False)) and bool(mcp_configs)
+
+    # Per-user planning context: recent chat/reports + tech-first acronym bias. :-)
+    planning_meta: dict = {}
+    try:
+        from jobs.planning_context import resolve_report_intent
+
+        client_msgs = data.get("recent_chat_messages") or data.get("chat_messages") or []
+        if not isinstance(client_msgs, list):
+            client_msgs = []
+        # Job create assumes UI already clarified; force_sense/domain skip ask. :-)
+        planning_meta = await resolve_report_intent(
+            task=task,
+            user_id=user_id,
+            report_store=report_store,
+            parent_chat_id=data.get("parent_chat_id") or data.get("parent_session_id"),
+            client_messages=client_msgs,
+            force_domain=data.get("force_domain"),
+            force_sense=data.get("force_sense"),
+        )
+        if planning_meta.get("action") == "clarify":
+            # Safety net: never block enqueue mid-create; fall back tech-first. :-)
+            planning_meta = await resolve_report_intent(
+                task=task,
+                user_id=user_id,
+                report_store=report_store,
+                parent_chat_id=data.get("parent_chat_id") or data.get("parent_session_id"),
+                client_messages=client_msgs,
+                force_domain="tech",
+            )
+        if data.get("expanded_task"):
+            planning_meta["expanded_task"] = str(data.get("expanded_task"))
+    except Exception as plan_ctx_exc:
+        logger.warning("Planning user context skipped: %s", plan_ctx_exc)
+        planning_meta = {}
+
+    display_task = task
+    research_task = str(planning_meta.get("expanded_task") or task)
+
     payload = {
-        "task": task,
+        "task": research_task,
+        "display_task": display_task,
         "report_type": data.get("report_type", "research_report"),
         "report_source": data.get("report_source", "web"),
         "tone": data.get("tone", "Objective"),
@@ -905,6 +981,12 @@ async def submit_research_job(request: Request):
         "tenant_id": tenant_id,
         # Review/ops only; worker honors when TRUSTED_REPORT_ALLOW_FORCE_SAMPLE=true. :-)
         "force_trusted_sample": bool(data.get("force_trusted_sample")),
+        "parent_chat_id": data.get("parent_chat_id") or data.get("parent_session_id"),
+        "planning_context": planning_meta,
+        "expanded_task": research_task,
+        "planning_hint": planning_meta.get("planning_hint") or "",
+        "force_domain": data.get("force_domain") or planning_meta.get("domain_preference"),
+        "force_sense": data.get("force_sense"),
     }
 
     # 1) Persist job in PostgreSQL first

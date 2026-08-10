@@ -17,13 +17,16 @@ Supported providers:
     - nomic: Nomic embeddings
     - voyageai: Voyage AI embeddings
     - dashscope: DashScope embeddings
+    - matpool: Matpool OpenAI-compatible embeddings
     - bedrock: AWS Bedrock embeddings
     - aimlapi: AIML API embeddings
     - custom: Custom OpenAI-compatible API
 """
 
+from __future__ import annotations
+
 import os
-from typing import Any
+from typing import Any, Optional
 
 from langchain_core.embeddings import Embeddings
 
@@ -46,6 +49,7 @@ _SUPPORTED_PROVIDERS = {
     "nomic",
     "voyageai",
     "dashscope",
+    "matpool",
     "custom",
     "bedrock",
     "aimlapi",
@@ -185,6 +189,29 @@ class Memory:
                 ds_kwargs = dict(embedding_kwargs or {})
                 ds_kwargs.setdefault("max_retries", 0)
                 _embeddings = DashScopeEmbeddings(model=model, **ds_kwargs)
+            case "matpool":
+                from langchain_openai import OpenAIEmbeddings
+
+                # OpenAI-compatible Matpool gateway (Text-Embedding-V4, etc.). :-)
+                mp_kwargs = dict(embedding_kwargs or {})
+                mp_kwargs.setdefault("check_embedding_ctx_length", False)
+                mp_kwargs.setdefault("max_retries", 1)
+                if "dimensions" not in mp_kwargs:
+                    try:
+                        mp_kwargs["dimensions"] = int(
+                            os.getenv("EMBEDDING_DIM") or "1024"
+                        )
+                    except ValueError:
+                        mp_kwargs["dimensions"] = 1024
+                _embeddings = OpenAIEmbeddings(
+                    model=model,
+                    openai_api_key=os.getenv("MATPOOL_API_KEY")
+                    or os.getenv("OPENAI_API_KEY"),
+                    openai_api_base=os.getenv(
+                        "MATPOOL_BASE_URL", "https://token.matpool.com/v1"
+                    ),
+                    **mp_kwargs,
+                )
             case "bedrock":
                 from langchain_aws.embeddings import BedrockEmbeddings
 
@@ -232,6 +259,51 @@ class Memory:
         return self._embeddings
 
 
+# Known output dims — keep in sync with EMBEDDING_DIM / pgvector column. :-)
+_KNOWN_EMBEDDING_DIMS: dict[tuple[str, str], int] = {
+    ("dashscope", "text-embedding-v1"): 1536,
+    ("dashscope", "text-embedding-v2"): 1536,
+    ("dashscope", "text-embedding-v3"): 1024,
+    ("dashscope", "text-embedding-v4"): 1024,
+    ("matpool", "Text-Embedding-V4"): 1024,
+    ("matpool", "text-embedding-v4"): 1024,
+    ("openai", "text-embedding-3-small"): 1536,
+    ("openai", "text-embedding-3-large"): 3072,
+    ("openai", "text-embedding-ada-002"): 1536,
+    ("ollama", "nomic-embed-text"): 768,
+    ("ollama", "mxbai-embed-large"): 1024,
+}
+
+# Process-wide sticky success so each compress/ingest call does not re-walk the chain. :-)
+_STICKY_EMBEDDING: Optional[tuple[str, str]] = None
+
+
+def expected_embedding_dim() -> int:
+    raw = (os.environ.get("EMBEDDING_DIM") or "1024").strip()
+    try:
+        return max(1, int(raw))
+    except ValueError:
+        return 1024
+
+
+def _known_dim(provider: str, model: str) -> Optional[int]:
+    return _KNOWN_EMBEDDING_DIMS.get((provider.lower(), model.strip()))
+
+
+def _filter_candidates_by_dim(
+    candidates: list[tuple[str, str]],
+) -> list[tuple[str, str]]:
+    """Drop known-incompatible models (e.g. ollama 768 vs pgvector 1536). :-)"""
+    target = expected_embedding_dim()
+    kept: list[tuple[str, str]] = []
+    for p, m in candidates:
+        dim = _known_dim(p, m)
+        if dim is not None and dim != target:
+            continue
+        kept.append((p, m))
+    return kept
+
+
 def _embedding_candidates(provider: str, model: str) -> list[tuple[str, str]]:
     """Primary EMBEDDING plus EMBEDDING_FALLBACKS (provider:model,...)."""
     candidates: list[tuple[str, str]] = [(provider, model)]
@@ -247,7 +319,7 @@ def _embedding_candidates(provider: str, model: str) -> list[tuple[str, str]]:
         cand = (p.strip(), m.strip())
         if cand not in candidates:
             candidates.append(cand)
-    return candidates
+    return _filter_candidates_by_dim(candidates)
 
 
 def create_memory_with_failover(
@@ -260,6 +332,7 @@ def create_memory_with_failover(
     Returns a Memory whose embeddings wrapper rotates models on 429/quota errors.
     If every candidate fails at use-time, callers should catch and keyword-fallback.
     """
+    global _STICKY_EMBEDDING
     from gpt_researcher.utils.dep_resilience import get_circuit, record_degradation
 
     embed_cb = get_circuit("embed")
@@ -270,15 +343,28 @@ def create_memory_with_failover(
         mem = _UnavailableMemory()
         return mem  # type: ignore[return-value]
 
-    # Prefer first candidate that can be constructed
-    last_err: Exception | None = None
-    for p, m in candidates:
+    if not candidates:
+        record_degradation(
+            "rag",
+            "no_dim_compatible_embedding",
+            rag_degraded=True,
+        )
+        return _UnavailableMemory()  # type: ignore[return-value]
+
+    start_index = 0
+    if _STICKY_EMBEDDING and _STICKY_EMBEDDING in candidates:
+        start_index = candidates.index(_STICKY_EMBEDDING)
+
+    last_err: Optional[Exception] = None
+    order = list(range(start_index, len(candidates))) + list(range(0, start_index))
+    for i in order:
+        p, m = candidates[i]
         try:
             base = Memory(p, m, **embedding_kwargs)
             wrapper = _FailoverEmbeddings(
                 candidates=candidates,
                 embedding_kwargs=embedding_kwargs,
-                start_index=candidates.index((p, m)),
+                start_index=i,
             )
             base._embeddings = wrapper
             base.provider = p
@@ -346,10 +432,11 @@ class _FailoverEmbeddings(Embeddings):
         )
 
     def _call_with_failover(self, method: str, *args, **kwargs):
+        global _STICKY_EMBEDDING
         from gpt_researcher.utils.dep_resilience import get_circuit, record_degradation
 
         embed_cb = get_circuit("embed")
-        last_err: Exception | None = None
+        last_err: Optional[Exception] = None
         for i in range(self.index, len(self.candidates)):
             if not embed_cb.allow():
                 break
@@ -369,6 +456,7 @@ class _FailoverEmbeddings(Embeddings):
                 fn = getattr(self._inner, method)
                 result = fn(*args, **kwargs)
                 embed_cb.record_success()
+                _STICKY_EMBEDDING = self.candidates[self.index]
                 return result
             except Exception as exc:
                 last_err = exc

@@ -25,6 +25,7 @@ _SUPPORTED_PROVIDERS = {
     "groq",
     "bedrock",
     "dashscope",
+    "matpool",
     "xai",
     "deepseek",
     "litellm",
@@ -212,6 +213,22 @@ class GenericLLMProvider:
                      openai_api_key=os.environ["DASHSCOPE_API_KEY"],
                      **kwargs
                 )
+        elif provider == "matpool":
+            # OpenAI-compatible Matpool gateway (token.matpool.com). :-)
+            _check_pkg("langchain_openai")
+            from langchain_openai import ChatOpenAI
+
+            api_key = os.environ.get("MATPOOL_API_KEY") or ""
+            if not api_key.strip():
+                raise ValueError("MATPOOL_API_KEY is required for provider=matpool")
+            base_url = (
+                os.environ.get("MATPOOL_BASE_URL") or "https://token.matpool.com/v1"
+            ).rstrip("/")
+            llm = ChatOpenAI(
+                openai_api_base=base_url,
+                openai_api_key=api_key,
+                **kwargs,
+            )
         elif provider == "xai":
             _check_pkg("langchain_xai")
             from langchain_xai import ChatXAI

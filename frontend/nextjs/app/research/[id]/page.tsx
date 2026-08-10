@@ -20,7 +20,11 @@ import ResearchSidebar from "@/components/ResearchSidebar";
 import { apiFetch } from '@/lib/apiFetch';
 import {
   chatReportCreatedMessage,
+  matchClarificationReply,
   mergeChatWithReportTopic,
+  PendingReportClarification,
+  recentChatMessagesFromOrderedData,
+  ReportIntentClarification,
   submitChatReportJob,
 } from '@/lib/submitChatReport';
 
@@ -57,6 +61,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
   } = useResearchHistoryContext();
 
   const sideReportSessionIdRef = useRef<string | null>(null);
+  const pendingReportClarificationRef = useRef<PendingReportClarification | null>(null);
 
   // Resume this page's job; chat may also attach a newer side-report job. :-)
   const { observeJob } = useResearchJob(
@@ -329,13 +334,70 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     }
   }, [orderedData, isProcessingChat]);
 
-  const submitReportRequestedInChat = async (toolCall: any) =>
+  const submitReportRequestedInChat = async (
+    toolCall: any,
+    extras?: {
+      forceDomain?: string;
+      forceSense?: string;
+      resolvedTask?: string;
+      skipIntent?: boolean;
+    }
+  ) =>
     submitChatReportJob({
       toolCall,
       chatBoxSettings,
       saveResearch,
       parentChatId: currentResearchId || id,
+      recentChatMessages: recentChatMessagesFromOrderedData(orderedData),
+      forceDomain: extras?.forceDomain,
+      forceSense: extras?.forceSense,
+      resolvedTask: extras?.resolvedTask,
+      skipIntent: extras?.skipIntent,
     });
+
+  const applyCreatedReportToChat = (
+    created: { sessionId: string; jobId: string; task: string; tenantId?: string },
+    taskText: string,
+    questionData: QuestionData
+  ) => {
+    const content = chatReportCreatedMessage(taskText);
+    const metadata = {
+      report_request: {
+        research_id: created.sessionId,
+        job_id: created.jobId,
+        task: taskText,
+      },
+    };
+    const chatData: ChatData = { type: 'chat', content, metadata };
+    sideReportSessionIdRef.current = created.sessionId;
+    setAnswer('');
+    setOrderedData((prev) => {
+      const withUser = prev.some(
+        (d) => d.type === 'question' && d.content === questionData.content
+      )
+        ? prev
+        : [...prev, questionData];
+      return [...mergeChatWithReportTopic(withUser, taskText), chatData];
+    });
+    if (currentResearchId) {
+      addChatMessage(currentResearchId, {
+        role: 'assistant',
+        content,
+        metadata,
+        timestamp: Date.now(),
+      }).catch(console.error);
+      updateResearch(
+        currentResearchId,
+        answer,
+        [...mergeChatWithReportTopic([...orderedData, questionData], taskText), chatData]
+      ).catch(console.error);
+    }
+    observeJob(created.jobId, {
+      reportSessionId: created.sessionId,
+      tenantId: created.tenantId,
+    });
+    toast.success(`左侧已开始生成：${taskText.slice(0, 28)}`);
+  };
 
   const handleChat = async (message: string) => {
     if (!currentResearchId) return;
@@ -360,6 +422,41 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     addChatMessage(currentResearchId, userMessage).catch(error => {
       console.error('Error adding chat message to history:', error);
     });
+
+    const pending = pendingReportClarificationRef.current;
+    if (pending) {
+      const matched = matchClarificationReply(message, pending);
+      if (matched) {
+        pendingReportClarificationRef.current = null;
+        try {
+          const created = await submitReportRequestedInChat(pending.toolCall, {
+            forceDomain: matched.domain,
+            forceSense: matched.label,
+            resolvedTask: matched.resolved_task,
+            skipIntent: true,
+          });
+          applyCreatedReportToChat(
+            created,
+            String(pending.toolCall.task || created.task || ''),
+            questionData
+          );
+        } catch (submitError: any) {
+          console.error('Failed to submit clarified report:', submitError);
+          toast.error('报告任务提交失败');
+          setOrderedData((prev) => [
+            ...prev,
+            {
+              type: 'chat',
+              content: `报告任务未能提交：${submitError?.message || '请稍后重试'}`,
+            } as ChatData,
+          ]);
+        } finally {
+          setIsProcessingChat(false);
+        }
+        return;
+      }
+      pendingReportClarificationRef.current = null;
+    }
     
     try {
       const formattedMessages = buildConversationMessages(
@@ -400,47 +497,33 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           try {
             const created = await submitReportRequestedInChat(reportToolCall);
             const taskText = String(reportToolCall.task || created.task || '');
-            data.response.content = chatReportCreatedMessage(taskText);
-            data.response.metadata = {
-              ...(data.response.metadata || {}),
-              report_request: {
-                research_id: created.sessionId,
-                job_id: created.jobId,
-                task: taskText,
-              },
-            };
-            const chatData: ChatData = {
-              type: 'chat',
-              content: data.response.content,
-              metadata: data.response.metadata,
-            };
-            // Stay on this conversation: right chat unchanged, left follows new job. :-)
-            sideReportSessionIdRef.current = created.sessionId;
-            setAnswer('');
-            setOrderedData((prev) => {
-              const withUser = prev.some(
-                (d) => d.type === 'question' && d.content === questionData.content
-              )
-                ? prev
-                : [...prev, questionData];
-              return [...mergeChatWithReportTopic(withUser, taskText), chatData];
-            });
-            addChatMessage(currentResearchId, data.response).catch(console.error);
-            updateResearch(
-              currentResearchId,
-              answer,
-              [...mergeChatWithReportTopic([...orderedData, questionData], taskText), chatData]
-            ).catch(console.error);
-            observeJob(created.jobId, {
-              reportSessionId: created.sessionId,
-              tenantId: created.tenantId,
-            });
-            toast.success(`左侧已开始生成：${taskText.slice(0, 28)}`);
+            applyCreatedReportToChat(created, taskText, questionData);
             return;
           } catch (submitError: any) {
-            console.error('Failed to submit report requested in chat:', submitError);
-            data.response.content = `报告任务未能提交：${submitError?.message || '请稍后重试'}`;
-            toast.error('报告任务提交失败');
+            if (submitError instanceof ReportIntentClarification) {
+              const q =
+                submitError.payload.clarification_question ||
+                '请确认你指的是哪一个含义？';
+              pendingReportClarificationRef.current = {
+                toolCall: reportToolCall,
+                options: submitError.payload.options || [],
+                question: q,
+                originalTask: String(reportToolCall.task || ''),
+              };
+              data.response.content = q;
+              data.response.metadata = {
+                ...(data.response.metadata || {}),
+                intent_clarify: {
+                  options: submitError.payload.options || [],
+                  ambiguous_tokens: submitError.payload.ambiguous_tokens || [],
+                },
+              };
+              toast('请先确认报告主题含义');
+            } else {
+              console.error('Failed to submit report requested in chat:', submitError);
+              data.response.content = `报告任务未能提交：${submitError?.message || '请稍后重试'}`;
+              toast.error('报告任务提交失败');
+            }
           }
         }
         // Add AI response to chat history asynchronously

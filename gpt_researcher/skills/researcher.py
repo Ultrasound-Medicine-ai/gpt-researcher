@@ -59,7 +59,29 @@ class ResearchConductor:
             self.researcher.websocket,
         )
 
-        search_results = await get_search_results(query, self.researcher.retrievers[0], query_domains, researcher=self.researcher)
+        # Prefer expanded/disambiguated task for search + planning only. :-)
+        headers = getattr(self.researcher, "headers", None) or {}
+        plan_query = str(headers.get("X-GPTR-Expanded-Task") or query).strip() or query
+        planning_hint = str(headers.get("X-GPTR-Planning-Hint") or "").strip()
+        if planning_hint:
+            plan_query = (
+                f"{plan_query}\n\n[User context for disambiguation — do not ignore]\n"
+                f"{planning_hint}"
+            )
+            self.logger.info(
+                "Planning with user context hint (%s chars); expanded_task=%s",
+                len(planning_hint),
+                str(headers.get("X-GPTR-Expanded-Task") or "")[:120],
+            )
+
+        search_results = await get_search_results(
+            plan_query if len(plan_query) < 500 else (
+                str(headers.get("X-GPTR-Expanded-Task") or query).strip() or query
+            ),
+            self.researcher.retrievers[0],
+            query_domains,
+            researcher=self.researcher,
+        )
         self.logger.info(f"Initial search results obtained: {len(search_results)} results")
 
         await stream_output(
@@ -73,7 +95,7 @@ class ResearchConductor:
         # Remove duplicate logging - this will be logged once in conduct_research instead
 
         outline = await plan_research_outline(
-            query=query,
+            query=plan_query,
             search_results=search_results,
             agent_role_prompt=self.researcher.role,
             cfg=self.researcher.cfg,
@@ -211,6 +233,22 @@ class ResearchConductor:
         if self.researcher.cfg.curate_sources:
             self.logger.info("Curating sources")
             self.researcher.context = await self.researcher.source_curator.curate_sources(research_data)
+
+        # Replace joined compress context with fixed-budget Hybrid Evidence Pack.
+        # research_sources stay intact for SourceRegistry citations. :-)
+        try:
+            from rag.web_evidence import apply_web_evidence_pack
+
+            replaced = await apply_web_evidence_pack(self.researcher)
+            if replaced and self.researcher.verbose:
+                await stream_output(
+                    "logs",
+                    "web_evidence_pack",
+                    f"📦 Evidence Pack ready ({len(str(self.researcher.context))} chars)",
+                    self.researcher.websocket,
+                )
+        except Exception as pack_exc:
+            self.logger.warning("Web Evidence Pack skipped (keeping compress context): %s", pack_exc)
 
         if self.researcher.verbose:
             await stream_output(
@@ -538,12 +576,38 @@ class ResearchConductor:
                 scraped_data = await self._scrape_data_by_urls(sub_query, query_domains)
                 self.logger.info(f"Scraped data size: {len(scraped_data)}")
 
-            # Get similar content based on scraped data
-            # QUALITY: compression path below is unchanged and remains the
-            # sole source of context for report generation.
+            # Get similar content based on scraped data.
+            # When Web Evidence Pack is on, skip embedding compress (pre-filter only);
+            # final Writer context is rebuilt from PG Hybrid RAG after research. :-)
             if scraped_data:
-                web_context = await self.researcher.context_manager.get_similar_content_by_query(sub_query, scraped_data)
-                self.logger.info(f"Web content found for sub-query: {len(str(web_context)) if web_context else 0} chars")
+                use_light_preview = False
+                try:
+                    from rag.web_evidence import (
+                        has_rag_scope,
+                        lightweight_scrape_preview,
+                        web_evidence_pack_enabled,
+                    )
+
+                    use_light_preview = web_evidence_pack_enabled() and has_rag_scope(
+                        getattr(self.researcher, "headers", None)
+                    )
+                except Exception:
+                    use_light_preview = False
+
+                if use_light_preview:
+                    web_context = lightweight_scrape_preview(scraped_data)
+                    self.logger.info(
+                        "Web preview (no embed compress) for sub-query: %s chars",
+                        len(str(web_context)) if web_context else 0,
+                    )
+                else:
+                    web_context = await self.researcher.context_manager.get_similar_content_by_query(
+                        sub_query, scraped_data
+                    )
+                    self.logger.info(
+                        "Web content found for sub-query: %s chars",
+                        len(str(web_context)) if web_context else 0,
+                    )
                 # Best-effort vector persistence AFTER context is built.
                 # Failures never alter web_context or the research pipeline.
                 try:

@@ -26,7 +26,11 @@ import { DEFAULT_CHAT_BOX_SETTINGS, readChatBoxSettingsFromStorage } from "@/con
 import { apiFetch } from '@/lib/apiFetch';
 import {
   chatReportCreatedMessage,
+  matchClarificationReply,
   mergeChatWithReportTopic,
+  PendingReportClarification,
+  recentChatMessagesFromOrderedData,
+  ReportIntentClarification,
   submitChatReportJob,
 } from '@/lib/submitChatReport';
 
@@ -70,6 +74,7 @@ export default function Home() {
 
   // Side report created from chat — do not overwrite this chat session's answer. :-)
   const sideReportSessionIdRef = useRef<string | null>(null);
+  const pendingReportClarificationRef = useRef<PendingReportClarification | null>(null);
 
   // Job-based research: POST create job, then poll GET /api/jobs/{id}
   // IMPORTANT: do not wrap this hook in useRef — that freezes the first render's
@@ -113,13 +118,66 @@ export default function Home() {
   };
 
   /** Chat tool call → new sidebar report task, then open that task. :-) */
-  const submitReportRequestedInChat = async (toolCall: any) =>
+  const submitReportRequestedInChat = async (
+    toolCall: any,
+    extras?: {
+      forceDomain?: string;
+      forceSense?: string;
+      resolvedTask?: string;
+      skipIntent?: boolean;
+    }
+  ) =>
     submitChatReportJob({
       toolCall,
       chatBoxSettings,
       saveResearch,
       parentChatId: currentResearchId,
+      recentChatMessages: recentChatMessagesFromOrderedData(orderedData),
+      forceDomain: extras?.forceDomain,
+      forceSense: extras?.forceSense,
+      resolvedTask: extras?.resolvedTask,
+      skipIntent: extras?.skipIntent,
     });
+
+  const applyCreatedReportToChat = (
+    created: { sessionId: string; jobId: string; task: string; tenantId?: string },
+    taskText: string,
+    questionData: QuestionData,
+    researchId: string | null
+  ) => {
+    const content = chatReportCreatedMessage(taskText);
+    const metadata = {
+      report_request: {
+        research_id: created.sessionId,
+        job_id: created.jobId,
+        task: taskText,
+      },
+    };
+    sideReportSessionIdRef.current = created.sessionId;
+    setSessionMode('research');
+    setIsInChatMode(true);
+    setShowResult(true);
+    setAnswer('');
+    const chatData: ChatData = { type: 'chat', content, metadata };
+    setOrderedData((prev) => {
+      const withUser = prev.some(
+        (d) => d.type === 'question' && d.content === questionData.content
+      )
+        ? prev
+        : [...prev, questionData];
+      return [...mergeChatWithReportTopic(withUser, taskText), chatData];
+    });
+    if (researchId) {
+      addChatMessage(researchId, { role: 'assistant', content, metadata, timestamp: Date.now() }).catch(
+        console.error
+      );
+    }
+    observeJob(created.jobId, {
+      reportSessionId: created.sessionId,
+      tenantId: created.tenantId,
+    });
+    toast.success(`左侧已开始生成：${taskText.slice(0, 28)}`);
+  };
 
   const handleChat = async (message: string) => {
     setIsInChatMode(true);
@@ -150,6 +208,43 @@ export default function Home() {
     }
 
     setOrderedData(prevOrder => [...prevOrder, questionData]);
+
+    // Resolve pending acronym clarification (e.g. SSE tech vs finance). :-)
+    const pending = pendingReportClarificationRef.current;
+    if (pending) {
+      const matched = matchClarificationReply(message, pending);
+      if (matched) {
+        pendingReportClarificationRef.current = null;
+        try {
+          const created = await submitReportRequestedInChat(pending.toolCall, {
+            forceDomain: matched.domain,
+            forceSense: matched.label,
+            resolvedTask: matched.resolved_task,
+            skipIntent: true,
+          });
+          applyCreatedReportToChat(
+            created,
+            String(pending.toolCall.task || created.task || ''),
+            questionData,
+            researchId
+          );
+        } catch (submitError: any) {
+          console.error('Failed to submit clarified report:', submitError);
+          toast.error('报告任务提交失败');
+          setOrderedData((prev) => [
+            ...prev,
+            {
+              type: 'chat',
+              content: `报告任务未能提交：${submitError?.message || '请稍后重试'}`,
+            } as ChatData,
+          ]);
+        } finally {
+          setIsProcessingChat(false);
+        }
+        return;
+      }
+      pendingReportClarificationRef.current = null;
+    }
     
     // Desktop: call chat API
     try {
@@ -191,47 +286,33 @@ export default function Home() {
           try {
             const created = await submitReportRequestedInChat(reportToolCall);
             const taskText = String(reportToolCall.task || created.task || '');
-            data.response.content = chatReportCreatedMessage(taskText);
-            data.response.metadata = {
-              ...(data.response.metadata || {}),
-              report_request: {
-                research_id: created.sessionId,
-                job_id: created.jobId,
-                task: taskText,
-              },
-            };
-            // Right chat stays; left panel switches to the new report progress. :-)
-            sideReportSessionIdRef.current = created.sessionId;
-            setSessionMode('research');
-            setIsInChatMode(true);
-            setShowResult(true);
-            setAnswer('');
-            const chatData: ChatData = {
-              type: 'chat',
-              content: data.response.content,
-              metadata: data.response.metadata,
-            };
-            setOrderedData((prev) => {
-              const withUser = prev.some(
-                (d) => d.type === 'question' && d.content === questionData.content
-              )
-                ? prev
-                : [...prev, questionData];
-              return [...mergeChatWithReportTopic(withUser, taskText), chatData];
-            });
-            if (researchId) {
-              addChatMessage(researchId, data.response).catch(console.error);
-            }
-            observeJob(created.jobId, {
-              reportSessionId: created.sessionId,
-              tenantId: created.tenantId,
-            });
-            toast.success(`左侧已开始生成：${taskText.slice(0, 28)}`);
+            applyCreatedReportToChat(created, taskText, questionData, researchId);
             return;
           } catch (submitError: any) {
-            console.error('Failed to submit report requested in chat:', submitError);
-            data.response.content = `报告任务未能提交：${submitError?.message || '请稍后重试'}`;
-            toast.error('报告任务提交失败');
+            if (submitError instanceof ReportIntentClarification) {
+              const q =
+                submitError.payload.clarification_question ||
+                '请确认你指的是哪一个含义？';
+              pendingReportClarificationRef.current = {
+                toolCall: reportToolCall,
+                options: submitError.payload.options || [],
+                question: q,
+                originalTask: String(reportToolCall.task || ''),
+              };
+              data.response.content = q;
+              data.response.metadata = {
+                ...(data.response.metadata || {}),
+                intent_clarify: {
+                  options: submitError.payload.options || [],
+                  ambiguous_tokens: submitError.payload.ambiguous_tokens || [],
+                },
+              };
+              toast('请先确认报告主题含义');
+            } else {
+              console.error('Failed to submit report requested in chat:', submitError);
+              data.response.content = `报告任务未能提交：${submitError?.message || '请稍后重试'}`;
+              toast.error('报告任务提交失败');
+            }
           }
         }
         // Check if response contains valid content

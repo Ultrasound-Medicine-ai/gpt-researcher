@@ -508,6 +508,26 @@ async def run_research_job(ctx: dict, job_id: str, research_params: dict[str, An
         await runtime.abort_check("post_plan")
         await runtime.save_checkpoint(planning_done=True, stage="researching")
 
+        # Propagate tenant/session so ResearchConductor can ingest scrapes and
+        # rebuild Writer context via Hybrid Evidence Pack. :-)
+        scoped_headers = dict(research_params.get("headers") or {})
+        scoped_headers["X-GPTR-Tenant-Id"] = tenant_id
+        scoped_headers["X-GPTR-User-Id"] = (
+            research_params.get("user_id") or "anonymous"
+        )
+        scoped_headers["X-GPTR-Job-Id"] = job_id
+        session_for_rag = research_params.get("session_id")
+        if session_for_rag:
+            scoped_headers["X-GPTR-Session-Id"] = str(session_for_rag)
+        planning_hint = str(research_params.get("planning_hint") or "").strip()
+        if planning_hint:
+            scoped_headers["X-GPTR-Planning-Hint"] = planning_hint[:4000]
+        expanded_task = str(
+            research_params.get("expanded_task") or research_params.get("task") or ""
+        ).strip()
+        if expanded_task:
+            scoped_headers["X-GPTR-Expanded-Task"] = expanded_task[:2000]
+
         agent_kwargs = dict(
             task=research_params["task"],
             report_type=research_params.get("report_type", "research_report"),
@@ -516,7 +536,7 @@ async def run_research_job(ctx: dict, job_id: str, research_params: dict[str, An
             document_urls=document_urls,
             tone=tone,
             websocket=sink,
-            headers=research_params.get("headers"),
+            headers=scoped_headers,
             query_domains=research_params.get("query_domains") or [],
             config_path=research_params.get("config_path")
             or os.environ.get("CONFIG_PATH", "default"),
@@ -544,8 +564,6 @@ async def run_research_job(ctx: dict, job_id: str, research_params: dict[str, An
 
         from trusted_report.flags import trusted_report_pipeline_enabled
         from trusted_report.execution import execute_report_job
-
-        session_for_rag = research_params.get("session_id")
 
         async def _after_research(researcher_obj, sources_list):
             await runtime.check_cancel("post_research")

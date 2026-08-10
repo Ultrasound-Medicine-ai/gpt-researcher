@@ -87,13 +87,45 @@ def test_embedding_candidates_default_and_env(monkeypatch):
     assert "EMBEDDING_FALLBACKS" in src
     assert "_embedding_candidates" in src
     assert "create_memory_with_failover" in src
+    assert "_filter_candidates_by_dim" in src
+    assert "_STICKY_EMBEDDING" in src
     # LangChain retrievers validate the object against this base class.  A
     # duck-typed wrapper is rejected before embed_query can execute.
     assert "class _FailoverEmbeddings(Embeddings)" in src
-    monkeypatch.setenv("EMBEDDING_FALLBACKS", "dashscope:text-embedding-v1")
+    monkeypatch.setenv("EMBEDDING_DIM", "1536")
+    monkeypatch.setenv(
+        "EMBEDDING_FALLBACKS",
+        "dashscope:text-embedding-v1,ollama:nomic-embed-text",
+    )
     ns: dict = {"os": __import__("os")}
     exec(
         """
+_KNOWN_EMBEDDING_DIMS = {
+    ("dashscope", "text-embedding-v1"): 1536,
+    ("dashscope", "text-embedding-v2"): 1536,
+    ("ollama", "nomic-embed-text"): 768,
+}
+
+def expected_embedding_dim():
+    raw = (os.environ.get("EMBEDDING_DIM") or "1536").strip()
+    try:
+        return max(1, int(raw))
+    except ValueError:
+        return 1536
+
+def _known_dim(provider, model):
+    return _KNOWN_EMBEDDING_DIMS.get((provider.lower(), model.strip()))
+
+def _filter_candidates_by_dim(candidates):
+    target = expected_embedding_dim()
+    kept = []
+    for p, m in candidates:
+        dim = _known_dim(p, m)
+        if dim is not None and dim != target:
+            continue
+        kept.append((p, m))
+    return kept
+
 def _embedding_candidates(provider, model):
     candidates = [(provider, model)]
     raw = os.environ.get("EMBEDDING_FALLBACKS", "").strip()
@@ -107,9 +139,10 @@ def _embedding_candidates(provider, model):
         cand = (p.strip(), m.strip())
         if cand not in candidates:
             candidates.append(cand)
-    return candidates
+    return _filter_candidates_by_dim(candidates)
 """,
         ns,
     )
     cands = ns["_embedding_candidates"]("dashscope", "text-embedding-v2")
     assert ("dashscope", "text-embedding-v1") in cands
+    assert ("ollama", "nomic-embed-text") not in cands

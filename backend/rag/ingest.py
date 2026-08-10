@@ -22,6 +22,27 @@ def _as_uuid(value: Any) -> Optional[uuid.UUID]:
         return None
 
 
+def _coerce_vector(vec: Any) -> Optional[list[float]]:
+    """Accept only vectors matching EMBEDDING_DIM; else None (FTS-only). :-)"""
+    if vec is None:
+        return None
+    try:
+        from gpt_researcher.memory.embeddings import expected_embedding_dim
+
+        values = list(vec)
+        expected = expected_embedding_dim()
+        if len(values) != expected:
+            logger.warning(
+                "Skipping embedding with dim=%s (expected %s)",
+                len(values),
+                expected,
+            )
+            return None
+        return values
+    except Exception:
+        return None
+
+
 async def _embed_texts(texts: list[str]) -> list[Optional[list[float]]]:
     if not texts:
         return []
@@ -39,13 +60,13 @@ async def _embed_texts(texts: list[str]) -> list[Optional[list[float]]]:
         if hasattr(emb, "embed_documents"):
             try:
                 vectors = emb.embed_documents(texts)
-                return [list(v) if v is not None else None for v in vectors]
+                return [_coerce_vector(v) for v in vectors]
             except Exception as exc:
                 logger.warning("Batch embed failed, trying one-by-one: %s", exc)
         out: list[Optional[list[float]]] = []
         for t in texts:
             try:
-                out.append(list(emb.embed_query(t)))
+                out.append(_coerce_vector(emb.embed_query(t)))
             except Exception:
                 out.append(None)
         return out

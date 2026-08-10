@@ -358,17 +358,18 @@ class GPTResearcher:
         if not (self.agent and self.role):
             self._current_step = "agent_selection"
             await self._log_event("action", action="choose_agent")
-            # Filter out encoding parameter as it's not supported by LLM APIs
-            # filtered_kwargs = {k: v for k, v in self.kwargs.items() if k != 'encoding'}
+            # Prefer expanded/disambiguated task for persona selection only. :-)
+            choose_query = str(
+                (self.headers or {}).get("X-GPTR-Expanded-Task") or self.query
+            ).strip() or self.query
             self.agent, self.role = await choose_agent(
-                query=self.query,
+                query=choose_query,
                 cfg=self.cfg,
                 parent_query=self.parent_query,
                 cost_callback=self.add_costs,
                 headers=self.headers,
                 prompt_family=self.prompt_family,
                 **self.kwargs,
-                # **filtered_kwargs
             )
             await self._log_event("action", action="agent_selected", details={
                 "agent": self.agent,

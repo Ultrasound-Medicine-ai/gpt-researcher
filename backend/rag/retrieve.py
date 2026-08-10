@@ -129,7 +129,10 @@ def vector_search(
         return []
     try:
         from gpt_researcher.config.config import Config
-        from gpt_researcher.memory.embeddings import create_memory_with_failover
+        from gpt_researcher.memory.embeddings import (
+            create_memory_with_failover,
+            expected_embedding_dim,
+        )
 
         cfg = Config()
         emb = create_memory_with_failover(
@@ -138,6 +141,14 @@ def vector_search(
             **cfg.embedding_kwargs,
         ).get_embeddings()
         vector = list(emb.embed_query(query))
+        expected = expected_embedding_dim()
+        if len(vector) != expected:
+            logger.warning(
+                "Query embedding dim=%s != EMBEDDING_DIM=%s — FTS-only",
+                len(vector),
+                expected,
+            )
+            return []
     except Exception as exc:
         logger.warning("Vector query embed failed — FTS-only: %s", exc)
         try:

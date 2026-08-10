@@ -95,6 +95,29 @@ class PostgresReportStore:
                 results.append(self._session_to_dict(research, report, list(msg_rows)))
             return results
 
+    async def list_recent_report_titles(
+        self, *, user_id: str, limit: int = 8
+    ) -> List[str]:
+        """Recent session questions for planning disambiguation (lightweight). :-)"""
+        if not user_id:
+            return []
+        lim = max(1, min(30, int(limit or 8)))
+        async with self._session_factory() as session:
+            stmt = (
+                select(ResearchSession.question)
+                .where(ResearchSession.user_id == user_id)
+                .where(ResearchSession.question.is_not(None))
+                .order_by(ResearchSession.updated_at.desc())
+                .limit(lim)
+            )
+            rows = (await session.execute(stmt)).scalars().all()
+            out: List[str] = []
+            for q in rows:
+                text = str(q or "").strip()
+                if text:
+                    out.append(text)
+            return out
+
     async def get_report(
         self, report_id: str, user_id: str | None = None
     ) -> Dict[str, Any] | None:

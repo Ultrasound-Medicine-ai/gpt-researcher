@@ -27,7 +27,7 @@ JsonType = JSON().with_variant(JSONB(), "postgresql")
 try:
     from pgvector.sqlalchemy import Vector as _PgVector
 
-    EmbeddingVector = _PgVector(int(os.getenv("EMBEDDING_DIM", "1536")))
+    EmbeddingVector = _PgVector(int(os.getenv("EMBEDDING_DIM", "1024")))
 except Exception:  # pragma: no cover - tests without pgvector
     EmbeddingVector = JsonType
 
