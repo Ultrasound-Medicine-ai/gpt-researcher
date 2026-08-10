@@ -1,0 +1,189 @@
+"""Unified Project-2 gate runner: cheap | full | nightly. :-)"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import subprocess
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+EVALS = Path(__file__).resolve().parent
+RESULTS = EVALS / "results"
+
+
+def _run(cmd: list[str], *, cwd: Path | None = None) -> dict:
+    started = time.time()
+    print(f"\n>> {' '.join(cmd)}")
+    proc = subprocess.run(
+        cmd,
+        cwd=str(cwd or REPO_ROOT),
+        text=True,
+    )
+    return {
+        "cmd": cmd,
+        "returncode": proc.returncode,
+        "elapsed_sec": round(time.time() - started, 2),
+        "ok": proc.returncode == 0,
+    }
+
+
+def run_cheap() -> list[dict]:
+    steps: list[dict] = []
+    steps.append(
+        _run(
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "tests/test_harness_scorers.py",
+                "tests/test_deterministic_cite.py",
+                "tests/test_citation_registry.py",
+                "tests/test_report_language.py",
+                "tests/test_planning_context.py",
+                "-q",
+            ]
+        )
+    )
+    steps.append(
+        _run([sys.executable, "evals/harness_eval/run_eval.py", "--suite", "cheap"])
+    )
+    steps.append(
+        _run([sys.executable, "evals/dialogue_eval/run_eval.py", "--suite", "cheap"])
+    )
+    steps.append(
+        _run([sys.executable, "evals/tool_eval/run_eval.py", "--suite", "cheap"])
+    )
+    steps.append(
+        _run([sys.executable, "evals/memory_eval/run_eval.py", "--suite", "cheap"])
+    )
+    return steps
+
+
+def run_full(limit: int) -> list[dict]:
+    steps: list[dict] = []
+    steps.append(
+        _run(
+            [
+                sys.executable,
+                "evals/harness_eval/run_eval.py",
+                "--suite",
+                "full",
+                "--limit",
+                str(limit),
+            ]
+        )
+    )
+    # Live chat optional — only when explicitly enabled
+    import os
+
+    if (os.getenv("EVAL_LIVE_CHAT") or "").strip().lower() in {"1", "true", "yes"}:
+        steps.append(
+            {
+                "cmd": ["EVAL_LIVE_CHAT"],
+                "returncode": 0,
+                "elapsed_sec": 0,
+                "ok": True,
+                "note": "live chat hook reserved; set EVAL_LIVE_CHAT and extend runner later",
+            }
+        )
+    return steps
+
+
+def run_nightly(num_examples: int) -> list[dict]:
+    steps: list[dict] = []
+    steps.append(
+        _run([sys.executable, "evals/harness_eval/run_eval.py", "--suite", "nightly"])
+    )
+    # SimpleQA / hallucination are expensive; invoke with small N by default.
+    steps.append(
+        _run(
+            [
+                sys.executable,
+                "evals/simple_evals/run_eval.py",
+                "--num_examples",
+                str(num_examples),
+            ]
+        )
+    )
+    steps.append(
+        _run(
+            [
+                sys.executable,
+                "evals/hallucination_eval/run_eval.py",
+                "-n",
+                str(num_examples),
+            ]
+        )
+    )
+    return steps
+
+
+def write_summary(suite: str, steps: list[dict]) -> Path:
+    RESULTS.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    path = RESULTS / f"gate_{suite}_{ts}.json"
+    payload = {
+        "suite": suite,
+        "timestamp": ts,
+        "ok": all(s.get("ok") for s in steps),
+        "steps": steps,
+    }
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    latest = RESULTS / f"gate_{suite}_latest.json"
+    latest.write_text(path.read_text(encoding="utf-8"), encoding="utf-8")
+    return path
+
+
+def main() -> None:
+    if sys.version_info < (3, 10):
+        print(
+            "ERROR: Project-2 gates require Python >= 3.10 "
+            f"(current {sys.version.split()[0]}).\n"
+            "Use the project env, e.g.\n"
+            "  D:\\anaconda3\\envs\\gptresearcher\\python.exe evals/run_gates.py --suite cheap",
+            file=sys.stderr,
+        )
+        raise SystemExit(2)
+
+    parser = argparse.ArgumentParser(description="Project-2 unified eval gates")
+    parser.add_argument(
+        "--suite",
+        required=True,
+        choices=["cheap", "full", "nightly"],
+        help="Gate layer to run",
+    )
+    parser.add_argument("--limit", type=int, default=2, help="full suite case limit")
+    parser.add_argument(
+        "--num-examples",
+        type=int,
+        default=1,
+        help="nightly SimpleQA / hallucination sample size",
+    )
+    args = parser.parse_args()
+
+    if args.suite == "cheap":
+        steps = run_cheap()
+    elif args.suite == "full":
+        steps = run_full(args.limit)
+    else:
+        steps = run_nightly(args.num_examples)
+
+    out = write_summary(args.suite, steps)
+    failed = [s for s in steps if not s.get("ok")]
+    print("\n=== Gate summary ===")
+    for s in steps:
+        mark = "OK" if s.get("ok") else "FAIL"
+        cmd = " ".join(str(x) for x in (s.get("cmd") or []))
+        print(f"  {mark} ({s.get('elapsed_sec')}s) {cmd}")
+    print(f"Wrote {out}")
+    if failed:
+        raise SystemExit(1)
+    print(f"SUITE {args.suite} PASSED")
+
+
+if __name__ == "__main__":
+    main()

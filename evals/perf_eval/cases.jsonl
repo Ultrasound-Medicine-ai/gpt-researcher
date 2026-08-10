@@ -1,0 +1,2 @@
+{"id": "perf-chat-p95-001", "pillar": "perf", "suite": "full", "status": "blocked", "target": "chat", "reason": "load harness not implemented in phase 1", "scenario": "10 concurrent /api/chat fact questions", "expect": {"p95_latency_ms_max": 8000}}
+{"id": "perf-job-queue-p95-001", "pillar": "perf", "suite": "full", "status": "blocked", "target": "job", "reason": "load harness not implemented in phase 1", "scenario": "5 concurrent research jobs short report", "expect": {"p95_wall_sec_max": 180}}

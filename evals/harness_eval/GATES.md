@@ -1,46 +1,35 @@
-# Harness gates
+# Harness gates (Agent A reports)
 
-## cheap (required before merge / phase complete)
+Canonical Project-2 gate doc: **[../GATES.md](../GATES.md)**.
+
+## cheap (legacy direct invoke)
 
 ```bash
 python -m pytest tests/test_harness_scorers.py tests/test_deterministic_cite.py tests/test_citation_registry.py tests/test_report_language.py -q
 python evals/harness_eval/run_eval.py --suite cheap
 ```
 
-Must exit 0. Offline cases only; session probe soft-passes if API is down.
-
-## full (staging)
+Prefer:
 
 ```bash
-python evals/harness_eval/run_eval.py --suite full --limit 2
+python evals/run_gates.py --suite cheap
 ```
 
-Live research — costs money/time; not for every PR.
+## full / nightly
 
-## nightly (pre-release)
-
-```bash
-python evals/harness_eval/run_eval.py --suite nightly
-# plus:
-#   evals/simple_evals/run_eval.py --num_examples N
-#   evals/hallucination_eval/run_eval.py -n N
-```
+See [../GATES.md](../GATES.md).
 
 ## Quality invariant
 
-Infrastructure (PostgreSQL / Redis / MinIO / PGVector / ARQ) is **optional**.
+Infrastructure (PostgreSQL / Redis / MinIO / PGVector / ARQ) is **optional** for offline cases.
 
 - Unset `DATABASE_URL` → JSON report store (legacy path)
 - Enqueue failure → Job stays `pending_dispatch` + **503**; production never `asyncio.create_task` (`ALLOW_IN_PROCESS_RESEARCH_FALLBACK=false`)
-- UI path: `POST /api/jobs/research` then poll `GET /api/jobs/{id}` every 1–2s; `job_id` in localStorage for refresh recovery
-- Completed only after Report (+ sources/files) persisted successfully
-- Legacy WS `start` only if `ENABLE_WS_START_RESEARCH=true`
-- Vector persist / object store / deterministic cite failures are **non-fatal**
+- UI path: `POST /api/jobs/research` then poll `GET /api/jobs/{id}` every 1–2s
 - Report generation parameters are never altered by persistence wrappers
 - **PostgreSQL is the job state source of truth** when configured; Redis is queue/cache only
 
-## Human calibration (project 2)
+## Human calibration
 
-LLM-as-judge scores must be spot-checked by humans on a fixed sample each release
-(e.g. 20 cases). Record disagreements and adjust prompts/thresholds — do not ship
-on judge scores alone.
+LLM-as-judge scores must be spot-checked by humans on a fixed sample each release.
+Do not ship on judge scores alone.

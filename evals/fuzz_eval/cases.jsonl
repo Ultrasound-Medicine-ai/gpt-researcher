@@ -1,0 +1,2 @@
+{"id": "fuzz-ambiguous-referent-001", "pillar": "fuzz", "suite": "cheap", "status": "blocked", "target": "chat", "reason": "fuzz runner not implemented in phase 1", "user": "把那个再详细一点", "expect": {"ask_clarify": true}}
+{"id": "fuzz-asr-noise-001", "pillar": "fuzz", "suite": "cheap", "status": "blocked", "target": "chat", "reason": "fuzz runner not implemented in phase 1", "user": "帮我调演 SSE 服雾器推送", "expect": {"intent_guess_any": ["SSE", "Server-Sent"]}}

@@ -1,0 +1,3 @@
+# Gate result JSON (gate_*_*.json). Keep directory; ignore bulky run artifacts.
+gate_*.json
+!gate_*_latest.json
