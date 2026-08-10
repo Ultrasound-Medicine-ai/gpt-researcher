@@ -60,6 +60,9 @@ def run_cheap() -> list[dict]:
     steps.append(
         _run([sys.executable, "evals/memory_eval/run_eval.py", "--suite", "cheap"])
     )
+    steps.append(
+        _run([sys.executable, "evals/fuzz_eval/run_eval.py", "--suite", "cheap"])
+    )
     return steps
 
 

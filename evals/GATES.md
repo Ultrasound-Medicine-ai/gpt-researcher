@@ -11,7 +11,7 @@ Upstream open-source suites cover **Agent A (reports)** only; dialogue / tools /
 | 2 Tool chain | `tool_eval/` | mock tool selection + params | live tools |
 | 3 Memory / DST | `memory_eval/` | fixture + session soft-pass | live isolation |
 | 4 Regression baselines | `harness_eval/` + SimpleQA + hallucination | offline report scorers | live research + factuality |
-| 5 Fuzz | `fuzz_eval/` | schema only (`blocked`) | periodic weakness mining |
+| 5 Fuzz | `fuzz_eval/` | offline noisy intent + tool forbid | periodic weakness mining |
 | 6 Perf (P95) | `perf_eval/` | schema only (`blocked`) | release load check |
 | 7 Tracing / metrics | `results/` JSON | gate summary artifact | dashboards later |
 
@@ -38,8 +38,11 @@ python evals/run_portfolio.py --num-examples 3
 1. `pytest` harness-related unit tests (no LLM)
 2. `harness_eval --suite cheap` (offline report fixtures)
 3. `dialogue_eval` / `tool_eval` / `memory_eval` cheap mock runners
+4. `fuzz_eval` cheap offline runner (vague referents / ASR noise → no silent report)
 
 Must exit 0. Session probes soft-pass if API is down.
+
+CI: `.github/workflows/evals-cheap.yml` runs this suite on PRs that touch evals / planning intent / related tests.
 
 ### full contents
 

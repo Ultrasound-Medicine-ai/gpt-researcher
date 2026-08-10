@@ -1,0 +1,68 @@
+name: Project-2 Cheap Eval Gates
+
+on:
+  pull_request:
+    paths:
+      - "evals/**"
+      - "backend/jobs/planning_context.py"
+      - "tests/test_harness_scorers.py"
+      - "tests/test_deterministic_cite.py"
+      - "tests/test_citation_registry.py"
+      - "tests/test_report_language.py"
+      - "tests/test_planning_context.py"
+      - "gpt_researcher/actions/citation_registry.py"
+      - "gpt_researcher/actions/deterministic_cite.py"
+      - "gpt_researcher/actions/markdown_processing.py"
+      - ".github/workflows/evals-cheap.yml"
+  push:
+    branches: [main, master]
+    paths:
+      - "evals/**"
+      - "backend/jobs/planning_context.py"
+      - "tests/test_harness_scorers.py"
+      - "tests/test_deterministic_cite.py"
+      - "tests/test_citation_registry.py"
+      - "tests/test_report_language.py"
+      - "tests/test_planning_context.py"
+      - "gpt_researcher/actions/citation_registry.py"
+      - "gpt_researcher/actions/deterministic_cite.py"
+      - "gpt_researcher/actions/markdown_processing.py"
+      - ".github/workflows/evals-cheap.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  cheap-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-asyncio python-dotenv
+          pip install -r requirements.txt
+
+      - name: Run cheap eval gates
+        env:
+          PYTHONPATH: ".:backend"
+          RESEARCH_USER_PLANNING_CONTEXT: "true"
+          RESEARCH_INTENT_CLARIFY: "true"
+          RESEARCH_AMBIGUITY_PREFERENCE: "tech"
+        run: python evals/run_gates.py --suite cheap
+
+      - name: Upload gate artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-cheap-results
+          path: evals/results/gate_cheap_*.json
+          if-no-files-found: warn

@@ -4,7 +4,7 @@ This directory holds evaluation tools for GPT-Researcher.
 
 - **Upstream (open source):** report factuality (`simple_evals`) and faithfulness (`hallucination_eval`).
 - **Secondary (Project 1 harness):** product report regressions (`harness_eval`).
-- **Project 2:** dialogue, tools, memory, fuzz/perf stubs, and unified gates (`run_gates.py`).
+- **Project 2:** dialogue, tools, memory, fuzz cheap gates, perf stubs, and unified gates (`run_gates.py`).
 
 See **[GATES.md](./GATES.md)** for cheap / full / nightly commands and pillar mapping.
 
@@ -32,8 +32,8 @@ D:\anaconda3\envs\gptresearcher\python.exe evals/run_gates.py --suite cheap
 | `dialogue_eval/` | Multi-turn chat intent / clarify / refuse |
 | `tool_eval/` | Tool selection + argument contracts |
 | `memory_eval/` | Session isolation + slot consistency |
-| `fuzz_eval/` | Adversarial / noisy inputs (Phase 1: blocked stubs) |
-| `perf_eval/` | Latency / concurrency P95 (Phase 1: blocked stubs) |
+| `fuzz_eval/` | Adversarial / noisy inputs (cheap offline runner) |
+| `perf_eval/` | Latency / concurrency P95 (still blocked stubs) |
 | `run_gates.py` | Unified `--suite cheap\|full\|nightly` entrypoint |
 | `run_portfolio.py` | One-shot pack → resume metrics (`PORTFOLIO_METRICS.md`) |
 | `PORTFOLIO.md` | Interview / resume narrative |

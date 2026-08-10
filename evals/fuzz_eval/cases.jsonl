@@ -1,2 +1,2 @@
-{"id": "fuzz-ambiguous-referent-001", "pillar": "fuzz", "suite": "cheap", "status": "blocked", "target": "chat", "reason": "fuzz runner not implemented in phase 1", "user": "把那个再详细一点", "expect": {"ask_clarify": true}}
-{"id": "fuzz-asr-noise-001", "pillar": "fuzz", "suite": "cheap", "status": "blocked", "target": "chat", "reason": "fuzz runner not implemented in phase 1", "user": "帮我调演 SSE 服雾器推送", "expect": {"intent_guess_any": ["SSE", "Server-Sent"]}}
+{"id": "fuzz-ambiguous-referent-001", "pillar": "fuzz", "suite": "cheap", "status": "active", "target": "chat", "user": "把那个再详细一点", "expect": {"forbid_tools": ["create_research_report"], "no_tools": true}}
+{"id": "fuzz-asr-noise-001", "pillar": "fuzz", "suite": "cheap", "status": "active", "target": "chat", "user": "帮我调演 SSE ，四百字左右", "expect": {"intent_action": "clarify", "forbid_tools": ["create_research_report"], "must_include_any": ["Server-Sent Events", "上海证券", "上交所", "SSE"]}}

@@ -90,7 +90,8 @@ class ResearchEvaluator:
     def evaluate_research(self, research_data: Dict, output_dir: Optional[str] = None) -> Dict:
         if output_dir is None:
             output_dir = DEFAULT_OUTPUT_DIR
-        source_text = research_data.get("context", "")
+        # Keep list/dict context intact — do NOT str(list) (repr truncates to ~1 doc). :-)
+        source_text = research_data.get("context")
         if not source_text:
             eval_result = {
                 "input": research_data["query"],
@@ -102,7 +103,7 @@ class ResearchEvaluator:
         else:
             eval_result = self.hallucination_evaluator.evaluate_response(
                 model_output=research_data["report"],
-                source_text=source_text if isinstance(source_text, str) else str(source_text),
+                source_text=source_text,
             )
             eval_result["input"] = research_data["query"]
             eval_result["cost"] = research_data.get("cost")
@@ -124,6 +125,7 @@ async def main_async(num_queries: int, output_dir: str, judge: str) -> dict:
     total_hallucinated = 0
     total_responses = 0
     total_evaluated = 0
+    severity_counts = {"MAJOR": 0, "MINOR": 0, "NONE": 0, "UNKNOWN": 0}
 
     for query in queries:
         try:
@@ -136,6 +138,10 @@ async def main_async(num_queries: int, output_dir: str, judge: str) -> dict:
                 total_evaluated += 1
                 if eval_results["is_hallucination"]:
                     total_hallucinated += 1
+            sev = (eval_results.get("severity") or "UNKNOWN").upper()
+            if sev not in severity_counts:
+                sev = "UNKNOWN"
+            severity_counts[sev] += 1
         except Exception as exc:  # noqa: BLE001
             logger.error("Error processing query '%s': %s", query, exc)
             all_results.append({"input": query, "error": str(exc), "is_hallucination": None})
@@ -146,6 +152,7 @@ async def main_async(num_queries: int, output_dir: str, judge: str) -> dict:
     aggregate_results = {
         "suite": "hallucination",
         "judge": judge,
+        "judge_mode": "multi_source_evidence_pack_major_only",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "total_queries": len(queries),
         "successful_queries": len([r for r in all_results if "error" not in r]),
@@ -153,6 +160,7 @@ async def main_async(num_queries: int, output_dir: str, judge: str) -> dict:
         "total_evaluated": total_evaluated,
         "total_hallucinated": total_hallucinated,
         "hallucination_rate": hallucination_rate,
+        "severity_counts": severity_counts,
         "total_cost": sum(float(r.get("cost") or 0) for r in all_results),
         "results": all_results,
     }

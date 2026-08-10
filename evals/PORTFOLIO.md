@@ -54,17 +54,16 @@ nightly / portfolio（质量基准）
 | B Chat Agent | 意图、工具选择、澄清、拒答 | dialogue/tool cheap + live chat |
 | C 记忆/隔离 | 槽位、跨轮、session soft-pass | memory_eval |
 
-## 简历可写指标（示例：本机 2026-08-10 抽样 n=3）
+## 简历可写指标（以 `PORTFOLIO_METRICS.md` 为准）
 
-从 `evals/results/PORTFOLIO_METRICS.md` 抄最新值。一次实测样例：
+从 `evals/results/PORTFOLIO_METRICS.md` 抄最新值。本机 2026-08-10 **n=10** 样例：
 
-- Cheap gate：**PASS**（对话/工具/记忆 + 报告 offline scorers）
-- Full harness live：**PASS**（1 条 web research）
-- Live chat tool routing：**3/3 PASS**
-- SimpleQA：attempted accuracy **100%**，F1 **0.80**，correct rate **66.7%**（含 1× NOT_ATTEMPTED），样例成本 ≈ **$0.17**
-- Hallucination rate：**66.7%**（2/3；judge=lite，对长报告偏严，面试需说明样本量与 judge 设定）
+- Cheap / full harness / live chat：**PASS**（live chat 3/3）
+- SimpleQA：**accuracy / F1 = 70%**（7/10 CORRECT），成本 ≈ **$0.47**
+- Hallucination（MAJOR）：**50%**（5/10；severity: MAJOR 5 / MINOR 1 / NONE 4），成本 ≈ **$0.53**
+  - judge=`lite` + **multi-source evidence pack** + 仅计 MAJOR（虚构实体/数字/错误归因）
 
-**表述注意：** 写清 `n=3`、日期、模型（如 Matpool Qwen-Plus / DeepSeek-V4-Flash）；勿暗示已跑完全量 4k SimpleQA。幻觉率高可解释为「faithfulness judge 相对整段 context 截断 + 长文引用」——下一步可加大 n、收紧报告字数、改进 judge prompt。
+**表述注意：** 写清 `n`、日期、模型与 judge 设定；勿暗示全量 4k SimpleQA。早期 90% 幻觉率来自 `str(list)` 截断导致 judge 只见 1 篇文档——已修复。
 
 ## 面试官常问 → 怎么答
 

@@ -91,9 +91,18 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
     if hall:
         rate = hall.get("hallucination_rate")
         rate_s = f"{rate:.1%}" if isinstance(rate, (int, float)) else "n/a"
+        sev = hall.get("severity_counts") or {}
         lines += [
-            f"- **Hallucination rate:** {rate_s} "
+            f"- **Hallucination rate (MAJOR):** {rate_s} "
             f"({hall.get('total_hallucinated', 0)}/{hall.get('total_evaluated', 0)} evaluated)",
+            f"- **Judge mode:** `{hall.get('judge_mode') or hall.get('judge') or 'lite'}`",
+        ]
+        if sev:
+            lines.append(
+                f"- **Severity mix:** MAJOR {sev.get('MAJOR', 0)} / "
+                f"MINOR {sev.get('MINOR', 0)} / NONE {sev.get('NONE', 0)}"
+            )
+        lines += [
             f"- **Hallucination sample cost:** ${float(hall.get('total_cost') or 0):.4f}",
             "",
         ]
@@ -111,7 +120,7 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
         "",
         "1. **Cheap gate** catches regressions without spending tokens (intent clarify, tool policy, citations).",
         "2. **Full gate** samples live Agent A (research job) + Agent B (chat tools).",
-        "3. **Nightly / portfolio** measures quality: SimpleQA factuality + faithfulness judge.",
+        "3. **Nightly / portfolio** measures quality: SimpleQA + multi-source faithfulness (MAJOR only).",
         "4. Metrics are written to `evals/results/*_latest.json` for audit/repro.",
         "",
         "See [PORTFOLIO.md](./PORTFOLIO.md) for the full narrative.",
