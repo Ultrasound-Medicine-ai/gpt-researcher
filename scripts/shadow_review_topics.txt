@@ -1,0 +1,12 @@
+# One task per line. Lines starting with # are ignored.
+# Keep topics short enough to finish under typical job budgets.
+Redis 分布式锁的实现原理与常见坑，控制在800字以内
+向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景
+Kubernetes 中 HPA 与 VPA 的差异及生产落地建议
+PostgreSQL 与 MySQL 在高并发写入场景下的取舍
+大模型应用里 Prompt 注入攻击的典型手法与防护要点
+边缘计算与云计算协同架构的优势与挑战
+开源许可证 GPL、MIT、Apache-2.0 对企业二次开发的影响
+企业知识库搭建时文档切片与检索质量的关键权衡
+SSE 与 WebSocket 在实时进度推送中的选型建议
+单元测试、集成测试、端到端测试在微服务团队中的职责边界

@@ -2,6 +2,7 @@ import logging
 import os
 import uuid
 import json
+from collections.abc import Awaitable, Callable
 from fastapi import WebSocket
 from typing import List, Dict, Any
 
@@ -35,6 +36,60 @@ logging.basicConfig(
 # Note: LLM client is now handled through GPT Researcher's unified LLM system
 # This supports all configured providers (OpenAI, Google Gemini, Anthropic, etc.)
 
+
+def _looks_like_report_request(text: str) -> bool:
+    """Heuristic for explicit new-report asks when the model skips the tool. :-)"""
+    # Keep Chinese intent detection independent of the source-file encoding.
+    # The old literal-keyword list below can be garbled by an editor, so use
+    # Unicode escapes for the safety-critical path.
+    raw = (text or "").strip()
+    if "\u62a5\u544a" in raw and any(
+        marker in raw.lower() or marker in raw
+        for marker in (
+            "\u5e2e\u6211",  # 帮我
+            "\u5199",  # 写
+            "\u751f\u6210",  # 生成
+            "\u521b\u5efa",  # 创建
+            "\u64b0\u5199",  # 撰写
+            "\u8c03\u7814",  # 调研
+            "\u63d0\u4ea4",  # 提交
+            "write",
+            "generate",
+            "create",
+            "research",
+            "submit",
+        )
+    ):
+        return True
+    t = (text or "").strip().lower()
+    if not t:
+        return False
+    keys = (
+        "写一份报告",
+        "写一篇报告",
+        "写个报告",
+        "生成报告",
+        "研究报告",
+        "独立报告",
+        "提交报告",
+        "帮我写一份",
+        "帮我调研并写",
+        "write a report",
+        "research report",
+        "generate a report",
+        "create a report",
+        "submit a report",
+    )
+    return any(k in t for k in keys)
+
+
+def _latest_user_text(messages: list) -> str:
+    for msg in reversed(messages or []):
+        if isinstance(msg, dict) and msg.get("role") == "user":
+            return str(msg.get("content") or "").strip()
+    return ""
+
+
 def get_tools():
     """Define tools for LLM function calling (primarily for OpenAI-compatible providers)"""
     tools = [
@@ -64,7 +119,8 @@ class ChatAgentWithMemory:
         report: str,
         config_path="default",
         headers=None,
-        vector_store=None
+        vector_store=None,
+        report_request_callback: Callable[[str, str], Awaitable[dict[str, Any]]] | None = None,
     ):
         self.report = report
         self.headers = headers
@@ -72,6 +128,9 @@ class ChatAgentWithMemory:
         self.vector_store = vector_store
         self.retriever = None
         self.search_metadata = None
+        # The chat model may request a report, but session creation and job
+        # submission remain controlled by the application layer.
+        self.report_request_callback = report_request_callback
         
         # Initialize Tavily client (optional - only if API key is available)
         if get_tavily_keys():
@@ -173,11 +232,36 @@ class ChatAgentWithMemory:
         """Process chat completion using configured LLM provider with tool calling support"""
         # Create a search tool using the utility function
         search_tool = create_search_tool(self.quick_search)
+        tools = [search_tool]
+
+        if self.report_request_callback is not None:
+            from langchain_core.tools import tool
+
+            callback = self.report_request_callback
+
+            @tool
+            async def create_research_report(task: str, requirements: str = "") -> str:
+                """Create a separate asynchronous report task for an explicit new report request.
+
+                Use only when the user asks to write, generate, research, or submit a
+                new report. Do not use for ordinary questions or a revision to the
+                current chat reply. The report worker retrieves private knowledge first
+                and decides whether web search is needed.
+                """
+                clean_task = " ".join((task or "").split()).strip()
+                if not clean_task:
+                    return json.dumps({"action": "create_report", "error": "task is required"})
+                result = callback(clean_task, (requirements or "").strip())
+                if hasattr(result, "__await__"):
+                    result = await result
+                return json.dumps(result, ensure_ascii=False)
+
+            tools.append(create_research_report)
         
         # Use the tool-enabled chat completion utility
         response, tool_calls_metadata = await create_chat_completion_with_tools(
             messages=messages,
-            tools=[search_tool],
+            tools=tools,
             model=self.config.smart_llm_model,
             llm_provider=self.config.smart_llm_provider,
             llm_kwargs=self.config.llm_kwargs,
@@ -190,15 +274,50 @@ class ChatAgentWithMemory:
                 # Extract query from args
                 query = metadata.get("args", {}).get("query", "")
                 
-                # Trigger search again to get metadata (the search was already executed by LangChain)
-                if query:
-                    self.quick_search(query)  # This populates self.search_metadata
-                    
                 processed_metadata.append({
                     "tool": "quick_search",
                     "query": query,
                     "search_metadata": self.search_metadata
                 })
+            elif metadata.get("tool") == "create_research_report":
+                # Tool execution metadata differs by provider.  Some models
+                # return an empty/partial result even though their tool arguments
+                # are correct.  The UI needs a canonical action + task to create
+                # the separate report Job, so repair incomplete tool results here.
+                args = metadata.get("args")
+                args = args if isinstance(args, dict) else {}
+                task = " ".join(str(args.get("task") or "").split()).strip()
+                requirements = str(args.get("requirements") or "").strip()
+                try:
+                    result = json.loads(metadata.get("result") or "{}")
+                except (TypeError, json.JSONDecodeError):
+                    result = {}
+                if not isinstance(result, dict):
+                    result = {}
+
+                if (
+                    result.get("action") != "create_report"
+                    and task
+                    and self.report_request_callback is not None
+                ):
+                    logger.warning(
+                        "Report tool result incomplete; rebuilding canonical report request"
+                    )
+                    repaired = self.report_request_callback(task, requirements)
+                    if hasattr(repaired, "__await__"):
+                        repaired = await repaired
+                    if isinstance(repaired, dict):
+                        result = repaired
+
+                if result.get("action") == "create_report":
+                    # Preserve a valid tool argument if a provider omitted it in
+                    # its textual tool result.
+                    if task and not str(result.get("task") or "").strip():
+                        result["task"] = task
+                    processed_metadata.append({
+                        "tool": "create_research_report",
+                        **result,
+                    })
         
         return response, processed_metadata
 
@@ -211,6 +330,8 @@ class ChatAgentWithMemory:
         research_context="",
         report_language="chinese",
         research_id: str | None = None,
+        tenant_id: str = "anonymous",
+        user_id: str = "anonymous",
     ):
         """Chat with configured LLM provider (supports OpenAI, Google Gemini, Anthropic, etc.)
         
@@ -220,22 +341,23 @@ class ChatAgentWithMemory:
             research_topic: Original research question / report topic
             research_context: Gathered sources, sub-queries, and search snippets
             report_language: Preferred output language for chat replies (english or chinese)
-            research_id: Optional session id for vector enrichment (append-only, never replaces context)
+            research_id: Optional session id for hybrid RAG (tenant-scoped)
+            tenant_id / user_id: Isolation filters for retrieval
         
         Returns:
-            tuple: (str: The AI response message, dict: metadata about tool usage)
+            tuple: (str: The AI response message, dict: metadata about tools/citations)
         """
         try:
             has_report = bool(self.report and self.report.strip())
             topic = (research_topic or "").strip()
             context = (research_context or "").strip()
-            # Optional RAG enrichment: APPEND retrieved chunks only when present.
-            # Never clears or replaces the caller's research_context.
+            citations: list[dict] = []
+            rag_degraded = False
+
+            # Hybrid RAG: FTS + vector (RRF), tenant/session scoped
             if research_id:
                 try:
-                    from gpt_researcher.vector_store.research_persist import (
-                        get_research_vector_store,
-                    )
+                    from rag.pipeline import citations_as_metadata, retrieve_for_chat
 
                     latest_user = ""
                     for msg in reversed(messages or []):
@@ -243,17 +365,21 @@ class ChatAgentWithMemory:
                             latest_user = str(msg.get("content") or "")
                             break
                     query_text = latest_user or topic
-                    store = get_research_vector_store()
-                    docs = store.similarity_search(query_text, research_id=research_id, k=6)
-                    retrieved = store.format_context(docs)
-                    if retrieved.strip():
-                        context = (
-                            f"{context}\n\n---\nRetrieved research chunks:\n{retrieved}".strip()
-                            if context
-                            else f"Retrieved research chunks:\n{retrieved}"
-                        )
+                    assembled = retrieve_for_chat(
+                        query_text,
+                        tenant_id=tenant_id or "anonymous",
+                        user_id=None if user_id == "anonymous" else user_id,
+                        session_id=research_id,
+                        messages=list(messages or []),
+                        base_context=context,
+                    )
+                    if assembled.evidence_block.strip():
+                        context = assembled.evidence_block
+                    citations = citations_as_metadata(assembled)
+                    rag_degraded = bool(assembled.rag_degraded)
                 except Exception as enrich_exc:
-                    logger.debug("Chat vector enrichment skipped (non-fatal): %s", enrich_exc)
+                    logger.debug("Hybrid RAG enrich skipped (non-fatal): %s", enrich_exc)
+                    rag_degraded = True
 
             normalized_language = (report_language or "chinese").lower()
             language_label = "Chinese" if normalized_language in ("chinese", "zh", "zh-cn", "zh-tw") else "English"
@@ -295,9 +421,19 @@ class ChatAgentWithMemory:
 
             {phase_note}
 
-            You ALWAYS have the quick_search tool for live web search — before or after a report is generated.
-            Use it whenever web search would help answer better: current events, missing facts, verification,
-            statistics, or anything not fully covered by the material below. Do not wait until other sources fail.
+            You have quick_search for live web search and create_research_report for a new,
+            long-form research request. When the user explicitly asks for a new report, new
+            research, or to submit a report topic, you MUST call create_research_report
+            (tool call) before any confirmation text. Never claim a report was submitted
+            unless that tool was actually called. Do not first call quick_search for that
+            request: the report worker retrieves the private knowledge base first and decides
+            whether web search is needed. After a successful report-tool call, reply only with
+            a short confirmation that the separate report task has been submitted. Do not put
+            the report body in this chat reply.
+
+            For normal chat questions, use quick_search whenever live web search would help:
+            current events, missing facts, verification, statistics, or anything not fully
+            covered by the material below.
 
             Your job is to give the best possible answer to the user's latest question.
             Look across ALL available material and pick what is most relevant:
@@ -309,6 +445,10 @@ class ChatAgentWithMemory:
 
             Do NOT answer from the latest message alone. Synthesize a direct, helpful chat reply — not a new report.
             When the user adds a short refinement (e.g. "last two years only", "我要近两年的"), combine it with the research topic and answer about that combined intent.
+
+            When Retrieved evidence is present, ground claims in those Child passages only.
+            Cite using chunk_id and page/url when available (e.g. [chunk_id=... page=...]).
+            If evidence is insufficient or conflicting, explicitly say you are uncertain — do not invent facts.
 
             Respond in {language_label} only. Match the user's selected report output language even if they write in another language.
 
@@ -338,16 +478,59 @@ class ChatAgentWithMemory:
             
             # Process the chat using configured LLM provider
             ai_message, tool_calls_metadata = await self.process_chat_completion(formatted_messages)
-            
+
+            # process_chat_completion returns a list of tool metadatas — never dict(). :-)
+            tool_calls: list[dict] = []
+            if isinstance(tool_calls_metadata, list):
+                tool_calls = [t for t in tool_calls_metadata if isinstance(t, dict)]
+            elif isinstance(tool_calls_metadata, dict):
+                nested = tool_calls_metadata.get("tool_calls")
+                if isinstance(nested, list):
+                    tool_calls = [t for t in nested if isinstance(t, dict)]
+                elif tool_calls_metadata.get("tool"):
+                    tool_calls = [tool_calls_metadata]
+
+            # Safety net: model may confirm without calling the report tool. :-)
+            has_report_tool = any(
+                t.get("tool") == "create_research_report" and t.get("action") == "create_report"
+                for t in tool_calls
+            )
+            latest_user = _latest_user_text(messages)
+            if (
+                self.report_request_callback is not None
+                and not has_report_tool
+                and _looks_like_report_request(latest_user)
+            ):
+                logger.warning(
+                    "Report intent detected but create_research_report was not called; forcing callback"
+                )
+                forced = self.report_request_callback(latest_user, "")
+                if hasattr(forced, "__await__"):
+                    forced = await forced
+                if isinstance(forced, dict) and forced.get("action") == "create_report":
+                    tool_calls.append(
+                        {"tool": "create_research_report", **forced}
+                    )
+                    ai_message = (
+                        "已开始生成独立报告。左侧显示进度；"
+                        "右侧对话保持不变，可继续提问或再请求生成报告。"
+                    )
+
             # Provide fallback response if message is empty
             if not ai_message:
                 logger.warning("No AI message content found in response, using fallback message")
                 ai_message = "I apologize, but I couldn't generate a proper response. Please try asking your question again."
             
             logger.info(f"Generated response: {ai_message[:100]}..." if len(ai_message) > 100 else f"Generated response: {ai_message}")
-            
-            # Return both the message and any metadata about tools used
-            return ai_message, tool_calls_metadata
+
+            meta: dict[str, Any] = {}
+            if tool_calls:
+                meta["tool_calls"] = tool_calls
+            if citations:
+                meta["citations"] = citations
+            if rag_degraded:
+                meta["rag_degraded"] = True
+            return ai_message, meta or None
             
         except Exception as e:
             logger.error(f"Error in chat: {str(e)}", exc_info=True)

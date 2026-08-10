@@ -182,6 +182,22 @@ class ResearchConductor:
             langchain_documents_data = await LangChainDocumentLoader(
                 self.researcher.documents
             ).load()
+            # Internal RAG child passages are first-class evidence too.  Record
+            # them as sources so a local-only report receives the same numbered,
+            # auditable references as a web-backed report.
+            for index, document in enumerate(langchain_documents_data):
+                raw_content = document.get("raw_content") or ""
+                source_url = document.get("url") or ""
+                if not raw_content:
+                    continue
+                self.researcher.research_sources.append(
+                    {
+                        "url": source_url,
+                        "title": source_url or f"Knowledge base passage {index + 1}",
+                        "raw_content": raw_content,
+                        "source_quality": "ok",
+                    }
+                )
             if self.researcher.vector_store:
                 self.researcher.vector_store.load(langchain_documents_data)
             research_data = await self._get_context_by_web_search(
@@ -778,6 +794,27 @@ class ResearchConductor:
                 continue
 
             try:
+                try:
+                    from jobs.runtime import check_abort, get_abort_runtime
+                    from gpt_researcher.utils.dep_resilience import get_circuit
+
+                    await check_abort(where=f"pre_search:{retriever_class.__name__}")
+                    # Circuit open → skip search (do not burn budget / keys)
+                    if not get_circuit("search").allow():
+                        from gpt_researcher.utils.dep_resilience import record_degradation
+
+                        record_degradation(
+                            "search",
+                            "circuit_open_skip",
+                            unavailable=True,
+                        )
+                        continue
+                    runtime = get_abort_runtime()
+                    if runtime is not None:
+                        runtime.register_search(1, where=f"search:{retriever_class.__name__}")
+                except ImportError:
+                    pass
+
                 # Instantiate the retriever with the sub-query
                 retriever = retriever_class(query, query_domains=query_domains)
 
@@ -787,6 +824,25 @@ class ResearchConductor:
                 )
 
                 if not search_results:
+                    # Empty may mean key exhaustion — keep going with other retrievers /
+                    # existing materials; degrade is recorded inside TavilySearch.
+                    try:
+                        from gpt_researcher.retrievers.tavily.key_pool import (
+                            all_tavily_keys_exhausted,
+                        )
+                        from gpt_researcher.utils.dep_resilience import record_degradation
+
+                        if (
+                            "tavily" in retriever_class.__name__.lower()
+                            and all_tavily_keys_exhausted()
+                        ):
+                            record_degradation(
+                                "search",
+                                "search_unavailable",
+                                unavailable=True,
+                            )
+                    except Exception:
+                        pass
                     continue
 
                 # Separate results that already have content from those needing scraping
@@ -838,14 +894,43 @@ class ResearchConductor:
                 self.researcher.websocket,
             )
 
+        try:
+            from jobs.runtime import check_abort
+
+            await check_abort(where="pre_scrape")
+        except ImportError:
+            pass
+
         # Scrape URLs that need fetching (skip those already provided by retrievers)
         scraped_content = await self.researcher.scraper_manager.browse_urls(new_search_urls)
+
+        try:
+            from jobs.runtime import check_abort
+
+            await check_abort(where="post_scrape")
+        except ImportError:
+            pass
 
         # Merge pre-fetched content from retrievers that already provide full text
         scraped_content.extend(prefetched_content)
 
         if self.researcher.vector_store:
-            self.researcher.vector_store.load(scraped_content)
+            try:
+                self.researcher.vector_store.load(scraped_content)
+            except Exception as vs_exc:
+                self.logger.warning(
+                    "In-memory vector_store.load failed (non-fatal): %s", vs_exc
+                )
+                try:
+                    from gpt_researcher.utils.dep_resilience import record_degradation
+
+                    record_degradation(
+                        "rag",
+                        f"vector_store_load:{vs_exc}"[:280],
+                        rag_degraded=True,
+                    )
+                except Exception:
+                    pass
 
         return scraped_content
 
@@ -1022,4 +1107,3 @@ class ResearchConductor:
                     "progress": progress
                 }
             )
-

@@ -11,6 +11,7 @@ from typing import Literal, Sequence
 import requests
 
 from .key_pool import (
+    all_tavily_keys_exhausted,
     get_current_tavily_key,
     mark_tavily_key_exhausted,
     parse_http_error_response,
@@ -18,6 +19,10 @@ from .key_pool import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+class SearchUnavailable(Exception):
+    """All search keys/backends failed — report should continue without web search."""
 
 
 class TavilySearch:
@@ -87,8 +92,13 @@ class TavilySearch:
             "use_cache": use_cache,
         }
 
+        from gpt_researcher.utils.dep_resilience import tavily_search_timeout
+
         response = requests.post(
-            self.base_url, data=json.dumps(data), headers=self.http_headers, timeout=100
+            self.base_url,
+            data=json.dumps(data),
+            headers=self.http_headers,
+            timeout=tavily_search_timeout(),
         )
 
         if response.status_code == 200:
@@ -104,12 +114,28 @@ class TavilySearch:
 
     def search(self, max_results=10):
         """
-        Searches the query
-        Returns:
-
+        Searches the query with key rotation. Returns [] on total failure
+        (caller may treat as search_unavailable) — never raises into research.
         """
+        from gpt_researcher.utils.dep_resilience import (
+            get_circuit,
+            mask_secret,
+            record_degradation,
+        )
+
+        search_cb = get_circuit("search")
+        if not search_cb.allow():
+            record_degradation(
+                "search",
+                "circuit_open",
+                unavailable=True,
+            )
+            logger.warning("Search circuit open — skipping Tavily for: %s", self.query)
+            return []
+
         search_response = []
         tried_keys: set[str] = set()
+        last_error: Exception | None = None
 
         while True:
             api_key = self.get_api_key()
@@ -133,10 +159,31 @@ class TavilySearch:
                     {"href": obj["url"], "body": obj["content"]} for obj in sources
                 ]
                 self.api_key = api_key
+                search_cb.record_success()
+                try:
+                    from jobs.runtime import get_abort_runtime
+
+                    runtime = get_abort_runtime()
+                    if runtime is not None:
+                        used = list(runtime.degradations.get("search_keys_used") or [])
+                        masked = mask_secret(api_key)
+                        if masked and masked not in used:
+                            used.append(masked)
+                        runtime.degradations["search_keys_used"] = used[-10:]
+                except Exception:
+                    pass
                 break
             except Exception as e:
+                last_error = e
+                search_cb.record_failure(str(e))
                 if api_key and should_rotate_tavily_key(error_message=str(e), exception=e):
                     mark_tavily_key_exhausted(api_key, reason=str(e))
+                    record_degradation(
+                        "search",
+                        str(e)[:200],
+                        unavailable=False,
+                        key_failed=mask_secret(api_key),
+                    )
                     continue
 
                 logger.error(
@@ -147,6 +194,12 @@ class TavilySearch:
         if not search_response and tried_keys:
             logger.error(
                 "All attempted Tavily API keys failed for query: %s", self.query
+            )
+            record_degradation(
+                "search",
+                f"search_unavailable:{last_error}"[:280] if last_error else "search_unavailable",
+                unavailable=True,
+                all_keys_exhausted=all_tavily_keys_exhausted(),
             )
 
         return search_response

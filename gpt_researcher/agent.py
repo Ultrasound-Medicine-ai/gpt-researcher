@@ -173,8 +173,12 @@ class GPTResearcher:
             self._process_mcp_configs(mcp_configs)
         
         self.retrievers = get_retrievers(self.headers, self.cfg)
-        self.memory = Memory(
-            self.cfg.embedding_provider, self.cfg.embedding_model, **self.cfg.embedding_kwargs
+        from gpt_researcher.memory.embeddings import create_memory_with_failover
+
+        self.memory = create_memory_with_failover(
+            self.cfg.embedding_provider,
+            self.cfg.embedding_model,
+            **self.cfg.embedding_kwargs,
         )
         
         # Set default encoding to utf-8
@@ -639,7 +643,13 @@ class GPTResearcher:
         Returns:
             The report with references appended.
         """
-        return add_references(report_markdown, visited_urls)
+        # URLs are recorded before scraping, so they are not citation evidence
+        # by themselves. Only retain sources with usable original text.
+        from .actions.citation_registry import SourceRegistry
+
+        registry = SourceRegistry.from_research_sources(self.research_sources)
+        citable_urls = {entry["url"] for entry in registry.entries}
+        return add_references(report_markdown, citable_urls)
 
     def extract_headers(self, markdown_text: str) -> list[dict]:
         """Extract headers from markdown text.

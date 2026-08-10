@@ -25,6 +25,8 @@ Supported providers:
 import os
 from typing import Any
 
+from langchain_core.embeddings import Embeddings
+
 OPENAI_EMBEDDING_MODEL = os.environ.get(
     "OPENAI_EMBEDDING_MODEL", "text-embedding-3-small"
 )
@@ -179,7 +181,10 @@ class Memory:
             case "dashscope":
                 from langchain_community.embeddings import DashScopeEmbeddings
 
-                _embeddings = DashScopeEmbeddings(model=model, **embedding_kwargs)
+                # Quota/403 is not cured by backoff — fail over immediately. :-)
+                ds_kwargs = dict(embedding_kwargs or {})
+                ds_kwargs.setdefault("max_retries", 0)
+                _embeddings = DashScopeEmbeddings(model=model, **ds_kwargs)
             case "bedrock":
                 from langchain_aws.embeddings import BedrockEmbeddings
 
@@ -215,6 +220,8 @@ class Memory:
                 raise Exception("Embedding not found.")
 
         self._embeddings = _embeddings
+        self.provider = embedding_provider
+        self.model = model
 
     def get_embeddings(self):
         """Get the configured embeddings instance.
@@ -223,3 +230,194 @@ class Memory:
             The LangChain embeddings instance configured for this Memory.
         """
         return self._embeddings
+
+
+def _embedding_candidates(provider: str, model: str) -> list[tuple[str, str]]:
+    """Primary EMBEDDING plus EMBEDDING_FALLBACKS (provider:model,...)."""
+    candidates: list[tuple[str, str]] = [(provider, model)]
+    # Default DashScope-friendly fallbacks when unset and primary looks like dashscope
+    raw = os.environ.get("EMBEDDING_FALLBACKS", "").strip()
+    if not raw and provider == "dashscope" and model == "text-embedding-v2":
+        raw = "dashscope:text-embedding-v1"
+    for entry in raw.split(","):
+        entry = entry.strip()
+        if not entry or ":" not in entry:
+            continue
+        p, m = entry.split(":", 1)
+        cand = (p.strip(), m.strip())
+        if cand not in candidates:
+            candidates.append(cand)
+    return candidates
+
+
+def create_memory_with_failover(
+    embedding_provider: str,
+    model: str,
+    **embedding_kwargs: Any,
+) -> "Memory":
+    """Construct Memory with runtime embedding failover across EMBEDDING_FALLBACKS.
+
+    Returns a Memory whose embeddings wrapper rotates models on 429/quota errors.
+    If every candidate fails at use-time, callers should catch and keyword-fallback.
+    """
+    from gpt_researcher.utils.dep_resilience import get_circuit, record_degradation
+
+    embed_cb = get_circuit("embed")
+    candidates = _embedding_candidates(embedding_provider, model)
+
+    if not embed_cb.allow():
+        record_degradation("embedding", "circuit_open", rag_degraded=True)
+        mem = _UnavailableMemory()
+        return mem  # type: ignore[return-value]
+
+    # Prefer first candidate that can be constructed
+    last_err: Exception | None = None
+    for p, m in candidates:
+        try:
+            base = Memory(p, m, **embedding_kwargs)
+            wrapper = _FailoverEmbeddings(
+                candidates=candidates,
+                embedding_kwargs=embedding_kwargs,
+                start_index=candidates.index((p, m)),
+            )
+            base._embeddings = wrapper
+            base.provider = p
+            base.model = m
+            return base
+        except Exception as exc:
+            last_err = exc
+            record_degradation(
+                "embedding",
+                f"init_failed:{exc}"[:200],
+                from_model=f"{p}:{m}",
+            )
+            continue
+
+    record_degradation(
+        "rag",
+        f"all_embedding_unavailable:{last_err}"[:280] if last_err else "all_embedding_unavailable",
+        rag_degraded=True,
+    )
+    return _UnavailableMemory()  # type: ignore[return-value]
+
+
+class _FailoverEmbeddings(Embeddings):
+    """Try embedding models in order; rotate on runtime failures."""
+
+    def __init__(
+        self,
+        candidates: list[tuple[str, str]],
+        embedding_kwargs: dict[str, Any],
+        start_index: int = 0,
+    ):
+        self.candidates = candidates
+        self.embedding_kwargs = embedding_kwargs
+        self.index = max(0, start_index)
+        self._inner = None
+        self._ensure_inner()
+
+    def _ensure_inner(self):
+        if self._inner is not None:
+            return
+        p, m = self.candidates[self.index]
+        self._inner = Memory(p, m, **self.embedding_kwargs).get_embeddings()
+
+    def _is_failover_error(self, exc: BaseException) -> bool:
+        msg = str(exc).lower()
+        return any(
+            x in msg
+            for x in (
+                "429",
+                "403",
+                "permission",
+                "freetier",
+                "free tier",
+                "allocationquota",
+                "rate limit",
+                "rate_limit",
+                "quota",
+                "insufficient",
+                "timeout",
+                "overloaded",
+                "embedding_unavailable",
+                "503",
+                "capacity",
+            )
+        )
+
+    def _call_with_failover(self, method: str, *args, **kwargs):
+        from gpt_researcher.utils.dep_resilience import get_circuit, record_degradation
+
+        embed_cb = get_circuit("embed")
+        last_err: Exception | None = None
+        for i in range(self.index, len(self.candidates)):
+            if not embed_cb.allow():
+                break
+            try:
+                if i != self.index or self._inner is None:
+                    p, m = self.candidates[i]
+                    self._inner = Memory(p, m, **self.embedding_kwargs).get_embeddings()
+                    if i != self.index:
+                        prev = self.candidates[self.index]
+                        record_degradation(
+                            "embedding",
+                            "runtime_switch",
+                            from_model=f"{prev[0]}:{prev[1]}",
+                            to_model=f"{p}:{m}",
+                        )
+                    self.index = i
+                fn = getattr(self._inner, method)
+                result = fn(*args, **kwargs)
+                embed_cb.record_success()
+                return result
+            except Exception as exc:
+                last_err = exc
+                embed_cb.record_failure(str(exc))
+                if self._is_failover_error(exc):
+                    continue
+                raise
+        record_degradation(
+            "rag",
+            f"embedding_exhausted:{last_err}"[:280] if last_err else "embedding_exhausted",
+            rag_degraded=True,
+        )
+        raise RuntimeError("embedding_unavailable") from last_err
+
+    def embed_documents(self, texts):
+        return self._call_with_failover("embed_documents", texts)
+
+    def embed_query(self, text):
+        return self._call_with_failover("embed_query", text)
+
+    async def aembed_documents(self, texts):
+        return self._call_with_failover("aembed_documents", texts)
+
+    async def aembed_query(self, text):
+        return self._call_with_failover("aembed_query", text)
+
+
+class _UnavailableMemory:
+    """Stand-in Memory when every embedding model is unavailable."""
+
+    provider = "none"
+    model = "unavailable"
+
+    def __init__(self):
+        self._embeddings = _FailingEmbeddings()
+
+    def get_embeddings(self):
+        return self._embeddings
+
+
+class _FailingEmbeddings:
+    def embed_documents(self, texts):
+        raise RuntimeError("embedding_unavailable")
+
+    def embed_query(self, text):
+        raise RuntimeError("embedding_unavailable")
+
+    async def aembed_documents(self, texts):
+        raise RuntimeError("embedding_unavailable")
+
+    async def aembed_query(self, text):
+        raise RuntimeError("embedding_unavailable")

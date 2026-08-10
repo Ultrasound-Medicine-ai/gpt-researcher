@@ -44,11 +44,27 @@ const CopilotPanel: React.FC<CopilotPanelProps> = ({
   toggleSidebar,
 }) => {
   const chatMessages = orderedData.filter((data, index) => {
+    const contentAndType = (data as { contentAndType?: string }).contentAndType;
+    // Report topic belongs on the left panel only. :-)
+    if (
+      data.type === 'question' &&
+      contentAndType === 'report_topic-question'
+    ) {
+      return false;
+    }
     if (chatOnly) {
       return data.type === 'question' || data.type === 'chat';
     }
     if (data.type === 'question') {
-      return index > 0;
+      // Prefer all real chat questions when a report topic is present;
+      // otherwise keep legacy "skip first question" behavior.
+      const hasReportTopic = orderedData.some(
+        (d) =>
+          d.type === 'question' &&
+          (d as { contentAndType?: string }).contentAndType ===
+            'report_topic-question'
+      );
+      return hasReportTopic ? true : index > 0;
     }
     return data.type === 'chat';
   });
@@ -253,8 +269,15 @@ const CopilotPanel: React.FC<CopilotPanelProps> = ({
             promptValue={chatPromptValue}
             setPromptValue={setChatPromptValue}
             handleSubmit={handleChat}
-            disabled={loading || isProcessingChat}
-            placeholder={chatOnly ? "继续提问，无需先生成报告..." : undefined}
+            // Keep chat usable while the left panel report job is running. :-)
+            disabled={isProcessingChat}
+            placeholder={
+              chatOnly
+                ? '继续提问，无需先生成报告...'
+                : loading
+                  ? '报告生成中，仍可继续对话或再请求新报告...'
+                  : undefined
+            }
           />
         )}
         {isStopped && (

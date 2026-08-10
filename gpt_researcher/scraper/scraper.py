@@ -107,66 +107,128 @@ class Scraper:
 
     async def extract_data_from_url(self, link, session):
         """
-        Extracts the data from the link with logging
+        Extracts the data from the link with timeout/retry/max-length.
+
+        A single URL failure never aborts the batch — returns raw_content=None
+        and records degrade metadata for observability.
         """
+        from gpt_researcher.utils.dep_resilience import (
+            browse_chunk_max_length,
+            get_circuit,
+            record_degradation,
+            scrape_url_retries,
+            scrape_url_timeout,
+        )
+
+        scrape_cb = get_circuit("scrape")
+        if not scrape_cb.allow():
+            record_degradation(
+                "scrape",
+                "circuit_open",
+                url=link,
+                quality="skipped",
+            )
+            return {
+                "url": link,
+                "raw_content": None,
+                "image_urls": [],
+                "title": "",
+                "scrape_error": "circuit_open",
+                "source_quality": "skipped",
+            }
+
+        max_attempts = scrape_url_retries() + 1
+        timeout = scrape_url_timeout()
+        max_len = browse_chunk_max_length()
+        last_err = ""
+
         async with self.worker_pool.throttle():
-            try:
-                Scraper = self.get_scraper(link)
-                scraper = Scraper(link, session)
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    Scraper = self.get_scraper(link)
+                    scraper = Scraper(link, session)
+                    scraper_name = scraper.__class__.__name__
+                    self.logger.info(f"\n=== Using {scraper_name} (attempt {attempt}) ===")
 
-                # Get scraper name
-                scraper_name = scraper.__class__.__name__
-                self.logger.info(f"\n=== Using {scraper_name} ===")
+                    async def _do_scrape():
+                        if hasattr(scraper, "scrape_async"):
+                            return await scraper.scrape_async()
+                        return await asyncio.get_running_loop().run_in_executor(
+                            self.worker_pool.executor, scraper.scrape
+                        )
 
-                # Get content
-                if hasattr(scraper, "scrape_async"):
-                    content, image_urls, title = await scraper.scrape_async()
-                else:
-                    (
-                        content,
-                        image_urls,
-                        title,
-                    ) = await asyncio.get_running_loop().run_in_executor(
-                        self.worker_pool.executor, scraper.scrape
+                    content, image_urls, title = await asyncio.wait_for(
+                        _do_scrape(), timeout=timeout
                     )
+                    content = content or ""
+                    # Traceback / error strings must not pollute context
+                    if content.lstrip().startswith("Traceback") or content.startswith(
+                        "Error:"
+                    ):
+                        raise RuntimeError("scraper returned error string")
 
-                if len(content) < 100:
-                    self.logger.warning(f"Content too short or empty for {link}")
+                    if len(content) < 100:
+                        scrape_cb.record_failure("too_short")
+                        record_degradation(
+                            "scrape",
+                            "too_short",
+                            url=link,
+                            quality="low",
+                        )
+                        return {
+                            "url": link,
+                            "raw_content": None,
+                            "image_urls": [],
+                            "title": title or "",
+                            "scrape_error": "too_short",
+                            "source_quality": "low",
+                        }
+
+                    if max_len > 0 and len(content) > max_len:
+                        content = content[:max_len]
+
+                    scrape_cb.record_success()
+                    self.logger.info(f"\nTitle: {title}")
+                    self.logger.info(f"Content length: {len(content)} characters")
+                    self.logger.info(f"URL: {link}")
+                    self.logger.info("=" * 50)
+
                     return {
                         "url": link,
-                        "raw_content": None,
-                        "image_urls": [],
-                        "title": title,
+                        "raw_content": content,
+                        "image_urls": image_urls or [],
+                        "title": title or "",
+                        "source_quality": "ok",
                     }
 
-                # Log results
-                self.logger.info(f"\nTitle: {title}")
-                self.logger.info(
-                    f"Content length: {len(content) if content else 0} characters"
-                )
-                self.logger.info(f"Number of images: {len(image_urls)}")
-                self.logger.info(f"URL: {link}")
-                self.logger.info("=" * 50)
+                except Exception as e:
+                    last_err = str(e)
+                    self.logger.error(
+                        "Error processing %s (attempt %s/%s): %s",
+                        link,
+                        attempt,
+                        max_attempts,
+                        last_err,
+                    )
+                    if attempt < max_attempts:
+                        await asyncio.sleep(min(2 ** (attempt - 1), 4))
+                        continue
 
-                if not content or len(content) < 100:
-                    self.logger.warning(f"Content too short or empty for {link}")
-                    return {
-                        "url": link,
-                        "raw_content": None,
-                        "image_urls": [],
-                        "title": title,
-                    }
-
-                return {
-                    "url": link,
-                    "raw_content": content,
-                    "image_urls": image_urls,
-                    "title": title,
-                }
-
-            except Exception as e:
-                self.logger.error(f"Error processing {link}: {str(e)}")
-                return {"url": link, "raw_content": None, "image_urls": [], "title": ""}
+            scrape_cb.record_failure(last_err)
+            record_degradation(
+                "scrape",
+                last_err[:200] or "scrape_failed",
+                url=link,
+                quality="failed",
+            )
+            return {
+                "url": link,
+                "raw_content": None,
+                "image_urls": [],
+                "title": "",
+                "scrape_error": last_err[:300],
+                "source_quality": "failed",
+            }
 
     def get_scraper(self, link):
         """

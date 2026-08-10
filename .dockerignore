@@ -1,2 +1,22 @@
 .git
-output/
+.gitignore
+.venv
+.pytest_cache
+**/__pycache__
+**/*.py[cod]
+
+# Local frontend build products are recreated inside their Docker stages.
+frontend/nextjs/node_modules
+frontend/nextjs/.next
+
+# Runtime data is mounted or persisted by PostgreSQL/MinIO, not baked in.
+outputs
+output
+backend/outputs
+logs
+my-docs
+
+# Never send local credentials to the Docker build daemon.
+.env
+.env.*
+!.env.example

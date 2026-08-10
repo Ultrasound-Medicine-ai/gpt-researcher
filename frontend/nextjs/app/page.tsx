@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useWebSocket } from '@/hooks/useWebSocket';
+import { useResearchJob } from '@/hooks/useResearchJob';
 import { useResearchHistoryContext } from '@/hooks/ResearchHistoryContext';
 import { startLanggraphResearch } from '../components/Langgraph/Langgraph';
 import findDifferences from '../helpers/findDifferences';
@@ -15,6 +15,7 @@ import Hero from "@/components/Hero";
 import CopilotResearchContent from "@/components/research/CopilotResearchContent";
 import HumanFeedback from "@/components/HumanFeedback";
 import ResearchSidebar from "@/components/ResearchSidebar";
+import OptionalAccount from "@/components/Auth/OptionalAccount";
 import { getAppropriateLayout } from "@/utils/getLayout";
 import {
   buildCombinedResearchContext,
@@ -22,6 +23,12 @@ import {
   buildResearchTask,
 } from '@/utils/buildChatContext';
 import { DEFAULT_CHAT_BOX_SETTINGS, readChatBoxSettingsFromStorage } from "@/config/researchSettings";
+import { apiFetch } from '@/lib/apiFetch';
+import {
+  chatReportCreatedMessage,
+  mergeChatWithReportTopic,
+  submitChatReportJob,
+} from '@/lib/submitChatReport';
 
 export default function Home() {
   const router = useRouter();
@@ -61,17 +68,24 @@ export default function Home() {
     getChatMessages
   } = useResearchHistoryContext();
 
-  // Only initialize the WebSocket hook reference, don't connect automatically
-  const websocketRef = useRef(useWebSocket(
-    setOrderedData,
-    setAnswer,
-    setLoading,
-    setShowHumanFeedback,
-    setQuestionForHuman
-  ));
-  
-  // Use the reference to access websocket functions
-  const { socket, initializeWebSocket } = websocketRef.current;
+  // Side report created from chat — do not overwrite this chat session's answer. :-)
+  const sideReportSessionIdRef = useRef<string | null>(null);
+
+  // Job-based research: POST create job, then poll GET /api/jobs/{id}
+  // IMPORTANT: do not wrap this hook in useRef — that freezes the first render's
+  // callbacks and breaks progress updates after hot reload / remount. :-)
+  const { socket, initializeWebSocket, observeJob, cancelResearchJob, clearActiveJob } =
+    useResearchJob(
+      setOrderedData,
+      setAnswer,
+      setLoading,
+      setShowHumanFeedback,
+      setQuestionForHuman,
+      () => {
+        setShowResult(true);
+        setSessionMode('research');
+      }
+    );
 
   const handleFeedbackSubmit = (feedback: string | null) => {
     if (socket) {
@@ -97,6 +111,15 @@ export default function Home() {
     setLoading(false);
     await handleChat(trimmed);
   };
+
+  /** Chat tool call → new sidebar report task, then open that task. :-) */
+  const submitReportRequestedInChat = async (toolCall: any) =>
+    submitChatReportJob({
+      toolCall,
+      chatBoxSettings,
+      saveResearch,
+      parentChatId: currentResearchId,
+    });
 
   const handleChat = async (message: string) => {
     setIsInChatMode(true);
@@ -137,7 +160,7 @@ export default function Home() {
       );
       
       // Call the chat API
-      const response = await fetch(`/api/chat`, {
+      const response = await apiFetch(`/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -146,6 +169,8 @@ export default function Home() {
           research_topic: question.trim() || message,
           research_context: buildCombinedResearchContext(orderedData, question.trim()),
           report_language: chatBoxSettings.report_language || 'chinese',
+          session_id: researchId,
+          research_id: researchId,
         }),
       });
       
@@ -156,6 +181,59 @@ export default function Home() {
       const data = await response.json();
       
       if (data.response) {
+        const reportToolCall = data.response.metadata?.tool_calls?.find(
+          (tool: any) => tool.tool === 'create_research_report'
+            && tool.action === 'create_report'
+            && typeof tool.task === 'string'
+            && tool.task.trim().length > 0
+        );
+        if (reportToolCall) {
+          try {
+            const created = await submitReportRequestedInChat(reportToolCall);
+            const taskText = String(reportToolCall.task || created.task || '');
+            data.response.content = chatReportCreatedMessage(taskText);
+            data.response.metadata = {
+              ...(data.response.metadata || {}),
+              report_request: {
+                research_id: created.sessionId,
+                job_id: created.jobId,
+                task: taskText,
+              },
+            };
+            // Right chat stays; left panel switches to the new report progress. :-)
+            sideReportSessionIdRef.current = created.sessionId;
+            setSessionMode('research');
+            setIsInChatMode(true);
+            setShowResult(true);
+            setAnswer('');
+            const chatData: ChatData = {
+              type: 'chat',
+              content: data.response.content,
+              metadata: data.response.metadata,
+            };
+            setOrderedData((prev) => {
+              const withUser = prev.some(
+                (d) => d.type === 'question' && d.content === questionData.content
+              )
+                ? prev
+                : [...prev, questionData];
+              return [...mergeChatWithReportTopic(withUser, taskText), chatData];
+            });
+            if (researchId) {
+              addChatMessage(researchId, data.response).catch(console.error);
+            }
+            observeJob(created.jobId, {
+              reportSessionId: created.sessionId,
+              tenantId: created.tenantId,
+            });
+            toast.success(`左侧已开始生成：${taskText.slice(0, 28)}`);
+            return;
+          } catch (submitError: any) {
+            console.error('Failed to submit report requested in chat:', submitError);
+            data.response.content = `报告任务未能提交：${submitError?.message || '请稍后重试'}`;
+            toast.error('报告任务提交失败');
+          }
+        }
         // Check if response contains valid content
         if (!data.response.content) {
           console.error('Response content is null or empty');
@@ -211,32 +289,14 @@ export default function Home() {
     }
   };
 
-  const handleDisplayResult = async (newQuestion: string) => {
-    setSessionMode('research');
-    setIsInChatMode(true);
-    setShowResult(true);
-    setLoading(false);
-    setQuestion(newQuestion);
-    setPromptValue("");
-    setAnswer("");
-    setCurrentResearchId(null);
-    setOrderedData([{ type: 'question', content: newQuestion }]);
-
-    try {
-      const researchId = await saveResearch(newQuestion, '', [{ type: 'question', content: newQuestion }]);
-      setCurrentResearchId(researchId);
-    } catch (error) {
-      console.error('Error saving research prep session:', error);
-    }
-  };
-
-  const handleGenerateReport = async () => {
-    const task = buildResearchTask(question, orderedData).trim();
-    if (!task || loading) return;
+  const startResearchPipeline = async (task: string, researchId?: string | null) => {
+    const trimmed = task.trim();
+    if (!trimmed || loading) return;
 
     setLoading(true);
     setIsInChatMode(true);
     setAnswer("");
+    setIsStopped(false);
 
     const storedConfig = localStorage.getItem('apiVariables');
     const apiVariables = storedConfig ? JSON.parse(storedConfig) : {};
@@ -244,7 +304,7 @@ export default function Home() {
 
     if (chatBoxSettings.report_type === 'multi_agents' && langgraphHostUrl) {
       const { streamResponse, host, thread_id } = await startLanggraphResearch(
-        task,
+        trimmed,
         chatBoxSettings.report_source,
         langgraphHostUrl
       );
@@ -264,8 +324,57 @@ export default function Home() {
         previousChunk = chunk;
       }
     } else {
-      initializeWebSocket(task, chatBoxSettings);
+      await initializeWebSocket(trimmed, chatBoxSettings, researchId);
     }
+  };
+
+  /** Home Write Report submit: enter results UI and start the job immediately. :-) */
+  const handleDisplayResult = async (newQuestion: string) => {
+    setSessionMode('research');
+    setIsInChatMode(true);
+    setShowResult(true);
+    setLoading(true);
+    setQuestion(newQuestion);
+    setPromptValue("");
+    setAnswer("");
+    setCurrentResearchId(null);
+    setAllLogs([]);
+    setOrderedData([{ type: 'question', content: newQuestion }]);
+    setOrderedData((prev) => [
+      ...prev,
+      {
+        type: 'logs',
+        content: 'starting_research',
+        output: '正在创建研究任务并开始轮询进度…',
+        contentAndType: 'starting_research-logs',
+      },
+    ]);
+
+    let researchId: string | null = null;
+    try {
+      researchId = await saveResearch(newQuestion, '', [{ type: 'question', content: newQuestion }]);
+      setCurrentResearchId(researchId);
+    } catch (error) {
+      console.error('Error saving research session:', error);
+    }
+
+    await startResearchPipeline(newQuestion, researchId);
+  };
+
+  /** Optional re-run from prep banner (chat clarifications already in orderedData). :-) */
+  const handleGenerateReport = async () => {
+    const task = buildResearchTask(question, orderedData).trim();
+    if (!task || loading) return;
+    setOrderedData((prev) => [
+      ...prev,
+      {
+        type: 'logs',
+        content: 'starting_research',
+        output: '开始生成报告…',
+        contentAndType: 'starting_research-logs',
+      },
+    ]);
+    await startResearchPipeline(task, currentResearchId);
   };
 
   const reset = () => {
@@ -289,7 +398,8 @@ export default function Home() {
     setShowHumanFeedback(false);
     setQuestionForHuman(false);
     
-    // Clean up connections
+    // Stop job polling / clear local active job (does not cancel server job). :-)
+    clearActiveJob();
     if (socket) {
       socket.close();
     }
@@ -315,22 +425,12 @@ export default function Home() {
   };
 
   /**
-   * Handles stopping the current research
-   * - Closes WebSocket connection
-   * - Stops loading state
-   * - Marks research as stopped
-   * - Preserves current results
-   * - Reloads the page to fully reset the connection
+   * Stop research: cancel job in PostgreSQL + close observe stream.
    */
-  const handleStopResearch = () => {
-    if (socket) {
-      socket.close();
-    }
+  const handleStopResearch = async () => {
+    await cancelResearchJob();
     setLoading(false);
     setIsStopped(true);
-    
-    // Reload the page to completely reset the socket connection
-    window.location.reload();
   };
 
   /**
@@ -371,9 +471,17 @@ export default function Home() {
           // Prevent redundant updates by checking if data has changed
           try {
             const currentResearch = await getResearchById(currentResearchId);
-            if (currentResearch && (currentResearch.answer !== answer || JSON.stringify(currentResearch.orderedData) !== JSON.stringify(orderedData))) {
+            // Side reports from chat must not overwrite this conversation's answer. :-)
+            const answerToSave = sideReportSessionIdRef.current
+              ? currentResearch?.answer || ''
+              : answer;
+            if (
+              currentResearch &&
+              (currentResearch.answer !== answerToSave ||
+                JSON.stringify(currentResearch.orderedData) !== JSON.stringify(orderedData))
+            ) {
               isUpdatingRef.current = true;
-              await updateResearch(currentResearchId, answer, orderedData);
+              await updateResearch(currentResearchId, answerToSave, orderedData);
               // Reset the flag after a short delay to allow state updates to complete
               setTimeout(() => {
                 isUpdatingRef.current = false;
@@ -440,7 +548,20 @@ export default function Home() {
    */
   useEffect(() => {
     const groupedData = preprocessOrderedData(orderedData);
-    const statusReports = ["agent_generated", "starting_research", "planning_research", "error"];
+    const statusReports = [
+      'agent_generated',
+      'starting_research',
+      'planning_research',
+      'error',
+      'job_queued',
+      'job_status',
+      'job_live_status',
+      'job_pending_dispatch',
+      'job_rate_limited',
+      'job_cancelling',
+      'job_resume',
+      'report_trust',
+    ];
     
     const newLogs = groupedData.reduce((acc: any[], data) => {
       // Process accordion blocks (grouped data)
@@ -453,13 +574,13 @@ export default function Home() {
         }));
         return [...acc, ...logs];
       } 
-      // Process status reports
-      else if (statusReports.includes(data.content)) {
+      // Process status reports (legacy WS + async Job poll)
+      else if (data.type === 'logs' || statusReports.includes(data.content)) {
         return [...acc, {
-          header: data.content,
+          header: data.content || 'status',
           text: data.output,
           metadata: data.metadata,
-          key: `${data.type}-${data.content}`,
+          key: `${data.type}-${data.content}-${acc.length}`,
         }];
       }
       return acc;
@@ -512,6 +633,7 @@ export default function Home() {
 
   return (
     <>
+      <OptionalAccount />
       {!showResult ? (
         getAppropriateLayout({
           loading,

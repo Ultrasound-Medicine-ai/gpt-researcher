@@ -42,14 +42,15 @@ async def choose_agent(
     response = None  # Initialize response to ensure it's defined
 
     try:
+        # Structured planning uses STRATEGIC_LLM (e.g. qwen3.6-plus), not SMART. :-)
         response = await create_chat_completion(
-            model=cfg.smart_llm_model,
+            model=cfg.strategic_llm_model,
             messages=[
                 {"role": "system", "content": f"{prompt_family.auto_agent_instructions()}"},
                 {"role": "user", "content": f"task: {query}"},
             ],
             temperature=0.15,
-            llm_provider=cfg.smart_llm_provider,
+            llm_provider=cfg.strategic_llm_provider,
             llm_kwargs=cfg.llm_kwargs,
             cost_callback=cost_callback,
             **kwargs

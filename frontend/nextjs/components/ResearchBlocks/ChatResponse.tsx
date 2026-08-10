@@ -18,13 +18,20 @@ interface ChatResponseProps {
           content: string;
         }>
       }
-    }>
+    }>;
+    report_request?: {
+      research_id?: string;
+      job_id?: string;
+      task?: string;
+    };
   }
 }
 
 export default function ChatResponse({ answer, metadata }: ChatResponseProps) {
     const [htmlContent, setHtmlContent] = useState('');
-    
+    // Cache-bust marker: report-history open button removed (2026-08-10). :-)
+    void metadata?.report_request;
+
     // Check if we have sources from a web search tool call
     const hasWebSources = metadata?.tool_calls?.some(
       tool => tool.tool === 'quick_search' && tool.search_metadata?.sources?.length > 0
@@ -96,7 +103,7 @@ export default function ChatResponse({ answer, metadata }: ChatResponseProps) {
               />
             </div>
           </div>
-          
+
           {/* Display web search sources if available */}
           {hasWebSources && webSources.length > 0 && (
             <div className="mt-4 pt-3 border-t border-gray-700/30">
@@ -116,4 +123,4 @@ export default function ChatResponse({ answer, metadata }: ChatResponseProps) {
         </div>
       </div>
     );
-} 
+}

@@ -17,6 +17,14 @@ async def stream_output(
     Returns:
         None
     """
+    # Cooperative cancel / budget abort (no-op outside job worker context)
+    try:
+        from jobs.runtime import check_abort
+
+        await check_abort(where=str(content or type or "stream_output"))
+    except ImportError:
+        pass
+
     if (not websocket or output_log) and type != "images":
         try:
             logger.info(f"{output}")

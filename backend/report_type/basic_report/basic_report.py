@@ -24,6 +24,7 @@ class BasicReport:
         max_search_results=None,
         total_words=None,
         report_language=None,
+        documents=None,
     ):
         self.query = query
         self.query_domains = query_domains
@@ -51,6 +52,7 @@ class BasicReport:
             "config_path": self.config_path,
             "websocket": self.websocket,
             "headers": self.headers,
+            "documents": documents,
         }
 
         # Add MCP parameters if provided

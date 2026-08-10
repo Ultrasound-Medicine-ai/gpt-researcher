@@ -170,12 +170,38 @@ class ContextCompressor:
             ]
             return self.prompt_family.pretty_print_docs(direct_docs, max_results)
 
-        # Standard path: use compression for large content
-        compressed_docs = self.__get_contextual_retriever()
-        if cost_callback:
-            cost_callback(estimate_embedding_cost(model=OPENAI_EMBEDDING_MODEL, docs=self.documents))
-        relevant_docs = await asyncio.to_thread(compressed_docs.invoke, query, **self.kwargs)
-        return self.prompt_family.pretty_print_docs(relevant_docs, max_results)
+        # Standard path: use compression for large content; keyword fallback on embed failure
+        try:
+            compressed_docs = self.__get_contextual_retriever()
+            if cost_callback:
+                cost_callback(
+                    estimate_embedding_cost(
+                        model=OPENAI_EMBEDDING_MODEL, docs=self.documents
+                    )
+                )
+            relevant_docs = await asyncio.to_thread(
+                compressed_docs.invoke, query, **self.kwargs
+            )
+            return self.prompt_family.pretty_print_docs(relevant_docs, max_results)
+        except Exception as emb_exc:
+            from gpt_researcher.utils.dep_resilience import (
+                keyword_select_documents,
+                record_degradation,
+            )
+
+            record_degradation(
+                "rag",
+                f"keyword_fallback:{emb_exc}"[:280],
+                rag_degraded=True,
+            )
+            selected = keyword_select_documents(
+                query, self.documents, max_results=max_results
+            )
+            direct_docs = [
+                Document(page_content=doc.get("raw_content", ""), metadata=doc)
+                for doc in selected
+            ]
+            return self.prompt_family.pretty_print_docs(direct_docs, max_results)
 
 
 class WrittenContentCompressor:
@@ -248,8 +274,43 @@ class WrittenContentCompressor:
         Returns:
             List of formatted section strings.
         """
-        compressed_docs = self.__get_contextual_retriever()
-        if cost_callback:
-            cost_callback(estimate_embedding_cost(model=OPENAI_EMBEDDING_MODEL, docs=self.documents))
-        relevant_docs = await asyncio.to_thread(compressed_docs.invoke, query, **self.kwargs)
-        return self.__pretty_docs_list(relevant_docs, max_results)
+        try:
+            compressed_docs = self.__get_contextual_retriever()
+            if cost_callback:
+                cost_callback(
+                    estimate_embedding_cost(
+                        model=OPENAI_EMBEDDING_MODEL, docs=self.documents
+                    )
+                )
+            relevant_docs = await asyncio.to_thread(
+                compressed_docs.invoke, query, **self.kwargs
+            )
+            return self.__pretty_docs_list(relevant_docs, max_results)
+        except Exception as emb_exc:
+            from gpt_researcher.utils.dep_resilience import (
+                keyword_score,
+                tokenize_query,
+                record_degradation,
+            )
+
+            record_degradation(
+                "rag",
+                f"written_keyword_fallback:{emb_exc}"[:280],
+                rag_degraded=True,
+            )
+            tokens = tokenize_query(query)
+            scored = []
+            for doc in self.documents or []:
+                text = str(
+                    doc.get("content")
+                    or doc.get("raw_content")
+                    or doc.get("page_content")
+                    or ""
+                )
+                scored.append((keyword_score(text, tokens), doc))
+            scored.sort(key=lambda x: x[0], reverse=True)
+            top = [d for _, d in scored[:max_results]]
+            return [
+                f"Title: {d.get('section_title') or d.get('title') or ''}\nContent: {d.get('content') or d.get('raw_content') or ''}\n"
+                for d in top
+            ]

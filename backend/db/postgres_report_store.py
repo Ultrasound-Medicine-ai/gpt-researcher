@@ -132,8 +132,7 @@ class PostgresReportStore:
             sid = uuid.UUID(str(report_id))
         except ValueError:
             sid = uuid.uuid4()
-
-            owner = user_id or report.get("user_id") or "anonymous"
+        owner = user_id or report.get("user_id") or "anonymous"
         async with self._session_factory() as session:
             await self._ensure_user(session, owner)
             from security import tenant_id_for
@@ -262,15 +261,21 @@ class PostgresReportStore:
         report_id: str,
         sources: List[Dict[str, Any]],
         user_id: str | None = None,
+        *,
+        raise_on_error: bool = False,
     ) -> None:
-        """Best-effort persist numbered sources. Never raises to callers for quality safety."""
+        """Persist numbered sources. raise_on_error=True for job completion gating."""
         try:
             sid = uuid.UUID(report_id)
             async with self._session_factory() as session:
                 research = await session.get(ResearchSession, sid)
                 if research is None:
+                    if raise_on_error:
+                        raise ValueError(f"Session not found for sources: {report_id}")
                     return
                 if user_id and research.user_id != user_id:
+                    if raise_on_error:
+                        raise PermissionError("Session belongs to another user")
                     return
                 old = (
                     await session.execute(
@@ -296,4 +301,6 @@ class PostgresReportStore:
                     )
                 await session.commit()
         except Exception as exc:
-            logger.warning("Failed to persist research sources (non-fatal): %s", exc)
+            logger.warning("Failed to persist research sources: %s", exc)
+            if raise_on_error:
+                raise

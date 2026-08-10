@@ -2,7 +2,7 @@ import './index.css';
 
 import React from 'react';
 import { useRef, useState, useEffect, useCallback } from "react";
-import { useWebSocket } from '../hooks/useWebSocket';
+import { useResearchJob } from '../hooks/useResearchJob';
 
 import { Data, ChatBoxSettings, QuestionData } from '../types/data';
 import { preprocessOrderedData } from '../utils/dataProcessing';
@@ -75,7 +75,7 @@ export const GPTResearcher = ({
     }
   }, [orderedData, onResultsChange]);
 
-  const { socket, initializeWebSocket } = useWebSocket(
+  const { socket, initializeWebSocket, cancelResearchJob } = useResearchJob(
     setOrderedData,
     setAnswer,
     setLoading,
@@ -193,15 +193,10 @@ export const GPTResearcher = ({
     }
   };
 
-  const handleStopResearch = () => {
-    if (socket) {
-      socket.close();
-    }
+  const handleStopResearch = async () => {
+    await cancelResearchJob();
     setLoading(false);
     setIsStopped(true);
-    
-    // Reload the page to completely reset the socket connection
-    window.location.reload();
   };
 
   const handleStartNewResearch = () => {
@@ -225,7 +220,20 @@ export const GPTResearcher = ({
 
   useEffect(() => {
     const groupedData = preprocessOrderedData(orderedData);
-    const statusReports = ["agent_generated", "starting_research", "planning_research", "error"];
+    // Legacy WS statuses + async Job poll statuses (job_queued / job_status / …)
+    const statusReports = [
+      'agent_generated',
+      'starting_research',
+      'planning_research',
+      'error',
+      'job_queued',
+      'job_status',
+      'job_pending_dispatch',
+      'job_rate_limited',
+      'job_cancelling',
+      'job_resume',
+      'report_trust',
+    ];
     
     const newLogs = groupedData.reduce((acc: any[], data) => {
       if (data.type === 'accordionBlock') {
@@ -237,12 +245,12 @@ export const GPTResearcher = ({
         }));
         return [...acc, ...logs];
       } 
-      else if (statusReports.includes(data.content)) {
+      else if (data.type === 'logs' || statusReports.includes(data.content)) {
         return [...acc, {
-          header: data.content,
+          header: data.content || 'status',
           text: data.output,
           metadata: data.metadata,
-          key: `${data.type}-${data.content}`,
+          key: `${data.type}-${data.content}-${acc.length}`,
         }];
       }
       return acc;

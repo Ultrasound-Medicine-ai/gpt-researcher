@@ -3,6 +3,7 @@ import { ChatMessage } from '../../types/data';
 import ChatInput from './elements/ChatInput';
 import { markdownToHtml } from '../../helpers/markdownHelper';
 import '../../styles/markdown.css';
+import { apiFetch } from '@/lib/apiFetch';
 
 interface ChatInterfaceProps {
   researchId: string;
@@ -62,7 +63,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
     
     try {
       // Make API call to chat endpoint
-      const response = await fetch('/api/chat', {
+      const response = await apiFetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

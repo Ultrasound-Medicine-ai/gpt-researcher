@@ -46,6 +46,9 @@ const ResearchPanel: React.FC<ResearchPanelProps> = ({
   const chatOnlyLeft = sessionMode === 'chat' && !researchComplete && !loading;
   const initialQuestion = orderedData.find((d) => d.type === 'question');
   const questionText = initialQuestion?.content || '';
+  const latestProgress =
+    [...(allLogs || [])].reverse().find((log) => typeof log?.text === 'string' && log.text.trim())?.text ||
+    '';
 
   return (
     <>
@@ -128,6 +131,16 @@ const ResearchPanel: React.FC<ResearchPanelProps> = ({
       </div>
       
       <div className="flex-1 overflow-y-auto p-2 custom-scrollbar bg-gray-900/20">
+        {loading && (
+          <div className="mb-3 px-4 py-3 rounded-lg border border-teal-700/40 bg-teal-900/20">
+            <p className="text-teal-200 text-sm font-medium">研究进行中…</p>
+            {latestProgress ? (
+              <p className="text-gray-300 text-xs mt-1 leading-relaxed">{latestProgress}</p>
+            ) : (
+              <p className="text-gray-400 text-xs mt-1">正在连接任务进度，请稍候…</p>
+            )}
+          </div>
+        )}
         {(reportPrepMode || chatOnlyLeft) && (
           <div className="mb-4 p-4 rounded-lg border border-gray-700/50 bg-gray-800/30">
             {reportPrepMode ? (
@@ -164,12 +177,21 @@ const ResearchPanel: React.FC<ResearchPanelProps> = ({
             orderedData={orderedData.filter(data => {
               // Keep everything except chat responses
               if (data.type === 'chat') return false;
-              
-              // For questions, only keep the first/initial question
+
               if (data.type === 'question') {
+                const topics = orderedData.filter(
+                  (d) =>
+                    d.type === 'question' &&
+                    (d as { contentAndType?: string }).contentAndType ===
+                      'report_topic-question'
+                );
+                if (topics.length > 0) {
+                  // Left panel follows the latest chat-requested report topic. :-)
+                  return data === topics[topics.length - 1];
+                }
                 return orderedData.indexOf(data) === 0;
               }
-              
+
               // Keep all other types
               return true;
             })}

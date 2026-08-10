@@ -34,9 +34,21 @@ def test_source_registry_deduplicates_urls():
         fallback_urls=["https://a.test/1", "https://c.test/3"],
     )
 
-    assert len(registry.entries) == 3
+    assert len(registry.entries) == 2
     assert registry.entries[0]["url"] == "https://a.test/1"
-    assert registry.entries[2]["url"] == "https://c.test/3"
+    assert registry.entries[1]["url"] == "https://b.test/2"
+
+
+def test_source_registry_excludes_failed_or_low_quality_sources():
+    registry = SourceRegistry.from_research_sources(
+        [
+            {"url": "https://good.test", "raw_content": "usable original text"},
+            {"url": "https://short.test", "raw_content": "", "source_quality": "low"},
+            {"url": "https://failed.test", "raw_content": "some error", "source_quality": "failed"},
+        ],
+        fallback_urls=["https://unfetched.test"],
+    )
+    assert [entry["url"] for entry in registry.entries] == ["https://good.test"]
 
 
 def test_build_numbered_context_includes_ids():
@@ -116,8 +128,7 @@ def test_format_reference_list_omits_unavailable_snippet():
     )
     refs = registry.format_reference_list()
 
-    assert "URL: https://blocked.example/page" in refs
-    assert "URL: https://only-url.example/x" in refs
+    assert refs == ""
     assert "原文片段" not in refs
     assert "原文不可用" not in refs
     assert "Excerpt:" not in refs
@@ -155,3 +166,14 @@ def test_normalize_numbered_report_appends_references():
     assert report.startswith("# Title")
     assert "## 参考文献" in report
     assert "example.com" in report
+
+
+def test_normalize_numbered_report_removes_unresolved_citation_numbers():
+    from gpt_researcher.actions.markdown_processing import normalize_numbered_report
+
+    registry = SourceRegistry.from_research_sources(
+        [{"url": "https://example.com", "title": "Example", "raw_content": "Sample text"}]
+    )
+    result = normalize_numbered_report("# Title\n\nSupported [1]. Unsupported [2].", registry)
+    assert "[1]" in result
+    assert "[2]" not in result

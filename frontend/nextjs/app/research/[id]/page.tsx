@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { loadStoredJobForSession, useResearchJob } from '@/hooks/useResearchJob';
 import { useResearchHistoryContext } from "@/hooks/ResearchHistoryContext";
 import { preprocessOrderedData } from "@/utils/dataProcessing";
 import { ChatBoxSettings, Data, ChatData, ChatMessage, QuestionData } from "@/types/data";
@@ -16,6 +17,12 @@ import CopilotResearchContent from "@/components/research/CopilotResearchContent
 import NotFoundContent from "@/components/research/NotFoundContent";
 import LoadingDots from "@/components/LoadingDots";
 import ResearchSidebar from "@/components/ResearchSidebar";
+import { apiFetch } from '@/lib/apiFetch';
+import {
+  chatReportCreatedMessage,
+  mergeChatWithReportTopic,
+  submitChatReportJob,
+} from '@/lib/submitChatReport';
 
 export default function ResearchPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -27,6 +34,8 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
   const [orderedData, setOrderedData] = useState<Data[]>([]);
   const [allLogs, setAllLogs] = useState<any[]>([]);
   const [isStopped, setIsStopped] = useState(false);
+  const [, setShowHumanFeedback] = useState(false);
+  const [, setQuestionForHuman] = useState<true | false>(false);
   const [currentResearchId, setCurrentResearchId] = useState<string | null>(null);
   const [isProcessingChat, setIsProcessingChat] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -43,8 +52,22 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
     addChatMessage,
     getChatMessages,
     updateResearch,
-    deleteResearch
+    deleteResearch,
+    saveResearch,
   } = useResearchHistoryContext();
+
+  const sideReportSessionIdRef = useRef<string | null>(null);
+
+  // Resume this page's job; chat may also attach a newer side-report job. :-)
+  const { observeJob } = useResearchJob(
+    setOrderedData,
+    setAnswer,
+    setLoading,
+    () => setShowHumanFeedback(false),
+    () => setQuestionForHuman(false),
+    undefined,
+    id,
+  );
 
   // Toggle sidebar
   const toggleSidebar = () => {
@@ -109,7 +132,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
       let foundInBackend = false;
       try {
         console.log(`Checking backend for research ${id}...`);
-        const response = await fetch(`/api/reports/${id}`);
+        const response = await apiFetch(`/api/reports/${id}`);
         
         if (response.ok) {
           console.log(`Found research ${id} in backend!`);
@@ -126,9 +149,21 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
             // Use the backend data, ensuring orderedData and chatMessages are arrays
             setQuestion(data.report.question);
             setAnswer(data.report.answer || '');
-            setOrderedData(Array.isArray(data.report.orderedData) ? data.report.orderedData : []);
+            const incoming = Array.isArray(data.report.orderedData)
+              ? data.report.orderedData
+              : [];
+            // Don't wipe live poll lines if Job resume already started. :-)
+            setOrderedData((prev) => {
+              if (!loadStoredJobForSession(id)?.jobId) return incoming;
+              const live = prev.filter((item) =>
+                ['job_live_status', 'job_status', 'job_resume'].includes(
+                  String((item as { content?: string }).content || '')
+                )
+              );
+              return [...incoming.filter((item) => (item as { content?: string }).content !== 'job_live_status'), ...live];
+            });
             setCurrentResearchId(id);
-            setLoading(false);
+            setLoading(!loadStoredJobForSession(id)?.jobId);
           }
         } else if (response.status === 500) {
           // Handle server error
@@ -149,7 +184,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
             setAnswer(localItem.answer || '');
             setOrderedData(Array.isArray(localItem.orderedData) ? localItem.orderedData : []);
             setCurrentResearchId(id);
-            setLoading(false);
+            setLoading(!loadStoredJobForSession(id)?.jobId);
             return;
           }
           
@@ -177,7 +212,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           setAnswer(localItem.answer || '');
           setOrderedData(Array.isArray(localItem.orderedData) ? localItem.orderedData : []);
           setCurrentResearchId(id);
-          setLoading(false);
+          setLoading(!loadStoredJobForSession(id)?.jobId);
           return;
         }
       }
@@ -195,7 +230,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
             chatMessages: Array.isArray(localItem.chatMessages) ? JSON.parse(JSON.stringify(localItem.chatMessages)) : [],
           };
           
-          const saveResponse = await fetch('/api/reports', {
+          const saveResponse = await apiFetch('/api/reports', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -214,7 +249,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           setAnswer(localItem.answer || '');
           setOrderedData(Array.isArray(localItem.orderedData) ? localItem.orderedData : []);
           setCurrentResearchId(id);
-          setLoading(false);
+          setLoading(!loadStoredJobForSession(id)?.jobId);
         } catch (error) {
           console.error('Error saving to backend:', error);
           
@@ -223,7 +258,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           setAnswer(localItem.answer || '');
           setOrderedData(Array.isArray(localItem.orderedData) ? localItem.orderedData : []);
           setCurrentResearchId(id);
-          setLoading(false);
+          setLoading(!loadStoredJobForSession(id)?.jobId);
         }
       }
       
@@ -241,7 +276,20 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
   // Process ordered data into logs for display
   useEffect(() => {
     const groupedData = preprocessOrderedData(orderedData);
-    const statusReports = ["agent_generated", "starting_research", "planning_research", "error"];
+    const statusReports = [
+      'agent_generated',
+      'starting_research',
+      'planning_research',
+      'error',
+      'job_queued',
+      'job_status',
+      'job_live_status',
+      'job_pending_dispatch',
+      'job_rate_limited',
+      'job_cancelling',
+      'job_resume',
+      'report_trust',
+    ];
     
     const newLogs = groupedData.reduce((acc: any[], data) => {
       // Process accordion blocks (grouped data)
@@ -254,13 +302,13 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
         }));
         return [...acc, ...logs];
       } 
-      // Process status reports
-      else if (statusReports.includes(data.content)) {
+      // Process status reports (legacy WS + async Job poll)
+      else if (data.type === 'logs' || statusReports.includes(data.content)) {
         return [...acc, {
-          header: data.content,
+          header: data.content || 'status',
           text: data.output,
           metadata: data.metadata,
-          key: `${data.type}-${data.content}`,
+          key: `${data.type}-${data.content}-${acc.length}`,
         }];
       }
       return acc;
@@ -280,6 +328,14 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
       setTimeout(scrollToBottom, 100); // Small delay to ensure content is rendered
     }
   }, [orderedData, isProcessingChat]);
+
+  const submitReportRequestedInChat = async (toolCall: any) =>
+    submitChatReportJob({
+      toolCall,
+      chatBoxSettings,
+      saveResearch,
+      parentChatId: currentResearchId || id,
+    });
 
   const handleChat = async (message: string) => {
     if (!currentResearchId) return;
@@ -313,7 +369,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
       );
       
       // Call the chat API
-      const response = await fetch(`/api/chat`, {
+      const response = await apiFetch(`/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -322,6 +378,8 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           research_topic: question.trim() || message,
           research_context: buildCombinedResearchContext(orderedData, question.trim()),
           report_language: chatBoxSettings.report_language || 'chinese',
+          session_id: currentResearchId,
+          research_id: currentResearchId,
         }),
       });
       
@@ -332,6 +390,59 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
       const data = await response.json();
       
       if (data.response) {
+        const reportToolCall = data.response.metadata?.tool_calls?.find(
+          (tool: any) => tool.tool === 'create_research_report'
+            && tool.action === 'create_report'
+            && typeof tool.task === 'string'
+            && tool.task.trim().length > 0
+        );
+        if (reportToolCall) {
+          try {
+            const created = await submitReportRequestedInChat(reportToolCall);
+            const taskText = String(reportToolCall.task || created.task || '');
+            data.response.content = chatReportCreatedMessage(taskText);
+            data.response.metadata = {
+              ...(data.response.metadata || {}),
+              report_request: {
+                research_id: created.sessionId,
+                job_id: created.jobId,
+                task: taskText,
+              },
+            };
+            const chatData: ChatData = {
+              type: 'chat',
+              content: data.response.content,
+              metadata: data.response.metadata,
+            };
+            // Stay on this conversation: right chat unchanged, left follows new job. :-)
+            sideReportSessionIdRef.current = created.sessionId;
+            setAnswer('');
+            setOrderedData((prev) => {
+              const withUser = prev.some(
+                (d) => d.type === 'question' && d.content === questionData.content
+              )
+                ? prev
+                : [...prev, questionData];
+              return [...mergeChatWithReportTopic(withUser, taskText), chatData];
+            });
+            addChatMessage(currentResearchId, data.response).catch(console.error);
+            updateResearch(
+              currentResearchId,
+              answer,
+              [...mergeChatWithReportTopic([...orderedData, questionData], taskText), chatData]
+            ).catch(console.error);
+            observeJob(created.jobId, {
+              reportSessionId: created.sessionId,
+              tenantId: created.tenantId,
+            });
+            toast.success(`左侧已开始生成：${taskText.slice(0, 28)}`);
+            return;
+          } catch (submitError: any) {
+            console.error('Failed to submit report requested in chat:', submitError);
+            data.response.content = `报告任务未能提交：${submitError?.message || '请稍后重试'}`;
+            toast.error('报告任务提交失败');
+          }
+        }
         // Add AI response to chat history asynchronously
         addChatMessage(currentResearchId, data.response).catch(error => {
           console.error('Error adding AI response to history:', error);
@@ -433,7 +544,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
   }
 
   return getAppropriateLayout({
-    loading: false,
+    loading,
     isStopped,
     showResult: true,
     onNewResearch: handleNewResearch,
@@ -455,7 +566,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           answer={answer}
           allLogs={allLogs}
           chatBoxSettings={chatBoxSettings}
-          loading={false}
+          loading={loading}
           isStopped={isStopped}
           promptValue=""
           chatPromptValue={chatPromptValue}
@@ -470,9 +581,13 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
           onNewResearch={handleNewResearch}
           toggleSidebar={toggleSidebar}
           isInChatMode={true}
-          sessionMode={answer ? 'research' : null}
+          sessionMode={
+            answer || loading || Boolean(sideReportSessionIdRef.current)
+              ? 'research'
+              : null
+          }
         />
       </div>
     )
   });
-} 
+}

@@ -1,4 +1,8 @@
-"""SQLAlchemy async engine helpers."""
+"""SQLAlchemy async engine helpers.
+
+Production startup must NOT mutate schema — Alembic owns migrations.
+Dev may still call create_all when ALLOW_DEV_CREATE_ALL=true.
+"""
 
 from __future__ import annotations
 
@@ -24,6 +28,10 @@ def get_database_url() -> Optional[str]:
     url = (os.getenv("DATABASE_URL") or "").strip()
     if not url:
         return None
+    if url.startswith("postgresql+psycopg2://"):
+        return url.replace("postgresql+psycopg2://", "postgresql+asyncpg://", 1)
+    if url.startswith("postgresql+psycopg://"):
+        return url.replace("postgresql+psycopg://", "postgresql+asyncpg://", 1)
     if url.startswith("postgresql://"):
         return url.replace("postgresql://", "postgresql+asyncpg://", 1)
     if url.startswith("postgres://"):
@@ -43,8 +51,29 @@ def get_session_factory() -> Optional[async_sessionmaker[AsyncSession]]:
     return _session_factory
 
 
+def _is_production() -> bool:
+    env = (
+        os.getenv("ENV", "")
+        or os.getenv("ENVIRONMENT", "")
+        or os.getenv("APP_ENV", "")
+    ).strip().lower()
+    return env in ("production", "prod")
+
+
+def _allow_dev_create_all() -> bool:
+    if _is_production():
+        return False
+    flag = os.getenv("ALLOW_DEV_CREATE_ALL", "false").strip().lower()
+    return flag in ("1", "true", "yes", "on")
+
+
 async def init_db() -> bool:
-    """Initialize engine and create tables. Returns True if DB is active."""
+    """
+    Initialize engine/session factory.
+
+    Does not run ALTER TABLE. Schema changes belong to Alembic.
+    Optionally create_all in non-production when ALLOW_DEV_CREATE_ALL=true.
+    """
     global _engine, _session_factory
 
     url = get_database_url()
@@ -52,22 +81,25 @@ async def init_db() -> bool:
         logger.info("DATABASE_URL not set — using local JSON report store")
         return False
 
-    from .models import Base
-
     _engine = create_async_engine(url, pool_pre_ping=True, echo=False)
     _session_factory = async_sessionmaker(_engine, expire_on_commit=False)
 
+    # Connectivity probe
     async with _engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
-        # Best-effort pgvector extension (ignore if unavailable)
-        try:
-            await conn.execute(
-                __import__("sqlalchemy").text("CREATE EXTENSION IF NOT EXISTS vector")
-            )
-        except Exception as exc:
-            logger.warning("pgvector extension unavailable: %s", exc)
+        await conn.execute(__import__("sqlalchemy").text("SELECT 1"))
 
-    logger.info("PostgreSQL initialized")
+        if _allow_dev_create_all():
+            from .models import Base
+
+            await conn.run_sync(Base.metadata.create_all)
+            try:
+                await conn.execute(
+                    __import__("sqlalchemy").text("CREATE EXTENSION IF NOT EXISTS vector")
+                )
+            except Exception as exc:
+                logger.warning("pgvector extension unavailable: %s", exc)
+
+    logger.info("PostgreSQL engine ready (schema managed by Alembic)")
     return True
 
 

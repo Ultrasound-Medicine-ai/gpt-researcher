@@ -1,10 +1,22 @@
 import asyncio
 import hashlib
+import logging
+import os
 import time
 from typing import List, Dict, Set, Optional, Any
 from fastapi import WebSocket
 
 from gpt_researcher import GPTResearcher
+
+logger = logging.getLogger(__name__)
+
+
+def _chapter_max_attempts() -> int:
+    raw = (os.getenv("RESEARCH_CHAPTER_MAX_ATTEMPTS") or "2").strip()
+    try:
+        return max(1, min(5, int(raw)))
+    except ValueError:
+        return 2
 
 
 class DetailedReport:
@@ -27,6 +39,7 @@ class DetailedReport:
         max_search_results=None,
         total_words=None,
         report_language=None,
+        documents=None,
     ):
         self.query = query
         self.report_type = report_type
@@ -57,6 +70,7 @@ class DetailedReport:
             "websocket": self.websocket,
             "headers": self.headers,
             "complement_source_urls": self.complement_source_urls,
+            "documents": documents,
         }
 
         # Add MCP parameters if provided
@@ -89,7 +103,16 @@ class DetailedReport:
     async def run(self) -> str:
         await self._initial_research()
         subtopics = await self._get_all_subtopics()
-        report_introduction = await self.gpt_researcher.write_introduction()
+        try:
+            from jobs.runtime import check_abort, get_abort_runtime
+
+            await check_abort(where="pre_subtopics")
+            runtime = get_abort_runtime()
+            if runtime is not None and runtime.budget is not None:
+                subtopics = runtime.budget.clamp_subtopics(subtopics)
+        except ImportError:
+            pass
+        report_introduction = await self._load_or_write_introduction()
         _, report_body = await self._generate_subtopic_reports(subtopics)
         self.gpt_researcher.visited_urls.update(self.global_urls)
         report = await self._construct_detailed_report(report_introduction, report_body)
@@ -112,15 +135,146 @@ class DetailedReport:
 
         return all_subtopics
 
+    async def _load_or_write_introduction(self) -> str:
+        """Reuse checkpointed introduction when present."""
+        try:
+            from jobs import get_job
+            from jobs.runtime import get_abort_runtime
+
+            runtime = get_abort_runtime()
+            if runtime is not None:
+                job = await get_job(runtime.job_id) or {}
+                cp = job.get("checkpoint_json") or {}
+                intro = cp.get("introduction")
+                if isinstance(intro, str) and intro.strip():
+                    logger.info("Resuming from checkpointed introduction")
+                    return intro
+        except Exception:
+            pass
+
+        introduction = await self.gpt_researcher.write_introduction()
+        await self._checkpoint_update(introduction=introduction or "")
+        return introduction or ""
+
+    async def _checkpoint_update(self, **fields) -> None:
+        try:
+            from jobs.runtime import get_abort_runtime
+
+            runtime = get_abort_runtime()
+            if runtime is not None:
+                await runtime.save_checkpoint(**fields)
+        except Exception as exc:
+            logger.debug("chapter checkpoint skipped: %s", exc)
+
+    async def _load_chapter_checkpoints(self) -> dict:
+        try:
+            from jobs import get_job
+            from jobs.runtime import get_abort_runtime
+
+            runtime = get_abort_runtime()
+            if runtime is None:
+                return {}
+            job = await get_job(runtime.job_id) or {}
+            cp = job.get("checkpoint_json") or {}
+            chapters = cp.get("chapters") or {}
+            return chapters if isinstance(chapters, dict) else {}
+        except Exception:
+            return {}
+
     async def _generate_subtopic_reports(self, subtopics: List[Dict]) -> tuple:
         subtopic_reports = []
         subtopics_report_body = ""
+        chapters = await self._load_chapter_checkpoints()
+        max_attempts = _chapter_max_attempts()
 
-        for subtopic in subtopics:
-            result = await self._get_subtopic_report(subtopic)
-            if result["report"]:
+        for idx, subtopic in enumerate(subtopics):
+            task = (subtopic.get("task") or "").strip()
+            key = str(idx)
+            cached = chapters.get(key) or {}
+            if (
+                cached.get("status") == "completed"
+                and cached.get("report")
+                and cached.get("task") == task
+            ):
+                logger.info("Skipping completed chapter %s from checkpoint", idx)
+                result = {"topic": subtopic, "report": cached["report"]}
                 subtopic_reports.append(result)
                 subtopics_report_body += f"\n\n\n{result['report']}"
+                # Rebuild global section state for later chapters
+                self.global_written_sections.extend(
+                    self.gpt_researcher.extract_sections(result["report"])
+                )
+                self.existing_headers.append({
+                    "subtopic task": task,
+                    "headers": self.gpt_researcher.extract_headers(result["report"]),
+                })
+                continue
+
+            try:
+                from jobs.runtime import check_abort
+
+                await check_abort(where=f"pre_chapter:{task[:40]}")
+            except ImportError:
+                pass
+
+            result = None
+            last_err = None
+            attempt = 0
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    result = await self._get_subtopic_report(subtopic)
+                    if result.get("report"):
+                        break
+                    last_err = "empty_chapter_report"
+                except Exception as exc:
+                    last_err = str(exc)
+                    logger.warning(
+                        "Chapter %s attempt %s/%s failed: %s",
+                        idx, attempt, max_attempts, exc,
+                    )
+                    try:
+                        from jobs.runtime import get_abort_runtime
+
+                        runtime = get_abort_runtime()
+                        if runtime is not None:
+                            runtime.record_llm_event(
+                                "chapter_retry",
+                                chapter=idx,
+                                task=task[:120],
+                                attempt=attempt,
+                                error=str(exc)[:300],
+                            )
+                    except Exception:
+                        pass
+                    if attempt < max_attempts:
+                        await asyncio.sleep(min(2 ** (attempt - 1), 8))
+                        continue
+
+            if result and result.get("report"):
+                subtopic_reports.append(result)
+                subtopics_report_body += f"\n\n\n{result['report']}"
+                chapters[key] = {
+                    "task": task,
+                    "status": "completed",
+                    "report": result["report"],
+                    "attempts": attempt,
+                }
+            else:
+                chapters[key] = {
+                    "task": task,
+                    "status": "failed",
+                    "error": (last_err or "unknown")[:500],
+                    "attempts": max_attempts,
+                }
+                logger.error(
+                    "Chapter %s failed after %s attempts — continuing without it",
+                    idx, max_attempts,
+                )
+
+            await self._checkpoint_update(
+                chapters=chapters,
+                writing_progress={"chapter_index": idx, "total": len(subtopics)},
+            )
 
         return subtopic_reports, subtopics_report_body
 
@@ -190,6 +344,11 @@ class DetailedReport:
             relevant_written_contents=relevant_contents,
         )
 
+        # Preserve verified source records for the final bibliography; a visited
+        # URL alone may have failed scraping and is not citable evidence.
+        self.gpt_researcher.add_research_sources(
+            subtopic_assistant.get_research_sources()
+        )
         self.global_written_sections.extend(self.gpt_researcher.extract_sections(subtopic_report))
         self.global_context = list(set(self._hashable_context(subtopic_assistant.context)))
         self.global_urls.update(subtopic_assistant.visited_urls)

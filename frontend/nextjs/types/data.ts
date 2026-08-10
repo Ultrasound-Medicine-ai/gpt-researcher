@@ -21,6 +21,8 @@ export interface DifferencesData extends BaseData {
 export interface QuestionData extends BaseData {
   type: 'question';
   content: string;
+  /** Marks the left-panel report topic; hidden from the right chat list. :-) */
+  contentAndType?: string;
 }
 
 export interface ChatData extends BaseData {

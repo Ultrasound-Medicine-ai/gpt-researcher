@@ -23,12 +23,22 @@ interface LogMessageProps {
 }
 
 const LogMessage: React.FC<LogMessageProps> = ({ logs }) => {
-  const [processedLogs, setProcessedLogs] = useState<Log[]>([]);
+  // Show plain logs immediately — async markdown only needed for "differences". :-)
+  const [processedLogs, setProcessedLogs] = useState<Log[]>(logs || []);
 
   useEffect(() => {
     const processLogs = async () => {
-      if (!logs) return;
-      
+      if (!logs) {
+        setProcessedLogs([]);
+        return;
+      }
+
+      // Paint immediately so Agent Work is never blank while polling. :-)
+      setProcessedLogs(logs);
+
+      const needsAsync = logs.some((log) => log.header === 'differences' && log.text);
+      if (!needsAsync) return;
+
       const newLogs = await Promise.all(
         logs.map(async (log) => {
           try {

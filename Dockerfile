@@ -37,6 +37,13 @@ RUN pip install --upgrade pip && \
 # Stage 3: Final stage with non-root user and app
 FROM gpt-researcher-install AS gpt-researcher
 
+# WeasyPrint needs an explicit CJK font in slim images; without it Chinese PDFs
+# render as .notdef/tofu glyphs. Keep this after Python dependencies so adding or
+# changing fonts does not invalidate the expensive pip-install cache.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends fonts-noto-cjk \
+    && rm -rf /var/lib/apt/lists/*
+
 # Basic server configuration
 ARG HOST=0.0.0.0
 ENV HOST=${HOST}

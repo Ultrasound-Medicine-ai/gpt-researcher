@@ -151,6 +151,20 @@ def add_numbered_references(
     return f"{report_markdown.rstrip()}\n\n{reference_section}"
 
 
+def strip_invalid_numbered_citations(report_markdown: str, source_count: int) -> str:
+    """Remove numbered citations that cannot resolve to a verified source.
+
+    The legacy Writer can emit a citation number on its own.  Keeping an
+    unresolved ``[n]`` would make the report look sourced even when no
+    citable original text exists, so this is a final delivery-time guard.
+    """
+    def _replace(match: re.Match) -> str:
+        number = int(match.group(1))
+        return match.group(0) if 1 <= number <= source_count else ""
+
+    return re.sub(r"\[(\d{1,3})\]", _replace, report_markdown)
+
+
 def normalize_numbered_report(
     report_markdown: str,
     registry,
@@ -159,6 +173,9 @@ def normalize_numbered_report(
     """Strip APA-style citations and append deterministic numbered references."""
     cleaned = strip_apa_inline_citations(report_markdown)
     cleaned = strip_existing_references_section(cleaned)
+    cleaned = strip_invalid_numbered_citations(
+        cleaned, len(getattr(registry, "entries", []) or [])
+    )
     return add_numbered_references(cleaned, registry, references_heading)
 
 

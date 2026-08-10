@@ -31,7 +31,10 @@ python evals/harness_eval/run_eval.py --suite nightly
 Infrastructure (PostgreSQL / Redis / MinIO / PGVector / ARQ) is **optional**.
 
 - Unset `DATABASE_URL` → JSON report store (legacy path)
-- Unset `REDIS_URL` → in-process job fallback (same `run_agent`)
+- Enqueue failure → Job stays `pending_dispatch` + **503**; production never `asyncio.create_task` (`ALLOW_IN_PROCESS_RESEARCH_FALLBACK=false`)
+- UI path: `POST /api/jobs/research` then poll `GET /api/jobs/{id}` every 1–2s; `job_id` in localStorage for refresh recovery
+- Completed only after Report (+ sources/files) persisted successfully
+- Legacy WS `start` only if `ENABLE_WS_START_RESEARCH=true`
 - Vector persist / object store / deterministic cite failures are **non-fatal**
 - Report generation parameters are never altered by persistence wrappers
 - **PostgreSQL is the job state source of truth** when configured; Redis is queue/cache only

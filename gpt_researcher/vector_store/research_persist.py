@@ -38,7 +38,9 @@ class ResearchVectorStore:
             from gpt_researcher.memory import Memory
 
             cfg = Config()
-            self._embeddings = Memory(
+            from gpt_researcher.memory.embeddings import create_memory_with_failover
+
+            self._embeddings = create_memory_with_failover(
                 cfg.embedding_provider,
                 cfg.embedding_model,
                 **cfg.embedding_kwargs,
@@ -137,22 +139,109 @@ class ResearchVectorStore:
         research_id: str,
         k: int = 8,
     ) -> list[Any]:
-        if not self.ready or not query or not research_id:
+        if not query or not research_id:
             return []
-        try:
+        if self.ready:
             try:
-                return self._store.similarity_search(
-                    query, k=k, filter={"research_id": research_id}
+                try:
+                    return self._store.similarity_search(
+                        query, k=k, filter={"research_id": research_id}
+                    )
+                except Exception:
+                    results = self._store.similarity_search(query, k=max(k * 3, 12))
+                    return [
+                        doc
+                        for doc in results
+                        if (doc.metadata or {}).get("research_id") == research_id
+                    ][:k]
+            except Exception as exc:
+                logger.warning(
+                    "Vector search failed — trying keyword/FTS fallback: %s", exc
                 )
-            except Exception:
-                results = self._store.similarity_search(query, k=max(k * 3, 12))
-                return [
-                    doc
-                    for doc in results
-                    if (doc.metadata or {}).get("research_id") == research_id
-                ][:k]
+                try:
+                    from gpt_researcher.utils.dep_resilience import record_degradation
+
+                    record_degradation(
+                        "rag",
+                        f"vector_search:{exc}"[:280],
+                        rag_degraded=True,
+                    )
+                except Exception:
+                    pass
+        return self.keyword_search(query, research_id=research_id, k=k)
+
+    def keyword_search(
+        self,
+        query: str,
+        *,
+        research_id: str,
+        k: int = 8,
+    ) -> list[Any]:
+        """Keyword / PostgreSQL ILIKE fallback when embeddings are unavailable."""
+        from gpt_researcher.utils.dep_resilience import (
+            keyword_score,
+            record_degradation,
+            tokenize_query,
+        )
+
+        record_degradation("rag", "keyword_or_fts_fallback", rag_degraded=True)
+        tokens = tokenize_query(query)
+        docs = self._fts_or_ilike_search(research_id, tokens, k=k)
+        if docs:
+            return docs
+        return []
+
+    def _fts_or_ilike_search(
+        self, research_id: str, tokens: list[str], *, k: int
+    ) -> list[Any]:
+        """Best-effort SQL keyword search against langchain_pg_embedding."""
+        if not tokens:
+            return []
+        conn = (
+            os.getenv("PGVECTOR_CONNECTION_STRING")
+            or os.getenv("DATABASE_URL")
+            or ""
+        ).strip()
+        if not conn:
+            return []
+        # Normalize to psycopg URL
+        if conn.startswith("postgresql+asyncpg://"):
+            conn = conn.replace("postgresql+asyncpg://", "postgresql://", 1)
+        elif conn.startswith("postgresql+psycopg://"):
+            conn = conn.replace("postgresql+psycopg://", "postgresql://", 1)
+        try:
+            import psycopg
+            from langchain_core.documents import Document
+
+            like_clauses = " OR ".join(["document ILIKE %s"] * min(len(tokens), 6))
+            params: list[Any] = [research_id]
+            params.extend([f"%{t}%" for t in tokens[:6]])
+            sql = f"""
+                SELECT document, cmetadata
+                FROM langchain_pg_embedding
+                WHERE cmetadata->>'research_id' = %s
+                  AND ({like_clauses})
+                LIMIT %s
+            """
+            params.append(max(k * 3, k))
+            with psycopg.connect(conn) as connection:
+                with connection.cursor() as cur:
+                    cur.execute(sql, params)
+                    rows = cur.fetchall()
+            scored: list[tuple[int, Any]] = []
+            for document, meta in rows:
+                meta = meta or {}
+                score = keyword_score(str(document or ""), tokens)
+                scored.append(
+                    (
+                        score,
+                        Document(page_content=str(document or ""), metadata=meta),
+                    )
+                )
+            scored.sort(key=lambda x: x[0], reverse=True)
+            return [doc for _, doc in scored[:k]]
         except Exception as exc:
-            logger.warning("Vector search failed (non-fatal): %s", exc)
+            logger.debug("PG keyword/FTS fallback unavailable: %s", exc)
             return []
 
     def format_context(self, docs: list[Any], max_chars: int = 12000) -> str:

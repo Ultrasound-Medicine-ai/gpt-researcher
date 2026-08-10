@@ -145,6 +145,14 @@ def _response_indicates_quota_exhaustion(status_code: int, body: str) -> bool:
     return any(marker in normalized for marker in quota_markers)
 
 
+def all_tavily_keys_exhausted() -> bool:
+    """True when every configured key has been marked exhausted."""
+    keys = get_tavily_keys(include_exhausted=True)
+    if not keys:
+        return True
+    return len(get_tavily_keys(include_exhausted=False)) == 0
+
+
 def should_rotate_tavily_key(
     status_code: int | None = None,
     error_message: str = "",
@@ -161,12 +169,26 @@ def should_rotate_tavily_key(
             return True
         if "forbidden" in exception_name:
             return True
+        if "timeout" in exception_name or "timedout" in exception_name:
+            return True
         if "usagelimitexceeded" in exception_name and _response_indicates_quota_exhaustion(
             429, message
         ):
             return True
 
-    if code == 401:
+    if code in (401, 429, 500, 502, 503, 504):
+        return True
+
+    normalized = message.lower()
+    rotate_markers = (
+        "rate limit",
+        "rate_limit",
+        "too many requests",
+        "timeout",
+        "timed out",
+        "temporarily unavailable",
+    )
+    if any(m in normalized for m in rotate_markers):
         return True
 
     if code is not None and _response_indicates_quota_exhaustion(code, message):

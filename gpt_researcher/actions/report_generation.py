@@ -191,17 +191,17 @@ async def generate_draft_section_titles(
     """
     try:
         section_titles = await create_chat_completion(
-            model=config.smart_llm_model,
+            model=config.strategic_llm_model,
             messages=[
                 {"role": "system", "content": f"{role}"},
                 {"role": "user", "content": prompt_family.generate_draft_titles_prompt(
                     current_subtopic, query, context)},
             ],
             temperature=0.25,
-            llm_provider=config.smart_llm_provider,
+            llm_provider=config.strategic_llm_provider,
             stream=True,
             websocket=None,
-            max_tokens=config.smart_token_limit,
+            max_tokens=config.strategic_token_limit,
             llm_kwargs=config.llm_kwargs,
             cost_callback=cost_callback,
             **kwargs
@@ -315,5 +315,21 @@ Place each image on its own line after the relevant section header or paragraph.
             )
         except Exception as e:
             print(f"Error in generate_report: {e}")
+
+    # Hard output budget (env / job runtime). Soft total_words alone is not enough.
+    try:
+        from jobs.runtime import get_abort_runtime
+        from jobs.budget import truncate_to_words, default_budget_limits
+
+        runtime = get_abort_runtime()
+        if runtime is not None and runtime.budget is not None and report:
+            report = runtime.budget.enforce_output_words(report)
+        elif report:
+            limits = default_budget_limits()
+            soft = getattr(cfg, "total_words", None) or limits["max_output_words"]
+            cap = min(int(soft), limits["max_output_words"])
+            report = truncate_to_words(report, cap)
+    except ImportError:
+        pass
 
     return report

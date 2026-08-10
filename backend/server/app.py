@@ -40,7 +40,16 @@ from gpt_researcher.utils.enum import Tone
 from chat.chat import ChatAgentWithMemory
 
 from server.report_store import ReportStore
-from server.auth import resolve_user_id, resolve_tenant_id
+from server.auth import (
+    apply_identity_cookie,
+    attach_auth_cookie,
+    owner_filter,
+    resolve_identity,
+    resolve_tenant_id,
+    resolve_user_id,
+)
+from server.identity_store import ensure_user
+from server.auth_routes import router as auth_router
 
 # Optional SaaS persistence (falls back to JSON when DATABASE_URL unset)
 try:
@@ -106,11 +115,21 @@ class ChatRequest(BaseModel):
     research_id: str | None = None
 
 
+from server.chat_report_request import chat_report_request as _chat_report_request
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
     os.makedirs("outputs", exist_ok=True)
     app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
+
+    from server.health import check_readiness, is_production_env
+
+    # Production fail-fast: required env + migrations (no schema mutation here)
+    ok, issues = check_readiness()
+    if is_production_env() and not ok:
+        raise RuntimeError(f"API readiness failed: {', '.join(issues)}")
 
     global report_store
     json_path = Path(os.getenv("REPORT_STORE_PATH", os.path.join("data", "reports.json")))
@@ -119,6 +138,8 @@ async def lifespan(app: FastAPI):
         try:
             db_ok = await init_db()
         except Exception as exc:
+            if is_production_env():
+                raise
             logger.warning("DB init failed — falling back to JSON store: %s", exc)
             db_ok = False
 
@@ -133,6 +154,36 @@ async def lifespan(app: FastAPI):
         except Exception as exc:
             logger.warning("Object store init skipped: %s", exc)
 
+    # Shared Redis/ARQ pool — never create_pool per request
+    try:
+        from jobs.redis_pool import init_arq_pool, get_redis
+
+        await init_arq_pool()
+        await get_redis()
+        from jobs.slots import rebuild_slots_from_pg_if_needed
+
+        restored = await rebuild_slots_from_pg_if_needed()
+        if restored:
+            logger.info("Restored %s concurrency slot(s) from PostgreSQL", restored)
+    except Exception as exc:
+        if is_production_env():
+            raise
+        logger.warning("ARQ/Redis pool init skipped: %s", exc)
+
+    # Background dispatcher + reaper (multi-instance safe via SKIP LOCKED / version)
+    stop_bg = __import__("asyncio").Event()
+    bg_tasks = []
+    try:
+        from jobs.dispatcher import dispatcher_loop
+        from jobs.reaper import reaper_loop
+
+        bg_tasks = [
+            __import__("asyncio").create_task(dispatcher_loop(stop_bg)),
+            __import__("asyncio").create_task(reaper_loop(stop_bg)),
+        ]
+    except Exception as exc:
+        logger.warning("Dispatcher/reaper loops not started: %s", exc)
+
     mode = "postgresql" if db_ok else "local JSON"
     logger.info("GPT Researcher API ready — persistence mode: %s", mode)
     logger.info(
@@ -143,6 +194,15 @@ async def lifespan(app: FastAPI):
     )
     yield
     # Shutdown
+    stop_bg.set()
+    for t in bg_tasks:
+        t.cancel()
+    try:
+        from jobs.redis_pool import close_arq_pool as _close_pool
+
+        await _close_pool()
+    except Exception:
+        pass
     if close_db is not None:
         try:
             await close_db()
@@ -178,6 +238,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth_router)
+
+
+@app.middleware("http")
+async def visitor_cookie_middleware(request: Request, call_next):
+    """Ensure every API caller has a durable visitor/registered cookie. :-)"""
+    path = request.url.path or ""
+    if path.startswith(("/docs", "/openapi", "/redoc", "/outputs")):
+        return await call_next(request)
+    ident = resolve_identity(request)
+    if ident.is_new:
+        await ensure_user(ident.user_id, kind=ident.kind)
+    response = await call_next(request)
+    if ident.set_cookie_value:
+        attach_auth_cookie(response, ident.set_cookie_value)
+    return response
+
+
 # Use default JSON response class
 
 # WebSocket manager
@@ -196,6 +274,29 @@ DOC_PATH = os.getenv("DOC_PATH", "./my-docs")
 
 
 # Routes
+@app.get("/health/live")
+async def health_live():
+    """Liveness: process is up."""
+    return {"status": "live"}
+
+
+@app.get("/health/ready")
+async def health_ready():
+    """Readiness: PG, Redis, migrations, queue — never leaks secrets."""
+    from fastapi.responses import JSONResponse
+    from server.health import build_ready_payload
+
+    payload = await build_ready_payload()
+    code = 200 if payload.get("status") == "ready" else 503
+    return JSONResponse(status_code=code, content=payload)
+
+
+@app.get("/health")
+async def health_compat():
+    """Backward-compatible health alias → readiness."""
+    return await health_ready()
+
+
 @app.get("/")
 async def api_root():
     """API-only root. Use the Next.js app (default http://localhost:3000) for the UI."""
@@ -234,7 +335,7 @@ async def get_all_reports(request: Request, report_ids: str = None):
     user_id = resolve_user_id(request)
     report_ids_list = report_ids.split(",") if report_ids else None
     # anonymous lists all (legacy); named users see only their reports
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     reports = await report_store.list_reports(report_ids_list, user_id=filter_user)
     return {"reports": reports}
 
@@ -242,7 +343,7 @@ async def get_all_reports(request: Request, report_ids: str = None):
 @app.get("/api/reports/{research_id}")
 async def get_report_by_id(research_id: str, request: Request):
     user_id = resolve_user_id(request)
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     report = await report_store.get_report(research_id, user_id=filter_user)
     if report is None:
         raise HTTPException(status_code=404, detail="Report not found")
@@ -288,7 +389,7 @@ async def create_or_update_report(request: Request):
 @app.put("/api/reports/{research_id}")
 async def update_report(research_id: str, request: Request):
     user_id = resolve_user_id(request)
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     existing = await report_store.get_report(research_id, user_id=filter_user)
     if existing is None:
         raise HTTPException(status_code=404, detail="Report not found")
@@ -311,7 +412,7 @@ async def update_report(research_id: str, request: Request):
 @app.delete("/api/reports/{research_id}")
 async def delete_report(research_id: str, request: Request):
     user_id = resolve_user_id(request)
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     existed = await report_store.delete_report(research_id, user_id=filter_user)
     if not existed:
         raise HTTPException(status_code=404, detail="Report not found")
@@ -321,7 +422,7 @@ async def delete_report(research_id: str, request: Request):
 @app.get("/api/reports/{research_id}/chat")
 async def get_report_chat(research_id: str, request: Request):
     user_id = resolve_user_id(request)
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     report = await report_store.get_report(research_id, user_id=filter_user)
     if report is None:
         raise HTTPException(status_code=404, detail="Report not found")
@@ -331,7 +432,7 @@ async def get_report_chat(research_id: str, request: Request):
 @app.post("/api/reports/{research_id}/chat")
 async def add_report_chat_message(research_id: str, request: Request):
     user_id = resolve_user_id(request)
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     report = await report_store.get_report(research_id, user_id=filter_user)
     if report is None:
         raise HTTPException(status_code=404, detail="Report not found")
@@ -424,8 +525,30 @@ async def run_multi_agents():
 
 
 @app.post("/upload/")
-async def upload_file(file: UploadFile = File(...)):
-    return await handle_file_upload(file, DOC_PATH)
+async def upload_file(
+    request: Request,
+    file: UploadFile = File(...),
+    session_id: str | None = None,
+):
+    result = await handle_file_upload(file, DOC_PATH)
+    # Best-effort RAG ingest (tenant/session scoped when provided)
+    try:
+        from rag.ingest import ingest_upload_file
+
+        user_id = resolve_user_id(request)
+        tenant_id = resolve_tenant_id(request, user_id=user_id)
+        doc_id = await ingest_upload_file(
+            file_path=result.get("path") or "",
+            filename=result.get("filename") or file.filename or "upload",
+            tenant_id=tenant_id,
+            user_id=user_id,
+            session_id=session_id,
+        )
+        if doc_id:
+            result["document_id"] = doc_id
+    except Exception as ingest_exc:
+        logger.debug("Upload RAG ingest skipped: %s", ingest_exc)
+    return result
 
 
 @app.delete("/files/{filename}")
@@ -457,7 +580,7 @@ async def chat(chat_request: ChatRequest, request: Request):
     try:
         logger.info(f"Received chat request with {len(chat_request.messages)} messages")
         user_id = resolve_user_id(request)
-        filter_user = None if user_id == "anonymous" else user_id
+        filter_user = owner_filter(user_id)
         session_id = chat_request.session_id or chat_request.research_id
 
         report_text = chat_request.report or ""
@@ -492,8 +615,10 @@ async def chat(chat_request: ChatRequest, request: Request):
         chat_agent = ChatAgentWithMemory(
             report=report_text,
             config_path="default",
-            headers=None
+            headers=None,
+            report_request_callback=_chat_report_request,
         )
+        tenant_id = resolve_tenant_id(request, user_id=user_id)
 
         response_content, tool_calls_metadata = await chat_agent.chat(
             messages,
@@ -502,6 +627,8 @@ async def chat(chat_request: ChatRequest, request: Request):
             research_context=research_context,
             report_language=report_language,
             research_id=session_id,
+            tenant_id=tenant_id,
+            user_id=user_id,
         )
         logger.info(f"response_content: {response_content}")
         logger.info(f"Got chat response of length: {len(response_content) if response_content else 0}")
@@ -509,14 +636,21 @@ async def chat(chat_request: ChatRequest, request: Request):
         if tool_calls_metadata:
             logger.info(f"Tool calls used: {json.dumps(tool_calls_metadata)}")
 
+        # ChatAgent returns a rich metadata dict (tool calls + RAG citations).
+        # Preserve it as-is instead of nesting tool_calls inside tool_calls.
+        meta = None
+        if tool_calls_metadata:
+            if isinstance(tool_calls_metadata, dict):
+                meta = tool_calls_metadata
+            else:
+                meta = {"tool_calls": tool_calls_metadata}
+
         # Format response as a ChatMessage object with role, content, timestamp and metadata
         response_message = {
             "role": "assistant",
             "content": response_content,
             "timestamp": int(time.time() * 1000),  # Current time in milliseconds
-            "metadata": {
-                "tool_calls": tool_calls_metadata
-            } if tool_calls_metadata else None
+            "metadata": meta,
         }
 
         logger.info(f"Returning formatted response: {json.dumps(response_message)[:100]}...")
@@ -551,7 +685,15 @@ async def _run_session_chat(research_id: str, data: dict, user_id: str | None = 
         report=report_text,
         config_path="default",
         headers=None,
+        report_request_callback=_chat_report_request,
     )
+    tenant_id = (
+        data.get("tenant_id")
+        or stored.get("tenant_id")
+        or ctx.get("tenant_id")
+        or "anonymous"
+    )
+    chat_user = user_id or stored.get("user_id") or "anonymous"
     response_content, tool_calls_metadata = await chat_agent.chat(
         data.get("messages", []),
         None,
@@ -559,12 +701,48 @@ async def _run_session_chat(research_id: str, data: dict, user_id: str | None = 
         research_context=research_context,
         report_language=report_language,
         research_id=research_id,
+        tenant_id=str(tenant_id),
+        user_id=str(chat_user),
     )
+    # Ingest latest user turn into RAG (best-effort)
+    try:
+        from rag.ingest import ingest_text_document
+
+        latest_user = ""
+        for msg in reversed(data.get("messages") or []):
+            if isinstance(msg, dict) and msg.get("role") == "user":
+                latest_user = str(msg.get("content") or "")
+                break
+        if latest_user.strip():
+            await ingest_text_document(
+                text=latest_user,
+                title="chat_user_turn",
+                uri=f"chat:{research_id}",
+                source_type="chat",
+                tenant_id=str(tenant_id),
+                user_id=str(chat_user),
+                session_id=research_id,
+                metadata={"role": "user"},
+            )
+    except Exception as chat_ingest_exc:
+        logger.debug("Chat turn ingest skipped: %s", chat_ingest_exc)
+
+    meta = None
+    if tool_calls_metadata:
+        # tool_calls_metadata may already be the full meta dict (citations etc.)
+        if isinstance(tool_calls_metadata, dict) and (
+            "tool_calls" in tool_calls_metadata
+            or "citations" in tool_calls_metadata
+            or "rag_degraded" in tool_calls_metadata
+        ):
+            meta = tool_calls_metadata
+        else:
+            meta = {"tool_calls": tool_calls_metadata}
     response_message = {
         "role": "assistant",
         "content": response_content,
         "timestamp": int(time.time() * 1000),
-        "metadata": {"tool_calls": tool_calls_metadata} if tool_calls_metadata else None,
+        "metadata": meta,
     }
     return {"response": response_message}
 
@@ -576,7 +754,7 @@ async def get_research_job(job_id: str, request: Request):
         raise HTTPException(status_code=501, detail="Job tracking unavailable")
     user_id = resolve_user_id(request)
     tenant_id = resolve_tenant_id(request, user_id=user_id)
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     job = await get_job(job_id, tenant_id=tenant_id, user_id=filter_user)
     if job is None:
         raise HTTPException(status_code=404, detail="Job not found")
@@ -589,34 +767,125 @@ async def cancel_research_job(job_id: str, request: Request):
         raise HTTPException(status_code=501, detail="Job cancel unavailable")
     user_id = resolve_user_id(request)
     tenant_id = resolve_tenant_id(request, user_id=user_id)
-    filter_user = None if user_id == "anonymous" else user_id
+    filter_user = owner_filter(user_id)
     ok = await cancel_job(job_id, tenant_id=tenant_id, user_id=filter_user)
     if not ok:
         raise HTTPException(status_code=404, detail="Job not found or not cancellable")
-    return {"success": True, "job_id": job_id, "status": "cancelled"}
+    job = await get_job(job_id, tenant_id=tenant_id, user_id=filter_user) if get_job else None
+    status = (job or {}).get("status") or "cancel_requested"
+    return {"success": True, "job_id": job_id, "status": status}
 
 
 @app.post("/api/jobs/research")
 async def submit_research_job(request: Request):
     """
-    Enqueue research asynchronously. Job status is stored in PostgreSQL when
-    DATABASE_URL is set; Redis is only the queue transport.
+    Create ResearchSession (if needed) + ResearchJob, then enqueue Redis/ARQ.
+
+    On enqueue failure: keep status=pending_dispatch (not failed). Dispatcher recovers.
+    In-process fallback only when ALLOW_IN_PROCESS_RESEARCH_FALLBACK=true (never in prod).
     """
-    if create_job is None:
+    if create_job is None or enqueue_research_job is None or update_job is None:
         raise HTTPException(status_code=501, detail="Job tracking unavailable")
 
-    import asyncio
-
     from security import filter_safe_urls, sanitize_mcp_configs, tenant_id_for
+    from jobs import allow_in_process_research_fallback, find_job_by_idempotency
+    from jobs.session_bootstrap import ensure_research_session
 
     data = await request.json()
-    user_id = resolve_user_id(request)
-    tenant_id = resolve_tenant_id(request, user_id=user_id) or tenant_id_for(user_id)
+    ident = resolve_identity(request)
+    user_id = ident.user_id
+    tenant_id = ident.tenant_id or tenant_id_for(user_id)
+    await ensure_user(user_id, kind=ident.kind)
+    idempotency_key = data.get("idempotency_key")
+    task = data.get("task") or data.get("query") or ""
+    if not task:
+        raise HTTPException(status_code=400, detail="task is required")
+
+    if not os.getenv("REDIS_URL", "").strip():
+        raise HTTPException(
+            status_code=503,
+            detail="REDIS_URL is required to enqueue research jobs",
+        )
+    if not os.getenv("DATABASE_URL", "").strip():
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "DATABASE_URL is required so PostgreSQL can be the authoritative "
+                "job store for the research worker"
+            ),
+        )
+
+    # DB-level idempotency: reuse existing job+session before creating anything new
+    if idempotency_key:
+        existing = await find_job_by_idempotency(
+            tenant_id, idempotency_key, user_id=user_id
+        )
+        if existing:
+            return {
+                "job_id": existing["id"],
+                "queued": existing.get("status") == "queued",
+                "status": existing.get("status"),
+                "stage": existing.get("stage"),
+                "session_id": existing.get("session_id"),
+                "tenant_id": tenant_id,
+                "reused": True,
+            }
+
+    # Capacity + daily budget gates (do not create job when over limit)
+    from jobs.slots import (
+        SlotAcquireError,
+        acquire_slots,
+        http_429_detail,
+        precheck_capacity,
+    )
+    from jobs.daily_budget import DailyBudgetReject, check_daily_budget, record_job_started
+
+    reject = await precheck_capacity(tenant_id=tenant_id, user_id=user_id)
+    if reject is not None:
+        return JSONResponse(
+            status_code=429,
+            content=http_429_detail(reject),
+            headers={"Retry-After": str(reject.retry_after)},
+        )
+    try:
+        await check_daily_budget(tenant_id=tenant_id, user_id=user_id)
+    except DailyBudgetReject as budget_exc:
+        return JSONResponse(
+            status_code=429,
+            content={
+                "message": budget_exc.message,
+                "error_code": budget_exc.code,
+                "retry_after": budget_exc.retry_after,
+            },
+            headers={"Retry-After": str(budget_exc.retry_after)},
+        )
+
     session_id = data.get("session_id") or data.get("research_id")
+    session_created = False
+    if not session_id:
+        if report_store is None:
+            raise HTTPException(status_code=503, detail="Report store unavailable")
+        try:
+            session_id = await ensure_research_session(
+                report_store=report_store,
+                user_id=user_id,
+                tenant_id=tenant_id,
+                task=task,
+                session_id=None,
+                idempotency_key=idempotency_key,
+                report_language=data.get("report_language") or "chinese",
+            )
+            session_created = True
+        except Exception as exc:
+            logger.exception("Failed to auto-create research session")
+            raise HTTPException(
+                status_code=503, detail=f"Failed to create research session: {exc}"
+            ) from exc
+
     mcp_configs = sanitize_mcp_configs(data.get("mcp_configs") or [])
     mcp_enabled = bool(data.get("mcp_enabled", False)) and bool(mcp_configs)
     payload = {
-        "task": data.get("task") or data.get("query") or "",
+        "task": task,
         "report_type": data.get("report_type", "research_report"),
         "report_source": data.get("report_source", "web"),
         "tone": data.get("tone", "Objective"),
@@ -630,23 +899,254 @@ async def submit_research_job(request: Request):
         "max_search_results": data.get("max_search_results"),
         "total_words": data.get("total_words"),
         "report_language": data.get("report_language") or "chinese",
+        "knowledge_policy": data.get("knowledge_policy") or "web_first",
         "session_id": session_id,
         "user_id": user_id,
         "tenant_id": tenant_id,
+        # Review/ops only; worker honors when TRUSTED_REPORT_ALLOW_FORCE_SAMPLE=true. :-)
+        "force_trusted_sample": bool(data.get("force_trusted_sample")),
     }
-    if not payload["task"]:
-        raise HTTPException(status_code=400, detail="task is required")
 
-    job_id = await create_job(
-        user_id=user_id,
+    # 1) Persist job in PostgreSQL first
+    try:
+        job_id = await create_job(
+            user_id=user_id,
+            tenant_id=tenant_id,
+            session_id=session_id,
+            payload=payload,
+            idempotency_key=idempotency_key,
+        )
+    except Exception as exc:
+        # Best-effort cleanup if we created a brand-new session then job failed
+        if session_created and report_store is not None and hasattr(
+            report_store, "delete_report"
+        ):
+            try:
+                await report_store.delete_report(
+                    session_id, user_id=None if user_id == "anonymous" else user_id
+                )
+            except Exception:
+                logger.warning("Orphan session cleanup failed for %s", session_id)
+        raise HTTPException(status_code=503, detail=f"Failed to create job: {exc}") from exc
+
+    # Bind Redis concurrency lease (race-safe); reject cancels the just-created job
+    try:
+        await acquire_slots(tenant_id=tenant_id, user_id=user_id, job_id=job_id)
+    except SlotAcquireError as slot_exc:
+        await update_job(
+            job_id,
+            status="cancelled",
+            progress="rejected_capacity",
+            error=slot_exc.reject.message,
+            last_error_code=slot_exc.reject.code,
+            tenant_id=tenant_id,
+        )
+        return JSONResponse(
+            status_code=429,
+            content={**http_429_detail(slot_exc.reject), "job_id": job_id},
+            headers={"Retry-After": str(slot_exc.reject.retry_after)},
+        )
+
+    try:
+        await record_job_started(tenant_id=tenant_id, user_id=user_id)
+    except Exception as usage_exc:
+        logger.debug("jobs_started audit skipped: %s", usage_exc)
+
+    # Link session → job for page-refresh recovery
+    try:
+        if report_store is not None:
+            existing = await report_store.get_report(session_id) or {}
+            await report_store.upsert_report(
+                session_id,
+                {
+                    **existing,
+                    "id": session_id,
+                    "question": payload["task"] or existing.get("question", ""),
+                    "job_id": job_id,
+                    # A just-created sidebar entry may default to "completed";
+                    # submitting a Job must still expose it as active.
+                    "status": (
+                        "running"
+                        if existing.get("status") in (None, "", "completed", "failed", "cancelled")
+                        else existing.get("status")
+                    ),
+                    "user_id": user_id,
+                    "tenant_id": tenant_id,
+                    "report_language": payload.get("report_language")
+                    or existing.get("report_language", "chinese"),
+                },
+                user_id=None if user_id == "anonymous" else user_id,
+            )
+    except Exception as link_exc:
+        logger.warning("Failed to link session to job_id (non-fatal): %s", link_exc)
+
+    # Idempotent reuse: if already queued/running/completed, do not re-enqueue blindly
+    existing_job = await get_job(job_id, tenant_id=tenant_id) if get_job else None
+    if existing_job and existing_job.get("status") in (
+        "queued",
+        "running",
+        "retrying",
+        "completed",
+        "cancel_requested",
+        "cancelling",
+    ):
+        return {
+            "job_id": job_id,
+            "queued": existing_job.get("status") == "queued",
+            "status": existing_job.get("status"),
+            "stage": existing_job.get("stage"),
+            "session_id": session_id,
+            "tenant_id": tenant_id,
+            "reused": True,
+        }
+
+    # 2) Enqueue to Redis/ARQ via shared pool
+    queued = await enqueue_research_job(job_id, payload)
+    if queued:
+        from datetime import datetime, timezone
+
+        now_ms = int(datetime.now(timezone.utc).timestamp() * 1000)
+        await update_job(
+            job_id,
+            status="queued",
+            stage="planning",
+            progress="queued",
+            tenant_id=tenant_id,
+        )
+        # Best-effort enqueued_at via memory/DB fields on next update path
+        mem = None
+        try:
+            from jobs import _MEMORY_JOBS
+
+            mem = _MEMORY_JOBS.get(job_id)
+            if mem is not None:
+                mem["enqueued_at"] = now_ms
+        except Exception:
+            pass
+        return {
+            "job_id": job_id,
+            "queued": True,
+            "status": "queued",
+            "stage": "planning",
+            "session_id": session_id,
+            "tenant_id": tenant_id,
+        }
+
+    # Enqueue failed: keep pending_dispatch for Dispatcher recovery
+    await update_job(
+        job_id,
+        status="pending_dispatch",
+        stage="planning",
+        progress="pending_dispatch",
+        error="Failed to enqueue to Redis/ARQ; job remains pending_dispatch",
+        last_error_code="enqueue_failed",
         tenant_id=tenant_id,
-        session_id=session_id,
-        payload=payload,
-        idempotency_key=data.get("idempotency_key"),
     )
-    queued = False
-    if enqueue_research_job is not None:
-        queued = await enqueue_research_job(job_id, payload)
-    if not queued and run_research_job is not None:
+
+    if allow_in_process_research_fallback() and run_research_job is not None:
+        import asyncio
+
+        logger.warning(
+            "ALLOW_IN_PROCESS_RESEARCH_FALLBACK — running job %s in API process (dev only)",
+            job_id,
+        )
+        await update_job(
+            job_id,
+            status="queued",
+            stage="planning",
+            progress="in_process_fallback",
+            tenant_id=tenant_id,
+        )
         asyncio.create_task(run_research_job({}, job_id, payload))
-    return {"job_id": job_id, "queued": queued, "session_id": session_id, "tenant_id": tenant_id}
+        return {
+            "job_id": job_id,
+            "queued": False,
+            "in_process": True,
+            "status": "queued",
+            "session_id": session_id,
+            "tenant_id": tenant_id,
+        }
+
+    # Still return job_id so clients can poll; Dispatcher will re-enqueue
+    return JSONResponse(
+        status_code=202,
+        content={
+            "job_id": job_id,
+            "queued": False,
+            "status": "pending_dispatch",
+            "stage": "planning",
+            "session_id": session_id,
+            "tenant_id": tenant_id,
+            "message": (
+                "Job persisted as pending_dispatch; dispatcher will enqueue when Redis recovers"
+            ),
+        },
+    )
+
+
+@app.post("/api/jobs/{job_id}/redispatch")
+async def redispatch_research_job(job_id: str, request: Request):
+    """Re-enqueue a pending_dispatch job (ops / recovery)."""
+    if get_job is None or enqueue_research_job is None or update_job is None:
+        raise HTTPException(status_code=501, detail="Job tracking unavailable")
+    user_id = resolve_user_id(request)
+    tenant_id = resolve_tenant_id(request, user_id=user_id)
+    filter_user = owner_filter(user_id)
+    job = await get_job(job_id, tenant_id=tenant_id, user_id=filter_user)
+    if job is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if job.get("status") not in ("pending_dispatch", "queued"):
+        raise HTTPException(
+            status_code=409,
+            detail=f"Job status {job.get('status')} cannot be redispatched",
+        )
+    payload = job.get("payload") or {}
+    queued = await enqueue_research_job(job_id, payload)
+    if not queued:
+        raise HTTPException(status_code=503, detail="Redis enqueue failed again")
+    await update_job(
+        job_id,
+        status="queued",
+        stage="planning",
+        progress="queued",
+        error=None,
+        tenant_id=tenant_id,
+    )
+    return {"job_id": job_id, "queued": True, "status": "queued"}
+
+
+@app.get("/api/jobs/{job_id}/events")
+async def stream_research_job_events(job_id: str, request: Request):
+    """SSE observer for a research job. PostgreSQL is authoritative for terminal state."""
+    if get_job is None:
+        raise HTTPException(status_code=501, detail="Job tracking unavailable")
+
+    from fastapi.responses import StreamingResponse
+    from jobs.progress import subscribe_job_events
+
+    user_id = resolve_user_id(request)
+    tenant_id = resolve_tenant_id(request, user_id=user_id)
+    filter_user = owner_filter(user_id)
+    job = await get_job(job_id, tenant_id=tenant_id, user_id=filter_user)
+    if job is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    async def event_generator():
+        try:
+            async for event in subscribe_job_events(job_id, tenant_id=tenant_id):
+                if await request.is_disconnected():
+                    break
+                yield f"data: {json.dumps(event, ensure_ascii=False, default=str)}\n\n"
+        except Exception as exc:
+            logger.warning("SSE job stream ended: %s", exc)
+            yield f"data: {json.dumps({'type': 'error', 'output': str(exc)})}\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )

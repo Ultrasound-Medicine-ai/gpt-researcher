@@ -9,8 +9,15 @@ from urllib.parse import urlparse
 
 def extract_domain(url: str) -> str:
     """Extract hostname from a URL without www prefix."""
+    raw = (url or "").strip()
+    # Internal RAG handles for prior reports — not web-traceable. :-)
+    if raw.lower().startswith("report:"):
+        return "本地历史报告"
     try:
-        netloc = urlparse(url).netloc
+        parsed = urlparse(raw)
+        if parsed.scheme and parsed.scheme not in ("http", "https"):
+            return parsed.scheme or "unknown"
+        netloc = parsed.netloc
         return netloc.replace("www.", "") or "unknown"
     except Exception:
         return "unknown"
@@ -77,8 +84,15 @@ class SourceRegistry:
         cls,
         sources: list[dict[str, Any]],
         fallback_urls: list[str] | None = None,
+        *,
+        include_url_only: bool = False,
     ) -> SourceRegistry:
-        """Build registry from scraped research sources with optional URL fallback."""
+        """Build a registry only from sources with usable scraped original text.
+
+        ``visited_urls`` records a URL before scraping, so it is not evidence by
+        itself. URL-only entries are excluded by default: a blocked, failed, or
+        too-short page must never become a numbered reference.
+        """
         entries: list[dict[str, str]] = []
         seen: set[str] = set()
 
@@ -86,20 +100,25 @@ class SourceRegistry:
             url = str(source.get("url") or "").strip()
             if not url or url in seen:
                 continue
+            raw_content = str(source.get("raw_content") or "").strip()
+            quality = str(source.get("source_quality") or "").strip().lower()
+            if not raw_content or quality in {"low", "failed", "skipped"}:
+                continue
             seen.add(url)
             entries.append(
                 {
                     "url": url,
                     "title": str(source.get("title") or "").strip(),
-                    "raw_content": str(source.get("raw_content") or "").strip(),
+                    "raw_content": raw_content,
                 }
             )
 
-        for url in fallback_urls or []:
-            normalized = str(url).strip()
-            if normalized and normalized not in seen:
-                seen.add(normalized)
-                entries.append({"url": normalized, "title": "", "raw_content": ""})
+        if include_url_only:
+            for url in fallback_urls or []:
+                normalized = str(url).strip()
+                if normalized and normalized not in seen:
+                    seen.add(normalized)
+                    entries.append({"url": normalized, "title": "", "raw_content": ""})
 
         return cls(entries)
 

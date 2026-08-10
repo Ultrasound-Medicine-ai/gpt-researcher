@@ -47,10 +47,29 @@ services:
       retries: 5
     restart: unless-stopped
 
+  migrate:
+    pull_policy: build
+    image: gptresearcher/gpt-researcher
+    build: ./
+    command: >
+      /bin/sh -c "cd /usr/src/app/backend && alembic upgrade head && alembic current"
+    environment:
+      # Keep host-side DATABASE_URL (often localhost) from leaking into containers.
+      DATABASE_URL: ${DOCKER_DATABASE_URL:-postgresql://gptr:gptr@postgres:5432/gptr}
+      PYTHONPATH: /usr/src/app:/usr/src/app/backend
+    user: root
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
   gpt-researcher:
     pull_policy: build
     image: gptresearcher/gpt-researcher
     build: ./
+    command: >
+      /bin/sh -c "cd /usr/src/app/backend && alembic upgrade head &&
+      cd /usr/src/app && uvicorn main:app --host 0.0.0.0 --port 8000 --workers 1"
     environment: 
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       OPENAI_BASE_URL: ${OPENAI_BASE_URL}
@@ -63,14 +82,53 @@ services:
       IMAGE_GENERATION_MODEL: ${IMAGE_GENERATION_MODEL:-gemini-2.0-flash-preview-image-generation}
       IMAGE_GENERATION_MAX_IMAGES: ${IMAGE_GENERATION_MAX_IMAGES:-3}
       # Optional SaaS persistence — unset keeps legacy JSON/local quality path
-      DATABASE_URL: ${DATABASE_URL:-postgresql://gptr:gptr@postgres:5432/gptr}
-      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      DATABASE_URL: ${DOCKER_DATABASE_URL:-postgresql://gptr:gptr@postgres:5432/gptr}
+      REDIS_URL: ${DOCKER_REDIS_URL:-redis://redis:6379/0}
       MINIO_ENDPOINT: ${MINIO_ENDPOINT:-minio:9000}
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin}
       MINIO_BUCKET: ${MINIO_BUCKET:-gptr-artifacts}
       MINIO_SECURE: ${MINIO_SECURE:-false}
       CITATION_STYLE: ${CITATION_STYLE:-numbered}
+      # Async Job path (default). Legacy WS start is feature-flagged off.
+      ENV: ${ENV:-production}
+      ENABLE_ASYNC_RESEARCH_JOBS: ${ENABLE_ASYNC_RESEARCH_JOBS:-true}
+      ENABLE_WS_START_RESEARCH: ${ENABLE_WS_START_RESEARCH:-false}
+      ALLOW_IN_PROCESS_RESEARCH_FALLBACK: ${ALLOW_IN_PROCESS_RESEARCH_FALLBACK:-false}
+      TRUSTED_REPORT_PIPELINE_ENABLED: ${TRUSTED_REPORT_PIPELINE_ENABLED:-false}
+      TRUSTED_REPORT_SHADOW_MODE: ${TRUSTED_REPORT_SHADOW_MODE:-false}
+      TRUSTED_REPORT_FALLBACK_TO_LEGACY: ${TRUSTED_REPORT_FALLBACK_TO_LEGACY:-true}
+      TRUSTED_REPORT_GRAY_PERCENT: ${TRUSTED_REPORT_GRAY_PERCENT:-5}
+      TRUSTED_REPORT_ALLOW_FORCE_SAMPLE: ${TRUSTED_REPORT_ALLOW_FORCE_SAMPLE:-false}
+      VISITOR_COOKIE_SECRET: ${VISITOR_COOKIE_SECRET:-local-dev-visitor-cookie-secret-change-me}
+      RESEARCH_JOB_STALE_SEC: ${RESEARCH_JOB_STALE_SEC:-90}
+      RESEARCH_HEARTBEAT_INTERVAL_SEC: ${RESEARCH_HEARTBEAT_INTERVAL_SEC:-15}
+      RESEARCH_JOB_REAPER_INTERVAL_SEC: ${RESEARCH_JOB_REAPER_INTERVAL_SEC:-30}
+      RESEARCH_DISPATCH_INTERVAL_SEC: ${RESEARCH_DISPATCH_INTERVAL_SEC:-10}
+      RESEARCH_JOB_MAX_ATTEMPTS: ${RESEARCH_JOB_MAX_ATTEMPTS:-3}
+      RESEARCH_MAX_CONCURRENT_PER_USER: ${RESEARCH_MAX_CONCURRENT_PER_USER:-1}
+      RESEARCH_MAX_CONCURRENT_GLOBAL: ${RESEARCH_MAX_CONCURRENT_GLOBAL:-2}
+      RESEARCH_MAX_QUEUE_DEPTH: ${RESEARCH_MAX_QUEUE_DEPTH:-2}
+      RESEARCH_DAILY_MAX_SEARCHES: ${RESEARCH_DAILY_MAX_SEARCHES:-50}
+      RESEARCH_DAILY_MAX_LLM_CALLS: ${RESEARCH_DAILY_MAX_LLM_CALLS:-200}
+      RESEARCH_LIMIT_RETRY_AFTER_SEC: ${RESEARCH_LIMIT_RETRY_AFTER_SEC:-60}
+      ARQ_MAX_JOBS: ${ARQ_MAX_JOBS:-2}
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      FAST_LLM: ${FAST_LLM:-}
+      FAST_LLM_FALLBACKS: ${FAST_LLM_FALLBACKS:-}
+      SMART_LLM: ${SMART_LLM:-}
+      STRATEGIC_LLM: ${STRATEGIC_LLM:-}
+      SMART_LLM_FALLBACKS: ${SMART_LLM_FALLBACKS:-}
+      STRATEGIC_LLM_FALLBACKS: ${STRATEGIC_LLM_FALLBACKS:-}
+      EMBEDDING: ${EMBEDDING:-}
+      EMBEDDING_FALLBACKS: ${EMBEDDING_FALLBACKS:-}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      BROWSE_CHUNK_MAX_LENGTH: ${BROWSE_CHUNK_MAX_LENGTH:-3072}
+      MAX_CONTENT_CHARS: ${MAX_CONTENT_CHARS:-8000}
+      RESEARCH_TAVILY_SEARCH_TIMEOUT_SEC: ${RESEARCH_TAVILY_SEARCH_TIMEOUT_SEC:-12}
+      RESEARCH_SCRAPE_URL_TIMEOUT_SEC: ${RESEARCH_SCRAPE_URL_TIMEOUT_SEC:-8}
+      RESEARCH_SCRAPE_URL_RETRIES: ${RESEARCH_SCRAPE_URL_RETRIES:-0}
+      COMPRESSION_THRESHOLD: ${COMPRESSION_THRESHOLD:-4000}
     volumes:
       - ${PWD}/my-docs:/usr/src/app/my-docs:rw
       - ${PWD}/outputs:/usr/src/app/outputs:rw
@@ -82,16 +140,23 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+      research-worker:
+        condition: service_started
     restart: always
     ports:
       - 8000:8000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   research-worker:
     pull_policy: build
     image: gptresearcher/gpt-researcher
     build: ./
     command: >
-      /bin/sh -c "cd /usr/src/app/backend && arq jobs.worker.WorkerSettings"
+      /bin/sh -c "cd /usr/src/app/backend && alembic upgrade head &&
+      cd /usr/src/app && arq jobs.worker.WorkerSettings"
     environment:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       OPENAI_BASE_URL: ${OPENAI_BASE_URL}
@@ -99,15 +164,54 @@ services:
       TAVILY_API_KEYS: ${TAVILY_API_KEYS:-}
       LANGCHAIN_API_KEY: ${LANGCHAIN_API_KEY}
       LOGGING_LEVEL: INFO
-      DATABASE_URL: ${DATABASE_URL:-postgresql://gptr:gptr@postgres:5432/gptr}
-      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      DATABASE_URL: ${DOCKER_DATABASE_URL:-postgresql://gptr:gptr@postgres:5432/gptr}
+      REDIS_URL: ${DOCKER_REDIS_URL:-redis://redis:6379/0}
       MINIO_ENDPOINT: ${MINIO_ENDPOINT:-minio:9000}
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin}
       MINIO_BUCKET: ${MINIO_BUCKET:-gptr-artifacts}
       MINIO_SECURE: ${MINIO_SECURE:-false}
       CITATION_STYLE: ${CITATION_STYLE:-numbered}
+      ENV: ${ENV:-production}
       PYTHONPATH: /usr/src/app:/usr/src/app/backend
+      RESEARCH_JOB_STALE_SEC: ${RESEARCH_JOB_STALE_SEC:-90}
+      RESEARCH_HEARTBEAT_INTERVAL_SEC: ${RESEARCH_HEARTBEAT_INTERVAL_SEC:-15}
+      RESEARCH_JOB_REAPER_INTERVAL_SEC: ${RESEARCH_JOB_REAPER_INTERVAL_SEC:-30}
+      RESEARCH_DISPATCH_INTERVAL_SEC: ${RESEARCH_DISPATCH_INTERVAL_SEC:-10}
+      RESEARCH_JOB_MAX_ATTEMPTS: ${RESEARCH_JOB_MAX_ATTEMPTS:-3}
+      RESEARCH_MAX_OUTPUT_WORDS: ${RESEARCH_MAX_OUTPUT_WORDS:-3000}
+      RESEARCH_MAX_TOTAL_SEARCHES: ${RESEARCH_MAX_TOTAL_SEARCHES:-12}
+      RESEARCH_MAX_SUBTOPICS: ${RESEARCH_MAX_SUBTOPICS:-3}
+      RESEARCH_MAX_LLM_CALLS: ${RESEARCH_MAX_LLM_CALLS:-40}
+      RESEARCH_MAX_CONCURRENT_PER_USER: ${RESEARCH_MAX_CONCURRENT_PER_USER:-1}
+      RESEARCH_MAX_CONCURRENT_GLOBAL: ${RESEARCH_MAX_CONCURRENT_GLOBAL:-2}
+      RESEARCH_MAX_QUEUE_DEPTH: ${RESEARCH_MAX_QUEUE_DEPTH:-2}
+      RESEARCH_DAILY_MAX_SEARCHES: ${RESEARCH_DAILY_MAX_SEARCHES:-50}
+      RESEARCH_DAILY_MAX_LLM_CALLS: ${RESEARCH_DAILY_MAX_LLM_CALLS:-200}
+      RESEARCH_LIMIT_RETRY_AFTER_SEC: ${RESEARCH_LIMIT_RETRY_AFTER_SEC:-60}
+      ARQ_MAX_JOBS: ${ARQ_MAX_JOBS:-2}
+      TRUSTED_REPORT_PIPELINE_ENABLED: ${TRUSTED_REPORT_PIPELINE_ENABLED:-false}
+      TRUSTED_REPORT_SHADOW_MODE: ${TRUSTED_REPORT_SHADOW_MODE:-false}
+      TRUSTED_REPORT_FALLBACK_TO_LEGACY: ${TRUSTED_REPORT_FALLBACK_TO_LEGACY:-true}
+      TRUSTED_REPORT_GRAY_PERCENT: ${TRUSTED_REPORT_GRAY_PERCENT:-5}
+      TRUSTED_REPORT_ALLOW_FORCE_SAMPLE: ${TRUSTED_REPORT_ALLOW_FORCE_SAMPLE:-false}
+      VISITOR_COOKIE_SECRET: ${VISITOR_COOKIE_SECRET:-local-dev-visitor-cookie-secret-change-me}
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      FAST_LLM: ${FAST_LLM:-}
+      FAST_LLM_FALLBACKS: ${FAST_LLM_FALLBACKS:-}
+      SMART_LLM: ${SMART_LLM:-}
+      STRATEGIC_LLM: ${STRATEGIC_LLM:-}
+      SMART_LLM_FALLBACKS: ${SMART_LLM_FALLBACKS:-}
+      STRATEGIC_LLM_FALLBACKS: ${STRATEGIC_LLM_FALLBACKS:-}
+      EMBEDDING: ${EMBEDDING:-}
+      EMBEDDING_FALLBACKS: ${EMBEDDING_FALLBACKS:-}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      BROWSE_CHUNK_MAX_LENGTH: ${BROWSE_CHUNK_MAX_LENGTH:-3072}
+      MAX_CONTENT_CHARS: ${MAX_CONTENT_CHARS:-8000}
+      RESEARCH_TAVILY_SEARCH_TIMEOUT_SEC: ${RESEARCH_TAVILY_SEARCH_TIMEOUT_SEC:-12}
+      RESEARCH_SCRAPE_URL_TIMEOUT_SEC: ${RESEARCH_SCRAPE_URL_TIMEOUT_SEC:-8}
+      RESEARCH_SCRAPE_URL_RETRIES: ${RESEARCH_SCRAPE_URL_RETRIES:-0}
+      COMPRESSION_THRESHOLD: ${COMPRESSION_THRESHOLD:-4000}
     volumes:
       - ${PWD}/my-docs:/usr/src/app/my-docs:rw
       - ${PWD}/outputs:/usr/src/app/outputs:rw
@@ -119,7 +223,11 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
       
   gptr-nextjs:
     pull_policy: build
@@ -129,7 +237,9 @@ services:
       CHOKIDAR_USEPOLLING: "true"
       LOGGING_LEVEL: INFO
       NEXT_PUBLIC_GA_MEASUREMENT_ID: ${NEXT_PUBLIC_GA_MEASUREMENT_ID}
-      NEXT_PUBLIC_GPTR_API_URL: ${NEXT_PUBLIC_GPTR_API_URL}
+      # Browser / WebSocket: host machine port. Server-side proxy: Docker DNS name.
+      NEXT_PUBLIC_GPTR_API_URL: ${NEXT_PUBLIC_GPTR_API_URL:-http://localhost:8000}
+      GPTR_BACKEND_URL: ${GPTR_BACKEND_URL:-http://gpt-researcher:8000}
     build:
       dockerfile: Dockerfile.dev
       context: frontend/nextjs

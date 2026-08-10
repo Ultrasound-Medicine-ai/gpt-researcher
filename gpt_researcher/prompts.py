@@ -326,7 +326,7 @@ Information: "{context}"
 ---
 Using the above information, answer the following query or task: "{question}" in a detailed report --
 The report should focus on the answer to the query, should be well structured, informative,
-in-depth, and comprehensive, with facts and numbers if available and at least {total_words} words.
+in-depth, and comprehensive, with facts and numbers if available, and MUST NOT exceed {total_words} words.
 You should strive to write the report as long as you can using all relevant and necessary information provided.
 
 Please follow all of the following guidelines in your report:
@@ -412,7 +412,8 @@ The response MUST not contain any markdown format or additional text (like ```js
             "Ensure that the report is well-structured, informative, in-depth, and follows Markdown syntax.\n"
             "Use markdown tables and other formatting features when appropriate to organize and present information clearly.\n"
             "Include relevant facts, figures, and numbers whenever available.\n"
-            f"The report should have a minimum length of {total_words} words.\n"
+            f"The report should be concise and MUST NOT exceed {total_words} words "
+            f"(hard upper bound; shorter is preferred).\n"
             f"You MUST write the report in the following language: {language}.\n"
             "You MUST include all relevant source urls."
             "Every url should be hyperlinked: [url website](url)"
@@ -439,7 +440,8 @@ The response MUST not contain any markdown format or additional text (like ```js
             f'"""{context}""" Using the above information, generate an outline for a research report in Markdown syntax'
             f' for the following question or topic: "{question}". The outline should provide a well-structured framework'
             " for the research report, including the main sections, subsections, and key points to be covered."
-            f" The research report should be detailed, informative, in-depth, and a minimum of {total_words} words."
+            f" The research report should be informative and MUST NOT exceed {total_words} words "
+            f"(hard upper bound)."
             " Use appropriate Markdown syntax to format the outline and ensure readability."
             " Consider using markdown tables and other formatting features where they would enhance the presentation of information."
         )
@@ -495,7 +497,7 @@ The report should:
 3. Present a coherent narrative that builds from foundational to advanced insights
 4. Maintain proper citation of sources throughout
 5. Be well-structured with clear sections and subsections
-6. Have a minimum length of {total_words} words
+6. MUST NOT exceed {total_words} words (hard upper bound)
 7. Follow {report_format} format with markdown syntax
 8. Use markdown tables, lists and other formatting features when presenting comparative data, statistics, or structured information
 
@@ -693,7 +695,7 @@ Assume the current date is {datetime.now(timezone.utc).strftime('%B %d, %Y')} if
 - Must NOT have any introduction, conclusion, summary or reference section.
 - You MUST use in-text citation references in {report_format.upper()} format and make it with markdown hyperlink placed at the end of the sentence or paragraph that references them like this: ([in-text citation](url)).
 - You MUST mention the difference between the existing content and the new content in the report if you are adding the similar or same subsections wherever necessary.
-- The report should have a minimum length of {total_words} words.
+- The report MUST NOT exceed {total_words} words (hard upper bound).
 - Use an {tone.value} tone throughout the report.
 
 Do NOT add a conclusion section.
@@ -731,6 +733,21 @@ Provide the draft headers in a list format using markdown syntax, for example:
 - The focus MUST be on the main topic! You MUST Leave out any information un-related to it!
 - Must NOT have any introduction, conclusion, summary or reference section.
 - Focus solely on creating headers, not content.
+"""
+
+    @staticmethod
+    def generate_continue_writing_prompt(partial_text: str) -> str:
+        """Ask the model to resume after a token-limit truncation."""
+        return f"""The previous response was cut off because it hit the output token limit.
+Continue writing from exactly where it stopped. Do NOT repeat earlier content.
+Do NOT restart the document or restate the title/introduction.
+Output only the continuation.
+
+--- Truncated draft (tail) ---
+{partial_text}
+--- End of truncated draft ---
+
+Continue now:
 """
 
     @staticmethod

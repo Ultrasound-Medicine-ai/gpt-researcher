@@ -200,6 +200,79 @@ async def handle_start_command(websocket, data: str, manager):
     await send_file_paths(websocket, file_paths)
 
 
+async def handle_observe_command(websocket, data: str):
+    """Observe a research job by id — stream Redis events; PG is authoritative."""
+    raw = data.strip()
+    # Formats: "observe {...}" or "observe <job_id>"
+    payload_str = raw[7:].strip() if raw.lower().startswith("observe") else raw
+    job_id = ""
+    tenant_id = "anonymous"
+    try:
+        if payload_str.startswith("{"):
+            body = json.loads(payload_str)
+            job_id = str(body.get("job_id") or "").strip()
+            tenant_id = str(body.get("tenant_id") or "anonymous").strip() or "anonymous"
+        else:
+            job_id = payload_str.strip().strip('"')
+    except json.JSONDecodeError as exc:
+        await websocket.send_json(
+            {
+                "type": "error",
+                "content": "error",
+                "output": f"Invalid observe payload: {exc}",
+            }
+        )
+        return
+
+    if not job_id:
+        await websocket.send_json(
+            {
+                "type": "error",
+                "content": "error",
+                "output": "observe requires job_id",
+            }
+        )
+        return
+
+    try:
+        from jobs import get_job
+        from jobs.progress import subscribe_job_events
+
+        job = await get_job(job_id, tenant_id=tenant_id)
+        if job is None:
+            # Retry without tenant filter for anonymous local use
+            job = await get_job(job_id)
+        if job is None:
+            await websocket.send_json(
+                {
+                    "type": "error",
+                    "content": "error",
+                    "output": f"Job not found: {job_id}",
+                }
+            )
+            return
+
+        observe_tenant = job.get("tenant_id") or tenant_id
+        await websocket.send_json(
+            {
+                "type": "logs",
+                "content": "job_observe",
+                "output": f"Observing job {job_id} (status={job.get('status')})",
+            }
+        )
+        async for event in subscribe_job_events(job_id, tenant_id=observe_tenant):
+            await websocket.send_json(event)
+    except Exception as exc:
+        logger.exception("observe failed for job %s", job_id)
+        await websocket.send_json(
+            {
+                "type": "error",
+                "content": "error",
+                "output": f"Observe error: {exc}",
+            }
+        )
+
+
 async def handle_human_feedback(data: str):
     feedback_data = json.loads(data[14:])  # Remove "human_feedback" prefix
     print(f"Received human feedback: {feedback_data}")
@@ -439,12 +512,40 @@ async def handle_websocket_communication(websocket, manager):
                             "output": "Task already running. Please wait.",
                         }
                     )
-                # Normalize command detection by checking startswith after stripping whitespace
-                elif data.strip().startswith("start"):
-                    logger.info(f"Processing start command")
+                # Observe an existing ARQ job — does not run research in this process
+                elif data.strip().startswith("observe"):
+                    logger.info("Processing observe command")
                     running_task = run_long_running_task(
-                        handle_start_command(websocket, data, manager)
+                        handle_observe_command(websocket, data)
                     )
+                # Legacy sync start (discouraged; prefer POST /api/jobs/research)
+                elif data.strip().startswith("start"):
+                    # Legacy sync path — Feature Flag rollback only
+                    try:
+                        from jobs import enable_ws_start_research
+
+                        ws_start_ok = enable_ws_start_research()
+                    except Exception:
+                        ws_start_ok = os.getenv(
+                            "ENABLE_WS_START_RESEARCH", ""
+                        ).lower() in ("1", "true", "yes")
+                    if not ws_start_ok:
+                        await websocket.send_json(
+                            {
+                                "type": "error",
+                                "content": "error",
+                                "output": (
+                                    "WebSocket 'start' is disabled (async Job path is default). "
+                                    "POST /api/jobs/research and poll GET /api/jobs/{job_id}. "
+                                    "Set ENABLE_WS_START_RESEARCH=true to rollback."
+                                ),
+                            }
+                        )
+                    else:
+                        logger.info("Processing legacy WebSocket start (feature flag)")
+                        running_task = run_long_running_task(
+                            handle_start_command(websocket, data, manager)
+                        )
                 elif data.strip().startswith("human_feedback"):
                     logger.info(f"Processing human_feedback command")
                     running_task = run_long_running_task(handle_human_feedback(data))

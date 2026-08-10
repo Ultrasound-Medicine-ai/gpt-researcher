@@ -9,8 +9,8 @@ from langchain_core.retrievers import BaseRetriever
 # Maximum characters of raw_content to embed per document.
 # Large documents (e.g. scraped PDFs) can exceed embedding API token limits
 # (e.g. OpenAI's 300 000 token-per-request cap) when all chunks are sent at once.
-# Defaults to 50 000 chars (~12 500 tokens); override with MAX_CONTENT_CHARS env var.
-_MAX_CONTENT_CHARS = int(os.environ.get("MAX_CONTENT_CHARS", 50000))
+# Defaults to 8 000 chars; override with MAX_CONTENT_CHARS env var. :-)
+_MAX_CONTENT_CHARS = int(os.environ.get("MAX_CONTENT_CHARS", 8000))
 
 
 class SearchAPIRetriever(BaseRetriever):

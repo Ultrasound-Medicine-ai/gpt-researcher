@@ -73,39 +73,28 @@ async def generate_sub_queries(
             model=cfg.strategic_llm_model,
             messages=[{"role": "user", "content": gen_queries_prompt}],
             llm_provider=cfg.strategic_llm_provider,
-            max_tokens=None,
+            max_tokens=cfg.strategic_token_limit,
             llm_kwargs=cfg.llm_kwargs,
-            reasoning_effort=ReasoningEfforts.Medium.value,
+            reasoning_effort=ReasoningEfforts.Low.value,
             cost_callback=cost_callback,
             **kwargs
         )
     except Exception as e:
-        logger.warning(f"Error with strategic LLM: {e}. Retrying with max_tokens={cfg.strategic_token_limit}.")
-        logger.warning(f"See https://github.com/assafelovic/gpt-researcher/issues/1022")
-        try:
-            response = await create_chat_completion(
-                model=cfg.strategic_llm_model,
-                messages=[{"role": "user", "content": gen_queries_prompt}],
-                max_tokens=cfg.strategic_token_limit,
-                llm_provider=cfg.strategic_llm_provider,
-                llm_kwargs=cfg.llm_kwargs,
-                cost_callback=cost_callback,
-                **kwargs
-            )
-            logger.warning(f"Retrying with max_tokens={cfg.strategic_token_limit} successful.")
-        except Exception as e:
-            logger.warning(f"Retrying with max_tokens={cfg.strategic_token_limit} failed.")
-            logger.warning(f"Error with strategic LLM: {e}. Falling back to smart LLM.")
-            response = await create_chat_completion(
-                model=cfg.smart_llm_model,
-                messages=[{"role": "user", "content": gen_queries_prompt}],
-                temperature=cfg.temperature,
-                max_tokens=cfg.smart_token_limit,
-                llm_provider=cfg.smart_llm_provider,
-                llm_kwargs=cfg.llm_kwargs,
-                cost_callback=cost_callback,
-                **kwargs
-            )
+        # Fall back to FAST_LLM (same family as strategic), never SMART/qwen-max. :-)
+        logger.warning(
+            "Error with strategic LLM: %s. Falling back to fast LLM for planning.",
+            e,
+        )
+        response = await create_chat_completion(
+            model=cfg.fast_llm_model,
+            messages=[{"role": "user", "content": gen_queries_prompt}],
+            temperature=cfg.temperature,
+            max_tokens=cfg.fast_token_limit,
+            llm_provider=cfg.fast_llm_provider,
+            llm_kwargs=cfg.llm_kwargs,
+            cost_callback=cost_callback,
+            **kwargs
+        )
 
     return json_repair.loads(response)
 
