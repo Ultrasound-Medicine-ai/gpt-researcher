@@ -6,14 +6,48 @@
 
 > 为研究 Agent SaaS 建了分层评测闭环：cheap 离线护栏（对话/工具/记忆/Fuzz/Perf schema）→ full 抽样 live + Chat P95 → nightly SimpleQA/幻觉，指标落盘到看板与回归队列，抽样 seed 可复现。
 
+## 面试必补三个数字
+
+### （1）测试规模
+
+| 资产 | 数量 | 说明 |
+|------|------|------|
+| 产品回归 JSONL | **29** 条（active **26** / blocked **3**） | dialogue+live chat+tool+memory+fuzz+perf+harness |
+| cheap 单测（pytest） | **37** | citation / language / planning / seed / p95 helper |
+| SimpleQA 题库 | **4326**（日常抽样 **n=10**） | 上游 CSV，seed=42 可复现子集 |
+| 幻觉查询集 | **70**（日常抽样 **n=10**） | 上游 jsonl + MAJOR-only judge |
+
+**面试一句：**「产品回归约 30 条 JSONL + 37 条单测；质量基准复用 4k+ SimpleQA / 70 条幻觉题，简历数字用 seed=42 的 n=10 抽样。」
+
+### （2）门禁耗时（本机实测 / 量级）
+
+| 门禁 | 耗时 | 依据 |
+|------|------|------|
+| **cheap** | **通常 &lt; 1 分钟**（本机约 **15s**） | `gate_cheap_latest` 各步合计 ≈14.8s |
+| **full** | **约 2–5 分钟**（API 正常） | live 调研约 1 分钟级 + live chat + Chat P95≈20s |
+| **nightly（n=10）** | **约 20–40 分钟** | SimpleQA×10 + 幻觉×10（看网络/模型） |
+| **portfolio 一键（n=10）** | **约 30–60 分钟** | cheap + full + nightly |
+
+**面试一句：**「CI 上的 cheap 一分多钟内就能绿；full 几分钟验真链路；nightly 半小时量级出质量数字。」
+
+### （3）性能指标（P95 门禁）
+
+| 项 | 阈值（门禁） | 本机结果（2026-08-10） |
+|----|--------------|------------------------|
+| `/api/chat` P95 | **&lt; 8000 ms（8s）** | **≈ 2395 ms（2.4s）PASS** |
+| 压测设定 | 并发 **5**，请求 **n=10** | `perf-chat-p95-001` |
+| Job 队列 P95 | **&lt; 180s**（可选） | 默认 SKIP；`--include-jobs` 开启 |
+
+**面试一句：**「Chat P95 门禁阈值 8 秒，本机并发 5、10 次请求测到约 2.4 秒。」
+
 ## 简历可直接粘贴（中文）
 
 **项目二 · Agent 评测与观测体系（GPT-Researcher 二次开发）**  
-为多用户研究/对话 SaaS 搭建七支柱评测：对话覆盖、工具链、记忆一致性、回归基准（SimpleQA/幻觉）、Fuzz 弱点回流、P95 压测门禁、本地看板与回归队列。实现 `cheap / full / nightly` 分层门禁与 GitHub Actions cheap CI；抽样默认 `seed=42` 可复现。本机抽样（n=10，2026-08-10）：cheap PASS；live chat 工具路由 3/3；Chat P95 ≈ **2.4s**（阈值 8s）；SimpleQA accuracy/F1 **70%**；幻觉 MAJOR rate **50%**（多源 evidence pack + MAJOR-only judge）。  
+为多用户研究/对话 SaaS 搭建七支柱评测与分层门禁（cheap / full / nightly + CI）。产品回归 **29** 条 JSONL + **37** 条单测；质量基准复用 SimpleQA **4326** / 幻觉 **70**，日常 **n=10、seed=42** 可复现。cheap **&lt;1 分钟**；full **约 2–5 分钟**；nightly n=10 **约 20–40 分钟**。Chat P95 门禁 **&lt;8s**，本机实测 **≈2.4s**。质量抽样：SimpleQA accuracy/F1 **70%**；幻觉 MAJOR **50%**（多源 evidence pack）。  
 *技术栈：Python / pytest / FastAPI 契约评测 / JSONL case / LLM-as-judge（Matpool）*
 
 **面试 30 秒版：**  
-项目一做产品，项目二做「对不对、稳不稳、贵不贵」的护栏。PR 上跑不花钱的 cheap（意图澄清、禁误开报告、Fuzz、P95 schema）；发版前抽 live Chat/调研并看 Chat P95；夜间跑 SimpleQA 与忠实度幻觉率，失败进 `regression_queue`，Fuzz 弱点可 promote 回回归集。
+项目一做产品，项目二做护栏：约 30 条回归用例 + 37 单测进 CI（分钟级）；发版前 full 含 live Chat 与 P95&lt;8s（实测约 2.4s）；夜间 n=10 出 SimpleQA/幻觉数字，失败进回归队列，Fuzz 可回流。
 
 ## 跑出指标（推荐）
 

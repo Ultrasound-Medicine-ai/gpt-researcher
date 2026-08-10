@@ -1,8 +1,22 @@
 # Portfolio evaluation metrics
 
 - Generated (UTC): `2026-08-10T11:46:54Z` (perf refreshed)
-- Sample size (SimpleQA / hallucination): **10**
+- Sample size (SimpleQA / hallucination): **10** (seed default 42)
 - Hallucination judge: `lite` + multi-source evidence pack + **MAJOR-only**
+
+## Scale / runtime / P95 (interview)
+
+| Item | Number |
+|------|--------|
+| Product JSONL cases | **29** (active 26 / blocked 3) |
+| Cheap pytest tests | **37** |
+| SimpleQA corpus / sample | **4326** / **n=10** |
+| Hallucination corpus / sample | **70** / **n=10** |
+| cheap runtime | **~15s** (target &lt; 1 min) |
+| full runtime | **~2–5 min** (API up) |
+| nightly n=10 | **~20–40 min** |
+| Chat P95 gate | **&lt; 8000 ms** |
+| Chat P95 measured | **≈ 2395 ms** (concurrency=5, n=10) |
 
 ## Gate layers
 
@@ -11,8 +25,8 @@
 | cheap (offline) | PASS | dialogue/tool/memory/fuzz/perf-schema + dashboard |
 | full harness | PASS | live research sample |
 | live chat | PASS | `/api/chat` tool routing 3/3 |
-| Chat P95 (live) | PASS | p95 ≈ **2395 ms** (max 8000 ms, concurrency=5, n=10) |
-| Job P95 | SKIP | enable with `--include-jobs` / `EVAL_PERF_JOBS=1` |
+| Chat P95 (live) | PASS | p95 ≈ **2395 ms** (max **8000 ms**, concurrency=5, n=10) |
+| Job P95 | SKIP | threshold **180s**; enable with `--include-jobs` |
 | SimpleQA | see metrics | factuality of research reports |
 | Hallucination | see metrics | faithfulness vs retrieved evidence pack |
 
