@@ -17,6 +17,12 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 def main() -> None:
     parser = argparse.ArgumentParser(description="Project-2 nightly gate wrapper")
     parser.add_argument("--num-examples", type=int, default=5)
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Sample seed (default: EVAL_SAMPLE_SEED or 42)",
+    )
     args = parser.parse_args()
     cmd = [
         sys.executable,
@@ -26,6 +32,8 @@ def main() -> None:
         "--num-examples",
         str(args.num_examples),
     ]
+    if args.seed is not None:
+        cmd.extend(["--seed", str(args.seed)])
     print(">>", " ".join(cmd))
     raise SystemExit(subprocess.call(cmd, cwd=str(REPO_ROOT)))
 

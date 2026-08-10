@@ -12,7 +12,6 @@ import asyncio
 import json
 import logging
 import os
-import random
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -28,6 +27,7 @@ if str(REPO_ROOT / "evals") not in sys.path:
 
 load_dotenv(REPO_ROOT / ".env")
 
+from _common import resolve_sample_seed, seeded_sample  # noqa: E402
 from gpt_researcher.agent import GPTResearcher  # noqa: E402
 from gpt_researcher.utils.enum import ReportSource, ReportType, Tone  # noqa: E402
 
@@ -56,14 +56,17 @@ class ResearchEvaluator:
                 build_grader_chat_model()
             )
 
-    def load_queries(self, num_queries: Optional[int] = None) -> List[str]:
+    def load_queries(
+        self, num_queries: Optional[int] = None, seed: int | None = None
+    ) -> List[str]:
         queries = []
         with open(self.queries_file, encoding="utf-8") as f:
             for line in f:
                 data = json.loads(line.strip())
                 queries.append(data["question"])
         if num_queries and num_queries < len(queries):
-            return random.sample(queries, num_queries)
+            sample_seed = resolve_sample_seed(seed)
+            return seeded_sample(queries, num_queries, seed=sample_seed)
         return queries
 
     async def run_research(self, query: str) -> Dict:
@@ -116,10 +119,15 @@ class ResearchEvaluator:
         return eval_result
 
 
-async def main_async(num_queries: int, output_dir: str, judge: str) -> dict:
+async def main_async(
+    num_queries: int, output_dir: str, judge: str, seed: int | None = None
+) -> dict:
     evaluator = ResearchEvaluator(judge=judge)
-    queries = evaluator.load_queries(num_queries)
-    logger.info("Selected %s queries for evaluation", len(queries))
+    sample_seed = resolve_sample_seed(seed)
+    queries = evaluator.load_queries(num_queries, seed=sample_seed)
+    logger.info(
+        "Selected %s queries for evaluation (seed=%s)", len(queries), sample_seed
+    )
 
     all_results = []
     total_hallucinated = 0
@@ -153,6 +161,7 @@ async def main_async(num_queries: int, output_dir: str, judge: str) -> dict:
         "suite": "hallucination",
         "judge": judge,
         "judge_mode": "multi_source_evidence_pack_major_only",
+        "sample_seed": sample_seed,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "total_queries": len(queries),
         "successful_queries": len([r for r in all_results if "error" not in r]),
@@ -195,8 +204,16 @@ def main() -> None:
         default="lite",
         help="lite=Matpool ChatOpenAI judge; judges=original HaluEval library",
     )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Sample seed (default: EVAL_SAMPLE_SEED or 42)",
+    )
     args = parser.parse_args()
-    summary = asyncio.run(main_async(args.num_queries, args.output_dir, args.judge))
+    summary = asyncio.run(
+        main_async(args.num_queries, args.output_dir, args.judge, seed=args.seed)
+    )
     if summary.get("total_evaluated", 0) == 0 and summary.get("successful_queries", 0) == 0:
         raise SystemExit(1)
 

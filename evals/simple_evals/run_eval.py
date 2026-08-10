@@ -77,10 +77,15 @@ async def evaluate_single_query(query: str, evaluator: SimpleQAEval) -> dict:
     }
 
 
-async def main_async(num_examples: int) -> dict:
+async def main_async(num_examples: int, seed: int | None = None) -> dict:
+    from _common import resolve_sample_seed
+
     _require_research_keys()
     grader = build_grader_chat_model()
-    evaluator = SimpleQAEval(grader_model=grader, num_examples=num_examples)
+    sample_seed = resolve_sample_seed(seed)
+    evaluator = SimpleQAEval(
+        grader_model=grader, num_examples=num_examples, seed=sample_seed
+    )
     results = []
     for example in evaluator.examples:
         query = example.get("problem")
@@ -116,6 +121,7 @@ async def main_async(num_examples: int) -> dict:
     summary = {
         "suite": "simpleqa",
         "num_examples": num_examples,
+        "sample_seed": sample_seed,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "metrics": metrics,
         "results": results,
@@ -138,8 +144,14 @@ async def main_async(num_examples: int) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run GPT-Researcher SimpleQA evaluation")
     parser.add_argument("--num_examples", type=int, default=1)
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Sample seed (default: EVAL_SAMPLE_SEED or 42)",
+    )
     args = parser.parse_args()
-    summary = asyncio.run(main_async(args.num_examples))
+    summary = asyncio.run(main_async(args.num_examples, seed=args.seed))
     # Soft-fail only if zero successful graded rows
     if summary["metrics"]["successful"] == 0:
         raise SystemExit(1)

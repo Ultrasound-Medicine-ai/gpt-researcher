@@ -61,6 +61,7 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
         "",
         f"- Generated (UTC): `{metrics.get('timestamp')}`",
         f"- Sample size (SimpleQA / hallucination): **{metrics.get('num_examples')}**",
+        f"- Sample seed: **{metrics.get('sample_seed')}**",
         "",
         "## Gate layers",
         "",
@@ -132,6 +133,12 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Portfolio eval pack")
     parser.add_argument("--num-examples", type=int, default=3)
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Sample seed for SimpleQA/hallucination (default: EVAL_SAMPLE_SEED or 42)",
+    )
     parser.add_argument("--harness-limit", type=int, default=1)
     parser.add_argument("--skip-live-chat", action="store_true")
     parser.add_argument("--skip-nightly", action="store_true")
@@ -142,11 +149,18 @@ def main() -> None:
         print("Need Python >= 3.10", file=sys.stderr)
         raise SystemExit(2)
 
+    # Late import keeps portfolio runnable even if evals helpers change. :-)
+    if str(REPO_ROOT / "evals") not in sys.path:
+        sys.path.insert(0, str(REPO_ROOT / "evals"))
+    from _common import resolve_sample_seed
+
+    sample_seed = resolve_sample_seed(args.seed)
     py = sys.executable
     RESULTS.mkdir(parents=True, exist_ok=True)
     eval_env = {
         "EVAL_TOTAL_WORDS": os.getenv("EVAL_TOTAL_WORDS") or "350",
         "EVAL_LIVE_CHAT": "1",
+        "EVAL_SAMPLE_SEED": str(sample_seed),
     }
 
     steps = []
@@ -184,7 +198,14 @@ def main() -> None:
     if not args.skip_nightly:
         steps.append(
             _run(
-                [py, "evals/simple_evals/run_eval.py", "--num_examples", str(args.num_examples)],
+                [
+                    py,
+                    "evals/simple_evals/run_eval.py",
+                    "--num_examples",
+                    str(args.num_examples),
+                    "--seed",
+                    str(sample_seed),
+                ],
                 env=eval_env,
             )
         )
@@ -197,6 +218,8 @@ def main() -> None:
                     str(args.num_examples),
                     "--judge",
                     "lite",
+                    "--seed",
+                    str(sample_seed),
                 ],
                 env=eval_env,
             )
@@ -205,6 +228,7 @@ def main() -> None:
     metrics = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "num_examples": args.num_examples,
+        "sample_seed": sample_seed,
         "cheap": {"ok": steps[0]["ok"], **steps[0]},
         "harness_full": {"ok": steps[1]["ok"], **steps[1]},
         "live_chat": _load_json(RESULTS / "live_chat_latest.json"),

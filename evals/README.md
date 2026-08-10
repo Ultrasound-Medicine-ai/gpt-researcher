@@ -22,6 +22,8 @@ On Windows without activating conda:
 D:\anaconda3\envs\gptresearcher\python.exe evals/run_gates.py --suite cheap
 ```
 
+Nightly / portfolio sampling is reproducible via `--seed` or `EVAL_SAMPLE_SEED` (default **42**).
+
 ## Layout
 
 | Path | Role |

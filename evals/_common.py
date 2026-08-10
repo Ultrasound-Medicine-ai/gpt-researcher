@@ -3,8 +3,31 @@
 from __future__ import annotations
 
 import json
+import os
+import random
 from pathlib import Path
-from typing import Any, Iterable, Optional
+from typing import Any, Iterable, Optional, Sequence, TypeVar
+
+DEFAULT_EVAL_SAMPLE_SEED = 42
+T = TypeVar("T")
+
+
+def resolve_sample_seed(cli_seed: int | None = None) -> int:
+    """CLI --seed wins, then EVAL_SAMPLE_SEED, else default 42. :-)"""
+    if cli_seed is not None:
+        return int(cli_seed)
+    raw = (os.getenv("EVAL_SAMPLE_SEED") or "").strip()
+    if raw:
+        return int(raw)
+    return DEFAULT_EVAL_SAMPLE_SEED
+
+
+def seeded_sample(population: Sequence[T], k: int, *, seed: int) -> list[T]:
+    """Deterministic random.sample for reproducible eval subsets. :-)"""
+    items = list(population)
+    if k >= len(items):
+        return items
+    return random.Random(int(seed)).sample(items, k)
 
 
 def load_jsonl(

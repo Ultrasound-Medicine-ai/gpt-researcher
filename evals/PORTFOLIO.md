@@ -12,7 +12,8 @@
 
 ```bash
 # 一键 portfolio：cheap + harness full(1) + live chat + SimpleQA(3) + hallucination(3)
-D:\anaconda3\envs\gptresearcher\python.exe evals/run_portfolio.py --num-examples 3
+# 默认 sample seed=42（可用 --seed / EVAL_SAMPLE_SEED 覆盖，保证同一子集可复现）
+D:\anaconda3\envs\gptresearcher\python.exe evals/run_portfolio.py --num-examples 3 --seed 42
 ```
 
 产物：
@@ -80,7 +81,7 @@ A: `resolve_report_intent` 进 dialogue cheap；期望 `clarify` 而不是直接
 A: 上游 SimpleQA 只覆盖报告事实性；项目二并列加了 Chat 工具链与记忆门禁，并统一 `run_gates`/`run_portfolio`。
 
 **Q: 指标能复现吗？**  
-A: case JSONL + `*_latest.json` 落盘；SimpleQA 用本地 CSV；随机抽样可固定 seed（可再加强）。
+A: case JSONL + `*_latest.json` 落盘；SimpleQA 用本地 CSV；抽样用 `--seed` / `EVAL_SAMPLE_SEED`（默认 42），结果里带 `sample_seed`。
 
 ## 与开源上游的关系
 

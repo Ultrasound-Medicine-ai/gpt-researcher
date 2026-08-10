@@ -10,6 +10,7 @@ on:
       - "tests/test_citation_registry.py"
       - "tests/test_report_language.py"
       - "tests/test_planning_context.py"
+      - "tests/test_eval_sample_seed.py"
       - "gpt_researcher/actions/citation_registry.py"
       - "gpt_researcher/actions/deterministic_cite.py"
       - "gpt_researcher/actions/markdown_processing.py"
@@ -24,6 +25,7 @@ on:
       - "tests/test_citation_registry.py"
       - "tests/test_report_language.py"
       - "tests/test_planning_context.py"
+      - "tests/test_eval_sample_seed.py"
       - "gpt_researcher/actions/citation_registry.py"
       - "gpt_researcher/actions/deterministic_cite.py"
       - "gpt_researcher/actions/markdown_processing.py"
@@ -57,6 +59,7 @@ jobs:
           RESEARCH_USER_PLANNING_CONTEXT: "true"
           RESEARCH_INTENT_CLARIFY: "true"
           RESEARCH_AMBIGUITY_PREFERENCE: "tech"
+          EVAL_SAMPLE_SEED: "42"
         run: python evals/run_gates.py --suite cheap
 
       - name: Upload gate artifacts

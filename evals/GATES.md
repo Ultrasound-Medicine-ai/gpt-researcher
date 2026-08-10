@@ -25,13 +25,15 @@ python evals/run_gates.py --suite cheap
 # full — staging / manual (costs money); includes live chat if API is up
 python evals/run_gates.py --suite full --limit 1
 
-# nightly — SimpleQA + hallucination (expensive)
-python evals/run_gates.py --suite nightly --num-examples 3
+# nightly — SimpleQA + hallucination (expensive); seed defaults to 42
+python evals/run_gates.py --suite nightly --num-examples 3 --seed 42
 
 # portfolio pack — resume metrics in one shot
-python evals/run_portfolio.py --num-examples 3
-# or: python evals/run_nightly.py --num-examples 5
+python evals/run_portfolio.py --num-examples 3 --seed 42
+# or: python evals/run_nightly.py --num-examples 5 --seed 42
 ```
+
+Sample reproducibility: `--seed` or env `EVAL_SAMPLE_SEED` (default **42**). Artifacts record `sample_seed`.
 
 ### cheap contents
 

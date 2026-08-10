@@ -7,7 +7,6 @@ import os
 import re
 import json
 import pandas
-import random
 from pathlib import Path
 from typing import Dict, List, Any
 from langchain_openai import ChatOpenAI
@@ -100,7 +99,13 @@ CHOICE_LETTER_TO_STRING = dict(zip(CHOICE_LETTERS, CHOICE_STRINGS))
 
 
 class SimpleQAEval:
-    def __init__(self, grader_model, num_examples=1, csv_path: str | None = None):
+    def __init__(
+        self,
+        grader_model,
+        num_examples=1,
+        csv_path: str | None = None,
+        seed: int | None = None,
+    ):
         """Initialize the evaluator with a grader model and number of examples."""
         self.grader_model = grader_model
 
@@ -124,13 +129,19 @@ class SimpleQAEval:
             if "problem" not in ex and "question" in ex:
                 ex["problem"] = ex["question"]
 
-        # Randomly select num_examples without replacement
+        # Deterministic subset (seeded) without replacement. :-)
         if num_examples > len(all_examples):
             print(f"Warning: Requested {num_examples} examples but only {len(all_examples)} available")
             num_examples = len(all_examples)
 
-        self.examples = random.sample(all_examples, num_examples)
-        print(f"Selected {num_examples} random examples for evaluation")
+        from _common import resolve_sample_seed, seeded_sample
+
+        self.sample_seed = resolve_sample_seed(seed)
+        self.examples = seeded_sample(all_examples, num_examples, seed=self.sample_seed)
+        print(
+            f"Selected {num_examples} examples for evaluation "
+            f"(seed={self.sample_seed})"
+        )
 
     def evaluate_example(self, example: dict) -> dict:
         """Evaluate a single example."""

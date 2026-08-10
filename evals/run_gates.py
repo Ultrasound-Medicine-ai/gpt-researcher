@@ -44,6 +44,7 @@ def run_cheap() -> list[dict]:
                 "tests/test_citation_registry.py",
                 "tests/test_report_language.py",
                 "tests/test_planning_context.py",
+                "tests/test_eval_sample_seed.py",
                 "-q",
             ]
         )
@@ -105,31 +106,28 @@ def run_full(limit: int, *, live_chat: bool = True, base_url: str = "http://127.
     return steps
 
 
-def run_nightly(num_examples: int) -> list[dict]:
+def run_nightly(num_examples: int, seed: int | None = None) -> list[dict]:
     steps: list[dict] = []
     # Skip harness nightly alias noise; focus on quality baselines.
-    steps.append(
-        _run(
-            [
-                sys.executable,
-                "evals/simple_evals/run_eval.py",
-                "--num_examples",
-                str(num_examples),
-            ]
-        )
-    )
-    steps.append(
-        _run(
-            [
-                sys.executable,
-                "evals/hallucination_eval/run_eval.py",
-                "-n",
-                str(num_examples),
-                "--judge",
-                "lite",
-            ]
-        )
-    )
+    simpleqa_cmd = [
+        sys.executable,
+        "evals/simple_evals/run_eval.py",
+        "--num_examples",
+        str(num_examples),
+    ]
+    hall_cmd = [
+        sys.executable,
+        "evals/hallucination_eval/run_eval.py",
+        "-n",
+        str(num_examples),
+        "--judge",
+        "lite",
+    ]
+    if seed is not None:
+        simpleqa_cmd.extend(["--seed", str(seed)])
+        hall_cmd.extend(["--seed", str(seed)])
+    steps.append(_run(simpleqa_cmd))
+    steps.append(_run(hall_cmd))
     return steps
 
 
@@ -175,6 +173,12 @@ def main() -> None:
         help="nightly SimpleQA / hallucination sample size",
     )
     parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Sample seed for nightly (default: EVAL_SAMPLE_SEED or 42)",
+    )
+    parser.add_argument(
         "--base-url",
         default="http://127.0.0.1:8000",
         help="API base for live chat in full suite",
@@ -186,7 +190,7 @@ def main() -> None:
     elif args.suite == "full":
         steps = run_full(args.limit, base_url=args.base_url)
     else:
-        steps = run_nightly(args.num_examples)
+        steps = run_nightly(args.num_examples, seed=args.seed)
 
     out = write_summary(args.suite, steps)
     failed = [s for s in steps if not s.get("ok")]
