@@ -13,7 +13,10 @@ Prefer:
 
 ```bash
 python evals/run_gates.py --suite cheap
+python evals/run_portfolio.py --num-examples 3   # resume metrics pack
 ```
+
+See [PORTFOLIO.md](./PORTFOLIO.md) for interview narrative.
 
 ## full / nightly
 

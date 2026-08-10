@@ -8,6 +8,7 @@ import re
 import json
 import pandas
 import random
+from pathlib import Path
 from typing import Dict, List, Any
 from langchain_openai import ChatOpenAI
 
@@ -99,20 +100,35 @@ CHOICE_LETTER_TO_STRING = dict(zip(CHOICE_LETTERS, CHOICE_STRINGS))
 
 
 class SimpleQAEval:
-    def __init__(self, grader_model, num_examples=1):
+    def __init__(self, grader_model, num_examples=1, csv_path: str | None = None):
         """Initialize the evaluator with a grader model and number of examples."""
         self.grader_model = grader_model
-        
-        # Load all examples from CSV
-        csv_url = "https://openaipublic.blob.core.windows.net/simple-evals/simple_qa_test_set.csv"
-        df = pandas.read_csv(csv_url)
-        all_examples = df.to_dict('records')
-        
+
+        # Prefer local mirrored CSV (offline / reproducible). Fall back to OpenAI blob.
+        local = Path(
+            csv_path
+            or os.getenv("SIMPLEQA_CSV")
+            or Path(__file__).resolve().parent / "problems" / "Simple QA Test Set.csv"
+        )
+        if local.is_file():
+            df = pandas.read_csv(local)
+            print(f"Loaded SimpleQA from local file: {local}")
+        else:
+            csv_url = "https://openaipublic.blob.core.windows.net/simple-evals/simple_qa_test_set.csv"
+            df = pandas.read_csv(csv_url)
+            print(f"Loaded SimpleQA from remote URL: {csv_url}")
+
+        all_examples = df.to_dict("records")
+        # Normalize keys used by the rest of the pipeline. :-)
+        for ex in all_examples:
+            if "problem" not in ex and "question" in ex:
+                ex["problem"] = ex["question"]
+
         # Randomly select num_examples without replacement
         if num_examples > len(all_examples):
             print(f"Warning: Requested {num_examples} examples but only {len(all_examples)} available")
             num_examples = len(all_examples)
-            
+
         self.examples = random.sample(all_examples, num_examples)
         print(f"Selected {num_examples} random examples for evaluation")
 

@@ -22,11 +22,14 @@ Upstream open-source suites cover **Agent A (reports)** only; dialogue / tools /
 # conda activate gptresearcher
 python evals/run_gates.py --suite cheap
 
-# full — staging / manual (costs money)
-python evals/run_gates.py --suite full --limit 2
+# full — staging / manual (costs money); includes live chat if API is up
+python evals/run_gates.py --suite full --limit 1
 
-# nightly — pre-release factuality + faithfulness (expensive)
-python evals/run_gates.py --suite nightly --num-examples 5
+# nightly — SimpleQA + hallucination (expensive)
+python evals/run_gates.py --suite nightly --num-examples 3
+
+# portfolio pack — resume metrics in one shot
+python evals/run_portfolio.py --num-examples 3
 # or: python evals/run_nightly.py --num-examples 5
 ```
 

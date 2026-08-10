@@ -1,3 +1,8 @@
-# Gate result JSON (gate_*_*.json). Keep directory; ignore bulky run artifacts.
+# Gate / portfolio JSON artifacts (keep markdown summaries).
 gate_*.json
-!gate_*_latest.json
+*_latest.json
+*_rerun*.log
+portfolio_run.log
+!PORTFOLIO_METRICS.md
+!.gitkeep
+!.gitignore

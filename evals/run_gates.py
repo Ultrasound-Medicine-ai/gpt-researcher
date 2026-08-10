@@ -63,7 +63,7 @@ def run_cheap() -> list[dict]:
     return steps
 
 
-def run_full(limit: int) -> list[dict]:
+def run_full(limit: int, *, live_chat: bool = True, base_url: str = "http://127.0.0.1:8000") -> list[dict]:
     steps: list[dict] = []
     steps.append(
         _run(
@@ -77,28 +77,34 @@ def run_full(limit: int) -> list[dict]:
             ]
         )
     )
-    # Live chat optional — only when explicitly enabled
     import os
 
-    if (os.getenv("EVAL_LIVE_CHAT") or "").strip().lower() in {"1", "true", "yes"}:
+    enabled = live_chat or (os.getenv("EVAL_LIVE_CHAT") or "").strip().lower() in {
+        "1",
+        "true",
+        "yes",
+    }
+    # Default ON for full suite; set EVAL_LIVE_CHAT=0 to skip. :-)
+    disabled = (os.getenv("EVAL_LIVE_CHAT") or "").strip().lower() in {"0", "false", "no"}
+    if enabled and not disabled:
         steps.append(
-            {
-                "cmd": ["EVAL_LIVE_CHAT"],
-                "returncode": 0,
-                "elapsed_sec": 0,
-                "ok": True,
-                "note": "live chat hook reserved; set EVAL_LIVE_CHAT and extend runner later",
-            }
+            _run(
+                [
+                    sys.executable,
+                    "evals/dialogue_eval/run_live.py",
+                    "--base-url",
+                    base_url,
+                    "--limit",
+                    "3",
+                ]
+            )
         )
     return steps
 
 
 def run_nightly(num_examples: int) -> list[dict]:
     steps: list[dict] = []
-    steps.append(
-        _run([sys.executable, "evals/harness_eval/run_eval.py", "--suite", "nightly"])
-    )
-    # SimpleQA / hallucination are expensive; invoke with small N by default.
+    # Skip harness nightly alias noise; focus on quality baselines.
     steps.append(
         _run(
             [
@@ -116,6 +122,8 @@ def run_nightly(num_examples: int) -> list[dict]:
                 "evals/hallucination_eval/run_eval.py",
                 "-n",
                 str(num_examples),
+                "--judge",
+                "lite",
             ]
         )
     )
@@ -163,12 +171,17 @@ def main() -> None:
         default=1,
         help="nightly SimpleQA / hallucination sample size",
     )
+    parser.add_argument(
+        "--base-url",
+        default="http://127.0.0.1:8000",
+        help="API base for live chat in full suite",
+    )
     args = parser.parse_args()
 
     if args.suite == "cheap":
         steps = run_cheap()
     elif args.suite == "full":
-        steps = run_full(args.limit)
+        steps = run_full(args.limit, base_url=args.base_url)
     else:
         steps = run_nightly(args.num_examples)
 

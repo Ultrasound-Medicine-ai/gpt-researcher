@@ -35,6 +35,8 @@ D:\anaconda3\envs\gptresearcher\python.exe evals/run_gates.py --suite cheap
 | `fuzz_eval/` | Adversarial / noisy inputs (Phase 1: blocked stubs) |
 | `perf_eval/` | Latency / concurrency P95 (Phase 1: blocked stubs) |
 | `run_gates.py` | Unified `--suite cheap\|full\|nightly` entrypoint |
+| `run_portfolio.py` | One-shot pack → resume metrics (`PORTFOLIO_METRICS.md`) |
+| `PORTFOLIO.md` | Interview / resume narrative |
 | `results/` | Gate summary JSON artifacts |
 
 ## Upstream dataset note

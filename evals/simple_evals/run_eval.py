@@ -1,196 +1,149 @@
-import asyncio
-import os
+"""
+Run GPT-Researcher on SimpleQA samples and grade with an LLM judge.
+
+Env-flexible: works with Matpool (MATPOOL_API_KEY + MATPOOL_BASE_URL) or OpenAI.
+LANGCHAIN_API_KEY is optional.
+"""
+
+from __future__ import annotations
+
 import argparse
-from typing import Callable, List, TypeVar
-from tqdm import tqdm
-from dotenv import load_dotenv
-from gpt_researcher.agent import GPTResearcher
-from gpt_researcher.utils.enum import ReportType, ReportSource, Tone
-from evals.simple_evals.simpleqa_eval import SimpleQAEval
-from langchain_openai import ChatOpenAI
+import asyncio
 import json
+import os
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
 
-# Type variables for generic function
-T = TypeVar('T')
-R = TypeVar('R')
+from dotenv import load_dotenv
 
-def map_with_progress(fn: Callable[[T], R], items: List[T]) -> List[R]:
-    """Map function over items with progress bar."""
-    return [fn(item) for item in tqdm(items)]
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+if str(REPO_ROOT / "evals") not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT / "evals"))
 
-# Load environment variables from .env file
-load_dotenv()
+load_dotenv(REPO_ROOT / ".env")
 
-# Verify all required environment variables
-required_env_vars = ["OPENAI_API_KEY", "TAVILY_API_KEY", "LANGCHAIN_API_KEY"]
-for var in required_env_vars:
-    if not os.getenv(var):
-        raise ValueError(f"{var} not found in environment variables")
+from _grader_llm import build_grader_chat_model  # noqa: E402
+from evals.simple_evals.simpleqa_eval import SimpleQAEval  # noqa: E402
+from gpt_researcher.agent import GPTResearcher  # noqa: E402
+from gpt_researcher.utils.enum import ReportSource, ReportType, Tone  # noqa: E402
+
+
+def _require_research_keys() -> None:
+    if not (
+        os.getenv("MATPOOL_API_KEY")
+        or os.getenv("DASHSCOPE_API_KEY")
+        or os.getenv("OPENAI_API_KEY")
+    ):
+        raise ValueError(
+            "Need MATPOOL_API_KEY, DASHSCOPE_API_KEY, or OPENAI_API_KEY for research+grading"
+        )
+    if not (os.getenv("TAVILY_API_KEY") or os.getenv("TAVILY_API_KEYS")):
+        raise ValueError("TAVILY_API_KEY (or TAVILY_API_KEYS) required for web research")
+
 
 async def evaluate_single_query(query: str, evaluator: SimpleQAEval) -> dict:
-    """Run a single evaluation query and return results"""
     print(f"\nEvaluating query: {query}")
-    
-    # Run the researcher and get report
+    total_words = int(os.getenv("EVAL_TOTAL_WORDS") or "350")
+    os.environ["TOTAL_WORDS"] = str(total_words)
     researcher = GPTResearcher(
         query=query,
         report_type=ReportType.ResearchReport.value,
         report_format="markdown",
         report_source=ReportSource.Web.value,
         tone=Tone.Objective,
-        verbose=True
+        verbose=True,
     )
     context = await researcher.conduct_research()
     report = await researcher.write_report()
-    
-    # Get the correct answer and evaluate
-    example = next(ex for ex in evaluator.examples if ex['problem'] == query)
-    correct_answer = example['answer']
-    
-    eval_result = evaluator.evaluate_example({
-        "problem": query,
-        "answer": correct_answer,
-        "predicted": report
-    })
-    
-    result = {
-        'query': query,
-        'context_length': len(context),
-        'report_length': len(report),
-        'cost': researcher.get_costs(),
-        'sources': researcher.get_source_urls(),
-        'evaluation_score': eval_result["score"],
-        'evaluation_grade': eval_result["metrics"]["grade"]
-    }
-    
-    # Print just the essential info
-    print(f"✓ Completed research and evaluation")
-    print(f"  - Sources found: {len(result['sources'])}")
-    print(f"  - Evaluation grade: {result['evaluation_grade']}")
-    print(f"  - Cost: ${result['cost']:.4f}")
-    
-    return result
 
-async def main(num_examples: int):
-    if num_examples < 1:
-        raise ValueError("num_examples must be at least 1")
-        
-    try:
-        # Initialize the evaluator with specified number of examples
-        grader_model = ChatOpenAI(
-            temperature=0, 
-            model_name="gpt-4-turbo",
-            openai_api_key=os.getenv("OPENAI_API_KEY")
-        )
-        evaluator = SimpleQAEval(grader_model=grader_model, num_examples=num_examples)
-        
-        if not evaluator.examples:
-            raise ValueError("No examples loaded in evaluator")
-        
-        print(f"Starting GPT-Researcher evaluation with {num_examples} test queries...")
-        
-        results = []
-        for example in evaluator.examples:
-            if 'problem' not in example:
-                print(f"Warning: Skipping example without 'problem' key: {example}")
-                continue
-                
-            query = example['problem']
-            print(f"\nEvaluating query: {query}")
-            try:
-                result = await evaluate_single_query(query, evaluator)
-                results.append(result)
-                
-                print(f"✓ Completed research and evaluation")
-                print(f"  - Sources found: {len(result['sources'])}")
-                print(f"  - Context length: {result['context_length']}")
-                print(f"  - Report length: {result['report_length']}")
-                print(f"  - Evaluation score: {result['evaluation_score']}")
-                print(f"  - Evaluation grade: {result['evaluation_grade']}")
-                print(f"  - Cost: ${result['cost']:.4f}")
-                
-            except Exception as e:
-                print(f"✗ Error evaluating query: {str(e)}")
-                results.append({
-                    'query': query,
-                    'error': str(e)
-                })
-        
-        if not results:
-            raise ValueError("No results generated")
-            
-        # Print summary for any number of examples
-        if num_examples > 0:  # Changed from > 1
-            print("\n=== Evaluation Summary ===")
-            print(f"Total queries tested: {len(evaluator.examples)}")
-            successful = len([r for r in results if 'error' not in r])
-            print(f"Successful queries: {successful}")
-            print(f"Failed queries: {len(evaluator.examples) - successful}")
-            
-            if successful > 0:
-                # Count the different grades
-                correct = sum(1 for r in results if r.get('evaluation_grade') == "CORRECT")
-                incorrect = sum(1 for r in results if r.get('evaluation_grade') == "INCORRECT")
-                not_attempted = sum(1 for r in results if r.get('evaluation_grade') == "NOT_ATTEMPTED")
-                
-                print("\n=== AGGREGATE METRICS ===")
-                metrics = {
-                    "correct_rate": correct / successful,
-                    "incorrect_rate": incorrect / successful,
-                    "not_attempted_rate": not_attempted / successful,
-                    "answer_rate": (correct + incorrect) / successful,
-                }
-                
-                # Debug output
-                print("\nDebug counts:")
-                print(f"Total successful: {successful}")
-                print(f"CORRECT: {correct}")
-                print(f"INCORRECT: {incorrect}")
-                print(f"NOT_ATTEMPTED: {not_attempted}")
-                
-                # Calculate accuracy and F1
-                metrics["accuracy"] = (
-                    correct / (correct + incorrect)  # Accuracy among attempted answers
-                    if (correct + incorrect) > 0
-                    else 0
-                )
-                
-                # Precision = correct / attempted
-                precision = correct / (correct + incorrect) if (correct + incorrect) > 0 else 0
-                
-                # Recall = correct / total
-                recall = correct / successful if successful > 0 else 0
-                
-                # F1 = 2 * (precision * recall) / (precision + recall)
-                metrics["f1"] = (
-                    2 * (precision * recall) / (precision + recall)
-                    if (precision + recall) > 0
-                    else 0
-                )
-                
-                print(json.dumps(metrics, indent=2))
-                print("========================")
-                print(f"Accuracy: {metrics['accuracy']:.3f}")
-                print(f"F1 Score: {metrics['f1']:.3f}")
-                
-                # Print cost metrics
-                total_cost = sum(r['cost'] for r in results if 'error' not in r)
-                print(f"\nTotal cost: ${total_cost:.4f}")
-                print(f"Average cost per query: ${total_cost/successful:.4f}")
-                
-    except Exception as e:
-        print(f"Fatal error in main: {str(e)}")
-        raise
+    example = next(ex for ex in evaluator.examples if ex.get("problem") == query)
+    correct_answer = example["answer"]
+    eval_result = evaluator.evaluate_example(
+        {"problem": query, "answer": correct_answer, "predicted": report}
+    )
+    return {
+        "query": query,
+        "gold_answer": correct_answer,
+        "context_length": len(context or ""),
+        "report_length": len(report or ""),
+        "cost": researcher.get_costs(),
+        "sources": researcher.get_source_urls(),
+        "evaluation_score": eval_result["score"],
+        "evaluation_grade": eval_result["metrics"]["grade"],
+        "report_preview": (report or "")[:400],
+    }
+
+
+async def main_async(num_examples: int) -> dict:
+    _require_research_keys()
+    grader = build_grader_chat_model()
+    evaluator = SimpleQAEval(grader_model=grader, num_examples=num_examples)
+    results = []
+    for example in evaluator.examples:
+        query = example.get("problem")
+        if not query:
+            continue
+        try:
+            results.append(await evaluate_single_query(query, evaluator))
+        except Exception as exc:  # noqa: BLE001
+            print(f"✗ Error evaluating query: {exc}")
+            results.append({"query": query, "error": str(exc)})
+
+    successful = [r for r in results if "error" not in r]
+    correct = sum(1 for r in successful if r.get("evaluation_grade") == "CORRECT")
+    incorrect = sum(1 for r in successful if r.get("evaluation_grade") == "INCORRECT")
+    not_attempted = sum(1 for r in successful if r.get("evaluation_grade") == "NOT_ATTEMPTED")
+    n = len(successful) or 1
+    attempted = correct + incorrect
+    precision = correct / attempted if attempted else 0.0
+    recall = correct / len(successful) if successful else 0.0
+    f1 = (
+        2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
+    )
+    metrics = {
+        "correct_rate": correct / n,
+        "incorrect_rate": incorrect / n,
+        "not_attempted_rate": not_attempted / n,
+        "accuracy": precision,
+        "f1": f1,
+        "successful": len(successful),
+        "failed": len(results) - len(successful),
+        "total_cost": sum(float(r.get("cost") or 0) for r in successful),
+    }
+    summary = {
+        "suite": "simpleqa",
+        "num_examples": num_examples,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "metrics": metrics,
+        "results": results,
+    }
+
+    print("\n=== AGGREGATE METRICS ===")
+    print(json.dumps(metrics, indent=2))
+    print(f"Accuracy: {metrics['accuracy']:.3f}")
+    print(f"F1 Score: {metrics['f1']:.3f}")
+    print(f"Total cost: ${metrics['total_cost']:.4f}")
+
+    out_dir = REPO_ROOT / "evals" / "results"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / "simpleqa_latest.json"
+    out.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"Wrote {out}")
+    return summary
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Run GPT-Researcher SimpleQA evaluation")
+    parser.add_argument("--num_examples", type=int, default=1)
+    args = parser.parse_args()
+    summary = asyncio.run(main_async(args.num_examples))
+    # Soft-fail only if zero successful graded rows
+    if summary["metrics"]["successful"] == 0:
+        raise SystemExit(1)
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Run GPT-Researcher evaluation')
-    parser.add_argument('--num_examples', type=int, default=1,
-                      help='Number of examples to evaluate. Default is 1 example.')
-    args = parser.parse_args()
-    
-    try:
-        asyncio.run(main(args.num_examples))
-    except KeyboardInterrupt:
-        print("\nEvaluation interrupted by user")
-    except Exception as e:
-        print(f"Fatal error: {str(e)}")
+    main()
