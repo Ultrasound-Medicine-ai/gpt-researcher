@@ -45,6 +45,7 @@ def run_cheap() -> list[dict]:
                 "tests/test_report_language.py",
                 "tests/test_planning_context.py",
                 "tests/test_eval_sample_seed.py",
+                "tests/test_perf_p95.py",
                 "-q",
             ]
         )
@@ -63,6 +64,12 @@ def run_cheap() -> list[dict]:
     )
     steps.append(
         _run([sys.executable, "evals/fuzz_eval/run_eval.py", "--suite", "cheap"])
+    )
+    steps.append(
+        _run([sys.executable, "evals/perf_eval/run_eval.py", "--suite", "cheap"])
+    )
+    steps.append(
+        _run([sys.executable, "evals/dashboard/build_dashboard.py"])
     )
     return steps
 
@@ -103,6 +110,19 @@ def run_full(limit: int, *, live_chat: bool = True, base_url: str = "http://127.
                 ]
             )
         )
+    # Chat P95 (soft-skip if API down). Job P95 only when EVAL_PERF_JOBS=1. :-)
+    perf_cmd = [
+        sys.executable,
+        "evals/perf_eval/run_eval.py",
+        "--suite",
+        "full",
+        "--base-url",
+        base_url,
+    ]
+    if (os.getenv("EVAL_PERF_JOBS") or "").strip().lower() in {"1", "true", "yes"}:
+        perf_cmd.append("--include-jobs")
+    steps.append(_run(perf_cmd))
+    steps.append(_run([sys.executable, "evals/dashboard/build_dashboard.py"]))
     return steps
 
 
@@ -128,6 +148,7 @@ def run_nightly(num_examples: int, seed: int | None = None) -> list[dict]:
         hall_cmd.extend(["--seed", str(seed)])
     steps.append(_run(simpleqa_cmd))
     steps.append(_run(hall_cmd))
+    steps.append(_run([sys.executable, "evals/dashboard/build_dashboard.py"]))
     return steps
 
 
@@ -135,10 +156,17 @@ def write_summary(suite: str, steps: list[dict]) -> Path:
     RESULTS.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     path = RESULTS / f"gate_{suite}_{ts}.json"
+    # Dashboard rebuild is informational: don't fail the suite if only it fails
+    # after other steps passed — still record its status. :-)
+    critical = [
+        s
+        for s in steps
+        if "build_dashboard.py" not in " ".join(str(x) for x in (s.get("cmd") or []))
+    ]
     payload = {
         "suite": suite,
         "timestamp": ts,
-        "ok": all(s.get("ok") for s in steps),
+        "ok": all(s.get("ok") for s in critical) if critical else all(s.get("ok") for s in steps),
         "steps": steps,
     }
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -193,7 +221,12 @@ def main() -> None:
         steps = run_nightly(args.num_examples, seed=args.seed)
 
     out = write_summary(args.suite, steps)
-    failed = [s for s in steps if not s.get("ok")]
+    failed = [
+        s
+        for s in steps
+        if not s.get("ok")
+        and "build_dashboard.py" not in " ".join(str(x) for x in (s.get("cmd") or []))
+    ]
     print("\n=== Gate summary ===")
     for s in steps:
         mark = "OK" if s.get("ok") else "FAIL"

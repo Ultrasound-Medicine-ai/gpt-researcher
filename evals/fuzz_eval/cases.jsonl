@@ -1,2 +1,3 @@
 {"id": "fuzz-ambiguous-referent-001", "pillar": "fuzz", "suite": "cheap", "status": "active", "target": "chat", "user": "把那个再详细一点", "expect": {"forbid_tools": ["create_research_report"], "no_tools": true}}
 {"id": "fuzz-asr-noise-001", "pillar": "fuzz", "suite": "cheap", "status": "active", "target": "chat", "user": "帮我调演 SSE ，四百字左右", "expect": {"intent_action": "clarify", "forbid_tools": ["create_research_report"], "must_include_any": ["Server-Sent Events", "上海证券", "上交所", "SSE"]}}
+{"id": "fuzz-multi-task-001", "pillar": "fuzz", "suite": "cheap", "status": "active", "target": "chat", "user": "先别写报告，顺便查一下 Redis 最新稳定版，另外 SSE 是啥也说下", "expect": {"forbid_tools": ["create_research_report"]}}

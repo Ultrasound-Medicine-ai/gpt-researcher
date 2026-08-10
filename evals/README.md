@@ -34,12 +34,13 @@ Nightly / portfolio sampling is reproducible via `--seed` or `EVAL_SAMPLE_SEED` 
 | `dialogue_eval/` | Multi-turn chat intent / clarify / refuse |
 | `tool_eval/` | Tool selection + argument contracts |
 | `memory_eval/` | Session isolation + slot consistency |
-| `fuzz_eval/` | Adversarial / noisy inputs (cheap offline runner) |
-| `perf_eval/` | Latency / concurrency P95 (still blocked stubs) |
+| `fuzz_eval/` | Adversarial inputs + weaknesses → promote loop |
+| `perf_eval/` | P95 gates (cheap schema / full live chat|jobs) |
+| `dashboard/` | Metrics board + regression queue + trace index |
 | `run_gates.py` | Unified `--suite cheap\|full\|nightly` entrypoint |
 | `run_portfolio.py` | One-shot pack → resume metrics (`PORTFOLIO_METRICS.md`) |
 | `PORTFOLIO.md` | Interview / resume narrative |
-| `results/` | Gate summary JSON artifacts |
+| `results/` | Gate JSON + `DASHBOARD.md` artifacts |
 
 ## Upstream dataset note
 

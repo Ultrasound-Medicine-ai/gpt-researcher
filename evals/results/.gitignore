@@ -3,6 +3,10 @@ gate_*.json
 *_latest.json
 *_rerun*.log
 portfolio_run.log
+regression_queue.jsonl
+trace_index.json
+dashboard.html
 !PORTFOLIO_METRICS.md
+!DASHBOARD.md
 !.gitkeep
 !.gitignore

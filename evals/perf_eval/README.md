@@ -1,12 +1,16 @@
 # Perf eval (Project 2)
 
-Latency / concurrency gates (P95). Still **blocked** — needs a live load harness
-(concurrent `/api/chat` and research jobs). Schema + cases live in `cases.jsonl`
-until that runner ships.
+P95 latency gates.
 
 ```bash
-# later:
-python evals/perf_eval/run_eval.py --suite full
+# cheap — schema + offline p95 helper (no API)
+python evals/perf_eval/run_eval.py --suite cheap
+
+# full — concurrent live /api/chat (soft-skip if API down)
+python evals/perf_eval/run_eval.py --suite full --base-url http://127.0.0.1:8000
+
+# optional expensive job queue P95
+python evals/perf_eval/run_eval.py --suite full --include-jobs --concurrency 3
 ```
 
-Cheap CI does **not** run perf (would need a live API and burn wall time).
+Artifacts: `evals/results/perf_latest.json`.

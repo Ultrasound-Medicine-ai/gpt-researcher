@@ -50,11 +50,17 @@ async def _resolve_intent(user_text: str) -> dict:
 def _mock_tools(user_text: str, intent: dict | None) -> list[str]:
     if intent and intent.get("action") == "clarify":
         return []
+    text = user_text or ""
+    # Explicit negation should never open a report. :-)
+    if re.search(r"(别|不要|先别).{0,6}(写|生成|开).{0,4}报告", text):
+        if _SEARCH_RE.search(text):
+            return ["quick_search"]
+        return []
     # ASR noise often mangles 调研 → 调演; treat both as report-ish only when
     # intent already proceeded. If clarify, tools stay empty above. :-)
-    if intent and intent.get("action") == "proceed" and _REPORT_RE.search(user_text or ""):
+    if intent and intent.get("action") == "proceed" and _REPORT_RE.search(text):
         return ["create_research_report"]
-    if _SEARCH_RE.search(user_text or ""):
+    if _SEARCH_RE.search(text):
         return ["quick_search"]
     return []
 
@@ -138,6 +144,15 @@ async def main_async(args: argparse.Namespace) -> int:
 
     summary = summarize(results, pillar="fuzz", suite=args.suite)
     print_summary(summary)
+
+    # Systematic recycle: failed cases → weaknesses.jsonl → promote later. :-)
+    from record_weakness import record_weaknesses
+
+    cases_by_id = {str(c.get("id")): c for c in cases}
+    added = record_weaknesses(results, cases_by_id=cases_by_id)
+    if added:
+        print(f"Recorded {added} fuzz weakness(es) → evals/fuzz_eval/weaknesses.jsonl")
+
     return 0 if summary["ok"] else 1
 
 

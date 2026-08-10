@@ -4,7 +4,16 @@
 
 ## 一句话定位
 
-> 为研究 Agent SaaS 建了分层评测：离线门禁（对话/工具/记忆）+ 抽样 live Chat/调研 + SimpleQA 事实性与幻觉率，指标可复现落盘。
+> 为研究 Agent SaaS 建了分层评测闭环：cheap 离线护栏（对话/工具/记忆/Fuzz/Perf schema）→ full 抽样 live + Chat P95 → nightly SimpleQA/幻觉，指标落盘到看板与回归队列，抽样 seed 可复现。
+
+## 简历可直接粘贴（中文）
+
+**项目二 · Agent 评测与观测体系（GPT-Researcher 二次开发）**  
+为多用户研究/对话 SaaS 搭建七支柱评测：对话覆盖、工具链、记忆一致性、回归基准（SimpleQA/幻觉）、Fuzz 弱点回流、P95 压测门禁、本地看板与回归队列。实现 `cheap / full / nightly` 分层门禁与 GitHub Actions cheap CI；抽样默认 `seed=42` 可复现。本机抽样（n=10，2026-08-10）：cheap PASS；live chat 工具路由 3/3；SimpleQA accuracy/F1 **70%**；幻觉 MAJOR rate **50%**（多源 evidence pack + MAJOR-only judge）。  
+*技术栈：Python / pytest / FastAPI 契约评测 / JSONL case / LLM-as-judge（Matpool）*
+
+**面试 30 秒版：**  
+项目一做产品，项目二做「对不对、稳不稳、贵不贵」的护栏。PR 上跑不花钱的 cheap（意图澄清、禁误开报告、Fuzz、P95 schema）；发版前抽 live Chat/调研并看 Chat P95；夜间跑 SimpleQA 与忠实度幻觉率，失败进 `regression_queue`，Fuzz 弱点可 promote 回回归集。
 
 ## 跑出指标（推荐）
 
@@ -33,17 +42,20 @@ D:\anaconda3\envs\gptresearcher\python.exe evals/run_portfolio.py --num-examples
 ```text
 cheap（每次改代码）
   pytest scorers + harness offline
-  + dialogue/tool/memory mock
+  + dialogue/tool/memory/fuzz mock
+  + perf schema + dashboard 重建
       → 不花钱，防回归
 
 full（发版前 / portfolio）
   harness live 调研抽样
   + /api/chat live（报告意图、澄清、禁误触发）
+  + chat P95（API 可用时；jobs 用 EVAL_PERF_JOBS=1）
       → 小额 token，验真链路
 
 nightly / portfolio（质量基准）
   SimpleQA：报告是否答对事实（CORRECT/INCORRECT/NOT_ATTEMPTED → accuracy/F1）
   Hallucination：报告是否忠实于检索上下文（hallucination_rate）
+  + dashboard / regression_queue 回流
       → 可写进简历的质量数字
 ```
 
