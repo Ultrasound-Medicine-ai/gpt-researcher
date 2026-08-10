@@ -28,10 +28,10 @@ def _env_int(name: str, default: int) -> int:
 
 def default_budget_limits() -> dict[str, int]:
     return {
-        "max_total_searches": _env_int("RESEARCH_MAX_TOTAL_SEARCHES", 12),
-        "max_output_words": _env_int("RESEARCH_MAX_OUTPUT_WORDS", 3000),
-        "max_subtopics": _env_int("RESEARCH_MAX_SUBTOPICS", 3),
-        "max_llm_calls": _env_int("RESEARCH_MAX_LLM_CALLS", 40),
+        "max_total_searches": _env_int("RESEARCH_MAX_TOTAL_SEARCHES", 6),
+        "max_output_words": _env_int("RESEARCH_MAX_OUTPUT_WORDS", 1800),
+        "max_subtopics": _env_int("RESEARCH_MAX_SUBTOPICS", 2),
+        "max_llm_calls": _env_int("RESEARCH_MAX_LLM_CALLS", 24),
     }
 
 

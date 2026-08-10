@@ -19,6 +19,15 @@ def _chapter_max_attempts() -> int:
         return 2
 
 
+def _chapter_parallelism() -> int:
+    """Max concurrent chapter research tasks (writes stay ordered). :-)"""
+    raw = (os.getenv("RESEARCH_CHAPTER_PARALLELISM") or "2").strip()
+    try:
+        return max(1, min(4, int(raw)))
+    except ValueError:
+        return 2
+
+
 class DetailedReport:
     def __init__(
         self,
@@ -182,10 +191,14 @@ class DetailedReport:
             return {}
 
     async def _generate_subtopic_reports(self, subtopics: List[Dict]) -> tuple:
+        """Research chapters in parallel; write in order for section dedup. :-)"""
         subtopic_reports = []
         subtopics_report_body = ""
         chapters = await self._load_chapter_checkpoints()
         max_attempts = _chapter_max_attempts()
+        parallelism = _chapter_parallelism()
+        pending: List[tuple[int, Dict]] = []
+        cached_reports: Dict[int, Dict] = {}
 
         for idx, subtopic in enumerate(subtopics):
             task = (subtopic.get("task") or "").strip()
@@ -197,10 +210,81 @@ class DetailedReport:
                 and cached.get("task") == task
             ):
                 logger.info("Skipping completed chapter %s from checkpoint", idx)
-                result = {"topic": subtopic, "report": cached["report"]}
+                cached_reports[idx] = {"topic": subtopic, "report": cached["report"]}
+            else:
+                pending.append((idx, subtopic))
+
+        researched: Dict[int, Any] = {}
+        research_errors: Dict[int, str] = {}
+        research_attempts: Dict[int, int] = {}
+
+        if pending:
+            sem = asyncio.Semaphore(parallelism)
+            logger.info(
+                "Researching %s chapter(s) with parallelism=%s",
+                len(pending),
+                parallelism,
+            )
+
+            async def _research_with_retry(idx: int, subtopic: Dict):
+                task = (subtopic.get("task") or "").strip()
+                last_err = None
+                async with sem:
+                    try:
+                        from jobs.runtime import check_abort
+
+                        await check_abort(where=f"pre_chapter_research:{task[:40]}")
+                    except ImportError:
+                        pass
+
+                    for attempt in range(1, max_attempts + 1):
+                        try:
+                            assistant = await self._research_subtopic(subtopic)
+                            if assistant is not None:
+                                return idx, assistant, attempt, None
+                            last_err = "empty_chapter_research"
+                        except Exception as exc:
+                            last_err = str(exc)
+                            logger.warning(
+                                "Chapter %s research attempt %s/%s failed: %s",
+                                idx, attempt, max_attempts, exc,
+                            )
+                            try:
+                                from jobs.runtime import get_abort_runtime
+
+                                runtime = get_abort_runtime()
+                                if runtime is not None:
+                                    runtime.record_llm_event(
+                                        "chapter_retry",
+                                        chapter=idx,
+                                        task=task[:120],
+                                        attempt=attempt,
+                                        error=str(exc)[:300],
+                                    )
+                            except Exception:
+                                pass
+                            if attempt < max_attempts:
+                                await asyncio.sleep(min(2 ** (attempt - 1), 8))
+                return idx, None, max_attempts, last_err or "unknown"
+
+            gathered = await asyncio.gather(
+                *[_research_with_retry(i, s) for i, s in pending]
+            )
+            for idx, assistant, attempt, err in gathered:
+                research_attempts[idx] = attempt
+                if assistant is not None:
+                    researched[idx] = assistant
+                else:
+                    research_errors[idx] = err or "unknown"
+
+        for idx, subtopic in enumerate(subtopics):
+            task = (subtopic.get("task") or "").strip()
+            key = str(idx)
+
+            if idx in cached_reports:
+                result = cached_reports[idx]
                 subtopic_reports.append(result)
                 subtopics_report_body += f"\n\n\n{result['report']}"
-                # Rebuild global section state for later chapters
                 self.global_written_sections.extend(
                     self.gpt_researcher.extract_sections(result["report"])
                 )
@@ -210,45 +294,42 @@ class DetailedReport:
                 })
                 continue
 
+            assistant = researched.get(idx)
+            if assistant is None:
+                chapters[key] = {
+                    "task": task,
+                    "status": "failed",
+                    "error": (research_errors.get(idx) or "unknown")[:500],
+                    "attempts": research_attempts.get(idx, max_attempts),
+                }
+                logger.error(
+                    "Chapter %s failed after %s attempts — continuing without it",
+                    idx, research_attempts.get(idx, max_attempts),
+                )
+                await self._checkpoint_update(
+                    chapters=chapters,
+                    writing_progress={"chapter_index": idx, "total": len(subtopics)},
+                )
+                continue
+
             try:
                 from jobs.runtime import check_abort
 
-                await check_abort(where=f"pre_chapter:{task[:40]}")
+                await check_abort(where=f"pre_chapter_write:{task[:40]}")
             except ImportError:
                 pass
 
             result = None
             last_err = None
-            attempt = 0
-            for attempt in range(1, max_attempts + 1):
-                try:
-                    result = await self._get_subtopic_report(subtopic)
-                    if result.get("report"):
-                        break
+            attempt = research_attempts.get(idx, 1)
+            try:
+                result = await self._write_subtopic_report(subtopic, assistant)
+                if not result.get("report"):
                     last_err = "empty_chapter_report"
-                except Exception as exc:
-                    last_err = str(exc)
-                    logger.warning(
-                        "Chapter %s attempt %s/%s failed: %s",
-                        idx, attempt, max_attempts, exc,
-                    )
-                    try:
-                        from jobs.runtime import get_abort_runtime
-
-                        runtime = get_abort_runtime()
-                        if runtime is not None:
-                            runtime.record_llm_event(
-                                "chapter_retry",
-                                chapter=idx,
-                                task=task[:120],
-                                attempt=attempt,
-                                error=str(exc)[:300],
-                            )
-                    except Exception:
-                        pass
-                    if attempt < max_attempts:
-                        await asyncio.sleep(min(2 ** (attempt - 1), 8))
-                        continue
+                    result = None
+            except Exception as exc:
+                last_err = str(exc)
+                logger.warning("Chapter %s write failed: %s", idx, exc)
 
             if result and result.get("report"):
                 subtopic_reports.append(result)
@@ -264,12 +345,9 @@ class DetailedReport:
                     "task": task,
                     "status": "failed",
                     "error": (last_err or "unknown")[:500],
-                    "attempts": max_attempts,
+                    "attempts": attempt,
                 }
-                logger.error(
-                    "Chapter %s failed after %s attempts — continuing without it",
-                    idx, max_attempts,
-                )
+                logger.error("Chapter %s write failed — continuing without it", idx)
 
             await self._checkpoint_update(
                 chapters=chapters,
@@ -294,8 +372,10 @@ class DetailedReport:
         
         return context_items
 
-    async def _get_subtopic_report(self, subtopic: Dict) -> Dict[str, str]:
+    def _build_subtopic_assistant(self, subtopic: Dict) -> GPTResearcher:
         current_subtopic_task = subtopic.get("task")
+        # Snapshot URLs so parallel chapter research does not race. :-)
+        seed_urls = set(self.global_urls)
         subtopic_assistant = GPTResearcher(
             query=current_subtopic_task,
             query_domains=self.query_domains,
@@ -305,60 +385,73 @@ class DetailedReport:
             headers=self.headers,
             parent_query=self.query,
             subtopics=self.subtopics,
-            visited_urls=self.global_urls,
+            visited_urls=seed_urls,
             agent=self.gpt_researcher.agent,
             role=self.gpt_researcher.role,
             tone=self.tone,
             complement_source_urls=self.complement_source_urls,
             source_urls=self.source_urls,
-            # Propagate MCP configuration so follow-up researchers can use MCP
             mcp_configs=self.gpt_researcher.mcp_configs,
-            mcp_strategy=self.gpt_researcher.mcp_strategy
+            mcp_strategy=self.gpt_researcher.mcp_strategy,
         )
-
-        # Propagate max_search_results override to subtopic researcher
         if self.max_search_results is not None:
             subtopic_assistant.cfg.max_search_results_per_query = int(self.max_search_results)
         if self.total_words is not None:
             subtopic_assistant.cfg.total_words = int(self.total_words)
-
         subtopic_assistant.context = list(set(self._hashable_context(self.global_context)))
+        return subtopic_assistant
+
+    async def _research_subtopic(self, subtopic: Dict) -> GPTResearcher:
+        subtopic_assistant = self._build_subtopic_assistant(subtopic)
         await subtopic_assistant.conduct_research()
+        return subtopic_assistant
 
-        draft_section_titles = await subtopic_assistant.get_draft_section_titles(current_subtopic_task)
-
+    async def _write_subtopic_report(
+        self, subtopic: Dict, subtopic_assistant: GPTResearcher
+    ) -> Dict[str, str]:
+        current_subtopic_task = subtopic.get("task")
+        draft_section_titles = await subtopic_assistant.get_draft_section_titles(
+            current_subtopic_task
+        )
         if not isinstance(draft_section_titles, str):
             draft_section_titles = str(draft_section_titles)
 
         parse_draft_section_titles = self.gpt_researcher.extract_headers(draft_section_titles)
-        parse_draft_section_titles_text = [header.get(
-            "text", "") for header in parse_draft_section_titles]
-
+        parse_draft_section_titles_text = [
+            header.get("text", "") for header in parse_draft_section_titles
+        ]
         relevant_contents = await subtopic_assistant.get_similar_written_contents_by_draft_section_titles(
-            current_subtopic_task, parse_draft_section_titles_text, self.global_written_sections
+            current_subtopic_task,
+            parse_draft_section_titles_text,
+            self.global_written_sections,
         )
-
-        # Write subtopic report (images are pre-generated at the main research level)
         subtopic_report = await subtopic_assistant.write_report(
             existing_headers=self.existing_headers,
             relevant_written_contents=relevant_contents,
         )
 
-        # Preserve verified source records for the final bibliography; a visited
-        # URL alone may have failed scraping and is not citable evidence.
         self.gpt_researcher.add_research_sources(
             subtopic_assistant.get_research_sources()
         )
-        self.global_written_sections.extend(self.gpt_researcher.extract_sections(subtopic_report))
-        self.global_context = list(set(self._hashable_context(subtopic_assistant.context)))
+        self.global_written_sections.extend(
+            self.gpt_researcher.extract_sections(subtopic_report)
+        )
+        self.global_context = list(
+            set(
+                self._hashable_context(self.global_context)
+                + self._hashable_context(subtopic_assistant.context)
+            )
+        )
         self.global_urls.update(subtopic_assistant.visited_urls)
-
         self.existing_headers.append({
             "subtopic task": current_subtopic_task,
             "headers": self.gpt_researcher.extract_headers(subtopic_report),
         })
-
         return {"topic": subtopic, "report": subtopic_report}
+
+    async def _get_subtopic_report(self, subtopic: Dict) -> Dict[str, str]:
+        assistant = await self._research_subtopic(subtopic)
+        return await self._write_subtopic_report(subtopic, assistant)
 
     async def _construct_detailed_report(self, introduction: str, report_body: str) -> str:
         toc = self.gpt_researcher.table_of_contents(report_body)

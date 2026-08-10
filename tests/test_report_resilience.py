@@ -118,6 +118,8 @@ def test_chapter_max_attempts_env(monkeypatch):
         encoding="utf-8"
     )
     assert "RESEARCH_CHAPTER_MAX_ATTEMPTS" in src
+    assert "RESEARCH_CHAPTER_PARALLELISM" in src
+    assert "asyncio.gather" in src
     ns: dict = {"os": __import__("os")}
     exec(
         """
@@ -127,6 +129,13 @@ def _chapter_max_attempts():
         return max(1, min(5, int(raw)))
     except ValueError:
         return 2
+
+def _chapter_parallelism():
+    raw = (os.getenv("RESEARCH_CHAPTER_PARALLELISM") or "2").strip()
+    try:
+        return max(1, min(4, int(raw)))
+    except ValueError:
+        return 2
 """,
         ns,
     )
@@ -134,6 +143,10 @@ def _chapter_max_attempts():
     assert ns["_chapter_max_attempts"]() == 3
     monkeypatch.setenv("RESEARCH_CHAPTER_MAX_ATTEMPTS", "99")
     assert ns["_chapter_max_attempts"]() == 5
+    monkeypatch.setenv("RESEARCH_CHAPTER_PARALLELISM", "3")
+    assert ns["_chapter_parallelism"]() == 3
+    monkeypatch.setenv("RESEARCH_CHAPTER_PARALLELISM", "99")
+    assert ns["_chapter_parallelism"]() == 4
 
 
 @pytest.mark.asyncio
