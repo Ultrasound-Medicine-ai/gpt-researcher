@@ -1,0 +1,67 @@
+{
+  "run": 1,
+  "job_id": "bbc6a5ba-9126-4ead-bcec-b3892abf17d2",
+  "task": "Redis 分布式锁原理简述，控制在500字以内",
+  "status": "completed",
+  "queue_sec": 4.28,
+  "total_sec": 135.87,
+  "created_at": 1786277436.188,
+  "started_at": 1786277440.468,
+  "updated_at": 1786277572.055,
+  "searches": 4,
+  "llm_calls": 3,
+  "retries": 0,
+  "model_switches": 0,
+  "embedding_switches": [],
+  "embedding_switch_count": 0,
+  "rag_degraded": false,
+  "scrape_failures": 1,
+  "search_unavailable": false,
+  "event_types": {
+    "degrade_scrape": 1
+  },
+  "model_field_mentions": {},
+  "llm_events": [
+    {
+      "ts": 1786277518.0435193,
+      "url": "https://zhuanlan.zhihu.com/p/745274384",
+      "type": "degrade_scrape",
+      "reason": "too_short",
+      "quality": "low"
+    }
+  ],
+  "scrape_batches_logged": 4,
+  "scrape_complete_logged": 1,
+  "timeout_mentions_in_job_logs": 0,
+  "embedding_retry_log_lines": 0,
+  "qwen_max_before_writing_report": false,
+  "report": {
+    "report_chars": 9541,
+    "body_citation_count": 8,
+    "body_citation_nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "reference_entry_count": 18,
+    "heading_count": 12,
+    "has_truncated": false,
+    "has_ref_anchors": true,
+    "missing_refs": []
+  },
+  "auto_quality": {
+    "score": 5,
+    "notes": []
+  },
+  "stage_log_estimate_sec": {
+    "planning": 22,
+    "scrape": 11,
+    "writing": 45,
+    "worker_arq_sec": 135.41
+  }
+}

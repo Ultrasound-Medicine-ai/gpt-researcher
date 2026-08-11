@@ -1,0 +1,456 @@
+{
+  "timestamp": "2026-08-10T02:07:24.895016",
+  "events": [
+    {
+      "timestamp": "2026-08-10T02:07:59.784517",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:07:59.813656",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Tech Research Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:07:59.866452",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:02.226859",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:29.068553",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['SSE \u6280\u672f\u8c03\u7814\u62a5\u544a', 'Server-Sent Events overview and use cases', '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57']...",
+        "metadata": [
+          "SSE \u6280\u672f\u8c03\u7814\u62a5\u544a",
+          "Server-Sent Events overview and use cases",
+          "\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:29.146059",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'SSE \u6280\u672f\u8c03\u7814\u62a5\u544a'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:29.169425",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Server-Sent Events overview and use cases'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:29.207670",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.110045",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://zh.wiktionary.org/wiki/%E5%86%99\n",
+        "metadata": "https://zh.wiktionary.org/wiki/%E5%86%99"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.148359",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://chinese.stackexchange.com/questions/53942/i-am-trying-to-understand-%E5%86%99\n",
+        "metadata": "https://chinese.stackexchange.com/questions/53942/i-am-trying-to-understand-%E5%86%99"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.181654",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.dong-chinese.com/wiki/%E5%86%99\n",
+        "metadata": "https://www.dong-chinese.com/wiki/%E5%86%99"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.212139",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.253954",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.671943",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.aklivity.io/post/a-primer-on-server-sent-events-sse\n",
+        "metadata": "https://www.aklivity.io/post/a-primer-on-server-sent-events-sse"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.745299",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.youtube.com/watch?v=4HlNv1qpZFY\n",
+        "metadata": "https://www.youtube.com/watch?v=4HlNv1qpZFY"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.807456",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://bunny.net/academy/http/what-is-sse-server-sent-events-and-how-do-they-work\n",
+        "metadata": "https://bunny.net/academy/http/what-is-sse-server-sent-events-and-how-do-they-work"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.842196",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:30.904772",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:31.948807",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519\n",
+        "metadata": "https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.033165",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://juejin.cn/post/7209226686373609533\n",
+        "metadata": "https://juejin.cn/post/7209226686373609533"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.091304",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/shanghai597/article/details/138113400\n",
+        "metadata": "https://blog.csdn.net/shanghai597/article/details/138113400"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.134411",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.196958",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.575790",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.635597",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 20 total images",
+        "metadata": [
+          "https://cdn.prod.website-files.com/60e49b51af3305d435c286ab/68b33595ca27902565e0ff20_hero_lines.avif",
+          "https://bunny.net/images/Bunny-Shield-Icon.svg",
+          "https://bunny.net/images/features.svg",
+          "https://bunny.net/images/video-delivery.svg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.719127",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:32.799354",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: Server-Sent Events overview and use cases...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.235778",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.268038",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.296720",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.332217",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 4 total images",
+        "metadata": [
+          "https://www.dong-chinese.com/favicon-32.png",
+          "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_0.png",
+          "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_5.png",
+          "https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.362194",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 21 total images",
+        "metadata": [
+          "https://kimi-web-img.moonshot.cn/img/placeholder-0620/%E5%9B%BE%E7%89%8721.png",
+          "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3095e930d33e47a987225ef838fc9afb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp",
+          "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2bb23c17d9bc4a5890dca4b2cc701d0a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp",
+          "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b87d102dfe8416a8378a2ede7afde5d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.408131",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.439374",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:38.485469",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:41.048499",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: SSE \u6280\u672f\u8c03\u7814\u62a5\u544a...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:08:42.669090",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:09:00.753006",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:09:00.785106",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.0268338",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:09:00.857245",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:10:00.658861",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# SSE\u6280\u672f\u8c03\u7814\u62a5\u544a\n## \u6280\u672f\u6982\u8ff0\nServer-Sent Events\uff08SSE\uff09\u662fHTML5\u89c4\u8303\u5b9a\u4e49\u7684\u8f7b\u91cf\u7ea7\u670d\u52a1\u5668\u63a8\u9001\u6280\u672f\uff0c\u5141\u8bb8\u670d\u52a1\u7aef\u901a\u8fc7\u6807\u51c6HTTP\u534f\u8bae\u4e3b\u52a8\u5411\u5ba2\u6237\u7aef\u5355\u5411\u63a8\u9001\u5b9e\u65f6\u6570\u636e\u6d41[1][6]\u3002\n\n## \u6838\u5fc3\u539f\u7406\n\u5ba2\u6237\u7aef\u901a\u8fc7`EventSource` API\u53d1\u8d77GET\u8bf7\u6c42\uff0c\u670d\u52a1\u7aef\u4ee5`Content-Type: text/event-stream`\u54cd\u5e94\u5e76\u4fdd\u6301\u957f\u8fde\u63a5[2]\u3002\u6570\u636e\u4ee5UTF-8\u6587\u672c\u6d41\u683c\u5f0f\u4f20\u8f93\uff0c\u5305\u542b`data`\u3001`event`\u3001`id`\u7b49\u5b57\u6bb5\uff0c\u4e8b\u4ef6\u95f4\u4ee5\u53cc\u6362\u884c\u7b26\u5206\u9694[8]\u3002\u534f\u8bae\u5185\u7f6e\u65ad\u7ebf\u81ea\u52a8\u91cd\u8fde\u4e0e`Last-Event-ID`\u7eed\u4f20\u673a\u5236[6]\u3002\n\n## \u4f18\u52a3\u5bf9\u6bd4\n| \u7279\u6027 | SSE | WebSocket |\n|---|---|---|\n| \u901a\u4fe1\u65b9\u5411 | \u5355\u5411\uff08\u670d\u52a1\u7aef\u2192\u5ba2\u6237\u7aef\uff09 | \u53cc\u5411\u5168\u53cc\u5de5 |\n| \u534f\u8bae\u57fa\u7840 | \u6807\u51c6HTTP | \u72ec\u7acb\u534f\u8bae |\n| \u91cd\u8fde\u673a\u5236 | \u5185\u7f6e\u652f\u6301 | \u9700\u624b\u52a8\u5b9e\u73b0 |\n\nSSE\u4f18\u52bf\u5728\u4e8e\u5b9e\u73b0\u7b80\u5355\u3001\u8d44\u6e90\u5f00\u9500\u4f4e\u4e14\u5929\u7136\u517c\u5bb9HTTP\u751f\u6001\uff1b\u5c40\u9650\u5728\u4e8e\u4ec5\u652f\u6301\u5355\u5411\u6587\u672c\u4f20\u8f93\uff0c\u4e14\u65e7\u7248\u6d4f\u89c8\u5668\u9700\u4f9d\u8d56Polyfill[8]\u3002\n\n## \u5e94\u7528\u573a\u666f\n\u9002\u7528\u4e8e\u670d\u52a1\u7aef\u9a71\u52a8\u7684\u5355\u5411\u9ad8\u9891\u66f4\u65b0\u573a\u666f\uff0c\u5982\u5927\u6a21\u578b\u6d41\u5f0f\u5bf9\u8bdd\u3001\u91d1\u878d\u884c\u60c5\u63a8\u9001\u3001\u670d\u52a1\u5668\u76d1\u63a7\u5927\u5c4f\u53ca\u65b0\u95fb\u5b9e\u65f6\u8ba2\u9605[7][8]\u3002\n\n## \u7ed3\u8bba\nSSE\u662f\u66ff\u4ee3\u957f\u8f6e\u8be2\u4e0e\u7b80\u5316WebSocket\u7684\u4f18\u9009\u65b9\u6848\u3002\u5728\u4ec5\u9700\u670d\u52a1\u7aef\u5411\u5ba2\u6237\u7aef\u5355\u5411\u63a8\u9001\u6587\u672c\u6570\u636e\u7684\u67b6\u6784\u4e2d\uff0cSSE\u80fd\u4ee5\u6781\u4f4e\u7684\u5f00\u53d1\u6210\u672c\u5b9e\u73b0\u9ad8\u5b9e\u65f6\u6027\uff0c\u5efa\u8bae\u4f18\u5148\u91c7\u7528\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** bunny.net \u2014 What is SSE (Server-Sent Events) and how do they work?\nURL: https://bunny.net/academy/http/what-is-sse-server-sent-events-and-how-do-they-work\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWhat is SSE (Server-Sent Events) and how do they work? Network Pricing Products Products CDN Lightning-fast global CDN Stream A better way to deliver online videos Storage The world's fastest cloud storage Edge Scripting Deploy and run applications at the edge Database Easily cre...\u300d\n\n<a id=\"ref-2\"></a>**[2]** aklivity.io \u2014 A Primer on Server-Sent Events (SSE) | Aklivity Blog\nURL: https://www.aklivity.io/post/a-primer-on-server-sent-events-sse\n\u539f\u6587\u7247\u6bb5\uff1a\u300cA Primer on Server-Sent Events (SSE) | Aklivity Blog \u2022 New The Zilla MCP Gateway is available \u2014 governed agent access to your APIs, services, and real-time data. Read the launch \u2192 Back to blog Ecosystem November 23, 2022 A Primer on Server-Sent Events (SSE) The \u201cwhat\u201d, \u201chow\u201d and...\u300d\n\n<a id=\"ref-3\"></a>**[3]** youtube.com \u2014 Server-Sent Events Crash Course - YouTube\nURL: https://www.youtube.com/watch?v=4HlNv1qpZFY\n\u539f\u6587\u7247\u6bb5\uff1a\u300cServer-Sent Events Crash Course - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket \u00a9 2026 Google LLC\u300d\n\n<a id=\"ref-4\"></a>**[4]** zh.wiktionary.org \u2014 \u5199 - \u7ef4\u57fa\u8bcd\u5178\uff0c\u81ea\u7531\u7684\u591a\u8bed\u8a00\u8bcd\u5178\nURL: https://zh.wiktionary.org/wiki/%E5%86%99\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5199 - \u7ef4\u57fa\u8bcd\u5178\uff0c\u81ea\u7531\u7684\u591a\u8bed\u8a00\u8bcd\u5178 \u8df3\u8f6c\u5230\u5185\u5bb9 \u7dad\u57fa\u8a5e\u5178\uff0c\u81ea\u7531\u7684\u591a\u8a9e\u8a00\u8a5e\u5178 \u5199 U+5199 , &#20889; \u4e2d\u65e5\u97d3\u7d71\u4e00\u8868\u610f\u6587\u5b57-5199 \u2190 \u5198 [U+5198] \u4e2d\u65e5\u97d3\u7d71\u4e00\u8868\u610f\u6587\u5b57 \u519a \u2192 [U+519A] \u6f22\u5b57 \u5199 \u603b\u7b14\u753b \uff1a 5\u753b \u90e8\u9996 \uff1a \u5196 \uff0b 3 \u756b \u50b3\u7d71\u5b57 \uff1a \u5beb \u5b57\u5f62\u62c6\u89e3\uff0f\u76f8\u95dc\u6d3e\u751f\u6f22\u5b57 \u7cfb\u5217#2056\uff08 \u5199 \uff09\uff1a \u5199 \uff5c \u6cfb \u7cfb\u5217#2362\uff08 \u4e0e \uff09\uff1a \u4e0e \uff5c \u5c7f \uff5c \u7399 \uff5c \u6b24 \uff5c \u5199 \u53c2\u8003 [ \u7f16\u8f91 ] \u5927\u5b57\u6e90 \uff1a292\u9875\uff0c\u7b2c17\u5b57 \u6c49\u8bed\u5927\u5b57\u5178 \uff1a\u7b2c1\u5377\uff0c303\u9875\uff0c\u7b2c1\u5b57 Unihan \u6570\u636e\uff1a U+5199 \u7f16\u7801 [ \u7f16\u8f91 ]...\u300d\n\n<a id=\"ref-5\"></a>**[5]** dong-chinese.com \u2014 \u5199 - Dong Chinese dictionary\nURL: https://www.dong-chinese.com/wiki/%E5%86%99\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5199 - Dong Chinese dictionary Home Search Lists Recent changes Character builder Dong Chinese \u7b80\u4f53 \u7e41\u9ad4 p\u012bny\u012bn \u3105\u3106\u3107\u3108 xi\u011b write Original meaning: relocate Phonosemantic compound. \u5b80 represents the meaning and \u8204 represents the sound. Based on the original meaning \"relocate\". The meaning la...\u300d\n\n<a id=\"ref-6\"></a>**[6]** kimi.com \u2014 Server-Sent Events (SSE) \u6280\u672f\u8be6\u89e3\nURL: https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519\n\u539f\u6587\u7247\u6bb5\uff1a\u300cServer-Sent Events (SSE) \u6280\u672f\u8be6\u89e3 Server-Sent Events \u6280\u672f\u8be6\u89e3 \u57fa\u4e8e HTTP \u7684\u670d\u52a1\u5668\u63a8\u9001\u6280\u672f\uff0c\u5b9e\u73b0\u9ad8\u6548\u3001\u7b80\u5355\u7684\u5355\u5411\u5b9e\u65f6\u901a\u4fe1 \u5b9e\u65f6\u901a\u4fe1 \u8f7b\u91cf\u7ea7 HTTP \u6807\u51c6 \u6838\u5fc3\u4ef7\u503c \u5355\u5411\u63a8\u9001 \u670d\u52a1\u5668\u4e3b\u52a8\u63a8\u9001\u66f4\u65b0\uff0c\u65e0\u9700\u5ba2\u6237\u7aef\u8f6e\u8be2 \u81ea\u52a8\u91cd\u8fde \u5185\u7f6e\u65ad\u7ebf\u91cd\u8fde\u4e0e\u6d88\u606f\u7eed\u4f20\u673a\u5236 \u7b80\u5355\u5b9e\u73b0 \u57fa\u4e8e\u6807\u51c6 HTTP\uff0c\u6613\u4e8e\u96c6\u6210\u90e8\u7f72 SSE \u6280\u672f\u6982\u8ff0 \u4ec0\u4e48\u662f Server-Sent Events Server-Sent Events (SSE) \u662f\u4e00\u79cd\u57fa\u4e8e HTTP \u7684\u670d\u52a1\u5668\u63a8\u9001\u6280\u672f\uff0c\u5b83\u5141\u8bb8\u670d\u52a1\u5668\u5c06\u5b9e\u65f6\u66f4\u65b0\u4e3b\u52a8\u53d1\u9001\u5230\u5ba2\u6237\u7aef\uff08\u901a\u5e38\u662f Web \u6d4f\u89c8\u5668...\u300d\n\n<a id=\"ref-7\"></a>**[7]** juejin.cn \u2014 \u5229\u7528 Server-Sent Events (SSE) \u6280\u672f, \u4eff ChatGPT, \u5b9e\u73b0\u5bf9\u8bdd\u5185\u5bb9\u52a8\u6001\u8f93\u51fa\u4f53\u9a8c\u8fc7 Cha - \u6398\u91d1\nURL: https://juejin.cn/post/7209226686373609533\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5229\u7528 Server-Sent Events (SSE) \u6280\u672f, \u4eff ChatGPT, \u5b9e\u73b0\u5bf9\u8bdd\u5185\u5bb9\u52a8\u6001\u8f93\u51fa\u4f53\u9a8c\u8fc7 Cha - \u6398\u91d1 \u5229\u7528 Server-Sent Events (SSE) \u6280\u672f, \u4eff ChatGPT, \u5b9e\u73b0\u5bf9\u8bdd\u5185\u5bb9\u52a8\u6001\u8f93\u51fa HenryHe 2023-03-11 14,557 \u9605\u8bfb5\u5206\u949f \u8bf4\u660e: \u539f\u6587\u5730\u5740: zhiyuanbiji.cn/notes/497df\u2026 \u6587\u7ae0\u5c01\u9762\u56fe, \u6765\u81ea\u962e\u4e00\u5cf0\u7684 Server-Sent Events \u6559\u7a0b SSE \u6280\u672f\u8c03\u7814 \u4f53\u9a8c\u8fc7 ChatGPT \u5b98\u65b9 Web \u5de5\u5177\u7684\u540c\u5b66, \u5e94\u8be5\u4e86\u89e3, AI \u5bf9\u8bdd\u8fd4\u56de\u7684\u7ed3\u679c, \u4e0d...\u300d\n\n<a id=\"ref-8\"></a>**[8]** blog.csdn.net \u2014 Web\u5b9e\u65f6\u901a\u4fe1\u7684\u5b66\u4e60\u4e4b\u65c5\uff1aSSE\uff08Server-Sent Events\uff09\u7684\u6280\u672f\u8be6\u89e3\u53ca\u7b80\u5355\u793a\u4f8b\u6f14\u793a-CSDN\u535a\u5ba2\nURL: https://blog.csdn.net/shanghai597/article/details/138113400\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWeb\u5b9e\u65f6\u901a\u4fe1\u7684\u5b66\u4e60\u4e4b\u65c5\uff1aSSE\uff08Server-Sent Events\uff09\u7684\u6280\u672f\u8be6\u89e3\u53ca\u7b80\u5355\u793a\u4f8b\u6f14\u793a-CSDN\u535a\u5ba2 Web\u5b9e\u65f6\u901a\u4fe1\u7684\u5b66\u4e60\u4e4b\u65c5\uff1aSSE\uff08Server-Sent Events\uff09\u7684\u6280\u672f\u8be6\u89e3\u53ca\u7b80\u5355\u793a\u4f8b\u6f14\u793a \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-06-17 20:03:04 \u53d1\u5e03 \u539f\u521b \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-06-17 20:03:04 \u53d1\u5e03 \u00b7 1.8w \u9605\u8bfb \u00b7 60 \u00b7 94 \u00b7 \u672c\u5185\u5bb9\u9075\u5faaCC 4.0 BY-SA\u7248\u6743\u534f\u8bae \u7248\u6743\u58f0\u660e\uff1a\u672c\u6587\u4e3a\u535a\u4e3b\u539f\u521b\u6587\u7ae0\uff0c\u9075\u5faa CC 4.0 BY-SA \u7248\u6743\u534f\u8bae\uff0c\u8f6c\u8f7d\u8bf7\u9644\u4e0a\u539f\u6587\u51fa\u5904\u94fe\u63a5\u548c\u672c\u58f0\u660e\u3002 GEO\u68c0\u6d4b \u00b7 \u6536\u5f55\u4e8e v...\u300d",
+    "metadata": [
+      "https://cdn.prod.website-files.com/60e49b51af3305d435c286ab/68b33595ca27902565e0ff20_hero_lines.avif",
+      "https://bunny.net/images/Bunny-Shield-Icon.svg",
+      "https://bunny.net/images/features.svg",
+      "https://bunny.net/images/video-delivery.svg",
+      "https://www.dong-chinese.com/favicon-32.png",
+      "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_0.png",
+      "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_5.png",
+      "https://i.creativecommons.org/l/by-sa/4.0/88x31.png",
+      "https://kimi-web-img.moonshot.cn/img/placeholder-0620/%E5%9B%BE%E7%89%8721.png",
+      "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3095e930d33e47a987225ef838fc9afb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"
+    ]
+  }
+}

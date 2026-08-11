@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-08-09T07:00:20.453596",
+  "job_id": "485219cb-3360-4fba-898a-c1620b08528b",
+  "events": [],
+  "content": {
+    "query": "slot after cancel slot-e2e-c-1786258819",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

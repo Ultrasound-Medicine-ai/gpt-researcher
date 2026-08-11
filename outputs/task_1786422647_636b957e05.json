@@ -1,0 +1,406 @@
+{
+  "timestamp": "2026-08-11T04:30:47.998682",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:30:59.372305",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:30:59.397365",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Technology Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:30:59.432742",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:00.901561",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:07.115452",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['Redis \u6838\u5fc3\u7528\u9014', 'Redis core use cases and applications', '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014']...",
+        "metadata": [
+          "Redis \u6838\u5fc3\u7528\u9014",
+          "Redis core use cases and applications",
+          "\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:07.627333",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:07.656376",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:07.675418",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis core use cases and applications'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:09.645828",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cloud.tencent.com/developer/article/2002554\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2002554"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:09.694203",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/strongmore/p/17131266.html\n",
+        "metadata": "https://www.cnblogs.com/strongmore/p/17131266.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:09.737514",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:09.776774",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:10.901274",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:10.923584",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 20 total images",
+        "metadata": [
+          "https://files.cnblogs.com/files/strongmore/cube01.gif",
+          "https://files.cnblogs.com/files/strongmore/cube02.gif",
+          "https://files.cnblogs.com/files/strongmore/cube03.gif",
+          "https://files.cnblogs.com/files/strongmore/cube04.gif"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:10.960570",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.151766",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.218638",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.aliyun.com/article/618702\n",
+        "metadata": "https://developer.aliyun.com/article/618702"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.247272",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://docs.stackit.cloud/products/databases/redis/basics/core-features-and-use-cases-of-redis\n",
+        "metadata": "https://docs.stackit.cloud/products/databases/redis/basics/core-features-and-use-cases-of-redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.291583",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/swx123/p/18607444/reading-notes-redis-core-technology-and-actual-combat-reading-notes-2x4uwp\n",
+        "metadata": "https://www.cnblogs.com/swx123/p/18607444/reading-notes-redis-core-technology-and-actual-combat-reading-notes-2x4uwp"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.318236",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n",
+        "metadata": "https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.348513",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.372198",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.419036",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:12.452930",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:13.525400",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:13.554670",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 11 total images",
+        "metadata": [
+          "https://ucc.alicdn.com/avatar/img_ca90b7b1b220af946a0b58ff6ab9ac71.jpg?x-oss-process=image/resize,h_150,m_lfit",
+          "https://www.cnblogs.com/skins/custom/images/logo.gif",
+          "https://img2023.cnblogs.com/blog/2630005/202412/2630005-20241215000317199-1750594319.png",
+          "https://img2023.cnblogs.com/blog/2630005/202412/2630005-20241215000319309-1395713055.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:13.600515",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:14.735545",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:15.271368",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:15.305200",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 5 total images",
+        "metadata": [
+          "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-modern-analytics.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-resource-management.png",
+          "https://severalnines.com/wp-content/uploads/2026/05/blog-sql-server-to-postgresql.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:19.091536",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:19.902332",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:26.201206",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (1336 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:26.235485",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.04164500000000001",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:26.307442",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:31:28.730681",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis \u6838\u5fc3\u7528\u9014\uff0880\u5b57\u5185\u8be6\u8ff0\uff09\n\n## \u9ad8\u6027\u80fd\u7f13\u5b58\u4e0e\u6570\u636e\u670d\u52a1  \nRedis \u662f\u5f00\u6e90\u5185\u5b58\u952e\u503c\u6570\u636e\u5e93\uff0c\u652f\u6301 String\u3001List\u3001Set\u3001ZSet\u3001Hash \u4e94\u79cd\u6570\u636e\u7ed3\u6784\uff0c\u539f\u5b50\u64cd\u4f5c[3]\uff1b\u7528\u4e8e\u7f13\u89e3 CPU/\u5185\u5b58\u538b\u529b\u3001\u51cf\u5c11 I/O\u3001\u66ff\u4ee3\u5173\u7cfb\u578b\u6570\u636e\u5e93\u9ad8\u9891\u8bfb\u5199\u573a\u666f[3]\uff1b\u5178\u578b\u7528\u9014\u5305\u62ec\u9ad8\n\n[truncated]\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** cnblogs.com \u2014 \u6781\u5ba2\u65f6\u95f4\u4e4bRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218 - strongmore - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/strongmore/p/17131266.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u6781\u5ba2\u65f6\u95f4\u4e4bRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218 - strongmore - \u535a\u5ba2\u56ed strongmore \u6015\u4ec0\u4e48\u771f\u7406\u65e0\u7a77\uff0c\u8fdb\u4e00\u5bf8\u6709\u4e00\u5bf8\u7684\u6b22\u559c\u3002 \u6781\u5ba2\u65f6\u95f4\u4e4bRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218 \u5f00\u7bc7\u4ecb\u7ecd \u77e5\u8bc6\u5168\u666f\u56fe \u95ee\u9898\u7fa4\u50cf\u56fe 01-\u57fa\u672c\u67b6\u6784\uff1a\u4e00\u4e2a\u952e\u503c\u6570\u636e\u5e93\u5305\u542b\u4ec0\u4e48 02-\u6570\u636e\u7ed3\u6784\uff1a\u5feb\u901f\u7684Redis\u6709\u54ea\u4e9b\u6162\u64cd\u4f5c\uff1f \u65b0\u7248\u7684\u6570\u636e\u673a\u6784\u6709\u53d8\u5316 rehash\u8fc7\u7a0b \u4e3a\u4e86\u4f7frehash\u64cd\u4f5c\u66f4\u9ad8\u6548\uff0cRedis\u9ed8\u8ba4\u4f7f\u7528\u4e86\u4e24\u4e2a\u5168\u5c40\u54c8\u5e0c\u8868\uff1a\u54c8\u5e0c\u88681\u548c\u54c8\u5e0c\u88682\u3002\u4e00\u5f00\u59cb\uff0c\u5f53\u4f60\u521a\u63d2\u5165\u6570\u636e\u65f6\uff0c\u9ed8\u8ba4\u4f7f\u7528\u54c8\u5e0c\u88681\uff0c\u6b64\u65f6\u7684\u54c8\u5e0c\u88682\u5e76\u6ca1\u6709\u88ab\u5206\u914d\u7a7a\u95f4\u3002\u968f\u7740\u6570\u636e\u9010\u6b65\u589e\u591a\uff0cRedis\u5f00\u59cb\u6267\u884crehash\uff0c\u8fd9\u4e2a\u8fc7\u7a0b\u5206\u4e3a\u4e09\u6b65...\u300d\n\n<a id=\"ref-2\"></a>**[2]** cloud.tencent.com \u2014 Redis \u6838\u5fc3\u7bc7\uff1a\u552f\u5feb\u4e0d\u7834\u7684\u79d8\u5bc6-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91\nURL: https://cloud.tencent.com/developer/article/2002554\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedis \u6838\u5fc3\u7bc7\uff1a\u552f\u5feb\u4e0d\u7834\u7684\u79d8\u5bc6-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91 \u609f\u7a7a\u804a\u67b6\u6784 Redis \u6838\u5fc3\u7bc7\uff1a\u552f\u5feb\u4e0d\u7834\u7684\u79d8\u5bc6 \u5173\u6ce8\u4f5c\u8005 \u817e\u8baf\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u6587\u6863 \u5efa\u8bae\u53cd\u9988 \u63a7\u5236\u53f0 \u767b\u5f55/\u6ce8\u518c \u9996\u9875 \u5b66\u4e60 \u6d3b\u52a8 \u4e13\u533a \u5708\u5c42 \u5de5\u5177 MCP\u5e7f\u573a \u6587\u7ae0/\u7b54\u6848/\u6280\u672f\u5927\u725b \u641c\u7d22 \u641c\u7d22 \u5173\u95ed \u53d1\u5e03 \u609f\u7a7a\u804a\u67b6\u6784 \u793e\u533a\u9996\u9875 > \u4e13\u680f > Redis \u6838\u5fc3\u7bc7\uff1a\u552f\u5feb\u4e0d\u7834\u7684\u79d8\u5bc6 Redis \u6838\u5fc3\u7bc7\uff1a\u552f\u5feb\u4e0d\u7834\u7684\u79d8\u5bc6 \u609f\u7a7a\u804a\u67b6\u6784 \u5173\u6ce8 \u53d1\u5e03 \u4e8e 2022-05-13 13:29:15 \u53d1\u5e03 \u4e8e 2022-05-13 13:29:15 622 0 \u4e3e\u62a5 \u6587\u7ae0\u88ab\u6536\u5f55\u4e8e\u4e13\u680f\uff1a \u609f\u7a7a\u804a\u67b6\u6784 | \u516c\u4f17\u53f7 \u609f...\u300d\n\n<a id=\"ref-3\"></a>**[3]** developer.aliyun.com \u2014 Redis\u6838\u5fc3\u539f\u7406\u6570\u636e\u7c7b\u578b\u6301\u4e45\u5316\u4e0e\u96c6\u7fa4\u5168\u89e3\u6790-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91\nURL: https://developer.aliyun.com/article/618702\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedis\u6838\u5fc3\u539f\u7406\u6570\u636e\u7c7b\u578b\u6301\u4e45\u5316\u4e0e\u96c6\u7fa4\u5168\u89e3\u6790-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u6570\u636e\u5e93 \u6587\u7ae0 \u6b63\u6587 \u4ecb\u7ecdRedis\u7684\u5404\u79cd\u7528\u9014\u4ee5\u53ca\u4f7f\u7528\u573a\u666f 2018-07-26 12479 \u7248\u6743 \u7248\u6743\u58f0\u660e\uff1a \u672c\u6587\u5185\u5bb9\u7531\u963f\u91cc\u4e91\u5b9e\u540d\u6ce8\u518c\u7528\u6237\u81ea\u53d1\u8d21\u732e\uff0c\u7248\u6743\u5f52\u539f\u4f5c\u8005\u6240\u6709\uff0c\u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u4e0d\u62e5\u6709\u5176\u8457\u4f5c\u6743\uff0c\u4ea6\u4e0d\u627f\u62c5\u76f8\u5e94\u6cd5\u5f8b\u8d23\u4efb\u3002\u5177\u4f53\u89c4\u5219\u8bf7\u67e5\u770b\u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u7528\u6237\u670d\u52a1\u534f\u8bae \u300b\u548c \u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u77e5\u8bc6\u4ea7\u6743\u4fdd\u62a4\u6307\u5f15 \u300b\u3002\u5982\u679c\u60a8\u53d1\u73b0\u672c\u793e\u533a\u4e2d\u6709\u6d89\u5acc\u6284\u88ad\u7684\u5185\u5bb9\uff0c\u586b\u5199 \u4fb5\u6743\u6295\u8bc9\u8868\u5355 \u8fdb\u884c\u4e3e\u62a5\uff0c\u4e00\u7ecf\u67e5\u5b9e\uff0c\u672c\u793e\u533a\u5c06\u7acb\u523b\u5220\u9664\u6d89\u5acc\u4fb5\u6743\u5185\u5bb9\u3002 \u7b80\u4ecb\uff1a \u4ecb\u7ecdRedis\u7684\u5404\u79cd\u7528\u9014\u4ee5\u53ca\u4f7f\u7528\u573a\u666f Redis...\u300d\n\n<a id=\"ref-4\"></a>**[4]** cnblogs.com \u2014 \u6781\u5ba2\u65f6\u95f4\u300aRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218\u300b\u9605\u8bfb\u7b14\u8bb0 - \u601dwu\u90aa - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/swx123/p/18607444/reading-notes-redis-core-technology-and-actual-combat-reading-notes-2x4uwp\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u6781\u5ba2\u65f6\u95f4\u300aRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218\u300b\u9605\u8bfb\u7b14\u8bb0 - \u601dwu\u90aa - \u535a\u5ba2\u56ed \u601dwu\u90aa \u6781\u5ba2\u65f6\u95f4\u300aRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218\u300b\u9605\u8bfb\u7b14\u8bb0 \u6781\u5ba2\u65f6\u95f4\u300aRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218\u300b\u9605\u8bfb\u7b14\u8bb0 \u200d \u200b \u200b \u200d \u200d \u200d \u200b \u200b \u200d \u6570\u636e\u7ed3\u6784 \u4e3a\u4e86\u5b9e\u73b0\u4ece\u952e\u5230\u503c\u7684\u5feb\u901f\u8bbf\u95ee\uff0cRedis \u4f7f\u7528\u4e86\u4e00\u4e2a\u54c8\u5e0c\u8868\u6765\u4fdd\u5b58\u6240\u6709\u952e\u503c\u5bf9\u3002 \u54c8\u5e0c\u6876\u4e2d\u7684\u5143\u7d20\u4fdd\u5b58\u7684\u5e76\u4e0d\u662f\u503c\u672c\u8eab\uff0c\u800c\u662f\u6307\u5411\u5177\u4f53\u503c\u7684\u6307\u9488 \u200b \u200b \u200d \u56e0\u4e3a\u7528\u4e86\u54c8\u5e0c\u8868\uff0c\u6240\u4ee5\u6211\u4eec\u5fc5\u987b\u8003\u8651hash\u51b2\u7a81\u548c key\u8d8a\u6765\u8d8a\u591a\u7684hash\u6269\u5bb9\u8fc7\u7a0b\uff08rehash\uff09\u3002 hash\u51b2\u7a81\u7684\u89e3\u51b3\uff1a\u62c9\u94fe\u6cd5 rehash\uff1a\u53cchash\u8868+\u6e10\u8fdb\u5f0fhash\uff1a\u5728\u7b2c\u4e8c\u6b65\u62f7\u8d1d\u6570\u636e\u65f6\uff0cRe...\u300d\n\n<a id=\"ref-5\"></a>**[5]** severalnines.com \u2014 Introduction to Redis (What it is, what are the use cases etc) | Severalnines\nURL: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n\u539f\u6587\u7247\u6bb5\uff1a\u300cIntroduction to Redis (What it is, what are the use cases etc) | Severalnines Redis Overview Redis (which means Remote Dictionary Serve) is an open-source NoSQL database known to be a fast, in-memory key-value data store, cache, message broker, and queue. The project started by S...\u300d\n\n<a id=\"ref-6\"></a>**[6]** docs.stackit.cloud \u2014 Core features and use cases of Redis | Docs\nURL: https://docs.stackit.cloud/products/databases/redis/basics/core-features-and-use-cases-of-redis\n\u539f\u6587\u7247\u6bb5\uff1a\u300cCore features and use cases of Redis | Docs Skip to content Was this helpful? Yes No Accept our cookies to leave feedback about this page. Core features and use cases of Redis Last updated on Mar 2, 2026 Redis is designed for speed, simplicity, and versatility in modern applicati...\u300d",
+    "metadata": [
+      "https://files.cnblogs.com/files/strongmore/cube01.gif",
+      "https://files.cnblogs.com/files/strongmore/cube02.gif",
+      "https://files.cnblogs.com/files/strongmore/cube03.gif",
+      "https://files.cnblogs.com/files/strongmore/cube04.gif",
+      "https://ucc.alicdn.com/avatar/img_ca90b7b1b220af946a0b58ff6ab9ac71.jpg?x-oss-process=image/resize,h_150,m_lfit",
+      "https://www.cnblogs.com/skins/custom/images/logo.gif",
+      "https://img2023.cnblogs.com/blog/2630005/202412/2630005-20241215000317199-1750594319.png",
+      "https://img2023.cnblogs.com/blog/2630005/202412/2630005-20241215000319309-1395713055.png",
+      "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png",
+      "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-modern-analytics.png"
+    ]
+  }
+}

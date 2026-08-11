@@ -155,7 +155,7 @@ def summarize(
     passed = sum(1 for r in rows if r.get("passed"))
     failed = sum(1 for r in rows if r.get("passed") is False)
     skipped = sum(1 for r in rows if r.get("skipped"))
-    return {
+    summary = {
         "pillar": pillar,
         "suite": suite,
         "total": len(rows),
@@ -165,6 +165,124 @@ def summarize(
         "ok": failed == 0,
         "results": rows,
     }
+    intent_rows = [
+        r
+        for r in rows
+        if r.get("expected_intent") and r.get("predicted_intent")
+    ]
+    if intent_rows:
+        summary["intent_metrics"] = build_intent_metrics(intent_rows)
+    return summary
+
+
+def build_intent_metrics(rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    """Build classification metrics and observed report side-effect metrics.
+
+    Routing false positives and actual false creations are intentionally
+    separate: a policy guard may block a mistaken create route before a Job is
+    created.
+    """
+    usable = [
+        row
+        for row in rows
+        if row.get("expected_intent") and row.get("predicted_intent")
+    ]
+    labels = sorted(
+        {
+            str(row[key])
+            for row in usable
+            for key in ("expected_intent", "predicted_intent")
+        }
+    )
+    matrix = {expected: {predicted: 0 for predicted in labels} for expected in labels}
+    for row in usable:
+        matrix[str(row["expected_intent"])][str(row["predicted_intent"])] += 1
+
+    per_class: dict[str, dict[str, float | int]] = {}
+    for label in labels:
+        tp = matrix[label][label]
+        fp = sum(matrix[expected][label] for expected in labels if expected != label)
+        fn = sum(matrix[label][predicted] for predicted in labels if predicted != label)
+        precision = tp / (tp + fp) if tp + fp else 0.0
+        recall = tp / (tp + fn) if tp + fn else 0.0
+        per_class[label] = {
+            "precision": round(precision, 4),
+            "recall": round(recall, 4),
+            "f1": round(
+                2 * precision * recall / (precision + recall)
+                if precision + recall
+                else 0.0,
+                4,
+            ),
+            "support": sum(matrix[label].values()),
+        }
+
+    create = "create_research_report"
+    non_create = [row for row in usable if row["expected_intent"] != create]
+    route_false_positives = sum(
+        1 for row in non_create if row["predicted_intent"] == create
+    )
+    observed_non_create = [row for row in non_create if "report_created" in row]
+    false_creates = sum(1 for row in observed_non_create if row["report_created"] is True)
+    guarded_false_routes = sum(
+        1
+        for row in observed_non_create
+        if row["predicted_intent"] == create and row["report_created"] is not True
+    )
+    observed_create = [
+        row
+        for row in usable
+        if row["expected_intent"] == create and "report_created" in row
+    ]
+    missed_creates = sum(1 for row in observed_create if row["report_created"] is not True)
+    correct = sum(matrix[label][label] for label in labels)
+    accuracy = correct / len(usable) if usable else 0.0
+    macro_precision = (
+        sum(float(values["precision"]) for values in per_class.values()) / len(labels)
+        if labels
+        else 0.0
+    )
+    macro_recall = (
+        sum(float(values["recall"]) for values in per_class.values()) / len(labels)
+        if labels
+        else 0.0
+    )
+    macro_f1 = (
+        sum(float(values["f1"]) for values in per_class.values()) / len(labels)
+        if labels
+        else 0.0
+    )
+    return {
+        "evaluated_requests": len(usable),
+        "labels": labels,
+        "confusion_matrix": matrix,
+        "per_class": per_class,
+        "accuracy": round(accuracy, 4),
+        "macro_precision": round(macro_precision, 4),
+        "macro_recall": round(macro_recall, 4),
+        "macro_f1": round(macro_f1, 4),
+        "report_route_false_positives": route_false_positives,
+        "report_route_false_positive_rate": round(
+            route_false_positives / len(non_create) if non_create else 0.0,
+            4,
+        ),
+        "false_report_creations": false_creates,
+        "non_create_requests": len(non_create),
+        "non_create_requests_with_side_effect_observation": len(observed_non_create),
+        "false_report_creation_rate": round(
+            false_creates / len(observed_non_create) if observed_non_create else 0.0,
+            4,
+        ),
+        "guarded_report_route_false_positives": guarded_false_routes,
+        "expected_create_requests_with_side_effect_observation": len(observed_create),
+        "missed_report_creations": missed_creates,
+        "report_creation_success_rate": round(
+            (len(observed_create) - missed_creates) / len(observed_create)
+            if observed_create
+            else 0.0,
+            4,
+        ),
+    }
 
 
 def print_summary(summary: dict[str, Any]) -> None:
@@ -173,6 +291,15 @@ def print_summary(summary: dict[str, Any]) -> None:
         f"passed={summary['passed']} failed={summary['failed']} "
         f"skipped={summary.get('skipped', 0)} total={summary['total']}"
     )
+    intent_metrics = summary.get("intent_metrics") or {}
+    if intent_metrics:
+        print(
+            "  intent "
+            f"accuracy={intent_metrics.get('accuracy')} "
+            f"macro_f1={intent_metrics.get('macro_f1')} "
+            f"route_fp={intent_metrics.get('report_route_false_positive_rate')} "
+            f"false_create={intent_metrics.get('false_report_creation_rate')}"
+        )
     for row in summary.get("results") or []:
         if row.get("skipped"):
             print(f"  SKIP {row.get('id')}: {row.get('reason') or 'blocked'}")

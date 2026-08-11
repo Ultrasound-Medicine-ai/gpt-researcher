@@ -1,0 +1,396 @@
+{
+  "timestamp": "2026-08-11T04:36:01.103332",
+  "job_id": "d45799f4-f8f4-48f6-961e-9eecf936b64f",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:36:11.048456",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:11.508774",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "🗄️ Database Technology Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:11.553075",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用600字概述向量数据库的主要选型维度与常见产品...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:13.544588",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:17.562306",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['向量数据库 选型维度 常见产品 对比', 'vector database selection criteria and common products Milvus Pinecone Weaviate comparison', '用600字概述向量数据库的主要选型维度与常见产品']...",
+        "metadata": [
+          "向量数据库 选型维度 常见产品 对比",
+          "vector database selection criteria and common products Milvus Pinecone Weaviate comparison",
+          "用600字概述向量数据库的主要选型维度与常见产品"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:17.593876",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '向量数据库 选型维度 常见产品 对比'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:17.613448",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:17.631904",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'vector database selection criteria and common products Milvus Pinecone Weaviate comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:18.878274",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/OBCE666/p/19842494\n",
+        "metadata": "https://www.cnblogs.com/OBCE666/p/19842494"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:18.906316",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:18.964946",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/asialee_bird/article/details/146051524\n",
+        "metadata": "https://blog.csdn.net/asialee_bird/article/details/146051524"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:18.994216",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.033532",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.056947",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.123443",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.149260",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.206924",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.246840",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.291405",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.326608",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.467102",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.499830",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 2 new images from 2 total images",
+        "metadata": [
+          "https://img2024.cnblogs.com/blog/1/202608/1-20260805201836037-1979018744.jpg",
+          "https://assets.cnblogs.com/images/ghs.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.547482",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:19.980031",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:20.001822",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for\n",
+        "metadata": "https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:20.033302",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.meta-intelligence.tech/en/insight-vector-database\n",
+        "metadata": "https://www.meta-intelligence.tech/en/insight-vector-database"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:20.062947",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:20.099914",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:22.120692",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:22.146623",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 6 total images",
+        "metadata": [
+          "https://www.meta-intelligence.tech/images/insight-vector-database.webp",
+          "https://substackcdn.com/image/fetch/$s_!L1Vy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff853c535-0af7-48e6-acef-c445d453fa55_1200x600.png",
+          "https://substackcdn.com/image/fetch/$s_!R9ua!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbea33aed-89f0-40b8-a936-63093bfba6f2_2257x382.png",
+          "https://substackcdn.com/image/fetch/$s_!Tc9c!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8bdeb93b-0e0a-414d-b3ba-89def83dcca5_764x556.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:22.180221",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:22.519113",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:26.205949",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (3526 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:26.236440",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.041475000000000005",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:26.301187",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:39.934564",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用600字概述向量数据库的主要选型维度与常见产品'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用600字概述向量数据库的主要选型维度与常见产品",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# 向量数据库选型核心维度与主流产品对比分析（2024–2025实证视角）\n\n## 一、四大刚性选型维度：从幻觉走向生产现实\n\n企业向量数据库选型已超越实验室性能指标，转向真实生产环境的综合博弈。七家头部企业（含360、中国联通、货拉拉、携程、趣丸科技、作业帮等）的实践揭示四大不可妥协维度[1]：\n\n### 1. **混合查询能力**  \n纯向量检索QPS并非关键——端到端延迟取决于“向量相似度+结构化过滤（时间/属性）”联合执行效率。OceanBase在`WHERE 地点='上海' AND price<2000 AND vec_distance(feature, ?)<0.8`场景中，通过SQL优化器自动索引合并，将候选集从1000条压缩至100条再计算，网络传输量减少90%；而Milvus需全量召回后由应用层rerank，延迟激增[1]。\n\n### 2. **数据一致性保障**  \nMilvus依赖CDC同步结构化与向量数据，存在不可规避的延迟窗口；OceanBase采用Paxos多副本事务，确保标题、价格、embedding在同一事务原子提交，RPO=0[1]。\n\n### 3. **运维TCO（总拥有成本）**  \n360测算显示：Milvus需1.5名SRE专职维护K8s+etcd+MinIO组件链；OceanBase复用MySQL运维体系，仅需0.5人兼职即可支撑同等规模[1]。联通指出Milvus仅支持全量备份，无法PITR（任意时间点恢复），而OceanBase具备RTO<8秒的故障恢复能力[1]。\n\n### 4. **架构扩展性与稳定性**  \nMilvus非K8s环境为单机部署，存在单点隐患；跨云需重复建设。OceanBase原生支持多云Paxos三副本，ChatDBA平台在机房级故障中实现零中断[1]。\n\n## 二、主流产品能力对比（基于2024–2025生产验证）\n\n| 维度 | Milvus | OceanBase | Pinecone/Weaviate[2][3] |\n|------|--------|-----------|--------------------------|\n| **核心定位** | 专用向量检索引擎 | 兼容MySQL的通用分布式数据库（向量为内置数据类型） | 托管式/开源向量服务（Pinecone为全托管，Weaviate强调语义图谱） |\n| **混合查询** | 应用层rerank，无原生SQL优化 | 原生SQL引擎支持索引合并与向量化下推，货拉拉实测混合查询延迟从450ms→95ms[1] | Pinecone仅支持向量+元数据过滤；Weaviate支持GraphQL但复杂条件性能未披露[2][3] |\n| **一致性模型** | 最终一致性（CDC同步延迟） | 强一致性（Paxos事务）[1] | Pinecone提供强一致读，Weaviate依赖配置[2][3] |\n| **运维复杂度** | 高（K8s+etcd+MinIO多组件监控） | 低（复用MySQL运维工具链）[1] | Pinecone免运维；Weaviate需自维，社区活跃度一般[3] |\n\n> 注：所有对比基于企业2024–2025年实测版本，非2026最新版[1]。选型逻辑表明：当业务需深度耦合结构化与向量数据时，“平台型数据库”（如OceanBase）正取代“工具型引擎”（如Milvus）成为金融、电信、物流等高可靠性场景的首选[1\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** cnblogs.com — 别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 - 老纪的技术唠嗑局 - 博客园\nURL: https://www.cnblogs.com/OBCE666/p/19842494\n原文片段：「别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 - 老纪的技术唠嗑局 - 博客园 OceanBase 别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 做过架构决策的技术人都懂，技术选型从来不是纸上谈兵，而是业务痛点、成本压力与运维能力的综合博弈。 七家企业在不同场景下对比了Milvus与OceanBase，尽管Milvus在向量检索领域名声显赫，但他们最终都选择了OceanBase，这是为什么？ 自从负责OceanBase开源业务后，看过太多企业的技术选型。做过架构决策的技术人都懂，技术选型从来不是纸上谈兵，而是业务痛点、成本...」\n\n<a id=\"ref-2\"></a>**[2]** meta-intelligence.tech — Vector Databases: Pinecone vs Weaviate vs Milvus | MI\nURL: https://www.meta-intelligence.tech/en/insight-vector-database\n原文片段：「Vector Databases: Pinecone vs Weaviate vs Milvus | MI Skip to main content News Insights About Capabilities Cases Research Gallery Careers Contact 中文 日本語 DE ◆ Data & Knowledge Engineering Series · 3 of 9 View Series 1 The Complete Guide to RAG (Retrieval-Augmented Generation): Wh...」\n\n<a id=\"ref-3\"></a>**[3]** ankursnewsletter.com — Pinecone vs. Weaviate vs. Milvus for Vector Search\nURL: https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for\n原文片段：「Pinecone vs. Weaviate vs. Milvus for Vector Search Ankur’s Newsletter Subscribe Sign in Pinecone vs. Weaviate vs. Milvus for Vector Search Compare Pinecone, Weaviate, and Milvus—leading vector databases for AI applications. Explore their strengths in vector search, scalability, a...」",
+    "metadata": [
+      "https://img2024.cnblogs.com/blog/1/202608/1-20260805201836037-1979018744.jpg",
+      "https://assets.cnblogs.com/images/ghs.png",
+      "https://www.meta-intelligence.tech/images/insight-vector-database.webp",
+      "https://substackcdn.com/image/fetch/$s_!L1Vy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff853c535-0af7-48e6-acef-c445d453fa55_1200x600.png",
+      "https://substackcdn.com/image/fetch/$s_!R9ua!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbea33aed-89f0-40b8-a936-63093bfba6f2_2257x382.png",
+      "https://substackcdn.com/image/fetch/$s_!Tc9c!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8bdeb93b-0e0a-414d-b3ba-89def83dcca5_764x556.png"
+    ]
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "timestamp": "2026-08-06T16:32:22.670796",
+  "events": [
+    {
+      "timestamp": "2026-08-06T16:32:41.672461",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:32:41.684457",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udca1 Technology Research Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:32:41.699449",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:32:43.876033",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:42.776869",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['redis \u5b9e\u9645\u751f\u4ea7\u73af\u5883\u9650\u5236', 'redis \u5728\u5b9e\u9645\u5e94\u7528\u4e2d\u7684\u9650\u5236\u548c\u6311\u6218', 'redis \u751f\u4ea7\u73af\u5883\u4e2d\u9700\u8981\u6ce8\u610f\u7684\u95ee\u9898', '\u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236']...",
+        "metadata": [
+          "redis \u5b9e\u9645\u751f\u4ea7\u73af\u5883\u9650\u5236",
+          "redis \u5728\u5b9e\u9645\u5e94\u7528\u4e2d\u7684\u9650\u5236\u548c\u6311\u6218",
+          "redis \u751f\u4ea7\u73af\u5883\u4e2d\u9700\u8981\u6ce8\u610f\u7684\u95ee\u9898",
+          "\u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:42.790945",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'redis \u5b9e\u9645\u751f\u4ea7\u73af\u5883\u9650\u5236'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:42.810642",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'redis \u5728\u5b9e\u9645\u5e94\u7528\u4e2d\u7684\u9650\u5236\u548c\u6311\u6218'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:42.831151",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'redis \u751f\u4ea7\u73af\u5883\u4e2d\u9700\u8981\u6ce8\u610f\u7684\u95ee\u9898'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:42.846747",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:43.630073",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://redis.ac.cn/blog/7-redis-worst-practices\n",
+        "metadata": "https://redis.ac.cn/blog/7-redis-worst-practices"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:43.642737",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://redis.io/docs/latest/operate/rs/installing-upgrading/install/plan-deployment/hardware-requirements\n",
+        "metadata": "https://redis.io/docs/latest/operate/rs/installing-upgrading/install/plan-deployment/hardware-requirements"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:43.654762",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.ctyun.cn/document/10029420/10423759\n",
+        "metadata": "https://www.ctyun.cn/document/10029420/10423759"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:43.668803",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.reddit.com/r/golang/comments/q63jj1/high_performance_httptcp_thoughts?tl=zh-hans\n",
+        "metadata": "https://www.reddit.com/r/golang/comments/q63jj1/high_performance_httptcp_thoughts?tl=zh-hans"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:43.682782",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://huweicai.com/redis-faq\n",
+        "metadata": "https://huweicai.com/redis-faq"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:43.698781",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:43.715793",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:44.214127",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://comate.baidu.com/zh/page/dixhvn0ek14\n",
+        "metadata": "https://comate.baidu.com/zh/page/dixhvn0ek14"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:44.230160",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://juicefs.com/docs/zh/community/redis_best_practices\n",
+        "metadata": "https://juicefs.com/docs/zh/community/redis_best_practices"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:44.250789",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://help.aliyun.com/zh/redis/use-cases/development-and-o-and-m-standards-for-apsaradb-for-redis\n",
+        "metadata": "https://help.aliyun.com/zh/redis/use-cases/development-and-o-and-m-standards-for-apsaradb-for-redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:44.270455",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://docs.cloud.google.com/memorystore/docs/cluster/quotas?hl=zh-cn\n",
+        "metadata": "https://docs.cloud.google.com/memorystore/docs/cluster/quotas?hl=zh-cn"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:44.296246",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:44.314464",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.035597",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://about.roblox.com/zh-hans/newsroom/2026/03/roblox-cache-sustained-138b-qps-beyond-redis-limits\n",
+        "metadata": "https://about.roblox.com/zh-hans/newsroom/2026/03/roblox-cache-sustained-138b-qps-beyond-redis-limits"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.054746",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://support.huaweicloud.com/redisug-nosql/redis_bestpractice_2_007.html\n",
+        "metadata": "https://support.huaweicloud.com/redisug-nosql/redis_bestpractice_2_007.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.070757",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://docs.cloud.google.com/memorystore/docs/redis/general-best-practices?hl=zh-tw\n",
+        "metadata": "https://docs.cloud.google.com/memorystore/docs/redis/general-best-practices?hl=zh-tw"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.087410",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.finedatalink.com/blog/article/69a46cf4452a0f0efa6af9ba\n",
+        "metadata": "https://www.finedatalink.com/blog/article/69a46cf4452a0f0efa6af9ba"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.110417",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cloud.ibm.com/docs/databases-for-redis?topic=databases-for-redis-best-practices&locale=zh-CN\n",
+        "metadata": "https://cloud.ibm.com/docs/databases-for-redis?topic=databases-for-redis-best-practices&locale=zh-CN"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.127413",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.145489",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.196464",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.212464",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 9 total images",
+        "metadata": [
+          "https://huweicai.com/img/profile.svg",
+          "https://cdn.jsdelivr.net/gh/Huweicai/images/20200913120554.jpeg",
+          "https://redis.ac.cn/wp-content/uploads/2022/12/Ellipse-47.svg",
+          "https://redis.ac.cn/wp-content/themes/redislabs-glide/assets/dist/images/share-icon.svg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.231751",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:45.251088",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.171253",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.190257",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://www.gstatic.com/devrel-devsite/prod/ve0d554c649da312a5f3235a85a2ecc2ee18faae4fdd6d97b91d2addcd93a62a0/clouddocs/images/lockup_full_color.svg",
+          "https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg?hl=zh-cn",
+          "https://docs.cloud.google.com/_static/images/translated.svg?hl=zh-cn",
+          "https://juicefs.com/docs/zh/img/home/x.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.206250",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.224251",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: redis \u5b9e\u9645\u751f\u4ea7\u73af\u5883\u9650\u5236...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.264624",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/CSDN_WYL2016/article/details/126678904\n",
+        "metadata": "https://blog.csdn.net/CSDN_WYL2016/article/details/126678904"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.283034",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://zhang-wt.com/posts/issue-43\n",
+        "metadata": "https://zhang-wt.com/posts/issue-43"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.305736",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://zhuanlan.zhihu.com/p/660581950\n",
+        "metadata": "https://zhuanlan.zhihu.com/p/660581950"
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.322177",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.340363",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.382818",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.402801",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 22 total images",
+        "metadata": [
+          "https://support.huaweicloud.com/redisug-nosql/zh-cn_image_0000002048325988.png",
+          "https://support.huaweicloud.com/redisug-nosql/zh-cn_image_0000002048322916.png",
+          "https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg?hl=zh-tw",
+          "https://docs.cloud.google.com/_static/images/translated.svg?hl=zh-tw"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.425053",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:48.444257",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: redis \u5728\u5b9e\u9645\u5e94\u7528\u4e2d\u7684\u9650\u5236\u548c\u6311\u6218...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:50.182981",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:50.201754",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/identityVipNew.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:50.221313",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:33:50.244331",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: redis \u751f\u4ea7\u73af\u5883\u4e2d\u9700\u8981\u6ce8\u610f\u7684\u95ee\u9898...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:34:40.149754",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:34:40.174303",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:34:40.193421",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:34:40.214436",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:34:40.233435",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.024963500000000003",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:34:40.271429",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-06T16:37:03.602692",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u8bf7\u5e2e\u6211\u8c03\u7814redis\u662f\u4ec0\u4e48\u5728\u5b9e\u9645\u751f\u4ea7\u4e2d\u4f1a\u6709\u54ea\u4e9b\u9650\u5236'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report",
+    "content": "selected_images",
+    "output": "This report provides a comprehensive overview of the limitations encountered when using Redis in production environments based on the provided information. For further details or specific scenarios, consulting official documentation and community resources is recommended.",
+    "metadata": [
+      "https://huweicai.com/img/profile.svg",
+      "https://cdn.jsdelivr.net/gh/Huweicai/images/20200913120554.jpeg",
+      "https://redis.ac.cn/wp-content/uploads/2022/12/Ellipse-47.svg",
+      "https://redis.ac.cn/wp-content/themes/redislabs-glide/assets/dist/images/share-icon.svg",
+      "https://www.gstatic.com/devrel-devsite/prod/ve0d554c649da312a5f3235a85a2ecc2ee18faae4fdd6d97b91d2addcd93a62a0/clouddocs/images/lockup_full_color.svg",
+      "https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg?hl=zh-cn",
+      "https://docs.cloud.google.com/_static/images/translated.svg?hl=zh-cn",
+      "https://juicefs.com/docs/zh/img/home/x.png",
+      "https://support.huaweicloud.com/redisug-nosql/zh-cn_image_0000002048325988.png",
+      "https://support.huaweicloud.com/redisug-nosql/zh-cn_image_0000002048322916.png"
+    ]
+  }
+}

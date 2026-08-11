@@ -47,6 +47,7 @@ def run_cheap() -> list[dict]:
                 "tests/test_eval_sample_seed.py",
                 "tests/test_eval_product_cases.py",
                 "tests/test_perf_p95.py",
+                "tests/test_chat_intent_router.py",
                 "-q",
             ]
         )

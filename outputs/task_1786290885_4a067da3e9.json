@@ -1,0 +1,627 @@
+{
+  "timestamp": "2026-08-09T15:54:45.371815",
+  "events": [
+    {
+      "timestamp": "2026-08-09T15:55:05.993219",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:06.011807",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Technical Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:06.046442",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:10.161703",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:44.102024",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['Redis \u5206\u5e03\u5f0f\u9501 \u5e38\u89c1\u5b9e\u73b0 \u98ce\u9669 \u6700\u4f73\u5b9e\u8df5', 'Redis distributed lock RedLock algorithm controversy safety', 'Redis \u5206\u5e03\u5f0f\u9501 Redisson \u770b\u95e8\u72d7\u673a\u5236 \u5b9e\u6218\u4ee3\u7801', '\u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e']...",
+        "metadata": [
+          "Redis \u5206\u5e03\u5f0f\u9501 \u5e38\u89c1\u5b9e\u73b0 \u98ce\u9669 \u6700\u4f73\u5b9e\u8df5",
+          "Redis distributed lock RedLock algorithm controversy safety",
+          "Redis \u5206\u5e03\u5f0f\u9501 Redisson \u770b\u95e8\u72d7\u673a\u5236 \u5b9e\u6218\u4ee3\u7801",
+          "\u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:44.139787",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis \u5206\u5e03\u5f0f\u9501 \u5e38\u89c1\u5b9e\u73b0 \u98ce\u9669 \u6700\u4f73\u5b9e\u8df5'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:44.156989",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis distributed lock RedLock algorithm controversy safety'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:44.174860",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis \u5206\u5e03\u5f0f\u9501 Redisson \u770b\u95e8\u72d7\u673a\u5236 \u5b9e\u6218\u4ee3\u7801'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:44.195359",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.046577",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://xiaomi-info.github.io/2019/12/17/redis-distributed-lock\n",
+        "metadata": "https://xiaomi-info.github.io/2019/12/17/redis-distributed-lock"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.074240",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.yujieliu.com/blogs/devops/redis/distributed-lock.html\n",
+        "metadata": "https://blog.yujieliu.com/blogs/devops/redis/distributed-lock.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.103675",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cloud.tencent.com/developer/article/2332108\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2332108"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.135162",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/a745233700/article/details/88084219\n",
+        "metadata": "https://blog.csdn.net/a745233700/article/details/88084219"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.167378",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/CodeBlogMan/p/18097343\n",
+        "metadata": "https://www.cnblogs.com/CodeBlogMan/p/18097343"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.194887",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.238583",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.711802",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://javaguide.cn/distributed-system/distributed-lock-implementations.html\n",
+        "metadata": "https://javaguide.cn/distributed-system/distributed-lock-implementations.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.740442",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/weixin_43989347/article/details/125315482\n",
+        "metadata": "https://blog.csdn.net/weixin_43989347/article/details/125315482"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.769232",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://time.geekbang.org/column/article/301092\n",
+        "metadata": "https://time.geekbang.org/column/article/301092"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.801488",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://zhuanlan.zhihu.com/p/483180582\n",
+        "metadata": "https://zhuanlan.zhihu.com/p/483180582"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.825686",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.847374",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/jelly12345/p/14699492.html\n",
+        "metadata": "https://www.cnblogs.com/jelly12345/p/14699492.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.879927",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.905076",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://juejin.cn/post/7148625453060718605\n",
+        "metadata": "https://juejin.cn/post/7148625453060718605"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.935172",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cloud.tencent.com/developer/article/2297075\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2297075"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.963860",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://seven97.top/database/redis/05-implementdistributedlocks.html\n",
+        "metadata": "https://seven97.top/database/redis/05-implementdistributedlocks.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:45.985703",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.020126",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.645227",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://thearchitectsnotebook.substack.com/p/ep-81-the-distributed-lock-nightmare\n",
+        "metadata": "https://thearchitectsnotebook.substack.com/p/ep-81-the-distributed-lock-nightmare"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.703446",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://medium.com/@moeinkolivand97/complete-guide-to-redis-lock-types-what-they-do-pros-cons-and-real-world-applications-03bfcbc58255\n",
+        "metadata": "https://medium.com/@moeinkolivand97/complete-guide-to-redis-lock-types-what-they-do-pros-cons-and-real-world-applications-03bfcbc58255"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.787837",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://news.ycombinator.com/item?id=41292477\n",
+        "metadata": "https://news.ycombinator.com/item?id=41292477"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.823553",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://antirez.com/news/101\n",
+        "metadata": "https://antirez.com/news/101"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.854706",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://redis.io/docs/latest/develop/clients/patterns/distributed-locks\n",
+        "metadata": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.884126",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:46.925637",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:48.808693",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:48.870540",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 24 total images",
+        "metadata": [
+          "https://qccommunity.qcloudimg.com/image/new.png",
+          "https://developer.qcloudimg.com/http-save/10011/65af78bf55ff21e092d2debf3d4a0713.png",
+          "https://developer.qcloudimg.com/http-save/yehe-10328137/9b8d89fa66b70bf1e61949b73fafb8b6.png",
+          "https://developer.qcloudimg.com/http-save/yehe-10328137/2dd88ca62db8013c354aed4dfde7001e.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:48.977223",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.048676",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: Redis \u5206\u5e03\u5f0f\u9501 Redisson \u770b\u95e8\u72d7\u673a\u5236 \u5b9e\u6218\u4ee3\u7801...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.249776",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.289839",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://oss.javaguide.cn/github/javaguide/distributed-system/distributed-lock/distributed-lock-setnx.png",
+          "https://oss.javaguide.cn/github/javaguide/redis-distributed-lock.png",
+          "https://oss.javaguide.cn/github/javaguide/distributed-system/distributed-lock/distributed-lock-redisson-renew-expiration.png",
+          "https://oss.javaguide.cn/github/javaguide/distributed-system/distributed-lock/redisson-readme-locks.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.335896",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.409091",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: Redis \u5206\u5e03\u5f0f\u9501 \u5e38\u89c1\u5b9e\u73b0 \u98ce\u9669 \u6700\u4f73\u5b9e\u8df5...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.461182",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.487701",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.515392",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 34 total images",
+        "metadata": [
+          "https://i-blog.csdnimg.cn/blog_migrate/4855375a365ef39064904c3121d7af20.png",
+          "https://i-blog.csdnimg.cn/blog_migrate/4ad1e304495050a69e548e9e1cb3dca2.png",
+          "https://xiaomi-info.github.io/css/images/logo.png",
+          "https://xiaomi-info.github.io/2019/12/17/redis-distributed-lock/redis-lock-01.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.548913",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:49.579228",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:51.074574",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:51.105879",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:51.146986",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:51.177482",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: Redis distributed lock RedLock algorithm controversy safety...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:55:51.203793",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:56:06.495331",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:56:06.593513",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:56:06.628418",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.03660846",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:56:06.706046",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T15:57:37.141474",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u9879\u76ee\u4e00\u4eba\u5de5\u8d28\u68c0\u62a5\u544a\uff1a\u7b80\u8ff0 Redis \u5206\u5e03\u5f0f\u9501\u7684\u5e38\u89c1\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\uff0c\u63a7\u5236\u5728800\u5b57\uff0c\u5fc5\u987b\u7ed9\u51fa\u53ef\u70b9\u51fb\u53c2\u8003\u6587\u732e'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis \u5206\u5e03\u5f0f\u9501\u5b9e\u73b0\u3001\u98ce\u9669\u4e0e\u6700\u4f73\u5b9e\u8df5\u62a5\u544a\n## \u5e38\u89c1\u5b9e\u73b0\u65b9\u6848\nRedis \u5206\u5e03\u5f0f\u9501\u7684\u6838\u5fc3\u5728\u4e8e\u5229\u7528\u5176\u5355\u7ebf\u7a0b\u6a21\u578b\u4e0e\u9ad8\u6027\u80fd\u7279\u6027\u4fdd\u969c\u4e92\u65a5\u8bbf\u95ee\u3002\u57fa\u7840\u5b9e\u73b0\u5386\u7ecf\u591a\u6b21\u6f14\u8fdb\uff1a\u65e9\u671f\u4f9d\u8d56 `SETNX` \u4e0e `EXPIRE` \u5206\u6b65\u6267\u884c\uff0c\u4f46\u56e0\u975e\u539f\u5b50\u64cd\u4f5c\u5b58\u5728\u6b7b\u9501\u9690\u60a3[6]\u3002\u73b0\u4ee3\u5b9e\u8df5\u7edf\u4e00\u91c7\u7528 `SET key value NX EX seconds` \u539f\u5b50\u6307\u4ee4\u5b8c\u6210\u52a0\u9501[5]\u3002\u89e3\u9501\u73af\u8282\u5fc5\u987b\u5f15\u5165\u552f\u4e00\u6807\u8bc6\uff08\u5982 UUID \u6216\u5ba2\u6237\u7aef ID\uff09\uff0c\u5e76\u901a\u8fc7 Lua \u811a\u672c\u5b9e\u73b0\u201c\u503c\u6bd4\u5bf9-\u5220\u9664\u201d\u7684\u539f\u5b50\u64cd\u4f5c\uff0c\u5f7b\u5e95\u675c\u7edd\u8bef\u5220\u4ed6\u4eba\u9501\u7684\u98ce\u9669[5]\u3002\u5728\u5de5\u7a0b\u843d\u5730\u5c42\u9762\uff0cRedisson \u5ba2\u6237\u7aef\u5df2\u6210\u4e3a\u884c\u4e1a\u6807\u51c6\uff0c\u5176\u5185\u7f6e\u7684 Watchdog\uff08\u770b\u95e8\u72d7\uff09\u673a\u5236\u53ef\u81ea\u52a8\u7ba1\u7406\u9501\u751f\u547d\u5468\u671f\u3002\u9ed8\u8ba4\u914d\u7f6e\u4e0b\uff0c\u9501\u521d\u59cb TTL \u4e3a 30 \u79d2\uff0c\u82e5\u6301\u6709\u7ebf\u7a0b\u4ecd\u5728\u6267\u884c\uff0c\u540e\u53f0\u5b88\u62a4\u7ebf\u7a0b\u5c06\u6bcf\u9694 10 \u79d2\u81ea\u52a8\u7eed\u671f\u81f3 30 \u79d2\uff0c\u6709\u6548\u89e3\u51b3\u4e1a\u52a1\u957f\u8017\u65f6\u5bfc\u81f4\u7684\u9501\u5931\u6548\u95ee\u9898[4]\u3002\n\n## \u6838\u5fc3\u98ce\u9669\u5256\u6790\n\u5c3d\u7ba1\u5b9e\u73b0\u7b80\u4fbf\uff0cRedis \u5206\u5e03\u5f0f\u9501\u5728\u590d\u6742\u5206\u5e03\u5f0f\u73af\u5883\u4e2d\u4ecd\u9762\u4e34\u591a\u91cd\u6311\u6218\uff1a\n1. **\u9501\u63d0\u524d\u8fc7\u671f\u4e0e\u4e92\u65a5\u7834\u574f**\uff1a\u82e5\u56fa\u5b9a TTL \u77ed\u4e8e\u4e1a\u52a1\u903b\u8f91\u6267\u884c\u65f6\u95f4\uff0c\u9501\u5c06\u81ea\u52a8\u91ca\u653e\uff0c\u540e\u7eed\u7ebf\u7a0b\u5e76\u53d1\u8fdb\u5165\u4e34\u754c\u533a\uff0c\u6781\u6613\u5f15\u53d1\u6570\u636e\u9519\u4e71\u6216\u8d85\u5356[2]\u3002\n2. **\u96c6\u7fa4\u6545\u969c\u4e0e\u9501\u4e22\u5931**\uff1aRedis \u4e3b\u4ece\u67b6\u6784\u91c7\u7528\u5f02\u6b65\u590d\u5236\uff0c\u4e3b\u8282\u70b9\u52a0\u9501\u540e\u82e5\u672a\u540c\u6b65\u5373\u5b95\u673a\uff0c\u65b0\u4e3b\u8282\u70b9\u53ef\u80fd\u5141\u8bb8\u5176\u4ed6\u5ba2\u6237\u7aef\u91cd\u590d\u52a0\u9501\uff0c\u5bfc\u81f4\u9501\u5931\u6548[9]\u3002\n3. **Redlock \u7b97\u6cd5\u4e89\u8bae**\uff1a\u5b98\u65b9\u63d0\u51fa\u7684 Redlock \u4f9d\u8d56\u591a\u5b9e\u4f8b\u591a\u6570\u6d3e\u6295\u7968\u63d0\u5347\u5bb9\u9519\uff0c\u4f46\u7f51\u7edc\u5ef6\u8fdf\u4e0e\u65f6\u949f\u6f02\u79fb\u4f1a\u663e\u8457\u964d\u4f4e\u6027\u80fd\u4e0e\u5b89\u5168\u6027\uff0c\u4e14 Redisson \u65b0\u7248\u5df2\u6b63\u5f0f\u5e9f\u5f03\u8be5\u65b9\u6848[8]\u3002\n\n## \u6700\u4f73\u5b9e\u8df5\u5efa\u8bae\n\u4e3a\u4fdd\u969c\u751f\u4ea7\u73af\u5883\u9ad8\u53ef\u7528\u4e0e\u6570\u636e\u4e00\u81f4\u6027\uff0c\u5efa\u8bae\u9075\u5faa\u4ee5\u4e0b\u89c4\u8303\uff1a\n- **\u4e25\u683c\u539f\u5b50\u5316\u64cd\u4f5c**\uff1a\u52a0\u9501\u7981\u7528\u5206\u6b65\u547d\u4ee4\uff0c\u5fc5\u987b\u4f7f\u7528 `SET NX EX`\uff1b\u89e3\u9501\u5f3a\u5236\u4f7f\u7528 Lua \u811a\u672c\u6821\u9a8c Owner Token[5]\u3002\n- **\u5408\u7406\u914d\u7f6e\u7eed\u671f\u7b56\u7565**\uff1a\u4f18\u5148\u8c03\u7528 Redisson \u7684\u65e0\u53c2 `lock()` \u6216 `tryLock()` \u65b9\u6cd5\u6fc0\u6d3b Watchdog\uff0c\u907f\u514d\u624b\u52a8\u8bbe\u7f6e\u8fc7\u77ed\u7684 leaseTime[1]\u3002\n- **\u6784\u5efa\u591a\u5c42\u9632\u5fa1\u4f53\u7cfb**\uff1a\u5206\u5e03\u5f0f\u9501\u4ec5\u80fd\u7f13\u89e3\u5e76\u53d1\u51b2\u7a81\uff0c\u65e0\u6cd5\u63d0\u4f9b\u5f3a\u4e00\u81f4\u6027\u4fdd\u8bc1\u3002\u4e1a\u52a1\u5c42\u5fc5\u987b\u5b9e\u73b0\u5e42\u7b49\u63a7\u5236\uff0c\u5173\u952e\u573a\u666f\u5f15\u5165 Fencing Token \u9632\u91cd\u653e\uff0c\u5e76\u5bf9\u9501\u4e13\u7528 Redis \u5b9e\u4f8b\u5b9e\u65bd\u72ec\u7acb\u76d1\u63a7\u4e0e\u9694\u79bb\u90e8\u7f72[7]\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** cloud.tencent.com \u2014 Redis:Redisson\u770b\u95e8\u72d7\u7eed\u9501\u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u539f\u7406\uff0c\u53ca\u5982\u4f55\u907f\u5751-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91\nURL: https://cloud.tencent.com/developer/article/2297075\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedis:Redisson\u770b\u95e8\u72d7\u7eed\u9501\u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u539f\u7406\uff0c\u53ca\u5982\u4f55\u907f\u5751-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91 nobody-nobody Redis:Redisson\u770b\u95e8\u72d7\u7eed\u9501\u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u539f\u7406\uff0c\u53ca\u5982\u4f55\u907f\u5751 \u5173\u6ce8\u4f5c\u8005 \u817e\u8baf\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u6587\u6863 \u5efa\u8bae\u53cd\u9988 \u63a7\u5236\u53f0 \u767b\u5f55/\u6ce8\u518c \u9996\u9875 \u5b66\u4e60 \u6d3b\u52a8 \u4e13\u533a \u5708\u5c42 \u5de5\u5177 MCP\u5e7f\u573a \u6587\u7ae0/\u7b54\u6848/\u6280\u672f\u5927\u725b \u641c\u7d22 \u641c\u7d22 \u5173\u95ed \u53d1\u5e03 nobody-nobody \u793e\u533a\u9996\u9875 > \u4e13\u680f > Redis:Redisson\u770b\u95e8\u72d7\u7eed\u9501\u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u539f\u7406\uff0c\u53ca\u5982\u4f55\u907f\u5751 Redis:Redisson\u770b\u95e8\u72d7\u7eed\u9501\u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u539f\u7406\uff0c\u53ca\u5982\u4f55\u907f\u5751 nobody-...\u300d\n\n<a id=\"ref-2\"></a>**[2]** juejin.cn \u2014 Redisson\u7684\u770b\u95e8\u72d7\u673a\u5236\u80cc\u666f \u636eRedisson\u5b98\u7f51\u7684\u4ecb\u7ecd\uff0cRedisson\u662f\u4e00\u4e2aJava Redis\u5ba2\u6237\u7aef\uff0c\u4e0eSp - \u6398\u91d1\nURL: https://juejin.cn/post/7148625453060718605\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedisson\u7684\u770b\u95e8\u72d7\u673a\u5236\u80cc\u666f \u636eRedisson\u5b98\u7f51\u7684\u4ecb\u7ecd\uff0cRedisson\u662f\u4e00\u4e2aJava Redis\u5ba2\u6237\u7aef\uff0c\u4e0eSp - \u6398\u91d1 Redisson\u7684\u770b\u95e8\u72d7\u673a\u5236 \u5357\u767d 2022-09-29 717 \u9605\u8bfb10\u5206\u949f \u80cc\u666f \u636eRedisson\u5b98\u7f51\u7684\u4ecb\u7ecd\uff0cRedisson\u662f\u4e00\u4e2aJava Redis\u5ba2\u6237\u7aef\uff0c\u4e0eSpring \u63d0\u4f9b\u7ed9\u6211\u4eec\u7684 RedisTemplate \u5de5\u5177\u6ca1\u6709\u672c\u8d28\u7684\u533a\u522b\uff0c\u53ef\u4ee5\u628a\u5b83\u770b\u505a\u662f\u4e00\u4e2a\u529f\u80fd\u66f4\u5f3a\u5927\u7684\u5ba2\u6237\u7aef\uff08\u867d\u7136\u5b98\u7f51\u4e0a\u58f0\u79f0Redisson\u4e0d\u53ea\u662f\u4e00\u4e2aJava Redis\u5ba2\u6237\u7aef\uff09 \u5f3a\u70c8\u63a8\u8350\u4e0b\u9605\u8bfbredisson\u7684\u4e2d\u6587\u5b98\u7f51 \u6211\u60f3\u6211\u4eec\u7528\u5230 Redisson \u6700...\u300d\n\n<a id=\"ref-3\"></a>**[3]** seven97.top \u2014 Redis\u5206\u5e03\u5f0f\u9501\uff1a\u4eceSETNX\u5230Redisson\u7684\u6f14\u8fdb | Seven\u7684\u83dc\u9e1f\u6210\u957f\u4e4b\u8def\nURL: https://seven97.top/database/redis/05-implementdistributedlocks.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedis\u5206\u5e03\u5f0f\u9501\uff1a\u4eceSETNX\u5230Redisson\u7684\u6f14\u8fdb | Seven\u7684\u83dc\u9e1f\u6210\u957f\u4e4b\u8def \u8df3\u81f3\u4e3b\u8981\u5167\u5bb9 Java \u6570\u636e\u5e93 MySQL Redis Redis\u6570\u636e\u7c7b\u578b\u5168\u653b\u7565\uff1aString\u3001List\u3001Hash\u3001Set\u7684\u5b9e\u6218\u5e94\u7528 Redis\u662f\u5982\u4f55\u9ad8\u6548\u5b58\u50a8\u4e0e\u8bbf\u95ee\u6570\u636e\uff1f Redis\u547d\u4ee4\u5904\u7406\u673a\u5236\u6e90\u7801\u63a2\u7a76 Pipelining\u539f\u7406\uff1a\u6279\u91cf\u547d\u4ee4\u80cc\u540e\u7684\u79d8\u5bc6 Redis\u7a76\u7adf\u4e3a\u4ec0\u4e48\u8fd9\u4e48\u5feb\uff1f Redis\u6301\u4e45\u5316\uff1a\u4eceAOF\u5230RDB\uff0c\u5982\u4f55\u5b9e\u73b0\u6570\u636e\u4e0d\u4e22\u5931\uff1f Redis\u7f13\u5b58\u7ba1\u7406\uff1a\u8fc7\u671f\u5220\u9664\u7b56\u7565\u7684\u6df1\u5ea6\u5256\u6790 Redis\u5185\u5b58\u6dd8\u6c70\u7b56\u7565\uff1a\u5982\u4f55\u9ad8\u6548\u7ba1\u7406\u6709\u9650\u5185\u5b58\uff1f Redis\u4e3b\u4ece\u590d\u5236\u662f\u5982\u4f55\u4fdd\u969c\u6570\u636e\u4e00\u81f4\u6027\u7684\uff1f...\u300d\n\n<a id=\"ref-4\"></a>**[4]** cnblogs.com \u2014 redisson\u4e2d\u7684\u770b\u95e8\u72d7\u673a\u5236\u603b\u7ed3 - \u90ed\u6155\u8363 - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/jelly12345/p/14699492.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300credisson\u4e2d\u7684\u770b\u95e8\u72d7\u673a\u5236\u603b\u7ed3 - \u90ed\u6155\u8363 - \u535a\u5ba2\u56ed \u90ed\u6155\u8363\u535a\u5ba2\u56ed redisson\u4e2d\u7684\u770b\u95e8\u72d7\u673a\u5236\u603b\u7ed3 1:\u666e\u901a\u7684Redis\u5206\u5e03\u5f0f\u9501\u7684\u7f3a\u9677 \u6211\u4eec\u5728\u7f51\u4e0a\u770b\u5230\u7684redis\u5206\u5e03\u5f0f\u9501\u7684\u5de5\u5177\u65b9\u6cd5\uff0c\u5927\u90fd\u6ee1\u8db3\u4e92\u65a5\u3001\u9632\u6b62\u6b7b\u9501\u7684\u7279\u6027\uff0c\u6709\u4e9b\u5de5\u5177\u65b9\u6cd5\u4f1a\u6ee1\u8db3\u53ef\u91cd\u5165\u7279\u6027\u3002 \u5982\u679c\u53ea\u6ee1\u8db3\u4e0a\u8ff03\u79cd\u7279\u6027\u4f1a\u6709\u54ea\u4e9b\u9690\u60a3\u5462\uff1fredis\u5206\u5e03\u5f0f\u9501\u65e0\u6cd5\u81ea\u52a8\u7eed\u671f\uff0c\u6bd4\u5982\uff0c\u4e00\u4e2a\u9501\u8bbe\u7f6e\u4e861\u5206\u949f\u8d85\u65f6\u91ca\u653e\uff0c\u5982\u679c\u62ff\u5230\u8fd9\u4e2a\u9501\u7684\u7ebf\u7a0b\u5728\u4e00\u5206\u949f\u5185\u6ca1\u6709\u6267\u884c\u5b8c\u6bd5\uff0c\u90a3\u4e48\u8fd9\u4e2a\u9501\u5c31\u4f1a\u88ab\u5176\u4ed6\u7ebf\u7a0b\u62ff\u5230\uff0c\u53ef\u80fd\u4f1a\u5bfc\u81f4\u4e25\u91cd\u7684\u7ebf\u4e0a\u95ee\u9898\uff0c\u6211\u5df2\u7ecf\u5728\u79d2\u6740\u7cfb\u7edf\u6545\u969c\u6392\u67e5\u6587\u7ae0\u4e2d\uff0c\u770b\u5230\u597d\u591a\u56e0\u4e3a\u8fd9\u4e2a\u7f3a\u9677\u5bfc\u81f4\u7684\u8d85\u5356\u4e86\u3002 Redisson \u9501\u7684\u52a0\u9501\u673a\u5236\u5982\u4e0a...\u300d\n\n<a id=\"ref-5\"></a>**[5]** javaguide.cn \u2014 \u5206\u5e03\u5f0f\u9501\u5b9e\u73b0\u65b9\u6848\u8be6\u89e3\uff1aRedis\u3001Redlock\u3001ZooKeeper \u4e0e Redisson \u770b\u95e8\u72d7 | JavaGuide\nURL: https://javaguide.cn/distributed-system/distributed-lock-implementations.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5206\u5e03\u5f0f\u9501\u5b9e\u73b0\u65b9\u6848\u8be6\u89e3\uff1aRedis\u3001Redlock\u3001ZooKeeper \u4e0e Redisson \u770b\u95e8\u72d7 | JavaGuide \u8df3\u81f3\u4e3b\u8981\u5167\u5bb9 \u9879\u76ee\u4ecb\u7ecd \u9762\u8bd5\u51c6\u5907\uff08\u5fc5\u770b\uff09 Java \u6570\u636e\u5e93 \u5f00\u53d1\u5de5\u5177 \u5e38\u7528\u6846\u67b6 \u7cfb\u7edf\u8bbe\u8ba1 \u5206\u5e03\u5f0f \u5206\u5e03\u5f0f\u7cfb\u7edf\u77e5\u8bc6\u4f53\u7cfb \u5206\u5e03\u5f0f\u7cfb\u7edf\u5165\u95e8 \u2b50\u5206\u5e03\u5f0f\u9ad8\u9891\u9762\u8bd5\u9898 \u7406\u8bba&\u7b97\u6cd5&\u534f\u8bae API\u7f51\u5173 API\u7f51\u5173\u57fa\u7840\u77e5\u8bc6\u603b\u7ed3 Spring Cloud Gateway\u9762\u8bd5\u9898\u603b\u7ed3 \u5206\u5e03\u5f0fID \u5206\u5e03\u5f0fID\u751f\u6210\u65b9\u6848\u8be6\u89e3 \u5206\u5e03\u5f0fID\u8bbe\u8ba1\u5b9e\u6218\u6307\u5357 \u5206\u5e03\u5f0f\u9501 \u5206\u5e03\u5f0f\u9501\u5165\u95e8\u4ecb\u7ecd \u5206\u5e03\u5f0f\u9501\u5e38\u89c1\u5b9e\u73b0\u65b9\u6848\u603b\u7ed3 \u5206\u5e03\u5f0f\u4e8b\u52a1 \u5206\u5e03\u5f0f\u4e8b\u52a1\u89e3\u51b3\u65b9\u6848\u603b\u7ed3 \u5206\u5e03\u5f0f\u914d\u7f6e\u4e2d\u5fc3 \u5206\u5e03\u5f0f\u914d\u7f6e...\u300d\n\n<a id=\"ref-6\"></a>**[6]** xiaomi-info.github.io \u2014 \u5206\u5e03\u5f0f\u9501\u7684\u5b9e\u73b0\u4e4b redis \u7bc7 | \u5c0f\u7c73\u4fe1\u606f\u90e8\u6280\u672f\u56e2\u961f\nURL: https://xiaomi-info.github.io/2019/12/17/redis-distributed-lock\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5206\u5e03\u5f0f\u9501\u7684\u5b9e\u73b0\u4e4b redis \u7bc7 | \u5c0f\u7c73\u4fe1\u606f\u90e8\u6280\u672f\u56e2\u961f \u5206\u5e03\u5f0f\u9501\u7684\u5b9e\u73b0\u4e4b redis \u7bc7 2019-12-17 \u5206\u5e03\u5f0f\u9501\u7684\u5b9e\u73b0\u4e4b redis \u7bc7 [\u4f5c\u8005\u7b80\u4ecb] \u949f\u68a6\u6d69\uff0c\u4fe1\u606f\u90e8\u8ba2\u5355\u7ec4\u7814\u53d1\u5de5\u7a0b\u5e08\uff0c\u76ee\u524d\u4e3b\u8981\u8d1f\u8d23\u5c0f\u7c73\u8ba2\u5355\u4e2d\u53f0\u4e1a\u52a1\u3002 \u4e00\u3001\u5f15\u8a00 \u6211\u4eec\u5728\u7cfb\u7edf\u4e2d\u4fee\u6539\u5df2\u6709\u6570\u636e\u65f6\uff0c\u9700\u8981\u5148\u8bfb\u53d6\uff0c\u7136\u540e\u8fdb\u884c\u4fee\u6539\u4fdd\u5b58\uff0c\u6b64\u65f6\u5f88\u5bb9\u6613\u9047\u5230\u5e76\u53d1\u95ee\u9898\u3002\u7531\u4e8e\u4fee\u6539\u548c\u4fdd\u5b58\u4e0d\u662f\u539f\u5b50\u64cd\u4f5c\uff0c\u5728\u5e76\u53d1\u573a\u666f\u4e0b\uff0c\u90e8\u5206\u5bf9\u6570\u636e\u7684\u64cd\u4f5c\u53ef\u80fd\u4f1a\u4e22\u5931\u3002\u5728\u5355\u670d\u52a1\u5668\u7cfb\u7edf\u6211\u4eec\u5e38\u7528\u672c\u5730\u9501\u6765\u907f\u514d\u5e76\u53d1\u5e26\u6765\u7684\u95ee\u9898\uff0c\u7136\u800c\uff0c\u5f53\u670d\u52a1\u91c7\u7528\u96c6\u7fa4\u65b9\u5f0f\u90e8\u7f72\u65f6\uff0c\u672c\u5730\u9501\u65e0\u6cd5\u5728\u591a\u4e2a\u670d\u52a1\u5668\u4e4b\u95f4\u751f\u6548\uff0c\u8fd9\u65f6\u5019\u4fdd\u8bc1\u6570\u636e\u7684\u4e00\u81f4\u6027\u5c31\u9700\u8981\u5206\u5e03\u5f0f\u9501\u6765\u5b9e\u73b0\u3002 \u4e8c\u3001\u5b9e\u73b0 R...\u300d\n\n<a id=\"ref-7\"></a>**[7]** cloud.tencent.com \u2014 \u4e00\u6587\u8bb2\u900fRedis\u5206\u5e03\u5f0f\u9501\u5b89\u5168\u95ee\u9898-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91\nURL: https://cloud.tencent.com/developer/article/2332108\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u4e00\u6587\u8bb2\u900fRedis\u5206\u5e03\u5f0f\u9501\u5b89\u5168\u95ee\u9898-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91 \u817e\u8baf\u6280\u672f\u5de5\u7a0b\u5b98\u65b9\u53f7 \u4e00\u6587\u8bb2\u900fRedis\u5206\u5e03\u5f0f\u9501\u5b89\u5168\u95ee\u9898 \u5173\u6ce8\u4f5c\u8005 \u817e\u8baf\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u6587\u6863 \u5efa\u8bae\u53cd\u9988 \u63a7\u5236\u53f0 \u767b\u5f55/\u6ce8\u518c \u9996\u9875 \u5b66\u4e60 \u6d3b\u52a8 \u4e13\u533a \u5708\u5c42 \u5de5\u5177 MCP\u5e7f\u573a \u6587\u7ae0/\u7b54\u6848/\u6280\u672f\u5927\u725b \u641c\u7d22 \u641c\u7d22 \u5173\u95ed \u53d1\u5e03 \u817e\u8baf\u6280\u672f\u5de5\u7a0b\u5b98\u65b9\u53f7 \u793e\u533a\u9996\u9875 > \u4e13\u680f > \u4e00\u6587\u8bb2\u900fRedis\u5206\u5e03\u5f0f\u9501\u5b89\u5168\u95ee\u9898 \u4e00\u6587\u8bb2\u900fRedis\u5206\u5e03\u5f0f\u9501\u5b89\u5168\u95ee\u9898 \u817e\u8baf\u6280\u672f\u5de5\u7a0b\u5b98\u65b9\u53f7 \u5173\u6ce8 \u53d1\u5e03 \u4e8e 2023-09-22 13:10:09 \u53d1\u5e03 \u4e8e 2023-09-22 13:10:09 4.1K 3 \u4e3e\u62a5 \u6587\u7ae0\u88ab\u6536\u5f55\u4e8e\u4e13\u680f\uff1a...\u300d\n\n<a id=\"ref-8\"></a>**[8]** cnblogs.com \u2014 \u3010\u8fdb\u9636\u7bc7\u3011\u57fa\u4e8e Redis \u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u5168\u8fc7\u7a0b - CodeBlogMan - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/CodeBlogMan/p/18097343\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u3010\u8fdb\u9636\u7bc7\u3011\u57fa\u4e8e Redis \u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u5168\u8fc7\u7a0b - CodeBlogMan - \u535a\u5ba2\u56ed CodeBlogMan \u5b66\u65e0\u6b62\u5883\uff0c\u79ef\u8dec\u6b65\u4ee5\u81f4\u5343\u91cc\u3002 \u3010\u8fdb\u9636\u7bc7\u3011\u57fa\u4e8e Redis \u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u7684\u5168\u8fc7\u7a0b \u8fd9\u4e00\u7bc7\u6587\u7ae0\u62d6\u4e86\u6709\u70b9\u4e45\uff0c\u867d\u7136\u5728\u9879\u76ee\u4e2d\u4f7f\u7528\u5206\u5e03\u5f0f\u9501\u7684\u9891\u7387\u6bd4\u8f83\u9ad8\uff0c\u4f46\u6574\u7406\u6210\u6587\u7ae0\u53d1\u5e03\u51fa\u6765\u8fd8\u662f\u82b1\u4e86\u4e00\u70b9\u65f6\u95f4\u3002\u5728\u4e00\u4e9b\u79fb\u52a8\u7aef\u3001\u7528\u6237\u91cf\u5927\u7684\u4e92\u8054\u7f51\u9879\u76ee\u4e2d\uff0c\u7ecf\u5e38\u4f1a\u4f7f\u7528\u5230 Redis \u5206\u5e03\u5f0f\u9501\u4f5c\u4e3a\u63a7\u5236\u8bbf\u95ee\u9ad8\u5e76\u53d1\u7684\u5de5\u5177\u3002 \u76ee\u5f55 \u524d\u8a00 \u4e00\u3001\u5173\u4e8e\u5206\u5e03\u5f0f\u9501 \u4e8c\u3001RedLock \u7ea2\u9501\uff08\u4e0d\u63a8\u8350\uff09 \u4e09\u3001\u57fa\u4e8e redisTemplate \u56db\u3001\u4f7f\u7528\u793a\u4f8b \u4e94\u3001\u6587\u7ae0\u5c0f\u7ed3 \u524d\u8a00 \u8fd9\u4e00\u7bc7\u6587\u7ae0\u62d6\u4e86\u6709\u70b9\u4e45\uff0c\u867d\u7136\u5728\u9879\u76ee...\u300d\n\n<a id=\"ref-9\"></a>**[9]** blog.yujieliu.com \u2014 Redis Distributed Lock \u5b9e\u73b0\u5206\u5e03\u5f0f\u9501 | Yujie's blog\nURL: https://blog.yujieliu.com/blogs/devops/redis/distributed-lock.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedis Distributed Lock \u5b9e\u73b0\u5206\u5e03\u5f0f\u9501 | Yujie's blog Skip to main content redis-cli #\u52a0\u9501\uff0c\u9501\u4e0a100\u79d2\u4fbf\u4e8e\u770b\u6548\u679c 127.0 .0.1:637 9 > SET lock_for_resource_1 server_1 NX PX 100000 OK #\u67e5\u770b\u8fd9\u4e2akey\u662f\u5426\u5b58\u5728\uff0c\u4ee5\u53ca\u52a0\u4e0a\u8fd9\u4e2akey\uff08\u5373\u52a0\u4e0a\u8fd9\u4e2a\u9501\u7684\u5e94\u7528\uff09\u662f\u8c01 127.0 .0.1:637 9 > GET lock_for_resource_1 \"server_1\" #\u5982\u679c\u662f\u81ea\u8eab\uff0c\u5219\u5220\u9664\u8fd9\u4e2akey 127.0 .0.1:637...\u300d\n\n<a id=\"ref-10\"></a>**[10]** blog.csdn.net \u2014 \u5206\u5e03\u5f0f\u9501\u8be6\u89e3-CSDN\u535a\u5ba2\nURL: https://blog.csdn.net/a745233700/article/details/88084219\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5206\u5e03\u5f0f\u9501\u8be6\u89e3-CSDN\u535a\u5ba2 Redis\u7684\u5206\u5e03\u5f0f\u9501\u8be6\u89e3 \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-06-11 06:15:00 \u53d1\u5e03 \u539f\u521b \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-06-11 06:15:00 \u53d1\u5e03 \u00b7 \u7f6e\u9876 \u00b7 9.8w \u9605\u8bfb \u00b7 232 \u00b7 1.5k \u00b7 \u672c\u5185\u5bb9\u9075\u5faaCC 4.0 BY-SA\u7248\u6743\u534f\u8bae \u7248\u6743\u58f0\u660e\uff1a\u672c\u6587\u4e3a\u535a\u4e3b\u539f\u521b\u6587\u7ae0\uff0c\u9075\u5faa CC 4.0 BY-SA \u7248\u6743\u534f\u8bae\uff0c\u8f6c\u8f7d\u8bf7\u9644\u4e0a\u539f\u6587\u51fa\u5904\u94fe\u63a5\u548c\u672c\u58f0\u660e\u3002 \u00b7 \u6536\u5f55\u4e8e Redis\u7f13\u5b58 \u5f53\u524d\u6587\u7ae0\u88ab\u6536\u5f55\u4e8e\uff1a Redis\u7f13\u5b58 11 \u7bc7\u6587\u7ae0 465 \u4eba\u5b66\u4e60 Redis\u7f13\u5b58 \u8ba2\u9605\u4e13\u680f \u67e5\u770b\u8be6\u60c5 \u5f53\u524d\u6587\u7ae0\u88ab\u4ee5\u4e0b\u793e\u533a\u548c\u4e13\u680f\u6536\u5f55\uff1a \u8be5\u6587...\u300d\n\n<a id=\"ref-11\"></a>**[11]** redis.io \u2014 Distributed Locks with Redis | Docs\nURL: https://redis.io/docs/latest/develop/clients/patterns/distributed-locks\n\u539f\u6587\u7247\u6bb5\uff1a\u300cDistributed Locks with Redis | Docs {\"categories\":[\"docs\",\"develop\",\"stack\",\"oss\",\"rs\",\"rc\",\"oss\",\"kubernetes\",\"clients\"],\"description\":\"A distributed lock pattern with Redis\\n\",\"duplicateOf\":\"head:data-ai-metadata\",\"location\":\"body\",\"title\":\"Distributed Locks with Redis\",\"tableO...\u300d",
+    "metadata": [
+      "https://qccommunity.qcloudimg.com/image/new.png",
+      "https://developer.qcloudimg.com/http-save/10011/65af78bf55ff21e092d2debf3d4a0713.png",
+      "https://developer.qcloudimg.com/http-save/yehe-10328137/9b8d89fa66b70bf1e61949b73fafb8b6.png",
+      "https://developer.qcloudimg.com/http-save/yehe-10328137/2dd88ca62db8013c354aed4dfde7001e.png",
+      "https://oss.javaguide.cn/github/javaguide/distributed-system/distributed-lock/distributed-lock-setnx.png",
+      "https://oss.javaguide.cn/github/javaguide/redis-distributed-lock.png",
+      "https://oss.javaguide.cn/github/javaguide/distributed-system/distributed-lock/distributed-lock-redisson-renew-expiration.png",
+      "https://oss.javaguide.cn/github/javaguide/distributed-system/distributed-lock/redisson-readme-locks.png",
+      "https://i-blog.csdnimg.cn/blog_migrate/4855375a365ef39064904c3121d7af20.png",
+      "https://i-blog.csdnimg.cn/blog_migrate/4ad1e304495050a69e548e9e1cb3dca2.png"
+    ]
+  }
+}

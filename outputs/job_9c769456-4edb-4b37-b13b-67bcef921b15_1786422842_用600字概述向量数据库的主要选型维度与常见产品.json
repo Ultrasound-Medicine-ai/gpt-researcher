@@ -1,0 +1,394 @@
+{
+  "timestamp": "2026-08-11T04:34:02.190773",
+  "job_id": "9c769456-4edb-4b37-b13b-67bcef921b15",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:34:08.439153",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:08.458920",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "🗄️ Database Selection Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:08.495406",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用600字概述向量数据库的主要选型维度与常见产品...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:09.862357",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:12.384011",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['向量数据库 主要选型维度 常见产品 对比 2026', 'vector database selection criteria key dimensions common products Milvus Pinecone 2026', '用600字概述向量数据库的主要选型维度与常见产品']...",
+        "metadata": [
+          "向量数据库 主要选型维度 常见产品 对比 2026",
+          "vector database selection criteria key dimensions common products Milvus Pinecone 2026",
+          "用600字概述向量数据库的主要选型维度与常见产品"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:12.421877",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '向量数据库 主要选型维度 常见产品 对比 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:12.441706",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'vector database selection criteria key dimensions common products Milvus Pinecone 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:12.459850",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.064264",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.100961",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.137223",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.176719",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.226411",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.257409",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.299244",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:15.330654",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.712228",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.cloud.tencent.com/article/2717278?policyId=1003\n",
+        "metadata": "https://developer.cloud.tencent.com/article/2717278?policyId=1003"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.755901",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/OBCE666/p/archive/2026/04/09\n",
+        "metadata": "https://www.cnblogs.com/OBCE666/p/archive/2026/04/09"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.789685",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5\n",
+        "metadata": "https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.811029",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.853947",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.firecrawl.dev/blog/best-vector-databases\n",
+        "metadata": "https://www.firecrawl.dev/blog/best-vector-databases"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.874310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.903990",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:16.945806",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:17.383085",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:17.407185",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 5 total images",
+        "metadata": [
+          "https://qccommunity.qcloudimg.com/image/new.png",
+          "https://developer.qcloudimg.com/http-save/10011/117c00efbcc420fc44099c7fe7a4ffa2.jpg",
+          "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+          "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:17.437164",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:17.836008",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:21.132794",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:21.158503",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 1 new images from 1 total images",
+        "metadata": [
+          "https://www.firecrawl.dev/_next/image?url=%2Fimages%2Fblog%2Fbest-vector-databases-2025%2Fbest-vector-databases-2025.webp&w=3840&q=75&dpl=dpl_A5bhmy7AQLE7hdJCLe6ofwTA9TFa"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:21.192637",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:21.476250",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:23.625768",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (5720 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:23.669855",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.04131",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:23.772096",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:37.239337",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用600字概述向量数据库的主要选型维度与常见产品'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用600字概述向量数据库的主要选型维度与常见产品",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# 向量数据库选型核心维度与主流产品全景（2026）\n\n## 一、关键选型维度：业务、成本与运维的三维博弈\n\n向量数据库选型绝非单纯比拼性能参数，而是业务痛点、成本压力与运维能力的综合权衡[2]。2026年实践表明，**80%的RAG场景无需高复杂度独立引擎**，盲目部署Milvus属于“杀鸡用牛刀”[1]。首要维度是**架构定位**：选择“独立向量引擎”（如Milvus、Qdrant）还是“融合型数据库”（如OceanBase、pgvector），直接决定技术债深度。七家真实企业案例显示，尽管Milvus在向量检索领域声名卓著，但最终均转向OceanBase——因其在事务一致性、SQL兼容性及混合负载（结构化+向量）支持上更契合实际业务流[2]。其次为**规模与性能需求**：腾讯云VectorDB宣称单索引支持千亿级向量、百万级QPS、毫秒级延迟，适用于超大规模知识库；而ChromaDB定位轻量级MVP，pgvector则适合PostgreSQL用户且向量量级低于1亿的场景[3]。第三是**运维成熟度**：Pinecone主打“zero-ops”，Zilliz Cloud需工程资源投入，而LanceDB强调本地优先、免服务器部署[3]。\n\n## 二、主流产品对比：场景适配性决定成败\n\n| 产品 | 核心优势 | 典型适用场景 | 关键约束 |\n|--------|-----------|----------------|-------------|\n| **OceanBase** | 原生支持向量+事务+SQL，统一运维栈 | 金融、电商等强一致性要求的混合负载场景 | 需评估其向量索引算法对长尾查询的优化能力[2] |\n| **Milvus/Zilliz Cloud** | 十亿级向量低成本存储与检索 | 大规模纯向量检索（如图像相似搜索） | 工程维护成本高，RAG中常显冗余[1][3] |\n| **pgvector + pgvectorscale** | 无缝集成PostgreSQL生态，支持迭代式过滤扫描 | <1亿向量、已有PG基础设施、需复杂JOIN/过滤的场景[3] | 单实例扩展性受限，超大规模需分片 |\n| **Pinecone** | 全托管、内置嵌入+重排序、支持BYOC | 快速上线、无DBA团队的AI应用[3] | 商业许可成本随QPS线性增长 |\n| **腾讯云VectorDB** | 自研分布式架构、千亿级单索引、毫秒延迟 | 企业级RAG知识库、推荐系统等高并发场景[1] | 仅限腾讯云生态，跨云迁移成本高 |\n\n此外，Qdrant以最佳免费额度和原生稀疏向量支持吸引预算敏感团队；Weaviate强于向量+BM25+元数据的三元混合搜索；Vespa则面向十亿级超大规模混合检索[3]。选型本质是拒绝“银弹思维”，回归具体场景：若已有成熟PostgreSQL体系，pgvector是务实之选；若追求零运维与开箱即用，Pinecone或腾讯云VectorDB更具确定性；若需强事务保障与向量共存，OceanBase已成多家企业共识路径[2\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** developer.cloud.tencent.com — 向量数据库选型2026：独立引擎与融合数据库怎么选？-腾讯云开发者社区-腾讯云\nURL: https://developer.cloud.tencent.com/article/2717278?policyId=1003\n原文片段：「向量数据库选型2026：独立引擎与融合数据库怎么选？-腾讯云开发者社区-腾讯云 这个DBA有点耶 向量数据库选型2026：独立引擎与融合数据库怎么选？ 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 这个DBA有点耶 社区首页 > 专栏 > 向量数据库选型2026：独立引擎与融合数据库怎么选？ 向量数据库选型2026：独立引擎与融合数据库怎么选？ 这个DBA有点耶 关注 发布 于 2026-07-28 17:31:04 发布 于 2026...」\n\n<a id=\"ref-2\"></a>**[2]** cnblogs.com — 随笔档案「2026年4月9日」：别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 ...  - 老纪的技术唠嗑局 - 博客园\nURL: https://www.cnblogs.com/OBCE666/p/archive/2026/04/09\n原文片段：「随笔档案「2026年4月9日」：别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 ... - 老纪的技术唠嗑局 - 博客园 OceanBase 别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 摘要： 做过架构决策的技术人都懂，技术选型从来不是纸上谈兵，而是业务痛点、成本压力与运维能力的综合博弈。 七家企业在不同场景下对比了Milvus与OceanBase，尽管Milvus在向量检索领域名声显赫，但他们最终都选择了OceanBase，这是为什么？ 阅读全文 posted @ 2026-04-09 17:50 老纪的技术唠嗑局 阅读...」\n\n<a id=\"ref-3\"></a>**[3]** firecrawl.dev — Best Vector Databases in 2026: A Complete Comparison Guide\nURL: https://www.firecrawl.dev/blog/best-vector-databases\n原文片段：「Best Vector Databases in 2026: A Complete Comparison Guide Introducing our most accurate /search yet. Read the announcement → // Get started // Ready to build? Start getting Web Data for free and scale seamlessly as your project expands. No credit card needed. Start for free See...」",
+    "metadata": [
+      "https://qccommunity.qcloudimg.com/image/new.png",
+      "https://developer.qcloudimg.com/http-save/10011/117c00efbcc420fc44099c7fe7a4ffa2.jpg",
+      "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+      "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png",
+      "https://www.firecrawl.dev/_next/image?url=%2Fimages%2Fblog%2Fbest-vector-databases-2025%2Fbest-vector-databases-2025.webp&w=3840&q=75&dpl=dpl_A5bhmy7AQLE7hdJCLe6ofwTA9TFa"
+    ]
+  }
+}

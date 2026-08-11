@@ -1,0 +1,390 @@
+{
+  "timestamp": "2026-08-11T04:34:43.442091",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:34:55.318469",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:55.340375",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "Default Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:55.374766",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:56.799140",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:59.446656",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['\u5411\u91cf\u6570\u636e\u5e93 \u9009\u578b\u7ef4\u5ea6 \u5e38\u89c1\u4ea7\u54c1 \u5bf9\u6bd4', 'vector database selection criteria popular products comparison 2026', '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1']...",
+        "metadata": [
+          "\u5411\u91cf\u6570\u636e\u5e93 \u9009\u578b\u7ef4\u5ea6 \u5e38\u89c1\u4ea7\u54c1 \u5bf9\u6bd4",
+          "vector database selection criteria popular products comparison 2026",
+          "\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:59.482864",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5411\u91cf\u6570\u636e\u5e93 \u9009\u578b\u7ef4\u5ea6 \u5e38\u89c1\u4ea7\u54c1 \u5bf9\u6bd4'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:59.506401",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'vector database selection criteria popular products comparison 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:34:59.531365",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:00.761655",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/OBCE666/p/19842494\n",
+        "metadata": "https://www.cnblogs.com/OBCE666/p/19842494"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:00.792259",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:00.829084",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/asialee_bird/article/details/146051524\n",
+        "metadata": "https://blog.csdn.net/asialee_bird/article/details/146051524"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:00.859374",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:00.885622",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:00.921605",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:00.980655",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.045875",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.116521",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.154108",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.190834",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.247181",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.704729",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.728969",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 12 total images",
+        "metadata": [
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive2.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:01.759026",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:02.365046",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:03.103655",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5\n",
+        "metadata": "https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:03.136687",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://checkthat.ai/answers/what-are-the-best-vector-databases\n",
+        "metadata": "https://checkthat.ai/answers/what-are-the-best-vector-databases"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:03.161938",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:03.197833",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:06.122278",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:06.151640",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:06.220652",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:06.405167",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:08.293259",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (3526 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:08.363274",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.048990000000000006",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:08.521528",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:22.089907",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# \u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u6838\u5fc3\u7ef4\u5ea6\u4e0e\u4e3b\u6d41\u4ea7\u54c1\u6982\u89c8\uff082024\u20132025\u5e74\u5b9e\u8bc1\u5206\u6790\uff09\n\n## \u4e00\u3001\u5173\u952e\u9009\u578b\u7ef4\u5ea6\uff1a\u8d85\u8d8a\u6027\u80fd\u7684\u751f\u4ea7\u7ea7\u6743\u8861\n\n\u5411\u91cf\u6570\u636e\u5e93\u6280\u672f\u9009\u578b\u5df2\u4ece\u5b9e\u9a8c\u5ba4\u6307\u6807\u8f6c\u5411\u771f\u5b9e\u751f\u4ea7\u73af\u5883\u7684\u7cfb\u7edf\u6027\u535a\u5f08\u3002\u4e03\u5bb6\u5934\u90e8\u4f01\u4e1a\uff08\u542b360\u3001\u4e2d\u56fd\u8054\u901a\u3001\u8d27\u62c9\u62c9\u3001\u643a\u7a0b\u3001\u8da3\u4e38\u79d1\u6280\u7b49\uff09\u7684\u5b9e\u8df5\u8868\u660e\uff0c\u51b3\u7b56\u9700\u7efc\u5408\u4e09\u5927\u521a\u6027\u7ef4\u5ea6\uff1a**\u7aef\u5230\u7aef\u67e5\u8be2\u4e00\u81f4\u6027\u3001\u6df7\u5408\u8d1f\u8f7d\u4e0b\u7684\u5de5\u7a0b\u53ef\u7ef4\u62a4\u6027\u3001\u5168\u751f\u547d\u5468\u671f\u603b\u62e5\u6709\u6210\u672c\uff08TCO\uff09**[2]\u3002  \n\n\u9996\u8981\u5e7b\u89c9\u662f\u201c\u6027\u80fd\u4ec5\u770b\u7eaf\u5411\u91cfQPS\u201d\u2014\u2014\u5f53\u67e5\u8be2\u53e0\u52a0\u65f6\u95f4\u8303\u56f4\u3001\u4e1a\u52a1\u5c5e\u6027\u4e0e\u5411\u91cf\u76f8\u4f3c\u5ea6\u4e09\u91cd\u8fc7\u6ee4\u65f6\uff0cMilvus\u9700\u5148\u53ec\u56de\u5343\u6761\u518d\u5e94\u7528\u5c42\u8fc7\u6ee4\uff0c\u7f51\u7edc\u4f20\u8f93\u91cf\u8fbeOceanBase\u768410\u500d\uff1b\u540e\u8005\u901a\u8fc7SQL\u4f18\u5316\u5668\u539f\u751f\u652f\u6301\u7d22\u5f15\u5408\u5e76\uff0c\u5c06\u5019\u9009\u96c6\u9884\u7b5b\u81f3\u767e\u6761\u540e\u518d\u8ba1\u7b97\uff0c\u663e\u8457\u964d\u4f4e\u5ef6\u8fdf[2]\u3002\u5176\u6b21\uff0c\u201c\u8fd0\u7ef4\u5373\u642dK8s\u201d\u88ab\u8bc1\u4f2a\uff1aMilvus\u4f9d\u8d56etcd+MinIO+\u72ec\u7acb\u67e5\u8be2\u8282\u70b9\u7b49\u591a\u7ec4\u4ef6\uff0c\u76d1\u63a7\u94fe\u8def\u590d\u6742\uff0c360\u97001.5\u540dSRE\u4e13\u804c\u7ef4\u62a4\uff1b\u800cOceanBase\u590d\u7528MySQL\u8fd0\u7ef4\u4f53\u7cfb\uff0c0.5\u4eba\u5373\u53ef\u652f\u6491[2]\u3002\u7b2c\u4e09\uff0c\u201c\u6210\u672c=\u670d\u52a1\u5668\u4ef7\u683c\u201d\u4e25\u91cd\u5931\u771f\uff1aMilvus\u5168\u91cf\u5907\u4efd\u673a\u5236\u65e0\u6cd5RPO=0\uff0c\u8054\u901a\u6d4b\u8bd5\u663e\u793a\u5176\u5907\u4efd\u6062\u590d\u80fd\u529b\u4e0d\u8db3\uff0c\u800cOceanBase\u51ed\u501fPaxos\u4e09\u526f\u672c\u5b9e\u73b0RTO<8\u79d2\uff0c\u5728\u673a\u623f\u7ea7\u6545\u969c\u4e2d\u8fbe\u6210\u96f6\u4e2d\u65ad[2]\u3002\n\n## \u4e8c\u3001\u4e3b\u6d41\u4ea7\u54c1\u7279\u6027\u5bf9\u6bd4\uff08\u57fa\u4e8e2024\u20132025\u5e74\u5b9e\u6d4b\uff09\n\n| \u4ea7\u54c1       | \u67b6\u6784\u5b9a\u4f4d         | \u6df7\u5408\u67e5\u8be2\u80fd\u529b                     | \u8fd0\u7ef4\u590d\u6742\u5ea6 | \u4e00\u81f4\u6027\u4fdd\u969c               | \u5178\u578b\u9002\u7528\u573a\u666f         |\n|------------|------------------|------------------------------------|------------|--------------------------|----------------------|\n| **Milvus** | \u4e13\u7528\u5411\u91cf\u5f15\u64ce     | \u9700\u5e94\u7528\u5c42reranking\uff0c\u53ec\u56de\u540e\u8fc7\u6ee4      | \u9ad8         | CDC\u540c\u6b65\uff0c\u5b58\u5728\u5ef6\u8fdf\u7a97\u53e3    | \u7eaf\u5411\u91cf\u68c0\u7d22POC        |\n| **OceanBase** | \u7edf\u4e00\u6570\u636e\u5e93\uff08\u5411\u91cf\u4e3a\u6570\u636e\u7c7b\u578b\uff09 | \u539f\u751fSQL\u652f\u6301\u591a\u6761\u4ef6\u7d22\u5f15\u5408\u5e76\u4e0b\u63a8      | \u4f4e         | Paxos\u4e8b\u52a1\u7ea7\u5f3a\u4e00\u81f4        | \u91d1\u878d\u3001\u591a\u4e91\u3001\u9ad8\u4e00\u81f4\u6027\u4e1a\u52a1[2] |\n| **Elasticsearch** | \u5168\u6587\u68c0\u7d22\u6269\u5c55     | \u652f\u6301\u5411\u91cf\u63d2\u4ef6\uff0c\u4f46\u975e\u539f\u751f\u5411\u91cf\u4f18\u5316     | \u4e2d         | \u6700\u7ec8\u4e00\u81f4\u6027               | \u591a\u6a21\u6001\u68c0\u7d22\u57fa\u7ebf\u65b9\u6848[1] |\n| **FAISS/Chroma/Qdrant** | \u8f7b\u91cf\u7ea7\u5d4c\u5165\u5f0f\u65b9\u6848 | \u5355\u4e00\u5411\u91cf\u68c0\u7d22\u4e3a\u4e3b                   | \u4f4e\uff08\u5355\u673a\uff09 | \u65e0\u5206\u5e03\u5f0f\u4e8b\u52a1             | \u5c0f\u89c4\u6a21\u3001\u4f4e\u8fd0\u7ef4\u9700\u6c42\u573a\u666f[1] |\n\nCSDN\u5bf9\u6bd4\u5206\u6790\u8986\u76d6Elasticsearch\u3001Milvus\u3001Pinecone\u3001FAISS\u3001Chroma\u3001PGVector\u3001Weaviate\u3001Qdrant\u516b\u7c7b\u4ea7\u54c1\uff0c\u5f3a\u8c03\u5176\u5728\u591a\u6a21\u6001\u68c0\u7d22\u4e2d\u7684\u9002\u914d\u6027\u5dee\u5f02[1]\uff1b\u4f46\u535a\u5ba2\u56ed\u5b9e\u8bc1\u6307\u51fa\uff0cMilvus\u867dGitHub\u661f\u6807\u6570\u4e07\uff0c\u5374\u56e0\u52a8\u6001schema\u7e41\u7410\uff08\u7d22\u5f15\u91cd\u5efa\u8017\u65f6\u8d8510\u5c0f\u65f6\uff09\u3001\u6743\u9650\u8ba4\u8bc1\u8584\u5f31\u3001\u793e\u533a\u6d3b\u8dc3\u5ea6\u4e00\u822c\uff0c\u5728\u8d27\u62c9\u62c9\u7b49\u4f01\u4e1a\u4e2d\u88ab\u5f03\u7528[2]\u3002OceanBase\u5219\u4ee5\u201c\u5411\u91cf\u5373\u6570\u636e\u7c7b\u578b\u201d\u54f2\u5b66\uff0c\u590d\u7528\u5206\u5e03\u5f0f\u4e8b\u52a1\u3001SQL\u4f18\u5316\u5668\u4e0eOCP\u8fd0\u7ef4\u5e73\u53f0\uff0c\u4f7f\u8d27\u62c9\u62c9\u6df7\u5408\u67e5\u8be2\u5ef6\u8fdf\u4ece450ms\u964d\u81f395ms[2]\u3002\n\n\u7efc\u4e0a\uff0c\u9009\u578b\u672c\u8d28\u662f\u67b6\u6784\u54f2\u5b66\u9009\u62e9\uff1a\u201c\u5de5\u5177\u601d\u7ef4\u201d\uff08Milvus\uff09\u4e13\u6ce8\u5355\u4e00\u80fd\u529b\uff0c\u800c\u201c\u5e73\u53f0\u601d\u7ef4\u201d\uff08OceanBase\uff09\u8ffd\u6c42\n\n[truncated]\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** blog.csdn.net \u2014 \u9762\u5411\u591a\u6a21\u6001\u68c0\u7d22\u7684\u5411\u91cf\u6570\u636e\u5e93\u5bf9\u6bd4\u5206\u6790\u548c\u6280\u672f\u9009\u578b\uff1aElasticsearch\u3001Milvus\u3001Pinecone\u3001FAISS\u3001Chroma\u3001PGVector\u3001Weaviate\u3001Qdrant_\u591a\u6a21\u6001\u5411\u91cf\u6570\u636e\u5e93-CSDN\u535a\u5ba2\nURL: https://blog.csdn.net/asialee_bird/article/details/146051524\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u9762\u5411\u591a\u6a21\u6001\u68c0\u7d22\u7684\u5411\u91cf\u6570\u636e\u5e93\u5bf9\u6bd4\u5206\u6790\u548c\u6280\u672f\u9009\u578b\uff1aElasticsearch\u3001Milvus\u3001Pinecone\u3001FAISS\u3001Chroma\u3001PGVector\u3001Weaviate\u3001Qdrant_\u591a\u6a21\u6001\u5411\u91cf\u6570\u636e\u5e93-CSDN\u535a\u5ba2 \u9762\u5411\u591a\u6a21\u6001\u68c0\u7d22\u7684\u5411\u91cf\u6570\u636e\u5e93\u5bf9\u6bd4\u5206\u6790\u548c\u6280\u672f\u9009\u578b\uff1aElasticsearch\u3001Milvus\u3001Pinecone\u3001FAISS\u3001Chroma\u3001PGVector\u3001Weaviate\u3001Qdrant \u539f\u521b \u5df2\u4e8e 2025-06-12 12:03:57 \u4fee\u6539 \u00b7 7.1k \u9605\u8bfb \u00b7 28 \u00b7 35 \u00b7 \u672c\u5185\u5bb9\u9075\u5faaCC 4.0 BY-SA\u7248\u6743\u534f\u8bae \u7248\u6743\u58f0\u660e\uff1a\u672c\u6587\u4e3a\u535a...\u300d\n\n<a id=\"ref-2\"></a>**[2]** cnblogs.com \u2014 \u522b\u518d\u76f2\u76ee\u8ddf\u98ce\uff0c\u4e03\u5bb6\u4f01\u4e1a\u771f\u5b9e\u573a\u666f\u7684\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\uff0c\u63ed\u79d8\u6838\u5fc3\u539f\u5219 - \u8001\u7eaa\u7684\u6280\u672f\u5520\u55d1\u5c40 - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/OBCE666/p/19842494\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u522b\u518d\u76f2\u76ee\u8ddf\u98ce\uff0c\u4e03\u5bb6\u4f01\u4e1a\u771f\u5b9e\u573a\u666f\u7684\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\uff0c\u63ed\u79d8\u6838\u5fc3\u539f\u5219 - \u8001\u7eaa\u7684\u6280\u672f\u5520\u55d1\u5c40 - \u535a\u5ba2\u56ed OceanBase \u522b\u518d\u76f2\u76ee\u8ddf\u98ce\uff0c\u4e03\u5bb6\u4f01\u4e1a\u771f\u5b9e\u573a\u666f\u7684\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\uff0c\u63ed\u79d8\u6838\u5fc3\u539f\u5219 \u505a\u8fc7\u67b6\u6784\u51b3\u7b56\u7684\u6280\u672f\u4eba\u90fd\u61c2\uff0c\u6280\u672f\u9009\u578b\u4ece\u6765\u4e0d\u662f\u7eb8\u4e0a\u8c08\u5175\uff0c\u800c\u662f\u4e1a\u52a1\u75db\u70b9\u3001\u6210\u672c\u538b\u529b\u4e0e\u8fd0\u7ef4\u80fd\u529b\u7684\u7efc\u5408\u535a\u5f08\u3002 \u4e03\u5bb6\u4f01\u4e1a\u5728\u4e0d\u540c\u573a\u666f\u4e0b\u5bf9\u6bd4\u4e86Milvus\u4e0eOceanBase\uff0c\u5c3d\u7ba1Milvus\u5728\u5411\u91cf\u68c0\u7d22\u9886\u57df\u540d\u58f0\u663e\u8d6b\uff0c\u4f46\u4ed6\u4eec\u6700\u7ec8\u90fd\u9009\u62e9\u4e86OceanBase\uff0c\u8fd9\u662f\u4e3a\u4ec0\u4e48\uff1f \u81ea\u4ece\u8d1f\u8d23OceanBase\u5f00\u6e90\u4e1a\u52a1\u540e\uff0c\u770b\u8fc7\u592a\u591a\u4f01\u4e1a\u7684\u6280\u672f\u9009\u578b\u3002\u505a\u8fc7\u67b6\u6784\u51b3\u7b56\u7684\u6280\u672f\u4eba\u90fd\u61c2\uff0c\u6280\u672f\u9009\u578b\u4ece\u6765\u4e0d\u662f\u7eb8\u4e0a\u8c08\u5175\uff0c\u800c\u662f\u4e1a\u52a1\u75db\u70b9\u3001\u6210\u672c...\u300d\n\n<a id=\"ref-3\"></a>**[3]** checkthat.ai \u2014 Your browser is not supported (406 Not Acceptable)\nURL: https://checkthat.ai/answers/what-are-the-best-vector-databases\n\u539f\u6587\u7247\u6bb5\uff1a\u300cYour browser is not supported (406 Not Acceptable) Your browser is not supported. Please upgrade your browser to continue.\u300d",
+    "metadata": [
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive2.png"
+    ]
+  }
+}

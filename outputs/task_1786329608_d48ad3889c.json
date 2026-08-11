@@ -1,0 +1,447 @@
+{
+  "timestamp": "2026-08-10T02:40:08.536640",
+  "events": [
+    {
+      "timestamp": "2026-08-10T02:40:32.517028",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:40:32.544123",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:40:32.574635",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:40:34.449628",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:46.903538",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['\u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 SSE 2026\u5e74 \u5e02\u573a\u73b0\u72b6\u4e0e\u8d8b\u52bf\u5206\u6790', 'Shanghai Stock Exchange SSE performance overview 2026', '\u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57']...",
+        "metadata": [
+          "\u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 SSE 2026\u5e74 \u5e02\u573a\u73b0\u72b6\u4e0e\u8d8b\u52bf\u5206\u6790",
+          "Shanghai Stock Exchange SSE performance overview 2026",
+          "\u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:46.952978",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 SSE 2026\u5e74 \u5e02\u573a\u73b0\u72b6\u4e0e\u8d8b\u52bf\u5206\u6790'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:46.983505",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Shanghai Stock Exchange SSE performance overview 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:47.008925",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:47.796583",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://sir.sysu.edu.cn/sites/default/files/download/upload/%E9%99%84%E4%BB%B63.%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A%E5%8F%82%E8%80%83%E6%A0%BC%E5%BC%8F.doc\n",
+        "metadata": "https://sir.sysu.edu.cn/sites/default/files/download/upload/%E9%99%84%E4%BB%B63.%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A%E5%8F%82%E8%80%83%E6%A0%BC%E5%BC%8F.doc"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:47.824832",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.bigc.edu.cn/document/20110831094433278868.doc\n",
+        "metadata": "https://www.bigc.edu.cn/document/20110831094433278868.doc"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:47.854447",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://docs.feishu.cn/article/wiki/C39owLHyyi5gs0kDiIEcoPMPnZg\n",
+        "metadata": "https://docs.feishu.cn/article/wiki/C39owLHyyi5gs0kDiIEcoPMPnZg"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:47.879958",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:47.914856",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:48.677025",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cn.tradingview.com/symbols/SSE-000001/ideas/page-2\n",
+        "metadata": "https://cn.tradingview.com/symbols/SSE-000001/ideas/page-2"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:48.708900",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: http://www.sse.com.cn\n",
+        "metadata": "http://www.sse.com.cn"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:48.740788",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cn.chinadaily.com.cn/a/202604/16/WS69e080a2a310942cc49a7e5b.html\n",
+        "metadata": "https://cn.chinadaily.com.cn/a/202604/16/WS69e080a2a310942cc49a7e5b.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:48.768025",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:48.805399",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:49.408084",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://finance.yahoo.com/quote/000001.SS/history\n",
+        "metadata": "https://finance.yahoo.com/quote/000001.SS/history"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:49.458653",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://english.sse.com.cn/events/conference/past/c/c_20260323_10812750.shtml\n",
+        "metadata": "https://english.sse.com.cn/events/conference/past/c/c_20260323_10812750.shtml"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:49.504449",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: http://english.sse.com.cn/news//newsrelease/c/c_20260213_10809557.shtml\n",
+        "metadata": "http://english.sse.com.cn/news//newsrelease/c/c_20260213_10809557.shtml"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:49.535069",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:49.590963",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:50.283558",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:50.309999",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 30 total images",
+        "metadata": [
+          "https://img2.chinadaily.com.cn/static/common/img/sharelogo2.jpg",
+          "https://cn.chinadaily.com.cn/image/2025/logo_cntop.png",
+          "https://img3.chinadaily.com.cn/static/common/img/j-q.jpg",
+          "https://img3.chinadaily.com.cn/static/2024cn_articleandcolumn/img/Mobile/Icon_Menu.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:50.342922",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:50.373117",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 SSE 2026\u5e74 \u5e02\u573a\u73b0\u72b6\u4e0e\u8d8b\u52bf\u5206\u6790...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.591922",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.621273",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.646130",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.674997",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 3 new images from 3 total images",
+        "metadata": [
+          "https://english.sse.com.cn/events/conference/past/c/10812750/images/d34d50578288461482f14e99efd9cab9.png",
+          "https://english.sse.com.cn/events/conference/past/c/10812750/images/bf438906039749319d4798592f46656c.png",
+          "https://english.sse.com.cn/events/conference/past/c/10812750/images/9611b6e4dee34dd8a9e31cbf094d83df.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.699483",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.733957",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.756035",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:58.794455",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: Shanghai Stock Exchange SSE performance overview 2026...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:41:59.953771",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:42:00.748146",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:42:00.773136",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:42:00.807336",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.018830000000000006",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:42:00.880370",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:43:04.172963",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u8bf7\u5e2e\u6211\u5199\u62a5\u544a\u8c03\u7814SSE\uff0c\u8981\u6c42200\u5b57'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240\uff08SSE\uff092026\u5e74\u8c03\u7814\u7b80\u62a5\n\n## \u6838\u5fc3\u6218\u7565\u4e0e\u52a1\u5b9e\u4e3e\u63aa\n### \u5236\u5ea6\u4f18\u5316\u4e0e\u964d\u672c\u589e\u6548\n2026\u5e74\uff0c\u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240\uff08SSE\uff09\u53d1\u5e03\u300a2026\u5e74\u5e02\u573a\u52a1\u5b9e\u4e3e\u63aa\u6e05\u5355\u300b\uff0c\u7cfb\u7edf\u90e8\u7f72\u4e94\u5927\u9886\u57df\u5341\u9879\u5177\u4f53\u63aa\u65bd[4]\u3002\u5728\u5236\u5ea6\u4e0e\u6210\u672c\u7aef\uff0c\u4e0a\u4ea4\u6240\u5168\u9762\u4f18\u5316\u4fe1\u606f\u62ab\u9732\u67e5\u8be2\u6e20\u9053\uff0c\u66f4\u65b0ESG\u62ab\u9732\u8bc4\u4ef7\u6807\u51c6\uff0c\u5e76\u5c06\u8463\u79d8\u57f9\u8bad\u8c03\u6574\u4e3a\u7ebf\u4e0a\u7ebf\u4e0b\u6df7\u5408\u6a21\u5f0f\uff1b\u540c\u65f6\u8ba1\u5212\u5168\u5e74\u51cf\u8d39\u7ea611.13\u4ebf\u5143\uff0c\u5207\u5b9e\u964d\u4f4e\u5e02\u573a\u8fd0\u884c\u6210\u672c[4]\u3002\n\n## \u5e02\u573a\u5f00\u653e\u4e0e\u6295\u8d44\u8005\u670d\u52a1\n### \u5916\u8d44\u5bf9\u63a5\u4e0e\u751f\u6001\u5efa\u8bbe\n\u5bf9\u5916\u5f00\u653e\u65b9\u9762\uff0c\u4e0a\u4ea4\u6240\u4e8e3\u6708\u4e3e\u529e\u201c\u4e24\u4f1a\u540e\u5c55\u671b\u201d\u6d3b\u52a8\uff0c\u5b9a\u5411\u5bf9\u63a5\u8fd140\u5bb6\u6d77\u5916\u957f\u671f\u914d\u7f6e\u578b\u673a\u6784\uff0c\u91cd\u70b9\u5ba3\u4ecb\u4e2d\u56fd\u5b8f\u89c2\u57fa\u672c\u9762\u4e0e\u8d44\u4ea7\u914d\u7f6e\u4ef7\u503c\uff0c\u7a33\u6b65\u63a8\u8fdb\u9ad8\u6807\u51c6\u53cc\u5411\u5f00\u653e[5]\u3002\u670d\u52a1\u751f\u6001\u4e0a\uff0c\u6df1\u5316\u201c\u4e00\u7f51\u901a\u529e\u201d\u5e73\u53f0\uff0c\u5347\u7ea7\u80a1\u7968\u671f\u6743\u4e13\u533a\uff0c\u5e76\u53d1\u8d77\u6caa\u5e02\u516c\u53f8\u201c\u63d0\u8d28\u589e\u6548\u91cd\u56de\u62a5\u201d2.0\u4e13\u9879\u884c\u52a8\uff0c\u5f3a\u5316\u4e0a\u5e02\u516c\u53f8\u8d28\u91cf\u4e0e\u6295\u8d44\u4ef7\u503c[2]\u3002\n\n| \u4e3e\u63aa\u7ef4\u5ea6 | \u6838\u5fc3\u5185\u5bb9 | \u9884\u671f\u6210\u6548 |\n|---|---|---|\n| \u5236\u5ea6\u4e0e\u964d\u8d39 | \u4f18\u5316\u4fe1\u62ab\u3001\u66f4\u65b0ESG\u6807\u51c6\u3001\u5168\u5e74\u51cf\u8d39\u7ea611.13\u4ebf\u5143 | \u964d\u4f4e\u8fd0\u884c\u6210\u672c\uff0c\u63d0\u5347\u6cbb\u7406\u900f\u660e\u5ea6 |\n| \u4ea7\u54c1\u4e0e\u670d\u52a1 | \u5b8c\u5584\u201c\u56fa\u6536+\u201d\u6307\u6570\u3001\u5347\u7ea7\u671f\u6743\u4e13\u533a\u3001\u201c\u4e00\u7f51\u901a\u529e\u201d | \u4e30\u5bcc\u6295\u8d44\u5de5\u5177\uff0c\u4f18\u5316\u670d\u52a1\u4f53\u9a8c |\n| \u5f00\u653e\u4e0e\u76d1\u7ba1 | \u5bf9\u63a5\u8fd140\u5bb6\u6d77\u5916\u673a\u6784\u3001\u201c\u63d0\u8d28\u589e\u6548\u91cd\u56de\u62a5\u201d2.0 | \u5438\u5f15\u957f\u7ebf\u8d44\u91d1\uff0c\u5f3a\u5316\u4e0a\u5e02\u516c\u53f8\u8d28\u91cf |\n\n## \u7efc\u5408\u7814\u5224\n\u7efc\u5408\u6765\u770b\uff0cSSE\u6b63\u4ee5\u6570\u5b57\u5316\u670d\u52a1\u5347\u7ea7\u3001\u7ed3\u6784\u6027\u964d\u8d39\u4e0eESG\u6cbb\u7406\u6df1\u5316\u7cfb\u7edf\u6027\u4f18\u5316\u5e02\u573a\u751f\u6001\u3002\u5728\u5b58\u91cf\u535a\u5f08\u4e0e\u4f30\u503c\u5206\u5316\u80cc\u666f\u4e0b\uff0c\u76d1\u7ba1\u575a\u6301\u201c\u91cd\u8d28\u91cf\u3001\u5f3a\u56de\u62a5\u201d\u5bfc\u5411\uff0c\u4e2d\u957f\u671f\u5c06\u6709\u6548\u5f15\u5bfc\u957f\u7ebf\u8d44\u91d1\u5165\u5e02\uff0c\u63d0\u5347\u5e02\u573a\u6574\u4f53\u97e7\u6027\u4e0e\u56fd\u9645\u914d\u7f6e\u5438\u5f15\u529b\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** cn.chinadaily.com.cn \u2014 \u4f26\u6566\u8bc1\u5238\u4ea4\u6613\u6240\u96c6\u56e22026\u5e02\u573a\u5c55\u671b\u8bba\u575b\u5728\u4e0a\u6d77\u4e3e\u529e - \u4e2d\u56fd\u65e5\u62a5\u7f51\nURL: https://cn.chinadaily.com.cn/a/202604/16/WS69e080a2a310942cc49a7e5b.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u4f26\u6566\u8bc1\u5238\u4ea4\u6613\u6240\u96c6\u56e22026\u5e02\u573a\u5c55\u671b\u8bba\u575b\u5728\u4e0a\u6d77\u4e3e\u529e - \u4e2d\u56fd\u65e5\u62a5\u7f51 \u4f26\u6566\u8bc1\u5238\u4ea4\u6613\u6240\u96c6\u56e22026\u5e02\u573a\u5c55\u671b\u8bba\u575b\u5728\u4e0a\u6d77\u4e3e\u529e \u7ad9\u5185\u641c\u7d22 \u641c\u72d7\u641c\u7d22 \u4e2d\u56fd\u641c\u7d22 \u8ba2\u9605 \u79fb\u52a8 English \u9996\u9875 \u65f6\u653f \u65f6\u653f\u8981\u95fb \u8bc4\u8bba\u9891\u9053 \u7406\u8bba\u9891\u9053 \u5b66\u4e60\u65f6\u4ee3 \u4e24\u5cb8\u9891\u9053 \u8d44\u8baf \u72ec\u5bb6 \u4e2d\u56fd\u65e5\u62a5\u4e13\u7a3f \u4f20\u5a92\u52a8\u6001 \u6bcf\u65e5\u4e00\u8bcd \u6cd5\u9662\u516c\u544a C\u8d22\u7ecf \u8bc1\u5238 \u72ec\u5bb6 \u79d1\u6280 \u4ea7\u4e1a \u89c6\u9891 \u4e13\u680f \u6f2b\u753b \u89c2\u5929\u4e0b \u4e2d\u56fd\u89c2\u5bdf \u4e2d\u56fd\u65e5\u62a5\u7f51\u8bc4 \u4e2d\u56fd\u90a3\u4e9b\u4e8b\u513f \u6d77\u5916\u624b\u8bb0 \u4fa8\u4e00\u77a7 \u5730\u65b9 \u6587\u521b \u6587\u65c5 \u6587\u5316\u77e5\u8bc6\u5e93 \u4e2d\u56fd\u6709\u7ea6 \u751f\u6d3b China Daily Homepage \u4e2d\u6587\u7f51\u9996\u9875 \u65f6\u8bc4 \u8d44\u8baf C\u8d22\u7ecf \u751f\u6d3b \u89c6\u9891 \u4e13\u680f \u6f2b\u753b \u539f\u521b \u89c2\u5929...\u300d\n\n<a id=\"ref-2\"></a>**[2]** sse.com.cn \u2014 \u9996\u9875 | \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240\nURL: http://www.sse.com.cn\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u9996\u9875 | \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240\u670d\u52a1\u70ed\u7ebf\uff1a 400-8888-400 APP\u4e0b\u8f7d \u5fae\u535a\u5fae\u4fe1 English \u7e41 \u4e00\u7f51\u901a\u529e \u201c\u4e09\u5f00\u95e8\u201d\u4e13\u680f \u7b80\u4e2d EN \u4e00\u7f51\u901a\u529e \u201c\u4e09\u5f00\u95e8\u201d\u4e13\u680f \u7528\u6237\u5165\u53e3 \u6295\u8d44\u8005 \u4f1a\u5458\u673a\u6784 \u62df\u4e0a\u5e02\u516c\u53f8 \u503a\u5238\u673a\u6784 \u4e0a\u5e02\u516c\u53f8 \u57fa\u91d1\u516c\u53f8 \u9ad8\u6548\u529e\u6210\u4e00\u4ef6\u4e8b \u80a1\u7968\u6295\u8d44\u4e00\u4ef6\u4e8b \u503a\u5238\u53d1\u884c\u4e0a\u5e02\u4e00\u4ef6\u4e8b \u671f\u6743\u6295\u8d44\u4e00\u4ef6\u4e8b REITs\u53d1\u884c\u4e0a\u5e02\u4e00\u4ef6\u4e8b \u4f01\u4e1a\u4e0a\u5e02\u4e00\u4ef6\u4e8b \u670d\u52a1\u9884\u7ea6\u4e00\u4ef6\u4e8b \u4fe1\u606f\u62ab\u9732\u4e00\u4ef6\u4e8b \u4e00\u7f51\u901a\u529e\u79fb\u52a8\u7aef \u4e0a\u4ea4\u6240APP\"\u901a\u529e\"\u680f\u76ee - \u6b22\u8fce\u626b\u7801\u5b89\u88c5 - \u8981\u95fb [\u65f6\u653f] \u603b\u4e66\u8bb0\u7684\u4eba\u6c11\u60c5\u6000 | \u201c\u8ba9\u5185\u9700\u6210\u4e3a\u7ecf\u6d4e\u53d1\u5c55\u7684\u4e3b\u52a8\u529b\u201d 2026-08-07 [\u65f6\u653f]...\u300d\n\n<a id=\"ref-3\"></a>**[3]** cn.tradingview.com \u2014 SSE Composite Index\u89c2\u70b9 \u2014 SSE:000001 \u2014 TradingView\nURL: https://cn.tradingview.com/symbols/SSE-000001/ideas/page-2\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSSE Composite Index\u89c2\u70b9 \u2014 SSE:000001 \u2014 TradingView \u641c\u7d22 CN \u5f00\u59cb \u4e0a\u8bc1\u7efc\u5408\u6307\u6570 000001 Shanghai Stock Exchange 000001 Shanghai Stock Exchange 000001 Shanghai Stock Exchange 000001 Shanghai Stock Exchange \u4f11\u5e02 \u6ca1\u6709\u4ea4\u6613 \u6ca1\u6709\u4ea4\u6613 \u6982\u89c8 \u65b0\u95fb \u793e\u533a \u6280\u672f\u6307\u6807 \u5b63\u8282\u6027 \u6210\u5206 \u66f4\u591a \u6df1\u5165\u7684\u4ea4\u6613\u89c2\u70b9 \ufeff \u63a2\u7d22\u4ea4\u6613\u5458\u7684\u8be6\u7ec6\u5e02\u573a\u5206\u6790\u3002\u4e86\u89e3\u5176\u4ed6\u4eba\u5982\u4f55\u770b\u5f85\u8fd9\u79cd\u91d1\u878d\u5546\u54c1\uff0c\u6bd4\u8f83\u4e0d\u540c\u7684\u7b56\u7565\uff0c\u5e76\u53d1\u73b0\u80fd\u591f\u5851\u9020...\u300d\n\n<a id=\"ref-4\"></a>**[4]** english.sse.com.cn \u2014 SSE Releases List of Practical Initiatives for the Market in 2026  |  SHANGHAI STOCK EXCHANGE\nURL: http://english.sse.com.cn/news//newsrelease/c/c_20260213_10809557.shtml\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSSE Releases List of Practical Initiatives for the Market in 2026 | SHANGHAI STOCK EXCHANGE SHANGHAI STOCK EXCHANGE SSE Releases List of Practical Initiatives for the Market in 2026 Shanghai Stock Exchange (SSE) recently released the List of SSE Practical Initiatives for the Mark...\u300d\n\n<a id=\"ref-5\"></a>**[5]** english.sse.com.cn \u2014 Focus on SSE: Post-Two Sessions Outlook 2026  |  SHANGHAI STOCK EXCHANGE\nURL: https://english.sse.com.cn/events/conference/past/c/c_20260323_10812750.shtml\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFocus on SSE: Post-Two Sessions Outlook 2026 | SHANGHAI STOCK EXCHANGE SHANGHAI STOCK EXCHANGE Focus on SSE: Post-Two Sessions Outlook 2026 The Shanghai Stock Exchange (SSE) held the \"Focus on SSE: Post-Two Sessions Outlook 2026\" on March 16, 2026. The event was primarily targete...\u300d\n\n<a id=\"ref-6\"></a>**[6]** bigc.edu.cn \u2014 bigc.edu.cn\nURL: https://www.bigc.edu.cn/document/20110831094433278868.doc\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\ufffd\ufffd\u0011\u0871\u001a\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd>\ufffd\u0003\ufffd\ufffd\ufffd \ufffd\u0006\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0001\ufffd\ufffd\ufffdQ\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0010\ufffd\ufffdS\ufffd\ufffd\ufffd\u0001\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdP\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd...\u300d\n\n<a id=\"ref-7\"></a>**[7]** sir.sysu.edu.cn \u2014 sir.sysu.edu.cn\nURL: https://sir.sysu.edu.cn/sites/default/files/download/upload/%E9%99%84%E4%BB%B63.%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A%E5%8F%82%E8%80%83%E6%A0%BC%E5%BC%8F.doc\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\ufffd\ufffd\u0011\u0871\u001a\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd>\ufffd\u0003\ufffd\ufffd\ufffd \ufffd\u0006\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0007\ufffd\ufffd\ufffd\u0001\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0010\ufffd\ufffd\u0002\ufffd\ufffd\ufffd\u0001\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdy\ufffd\ufffd\ufffdz\ufffd\ufffd\ufffd{\ufffd\ufffd\ufffd\ufffd\u0001\ufffd\ufffd-\u0002\ufffd\ufffd\ufffd\u0002\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd...\u300d",
+    "metadata": [
+      "https://img2.chinadaily.com.cn/static/common/img/sharelogo2.jpg",
+      "https://cn.chinadaily.com.cn/image/2025/logo_cntop.png",
+      "https://img3.chinadaily.com.cn/static/common/img/j-q.jpg",
+      "https://img3.chinadaily.com.cn/static/2024cn_articleandcolumn/img/Mobile/Icon_Menu.png",
+      "https://english.sse.com.cn/events/conference/past/c/10812750/images/d34d50578288461482f14e99efd9cab9.png",
+      "https://english.sse.com.cn/events/conference/past/c/10812750/images/bf438906039749319d4798592f46656c.png",
+      "https://english.sse.com.cn/events/conference/past/c/10812750/images/9611b6e4dee34dd8a9e31cbf094d83df.png"
+    ]
+  }
+}

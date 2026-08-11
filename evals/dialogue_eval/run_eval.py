@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 import re
 import sys
 from pathlib import Path
@@ -17,6 +18,7 @@ if str(REPO_ROOT / "backend") not in sys.path:
     sys.path.insert(0, str(REPO_ROOT / "backend"))
 
 from _common import load_jsonl, print_summary, summarize  # noqa: E402
+from chat.intent_router import apply_intent_policy, fallback_intent  # noqa: E402
 
 
 _REPORT_RE = re.compile(
@@ -86,11 +88,36 @@ async def run_case(case: dict) -> dict:
     failures: list[str] = []
 
     intent = None
-    if "intent_action" in expect or "must_include_any" in expect:
+    structured_intent = None
+    policy = None
+    expected_intent = expect.get("expected_intent")
+    if expected_intent:
+        structured_intent = fallback_intent(
+            user_text,
+            has_report=bool(case.get("has_report")),
+        )
+        policy = apply_intent_policy(
+            structured_intent,
+            has_report=bool(case.get("has_report")),
+            report_creation_available=True,
+        )
+    elif "intent_action" in expect or "must_include_any" in expect:
         intent = await _mock_intent(user_text)
 
-    tools = _mock_tools_for_utterance(user_text, intent)
+    if structured_intent is not None:
+        tools = []
+        if policy.action == "request_report_creation":
+            tools = ["create_research_report"]
+        elif policy.action == "quick_search":
+            tools = ["quick_search"]
+    else:
+        tools = _mock_tools_for_utterance(user_text, intent)
     reply = _mock_reply(user_text, intent, tools)
+
+    if expected_intent and structured_intent.action.value != expected_intent:
+        failures.append(
+            f"expected_intent={expected_intent} got={structured_intent.action.value}"
+        )
 
     if "intent_action" in expect:
         got = (intent or {}).get("action")
@@ -132,6 +159,11 @@ async def run_case(case: dict) -> dict:
         "failures": failures,
         "tools": tools,
         "intent_action": (intent or {}).get("action"),
+        "expected_intent": expected_intent,
+        "predicted_intent": (
+            structured_intent.action.value if structured_intent is not None else None
+        ),
+        "report_created": "create_research_report" in tools,
         "reply_preview": reply[:160],
     }
 
@@ -157,6 +189,12 @@ async def main_async(args: argparse.Namespace) -> int:
             )
     summary = summarize(results, pillar="dialogue", suite=args.suite)
     print_summary(summary)
+    out_dir = REPO_ROOT / "evals" / "results"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "dialogue_latest.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
     return 0 if summary["ok"] else 1
 
 

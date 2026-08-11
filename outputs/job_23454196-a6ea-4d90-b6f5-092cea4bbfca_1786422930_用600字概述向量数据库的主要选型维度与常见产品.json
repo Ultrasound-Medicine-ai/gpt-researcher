@@ -1,0 +1,365 @@
+{
+  "timestamp": "2026-08-11T04:35:30.612327",
+  "job_id": "23454196-a6ea-4d90-b6f5-092cea4bbfca",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:35:45.558186",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:45.588882",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "🗄️ Database & Data Infrastructure Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:45.632990",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用600字概述向量数据库的主要选型维度与常见产品...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:47.134500",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:50.388716",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['用600字概述向量数据库的主要选型维度与常见产品', 'vector database selection criteria common products comparison 2026', '用600字概述向量数据库的主要选型维度与常见产品']...",
+        "metadata": [
+          "用600字概述向量数据库的主要选型维度与常见产品",
+          "vector database selection criteria common products comparison 2026",
+          "用600字概述向量数据库的主要选型维度与常见产品"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:50.437722",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:50.455378",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'vector database selection criteria common products comparison 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:50.475218",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.626477",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.653384",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.674147",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.704779",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.737575",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.755786",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.776392",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.810507",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 0 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.828217",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.857735",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.875375",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.896332",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.924638",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:51.950323",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:52.959773",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://iternal.ai/insights/best-vector-databases-2026\n",
+        "metadata": "https://iternal.ai/insights/best-vector-databases-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:52.991328",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5\n",
+        "metadata": "https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:53.018554",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:53.059655",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:54.937206",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:54.970515",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 1 new images from 1 total images",
+        "metadata": [
+          "https://imagedelivery.net/4ic4Oh0fhOCfuAqojsx6lg/uploaded-image-1/public"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:55.018256",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:55.423110",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:56.371381",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (3588 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:56.418564",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.042735",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:35:56.487358",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:36:09.740615",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用600字概述向量数据库的主要选型维度与常见产品'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用600字概述向量数据库的主要选型维度与常见产品",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# 向量数据库选型维度与主流产品全景概述（2026）\n\n## 核心选型维度\n\n向量数据库选型需围绕六大刚性维度展开：**部署模型、规模承载、混合搜索能力、合规认证、集成生态与运维复杂度**。2026年实践表明，RAG场景下检索精度并非仅由数据库本身决定，原始数据质量与预处理（如Blockify优化）可提升准确率达78倍、搜索精度2.29倍、索引体积缩小40倍[1]。因此，“数据库+数据优化”已成为端到端性能的关键组合。\n\n### 部署与运维权衡  \n完全托管型（如Pinecone、Zilliz Cloud）提供亚100ms延迟、SOC2/HIPAA认证及零运维体验，适合企业级SLA保障；而自托管方案（Milvus、Weaviate、Qdrant、Chroma）赋予深度调优能力（支持IVF、HNSW、SCANN等索引算法），但要求专业DevOps投入[1]。\n\n### 规模与性能分层  \n横向对比显示：Zilliz Cloud宣称支持超1000亿向量，Pinecone、Weaviate、Milvus、Qdrant均达“数十亿级”，Chroma则聚焦百万级本地开发场景[1]。性能差异显著——Zilliz Cloud标称较开源Milvus提速10倍[1]。\n\n### 混合搜索与扩展能力  \nWeaviate以原生混合搜索（向量+关键词）和多租户隔离见长；Pinecone强在企业级服务协议；Chroma胜在极简开发者体验；Qdrant兼顾自托管与云服务双模式[1]。\n\n## 主流产品对比分析\n\n| 特性             | Pinecone       | Weaviate         | Zilliz Cloud     | Milvus           | Qdrant           | Chroma           |\n|------------------|----------------|------------------|------------------|------------------|------------------|------------------|\n| 部署模式         | 仅托管         | 自托管+云        | 仅托管           | 自托管           | 自托管+云        | 自托管           |\n| 最大规模         | 数十亿         | 数十亿           | **超1000亿**     | 数十亿           | 数十亿           | 百万级           |\n| 混合搜索         | 支持           | **原生最优**     | 支持             | 支持             | 支持             | 基础支持         |\n| 合规认证         | SOC2/HIPAA     | 开源无认证       | 企业级认证       | 开源无认证       | 开源无认证       | 开源无认证       |\n| 典型定位         | 企业级RAG      | 开源AI原生平台   | 高性能托管Milvus | 开源控制首选     | 平衡型自托管方案 | 本地开发首选     |\n\n## 结论与推荐  \n\n2026年选型逻辑已趋成熟：**Pinecone为全托管企业首选**，Zilliz Cloud是Milvus高性能托管版，Weaviate是开源混合搜索标杆，Milvus适合需Kubernetes深度定制的团队，Chroma专精于轻量开发闭环，Qdrant则提供灵活的云/边协同架构[1]。值得注意的是，所有方案的RAG上限均受制于数据质量——无论选择何种数据库，Blockify类数据优化层已成为生产环境事实标配[1\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** iternal.ai — Best Vector Databases 2026: 6 Top Picks Compared for RAG\nURL: https://iternal.ai/insights/best-vector-databases-2026\n原文片段：「Best Vector Databases 2026: 6 Top Picks Compared for RAG Skip to main content Home Blockify Vector Databases Vector Databases Updated July 12, 2026 Best Vector Databases 2026: 6 Top Picks Compared for RAG Pinecone, Weaviate, Milvus, Qdrant, Chroma, and Zilliz compared on speed, c...」",
+    "metadata": [
+      "https://imagedelivery.net/4ic4Oh0fhOCfuAqojsx6lg/uploaded-image-1/public"
+    ]
+  }
+}

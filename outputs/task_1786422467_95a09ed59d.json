@@ -1,0 +1,399 @@
+{
+  "timestamp": "2026-08-11T04:27:47.338397",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:29:01.828712",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:01.857512",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "Default Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:02.300519",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:03.766253",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.386129",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['\u5411\u91cf\u6570\u636e\u5e93\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1\u5bf9\u6bd4', 'vector database selection criteria common products Milvus Pinecone Weaviate comparison', '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1']...",
+        "metadata": [
+          "\u5411\u91cf\u6570\u636e\u5e93\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1\u5bf9\u6bd4",
+          "vector database selection criteria common products Milvus Pinecone Weaviate comparison",
+          "\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.416509",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5411\u91cf\u6570\u636e\u5e93\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1\u5bf9\u6bd4'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.440736",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'vector database selection criteria common products Milvus Pinecone Weaviate comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.462410",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.690654",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.733253",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.760805",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.802199",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.841850",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.869096",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.897928",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.922859",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.582760",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cloud.tencent.com/developer/article/2601251\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2601251"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.619098",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://adg.csdn.net/69707248437a6b40336a474d.html\n",
+        "metadata": "https://adg.csdn.net/69707248437a6b40336a474d.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.640576",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for\n",
+        "metadata": "https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.666894",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.689850",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus\n",
+        "metadata": "https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.721214",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.746167",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.789859",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.207397",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.233767",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 14 total images",
+        "metadata": [
+          "https://qccommunity.qcloudimg.com/image/new.png",
+          "https://developer.qcloudimg.com/http-save/10011/111c3aff5ec5e7223e0debb2e64acc03.png",
+          "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+          "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.269476",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.959870",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.432842",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.462595",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://substackcdn.com/image/fetch/$s_!L1Vy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff853c535-0af7-48e6-acef-c445d453fa55_1200x600.png",
+          "https://substackcdn.com/image/fetch/$s_!R9ua!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbea33aed-89f0-40b8-a936-63093bfba6f2_2257x382.png",
+          "https://substackcdn.com/image/fetch/$s_!Tc9c!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8bdeb93b-0e0a-414d-b3ba-89def83dcca5_764x556.png",
+          "https://substackcdn.com/image/fetch/$s_!-kh9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe5bf25b3-270f-453e-90d6-c3cc122bc905_2257x382.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.494849",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.815596",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:18.033749",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (3069 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:18.076016",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.05088",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:18.151756",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:31.099280",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# \u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u6838\u5fc3\u7ef4\u5ea6\u4e0e\u4e3b\u6d41\u4ea7\u54c1\u5168\u666f\u5206\u6790\n\n## \u4e00\u3001\u56db\u5927\u6838\u5fc3\u9009\u578b\u7ef4\u5ea6\n\n\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u9700\u7cfb\u7edf\u6027\u6743\u8861**\u6027\u80fd\u3001\u529f\u80fd\u3001\u6210\u672c\u3001\u6613\u7528\u6027**\u56db\u5927\u7ef4\u5ea6[1]\u3002\u6027\u80fd\u6db5\u76d6\u67e5\u8be2\u541e\u5410\uff08QPS\uff09\u3001\u5ef6\u8fdf\uff08P50/P95\uff09\u3001\u5199\u5165\u901f\u5ea6\u53ca\u7d22\u5f15\u6784\u5efa\u65f6\u95f4\uff1b\u529f\u80fd\u5305\u62ec\u67b6\u6784\u7c7b\u578b\uff08\u4e13\u7528\u5e93 vs \u6570\u636e\u5e93\u6269\u5c55\uff09\u3001\u5206\u5e03\u5f0f\u80fd\u529b\u3001\u6df7\u5408\u68c0\u7d22\uff08\u5411\u91cf+\u6807\u91cf\u8fc7\u6ee4\uff09\u3001ACID\u4e8b\u52a1\u652f\u6301\u4e0eGPU\u52a0\u901f\uff1b\u6210\u672c\u6d89\u53ca\u5f00\u6e90\u8bb8\u53ef\u72b6\u6001\u3001\u8fd0\u7ef4\u590d\u6742\u5ea6\u4e0e\u786c\u4ef6\u8d44\u6e90\u5360\u7528\uff1b\u6613\u7528\u6027\u5219\u4f53\u73b0\u4e3aSDK\u6210\u719f\u5ea6\u3001SQL\u517c\u5bb9\u6027\u3001\u90e8\u7f72\u7b80\u6613\u6027\u53ca\u76d1\u63a7\u53ef\u89c2\u6d4b\u6027[2]\u3002\n\n## \u4e8c\u3001\u4e94\u5927\u4e3b\u6d41\u4ea7\u54c1\u6a2a\u5411\u5bf9\u6bd4\n\n\u57fa\u4e8e2025\u5e74\u6743\u5a01\u57fa\u51c6\u6d4b\u8bd5\uff0c\u4e94\u6b3e\u4e3b\u6d41\u65b9\u6848\u5728SIFT-1M\u6570\u636e\u96c6\uff08100\u4e07\u00d7128\u7ef4\uff09\u4e0b\u7684\u5173\u952e\u6307\u6807\u5982\u4e0b\uff1a\n\n| \u7ef4\u5ea6 | Milvus | pgvector | VectorChord | Qdrant | Oracle AI Vector Search |\n|------|--------|----------|-------------|--------|--------------------------|\n| **\u67b6\u6784\u7c7b\u578b** | \u4e13\u7528\u5206\u5e03\u5f0f | PostgreSQL\u6269\u5c55 | PostgreSQL\u6269\u5c55\uff08Rust\uff09 | \u4e13\u7528\u5206\u5e03\u5f0f | \u6570\u636e\u5e93\u5185\u7f6e\u529f\u80fd |\n| **\u5f00\u6e90\u72b6\u6001** | \u2705 \u793e\u533a\u4e3b\u5bfc | \u2705 \u6d3b\u8dc3 | \u2705 \u6d3b\u8dc3 | \u2705 \u6d3b\u8dc3 | \u274c \u5546\u4e1a\u8bb8\u53ef |\n| **\u6a21\u62dfQPS\uff0895%\u53ec\u56de\uff09** | 1,850 | 850 | 1,200 | **1,950** | 1,400 |\n| **P50\u5ef6\u8fdf\uff08ms\uff09** | 4.2 | 9.8 | 6.5 | **3.9** | 5.8 |\n| **\u6279\u91cf\u63d2\u5165\uff08\u6761/\u79d2\uff09** | **45,000** | 12,000 | 18,000 | 38,000 | 22,000 |\n| **\u7d22\u5f15\u6784\u5efa\u65f6\u95f4\uff08\u79d2\uff09** | 180 | 420 | 310 | **210** | 280 |\n| **\u5206\u5e03\u5f0f\u80fd\u529b** | \u539f\u751f\u4e91\u539f\u751f | \u4f9d\u8d56PG\u5206\u7247 | \u4f9d\u8d56PG\u5206\u7247 | \u539f\u751fSharding | RAC/Sharding |\n| **GPU\u52a0\u901f** | \u2705 CUDA | \u274c | \u274c | \u274c | \u274c |\n\n## \u4e09\u3001\u5dee\u5f02\u5316\u9002\u7528\u573a\u666f\n\n- **Milvus**\uff1a\u9002\u7528\u4e8e\u4ebf\u7ea7\u5411\u91cf\u3001\u9ad8\u541e\u5410\u3001\u4f4e\u5ef6\u8fdf\u573a\u666f\uff0c\u5c24\u5176\u9002\u5408AI\u5e73\u53f0\u57fa\u7840\u8bbe\u65bd\uff0c\u5177\u5907\u539f\u751fGPU\u52a0\u901f\u4e0e\u4e91\u539f\u751f\u67b6\u6784\u4f18\u52bf[2]\uff1b  \n- **pgvector**\uff1a\u5f3a\u4f9d\u8d56PostgreSQL\u751f\u6001\uff0c\u63d0\u4f9b\u5b8c\u6574ACID\u4e8b\u52a1\u4e0eSQL\u96c6\u6210\uff0c\u9002\u5408\u5343\u4e07\u7ea7\u4e2d\u5c0f\u89c4\u6a21\u3001\u9700\u5feb\u901f\u539f\u578b\u9a8c\u8bc1\u7684\u5e94\u7528[2]\uff1b  \n- **VectorChord**\uff1a\u4ee5Rust\u5b9e\u73b0\u9ad8\u6027\u80fd\u4e0e\u5185\u5b58\u5b89\u5168\uff0c\u517c\u987e\u6210\u672c\u4e0e\u6027\u80fd\uff0c\u5728PostgreSQL\u7528\u6237\u4e2d\u5bf9\u5185\u5b58\u654f\u611f\u578b\u573a\u666f\u8868\u73b0\u7a81\u51fa[2]\uff1b  \n- **Qdrant**\uff1a\u5f00\u53d1\u53cb\u597d\u3001\u591a\u6a21\u6001\u539f\u751f\u652f\u6301\u3001Payload\u8fc7\u6ee4\u6027\u80fd\u5353\u8d8a\uff0c\u9002\u7528\u4e8e\u5b9e\u65f6\u63a8\u8350\u4e0e\u590d\u6742\u6761\u4ef6\u8fc7\u6ee4\u573a\u666f[2]\uff1b  \n- **Oracle AI Vector Search**\uff1a\u9762\u5411\u91d1\u878d\u3001\u533b\u7597\u7b49\u5f3a\u76d1\u7ba1\u884c\u4e1a\uff0c\u4f9d\u6258\u4f01\u4e1a\u7ea7ACID\u3001\u5408\u89c4\u6027\u4e0eOLTP+\u5411\u91cf\u6df7\u5408\u67e5\u8be2\u80fd\u529b[2]\u3002\n\n\u7efc\u4e0a\uff0c\u9009\u578b\u987b\u4e25\u683c\u5339\u914d\u4e1a\u52a1\u89c4\u6a21\uff08\u5355\u673a\u4e0a\u9650\uff1apgvector\u22645000\u4e07\uff0cMilvus/Qdrant/Oracle\u226510\u4ebf\uff09\u3001\u6280\u672f\u6808\uff08\u662f\u5426\u5df2\u6709PG\u6216Oracle\uff09\u3001\u6027\u80fdSLA\uff08\u5982P95\u5ef6\u8fdf<10ms\uff09\u53ca\u6cbb\u7406\u8981\u6c42\uff08\u5f00\u6e90\u5408\u89c4\u6027\u3001\u4e8b\u52a1\u4e00\u81f4\u6027\uff09[2\n\n[truncated]\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** cloud.tencent.com \u2014 \u5411\u91cf\u6570\u636e\u5e93\u4ea7\u54c1\u5bf9\u6bd4\u8bc4\u6d4b\uff1a2025\u5e74\u4f01\u4e1a\u7ea7RAG\u7cfb\u7edf\u9009\u578b\u6307\u5357-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91\nURL: https://cloud.tencent.com/developer/article/2601251\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5411\u91cf\u6570\u636e\u5e93\u4ea7\u54c1\u5bf9\u6bd4\u8bc4\u6d4b\uff1a2025\u5e74\u4f01\u4e1a\u7ea7RAG\u7cfb\u7edf\u9009\u578b\u6307\u5357-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91 gavin1024 \u5411\u91cf\u6570\u636e\u5e93\u4ea7\u54c1\u5bf9\u6bd4\u8bc4\u6d4b\uff1a2025\u5e74\u4f01\u4e1a\u7ea7RAG\u7cfb\u7edf\u9009\u578b\u6307\u5357 \u539f\u521b \u5173\u6ce8\u4f5c\u8005 \u817e\u8baf\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u6587\u6863 \u5efa\u8bae\u53cd\u9988 \u63a7\u5236\u53f0 \u767b\u5f55/\u6ce8\u518c \u9996\u9875 \u5b66\u4e60 \u6d3b\u52a8 \u4e13\u533a \u5708\u5c42 \u5de5\u5177 MCP\u5e7f\u573a \u6587\u7ae0/\u7b54\u6848/\u6280\u672f\u5927\u725b \u641c\u7d22 \u641c\u7d22 \u5173\u95ed \u53d1\u5e03 gavin1024 \u793e\u533a\u9996\u9875 > \u4e13\u680f > \u5411\u91cf\u6570\u636e\u5e93\u4ea7\u54c1\u5bf9\u6bd4\u8bc4\u6d4b\uff1a2025\u5e74\u4f01\u4e1a\u7ea7RAG\u7cfb\u7edf\u9009\u578b\u6307\u5357 \u5411\u91cf\u6570\u636e\u5e93\u4ea7\u54c1\u5bf9\u6bd4\u8bc4\u6d4b\uff1a2025\u5e74\u4f01\u4e1a\u7ea7RAG\u7cfb\u7edf\u9009\u578b\u6307\u5357 \u539f\u521b gavin1024 \u5173\u6ce8 \u53d1\u5e03 \u4e8e 2025-12-15...\u300d\n\n<a id=\"ref-2\"></a>**[2]** adg.csdn.net \u2014 \u3010\u6280\u672f\u5e72\u8d27\u3011\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u6307\u5357\uff1a\u4e94\u5927\u4e3b\u6d41\u65b9\u6848\u6027\u80fd\u5bf9\u6bd4\u4e0e\u6700\u4f73\u5b9e\u8df5\uff08\u5efa\u8bae\u6536\u85cf\uff09_\u6570\u636e\u5e93_Python-\u642c\u8fd0\u5de5-\u667a\u80fd\u4f53\u5f00\u53d1\u8005\u793e\u533a\nURL: https://adg.csdn.net/69707248437a6b40336a474d.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u3010\u6280\u672f\u5e72\u8d27\u3011\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u6307\u5357\uff1a\u4e94\u5927\u4e3b\u6d41\u65b9\u6848\u6027\u80fd\u5bf9\u6bd4\u4e0e\u6700\u4f73\u5b9e\u8df5\uff08\u5efa\u8bae\u6536\u85cf\uff09_\u6570\u636e\u5e93_Python-\u642c\u8fd0\u5de5-\u667a\u80fd\u4f53\u5f00\u53d1\u8005\u793e\u533a \u667a\u80fd\u4f53\u5f00\u53d1\u8005\u793e\u533a \u3010\u6280\u672f\u5e72\u8d27\u3011\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u6307\u5357\uff1a\u4e94\u5927\u4e3b\u6d41\u65b9\u6848\u6027\u80fd\u5bf9\u6bd4\u4e0e\u6700\u4f73\u5b9e\u8df5\uff08\u5efa\u8bae\u6536\u85cf\uff09 \u3010\u6280\u672f\u5e72\u8d27\u3011\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u6307\u5357\uff1a\u4e94\u5927\u4e3b\u6d41\u65b9\u6848\u6027\u80fd\u5bf9\u6bd4\u4e0e\u6700\u4f73\u5b9e\u8df5\uff08\u5efa\u8bae\u6536\u85cf\uff09 Python-\u642c\u8fd0\u5de5 1621\u4eba\u6d4f\u89c8 \u00b7 2025-12-15 14:52:22 Python-\u642c\u8fd0\u5de5 \u00b7 2025-12-15 14:52:22 \u53d1\u5e03 \u7b80\u4ecb \u672c\u6587\u5bf9\u4e94\u5927\u4e3b\u6d41\u5411\u91cf\u6570\u636e\u5e93(Milvus\u3001pgvector\u3001VectorChord\u3001Qdrant\u548cOracl...\u300d\n\n<a id=\"ref-3\"></a>**[3]** ankursnewsletter.com \u2014 Pinecone vs. Weaviate vs. Milvus for Vector Search\nURL: https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for\n\u539f\u6587\u7247\u6bb5\uff1a\u300cPinecone vs. Weaviate vs. Milvus for Vector Search Ankur\u2019s Newsletter Subscribe Sign in Pinecone vs. Weaviate vs. Milvus for Vector Search Compare Pinecone, Weaviate, and Milvus\u2014leading vector databases for AI applications. Explore their strengths in vector search, scalability, a...\u300d\n\n<a id=\"ref-4\"></a>**[4]** emasterlabs.com \u2014 Pinecone vs Weaviate vs Milvus: Choosing the Right Vector Database for AI Apps\nURL: https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus\n\u539f\u6587\u7247\u6bb5\uff1a\u300cPinecone vs Weaviate vs Milvus: Choosing the Right Vector Database for AI Apps New Free AI market & MVP report \u2013 validate your idea in 3 min \u2192 Get Started Archives August 2026 July 2026 June 2026 May 2026 April 2026 March 2026 February 2026 January 2026 December 2025 November 202...\u300d",
+    "metadata": [
+      "https://qccommunity.qcloudimg.com/image/new.png",
+      "https://developer.qcloudimg.com/http-save/10011/111c3aff5ec5e7223e0debb2e64acc03.png",
+      "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+      "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png",
+      "https://substackcdn.com/image/fetch/$s_!L1Vy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff853c535-0af7-48e6-acef-c445d453fa55_1200x600.png",
+      "https://substackcdn.com/image/fetch/$s_!R9ua!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbea33aed-89f0-40b8-a936-63093bfba6f2_2257x382.png",
+      "https://substackcdn.com/image/fetch/$s_!Tc9c!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8bdeb93b-0e0a-414d-b3ba-89def83dcca5_764x556.png",
+      "https://substackcdn.com/image/fetch/$s_!-kh9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe5bf25b3-270f-453e-90d6-c3cc122bc905_2257x382.png"
+    ]
+  }
+}

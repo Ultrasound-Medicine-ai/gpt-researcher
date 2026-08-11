@@ -1,0 +1,632 @@
+{
+  "timestamp": "2026-08-09T16:21:17.300158",
+  "events": [
+    {
+      "timestamp": "2026-08-09T16:21:45.554269",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\n\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:21:45.585652",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Technical Researcher Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:21:45.621949",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\n\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:21:47.412808",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:42.825778",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['FastAPI \u67b6\u6784\u7279\u70b9 \u6027\u80fd\u8868\u73b0 \u751f\u6001\u73b0\u72b6 \u5b9e\u9645\u5e94\u7528\u573a\u666f \u6df1\u5ea6\u8c03\u7814', 'FastAPI architecture deep dive performance benchmark TechEmpower', 'FastAPI ecosystem status production use cases 2026', '\u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\\n\\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002']...",
+        "metadata": [
+          "FastAPI \u67b6\u6784\u7279\u70b9 \u6027\u80fd\u8868\u73b0 \u751f\u6001\u73b0\u72b6 \u5b9e\u9645\u5e94\u7528\u573a\u666f \u6df1\u5ea6\u8c03\u7814",
+          "FastAPI architecture deep dive performance benchmark TechEmpower",
+          "FastAPI ecosystem status production use cases 2026",
+          "\u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\n\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:42.857199",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'FastAPI \u67b6\u6784\u7279\u70b9 \u6027\u80fd\u8868\u73b0 \u751f\u6001\u73b0\u72b6 \u5b9e\u9645\u5e94\u7528\u573a\u666f \u6df1\u5ea6\u8c03\u7814'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:42.873655",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'FastAPI architecture deep dive performance benchmark TechEmpower'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:42.889946",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'FastAPI ecosystem status production use cases 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:42.906569",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\n\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:43.975612",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://fastapi.org.cn\n",
+        "metadata": "https://fastapi.org.cn"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.006456",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://fastapi.tiangolo.com/zh\n",
+        "metadata": "https://fastapi.tiangolo.com/zh"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.039508",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cloud.baidu.com/article/3420121\n",
+        "metadata": "https://cloud.baidu.com/article/3420121"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.085133",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.jetbrains.com/zh-hans/pycharm/2025/03/django-flask-fastapi\n",
+        "metadata": "https://blog.jetbrains.com/zh-hans/pycharm/2025/03/django-flask-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.154759",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/qq_39172059/article/details/136518206\n",
+        "metadata": "https://blog.csdn.net/qq_39172059/article/details/136518206"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.192912",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.246566",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.759404",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://medium.com/@hasindusithmin64/fastapi-outperforms-other-frameworks-in-techempower-benchmarks-16d222b43c0f\n",
+        "metadata": "https://medium.com/@hasindusithmin64/fastapi-outperforms-other-frameworks-in-techempower-benchmarks-16d222b43c0f"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.792649",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://tech-insider.org/fastapi-vs-flask-2026\n",
+        "metadata": "https://tech-insider.org/fastapi-vs-flask-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.824688",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://github.com/fastapi/fastapi/discussions/7320\n",
+        "metadata": "https://github.com/fastapi/fastapi/discussions/7320"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.855730",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://fastapi.tiangolo.com/benchmarks\n",
+        "metadata": "https://fastapi.tiangolo.com/benchmarks"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.885790",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.techempower.com/benchmarks#section=data-r20&hw=ph&test=fortune&l=zijzen-sf\n",
+        "metadata": "https://www.techempower.com/benchmarks#section=data-r20&hw=ph&test=fortune&l=zijzen-sf"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:44.928972",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.002200",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.646004",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.aliyun.com/article/1660638\n",
+        "metadata": "https://developer.aliyun.com/article/1660638"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.716589",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/uncleyong/p/19519029\n",
+        "metadata": "https://www.cnblogs.com/uncleyong/p/19519029"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.773319",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/qq_42878721/article/details/154498357\n",
+        "metadata": "https://blog.csdn.net/qq_42878721/article/details/154498357"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.826739",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://pynions.com/fastapi-vs-flask\n",
+        "metadata": "https://pynions.com/fastapi-vs-flask"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.888819",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.cloud.tencent.com/article/2661877\n",
+        "metadata": "https://developer.cloud.tencent.com/article/2661877"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.959339",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://fastapi.tiangolo.com\n",
+        "metadata": "https://fastapi.tiangolo.com"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:45.987610",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.050544",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://kgabeci.medium.com/django-vs-fastapi-in-2026-b93f5a61ad17\n",
+        "metadata": "https://kgabeci.medium.com/django-vs-fastapi-in-2026-b93f5a61ad17"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.104393",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.213020",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.reddit.com/r/FastAPI/comments/1q7e9d5/fastapi_for_ai_apps_in_2026_still_the_best_choice\n",
+        "metadata": "https://www.reddit.com/r/FastAPI/comments/1q7e9d5/fastapi_for_ai_apps_in_2026_still_the_best_choice"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.298545",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.416143",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.788479",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.838458",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 37 total images",
+        "metadata": [
+          "https://blog.jetbrains.com/wp-content/uploads/2025/03/pc-featured_blog_1280x720_en.png",
+          "https://i-blog.csdnimg.cn/blog_migrate/7d559ea1b873d9cef41c020ceda1198a.jpeg",
+          "https://i-blog.csdnimg.cn/blog_migrate/8180f931f7337ddbe86726b61bda47bb.jpeg",
+          "https://i-blog.csdnimg.cn/blog_migrate/4e9f194f48d59a553fd7bea88a5641b6.jpeg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.907248",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:46.968307",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\n\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:47.134126",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:47.189324",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 12 total images",
+        "metadata": [
+          "https://www.cnblogs.com/skins/custom/images/logo.gif",
+          "https://img2024.cnblogs.com/blog/1024732/202601/1024732-20260112113159201-1307178141.png",
+          "https://img2024.cnblogs.com/blog/1024732/202601/1024732-20260112112900837-2035880837.png",
+          "https://files-cdn.cnblogs.com/files/uncleyong/wx.bmp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:47.253251",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:47.331938",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: FastAPI \u67b6\u6784\u7279\u70b9 \u6027\u80fd\u8868\u73b0 \u751f\u6001\u73b0\u72b6 \u5b9e\u9645\u5e94\u7528\u573a\u666f \u6df1\u5ea6\u8c03\u7814...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:48.460410",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:48.486878",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 12 total images",
+        "metadata": [
+          "https://tech-insider.org/wp-content/uploads/2026/04/fastapi-vs-flask-2026.jpg",
+          "https://user-images.githubusercontent.com/6379399/208662450-cb5918cf-b0f3-4728-b1d3-3ac472ed46c8.png",
+          "https://user-images.githubusercontent.com/6379399/208651554-59313b34-7468-4d41-8c42-6daeb65531fc.png",
+          "https://user-images.githubusercontent.com/6379399/208656500-f7d0fd7e-2568-4f51-9583-2c46385104eb.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:48.538604",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:48.583960",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: FastAPI architecture deep dive performance benchmark TechEmpower...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:49.324163",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:49.349789",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 16 total images",
+        "metadata": [
+          "https://pynions.com/_next/image?url=%2Fmedia%2Fpynions%2Ffastapi-1.jpg&w=1400&q=85&dpl=dpl_FixUmXU2jnRa6q3b9VvS4ZoXdNNU",
+          "https://pynions.com/_next/image?url=%2Fmedia%2Fpynions%2Fflask.jpg&w=1400&q=85&dpl=dpl_FixUmXU2jnRa6q3b9VvS4ZoXdNNU",
+          "https://pynions.com/_next/image?url=%2Fmedia%2Fpynions%2Fruff-python.jpg&w=1400&q=85&dpl=dpl_FixUmXU2jnRa6q3b9VvS4ZoXdNNU",
+          "https://pynions.com/_next/image?url=%2Fmedia%2Fpynions%2Fpolars-python.jpg&w=1400&q=85&dpl=dpl_FixUmXU2jnRa6q3b9VvS4ZoXdNNU"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:49.379432",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:22:49.407900",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: FastAPI ecosystem status production use cases 2026...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:23:25.564487",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:23:25.596047",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:23:25.624169",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:23:25.649882",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:23:25.681280",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.034777",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:23:25.740177",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\n\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:24:43.468413",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u5e2e\u6211\u5199\u4e00\u4e2aFastAPI\u7684\u8c03\u7814\u62a5\u544a\n\nAdditional requirements: \u6df1\u5165\u8c03\u7814 FastAPI \u7684\u67b6\u6784\u7279\u70b9\u3001\u6027\u80fd\u8868\u73b0\u3001\u751f\u6001\u73b0\u72b6\u53ca\u5b9e\u9645\u5e94\u7528\u573a\u666f\u3002'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# FastAPI \u6280\u672f\u8c03\u7814\u62a5\u544a\n\n## \u67b6\u6784\u7279\u70b9\nFastAPI \u662f\u4e00\u4e2a\u57fa\u4e8e Python 3.6+ \u6784\u5efa\u7684\u73b0\u4ee3 Web \u6846\u67b6\uff0c\u5176\u6838\u5fc3\u67b6\u6784\u5efa\u7acb\u5728 Starlette \u4e0e Pydantic \u4e24\u5927\u7ec4\u4ef6\u4e4b\u4e0a[3]\u3002Starlette \u4f5c\u4e3a\u8f7b\u91cf\u7ea7 ASGI \u6846\u67b6\uff0c\u63d0\u4f9b\u5e95\u5c42\u5f02\u6b65\u7f51\u7edc\u901a\u4fe1\u3001\u8def\u7531\u5206\u53d1\u4e0e\u4e2d\u95f4\u4ef6\u652f\u6301\uff0c\u4f7f FastAPI \u539f\u751f\u5177\u5907 `async/await` \u5f02\u6b65\u7f16\u7a0b\u80fd\u529b[6]\u3002Pydantic \u5219\u4e13\u6ce8\u4e8e\u6570\u636e\u9a8c\u8bc1\u3001\u5e8f\u5217\u5316\u4e0e\u914d\u7f6e\u7ba1\u7406\uff0c\u901a\u8fc7 Python \u6807\u51c6\u7c7b\u578b\u63d0\u793a\uff08Type Hints\uff09\u5b9e\u73b0\u8bf7\u6c42\u53c2\u6570\u7684\u81ea\u52a8\u6821\u9a8c\u3001\u7c7b\u578b\u8f6c\u6362\u4e0e\u9519\u8bef\u62e6\u622a[1]\u3002\n\n\u8be5\u6846\u67b6\u91c7\u7528\u58f0\u660e\u5f0f\u8bbe\u8ba1\uff0c\u5f00\u53d1\u8005\u4ec5\u9700\u901a\u8fc7\u51fd\u6570\u7b7e\u540d\u5373\u53ef\u5b9a\u4e49\u8def\u7531\u3001\u67e5\u8be2\u53c2\u6570\u3001\u8bf7\u6c42\u4f53\u53ca\u4f9d\u8d56\u6ce8\u5165\u89c4\u5219[3]\u3002\u5185\u7f6e\u7684\u4f9d\u8d56\u6ce8\u5165\u7cfb\u7edf\u53ef\u9ad8\u6548\u7ba1\u7406\u6570\u636e\u5e93\u4f1a\u8bdd\u3001\u5b89\u5168\u4ee4\u724c\u7b49\u5171\u4eab\u8d44\u6e90\uff0c\u663e\u8457\u964d\u4f4e\u6a21\u5757\u8026\u5408\u5ea6[8]\u3002\u6b64\u5916\uff0cFastAPI \u4e25\u683c\u9075\u5faa OpenAPI \u4e0e JSON Schema \u89c4\u8303\uff0c\u542f\u52a8\u65f6\u81ea\u52a8\u89e3\u6790\u7c7b\u578b\u6ce8\u89e3\u5e76\u751f\u6210\u4ea4\u4e92\u5f0f API \u6587\u6863\uff08Swagger UI \u4e0e ReDoc\uff09\uff0c\u5b9e\u73b0\u4ee3\u7801\u5373\u6587\u6863\u7684\u5de5\u7a0b\u5b9e\u8df5[13]\u3002\n\n## \u6027\u80fd\u8868\u73b0\nFastAPI \u7684\u6027\u80fd\u4f18\u52bf\u4e3b\u8981\u6e90\u4e8e\u5f02\u6b65\u975e\u963b\u585e I/O \u6a21\u578b\u4e0e\u5e95\u5c42 Uvicorn \u670d\u52a1\u5668\u7684\u4f18\u5316\u3002\u5b98\u65b9\u57fa\u51c6\u6d4b\u8bd5\u8868\u660e\uff0c\u5728\u7b80\u5355\u8d1f\u8f7d\u4e0b\u5176\u541e\u5410\u91cf\u53ef\u8fbe 15,000 \u81f3 20,000 \u6b21\u8bf7\u6c42/\u79d2\uff0c\u6027\u80fd\u8868\u73b0\u4e0e Node.js \u548c Go \u8bed\u8a00\u6846\u67b6\u76f8\u5f53\uff0c\u4e14\u5728\u7279\u5b9a\u573a\u666f\u4e0b\u8f83\u4f20\u7edf\u540c\u6b65\u6846\u67b6 Flask \u5feb 6 \u81f3 8 \u500d[10]\u3002\u72ec\u7acb TechEmpower \u57fa\u51c6\u6d4b\u8bd5\u4ea6\u5c06\u5176\u5217\u4e3a\u6700\u5feb\u7684 Python \u6846\u67b6\u4e4b\u4e00[11]\u3002\n\n\u7136\u800c\uff0c\u6027\u80fd\u91ca\u653e\u5177\u6709\u4e25\u683c\u7684\u524d\u63d0\u6761\u4ef6\u3002\u5b9e\u6d4b\u6570\u636e\u6307\u51fa\uff0c\u82e5\u4e1a\u52a1\u903b\u8f91\u672a\u91c7\u7528\u5168\u5f02\u6b65 I/O \u6808\uff08\u5982\u6df7\u7528\u540c\u6b65\u6570\u636e\u5e93\u9a71\u52a8\u6216\u963b\u585e\u578b HTTP \u5ba2\u6237\u7aef\uff09\uff0c`async def` \u4e0d\u4ec5\u65e0\u6cd5\u63d0\u5347\u5e76\u53d1\u80fd\u529b\uff0c\u53cd\u800c\u53ef\u80fd\u56e0\u4e8b\u4ef6\u5faa\u73af\u963b\u585e\u5bfc\u81f4\u54cd\u5e94\u5ef6\u8fdf[12]\u3002\u90e8\u5206\u5f00\u53d1\u8005\u5728 GitHub \u8ba8\u8bba\u4e2d\u8d28\u7591\u5176\u8425\u9500\u6570\u636e\uff0c\u6307\u51fa\u5728\u590d\u6742\u6570\u636e\u6821\u9a8c\u573a\u666f\u4e0b\u5b9e\u6d4b\u4ec5\u7ea6 5,000 RPS[9]\u3002\u5b98\u65b9\u5bf9\u6b64\u660e\u786e\u8bf4\u660e\uff1a\u6027\u80fd\u5c42\u7ea7\u4e3a Uvicorn\uff08ASGI \u670d\u52a1\u5668\uff09> Starlette\uff08\u5fae\u6846\u67b6\uff09> FastAPI\uff08API \u6846\u67b6\uff09\uff0cFastAPI \u7684\u989d\u5916\u5f00\u9500\u4e3b\u8981\u7528\u4e8e\u81ea\u52a8\u5316\u6821\u9a8c\u4e0e\u5e8f\u5217\u5316\uff0c\u8fd9\u90e8\u5206\u903b\u8f91\u82e5\u624b\u52a8\u5b9e\u73b0\u5c06\u4ea7\u751f\u540c\u7b49\u751a\u81f3\u66f4\u9ad8\u7684\u8fd0\u884c\u65f6\u6210\u672c[11]\u3002\u56e0\u6b64\uff0c\u5176\u9ad8\u6027\u80fd\u9700\u5728 I/O \u5bc6\u96c6\u578b\u4efb\u52a1\u4e0e\u5168\u5f02\u6b65\u6280\u672f\u6808\u534f\u540c\u4e0b\u624d\u80fd\u5145\u5206\u4f53\u73b0\u3002\n\n## \u751f\u6001\u73b0\u72b6\n\u622a\u81f3 2026 \u5e74\u4e2d\uff0cFastAPI \u5df2\u5b8c\u6210\u4ece\u65b0\u5174\u6846\u67b6\u5230\u884c\u4e1a\u4e3b\u6d41\u7684\u5de5\u7a0b\u5316\u8de8\u8d8a\uff0c\u6838\u5fc3\u751f\u6001\u6307\u6807\u5982\u4e0b\uff1a\n\n| \u6307\u6807\u7ef4\u5ea6 | FastAPI \u6570\u636e\u8868\u73b0 | \u5bf9\u6bd4\u53c2\u8003/\u8bf4\u660e |\n|:---|:---|:---|\n| GitHub Stars | 99,453\uff082026\u5e746\u6708\uff09 | 2025\u5e7412\u6708\u8d85\u8d8a Flask\uff0c\u5c45 Python Web \u6846\u67b6\u9996\u4f4d[12] |\n| PyPI \u6708\u4e0b\u8f7d\u91cf | 4.78\u4ebf ~ 4.92\u4ebf\u6b21 | \u7ea6\u4e3a Flask \u7684 2.4 \u500d\uff0c\u751f\u4ea7\u91c7\u7528\u7387\u7ed3\u6784\u6027\u53cd\u8f6c[12] |\n| \u4f01\u4e1a\u7ea7\u91c7\u7528 | \u5fae\u8f6f\u3001Uber\u3001Netflix\u3001Cisco\u3001Hugging Face\u3001Spotify | \u5e7f\u6cdb\u7528\u4e8e ML \u670d\u52a1\u3001API \u7f51\u5173\u53ca\u5185\u90e8\u7f16\u6392\u7cfb\u7edf[13] |\n| \u5b89\u5168\u52a8\u6001 | CVE-2026-48710\uff082026\u5e745\u6708\uff09 | Starlette \u8ba4\u8bc1\u7ed5\u8fc7\u6f0f\u6d1e\uff0c\u63d0\u793a\u9700\u5173\u6ce8\u5e95\u5c42\u4f9d\u8d56\u66f4\u65b0[12] |\n\n\u6846\u67b6\u793e\u533a\u6d3b\u8dc3\u5ea6\u6301\u7eed\u6500\u5347\uff0c\u5b98\u65b9\u5df2\u89c4\u5212\u4e8e 2026 \u5e74 10 \u6708\u5728\u963f\u59c6\u65af\u7279\u4e39\u4e3e\u529e FastAPI Conf '26 \u5927\u4f1a[3]\u3002\u751f\u6001\u5de5\u5177\u94fe\u65e5\u8d8b\u5b8c\u5584\uff0c\u4e0e pytest \u6df1\u5ea6\u96c6\u6210\u4f7f\u6d4b\u8bd5\u8986\u76d6\u7387\u7ba1\u7406\u66f4\u4e3a\u4fbf\u6377\uff0c\u540c\u65f6\u884d\u751f\u51fa Typer \u7b49 CLI \u751f\u6001\u6269\u5c55[13]\u3002\n\n## \u5b9e\u9645\u5e94\u7528\u573a\u666f\n\u57fa\u4e8e\u67b6\u6784\u7279\u6027\u4e0e\u6027\u80fd\u8868\u73b0\uff0cFastAPI \u5728\u4ee5\u4e0b\u573a\u666f\u4e2d\u5177\u5907\u663e\u8457\u4f18\u52bf\uff1a\n- **\u5fae\u670d\u52a1\u4e0e RESTful API \u5f00\u53d1**\uff1a\u8f7b\u91cf\u7ea7\u8def\u7531\u4e0e\u81ea\u52a8\u6587\u6863\u751f\u6210\u6781\u5927\u52a0\u901f\u524d\u540e\u7aef\u5206\u79bb\u8fed\u4ee3\uff0c\u5185\u7f6e CORS\u3001\u9650\u6d41\u4e2d\u95f4\u4ef6\u652f\u6301\u5feb\u901f\u6784\u5efa\u6807\u51c6\u5316\u670d\u52a1[8]\u3002\n- **\u673a\u5668\u5b66\u4e60\u4e0e AI \u6a21\u578b\u90e8\u7f72**\uff1aPydantic \u6a21\u578b\u53ef\u76f4\u63a5\u6620\u5c04\u7279\u5f81\u5411\u91cf\u8f93\u5165\uff0c\u7ed3\u5408\u5f02\u6b65\u7279\u6027\u9ad8\u6548\u5904\u7406\u6279\u91cf\u63a8\u7406\u8bf7\u6c42\uff0c\u5df2\u6210\u4e3a MLOps \u6d41\u6c34\u7ebf\u7684\u9996\u9009\u63a5\u53e3\u6846\u67b6[8]\u3002\n- **\u5b9e\u65f6\u6570\u636e\u901a\u4fe1**\uff1a\u539f\u751f\u652f\u6301 WebSocket \u534f\u8bae\uff0c\u9002\u7528\u4e8e\u7269\u8054\u7f51\uff08IoT\uff09\u8bbe\u5907\u6570\u636e\u4e0a\u62a5\u3001\u5b9e\u65f6\u6d88\u606f\u63a8\u9001\u53ca\u9ad8\u9891\u4ea4\u6613\u540e\u7aef\u7b49\u4f4e\u5ef6\u8fdf\u573a\u666f[6]\u3002\n- **\u81ea\u52a8\u5316\u6d4b\u8bd5\u4e0e\u8fd0\u7ef4\u5e73\u53f0**\uff1a\u7c7b\u578b\u63d0\u793a\u4e0e\u4f9d\u8d56\u6ce8\u5165\u4f7f\u4ee3\u7801\u53ef\u6d4b\u8bd5\u6027\u5927\u5e45\u63d0\u5347\uff0c\u5e7f\u6cdb\u5e94\u7528\u4e8e CI/CD \u6d41\u6c34\u7ebf\u6784\u5efa\u4e0e\u81ea\u52a8\u5316\u6d4b\u8bd5\u5de5\u5177\u5f00\u53d1[8]\u3002\n\n## \u7efc\u5408\u8bc4\u4f30\u4e0e\u5efa\u8bae\nFastAPI \u6210\u529f\u5c06 Python \u7684\u5f00\u53d1\u6548\u7387\u4e0e\u73b0\u4ee3\u5f02\u6b65\u6027\u80fd\u76f8\u7ed3\u5408\uff0c\u5728\u7c7b\u578b\u5b89\u5168\u3001\u81ea\u52a8\u5316\u6587\u6863\u4e0e\u4f9d\u8d56\u6ce8\u5165\u65b9\u9762\u786e\u7acb\u4e86\u884c\u4e1a\u6807\u6746\u3002\u4f46\u5176\u6027\u80fd\u4f18\u52bf\u5e76\u975e\u65e0\u6761\u4ef6\u6210\u7acb\uff0c\u56e2\u961f\u9009\u578b\u65f6\u5fc5\u987b\u4e25\u683c\u8bc4\u4f30\u73b0\u6709 I/O \u7ec4\u4ef6\u7684\u5f02\u6b65\u517c\u5bb9\u6027\u3002\u5bf9\u4e8e\u65b0\u5efa API \u670d\u52a1\u3001\u5fae\u670d\u52a1\u67b6\u6784\u6216 AI \u6a21\u578b\u63a8\u7406\u7f51\u5173\uff0cFastAPI \u662f\u5f53\u524d\u6700\u4f18\u89e3\uff1b\u800c\u5bf9\u4e8e\u5f3a\u4f9d\u8d56\u540c\u6b65\u751f\u6001\u3001\u9700\u5feb\u901f\u6e32\u67d3 HTML\n\n[truncated]\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** cloud.baidu.com \u2014 FastAPI\u5168\u89e3\u6790\uff1a\u9ad8\u6027\u80fdAPI\u6784\u5efa\u7684\u4f18\u9009\u6846\u67b6\nURL: https://cloud.baidu.com/article/3420121\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI\u5168\u89e3\u6790\uff1a\u9ad8\u6027\u80fdAPI\u6784\u5efa\u7684\u4f18\u9009\u6846\u67b6 FastAPI\u5168\u89e3\u6790\uff1a\u9ad8\u6027\u80fdAPI\u6784\u5efa\u7684\u4f18\u9009\u6846\u67b6 \u4f5c\u8005\uff1a \u6c99\u4e0e\u6cab 2024.12.03 00:57 \u6d4f\u89c8\u91cf\uff1a 184 \u7b80\u4ecb\uff1a FastAPI\u662f\u4e00\u4e2a\u57fa\u4e8ePython\u7684\u73b0\u4ee3Web\u6846\u67b6\uff0c\u4ee5\u5176\u9ad8\u6027\u80fd\u3001\u6613\u7528\u6027\u548c\u4e30\u5bcc\u7684\u529f\u80fd\u7279\u6027\u6210\u4e3a\u6784\u5efaAPI\u7684\u7406\u60f3\u9009\u62e9\u3002\u672c\u6587\u6df1\u5165\u89e3\u6790FastAPI\u7684\u6838\u5fc3\u7406\u5ff5\u3001\u4f18\u52bf\u53ca\u5e94\u7528\u573a\u666f\u3002 FastAPI\uff0c\u4f5c\u4e3a\u73b0\u4ee3Web\u5f00\u53d1\u9886\u57df\u7684\u4e00\u9897\u7480\u74a8\u65b0\u661f\uff0c\u51ed\u501f\u5176\u5353\u8d8a\u7684\u6027\u80fd\u3001\u6613\u7528\u6027\u548c\u4e30\u5bcc\u7684\u529f\u80fd\u7279\u6027\uff0c\u8fc5\u901f\u5728Python\u793e\u533a\u4e2d\u5d2d\u9732\u5934\u89d2\u3002\u672c\u6587\u5c06\u5bf9FastAPI\u8fdb\u884c\u6df1\u5165\u89e3\u6790\uff0c\u63a2\u8ba8\u5176\u6838\u5fc3\u7406\u5ff5\u3001\u4f18\u52bf\u4ee5\u53ca\u5728\u4e0d\u540c\u5e94\u7528\u573a\u666f\u4e0b\u7684\u8868\u73b0\u3002...\u300d\n\n<a id=\"ref-2\"></a>**[2]** fastapi.tiangolo.com \u2014 FastAPI - FastAPI\nURL: https://fastapi.tiangolo.com/zh\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI - FastAPI \u8df3\u8f6c\u81f3 Deploy on FastAPI Cloud \ud83d\ude80 FastAPI Conf '26 \u2014 Oct 28, 2026, Amsterdam \ud83c\udfa4 Follow @fastapi on X (Twitter) to stay updated Follow FastAPI on LinkedIn to stay updated Subscribe to the FastAPI and friends newsletter \ud83c\udf89 sponsor sponsor sponsor sponsor sponsor sponsor...\u300d\n\n<a id=\"ref-3\"></a>**[3]** fastapi.org.cn \u2014 FastAPI - FastAPI -  FastAPI \u6846\u67b6\nURL: https://fastapi.org.cn\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI - FastAPI - FastAPI \u6846\u67b6 \u8df3\u5230\u5185\u5bb9 \u90e8\u7f72\u5728 FastAPI Cloud \ud83d\ude80 FastAPI Conf '26 \u2014 2026\u5e7410\u670828\u65e5\uff0c\u963f\u59c6\u65af\u7279\u4e39 \ud83c\udfa4 \u5728 X (Twitter) \u4e0a\u5173\u6ce8 @fastapi \u4ee5\u83b7\u53d6\u6700\u65b0\u52a8\u6001 \u5728 LinkedIn \u4e0a\u5173\u6ce8 FastAPI \u4ee5\u83b7\u53d6\u6700\u65b0\u52a8\u6001 \u8ba2\u9605 FastAPI and friends \u7b80\u62a5 \ud83c\udf89 \u8d5e\u52a9\u5546 \u8d5e\u52a9\u5546 \u8d5e\u52a9\u5546 \u8d5e\u52a9\u5546 \u8d5e\u52a9\u5546 \u8d5e\u52a9\u5546 \u8d5e\u52a9\u5546 \u8d5e\u52a9\u5546 FastAPI \u00b6 FastAPI \u6846\u67b6\uff0c\u9ad8\u6027\u80fd\uff0c\u6613\u4e8e\u5b66\u4e60\uff0c\u9ad8\u6548\u7f16\u7801\uff0c\u751f\u4ea7\u53ef\u7528 \u6587\u6863 \uff1a https://fastap...\u300d\n\n<a id=\"ref-4\"></a>**[4]** blog.csdn.net \u2014 \u3010FastAPI\u3011\u4ece0\u5f00\u59cb\u5b66FastAPI\uff01\u4e00\u7bc7\u641e\u61c2\uff01-CSDN\u535a\u5ba2\nURL: https://blog.csdn.net/qq_39172059/article/details/136518206\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u3010FastAPI\u3011\u4ece0\u5f00\u59cb\u5b66FastAPI\uff01\u4e00\u7bc7\u641e\u61c2\uff01-CSDN\u535a\u5ba2 \u3010FastAPI\u3011\u4ece0\u5f00\u59cb\u5b66FastAPI\uff01\u4e00\u7bc7\u641e\u61c2\uff01 \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-06-26 21:00:00 \u53d1\u5e03 \u539f\u521b \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-06-26 21:00:00 \u53d1\u5e03 \u00b7 4.8w \u9605\u8bfb \u00b7 152 \u00b7 488 \u00b7 \u672c\u5185\u5bb9\u9075\u5faaCC 4.0 BY-SA\u7248\u6743\u534f\u8bae \u7248\u6743\u58f0\u660e\uff1a\u672c\u6587\u4e3a\u535a\u4e3b\u539f\u521b\u6587\u7ae0\uff0c\u9075\u5faa CC 4.0 BY-SA \u7248\u6743\u534f\u8bae\uff0c\u8f6c\u8f7d\u8bf7\u9644\u4e0a\u539f\u6587\u51fa\u5904\u94fe\u63a5\u548c\u672c\u58f0\u660e\u3002 GEO\u68c0\u6d4b \u00b7 \u6536\u5f55\u4e8e \u5f53\u524d\u6587\u7ae0\u88ab\u4ee5\u4e0b\u793e\u533a\u548c\u4e13\u680f\u6536\u5f55\uff1a \u8be5\u6587\u7ae0\u5df2\u751f\u6210\u53ef\u8fd0\u884c\u9879\u76ee\uff0c \u9884\u89c8\u5e76\u4e0b\u8f7d\u9879\u76ee\u6e90\u7801 \u4e00\u3001...\u300d\n\n<a id=\"ref-5\"></a>**[5]** blog.jetbrains.com \u2014 \u54ea\u79cd Python Web \u6846\u67b6\u6700\u597d\uff1aDjango\u3001Flask\uff0c\u8fd8\u662f FastAPI\uff1f - JetBrains \u535a\u5ba2\nURL: https://blog.jetbrains.com/zh-hans/pycharm/2025/03/django-flask-fastapi\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u54ea\u79cd Python Web \u6846\u67b6\u6700\u597d\uff1aDjango\u3001Flask\uff0c\u8fd8\u662f FastAPI\uff1f - JetBrains \u535a\u5ba2 PyCharm The only Python IDE you need. Follow Follow: X X Youtube Youtube RSS RSS Download Web Development \u54ea\u79cd Python Web \u6846\u67b6\u6700\u597d\uff1aDjango\u3001Flask\uff0c\u8fd8\u662f FastAPI\uff1f Sue Read this post in other languages: English , Deutsch , Espa\u00f1ol , Fr...\u300d\n\n<a id=\"ref-6\"></a>**[6]** cnblogs.com \u2014 FastAPI\u7cfb\u5217\uff0801\uff09\uff1aFastAPI\u4ecb\u7ecd - \u5168\u6808\u6d4b\u8bd5\u7b14\u8bb0 - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/uncleyong/p/19519029\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI\u7cfb\u5217\uff0801\uff09\uff1aFastAPI\u4ecb\u7ecd - \u5168\u6808\u6d4b\u8bd5\u7b14\u8bb0 - \u535a\u5ba2\u56ed \u65b9\u5411\u4e0d\u5bf9\uff0c\u52aa\u529b\u767d\u8d39\uff0c\u7ecf\u9a8c\u7c7b\u6d4b\u8bd5\u6280\u672f\u624d\u662f\u804c\u573a\u91cd\u8981\u4fdd\u9669\uff01 | \uff08\u70b9\u51fb\u2192\uff09\u3010\u63d0\u9192\u3011AI\u8d4b\u80fd\u7684\u524d\u63d0\u662f\u5bf9\u5e38\u89c4\u6d4b\u8bd5\u6280\u672f\u975e\u5e38\u7684\u719f\u6089\uff0c\u8054\u7cfb\u4f5c\u8005vx\u4e86\u89e3 \u5168\u6808\u6d4b\u8bd5\u7b14\u8bb0 \u70ed\u7231\u6280\u672f\uff0c\u64c5\u957f\u6027\u80fd\u3001\u81ea\u52a8\u5316\u3001\u6301\u7eed\u96c6\u6210\u3001\u6d4b\u5f00\u3001\u8d28\u91cf\u7ba1\u7406\u3001AI\u6d4b\u8bd5\u5e94\u7528\u7b49\u3002 \u535a\u5ba2\u5206\u4eab\u7684\u6280\u672f\u70ed\u95e8\u4e3b\u6d41\u3001\u901a\u4fd7\u6613\u61c2\u3001\u7b80\u5355\u5b9e\u7528\uff0c\u5de5\u4f5c\u4e2d\u80fd\u5b9e\u64cd\u843d\u5730\u3002 FastAPI\u7cfb\u5217\uff0801\uff09\uff1aFastAPI\u4ecb\u7ecd \u672c\u7cfb\u5217\u6c47\u603b\uff0c\u8bf7\u67e5\u770b\u8fd9\u91cc \uff1a https://www.cnblogs.com/uncleyong/p/19503695 \u8bde\u751f\u80cc\u666f \u5728FastAPI\u4e4b\u524d...\u300d\n\n<a id=\"ref-7\"></a>**[7]** developer.cloud.tencent.com \u2014 Python\u6bd5\u8bbe\u6846\u67b6\u9009\u578b\u6307\u5357\uff1aDjango/Flask/FastAPI\u6df1\u5ea6\u5bf9\u6bd4\u4e0e\u9ad8\u6548\u5b9e\u8df5-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91\nURL: https://developer.cloud.tencent.com/article/2661877\n\u539f\u6587\u7247\u6bb5\uff1a\u300cPython\u6bd5\u8bbe\u6846\u67b6\u9009\u578b\u6307\u5357\uff1aDjango/Flask/FastAPI\u6df1\u5ea6\u5bf9\u6bd4\u4e0e\u9ad8\u6548\u5b9e\u8df5-\u817e\u8baf\u4e91\u5f00\u53d1\u8005\u793e\u533a-\u817e\u8baf\u4e91 \u667a\u7801\u65b9\u821f \u8ba1\u7b97\u673aAI\u6bd5\u8bbe\u751f\u6210\u5668 Python\u6bd5\u8bbe\u6846\u67b6\u9009\u578b\u6307\u5357\uff1aDjango/Flask/FastAPI\u6df1\u5ea6\u5bf9\u6bd4\u4e0e\u9ad8\u6548\u5b9e\u8df5 \u539f\u521b \u5173\u6ce8\u4f5c\u8005 \u817e\u8baf\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u6587\u6863 \u5efa\u8bae\u53cd\u9988 \u63a7\u5236\u53f0 \u767b\u5f55/\u6ce8\u518c \u9996\u9875 \u5b66\u4e60 \u6d3b\u52a8 \u4e13\u533a \u5708\u5c42 \u5de5\u5177 MCP\u5e7f\u573a \u6587\u7ae0/\u7b54\u6848/\u6280\u672f\u5927\u725b \u641c\u7d22 \u641c\u7d22 \u5173\u95ed \u53d1\u5e03 \u667a\u7801\u65b9\u821f \u8ba1\u7b97\u673aAI\u6bd5\u8bbe\u751f\u6210\u5668 \u793e\u533a\u9996\u9875 > \u4e13\u680f > Python\u6bd5\u8bbe\u6846\u67b6\u9009\u578b\u6307\u5357\uff1aDjango/Flask/FastAPI\u6df1\u5ea6\u5bf9\u6bd4\u4e0e\u9ad8\u6548\u5b9e\u8df5 Pytho...\u300d\n\n<a id=\"ref-8\"></a>**[8]** developer.aliyun.com \u2014 FastAPI\u5168\u9762\u6307\u5357\uff1a\u4ece\u5165\u95e8\u5230\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b9e\u6218-\u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\nURL: https://developer.aliyun.com/article/1660638\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI\u5168\u9762\u6307\u5357\uff1a\u4ece\u5165\u95e8\u5230\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b9e\u6218-\u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a \u5f00\u53d1\u8005\u793e\u533a \u5f00\u53d1\u4e0e\u8fd0\u7ef4 \u6587\u7ae0 \u6b63\u6587 FastAPI\u5168\u9762\u6307\u5357\uff1a\u4ece\u5165\u95e8\u5230\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b9e\u6218 2025-04-11 2225 \u7248\u6743 \u7248\u6743\u58f0\u660e\uff1a \u672c\u6587\u5185\u5bb9\u7531\u963f\u91cc\u4e91\u5b9e\u540d\u6ce8\u518c\u7528\u6237\u81ea\u53d1\u8d21\u732e\uff0c\u7248\u6743\u5f52\u539f\u4f5c\u8005\u6240\u6709\uff0c\u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u4e0d\u62e5\u6709\u5176\u8457\u4f5c\u6743\uff0c\u4ea6\u4e0d\u627f\u62c5\u76f8\u5e94\u6cd5\u5f8b\u8d23\u4efb\u3002\u5177\u4f53\u89c4\u5219\u8bf7\u67e5\u770b\u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u7528\u6237\u670d\u52a1\u534f\u8bae \u300b\u548c \u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u77e5\u8bc6\u4ea7\u6743\u4fdd\u62a4\u6307\u5f15 \u300b\u3002\u5982\u679c\u60a8\u53d1\u73b0\u672c\u793e\u533a\u4e2d\u6709\u6d89\u5acc\u6284\u88ad\u7684\u5185\u5bb9\uff0c\u586b\u5199 \u4fb5\u6743\u6295\u8bc9\u8868\u5355 \u8fdb\u884c\u4e3e\u62a5\uff0c\u4e00\u7ecf\u67e5\u5b9e\uff0c\u672c\u793e\u533a\u5c06\u7acb\u523b\u5220\u9664\u6d89\u5acc\u4fb5\u6743\u5185\u5bb9\u3002 \u7b80\u4ecb\uff1a FastAPI\u6b63\u8fc5\u901f\u6210\u4e3aPython...\u300d\n\n<a id=\"ref-9\"></a>**[9]** github.com \u2014 Very poor performance does not align with marketing \u00b7 fastapi/fastapi \u00b7 Discussion #7320 \u00b7 GitHub\nURL: https://github.com/fastapi/fastapi/discussions/7320\n\u539f\u6587\u7247\u6bb5\uff1a\u300cVery poor performance does not align with marketing \u00b7 fastapi/fastapi \u00b7 Discussion #7320 \u00b7 GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accoun...\u300d\n\n<a id=\"ref-10\"></a>**[10]** tech-insider.org \u2014 FastAPI vs Flask: 6-8x Faster + Auto Docs [2026]\nURL: https://tech-insider.org/fastapi-vs-flask-2026\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI vs Flask: 6-8x Faster + Auto Docs [2026] Skip to content Marcus Chen April 2, 2026 12 min read The Python web framework landscape has undergone a remarkable transformation over the past three years, and nowhere is that shift more visible than in the ongoing debate between...\u300d\n\n<a id=\"ref-11\"></a>**[11]** fastapi.tiangolo.com \u2014 Benchmarks - FastAPI\nURL: https://fastapi.tiangolo.com/benchmarks\n\u539f\u6587\u7247\u6bb5\uff1a\u300cBenchmarks - FastAPI Skip to content Deploy on FastAPI Cloud \ud83d\ude80 FastAPI Conf '26 \u2014 Oct 28, 2026, Amsterdam \ud83c\udfa4 Follow @fastapi on X (Twitter) to stay updated Follow FastAPI on LinkedIn to stay updated Subscribe to the FastAPI and friends newsletter \ud83c\udf89 sponsor sponsor sponsor sponsor...\u300d\n\n<a id=\"ref-12\"></a>**[12]** pynions.com \u2014 FastAPI vs Flask (2026): Real Benchmarks and Async Truth\nURL: https://pynions.com/fastapi-vs-flask\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI vs Flask (2026): Real Benchmarks and Async Truth FastAPI vs Flask: What the Download Numbers Don't Tell You FastAPI now outdownloads Flask 2.4\u00d7 monthly \u2014 but async isn't always faster. A practitioner-level comparison of performance, validation, docs, security, and when to...\u300d\n\n<a id=\"ref-13\"></a>**[13]** fastapi.tiangolo.com \u2014 FastAPI - FastAPI\nURL: https://fastapi.tiangolo.com\n\u539f\u6587\u7247\u6bb5\uff1a\u300cFastAPI - FastAPI Skip to content Deploy on FastAPI Cloud \ud83d\ude80 FastAPI Conf '26 \u2014 Oct 28, 2026, Amsterdam \ud83c\udfa4 Follow @fastapi on X (Twitter) to stay updated Follow FastAPI on LinkedIn to stay updated Subscribe to the FastAPI and friends newsletter \ud83c\udf89 sponsor sponsor sponsor sponsor spo...\u300d",
+    "metadata": [
+      "https://blog.jetbrains.com/wp-content/uploads/2025/03/pc-featured_blog_1280x720_en.png",
+      "https://i-blog.csdnimg.cn/blog_migrate/7d559ea1b873d9cef41c020ceda1198a.jpeg",
+      "https://i-blog.csdnimg.cn/blog_migrate/8180f931f7337ddbe86726b61bda47bb.jpeg",
+      "https://i-blog.csdnimg.cn/blog_migrate/4e9f194f48d59a553fd7bea88a5641b6.jpeg",
+      "https://www.cnblogs.com/skins/custom/images/logo.gif",
+      "https://img2024.cnblogs.com/blog/1024732/202601/1024732-20260112113159201-1307178141.png",
+      "https://img2024.cnblogs.com/blog/1024732/202601/1024732-20260112112900837-2035880837.png",
+      "https://files-cdn.cnblogs.com/files/uncleyong/wx.bmp",
+      "https://tech-insider.org/wp-content/uploads/2026/04/fastapi-vs-flask-2026.jpg",
+      "https://user-images.githubusercontent.com/6379399/208662450-cb5918cf-b0f3-4728-b1d3-3ac472ed46c8.png"
+    ]
+  }
+}

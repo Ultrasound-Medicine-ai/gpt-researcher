@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-08-10T03:36:01.407164",
+  "job_id": "39b8ad82-9f49-47df-951e-5b36fcf5c8e6",
+  "events": [
+    {
+      "timestamp": "2026-08-10T03:39:18.440864",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '帮我调研SSE，两百字左右即可'...",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "帮我调研SSE，两百字左右即可",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

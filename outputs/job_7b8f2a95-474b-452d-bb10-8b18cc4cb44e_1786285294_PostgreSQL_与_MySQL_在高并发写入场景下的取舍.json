@@ -1,0 +1,568 @@
+{
+  "timestamp": "2026-08-09T14:21:34.069635",
+  "job_id": "7b8f2a95-474b-452d-bb10-8b18cc4cb44e",
+  "events": [
+    {
+      "timestamp": "2026-08-09T14:22:12.729252",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for 'PostgreSQL 与 MySQL 在高并发写入场景下的取舍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:12.747261",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "🗄️ 数据库专家 Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:12.779034",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: PostgreSQL 与 MySQL 在高并发写入场景下的取舍...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:13.737711",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:53.904378",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['PostgreSQL 与 MySQL 在高并发写入场景下的取舍', 'PostgreSQL vs MySQL high concurrency write throughput benchmark MVCC 2025 2026', '高并发写入 PostgreSQL MySQL 性能对比 锁机制 架构选型 最佳实践', 'PostgreSQL 与 MySQL 在高并发写入场景下的取舍']...",
+        "metadata": [
+          "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+          "PostgreSQL vs MySQL high concurrency write throughput benchmark MVCC 2025 2026",
+          "高并发写入 PostgreSQL MySQL 性能对比 锁机制 架构选型 最佳实践",
+          "PostgreSQL 与 MySQL 在高并发写入场景下的取舍"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:54.003898",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'PostgreSQL vs MySQL high concurrency write throughput benchmark MVCC 2025 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:54.026230",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'PostgreSQL 与 MySQL 在高并发写入场景下的取舍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:54.047425",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '高并发写入 PostgreSQL MySQL 性能对比 锁机制 架构选型 最佳实践'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:54.064893",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'PostgreSQL 与 MySQL 在高并发写入场景下的取舍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.037038",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/xulinforDB/p/20071262\n",
+        "metadata": "https://www.cnblogs.com/xulinforDB/p/20071262"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.100184",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.cloud.tencent.com/article/2545225\n",
+        "metadata": "https://developer.cloud.tencent.com/article/2545225"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.130127",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql\n",
+        "metadata": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.159136",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cc.pigsty.io/blog/db/mysql-vs-pgsql\n",
+        "metadata": "https://cc.pigsty.io/blog/db/mysql-vs-pgsql"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.194969",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zhuanlan.zhihu.com/p/1930701609584799931\n",
+        "metadata": "https://zhuanlan.zhihu.com/p/1930701609584799931"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.216163",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.239596",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.281542",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.310643",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.836647",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://segmentfault.com/a/1190000047808786\n",
+        "metadata": "https://segmentfault.com/a/1190000047808786"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.872087",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/lihaiming_2008/article/details/148539770\n",
+        "metadata": "https://blog.csdn.net/lihaiming_2008/article/details/148539770"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.902190",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:55.931699",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.015507",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://tech-insider.org/postgresql-vs-mysql-2026\n",
+        "metadata": "https://tech-insider.org/postgresql-vs-mysql-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.043895",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.kunalganglani.com/blog/postgresql-vs-mysql-2026\n",
+        "metadata": "https://www.kunalganglani.com/blog/postgresql-vs-mysql-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.072845",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://commandlinux.com/statistics/database-performance-statistics-on-linux-mysql-postgresql-benchmark-data\n",
+        "metadata": "https://commandlinux.com/statistics/database-performance-statistics-on-linux-mysql-postgresql-benchmark-data"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.105347",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://builder.ai2sql.io/blog/mysql-vs-postgresql\n",
+        "metadata": "https://builder.ai2sql.io/blog/mysql-vs-postgresql"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.131458",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.webhostmost.com/postgresql-vs-mysql\n",
+        "metadata": "https://blog.webhostmost.com/postgresql-vs-mysql"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.156503",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.189217",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.730680",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.755283",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 20 total images",
+        "metadata": [
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive2.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.803027",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.826753",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.850361",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:56.869430",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: 高并发写入 PostgreSQL MySQL 性能对比 锁机制 架构选型 最佳实践...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:59.175693",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:59.197031",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: PostgreSQL 与 MySQL 在高并发写入场景下的取舍...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:59.825492",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:22:59.849002",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:00.178739",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:00.209156",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 17 total images",
+        "metadata": [
+          "https://qccommunity.qcloudimg.com/image/new.png",
+          "https://developer.qcloudimg.com/avatar/30974.png",
+          "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+          "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:00.245039",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:00.270388",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: PostgreSQL 与 MySQL 在高并发写入场景下的取舍...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:00.301694",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:01.947601",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:01.979927",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 11 total images",
+        "metadata": [
+          "https://img.kunalganglani.com/images/vzekdneq/production/5ad125b9db0b75874bdeeee597c392d37fb79c71-1200x675.webp?auto=format&fit=max&q=75&w=1200",
+          "https://img.kunalganglani.com/images/vzekdneq/production/859229861f6e7e7104610f1b1b6155f4a12443f6-1200x675.webp?auto=format&fit=max&q=80&w=900",
+          "https://img.kunalganglani.com/images/vzekdneq/production/04876a288664f2d8e60efdddffc267d1850fabbb-1200x675.webp?auto=format&fit=max&q=80&w=900",
+          "https://img.kunalganglani.com/images/vzekdneq/production/b6c70c135faed179467e40c75291c1c48f7ffb47-1200x675.webp?auto=format&fit=max&q=80&w=900"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:02.016302",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:02.047340",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: PostgreSQL vs MySQL high concurrency write throughput benchmark MVCC 2025 2026...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:02.084466",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:02.116871",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.023169160000000005",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:02.446782",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for 'PostgreSQL 与 MySQL 在高并发写入场景下的取舍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:23:40.707535",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for 'PostgreSQL 与 MySQL 在高并发写入场景下的取舍'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# PostgreSQL 与 MySQL 在高并发写入场景下的取舍\n\n## 引言\n在现代应用中，数据库的性能和稳定性至关重要。特别是在高并发写入场景下，选择合适的数据库系统可以显著提升系统的整体表现。本文将基于最新的研究数据和技术实践，深入分析PostgreSQL与MySQL在高并发写入场景下的机制差异、性能瓶颈、扩展方案及架构选型建议。\n\n## 高并发写入场景下的机制差异\n\n### 并发控制机制\n**PostgreSQL** 使用多版本并发控制（MVCC）机制，通过创建数据的不同版本来实现读写不阻塞。这种机制在高并发写入场景下表现出色，因为读操作不会被写操作阻塞，从而提高了系统的吞吐量 [3]。此外，PostgreSQL 的 MVCC 实现更为彻底，读写互不阻塞，这使得它在金融级交易系统等高并发写入场景中具有明显优势 [4]。\n\n**MySQL** 则依赖于行锁和间隙锁来实现并发控制。虽然 InnoDB 存储引擎支持 MVCC，但在高并发写入场景下，MySQL 的线程池模型可能会出现上下文切换瓶颈，导致性能下降 [5]。此外，MySQL 的间隙锁在高并发环境下可能导致死锁增加 [4]。\n\n### 写入性能\n根据最新的基准测试结果，PostgreSQL 在高并发写入场景下的表现优于 MySQL。例如，在一项针对单行插入操作的测试中，PostgreSQL 在 Ubuntu 24.04 上每秒可完成 21,338 次插入操作，而 MySQL 仅能完成 4,383 次 [6]。这表明 PostgreSQL 在处理高并发写入时具有更高的吞吐量。\n\n### 延迟\n在高并发写入场景下，延迟是另一个关键指标。根据 Sysbench 测试结果，PostgreSQL 在 1000 并发连接下的平均延迟为 40 ms，而 MySQL 为 80 ms [5]。这说明 PostgreSQL 在高并发写入场景下不仅吞吐量更高，而且延迟更低。\n\n## 性能瓶颈与优化策略\n\n### PostgreSQL 的性能瓶颈\n尽管 PostgreSQL 在高并发写入场景下表现出色，但其底层的 \"insert-only\" 设计在某些情况下仍存在一些固有的限制。例如，大规模升级和维护开销较高，尤其是在使用 vacuum 机制时 [4]。因此，在选择 PostgreSQL 时，需要考虑这些潜在的性能瓶颈，并采取相应的优化措施。\n\n### MySQL 的性能瓶颈\nMySQL 在高并发写入场景下的主要瓶颈在于其线程池模型和锁机制。当并发连接数较高时，MySQL 的线程池可能会出现上下文切换瓶颈，导致性能下降 [5]。此外，MySQL 的间隙锁在高并发环境下可能导致死锁增加 [4]。为了缓解这些问题，可以通过调整参数、优化查询和使用缓存层等方式进行优化。\n\n## 扩展方案\n\n### PostgreSQL 的扩展方案\nPostgreSQL 支持多种扩展方案，以应对高并发写入场景的需求。例如，Citus 扩展可以实现分布式集群，支撑亿级用户的消息存储 [4]。此外，PostgreSQL\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** blog.csdn.net — 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客\nURL: https://blog.csdn.net/lihaiming_2008/article/details/148539770\n原文片段：「从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析 最新推荐文章于 2026-06-22 16:17:22 发布 原创 最新推荐文章于 2026-06-22 16:17:22 发布 · 1.7k 阅读 · 28 · 18 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 G...」\n\n<a id=\"ref-2\"></a>**[2]** segmentfault.com — 不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否\nURL: https://segmentfault.com/a/1190000047808786\n原文片段：「不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否 不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 烦恼的沙发 6 月 1 日 广东 阅读 3 分钟 0 程序员都知道，关系型数据库的选型直接决定了系统后期的扩展性与性能上限。目前主流的开源关系型数据库主要有 PostgreSQL、MySQL 和 SQLite，但这几个数据库的底层架构、查询优化机制以及适用场景上却有所不同。本文将从技术实现细节入手，深入剖析这三种数据库的实际表现。 三大关系型数据库架构与定位...」\n\n<a id=\"ref-3\"></a>**[3]** aws.amazon.com — PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS\nURL: https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql\n原文片段：「PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS 跳至主要内容 MySQL 和 PostgreSQL 有何区别？ 创建 AWS 账户 MySQL 和 PostgreSQL 有何区别？ PostgreSQL 和 MySQL 有何相似之处？ 主要区别：PostgreSQL 与 MySQL 如何在 PostgreSQL 与 MySQL 之间做出选择 区别摘要：PostgreSQL 与 MySQL AWS 如何支持您的 PostgreSQL 和 MySQL 要求？ MySQL 和 PostgreSQL 有何区别？...」\n\n<a id=\"ref-4\"></a>**[4]** developer.cloud.tencent.com — 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云\nURL: https://developer.cloud.tencent.com/article/2545225\n原文片段：「如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云 用户11680974 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 用户11680974 社区首页 > 专栏 > 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 如何选择数据库？从真实案例看 PostgreSQL 与 My...」\n\n<a id=\"ref-5\"></a>**[5]** cnblogs.com — postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园\nURL: https://www.cnblogs.com/xulinforDB/p/20071262\n原文片段：「postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园 数据库小白（专注） postgresql和MYSQL的对比 postgresql和MYSQL的对比 目录 postgresql和MYSQL的对比 一、结论 二、测试环境对齐（所有来源一致硬件） 三、OLTP 场景（sysbench 1.1，表 10 × 1 000 万行） 四、OLAP/复杂查询（同库 50–100 GB） 五、可扩展与并发控制 六、实战选型速查表 以下报告基于 2024-2025 年公开测评数据，在“硬件配置相同、参数均经官方推荐优化”前提下，对 MySQL 8...」\n\n<a id=\"ref-6\"></a>**[6]** cc.pigsty.io — MySQL vs PostgreSQL @ 2025 | PIGSTY\nURL: https://cc.pigsty.io/blog/db/mysql-vs-pgsql\n原文片段：「MySQL vs PostgreSQL @ 2025 | PIGSTY 查看页面源码 编辑此页 添加子页面 提交文档问题 提交项目问题 整节打印 Modules APP 10 BLOG 8 DOCKER 9 ETCD 7 FERRET 6 INFRA 17 JUPYTER 1 KAFKA 1 MINIO 9 MYSQL 1 NODE 11 PGEXT 479 PGSQL 44 PIGSTY 42 REDIS 7 SOFTWARE 16 TigerBeetle 4 VICTORIA 1 Categories About 10 Admin 31 AI 4 A...」\n\n<a id=\"ref-7\"></a>**[7]** kunalganglani.com — PostgreSQL vs MySQL 2026: July Data Changes the Answer\nURL: https://www.kunalganglani.com/blog/postgresql-vs-mysql-2026\n原文片段：「PostgreSQL vs MySQL 2026: July Data Changes the Answer Skip to content 🛠 Part of the Dev Tools & AI Workflow series → ⚡ 30-second version PostgreSQL and MySQL both shipped major updates in 2025-2026, but the gap between them is growing — not shrinking. PostgreSQL is the only top-...」\n\n<a id=\"ref-8\"></a>**[8]** commandlinux.com — Database Performance On Linux Statistics 2026\nURL: https://commandlinux.com/statistics/database-performance-statistics-on-linux-mysql-postgresql-benchmark-data\n原文片段：「Database Performance On Linux Statistics 2026 Close Menu Facebook X (Twitter) Instagram Database Performance On Linux Statistics 2026 By Willie March 14, 2026 Updated: March 14, 2026 No Comments 5 Mins Read PostgreSQL completed a SELECT query against one million records in under...」\n\n<a id=\"ref-9\"></a>**[9]** builder.ai2sql.io — MySQL vs PostgreSQL (2026): Speed, Features, Cost — Real Benchmarks\nURL: https://builder.ai2sql.io/blog/mysql-vs-postgresql\n原文片段：「MySQL vs PostgreSQL (2026): Speed, Features, Cost — Real Benchmarks Database Comparison MySQL vs PostgreSQL: Which Database Should You Use in 2026? A comprehensive comparison of MySQL and PostgreSQL covering syntax differences, performance, data types, scalability, cloud ecosyste...」\n\n<a id=\"ref-10\"></a>**[10]** tech-insider.org — PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026]\nURL: https://tech-insider.org/postgresql-vs-mysql-2026\n原文片段：「PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026] Skip to content Sofia Lindström March 19, 2026 30 min read The database wars have never been more consequential. In 2026, the choice between PostgreSQL vs MySQL sits at the center of nearly every new architecture decision...」\n\n<a id=\"ref-11\"></a>**[11]** blog.webhostmost.com — PostgreSQL Vs MySQL 2026: Which Database Should You Actually Use?\nURL: https://blog.webhostmost.com/postgresql-vs-mysql\n原文片段：「PostgreSQL Vs MySQL 2026: Which Database Should You Actually Use? PostgreSQL vs MySQL 2026: The Complete Guide to Choosing the Right Database PostgreSQL vs MySQL comparison with real benchmarks. MySQL dominates WordPress (20-35% faster) and read-heavy apps. PostgreSQL excels at J...」",
+    "metadata": [
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive2.png",
+      "https://qccommunity.qcloudimg.com/image/new.png",
+      "https://developer.qcloudimg.com/avatar/30974.png",
+      "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+      "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png",
+      "https://img.kunalganglani.com/images/vzekdneq/production/5ad125b9db0b75874bdeeee597c392d37fb79c71-1200x675.webp?auto=format&fit=max&q=75&w=1200",
+      "https://img.kunalganglani.com/images/vzekdneq/production/859229861f6e7e7104610f1b1b6155f4a12443f6-1200x675.webp?auto=format&fit=max&q=80&w=900"
+    ]
+  }
+}

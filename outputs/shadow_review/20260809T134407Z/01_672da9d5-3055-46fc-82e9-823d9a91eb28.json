@@ -1,0 +1,574 @@
+{
+  "task": "Redis 分布式锁的实现原理与常见坑，控制在800字以内",
+  "job": {
+    "id": "672da9d5-3055-46fc-82e9-823d9a91eb28",
+    "user_id": "shadow-review",
+    "tenant_id": "shadow-review",
+    "session_id": "1ce8e7b2-14e0-4ac8-ba30-c34041db86b6",
+    "status": "completed",
+    "stage": "finalizing",
+    "progress": "done",
+    "error": null,
+    "payload": {
+      "task": "Redis 分布式锁的实现原理与常见坑，控制在800字以内",
+      "tone": "Objective",
+      "headers": null,
+      "user_id": "shadow-review",
+      "tenant_id": "shadow-review",
+      "session_id": "1ce8e7b2-14e0-4ac8-ba30-c34041db86b6",
+      "mcp_configs": [],
+      "mcp_enabled": false,
+      "report_type": "research_report",
+      "source_urls": [],
+      "total_words": 800,
+      "mcp_strategy": "fast",
+      "document_urls": [],
+      "query_domains": [],
+      "report_source": "web",
+      "report_language": "chinese",
+      "knowledge_policy": "web_first",
+      "max_search_results": null,
+      "force_trusted_sample": true
+    },
+    "result": {
+      "cost": {
+        "status": "completed",
+        "retries": 0,
+        "searches": 4,
+        "llm_calls": 5,
+        "llm_events": [
+          {
+            "ts": 1786283127.104454,
+            "url": "https://medium.com/javarevisited/redis-distributed-locks-deep-dive-from-core-principles-to-source-code-implementation-96735d05b4a4",
+            "type": "degrade_scrape",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "ts": 1786283131.3429291,
+            "url": "https://time.geekbang.org/column/article/301092",
+            "type": "degrade_scrape",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "ts": 1786283131.3429754,
+            "url": "https://zhuanlan.zhihu.com/p/413682456",
+            "type": "degrade_scrape",
+            "reason": "too_short",
+            "quality": "low"
+          }
+        ],
+        "truncations": 0,
+        "rag_degraded": false,
+        "continuations": 0,
+        "model_switches": 0,
+        "chapter_retries": 0,
+        "degrade_reasons": [
+          {
+            "ts": 1786283127.1044424,
+            "url": "https://medium.com/javarevisited/redis-distributed-locks-deep-dive-from-core-principles-to-source-code-implementation-96735d05b4a4",
+            "reason": "too_short",
+            "quality": "low",
+            "subsystem": "scrape"
+          },
+          {
+            "ts": 1786283131.3429112,
+            "url": "https://time.geekbang.org/column/article/301092",
+            "reason": "too_short",
+            "quality": "low",
+            "subsystem": "scrape"
+          },
+          {
+            "ts": 1786283131.34297,
+            "url": "https://zhuanlan.zhihu.com/p/413682456",
+            "reason": "too_short",
+            "quality": "low",
+            "subsystem": "scrape"
+          }
+        ],
+        "scrape_failures": 3,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [],
+        "search_keys_failed": [],
+        "search_unavailable": false
+      },
+      "audit": null,
+      "report": "# Redis 分布式锁的实现原理与常见坑\n\n## 引言\n在分布式系统中，确保共享资源的互斥访问是一个关键问题。Redis 作为一种高性能的键值存储系统，在实现分布式锁方面被广泛应用。本文将详细介绍 Redis 分布式锁的实现原理，并探讨常见的陷阱和解决方案。\n\n## Redis 分布式锁的实现原理\n\n### 基本概念\n分布式锁的核心需求是互斥性，即同一时间只有一个服务实例能持有锁。此外，还需要满足高可用、防死锁、可重入等特性。Redis 实现分布式锁主要依赖于其原子操作，通过键值对的存删来标记锁的占用与释放[1]。\n\n### 基础实现\n#### SETNX 命令\nRedis 的 `SETNX` 命令（SET if Not Exists）是实现分布式锁的基础。该命令在指定 key 不存在时设置值，否则不执行操作。早期版本中，加锁需分两步执行（`SETNX` + `EXPIRE`），但这两步并非原子操作，存在并发漏洞。从 Redis 2.6.12 版本开始，支持 `SET` 命令多参数合并，可以一次性完成加锁、设值、设过期时间，保证原子性[2]。\n\n```bash\nSET lock:stock:1001 random-value NX PX 30000\n```\n\n### 进阶优化\n#### 锁续约机制\n为避免锁过期提前释放，引入“锁续约”机制。服务成功加锁后，启动一个后台线程，每隔一定时间检查锁是否仍被当前服务持有，若持有则延长锁的过期时间，直到业务逻辑执行完成再主动释放锁。Redisson 框架内置了 Watch Dog 机制，自动完成续约操作[3]。\n\n#### 高可用方案\n单点故障风险可以通过基于 Redis 集群的高可用方案解决。常见的方案包括主从复制 + 哨兵模式和 Redlock 算法。Redlock 算法向至少 3 个独立的 Redis 主节点发起加锁请求，仅当超过半数节点加锁成功且总耗时不超过超时时间，才算加锁成功[4]。\n\n## 常见坑及解决方案\n\n### 误删他人持有锁\n**成因**：释放锁时未做身份校验，直接执行 `DEL` 命令删除键。\n**表现**：多个服务实例同时持有同一把锁，操作同一资源，出现数据不一致。\n**解决方案**：加锁时存入全局唯一的随机值作为 value，释放锁前先验证 value 是否与自身持有一致，一致才释放。使用 Lua 脚本保证“验证+删除”的原子性[5]。\n\n### 锁过期提前释放\n**成因**：锁的过期时间设置过短，而业务逻辑执行耗时过长，导致锁在业务完成前就自动过期释放。\n**表现**：业务执行中锁被释放，多个服务同时操作资源，出现数据错误。\n**解决方案**：引入“锁续约（Watch Dog）”机制。服务成功加锁后，启动后台守护线程，每隔锁过期时间的 1/3 检查锁是否仍被自身持有，若持有则延长锁的过期时间[6]。\n\n### Redis 单点故障\n**成因**：Redis 采\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** github.com — Rate limit · GitHub\nURL: https://github.com/CoderLeixiaoshuai/java-eight-part/blob/master/docs/redis/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%94%B1Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E9%80%A0%E6%88%90%E7%9A%84%E9%87%8D%E5%A4%A7%E4%BA%8B%E6%95%85%EF%BC%8C%E9%81%BF%E5%85%8D%E4%BB%A5%E5%90%8E%E8%B8%A9%E5%9D%91%EF%BC%81.md\n原文片段：「Rate limit · GitHub Whoa there! You have triggered an abuse detection mechanism. Please wait a few minutes before you try again; in some cases this may take up to an hour. Contact Support — GitHub Status — @githubstatus」\n\n<a id=\"ref-2\"></a>**[2]** juejin.cn — 聊一下Redis实现分布式锁的8大坑前两篇文章都在讲 Redis 的 5 大常用数据类型，以及典型的 10 大应用场景。 - 掘金\nURL: https://juejin.cn/post/7355311718065160229\n原文片段：「聊一下Redis实现分布式锁的8大坑前两篇文章都在讲 Redis 的 5 大常用数据类型，以及典型的 10 大应用场景。 - 掘金 聊一下Redis实现分布式锁的8大坑 公众号_醉鱼Java 2024-04-08 2,588 阅读14分钟 前两篇文章都在讲 Redis 的 5 大常用数据类型，以及典型的 10 大应用场景。 那么今天就来看看 Redis 实现分布式锁。 聊一聊Redis实现分布式锁的8大坑 Redis中5大常见数据类型用法 工作中Redis用的最多的10种场景 在分布式系统中，保证资源的互斥访问是一个关键的点，而 Redis 作为高性能的...」\n\n<a id=\"ref-3\"></a>**[3]** alibabacloud.com — Implementation Principles and Best Practices of Distributed Lock - Alibaba Cloud Community\nURL: https://www.alibabacloud.com/blog/600811\n原文片段：「Implementation Principles and Best Practices of Distributed Lock - Alibaba Cloud Community Community Blog Events Webinars Tutorials Forum Blog Events Webinars Tutorials Forum Create Account Log In × Community Blog Implementation Principles and Best Practices of Distributed Lock I...」\n\n<a id=\"ref-4\"></a>**[4]** youtube.com — How Distributed Lock works | ft Redis | System Design - YouTube\nURL: https://www.youtube.com/watch?v=qY4MfWv01pI\n原文片段：「How Distributed Lock works | ft Redis | System Design - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features © 2026 Google LLC」\n\n<a id=\"ref-5\"></a>**[5]** redis.io — Redis lock: fast distributed locking explained\nURL: https://redis.io/glossary/redis-lock\n原文片段：「Redis lock: fast distributed locking explained 97% believe in it. 4% have built it. New research: State of context engineering. Read the report Resource Center Events & webinars Blog Videos Glossary Resources Architecture Diagrams Demo Center Resource Center Events & webinars Blo...」\n\n<a id=\"ref-6\"></a>**[6]** anhdh.net — Distributed Locks and How to Implement Them with Redis | AnhDH\nURL: https://www.anhdh.net/en/blog/redis-distributed-locking\n原文片段：「Distributed Locks and How to Implement Them with Redis | AnhDH On this page 1. The Problem 2. Distributed Lock 2.1. What is a Distributed Lock? 2.2. Why are Distributed Locks Important? 2.3. Approaches to Implementing Distributed Locks 3. Implementing a Distributed Lock with Redi...」\n\n<a id=\"ref-7\"></a>**[7]** developer.aliyun.com — Redis分布式锁实现五大陷阱及规避最佳实践-开发者社区-阿里云\nURL: https://developer.aliyun.com/article/1627593\n原文片段：「Redis分布式锁实现五大陷阱及规避最佳实践-开发者社区-阿里云 开发者社区 数据库 文章 正文 太惨痛： Redis 分布式锁 5个大坑，又大又深， 如何才能 避开 ？ 2024-10-21 3147 版权 版权声明： 本文内容由阿里云实名注册用户自发贡献，版权归原作者所有，阿里云开发者社区不拥有其著作权，亦不承担相应法律责任。具体规则请查看《 阿里云开发者社区用户服务协议 》和 《 阿里云开发者社区知识产权保护指引 》。如果您发现本社区中有涉嫌抄袭的内容，填写 侵权投诉表单 进行举报，一经查实，本社区将立刻删除涉嫌侵权内容。 简介： Redis分布式...」\n\n<a id=\"ref-8\"></a>**[8]** javaguide.cn — 分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide\nURL: https://javaguide.cn/distributed-system/distributed-lock-implementations.html\n原文片段：「分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide 跳至主要內容 项目介绍 面试准备（必看） Java 数据库 开发工具 常用框架 系统设计 分布式 分布式系统知识体系 分布式系统入门 ⭐分布式高频面试题 理论&算法&协议 API网关 API网关基础知识总结 Spring Cloud Gateway面试题总结 分布式ID 分布式ID生成方案详解 分布式ID设计实战指南 分布式锁 分布式锁入门介绍 分布式锁常见实现方案总结 分布式事务 分布式事务解决方案总结 分布式配置中心 分布式配置...」\n\n<a id=\"ref-9\"></a>**[9]** cnblogs.com — Redis 分布式锁实战：你一定听得懂的分布式锁实现方案 - 佛祖让我来巡山 - 博客园\nURL: https://www.cnblogs.com/sun-10387834/p/19492786\n原文片段：「Redis 分布式锁实战：你一定听得懂的分布式锁实现方案 - 佛祖让我来巡山 - 博客园 佛祖让我来巡山 碰撞只相信实力，不相信眼泪 Redis 分布式锁实战：你一定听得懂的分布式锁实现方案 在分布式系统开发中，并发问题是绕不开的坎——当多个服务实例同时操作同一资源（比如库存扣减、订单创建）时，若没有有效的同步机制，很容易出现数据不一致、超卖等严重问题。分布式锁就是解决这类跨服务并发冲突的核心方案，而 Redis 凭借高性能、高可用的特性，成为实现分布式锁的首选中间件。之前在开发电商库存系统时，就因初期实现的 Redis 锁存在漏洞，导致过少量超卖问题，...」\n\n<a id=\"ref-10\"></a>**[10]** todocoder.com — 【分布式进阶】一文通关Redis分布式锁，建议收藏 | TodoCoder 全栈工程师专注于后台开发与架构及编程思想经验的分享 | Java, Go, k8s, 编程思想专家\nURL: https://www.todocoder.com/posts/004.html\n原文片段：「【分布式进阶】一文通关Redis分布式锁，建议收藏 | TodoCoder 全栈工程师专注于后台开发与架构及编程思想经验的分享 | Java, Go, k8s, 编程思想专家 跳至主要內容 【分布式进阶】一文通关Redis分布式锁，建议收藏 TodoCoder 大约 12 分钟 分布式,redis 分布式,redis锁 此页内容 代码实现层面 分布式锁演进-阶段一 分布式锁演进-阶段二 分布式锁演进-阶段三 分布式锁演进-阶段四 分布式锁演进-阶段五 分布式架构实现层面 对于第一种方案 RedLock算法实现 对于第二种方案 换成CP模型的Zookeep...」\n\n<a id=\"ref-11\"></a>**[11]** developer.jdcloud.com — 深入理解分布式锁：原理、应用与挑战-京东云开发者社区\nURL: https://developer.jdcloud.com/article/3777\n原文片段：「深入理解分布式锁：原理、应用与挑战-京东云开发者社区 您好！ 欢迎来到京东云开发者社区 登录 首页 博文 课程 大赛 工具  用户中心 开源 首页 博文 课程 大赛 工具  开源 更多 用户中心 开发者社区 > 博文 > 深入理解分布式锁：原理、应用与挑战 分享 打开微信扫码分享 点击前往QQ分享 点击前往微博分享 点击复制链接 深入理解分布式锁：原理、应用与挑战 liuhaozzu 2024-04-30 IP归属：北京 4809浏览 前言 在单机环境中，我们主要通过线程间的加锁机制来确保同一时间只有一个线程能够访问某个共享资源或执行某个关键代码块，...」\n\n<a id=\"ref-12\"></a>**[12]** seven97.top — Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路\nURL: https://seven97.top/database/redis/05-implementdistributedlocks.html\n原文片段：「Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路 跳至主要內容 Java 数据库 MySQL Redis Redis数据类型全攻略：String、List、Hash、Set的实战应用 Redis是如何高效存储与访问数据？ Redis命令处理机制源码探究 Pipelining原理：批量命令背后的秘密 Redis究竟为什么这么快？ Redis持久化：从AOF到RDB，如何实现数据不丢失？ Redis缓存管理：过期删除策略的深度剖析 Redis内存淘汰策略：如何高效管理有限内存？ Redis主从复制是如何保障数据一致性的？...」\n\n<a id=\"ref-13\"></a>**[13]** cnblogs.com — 干货满满：Redis 分布式锁必避的 8 大问题及解决方案 - 佛祖让我来巡山 - 博客园\nURL: https://www.cnblogs.com/sun-10387834/p/19493006\n原文片段：「干货满满：Redis 分布式锁必避的 8 大问题及解决方案 - 佛祖让我来巡山 - 博客园 佛祖让我来巡山 碰撞只相信实力，不相信眼泪 干货满满：Redis 分布式锁必避的 8 大问题及解决方案 在分布式系统中，Redis 分布式锁虽能高效解决跨服务并发冲突，但实际落地时稍不注意就会踩坑——小到数据不一致，大到服务雪崩，这些问题多源于对 Redis 特性、分布式场景复杂性的考虑不周。之前开发电商库存和订单系统时，就因忽视了锁过期、脑裂等问题，先后出现过超卖、锁失效等故障。今天结合生产实战经验，梳理 Redis 实现分布式锁时最易遇到的 8 大问题，逐一拆...」",
+      "tenant_id": "shadow-review",
+      "file_paths": {
+        "md": "outputs/task_1786283196_43a1f742c5.md",
+        "pdf": "outputs/task_1786283196_43a1f742c5.pdf",
+        "docx": "outputs/task_1786283196_43a1f742c5.docx",
+        "json": "outputs/job_672da9d5-3055-46fc-82e9-823d9a91eb28_1786283052_Redis_分布式锁的实现原理与常见坑_控制在800字以内.json"
+      },
+      "session_id": "1ce8e7b2-14e0-4ac8-ba30-c34041db86b6",
+      "report_trust": "legacy_unverified",
+      "source_count": 13,
+      "trusted_shadow": {
+        "error": "could not convert string to float: '直接相关'"
+      },
+      "legacy_fallback": false,
+      "trusted_pipeline": {
+        "mode": "shadow",
+        "execution_trace": {
+          "mode": "shadow",
+          "legacy_write": true,
+          "research_only": true,
+          "trusted_write": false,
+          "legacy_write_count": 1,
+          "legacy_write_reason": "shadow",
+          "used_legacy_body_as_claim_source": false,
+          "writer_received_only_verified_claims": true
+        }
+      },
+      "citation_unverified": true,
+      "citation_audit_failed": false
+    },
+    "attempt": 1,
+    "idempotency_key": "shadow-review:39b682db-eee5-4345-b08f-3016f75bca54",
+    "heartbeat_at": 1786283188216,
+    "started_at": 1786283052372,
+    "finished_at": 1786283202273,
+    "enqueued_at": 1786283047595,
+    "next_retry_at": null,
+    "cancel_requested_at": null,
+    "worker_id": "73067665d509:19",
+    "last_error_code": null,
+    "checkpoint_json": {
+      "stage": "finalizing",
+      "budget": {
+        "max_llm_calls": 40,
+        "max_subtopics": 3,
+        "searches_used": 4,
+        "llm_calls_used": 5,
+        "max_output_words": 800,
+        "max_total_searches": 12
+      },
+      "trusted": {
+        "stage": "planned",
+        "outline": {
+          "scope": "本报告将涵盖Redis分布式锁的基本概念、实现机制、以及在实际应用中可能遇到的问题和解决策略。重点在于分析如何正确使用Redis来避免常见的错误。",
+          "sections": [
+            {
+              "title": "引言",
+              "purpose": "介绍研究背景及目的",
+              "section_id": "sec1",
+              "search_queries": [
+                "分布式锁的重要性",
+                "Redis 分布式锁优势"
+              ],
+              "depends_on_sections": [],
+              "questions_to_answer": [
+                "为什么需要分布式锁？",
+                "Redis作为分布式锁的优势是什么？"
+              ],
+              "expected_claim_types": [
+                "定义",
+                "解释"
+              ]
+            },
+            {
+              "title": "Redis分布式锁基础",
+              "purpose": "阐述Redis分布式锁的工作原理",
+              "section_id": "sec2",
+              "search_queries": [
+                "Redis 分布式锁原理",
+                "Redis SETNX 命令详解"
+              ],
+              "depends_on_sections": [
+                "sec1"
+              ],
+              "questions_to_answer": [
+                "什么是Redis分布式锁？",
+                "Redis分布式锁是如何工作的？"
+              ],
+              "expected_claim_types": [
+                "定义",
+                "过程描述"
+              ]
+            },
+            {
+              "title": "Redis分布式锁的常见问题",
+              "purpose": "识别并讨论在使用Redis分布式锁时可能遇到的主要挑战",
+              "section_id": "sec3",
+              "search_queries": [
+                "Redis 分布式锁问题",
+                "Redis 锁失效原因"
+              ],
+              "depends_on_sections": [
+                "sec2"
+              ],
+              "questions_to_answer": [
+                "使用Redis分布式锁时有哪些常见问题？",
+                "这些问题可能导致什么后果？"
+              ],
+              "expected_claim_types": [
+                "问题陈述",
+                "影响分析"
+              ]
+            },
+            {
+              "title": "最佳实践与解决方案",
+              "purpose": "提供针对上述问题的具体建议和改进措施",
+              "section_id": "sec4",
+              "search_queries": [
+                "Redis 分布式锁最佳实践",
+                "Redis 锁优化方案"
+              ],
+              "depends_on_sections": [
+                "sec3"
+              ],
+              "questions_to_answer": [
+                "如何避免或解决这些常见问题？",
+                "有哪些推荐的最佳实践？"
+              ],
+              "expected_claim_types": [
+                "建议",
+                "案例研究"
+              ]
+            }
+          ],
+          "time_range": "当前至最近5年内的相关技术发展",
+          "report_thesis": "Redis分布式锁是一种在分布式系统中实现资源互斥访问的有效方法，但其实施过程中存在多种潜在问题。本报告将探讨Redis分布式锁的实现原理及其常见陷阱，并提出相应的解决方案。",
+          "cross_section_questions": [
+            "在整个实现过程中，哪些因素是决定Redis分布式锁性能的关键？",
+            "对于不同的应用场景，选择合适的分布式锁策略时应考虑哪些方面？"
+          ]
+        },
+        "document_map": [
+          {
+            "title": "Rate limit · GitHub",
+            "sections": [
+              {
+                "heading": "Rate limit · GitHub",
+                "position": 1,
+                "child_count": 1,
+                "parent_chunk_id": "21787d6e-630e-4f49-9efd-942cd6e8917a",
+                "summary_or_excerpt": "Rate limit · GitHub Whoa there! You have triggered an abuse detection mechanism. Please wait a few minutes before you try again; in some cases this may take up to an hour. Contact Support — GitHub Status — @githubstatus"
+              }
+            ],
+            "document_id": "9f4f3c77-292b-4a60-863f-1ffbc3eed2c5",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "聊一下Redis实现分布式锁的8大坑前两篇文章都在讲 Redis 的 5 大常用数据类型，以及典型的 10 大应用场景。 - 掘金",
+            "sections": [
+              {
+                "heading": "聊一下Redis实现分布式锁的8大坑前两篇文章都在讲 Redis 的 5 大常用数据类型，以及典型的 10 大应用场景。 - 掘金",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "711fc493-4a1f-4cb4-8194-79db3c0d67c7",
+                "summary_or_excerpt": "聊一下Redis实现分布式锁的8大坑前两篇文章都在讲 Redis 的 5 大常用数据类型，以及典型的 10 大应用场景。 - 掘金 聊一下Redis实现分布式锁的8大坑 公众号_醉鱼Java 2024-04-08 2,588 阅读14分钟 前两篇文章都在讲 Redis 的 5 大常用数据类型，以及典型的 10 大应用场景。 那么今天就来看看 Redis 实现分布式锁。 聊一聊Redis实现分布式锁的8大坑 Redis中5大常见数据类型用法 工作中Redis用的最多的10种场景 在分布式系统中，保证资源的互斥访问是一个关键的点，而 Redis 作为高性能…"
+              }
+            ],
+            "document_id": "5c18ce95-5380-4be5-ae46-7cd5d3d8377b",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "Implementation Principles and Best Practices of Distributed Lock - Alibaba Cloud Community",
+            "sections": [
+              {
+                "heading": "Implementation Principles and Best Practices of Distributed Lock - Alibaba Cloud Community",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "8f7e3851-5484-4cc6-83e9-e8e891d0555f",
+                "summary_or_excerpt": "Implementation Principles and Best Practices of Distributed Lock - Alibaba Cloud Community Community Blog Events Webinars Tutorials Forum Blog Events Webinars Tutorials Forum Create Account Log In × Community Blog Implementation Principles and Best Practices of Distributed Lock…"
+              }
+            ],
+            "document_id": "bf572137-b43a-4ace-9058-70108742fd29",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "How Distributed Lock works | ft Redis | System Design - YouTube",
+            "sections": [
+              {
+                "heading": "How Distributed Lock works | ft Redis | System Design - YouTube",
+                "position": 1,
+                "child_count": 1,
+                "parent_chunk_id": "e0229f2c-572f-4e39-9e59-332a3d4cf025",
+                "summary_or_excerpt": "How Distributed Lock works | ft Redis | System Design - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features © 2026 Google LLC"
+              }
+            ],
+            "document_id": "3d19c8c3-9c18-4e1c-a360-c01c9b4cb5bc",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "Redis lock: fast distributed locking explained",
+            "sections": [
+              {
+                "heading": "Redis lock: fast distributed locking explained",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "e2c3291d-54b6-4643-9c50-28826aa27cfe",
+                "summary_or_excerpt": "Redis lock: fast distributed locking explained 97% believe in it. 4% have built it. New research: State of context engineering. Read the report Resource Center Events & webinars Blog Videos Glossary Resources Architecture Diagrams Demo Center Resource Center Events & webinars Bl…"
+              }
+            ],
+            "document_id": "01bcd0f0-87f5-455a-8762-faed72819472",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "Distributed Locks and How to Implement Them with Redis | AnhDH",
+            "sections": [
+              {
+                "heading": "Distributed Locks and How to Implement Them with Redis | AnhDH",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "fb8f23de-8087-4011-aa46-e6baef5d1616",
+                "summary_or_excerpt": "Distributed Locks and How to Implement Them with Redis | AnhDH On this page 1. The Problem 2. Distributed Lock 2.1. What is a Distributed Lock? 2.2. Why are Distributed Locks Important? 2.3. Approaches to Implementing Distributed Locks 3. Implementing a Distributed Lock with Red…"
+              }
+            ],
+            "document_id": "0a8bf4e4-7d93-4d28-a46e-f2c4405baf63",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "Redis分布式锁实现五大陷阱及规避最佳实践-开发者社区-阿里云",
+            "sections": [
+              {
+                "heading": "Redis分布式锁实现五大陷阱及规避最佳实践-开发者社区-阿里云",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "eed82a67-02b2-43a4-89bb-06f78c5ae46f",
+                "summary_or_excerpt": "Redis分布式锁实现五大陷阱及规避最佳实践-开发者社区-阿里云 开发者社区 数据库 文章 正文 太惨痛： Redis 分布式锁 5个大坑，又大又深， 如何才能 避开 ？ 2024-10-21 3147 版权 版权声明： 本文内容由阿里云实名注册用户自发贡献，版权归原作者所有，阿里云开发者社区不拥有其著作权，亦不承担相应法律责任。具体规则请查看《 阿里云开发者社区用户服务协议 》和 《 阿里云开发者社区知识产权保护指引 》。如果您发现本社区中有涉嫌抄袭的内容，填写 侵权投诉表单 进行举报，一经查实，本社区将立刻删除涉嫌侵权内容。 简介： Redis分布…"
+              }
+            ],
+            "document_id": "a1dfa50a-fd77-4185-9319-b176944e58a9",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide",
+            "sections": [
+              {
+                "heading": "分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "7aa7a328-d4e5-4899-9e01-b9c7e87d1e09",
+                "summary_or_excerpt": "分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide 跳至主要內容 项目介绍 面试准备（必看） Java 数据库 开发工具 常用框架 系统设计 分布式 分布式系统知识体系 分布式系统入门 ⭐分布式高频面试题 理论&算法&协议 API网关 API网关基础知识总结 Spring Cloud Gateway面试题总结 分布式ID 分布式ID生成方案详解 分布式ID设计实战指南 分布式锁 分布式锁入门介绍 分布式锁常见实现方案总结 分布式事务 分布式事务解决方案总结 分布式配置中心 分布式配…"
+              }
+            ],
+            "document_id": "5b4c7660-e262-4da1-928c-089b639d65e0",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "Redis 分布式锁实战：你一定听得懂的分布式锁实现方案 - 佛祖让我来巡山 - 博客园",
+            "sections": [
+              {
+                "heading": "Redis 分布式锁实战：你一定听得懂的分布式锁实现方案 - 佛祖让我来巡山 - 博客园",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "d03112ee-239f-43d7-afff-2050cb1ce780",
+                "summary_or_excerpt": "Redis 分布式锁实战：你一定听得懂的分布式锁实现方案 - 佛祖让我来巡山 - 博客园 佛祖让我来巡山 碰撞只相信实力，不相信眼泪 Redis 分布式锁实战：你一定听得懂的分布式锁实现方案 在分布式系统开发中，并发问题是绕不开的坎——当多个服务实例同时操作同一资源（比如库存扣减、订单创建）时，若没有有效的同步机制，很容易出现数据不一致、超卖等严重问题。分布式锁就是解决这类跨服务并发冲突的核心方案，而 Redis 凭借高性能、高可用的特性，成为实现分布式锁的首选中间件。之前在开发电商库存系统时，就因初期实现的 Redis 锁存在漏洞，导致过少量超卖问题…"
+              }
+            ],
+            "document_id": "303b8855-6a02-4723-8ad9-1cf63823230b",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "【分布式进阶】一文通关Redis分布式锁，建议收藏 | TodoCoder 全栈工程师专注于后台开发与架构及编程思想经验的分享 | Java, Go, k8s, 编程思想专家",
+            "sections": [
+              {
+                "heading": "【分布式进阶】一文通关Redis分布式锁，建议收藏 | TodoCoder 全栈工程师专注于后台开发与架构及编程思想经验的分享 | Java, Go, k8s, 编程思想专家",
+                "position": 1,
+                "child_count": 1,
+                "parent_chunk_id": "4deb5a6a-aec2-4a84-a084-199558258a8f",
+                "summary_or_excerpt": "【分布式进阶】一文通关Redis分布式锁，建议收藏 | TodoCoder 全栈工程师专注于后台开发与架构及编程思想经验的分享 | Java, Go, k8s, 编程思想专家 跳至主要內容 【分布式进阶】一文通关Redis分布式锁，建议收藏 TodoCoder 大约 12 分钟 分布式,redis 分布式,redis锁 此页内容 代码实现层面 分布式锁演进-阶段一 分布式锁演进-阶段二 分布式锁演进-阶段三 分布式锁演进-阶段四 分布式锁演进-阶段五 分布式架构实现层面 对于第一种方案 RedLock算法实现 对于第二种方案 换成CP模型的Zookee…"
+              },
+              {
+                "heading": "代码实现层面",
+                "position": 2,
+                "child_count": 1,
+                "parent_chunk_id": "50274b8a-262a-4777-905c-b89559d1d73a",
+                "summary_or_excerpt": "代码实现层面"
+              },
+              {
+                "heading": "分布式锁演进-阶段一",
+                "position": 3,
+                "child_count": 1,
+                "parent_chunk_id": "d77a2b7e-a342-4153-8364-1d5bcaac9e89",
+                "summary_or_excerpt": "我们使用redis的setnx命令来实现分布式加锁，setnx(key)意思是: 如果不存在，setnx会把key 存到redis里面(加锁成功)，返回true。 如果存在key, 说明已经有人给key上锁了(加锁失败)，返回false。 下面我们来看一下代码: public String redis1 ( ) { // 每个实例进来先要进行加锁，key值为\"good_lock\"，value随机生成 String uuid = UUID . randomUUID ( ) . toString ( ) ; try { // 设置锁来占位 Boolean…"
+              },
+              {
+                "heading": "分布式锁演进-阶段三",
+                "position": 4,
+                "child_count": 1,
+                "parent_chunk_id": "a20e74bd-0610-4b0b-9056-bc1b6084c01c",
+                "summary_or_excerpt": "基于阶段二代码的问题，我们可以通过uuid来判断 谁上的锁，谁才能删除 代码如下： public String redis3 ( ) { // 每实例进来先要进行加锁，key值为\"good_lock\"，value随机生成 String uuid = UUID . randomUUID ( ) . toString ( ) ; try { // 加锁并设置超时时间30秒 Boolean good_lock = stringRedisTemplate . ops"
+              },
+              {
+                "heading": "分布式锁演进-阶段二",
+                "position": 5,
+                "child_count": 1,
+                "parent_chunk_id": "1fb416bb-dd38-4a81-a55f-926cb50f7823",
+                "summary_or_excerpt": "在上面的代码中，如果程序在运行期间，机器突然挂了，代码层面根本就没有走到 finally 代码块，也就是说在宕机前，锁并没有被删除掉，这样的话，就没办法保证解锁，所以这里需要给 key 加一个过期时间，在Redis中设置过期时间有两种办法： stringRedisTemplate.expire(\"good1_lock\",30, TimeUnit.SECONDS) stringRedisTemplate.opsForValue().setIfAbsent(\"good1_lock\", uuid, 30, TimeUnit.SECONDS) 第一种方式 是单…"
+              }
+            ],
+            "document_id": "513e9988-fac1-48f0-9e86-802d25e390eb",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "深入理解分布式锁：原理、应用与挑战-京东云开发者社区",
+            "sections": [
+              {
+                "heading": "深入理解分布式锁：原理、应用与挑战-京东云开发者社区",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "0f4f1005-ae67-488e-8b38-1e9ac947b8bb",
+                "summary_or_excerpt": "深入理解分布式锁：原理、应用与挑战-京东云开发者社区 您好！ 欢迎来到京东云开发者社区 登录 首页 博文 课程 大赛 工具  用户中心 开源 首页 博文 课程 大赛 工具  开源 更多 用户中心 开发者社区 > 博文 > 深入理解分布式锁：原理、应用与挑战 分享 打开微信扫码分享 点击前往QQ分享 点击前往微博分享 点击复制链接 深入理解分布式锁：原理、应用与挑战 liuhaozzu 2024-04-30 IP归属：北京 4809浏览 前言 在单机环境中，我们主要通过线程间的加锁机制来确保同一时间只有一个线程能够访问某个共享资源或执行某个关键代码块…"
+              }
+            ],
+            "document_id": "27b61f53-301b-42bf-a0d2-1e4a55ed1bef",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路",
+            "sections": [
+              {
+                "heading": "Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "6e0131bb-ad44-45ac-b834-d20f02534f55",
+                "summary_or_excerpt": "Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路 跳至主要內容 Java 数据库 MySQL Redis Redis数据类型全攻略：String、List、Hash、Set的实战应用 Redis是如何高效存储与访问数据？ Redis命令处理机制源码探究 Pipelining原理：批量命令背后的秘密 Redis究竟为什么这么快？ Redis持久化：从AOF到RDB，如何实现数据不丢失？ Redis缓存管理：过期删除策略的深度剖析 Redis内存淘汰策略：如何高效管理有限内存？ Redis主从复制是如何保障数据一致性的…"
+              }
+            ],
+            "document_id": "3eb70957-c876-4c69-ba94-e12e0e2286f2",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "干货满满：Redis 分布式锁必避的 8 大问题及解决方案 - 佛祖让我来巡山 - 博客园",
+            "sections": [
+              {
+                "heading": "干货满满：Redis 分布式锁必避的 8 大问题及解决方案 - 佛祖让我来巡山 - 博客园",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "f02513b9-8a98-4a94-995f-0ea19a4ed11a",
+                "summary_or_excerpt": "干货满满：Redis 分布式锁必避的 8 大问题及解决方案 - 佛祖让我来巡山 - 博客园 佛祖让我来巡山 碰撞只相信实力，不相信眼泪 干货满满：Redis 分布式锁必避的 8 大问题及解决方案 在分布式系统中，Redis 分布式锁虽能高效解决跨服务并发冲突，但实际落地时稍不注意就会踩坑——小到数据不一致，大到服务雪崩，这些问题多源于对 Redis 特性、分布式场景复杂性的考虑不周。之前开发电商库存和订单系统时，就因忽视了锁过期、脑裂等问题，先后出现过超卖、锁失效等故障。今天结合生产实战经验，梳理 Redis 实现分布式锁时最易遇到的 8 大问题，逐一…"
+              }
+            ],
+            "document_id": "b87e5db8-df79-4d16-8887-d7627c572cbd",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          }
+        ]
+      },
+      "llm_trace": [
+        {
+          "ts": 1786283127.104454,
+          "url": "https://medium.com/javarevisited/redis-distributed-locks-deep-dive-from-core-principles-to-source-code-implementation-96735d05b4a4",
+          "type": "degrade_scrape",
+          "reason": "too_short",
+          "quality": "low"
+        },
+        {
+          "ts": 1786283131.3429291,
+          "url": "https://time.geekbang.org/column/article/301092",
+          "type": "degrade_scrape",
+          "reason": "too_short",
+          "quality": "low"
+        },
+        {
+          "ts": 1786283131.3429754,
+          "url": "https://zhuanlan.zhihu.com/p/413682456",
+          "type": "degrade_scrape",
+          "reason": "too_short",
+          "quality": "low"
+        }
+      ],
+      "file_paths": {
+        "md": "outputs/task_1786283196_43a1f742c5.md",
+        "pdf": "outputs/task_1786283196_43a1f742c5.pdf",
+        "docx": "outputs/task_1786283196_43a1f742c5.docx",
+        "json": "outputs/job_672da9d5-3055-46fc-82e9-823d9a91eb28_1786283052_Redis_分布式锁的实现原理与常见坑_控制在800字以内.json"
+      },
+      "files_done": true,
+      "degradations": {
+        "reasons": [
+          {
+            "ts": 1786283127.1044424,
+            "url": "https://medium.com/javarevisited/redis-distributed-locks-deep-dive-from-core-principles-to-source-code-implementation-96735d05b4a4",
+            "reason": "too_short",
+            "quality": "low",
+            "subsystem": "scrape"
+          },
+          {
+            "ts": 1786283131.3429112,
+            "url": "https://time.geekbang.org/column/article/301092",
+            "reason": "too_short",
+            "quality": "low",
+            "subsystem": "scrape"
+          },
+          {
+            "ts": 1786283131.34297,
+            "url": "https://zhuanlan.zhihu.com/p/413682456",
+            "reason": "too_short",
+            "quality": "low",
+            "subsystem": "scrape"
+          }
+        ],
+        "rag_degraded": false,
+        "scrape_failures": 3,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [],
+        "search_keys_failed": [],
+        "search_unavailable": false,
+        "scrape_failure_samples": [
+          {
+            "url": "https://medium.com/javarevisited/redis-distributed-locks-deep-dive-from-core-principles-to-source-code-implementation-96735d05b4a4",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "url": "https://time.geekbang.org/column/article/301092",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "url": "https://zhuanlan.zhihu.com/p/413682456",
+            "reason": "too_short",
+            "quality": "low"
+          }
+        ]
+      },
+      "planning_done": true,
+      "research_done": true,
+      "source_policy": {
+        "mode": "web",
+        "reason": "policy_web_first"
+      },
+      "planning_started": true,
+      "report_body_done": true,
+      "report_persisted": true
+    },
+    "version": 12,
+    "created_at": 1786283047539,
+    "updated_at": 1786283202294
+  }
+}

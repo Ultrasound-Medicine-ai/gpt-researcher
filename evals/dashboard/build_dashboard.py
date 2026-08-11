@@ -5,6 +5,7 @@ Inputs (best-effort):
   evals/results/portfolio_latest.json
   evals/results/simpleqa_latest.json
   evals/results/hallucination_latest.json
+  evals/results/dialogue_latest.json
   evals/results/live_chat_latest.json
   evals/results/perf_latest.json
   evals/fuzz_eval/weaknesses.jsonl
@@ -139,6 +140,22 @@ def build_trace_index(artifacts: dict[str, Any]) -> dict[str, Any]:
                     "ok": row.get("passed"),
                 }
             )
+    for source in ("dialogue", "live_chat"):
+        routing = artifacts.get(source) or {}
+        for row in routing.get("results") or []:
+            if row.get("predicted_intent"):
+                spans.append(
+                    {
+                        "trace_type": "intent_route",
+                        "source": source,
+                        "id": row.get("id"),
+                        "expected": row.get("expected_intent"),
+                        "predicted": row.get("predicted_intent"),
+                        "report_created": row.get("report_created"),
+                        "duration_sec": row.get("elapsed_sec"),
+                        "ok": row.get("passed"),
+                    }
+                )
         if row.get("p95_sec") is not None:
             spans.append(
                 {
@@ -169,14 +186,54 @@ def build_trace_index(artifacts: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _intent_metric_lines(name: str, metrics: dict[str, Any]) -> list[str]:
+    if not metrics:
+        return [f"### {name}", "", "_No labelled routing artifact._", ""]
+    lines = [
+        f"### {name}",
+        "",
+        f"- Accuracy: **{metrics.get('accuracy', 'n/a')}**; "
+        f"macro P/R/F1: **{metrics.get('macro_precision', 'n/a')} / "
+        f"{metrics.get('macro_recall', 'n/a')} / {metrics.get('macro_f1', 'n/a')}**",
+        f"- Route false-positive rate: "
+        f"**{metrics.get('report_route_false_positive_rate', 'n/a')}** "
+        f"({metrics.get('report_route_false_positives', 0)}/"
+        f"{metrics.get('non_create_requests', 0)})",
+        f"- Actual false-creation rate: "
+        f"**{metrics.get('false_report_creation_rate', 'n/a')}** "
+        f"({metrics.get('false_report_creations', 0)}/"
+        f"{metrics.get('non_create_requests_with_side_effect_observation', 0)})",
+        f"- Guarded route false positives: "
+        f"**{metrics.get('guarded_report_route_false_positives', 0)}**",
+        "",
+        "| Intent | Precision | Recall | F1 | Support |",
+        "|--------|-----------|--------|----|---------|",
+    ]
+    for intent, values in (metrics.get("per_class") or {}).items():
+        lines.append(
+            f"| `{intent}` | {values.get('precision')} | {values.get('recall')} | "
+            f"{values.get('f1')} | {values.get('support')} |"
+        )
+    lines += [
+        "",
+        f"Confusion matrix (expected → predicted): "
+        f"`{metrics.get('confusion_matrix') or {}}`",
+        "",
+    ]
+    return lines
+
+
 def render_md(artifacts: dict[str, Any], failures: list[dict], traces: dict) -> str:
     cheap = artifacts.get("gate_cheap") or {}
     portfolio = artifacts.get("portfolio") or {}
     sqa = artifacts.get("simpleqa") or {}
     hall = artifacts.get("hallucination") or {}
     live = artifacts.get("live_chat") or {}
+    dialogue = artifacts.get("dialogue") or {}
     perf = artifacts.get("perf") or {}
     sqm = sqa.get("metrics") or {}
+    live_intent_metrics = live.get("intent_metrics") or {}
+    cheap_intent_metrics = dialogue.get("intent_metrics") or {}
 
     lines = [
         "# Project-2 evaluation dashboard",
@@ -206,6 +263,10 @@ def render_md(artifacts: dict[str, Any], failures: list[dict], traces: dict) -> 
         f"- Hallucination severity: `{hall.get('severity_counts')}`",
         f"- Hallucination by_bucket: `{hall.get('by_bucket') or {}}`",
         "",
+        "## Intent routing",
+        "",
+        *_intent_metric_lines("Cheap deterministic routing", cheap_intent_metrics),
+        *_intent_metric_lines("Live LLM routing", live_intent_metrics),
         "## Perf P95",
         "",
     ]
@@ -296,6 +357,7 @@ def main() -> None:
         "simpleqa": _load(RESULTS / "simpleqa_latest.json"),
         "hallucination": _load(RESULTS / "hallucination_latest.json"),
         "live_chat": _load(RESULTS / "live_chat_latest.json"),
+        "dialogue": _load(RESULTS / "dialogue_latest.json"),
         "perf": _load(RESULTS / "perf_latest.json"),
     }
     failures = collect_failures(artifacts)

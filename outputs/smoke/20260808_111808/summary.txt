@@ -1,0 +1,19 @@
+Smoke run: 2026-08-08T11:18:08
+Report grade: FAIL (0/5)
+Chars: 0 | Words: 0
+Headings: 0 | Links: 0
+
+Checks:
+  - non_empty: FAIL
+  - min_length_300: FAIL
+  - min_words_80: FAIL
+  - has_headings: FAIL
+  - has_links_or_citations: FAIL
+
+Steps:
+  [OK] api_root
+  [OK] api_docs
+  [OK] nextjs_ui
+  [FAIL] websocket_research
+  [FAIL] report_quality
+  [OK] chat_api

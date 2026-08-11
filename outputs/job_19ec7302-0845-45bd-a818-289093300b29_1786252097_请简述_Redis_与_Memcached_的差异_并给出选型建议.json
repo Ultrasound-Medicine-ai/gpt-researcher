@@ -1,0 +1,638 @@
+{
+  "timestamp": "2026-08-09T05:08:17.350021",
+  "job_id": "19ec7302-0845-45bd-a818-289093300b29",
+  "events": [
+    {
+      "timestamp": "2026-08-09T05:08:41.438106",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '请简述 Redis 与 Memcached 的差异，并给出选型建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:08:41.459920",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "🗄️ Database Expert Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:08:41.490813",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 请简述 Redis 与 Memcached 的差异，并给出选型建议...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:08:43.690930",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:12.508463",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Redis与Memcached的差异 选型建议', 'Redis vs Memcached comparison performance persistence licensing', 'Redis Memcached 数据结构 持久化 性能对比 选型', '请简述 Redis 与 Memcached 的差异，并给出选型建议']...",
+        "metadata": [
+          "Redis与Memcached的差异 选型建议",
+          "Redis vs Memcached comparison performance persistence licensing",
+          "Redis Memcached 数据结构 持久化 性能对比 选型",
+          "请简述 Redis 与 Memcached 的差异，并给出选型建议"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:12.591216",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis与Memcached的差异 选型建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:12.609041",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis vs Memcached comparison performance persistence licensing'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:12.635063",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '请简述 Redis 与 Memcached 的差异，并给出选型建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:12.650080",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis Memcached 数据结构 持久化 性能对比 选型'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.523889",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESZAHuR6pNoZEFcWBikisuph3lZ0TRiKdK0NS7MJbAODDeacD-vb3ISFRbAHJpQJpQyyARi0FXhxTrOH-oDcWOA1EcJrBaSgicwbEpGyRsQUhm7AqDMLXZYbFO1I8g6xhJv8Nm9Ik%3D\n",
+        "metadata": "/goto?url=CAESZAHuR6pNoZEFcWBikisuph3lZ0TRiKdK0NS7MJbAODDeacD-vb3ISFRbAHJpQJpQyyARi0FXhxTrOH-oDcWOA1EcJrBaSgicwbEpGyRsQUhm7AqDMLXZYbFO1I8g6xhJv8Nm9Ik%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.555348",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESawHuR6pNyWmOv3rSAw4Zt4vRKZ92y8yVhQJTDDsMXXYs9o8kDngtYzhjosPR4Myo5ruwjpiS7eaXy_EATjno3hCQFiFBM3oBFcchom8TGJS5E5Oxsg-9MeOHBqcy-C1EbxnjOPeMkMlMr7rx\n",
+        "metadata": "/goto?url=CAESawHuR6pNyWmOv3rSAw4Zt4vRKZ92y8yVhQJTDDsMXXYs9o8kDngtYzhjosPR4Myo5ruwjpiS7eaXy_EATjno3hCQFiFBM3oBFcchom8TGJS5E5Oxsg-9MeOHBqcy-C1EbxnjOPeMkMlMr7rx"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.586476",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESXgHuR6pNyM_adY-cYOHN7o1T2o6A1oYHLzMHaCGQRrUEYbF7h4eA47_Qf5XXjJs46-pVkSwIbP2bnPISrFqdu6n29xR0m3YLUhvt35wP202cI_H6TR2rg4_zc-DpgC0%3D\n",
+        "metadata": "/goto?url=CAESXgHuR6pNyM_adY-cYOHN7o1T2o6A1oYHLzMHaCGQRrUEYbF7h4eA47_Qf5XXjJs46-pVkSwIbP2bnPISrFqdu6n29xR0m3YLUhvt35wP202cI_H6TR2rg4_zc-DpgC0%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.611692",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAEScAHuR6pNPBt_SVplK2IgGG6SG4wlEd7Metl2LYqHzVhUtVIDGv3J5fDlesPvw79qJI3VLIjLqDs6tLD6M751N6stop6ILcJ6YeKdPXxhjn3LWvlZjEGmqBxw6Y1tFdEO5FlscQWGjVu7itBuS7NBjZM%3D\n",
+        "metadata": "/goto?url=CAEScAHuR6pNPBt_SVplK2IgGG6SG4wlEd7Metl2LYqHzVhUtVIDGv3J5fDlesPvw79qJI3VLIjLqDs6tLD6M751N6stop6ILcJ6YeKdPXxhjn3LWvlZjEGmqBxw6Y1tFdEO5FlscQWGjVu7itBuS7NBjZM%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.647599",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESYgHuR6pNZrRi9uxNN-xdnp2IgyYble-jcvk8iYo_Tf-Ougkb2PzYmeI-el3DOU3wRoeRPoU-6rSiKqTl9H8Rij70ihwZ4y-TlxhVJo-ktCXFSwCJZ1bqUCHAQttsOnNEUKi9\n",
+        "metadata": "/goto?url=CAESYgHuR6pNZrRi9uxNN-xdnp2IgyYble-jcvk8iYo_Tf-Ougkb2PzYmeI-el3DOU3wRoeRPoU-6rSiKqTl9H8Rij70ihwZ4y-TlxhVJo-ktCXFSwCJZ1bqUCHAQttsOnNEUKi9"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.676048",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.717623",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.757061",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.786480",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.817312",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:13.845966",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '请简述 Redis 与 Memcached 的差异，并给出选型建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.363359",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://bbs.huaweicloud.com/blogs/451393\n",
+        "metadata": "https://bbs.huaweicloud.com/blogs/451393"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.391064",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://juejin.cn/post/7340512262166036491\n",
+        "metadata": "https://juejin.cn/post/7340512262166036491"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.418166",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/wzh2010/p/17962435\n",
+        "metadata": "https://www.cnblogs.com/wzh2010/p/17962435"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.445258",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://gist.github.com/d335c4f139ef3da1660e5aeccf7fd107\n",
+        "metadata": "https://gist.github.com/d335c4f139ef3da1660e5aeccf7fd107"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.474926",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://ptcx.github.io/post/redis_vs_memcached\n",
+        "metadata": "https://ptcx.github.io/post/redis_vs_memcached"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.495727",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.526778",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.562148",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.ibm.com/think/topics/redis\n",
+        "metadata": "https://www.ibm.com/think/topics/redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.590363",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://en.wikipedia.org/wiki/Redis\n",
+        "metadata": "https://en.wikipedia.org/wiki/Redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.618017",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.linkedin.com/company/redisinc\n",
+        "metadata": "https://www.linkedin.com/company/redisinc"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.645616",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.geeksforgeeks.org/system-design/introduction-to-redis-server\n",
+        "metadata": "https://www.geeksforgeeks.org/system-design/introduction-to-redis-server"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.674448",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://backendless.com/redis-what-it-is-what-it-does-and-why-you-should-care\n",
+        "metadata": "https://backendless.com/redis-what-it-is-what-it-does-and-why-you-should-care"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.694928",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:14.732767",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:15.241235",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://tech-insider.org/redis-vs-memcached-2026\n",
+        "metadata": "https://tech-insider.org/redis-vs-memcached-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:15.268508",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.site24x7.com/learn/memcached-vs-redis-comparison.html\n",
+        "metadata": "https://www.site24x7.com/learn/memcached-vs-redis-comparison.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:15.297508",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.devgenius.io/redis-vs-memcached-i-benchmarked-both-the-results-dont-match-the-blog-posts-8c91eeb63184\n",
+        "metadata": "https://blog.devgenius.io/redis-vs-memcached-i-benchmarked-both-the-results-dont-match-the-blog-posts-8c91eeb63184"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:15.328372",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://scalegrid.io/blog/redis-vs-memcached\n",
+        "metadata": "https://scalegrid.io/blog/redis-vs-memcached"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:15.368452",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://stackoverflow.com/questions/10558465/memcached-vs-redis\n",
+        "metadata": "https://stackoverflow.com/questions/10558465/memcached-vs-redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:15.408641",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:15.464767",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:16.710359",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:16.742376",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 18 total images",
+        "metadata": [
+          "https://www.cnblogs.com/skins/custom/images/logo.gif",
+          "https://img2024.cnblogs.com/blog/167509/202401/167509-20240119093633920-1830778305.png",
+          "https://img2024.cnblogs.com/blog/167509/202401/167509-20240119094007380-413021501.png",
+          "https://img2024.cnblogs.com/blog/167509/202401/167509-20240120104228671-966219441.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:16.783744",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:16.819435",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis Memcached 数据结构 持久化 性能对比 选型...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:19.661178",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:19.685384",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 15 total images",
+        "metadata": [
+          "https://assets.ibm.com/is/image/ibm/dataforai_scaling03_still_12k?ts=1776448025346&dpr=off",
+          "https://assets.ibm.com/is/image/ibm/herodatavis-b5-12k?ts=1784927001253&dpr=off",
+          "https://assets.ibm.com/is/image/ibm/dataforai_secure01_still_12k?ts=1784927000581&dpr=off",
+          "https://assets.ibm.com/is/image/ibm/ibm_think_watonxdata_closeup_still_4k?ts=1784927000877&dpr=off"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:19.717918",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:19.742882",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis与Memcached的差异 选型建议...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:21.478169",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:21.504509",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:21.532558",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://tech-insider.org/wp-content/uploads/2026/03/redis-vs-memcached-2026-1.jpg",
+          "https://scalegrid.io/wp-content/uploads/redis-vs-memcached-scalegrid-2.jpg",
+          "https://scalegrid.io/wp-content/uploads/redis-vs-memcached-scalegrid-4-1024x540.jpg",
+          "https://scalegrid.io/wp-content/uploads/blog-feature-img_advantages-of-DBMS-in-data-management-1024x568.jpeg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:21.569560",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:21.613325",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis vs Memcached comparison performance persistence licensing...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:30.073451",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:30.103544",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:30.141421",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.015125340000000001",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:09:30.225055",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '请简述 Redis 与 Memcached 的差异，并给出选型建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T05:10:32.128503",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '请简述 Redis 与 Memcached 的差异，并给出选型建议'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "请简述 Redis 与 Memcached 的差异，并给出选型建议",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis与Memcached差异及选型\n\n## 核心差异\n| 维度 | Redis | Memcached |\n|---|---|---|\n| 结构 | 丰富(Hash等)[2] | 仅KV[4] |\n| 架构 | 单线程[1] | 多线程[12] |\n| 持久化 | RDB/AOF[5] | 无[5] |\n| 集群 | 原生[3] | 客户端分片[3] |\n| 许可 | AGPLv3[12] | BSD[12] |\n\n## 性能分析\nMemcached凭多线程在简单KV读写占优，2026年测试其写吞吐量较Redis高33%[12]。Redis在复杂场景内存利用率更优[13]，且支持持久化与原生集群，Memcached纯内存且依赖客户端分片[3]。\n\n## 选型建议\n需复杂数据、持久化或消息队列选Redis[5]。仅需高并发简单KV且需规避AGPLv3许可限制选Memcached[12]。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** juejin.cn — Redis vs Memcached：到底该怎么选？Redis vs Memcached：深入比较与选型指南 在构建高性 - 掘金\nURL: https://juejin.cn/post/7340512262166036491\n原文片段：「Redis vs Memcached：到底该怎么选？Redis vs Memcached：深入比较与选型指南 在构建高性 - 掘金 Redis vs Memcached：到底该怎么选？ lsoxvxe 2024-02-28 526 阅读6分钟 Redis vs Memcached：深入比较与选型指南 在构建高性能、可伸缩的应用程序时，采用恰当的缓存策略及工具至关重要。Redis 和 Memcached 是两款当前极受欢迎的开源缓存系统，它们均能显著提升大型应用程序的数据读写速度，从而降低数据库的负担。虽然两者都很强大，但它们在设计理念、功能特性以及适用场...」\n\n<a id=\"ref-2\"></a>**[2]** cnblogs.com — 缓存选型：Redis or MemCache - Hello-Brand - 博客园\nURL: https://www.cnblogs.com/wzh2010/p/17962435\n原文片段：「缓存选型：Redis or MemCache - Hello-Brand - 博客园 Brand 一生践行韦特莱法则，一生保持高执行力高效率... 缓存选型：Redis or MemCache ★ Redis24篇集合 1 背景 互联网产品为了保证高性能和高可用性，经常会使用缓存来进行架构设计。最常用的就是使用Redis了，也有部分企业会选择使用Memcache。 所以了解 Redis 和 Memcache 的区别、共性以及各自应用场景，有助于我们在做技术选型的时候，有合理的判断依据。 2 Redis 和 Memcache 的区别和共同点 Redis和M...」\n\n<a id=\"ref-3\"></a>**[3]** gist.github.com — Redis 和 Memcached 的区别 · GitHub\nURL: https://gist.github.com/d335c4f139ef3da1660e5aeccf7fd107\n原文片段：「Redis 和 Memcached 的区别 · GitHub Skip to content Search Gists Search Gists Sign in Sign up You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or wind...」\n\n<a id=\"ref-4\"></a>**[4]** ptcx.github.io — Redis和Memcached，选谁？ - ptcx's blog\nURL: https://ptcx.github.io/post/redis_vs_memcached\n原文片段：「Redis和Memcached，选谁？ - ptcx's blog ptcx's blog What's On This Page 对比 Redis和Memcached都能用于数据缓存，那这两种缓存服务在实际应用中该如何选择？Redis除了有更多的数据结构，在很多方面还是和Memcached不一样。我们在选择缓存服务时，通常需要考虑以下几点： 功能 速度 内存使用 缓存持久化 集群扩展 功能对比 Memcached只支持简单的key/value存储，并且存储的value只能是字符串，如果是整数形式字符串，还能对其进行简单的加减操作。 对于Redis，不仅...」\n\n<a id=\"ref-5\"></a>**[5]** bbs.huaweicloud.com — 一文比较Redis和Memcached的区别-云社区-华为云\nURL: https://bbs.huaweicloud.com/blogs/451393\n原文片段：「一文比较Redis和Memcached的区别-云社区-华为云 冒泡提示 云社区 博客 一文比较Redis和Memcached的区别 微信 微博 分享文章到微博 复制链接 复制链接到剪贴板 一文比较Redis和Memcached的区别 举报 Jack20 发表于 2025/04/22 14:55:44 2025/04/22 【摘要】 Redis和Memcached都是基于内存的数据存储系统，常用于缓存数据以提高应用程序的性能。它们的主要区别在于数据结构、持久化方式、数据分片方式、处理数据的方式、协议、内存管理方式等。区别对比维度RedisMemcached...」\n\n<a id=\"ref-6\"></a>**[6]** en.wikipedia.org — Redis - Wikipedia\nURL: https://en.wikipedia.org/wiki/Redis\n原文片段：「Redis - Wikipedia Jump to content From Wikipedia, the free encyclopedia Source available in-memory key–value database For other uses, see Redis (disambiguation) . This article has multiple issues. Please help improve it or discuss these issues on the talk page . ( Learn how and w...」\n\n<a id=\"ref-7\"></a>**[7]** ibm.com — What is Redis Explained? | IBM\nURL: https://www.ibm.com/think/topics/redis\n原文片段：「What is Redis Explained? | IBM What is Redis? What is Redis? Redis ( RE mote DI ctionary S erver) is an open source , in-memory, NoSQL key/value store that is used primarily as an application cache or quick-response database. Redis stores data in memory, rather than on a disk or...」\n\n<a id=\"ref-8\"></a>**[8]** backendless.com — Redis: What It Is, What It Does, and Why You Should Care | Backendless\nURL: https://backendless.com/redis-what-it-is-what-it-does-and-why-you-should-care\n原文片段：「Redis: What It Is, What It Does, and Why You Should Care | Backendless Blog All Categories Database Backendless Marketplace .NET GraphQL Comparison Press Release Atomic Counters Email Marketing Caching Navigator Professional Services UI Builder Cloud Code Flutter CodeRunner Loggi...」\n\n<a id=\"ref-9\"></a>**[9]** linkedin.com — Redis | LinkedIn\nURL: https://www.linkedin.com/company/redisinc\n原文片段：「Redis | LinkedIn Skip to main content Redis Software Development Mountain View, CA 299,234 followers The world's fastest data platform. See jobs Follow View all 1,522 employees Report this company About us Redis is the world's fastest data platform. We provide cloud and on-prem s...」\n\n<a id=\"ref-10\"></a>**[10]** geeksforgeeks.org — Redis Introduction - GeeksforGeeks\nURL: https://www.geeksforgeeks.org/system-design/introduction-to-redis-server\n原文片段：「Redis Introduction - GeeksforGeeks Courses Tutorials Interview Prep DSA Practice Problems C C++ Java Python JavaScript Data Science Machine Learning Courses Linux DevOps Redis Introduction Last Updated : 22 Jun, 2026 Redis (Remote Dictionary Server) is an in-memory database that...」\n\n<a id=\"ref-11\"></a>**[11]** site24x7.com — Memcached vs Redis: Key Differences Explained - Site24x7\nURL: https://www.site24x7.com/learn/memcached-vs-redis-comparison.html\n原文片段：「Memcached vs Redis: Key Differences Explained - Site24x7 Memcached vs Redis: A detailed comparison Table of Contents Introduction Background information Differences in key features Differences in use cases Differences in community, support, and documentation Pros and cons of Redi...」\n\n<a id=\"ref-12\"></a>**[12]** tech-insider.org — Redis vs Memcached: 5 Benchmarks Show a Clear Winner [2026]\nURL: https://tech-insider.org/redis-vs-memcached-2026\n原文片段：「Redis vs Memcached: 5 Benchmarks Show a Clear Winner [2026] Skip to content Marcus Chen March 26, 2026 26 min read The debate over Redis vs Memcached has raged for over a decade, but 2026 has fundamentally changed the calculus. Redis 8.0’s shift to AGPLv3 licensing, Memcached’s c...」\n\n<a id=\"ref-13\"></a>**[13]** scalegrid.io — Redis Vs Memcached In 2025 | ScaleGrid\nURL: https://scalegrid.io/blog/redis-vs-memcached\n原文片段：「Redis Vs Memcached In 2025 | ScaleGrid Redis® Redis vs Memcached in 2025 Apr 01, 2024 8 min read Redis vs Memcached in 2025 SHARE THIS ARTICLE Choosing between Redis and Memcached hinges on specific application requirements. In this comparison of Redis vs Memcached, we strip away...」\n\n<a id=\"ref-14\"></a>**[14]** unknown — unknown\nURL: /goto?url=CAESZAHuR6pNoZEFcWBikisuph3lZ0TRiKdK0NS7MJbAODDeacD-vb3ISFRbAHJpQJpQyyARi0FXhxTrOH-oDcWOA1EcJrBaSgicwbEpGyRsQUhm7AqDMLXZYbFO1I8g6xhJv8Nm9Ik%3D\n\n<a id=\"ref-15\"></a>**[15]** unknown — unknown\nURL: /goto?url=CAESXgHuR6pNyM_adY-cYOHN7o1T2o6A1oYHLzMHaCGQRrUEYbF7h4eA47_Qf5XXjJs46-pVkSwIbP2bnPISrFqdu6n29xR0m3YLUhvt35wP202cI_H6TR2rg4_zc-DpgC0%3D\n\n<a id=\"ref-16\"></a>**[16]** unknown — unknown\nURL: /goto?url=CAESYgHuR6pNZrRi9uxNN-xdnp2IgyYble-jcvk8iYo_Tf-Ougkb2PzYmeI-el3DOU3wRoeRPoU-6rSiKqTl9H8Rij70ihwZ4y-TlxhVJo-ktCXFSwCJZ1bqUCHAQttsOnNEUKi9\n\n<a id=\"ref-17\"></a>**[17]** unknown — unknown\nURL: /goto?url=CAESawHuR6pNyWmOv3rSAw4Zt4vRKZ92y8yVhQJTDDsMXXYs9o8kDngtYzhjosPR4Myo5ruwjpiS7eaXy_EATjno3hCQFiFBM3oBFcchom8TGJS5E5Oxsg-9MeOHBqcy-C1EbxnjOPeMkMlMr7rx\n\n<a id=\"ref-18\"></a>**[18]** blog.devgenius.io — blog.devgenius.io\nURL: https://blog.devgenius.io/redis-vs-memcached-i-benchmarked-both-the-results-dont-match-the-blog-posts-8c91eeb63184\n\n<a id=\"ref-19\"></a>**[19]** stackoverflow.com — stackoverflow.com\nURL: https://stackoverflow.com/questions/10558465/memcached-vs-redis\n\n<a id=\"ref-20\"></a>**[20]** unknown — unknown\nURL: /goto?url=CAEScAHuR6pNPBt_SVplK2IgGG6SG4wlEd7Metl2LYqHzVhUtVIDGv3J5fDlesPvw79qJI3VLIjLqDs6tLD6M751N6stop6ILcJ6YeKdPXxhjn3LWvlZjEGmqBxw6Y1tFdEO5FlscQWGjVu7itBuS7NBjZM%3D",
+    "metadata": [
+      "https://www.cnblogs.com/skins/custom/images/logo.gif",
+      "https://img2024.cnblogs.com/blog/167509/202401/167509-20240119093633920-1830778305.png",
+      "https://img2024.cnblogs.com/blog/167509/202401/167509-20240119094007380-413021501.png",
+      "https://img2024.cnblogs.com/blog/167509/202401/167509-20240120104228671-966219441.png",
+      "https://assets.ibm.com/is/image/ibm/dataforai_scaling03_still_12k?ts=1776448025346&dpr=off",
+      "https://assets.ibm.com/is/image/ibm/herodatavis-b5-12k?ts=1784927001253&dpr=off",
+      "https://assets.ibm.com/is/image/ibm/dataforai_secure01_still_12k?ts=1784927000581&dpr=off",
+      "https://assets.ibm.com/is/image/ibm/ibm_think_watonxdata_closeup_still_4k?ts=1784927000877&dpr=off",
+      "https://tech-insider.org/wp-content/uploads/2026/03/redis-vs-memcached-2026-1.jpg",
+      "https://scalegrid.io/wp-content/uploads/redis-vs-memcached-scalegrid-2.jpg"
+    ]
+  }
+}

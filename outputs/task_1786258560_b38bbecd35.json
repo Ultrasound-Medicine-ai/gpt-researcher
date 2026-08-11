@@ -1,0 +1,592 @@
+{
+  "timestamp": "2026-08-09T06:56:00.143640",
+  "events": [
+    {
+      "timestamp": "2026-08-09T06:56:31.207818",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for 'slot hold slot-e2e-a-1786258556'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:56:31.228017",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb DevOps & Systems Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:56:31.257036",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: slot hold slot-e2e-a-1786258556...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:56:34.595868",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:13.521567",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['\"slot hold\" \"slot-e2e-a-1786258556\"', '\"slot-e2e-a-1786258556\"', '\"slot hold\" e2e', 'slot hold slot-e2e-a-1786258556']...",
+        "metadata": [
+          "\"slot hold\" \"slot-e2e-a-1786258556\"",
+          "\"slot-e2e-a-1786258556\"",
+          "\"slot hold\" e2e",
+          "slot hold slot-e2e-a-1786258556"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:13.609693",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\"slot hold\" \"slot-e2e-a-1786258556\"'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:13.632359",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\"slot-e2e-a-1786258556\"'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:13.653796",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\"slot hold\" e2e'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:13.675485",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'slot hold slot-e2e-a-1786258556'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.578933",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.urbanelementz.com/soft-slot.html\n",
+        "metadata": "https://www.urbanelementz.com/soft-slot.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.610249",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.primecasino.co.uk/blog/guides/slot-features-explained\n",
+        "metadata": "https://www.primecasino.co.uk/blog/guides/slot-features-explained"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.643804",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://community.gamedev.tv/t/creating-an-equipment-slot-that-can-hold-multiple-types-of-items/249066\n",
+        "metadata": "https://community.gamedev.tv/t/creating-an-equipment-slot-that-can-hold-multiple-types-of-items/249066"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.678694",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://worldofwarcraft.fandom.com/et/wiki/Equipment_slot\n",
+        "metadata": "https://worldofwarcraft.fandom.com/et/wiki/Equipment_slot"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.698816",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.ahdictionary.com/word/search.html?q=slot\n",
+        "metadata": "https://www.ahdictionary.com/word/search.html?q=slot"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.720498",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.741371",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.773363",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:14.793014",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:15.526182",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developers.google.com/actions-center/verticals/reservations/e2e/support\n",
+        "metadata": "https://developers.google.com/actions-center/verticals/reservations/e2e/support"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:15.552703",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://ggbmagazine.com/articles/slot-hold-vs-slot-revenue\n",
+        "metadata": "https://ggbmagazine.com/articles/slot-hold-vs-slot-revenue"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:15.582297",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://wizardofvegas.com/forum/off-topic/general/19656-slot-machine-hold-percentage\n",
+        "metadata": "https://wizardofvegas.com/forum/off-topic/general/19656-slot-machine-hold-percentage"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:15.608943",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://bgaming.com/articles/hold-win-slot-mechanics-explained\n",
+        "metadata": "https://bgaming.com/articles/hold-win-slot-mechanics-explained"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:15.634789",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.kubernetes.dev/blog/2023/04/12/e2e-testing-best-practices-reloaded\n",
+        "metadata": "https://www.kubernetes.dev/blog/2023/04/12/e2e-testing-best-practices-reloaded"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:15.659403",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:15.693386",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:16.125413",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://docs.macroquest.org/reference/general/slot-names\n",
+        "metadata": "https://docs.macroquest.org/reference/general/slot-names"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:16.151780",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.aeplayer.com/play-slots\n",
+        "metadata": "https://www.aeplayer.com/play-slots"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:16.178919",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.mate.com/wp-content/uploads/2015/10/LIT00302_SST_TTT_Adapters.pdf\n",
+        "metadata": "https://www.mate.com/wp-content/uploads/2015/10/LIT00302_SST_TTT_Adapters.pdf"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:16.202759",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.gopresto.com/parts.php?product_id=10409\n",
+        "metadata": "https://www.gopresto.com/parts.php?product_id=10409"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:16.226009",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:16.253002",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:17.974168",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:17.998942",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 6 total images",
+        "metadata": [
+          "https://www.ahdictionary.com/application/resources/images/AHD-Dictionary.png",
+          "https://www.ahdictionary.com/application/resources/images/mini-speaker.png",
+          "https://community.gamedev.tv/uploads/db2322/optimized/4X/d/2/9/d29374a84b31ee80bb0c7ca8aaf1da2e4964f7fb_2_690x389.png",
+          "https://community.gamedev.tv/uploads/db2322/optimized/4X/e/b/f/ebfea804543320853d09d6a063931d8265c4b47b_2_690x389.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:18.031036",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:18.054572",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: slot hold slot-e2e-a-1786258556...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:19.895859",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:19.924049",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://www.primecasino.co.uk/img/blog/date-icon.svg",
+          "https://www.primeapi.com/cmscdn/cdn/cms/PC/slot_features_explained_4d1dd39462.jpg.webp",
+          "https://www.primeapi.com/cmscdn/cdn/cms/PC/slot_machine_with_symbols_and_features_86a647ba83.jpg.webp",
+          "https://www.primeapi.com/cmscdn/cdn/cms/PC/sample_game_interface_with_Gamification_f0b1c4332a.jpg.webp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:19.959671",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:19.989433",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \"slot hold\" \"slot-e2e-a-1786258556\"...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:20.707766",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:20.732637",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://ggbmagazine.com/img-srv/3DhJxQMU-zaphTLOIeE4wjvB1iv-dCMiWeT83F5BGs4/resizing_type:auto/width:0/height:1024/gravity:sm/enlarge:1/ext:webp/strip_metadata:1/quality:85/cachebuster:filesize-270569/bG9jYWw6Ly8vZ2dibWFnYXppbmUuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDI1LzA5L2dnYi1jb3ZlcmZlYjIwMjAuanBn.webp",
+          "https://bgaming.com/wp-content/uploads/2026/06/Hold-and-Win-Slots-1397\u0445574.webp",
+          "https://bgaming.com/wp-content/uploads/2025/08/6865421a07d6032d3c5b530f_Banner-1397\u0445574-1.webp",
+          "https://bgaming.com/wp-content/uploads/2025/04/64fad131092889ca80e865a8_641c771803f827b0f52c5e78_63ef5e7fd772b1ebd88f2d99_All_NEWS2026.webp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:20.761182",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:21.913249",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \"slot hold\" e2e...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:21.983273",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for 'slot hold slot-e2e-a-1786258556'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:22.007472",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for '\"slot hold\" \"slot-e2e-a-1786258556\"'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:22.034121",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:22.061062",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://www.gopresto.com/i/1531851123236/c1-h560-w560/uploads/59_439_Skillet_Cookbook.jpg",
+          "https://www.gopresto.com/i/1779374882236/c1-h300-w300/uploads/54768_Skillet_Baking_Rack.jpg",
+          "https://www.gopresto.com/i/1781877239236/c1-h300-w300/uploads/85865_Skillet_Cover_Handle_Assembly.jpg",
+          "https://www.gopresto.com/i/1753817658236/c1-h300-w300/uploads/85680_Skillet_Glass_Cover.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:22.090281",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:22.116538",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \"slot-e2e-a-1786258556\"...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:22.693173",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:29.205345",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:29.229070",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.01258516",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:57:29.280337",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for 'slot hold slot-e2e-a-1786258556'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T06:58:17.936754",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for 'slot hold slot-e2e-a-1786258556'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# \u7efc\u5408\u89e3\u6790\u62a5\u544a\n\n## \u6838\u5fc3\u6982\u5ff5\n\u67e5\u8be2\u8bcd\u5305\u542b\u201cSlot Hold\u201d\u4e0e\u7cfb\u7edf\u6807\u8bc6\u3002\n\n### Slot Hold\n\u6307\u8d4c\u573a\u9884\u671f\u4ece\u4e0b\u6ce8\u4e2d\u4fdd\u7559\u7684\u8d44\u91d1\u6bd4\u4f8b[8]\u3002\u59825%\u4fdd\u7559\u7387\u5373\u6bcf100\u7f8e\u5143\u4e0b\u6ce8\u4ea7\u751f5\u7f8e\u5143\u6536\u5165[8]\uff0c\u8fd1\u5e74\u56e0\u9ad8\u4fdd\u7559\u7387\u6e38\u620f\u666e\u53ca\u800c\u4e0a\u5347[8]\u3002\n\n### E2E\u4e0eSlot\n\u201cE2E\u201d\u6307\u7aef\u5230\u7aef\uff08\u5982Kubernetes\u6d4b\u8bd5[7]\uff09\uff0c\u201cSlot\u201d\u6307\u90e8\u7f72\u69fd\u4f4d\u3002`slot-e2e-a-1786258556` \u4e3a\u7279\u5b9a\u7cfb\u7edf\u7684\u7aef\u5230\u7aef\u6d4b\u8bd5\u7528\u4f8b\u6216\u69fd\u4f4d\u6807\u8bc6\u7b26\uff0c\u7528\u4e8e\u8ffd\u8e2a\u8d44\u6e90\u5206\u914d\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** ahdictionary.com \u2014 American Heritage Dictionary Entry: slot\nURL: https://www.ahdictionary.com/word/search.html?q=slot\n\u539f\u6587\u7247\u6bb5\uff1a\u300cAmerican Heritage Dictionary Entry: slot HOW TO USE THE DICTIONARY To look up an entry in The American Heritage Dictionary of the English Language, use the search window above. For best results, after typing in the word, click on the \u201cSearch\u201d button instead of using the \u201center\u201d k...\u300d\n\n<a id=\"ref-2\"></a>**[2]** community.gamedev.tv \u2014 Creating an equipment slot that can hold multiple types of items - Ask - GameDev.tv\nURL: https://community.gamedev.tv/t/creating-an-equipment-slot-that-can-hold-multiple-types-of-items/249066\n\u539f\u6587\u7247\u6bb5\uff1a\u300cCreating an equipment slot that can hold multiple types of items - Ask - GameDev.tv Creating an equipment slot that can hold multiple types of items Unity Courses Ask 3d , rpg Darthsword July 16, 2024, 3:51am 1 Here\u2019s the rundown, I\u2019m using the Inventory system developed in the R...\u300d\n\n<a id=\"ref-3\"></a>**[3]** primecasino.co.uk \u2014 Slot Features: Types & How They Work\nURL: https://www.primecasino.co.uk/blog/guides/slot-features-explained\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSlot Features: Types & How They Work Home What's New Journal Guides Slot Features Explained: Types, Functions, and What UK Players Should Know Guides Published: 3 Jul 2025 | Updated: 9 Jul 2025 Ever wondered what really powers your favourite online slot games? It\u2019s not just the b...\u300d\n\n<a id=\"ref-4\"></a>**[4]** wizardofvegas.com \u2014 Slot machine hold percentage discussed in General Discussion/Off-Topic at Wizard of Vegas\nURL: https://wizardofvegas.com/forum/off-topic/general/19656-slot-machine-hold-percentage\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSlot machine hold percentage discussed in General Discussion/Off-Topic at Wizard of Vegas Slot machine hold percentage Home \u00bb Forum \u00bb Off Topic teddy123 teddy123 Threads: 1 Posts: 1 Joined: Sep 26, 2014 September 26th, 2014 at 8:49:35 AM permalink Hi. I'm new here. Can anyone exp...\u300d\n\n<a id=\"ref-5\"></a>**[5]** developers.google.com \u2014 Reservations End-to-End support \u00a0|\u00a0 Google Actions Center \u00a0|\u00a0 Google for Developers\nURL: https://developers.google.com/actions-center/verticals/reservations/e2e/support\n\u539f\u6587\u7247\u6bb5\uff1a\u300cReservations End-to-End support | Google Actions Center | Google for Developers Skip to main content Actions Center / English Deutsch Espa\u00f1ol Espa\u00f1ol \u2013 Am\u00e9rica Latina Fran\u00e7ais Indonesia Italiano Polski Portugu\u00eas \u2013 Brasil Ti\u00ea\u0301ng Vi\u00ea\u0323t T\u00fcrk\u00e7e \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u05e2\u05d1\u05e8\u05d9\u05ea \u0627\u0644\u0639\u0631\u0628\u064a\u0651\u0629 \u0641\u0627\u0631\u0633\u06cc \u0939\u093f\u0902\u0926\u0940 \u09ac\u09be\u0982\u09b2...\u300d\n\n<a id=\"ref-6\"></a>**[6]** bgaming.com \u2014 Hold & Win Slots Guide: RTP & Mechanics | BGaming\nURL: https://bgaming.com/articles/hold-win-slot-mechanics-explained\n\u539f\u6587\u7247\u6bb5\uff1a\u300cHold & Win Slots Guide: RTP & Mechanics | BGaming Skip to content articles August 3, 2026 Table Of Contents Let\u2019s start a conversation Would you like to start conversation with BGaming in any field? Drop us a line! CONTACT US Hold & Win slot mechanics explained Hold & Win slots h...\u300d\n\n<a id=\"ref-7\"></a>**[7]** kubernetes.dev \u2014 E2E Testing Best Practices, Reloaded | Kubernetes Contributors\nURL: https://www.kubernetes.dev/blog/2023/04/12/e2e-testing-best-practices-reloaded\n\u539f\u6587\u7247\u6bb5\uff1a\u300cE2E Testing Best Practices, Reloaded | Kubernetes Contributors E2E Testing Best Practices, Reloaded By Patrick Ohly (Intel) | Wednesday, April 12, 2023 End-to-end (E2E) testing in Kubernetes is how the project validates functionality with real clusters. Contributors sooner or lat...\u300d\n\n<a id=\"ref-8\"></a>**[8]** ggbmagazine.com \u2014 Slot Hold vs. Slot Revenue - GGB Magazine\nURL: https://ggbmagazine.com/articles/slot-hold-vs-slot-revenue\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSlot Hold vs. Slot Revenue - GGB Magazine Making sense of the slot hold debate There have been many articles published in recent months, and indeed over the last several years, about slot hold, with many at least partially attributing the industry\u2019s woes to rising hold. \u201cHold\u201d is...\u300d\n\n<a id=\"ref-9\"></a>**[9]** docs.macroquest.org \u2014 Slot Names - MacroQuest Docs\nURL: https://docs.macroquest.org/reference/general/slot-names\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSlot Names - MacroQuest Docs Skip to content Slot Names \u00b6 ItemSlot & ItemSlot2 \u00b6 These are not top level objects they are only members of DataType item ItemSlot Diagram \u00b6 You SHOULD use .ItemSlot and .ItemSlot2 instead of .InvSlot The reason for this is that they work without hav...\u300d\n\n<a id=\"ref-10\"></a>**[10]** gopresto.com \u2014 Parts and Accessories For 12-inch Electric Foldaway\u00ae Skillet - Presto\u00ae\nURL: https://www.gopresto.com/parts.php?product_id=10409\n\u539f\u6587\u7247\u6bb5\uff1a\u300cParts and Accessories For 12-inch Electric Foldaway\u00ae Skillet - Presto\u00ae Skip to Main Content Parts and Accessories For 12-inch Electric Foldaway\u00ae Skillet Stock No: 0711508 Baking/Steaming Rack for Presto\u00ae 11- and 12-Inch Skillets 54768 View Control Master\u00ae heat control 06900 View...\u300d\n\n<a id=\"ref-11\"></a>**[11]** mate.com \u2014 mate.com\nURL: https://www.mate.com/wp-content/uploads/2015/10/LIT00302_SST_TTT_Adapters.pdf\n\n<a id=\"ref-12\"></a>**[12]** aeplayer.com \u2014 aeplayer.com\nURL: https://www.aeplayer.com/play-slots\n\n<a id=\"ref-13\"></a>**[13]** urbanelementz.com \u2014 urbanelementz.com\nURL: https://www.urbanelementz.com/soft-slot.html\n\n<a id=\"ref-14\"></a>**[14]** worldofwarcraft.fandom.com \u2014 worldofwarcraft.fandom.com\nURL: https://worldofwarcraft.fandom.com/et/wiki/Equipment_slot",
+    "metadata": [
+      "https://www.ahdictionary.com/application/resources/images/AHD-Dictionary.png",
+      "https://www.ahdictionary.com/application/resources/images/mini-speaker.png",
+      "https://community.gamedev.tv/uploads/db2322/optimized/4X/d/2/9/d29374a84b31ee80bb0c7ca8aaf1da2e4964f7fb_2_690x389.png",
+      "https://community.gamedev.tv/uploads/db2322/optimized/4X/e/b/f/ebfea804543320853d09d6a063931d8265c4b47b_2_690x389.png",
+      "https://www.primecasino.co.uk/img/blog/date-icon.svg",
+      "https://www.primeapi.com/cmscdn/cdn/cms/PC/slot_features_explained_4d1dd39462.jpg.webp",
+      "https://www.primeapi.com/cmscdn/cdn/cms/PC/slot_machine_with_symbols_and_features_86a647ba83.jpg.webp",
+      "https://www.primeapi.com/cmscdn/cdn/cms/PC/sample_game_interface_with_Gamification_f0b1c4332a.jpg.webp",
+      "https://ggbmagazine.com/img-srv/3DhJxQMU-zaphTLOIeE4wjvB1iv-dCMiWeT83F5BGs4/resizing_type:auto/width:0/height:1024/gravity:sm/enlarge:1/ext:webp/strip_metadata:1/quality:85/cachebuster:filesize-270569/bG9jYWw6Ly8vZ2dibWFnYXppbmUuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDI1LzA5L2dnYi1jb3ZlcmZlYjIwMjAuanBn.webp",
+      "https://bgaming.com/wp-content/uploads/2026/06/Hold-and-Win-Slots-1397\u0445574.webp"
+    ]
+  }
+}

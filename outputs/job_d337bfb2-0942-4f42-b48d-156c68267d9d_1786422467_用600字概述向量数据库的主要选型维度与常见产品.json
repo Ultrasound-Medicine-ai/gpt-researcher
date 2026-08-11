@@ -1,0 +1,400 @@
+{
+  "timestamp": "2026-08-11T04:27:47.288593",
+  "job_id": "d337bfb2-0942-4f42-b48d-156c68267d9d",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:29:01.823000",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:01.849848",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "Default Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:02.291424",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用600字概述向量数据库的主要选型维度与常见产品...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:03.757839",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.379432",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['向量数据库主要选型维度与常见产品对比', 'vector database selection criteria common products Milvus Pinecone Weaviate comparison', '用600字概述向量数据库的主要选型维度与常见产品']...",
+        "metadata": [
+          "向量数据库主要选型维度与常见产品对比",
+          "vector database selection criteria common products Milvus Pinecone Weaviate comparison",
+          "用600字概述向量数据库的主要选型维度与常见产品"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.409418",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '向量数据库主要选型维度与常见产品对比'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.431671",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'vector database selection criteria common products Milvus Pinecone Weaviate comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:06.453229",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.682798",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.721712",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.752648",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.792747",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.833533",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.861939",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.889858",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:07.916939",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.574199",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloud.tencent.com/developer/article/2601251\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2601251"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.610006",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://adg.csdn.net/69707248437a6b40336a474d.html\n",
+        "metadata": "https://adg.csdn.net/69707248437a6b40336a474d.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.634258",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for\n",
+        "metadata": "https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.659040",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.682451",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus\n",
+        "metadata": "https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.713332",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.733816",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:08.781956",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.199747",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.224670",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 14 total images",
+        "metadata": [
+          "https://qccommunity.qcloudimg.com/image/new.png",
+          "https://developer.qcloudimg.com/http-save/10011/111c3aff5ec5e7223e0debb2e64acc03.png",
+          "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+          "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.260329",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:09.951895",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.424852",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.454904",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://substackcdn.com/image/fetch/$s_!L1Vy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff853c535-0af7-48e6-acef-c445d453fa55_1200x600.png",
+          "https://substackcdn.com/image/fetch/$s_!R9ua!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbea33aed-89f0-40b8-a936-63093bfba6f2_2257x382.png",
+          "https://substackcdn.com/image/fetch/$s_!Tc9c!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8bdeb93b-0e0a-414d-b3ba-89def83dcca5_764x556.png",
+          "https://substackcdn.com/image/fetch/$s_!-kh9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe5bf25b3-270f-453e-90d6-c3cc122bc905_2257x382.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.487339",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:12.807640",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:18.025801",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (3069 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:18.067215",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.05088",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:18.144881",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:29:31.091537",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用600字概述向量数据库的主要选型维度与常见产品'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用600字概述向量数据库的主要选型维度与常见产品",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# 向量数据库选型核心维度与主流产品全景分析\n\n## 一、四大核心选型维度\n\n向量数据库选型需系统性权衡**性能、功能、成本、易用性**四大维度[1]。性能涵盖查询吞吐（QPS）、延迟（P50/P95）、写入速度及索引构建时间；功能包括架构类型（专用库 vs 数据库扩展）、分布式能力、混合检索（向量+标量过滤）、ACID事务支持与GPU加速；成本涉及开源许可状态、运维复杂度与硬件资源占用；易用性则体现为SDK成熟度、SQL兼容性、部署简易性及监控可观测性[2]。\n\n## 二、五大主流产品横向对比\n\n基于2025年权威基准测试，五款主流方案在SIFT-1M数据集（100万×128维）下的关键指标如下：\n\n| 维度 | Milvus | pgvector | VectorChord | Qdrant | Oracle AI Vector Search |\n|------|--------|----------|-------------|--------|--------------------------|\n| **架构类型** | 专用分布式 | PostgreSQL扩展 | PostgreSQL扩展（Rust） | 专用分布式 | 数据库内置功能 |\n| **开源状态** | ✅ 社区主导 | ✅ 活跃 | ✅ 活跃 | ✅ 活跃 | ❌ 商业许可 |\n| **模拟QPS（95%召回）** | 1,850 | 850 | 1,200 | **1,950** | 1,400 |\n| **P50延迟（ms）** | 4.2 | 9.8 | 6.5 | **3.9** | 5.8 |\n| **批量插入（条/秒）** | **45,000** | 12,000 | 18,000 | 38,000 | 22,000 |\n| **索引构建时间（秒）** | 180 | 420 | 310 | **210** | 280 |\n| **分布式能力** | 原生云原生 | 依赖PG分片 | 依赖PG分片 | 原生Sharding | RAC/Sharding |\n| **GPU加速** | ✅ CUDA | ❌ | ❌ | ❌ | ❌ |\n\n## 三、差异化适用场景\n\n- **Milvus**：适用于亿级向量、高吞吐、低延迟场景，尤其适合AI平台基础设施，具备原生GPU加速与云原生架构优势[2]；  \n- **pgvector**：强依赖PostgreSQL生态，提供完整ACID事务与SQL集成，适合千万级中小规模、需快速原型验证的应用[2]；  \n- **VectorChord**：以Rust实现高性能与内存安全，兼顾成本与性能，在PostgreSQL用户中对内存敏感型场景表现突出[2]；  \n- **Qdrant**：开发友好、多模态原生支持、Payload过滤性能卓越，适用于实时推荐与复杂条件过滤场景[2]；  \n- **Oracle AI Vector Search**：面向金融、医疗等强监管行业，依托企业级ACID、合规性与OLTP+向量混合查询能力[2]。\n\n综上，选型须严格匹配业务规模（单机上限：pgvector≤5000万，Milvus/Qdrant/Oracle≥10亿）、技术栈（是否已有PG或Oracle）、性能SLA（如P95延迟<10ms）及治理要求（开源合规性、事务一致性）[2\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** cloud.tencent.com — 向量数据库产品对比评测：2025年企业级RAG系统选型指南-腾讯云开发者社区-腾讯云\nURL: https://cloud.tencent.com/developer/article/2601251\n原文片段：「向量数据库产品对比评测：2025年企业级RAG系统选型指南-腾讯云开发者社区-腾讯云 gavin1024 向量数据库产品对比评测：2025年企业级RAG系统选型指南 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 gavin1024 社区首页 > 专栏 > 向量数据库产品对比评测：2025年企业级RAG系统选型指南 向量数据库产品对比评测：2025年企业级RAG系统选型指南 原创 gavin1024 关注 发布 于 2025-12-15...」\n\n<a id=\"ref-2\"></a>**[2]** adg.csdn.net — 【技术干货】向量数据库选型指南：五大主流方案性能对比与最佳实践（建议收藏）_数据库_Python-搬运工-智能体开发者社区\nURL: https://adg.csdn.net/69707248437a6b40336a474d.html\n原文片段：「【技术干货】向量数据库选型指南：五大主流方案性能对比与最佳实践（建议收藏）_数据库_Python-搬运工-智能体开发者社区 智能体开发者社区 【技术干货】向量数据库选型指南：五大主流方案性能对比与最佳实践（建议收藏） 【技术干货】向量数据库选型指南：五大主流方案性能对比与最佳实践（建议收藏） Python-搬运工 1621人浏览 · 2025-12-15 14:52:22 Python-搬运工 · 2025-12-15 14:52:22 发布 简介 本文对五大主流向量数据库(Milvus、pgvector、VectorChord、Qdrant和Oracl...」\n\n<a id=\"ref-3\"></a>**[3]** ankursnewsletter.com — Pinecone vs. Weaviate vs. Milvus for Vector Search\nURL: https://www.ankursnewsletter.com/p/pinecone-vs-weaviate-vs-milvus-for\n原文片段：「Pinecone vs. Weaviate vs. Milvus for Vector Search Ankur’s Newsletter Subscribe Sign in Pinecone vs. Weaviate vs. Milvus for Vector Search Compare Pinecone, Weaviate, and Milvus—leading vector databases for AI applications. Explore their strengths in vector search, scalability, a...」\n\n<a id=\"ref-4\"></a>**[4]** emasterlabs.com — Pinecone vs Weaviate vs Milvus: Choosing the Right Vector Database for AI Apps\nURL: https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus\n原文片段：「Pinecone vs Weaviate vs Milvus: Choosing the Right Vector Database for AI Apps New Free AI market & MVP report – validate your idea in 3 min → Get Started Archives August 2026 July 2026 June 2026 May 2026 April 2026 March 2026 February 2026 January 2026 December 2025 November 202...」",
+    "metadata": [
+      "https://qccommunity.qcloudimg.com/image/new.png",
+      "https://developer.qcloudimg.com/http-save/10011/111c3aff5ec5e7223e0debb2e64acc03.png",
+      "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+      "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png",
+      "https://substackcdn.com/image/fetch/$s_!L1Vy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff853c535-0af7-48e6-acef-c445d453fa55_1200x600.png",
+      "https://substackcdn.com/image/fetch/$s_!R9ua!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbea33aed-89f0-40b8-a936-63093bfba6f2_2257x382.png",
+      "https://substackcdn.com/image/fetch/$s_!Tc9c!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8bdeb93b-0e0a-414d-b3ba-89def83dcca5_764x556.png",
+      "https://substackcdn.com/image/fetch/$s_!-kh9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe5bf25b3-270f-453e-90d6-c3cc122bc905_2257x382.png"
+    ]
+  }
+}

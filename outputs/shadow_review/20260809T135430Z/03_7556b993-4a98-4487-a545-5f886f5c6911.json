@@ -1,0 +1,1953 @@
+{
+  "task": "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议",
+  "job": {
+    "id": "7556b993-4a98-4487-a545-5f886f5c6911",
+    "user_id": "shadow-review-3",
+    "tenant_id": "shadow-review",
+    "session_id": "0ea9d214-cf5d-4127-9368-fdd095fac429",
+    "status": "completed",
+    "stage": "finalizing",
+    "progress": "done",
+    "error": null,
+    "payload": {
+      "task": "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议",
+      "tone": "Objective",
+      "headers": null,
+      "user_id": "shadow-review-3",
+      "tenant_id": "shadow-review",
+      "session_id": "0ea9d214-cf5d-4127-9368-fdd095fac429",
+      "mcp_configs": [],
+      "mcp_enabled": false,
+      "report_type": "research_report",
+      "source_urls": [],
+      "total_words": 800,
+      "mcp_strategy": "fast",
+      "document_urls": [],
+      "query_domains": [],
+      "report_source": "web",
+      "report_language": "chinese",
+      "knowledge_policy": "web_first",
+      "max_search_results": null,
+      "force_trusted_sample": true
+    },
+    "result": {
+      "cost": {
+        "status": "completed",
+        "retries": 0,
+        "searches": 4,
+        "llm_calls": 4,
+        "llm_events": [
+          {
+            "ts": 1786284379.155599,
+            "url": "https://medium.com/@randhirthakur076/hpa-vs-vpa-horizontal-pod-scaling-vs-vertical-pod-scaling-4a75af87720a",
+            "type": "degrade_scrape",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "ts": 1786284381.060923,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284381.232275,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284382.0091527,
+            "url": "https://medium.com/@livewyer/vpa-production-deployment-avoiding-pitfalls-for-safe-and-effective-scaling-742d422f8344",
+            "type": "degrade_scrape",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "ts": 1786284388.080318,
+            "url": "https://www.serverion.com/cn/uncategorized/auto-scaling-for-kubernetes-workloads",
+            "type": "degrade_scrape",
+            "reason": "scrape_failed",
+            "quality": "failed"
+          },
+          {
+            "ts": 1786284413.982594,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284414.1356332,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284415.1325228,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284415.3171468,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284417.1898775,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284417.344863,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284418.1295812,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284418.274982,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284419.5406177,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284419.6848276,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284421.0903273,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284421.2221236,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284422.0608,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284422.213179,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284423.250628,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284423.386879,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284425.2503872,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284425.41143,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284427.6713245,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284427.8131585,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284429.7821555,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284429.9196553,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284487.3040016,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.3042994,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.3356512,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.3358364,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.3694441,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.3696039,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.3988369,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.3989995,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.4557629,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.4560928,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.4899328,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.4900787,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.5203495,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.5205064,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.5493991,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.549554,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6060314,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6062636,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6396632,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.639987,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.671445,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6717634,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.702573,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7027333,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.759773,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7599611,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7954159,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7956777,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8263834,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8265588,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8579023,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8580778,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9158788,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9160461,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9511256,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9512982,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9851317,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9852931,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.0188303,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.019003,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9221752,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9419622,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9570801,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.969735,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9859364,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0003514,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0135765,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0257998,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0415907,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.057427,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0730925,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0913303,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          }
+        ],
+        "truncations": 0,
+        "rag_degraded": true,
+        "continuations": 0,
+        "model_switches": 0,
+        "chapter_retries": 0,
+        "degrade_reasons": [
+          {
+            "ts": 1786284487.5203388,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.5205007,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.549386,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.5495493,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6060135,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6062546,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.639644,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6399736,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6714242,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6717422,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7025619,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7027283,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7597604,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7599552,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.795398,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7956672,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8263702,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8265538,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8578913,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8580718,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9158664,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9160407,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9511147,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9512935,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.985121,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9852884,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.0188186,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.018998,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9221618,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9419498,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9570673,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9697251,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.985924,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0003371,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0135672,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.025788,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0415785,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.057415,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0730786,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0913198,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          }
+        ],
+        "scrape_failures": 3,
+        "search_keys_used": [
+          "...94gDjY5L"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false
+      },
+      "audit": null,
+      "report": "# Kubernetes 中 HPA 与 VPA 的差异及生产落地建议\n\n## 概述\nKubernetes 提供了多种自动扩缩容机制，其中最常用的两种是水平 Pod 自动扩缩容 (HPA) 和垂直 Pod 自动扩缩容 (VPA)。这两种机制分别从不同的角度解决了资源管理的问题，但它们在实际应用中也存在一些冲突和挑战。本文将详细探讨 HPA 与 VPA 的差异，并提供生产环境中的实施建议。\n\n## HPA 与 VPA 的定义与工作原理\n\n### HPA (Horizontal Pod Autoscaler)\n**目标**：HPA 通过动态调整 Pod 的副本数量来应对流量变化，适用于处理突发的流量高峰 [2]。\n- **触发条件**：HPA 会定期检查指标（如 CPU 使用率、内存使用率等），并与预设的目标值进行比较。当指标超过阈值时，HPA 会增加 Pod 副本数；反之则减少 [3]。\n- **调整对象**：HPA 调整的是 Pod 的副本数量，而不是单个 Pod 的资源配置 [4]。\n\n### VPA (Vertical Pod Autoscaler)\n**目标**：VPA 通过调整单个 Pod 的资源请求（CPU 和内存）来优化资源利用率，适用于需要稳定资源配置的应用 [2]。\n- **触发条件**：VPA 会监控 Pod 的资源使用情况，并根据历史数据推荐新的资源配置。如果当前配置与推荐值不一致，VPA 会更新 Pod 的资源配置 [5]。\n- **调整对象**：VPA 调整的是单个 Pod 的资源请求和限制，而不是 Pod 的副本数量 [6]。\n\n## HPA 与 VPA 的主要差异\n\n### 目标与调整对象\n- **HPA**：调整 Pod 的副本数量，适用于处理突发流量 [7]。\n- **VPA**：调整单个 Pod 的资源请求和限制，适用于优化资源利用率 [8]。\n\n### 触发条件\n- **HPA**：基于 CPU、内存等资源使用率或自定义指标 [3]。\n- **VPA**：基于 Pod 的实际资源使用情况 [5]。\n\n### 冲突与协调\n- **冲突**：同时使用 HPA 和 VPA 时，可能会产生冲突。例如，HPA 根据 CPU 使用率增加 Pod 数量，而 VPA 可能会增加单个 Pod 的 CPU 请求，导致 HPA 的计算结果不稳定 [9]。\n- **协调**：为了安全地使用 HPA 和 VPA，可以将它们配置为针对不同的指标。例如，HPA 可以基于 CPU 使用率，而 VPA 可以基于内存使用率 [10]。\n\n## 生产环境中的实施建议\n\n### 配置 HPA\n- **关键参数**：\n  - **目标 CPU 利用率**：设置合理的 CPU 利用率阈值，通常为 60% 到 80% [11]。\n  - **最小和最大副本数**：根据业务需求设置合适的副本数范围 [11]。\n  - **扩缩容冷却时间**：设置适当的冷却时间，避免频繁扩缩容 [11]。\n\n### 配置 VPA\n- **模式选择**：\n  - **Off 模式**：仅提供建议，不自动更新 Pod 配置 。\n  - **Initial 模式**：仅对新创建的 Pod 应用推荐配置 。\n  - **Auto 模式**：自动更新 Pod 配置，但可能导致 Pod 重启 。\n- **资源限制**：确保 VPA 推荐的资源配置不超过节点的实际资源上限 。\n\n### 协同使用 HPA 和 VPA\n- **分离指标**：HPA 和 VPA 应该针对不同的资源指\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** akvanewsletter.substack.com — Kubernetes Autoscaling: HPA Vs VPA\nURL: https://akvanewsletter.substack.com/p/kubernetes-autoscaling-hpa-vs-vpa\n原文片段：「Kubernetes Autoscaling: HPA Vs VPA Abhishek Veeramalla (AKVA) Subscribe Sign in Kubernetes Autoscaling: HPA Vs VPA Pods in Motion When to Multiply, When to Amplify Abhishek Veeramalla (AKVA) Jul 16, 2025 89 8 4 Share Hello Welcome again to the AKVAverse, I’m Abhishek Veeramalla,...」\n\n<a id=\"ref-2\"></a>**[2]** hwchiu.com — Kubernetes 中 VPA, HPA, CA, CPA 的差異是什麼? | hwchiu learning note\nURL: https://www.hwchiu.com/docs/2023/autoscaler\n原文片段：「Kubernetes 中 VPA, HPA, CA, CPA 的差異是什麼? | hwchiu learning note Skip to main content On this page Kubernetes 內有各式各樣的自動擴展機制，譬如 HPA(Horizontal Pod Autoscaling)，該技術可根據不同條件而動態調整 Pod 的副本數量，使得 Pod 有更好的能力去處理當前的流量而不需要管理人員不停介入調整數量。 除了 HPA 外，Kubernetes 還有其他相關的機制，如 VPA, CA 以及 CPA，本篇文章就針對這些類別進...」\n\n<a id=\"ref-3\"></a>**[3]** scaleops.com — HPA vs VPA: Choosing the Right Kubernetes Autoscaling Strategy in 2025\nURL: https://scaleops.com/blog/hpa-vs-vpa\n原文片段：「HPA vs VPA: Choosing the Right Kubernetes Autoscaling Strategy in 2025 Skip to content Book a Demo Get Started Sign In All articles HPA vs VPA: Kubernetes Autoscaling Compared (2026 Guide) Konstantin Zelmanovich May 27, 2026 Featured Table of contents Stop paying for resources yo...」\n\n<a id=\"ref-4\"></a>**[4]** blog.csdn.net — 终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境-CSDN博客\nURL: https://blog.csdn.net/gitblog_00525/article/details/152112761\n原文片段：「终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境-CSDN博客 终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境 原创 于 2026-01-09 03:17:54 发布 · 880 阅读 · CC 4.0 BY-SA版权 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 · 收录于 当前文章被以下社区和专栏收录： 终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境 【免费下载链接】autoscaler Kubernetes的自动扩...」\n\n<a id=\"ref-5\"></a>**[5]** oneuptime.com — How to Handle VPA and HPA Together for CPU and Memory Autoscaling\nURL: https://oneuptime.com/blog/post/2026-02-09-vpa-hpa-together-cpu-memory-autoscaling/view\n原文片段：「How to Handle VPA and HPA Together for CPU and Memory Autoscaling Skip to main content How to Handle VPA and HPA Together for CPU and Memory Autoscaling Learn how to safely use Vertical Pod Autoscaler and Horizontal Pod Autoscaler together by splitting metrics, using VPA in recom...」\n\n<a id=\"ref-6\"></a>**[6]** sedai.io — Kubernetes Autoscaling Explained: HPA, VPA & Best Practices (2026) | Sedai\nURL: https://sedai.io/blog/kubernetes-autoscaling\n原文片段：「Kubernetes Autoscaling Explained: HPA, VPA & Best Practices (2026) | Sedai Introducing Sed: Your cloud & AI assistant Meet Sed Kubernetes Autoscaling: How It Works and Best Practices Benjamin Thomas CTO May 29, 2026 Featured Key takeaways Use Kubernetes autoscaling to adjust reso...」\n\n<a id=\"ref-7\"></a>**[7]** icertglobal.com — How to choose between HPA and VPA for Kubernetes scaling? | iCertGlobal Community\nURL: https://www.icertglobal.com/community/kubernetes-hpa-vs-vpa-scaling-strategies\n原文片段：「How to choose between HPA and VPA for Kubernetes scaling? | iCertGlobal Community Cloud Technology How to choose between HPA and VPA for Kubernetes scaling? BR Asked by Brandon Miller · 14-05-2025 ▲ 0 upvotes 15,571 views 0 comments The question I am managing a cluster where some...」\n\n<a id=\"ref-8\"></a>**[8]** help.aliyun.com — 安装和配置VPA实现Pod资源垂直伸缩-容器服务 Kubernetes 版 ACK-阿里云\nURL: https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/vertical-pod-autoscaling\n原文片段：「安装和配置VPA实现Pod资源垂直伸缩-容器服务 Kubernetes 版 ACK-阿里云 官方文档 如果您希望根据 Pod 实际的资源使用情况，动态调整和优化资源配置，以确保 Pod 能够调度到资源充足的节点上，建议您为业务容器开启垂直伸缩 VPA（Vertical Pod Autoscaler）功能。VPA 能够监控 Pod 的资源消耗模式，灵活推荐 CPU 和内存资源分配的配置，并在适当的情况下自动进行调整，而不调整 Pod 的副本数量。这种能力更适用于需要稳定资源配置的有状态应用的扩容等场景。 阅读前提示 为了帮助您更好地使用 VPA 功能，建议...」\n\n<a id=\"ref-9\"></a>**[9]** docs.cloud.google.com — GKE 中 AI/机器学习工作负载的简化自动扩缩概念  |  GKE AI/ML  |  Google Cloud Documentation\nURL: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/understand-autoscaling?hl=zh-cn\n原文片段：「GKE 中 AI/机器学习工作负载的简化自动扩缩概念 | GKE AI/ML | Google Cloud Documentation 跳至主要内容 / 控制台 English Deutsch Español Español – América Latina Français Indonesia Italiano Português Português – Brasil עברית 中文 – 简体 中文 – 繁體 日本語 한국어 登录 Google Kubernetes Engine (GKE) GKE AI/ML 免费开始使用吧 Google 会使用...」\n\n<a id=\"ref-10\"></a>**[10]** lixueduan.com — Kubernetes教程(十二)---VPA:垂直 Pod 自动扩缩容 - 探索云原生\nURL: https://www.lixueduan.com/posts/kubernetes/12-vpa\n原文片段：「Kubernetes教程(十二)---VPA:垂直 Pod 自动扩缩容 - 探索云原生 Kubernetes教程(十二)---VPA:垂直 Pod 自动扩缩容 意琦行 收录于 Kubernetes 2022-10-14 00:00:00 约 2900 字 预计阅读 6 分钟 - 次阅读 目录 本文主要记录 k8s 中与 HPA 相对应的 VPA 功能，包括架构、大致实现以及 demo。 什么是 VPA？ VPA 全称 Vertical Pod Autoscaler,即垂直 Pod 自动扩缩容 ,它根据容器资源使用率自动设置 CPU 和内存的request...」\n\n<a id=\"ref-11\"></a>**[11]** cnblogs.com — 云原生：使用HPA和VPA实现集群扩缩容 - Hello-Brand - 博客园\nURL: https://www.cnblogs.com/wzh2010/p/18031123\n原文片段：「云原生：使用HPA和VPA实现集群扩缩容 - Hello-Brand - 博客园 Brand 一生践行韦特莱法则，一生保持高执行力高效率... 云原生：使用HPA和VPA实现集群扩缩容 1 背景 我们之前介绍过，随着业务流量上涨之后，我们的系统需要适时的进行扩容。 数据存储层我们也介绍过MySQL的扩容 Scale UP（纵向扩展） 和 Scale Out（横向扩展） 垂直拆分（Scale Up 纵向扩展）：包括垂直分库、垂直分表 水平拆分（Scale Out 横向扩展）：包括库内分表、分库分表 详细可以参考笔者这几篇： 《 MySQL全面瓦解28：分库...」",
+      "tenant_id": "shadow-review",
+      "file_paths": {
+        "md": "outputs/task_1786284488_c5472f52ab.md",
+        "pdf": "outputs/task_1786284488_c5472f52ab.pdf",
+        "docx": "outputs/task_1786284488_c5472f52ab.docx",
+        "json": "outputs/job_7556b993-4a98-4487-a545-5f886f5c6911_1786284293_Kubernetes_中_HPA_与_VPA_的差异及生产落地建议.json"
+      },
+      "session_id": "0ea9d214-cf5d-4127-9368-fdd095fac429",
+      "report_trust": "legacy_unverified",
+      "source_count": 11,
+      "trusted_shadow": {
+        "error": "citation audit failed"
+      },
+      "legacy_fallback": false,
+      "trusted_pipeline": {
+        "mode": "shadow",
+        "execution_trace": {
+          "mode": "shadow",
+          "legacy_write": true,
+          "research_only": true,
+          "trusted_write": false,
+          "legacy_write_count": 1,
+          "legacy_write_reason": "shadow",
+          "used_legacy_body_as_claim_source": false,
+          "writer_received_only_verified_claims": true
+        }
+      },
+      "citation_unverified": true,
+      "citation_audit_failed": false
+    },
+    "attempt": 1,
+    "idempotency_key": "shadow-review:523dfbf3-ab08-4f2f-bc84-8d3197bd38bb",
+    "heartbeat_at": 1786284476810,
+    "started_at": 1786284290824,
+    "finished_at": 1786284489119,
+    "enqueued_at": 1786284280963,
+    "next_retry_at": null,
+    "cancel_requested_at": null,
+    "worker_id": "b74dc3943c23:19",
+    "last_error_code": null,
+    "checkpoint_json": {
+      "stage": "finalizing",
+      "budget": {
+        "max_llm_calls": 40,
+        "max_subtopics": 3,
+        "searches_used": 4,
+        "llm_calls_used": 4,
+        "max_output_words": 800,
+        "max_total_searches": 12
+      },
+      "trusted": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "release_gate:citation_accuracy_below_0.9"
+          ],
+          "total_claims": 0,
+          "supported_claims": 0,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": true,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "stage": "audited",
+        "trace": {
+          "spans": [
+            {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "ea2fd98d7136",
+              "ended_at": 1786284487.2774973,
+              "started_at": 1786284465.8532612,
+              "duration_ms": 21424.24
+            }
+          ],
+          "by_stage": {
+            "planner": {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "ea2fd98d7136",
+              "ended_at": 1786284487.2774973,
+              "started_at": 1786284465.8532612,
+              "duration_ms": 21424.24
+            }
+          },
+          "trace_id": "73c53acd3a1e4dd3ba33f7a8ad293bb8",
+          "total_duration_ms": 21424.24
+        },
+        "outline": {
+          "scope": "本研究将覆盖HPA和VPA的基本概念、工作原理、配置方法以及它们各自的优缺点。此外，还将讨论如何根据特定的应用场景选择合适的自动扩展方案，并给出实际部署时的最佳实践。",
+          "sections": [
+            {
+              "title": "引言",
+              "purpose": "介绍研究背景及目的，概述Kubernetes中的自动扩展机制的重要性。",
+              "section_id": "1",
+              "search_queries": [
+                "Kubernetes 自动扩展重要性",
+                "Kubernetes 主流自动扩展工具"
+              ],
+              "depends_on_sections": [],
+              "questions_to_answer": [
+                "为什么需要在Kubernetes中使用自动扩展？",
+                "当前有哪些主流的自动扩展工具？"
+              ],
+              "expected_claim_types": [
+                "定义",
+                "背景信息"
+              ]
+            },
+            {
+              "title": "HPA概述",
+              "purpose": "详细介绍HPA的工作原理及其应用场景。",
+              "section_id": "2",
+              "search_queries": [
+                "Kubernetes HPA 工作原理",
+                "HPA 应用场景"
+              ],
+              "depends_on_sections": [
+                1
+              ],
+              "questions_to_answer": [
+                "HPA是如何工作的？",
+                "哪些情况下适合使用HPA？"
+              ],
+              "expected_claim_types": [
+                "解释",
+                "案例分析"
+              ]
+            },
+            {
+              "title": "VPA概述",
+              "purpose": "深入解析VPA的功能特点及其适用范围。",
+              "section_id": "3",
+              "search_queries": [
+                "Kubernetes VPA 功能特点",
+                "VPA 适用范围"
+              ],
+              "depends_on_sections": [
+                1
+              ],
+              "questions_to_answer": [
+                "VPA的主要功能是什么？",
+                "VPA适用于哪些情况？"
+              ],
+              "expected_claim_types": [
+                "解释",
+                "案例分析"
+              ]
+            },
+            {
+              "title": "HPA与VPA对比分析",
+              "purpose": "比较两种扩展方式的异同点，帮助读者理解何时选用哪种方案。",
+              "section_id": "4",
+              "search_queries": [
+                "Kubernetes HPA vs VPA",
+                "选择HAP或VPA的标准"
+              ],
+              "depends_on_sections": [
+                2,
+                3
+              ],
+              "questions_to_answer": [
+                "HPA与VPA之间有何区别？",
+                "如何决定使用哪一种扩展策略？"
+              ],
+              "expected_claim_types": [
+                "比较",
+                "决策指南"
+              ]
+            },
+            {
+              "title": "生产环境下的实施建议",
+              "purpose": "基于前文分析，提出针对不同业务需求的具体实施方案。",
+              "section_id": "5",
+              "search_queries": [
+                "Kubernetes 生产环境 HPA 部署",
+                "Kubernetes 生产环境 VPA 最佳实践"
+              ],
+              "depends_on_sections": [
+                4
+              ],
+              "questions_to_answer": [
+                "在生产环境中部署HPA/VPA需要注意什么？",
+                "有哪些最佳实践可以参考？"
+              ],
+              "expected_claim_types": [
+                "建议",
+                "操作指南"
+              ]
+            }
+          ],
+          "time_range": "2023年至今",
+          "report_thesis": "本报告旨在探讨Kubernetes中HPA（Horizontal Pod Autoscaler）与VPA（Vertical Pod Autoscaler）之间的主要差异，并提供在生产环境中实施这两种自动扩展策略的建议。",
+          "cross_section_questions": [
+            "对于资源密集型应用来说，是否应该同时采用HPA和VPA？",
+            "如何评估自动扩展策略对系统性能的影响？"
+          ]
+        },
+        "sections": {
+          "1": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "2": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "3": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "4": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "5": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          }
+        },
+        "eval_scores": {
+          "details": {
+            "evidence_count": 0,
+            "required_claims": 0,
+            "supported_claims": 0
+          },
+          "duplication_rate": 0.0,
+          "global_coherence": 1.0,
+          "citation_accuracy": 0.0,
+          "citation_coverage": 1.0,
+          "claim_support_rate": 1.0,
+          "fact_conflict_rate": 0.0
+        },
+        "synthesized": "",
+        "document_map": []
+      },
+      "llm_trace": [
+        {
+          "ts": 1786284379.155599,
+          "url": "https://medium.com/@randhirthakur076/hpa-vs-vpa-horizontal-pod-scaling-vs-vertical-pod-scaling-4a75af87720a",
+          "type": "degrade_scrape",
+          "reason": "too_short",
+          "quality": "low"
+        },
+        {
+          "ts": 1786284381.060923,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284381.232275,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284382.0091527,
+          "url": "https://medium.com/@livewyer/vpa-production-deployment-avoiding-pitfalls-for-safe-and-effective-scaling-742d422f8344",
+          "type": "degrade_scrape",
+          "reason": "too_short",
+          "quality": "low"
+        },
+        {
+          "ts": 1786284388.080318,
+          "url": "https://www.serverion.com/cn/uncategorized/auto-scaling-for-kubernetes-workloads",
+          "type": "degrade_scrape",
+          "reason": "scrape_failed",
+          "quality": "failed"
+        },
+        {
+          "ts": 1786284413.982594,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284414.1356332,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284415.1325228,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284415.3171468,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284417.1898775,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284417.344863,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284418.1295812,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284418.274982,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284419.5406177,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284419.6848276,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284421.0903273,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284421.2221236,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284422.0608,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284422.213179,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284423.250628,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284423.386879,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284425.2503872,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284425.41143,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284427.6713245,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284427.8131585,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284429.7821555,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284429.9196553,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284487.3040016,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.3042994,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.3356512,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.3358364,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.3694441,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.3696039,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.3988369,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.3989995,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.4557629,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.4560928,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.4899328,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.4900787,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.5203495,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.5205064,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.5493991,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.549554,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.6060314,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.6062636,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.6396632,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.639987,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.671445,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.6717634,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.702573,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.7027333,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.759773,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.7599611,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.7954159,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.7956777,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.8263834,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.8265588,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.8579023,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.8580778,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.9158788,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.9160461,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.9511256,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.9512982,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.9851317,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284487.9852931,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284488.0188303,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284488.019003,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284488.9221752,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284488.9419622,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284488.9570801,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284488.969735,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284488.9859364,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284489.0003514,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284489.0135765,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284489.0257998,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284489.0415907,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284489.057427,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284489.0730925,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786284489.0913303,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        }
+      ],
+      "file_paths": {
+        "md": "outputs/task_1786284488_c5472f52ab.md",
+        "pdf": "outputs/task_1786284488_c5472f52ab.pdf",
+        "docx": "outputs/task_1786284488_c5472f52ab.docx",
+        "json": "outputs/job_7556b993-4a98-4487-a545-5f886f5c6911_1786284293_Kubernetes_中_HPA_与_VPA_的差异及生产落地建议.json"
+      },
+      "files_done": true,
+      "degradations": {
+        "reasons": [
+          {
+            "ts": 1786284487.5203388,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.5205007,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.549386,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.5495493,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6060135,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6062546,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.639644,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6399736,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6714242,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.6717422,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7025619,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7027283,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7597604,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7599552,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.795398,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.7956672,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8263702,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8265538,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8578913,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.8580718,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9158664,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9160407,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9511147,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9512935,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.985121,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284487.9852884,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.0188186,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.018998,
+            "reason": "vector_query:embedding_unavailable",
+            "subsystem": "rag",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9221618,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9419498,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9570673,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.9697251,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284488.985924,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0003371,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0135672,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.025788,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0415785,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.057415,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0730786,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786284489.0913198,
+            "reason": "circuit_open",
+            "subsystem": "embedding",
+            "rag_degraded": true
+          }
+        ],
+        "rag_degraded": true,
+        "scrape_failures": 3,
+        "search_keys_used": [
+          "...94gDjY5L"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false,
+        "scrape_failure_samples": [
+          {
+            "url": "https://medium.com/@randhirthakur076/hpa-vs-vpa-horizontal-pod-scaling-vs-vertical-pod-scaling-4a75af87720a",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "url": "https://medium.com/@livewyer/vpa-production-deployment-avoiding-pitfalls-for-safe-and-effective-scaling-742d422f8344",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "url": "https://www.serverion.com/cn/uncategorized/auto-scaling-for-kubernetes-workloads",
+            "reason": "scrape_failed",
+            "quality": "failed"
+          }
+        ]
+      },
+      "planning_done": true,
+      "research_done": true,
+      "source_policy": {
+        "mode": "web",
+        "reason": "policy_web_first"
+      },
+      "planning_started": true,
+      "report_body_done": true,
+      "report_persisted": true
+    },
+    "version": 14,
+    "created_at": 1786284280913,
+    "updated_at": 1786284489142
+  }
+}

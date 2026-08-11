@@ -1,0 +1,400 @@
+{
+  "timestamp": "2026-08-11T04:26:13.533663",
+  "job_id": "cbc23157-4583-4c3e-aff4-da2276acf1e9",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:26:27.474807",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:27.500298",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💾 Database Technology Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:27.541529",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用600字概述向量数据库的主要选型维度与常见产品...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:29.024399",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:30.996678",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['向量数据库主要选型维度与常见产品 概述', 'vector database selection dimensions common products 2026', '用600字概述向量数据库的主要选型维度与常见产品']...",
+        "metadata": [
+          "向量数据库主要选型维度与常见产品 概述",
+          "vector database selection dimensions common products 2026",
+          "用600字概述向量数据库的主要选型维度与常见产品"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:31.031135",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '向量数据库主要选型维度与常见产品 概述'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:31.049498",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:31.066870",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'vector database selection dimensions common products 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.277065",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.319316",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.353728",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.394253",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.438668",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.462637",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.508109",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:32.545540",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.270885",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://jimmysong.io/zh/book/ai-handbook/rag/vector-databases\n",
+        "metadata": "https://jimmysong.io/zh/book/ai-handbook/rag/vector-databases"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.310713",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://aws.amazon.com/cn/blogs/china/complementary-advantages-aws-vector-storage-selection-recommendations\n",
+        "metadata": "https://aws.amazon.com/cn/blogs/china/complementary-advantages-aws-vector-storage-selection-recommendations"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.330965",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloudian.com/guides/ai-infrastructure/vector-database-how-it-works-use-cases-top-6-in-2026\n",
+        "metadata": "https://cloudian.com/guides/ai-infrastructure/vector-database-how-it-works-use-cases-top-6-in-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.358800",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.386395",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5\n",
+        "metadata": "https://medium.com/@pratik-rupareliya/top-15-vector-databases-in-2026-a-production-decision-guide-from-100-enterprise-deployments-dd58a04f51a5"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.414543",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.436003",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:33.471524",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:35.800214",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:35.827639",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 6 total images",
+        "metadata": [
+          "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/a99533d0a1ffdfe437233ab997b73f61.svg",
+          "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/62a96c2b60dcd423fdc72c8f886c3959.svg",
+          "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/0e8c157342231fbdb50c100761195f5d.svg",
+          "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/67781ab1bf3e90bd49b2405bf23681d7.svg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:35.861115",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:36.424373",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:36.445144",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:36.475035",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://cloudian.com/wp-content/uploads/2026/02/milvus.png",
+          "https://cloudian.com/wp-content/uploads/2026/02/pinecone.png",
+          "https://cloudian.com/wp-content/themes/merged/images/2024/Cloudian-logo-white.svg",
+          "https://cloudian.com/wp-content/themes/merged/images/2022/close.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:36.526695",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:36.818929",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:38.917015",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (2490 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:38.985045",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.04158",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:39.139245",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:26:51.985547",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用600字概述向量数据库的主要选型维度与常见产品'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用600字概述向量数据库的主要选型维度与常见产品",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# 向量数据库主要选型维度与常见产品概述\n\n## 核心选型维度\n\n向量数据库选型并非追求“最强”，而是需在多维工程约束下达成最优平衡。关键维度包括：**数据规模与吞吐需求**（如Chroma适用于≤100万向量，Milvus支持1亿至10亿级）、**部署运维能力**（自托管vs全托管）、**混合检索能力**（结构化过滤+向量相似度联合查询）、**更新实时性**（Qdrant更新性能优于Milvus）、**多模态支持深度**（Weaviate插件架构最完善）、**现有技术栈耦合度**（PGVector对PostgreSQL用户零迁移成本），以及**可观测性与索引调优成熟度**（Milvus与Qdrant表现最佳）[2]。\n\n## 主流产品对比与适用场景\n\n下表综合工程特性与典型规模，提炼六大主流方案：\n\n| 方案      | 最佳使用场景                     | 优势                                      | 局限                     | 典型规模         |\n|-----------|----------------------------------|-------------------------------------------|--------------------------|------------------|\n| Chroma    | 本地开发、桌面级RAG              | 零依赖、迭代快、易上手                    | 不支持超大规模/分布式     | ≤100万向量       |\n| Milvus    | 企业级集群、十亿向量、多租户     | GPU索引、高吞吐、分片+多副本HA            | 运维复杂度高             | 1亿～10亿向量    |\n| Weaviate  | 结构化+向量混合搜索、知识库      | GraphQL接口、Filter能力强、多模态插件丰富 | 部署复杂度略高           | 1百万～5亿向量   |\n| PGVector  | 已大量使用PostgreSQL的团队       | 无需新系统、SQL原生、维护成本最低         | 索引能力弱于专业向量库    | ≤数百万向量      |\n| Qdrant    | 高性能落地、云原生、实时更新     | Rust实现、高并发、毫秒级响应              | 生态广度略逊于Milvus     | 百万～数亿向量   |\n| Pinecone  | 拒绝自运维、快速上线商用场景     | 全托管服务、自动索引优化、SLA保障         | 成本高、闭源             | 视订阅套餐而定   |\n\n一句话选型口诀：轻量用Chroma，本地用PGVector，大规模用Milvus，语义+结构搜索用Weaviate，全托管选Pinecone，高性能选Qdrant[2]。\n\n## 架构差异决定能力边界\n\nMilvus采用分布式微服务架构，支撑企业级高并发与十亿级索引；Weaviate基于模块化插件设计，天然适配多模态与混合检索；PGVector则以扩展形式嵌入PostgreSQL，实现关系型与向量能力的无缝融合[2]。不同架构直接映射其工程能力上限——例如，Milvus的GPU加速索引与Weaviate的GraphQL过滤能力，均源于底层设计哲学差异。选型必须匹配业务阶段：Agentic AI记忆系统需低延迟与高并发[1]，而企业知识库则更依赖语义检索精度与结构化元数据协同[2\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** aws.amazon.com — 相得益彰 — 亚马逊云科技向量存储选型推荐 | 亚马逊AWS官方博客\nURL: https://aws.amazon.com/cn/blogs/china/complementary-advantages-aws-vector-storage-selection-recommendations\n原文片段：「相得益彰 — 亚马逊云科技向量存储选型推荐 | 亚马逊AWS官方博客 Skip to Main Content 亚马逊AWS官方博客 相得益彰 — 亚马逊云科技向量存储选型推荐 随着AI系统，特别是Agentic AI系统的快速发展，对向量数据存储的需求日益增长。典型应用场景包括： 实时推荐与个性化服务。基于用户行为向量和内容特征向量，实现商品推荐、内容分发、广告投放等个性化服务，要求毫秒级的响应时间和高并发处理能力。 知识库的构建和语义检索。企业知识管理系统需要从海量文档中快速定位语义相关内容，为大语言模型提供精准的上下文信息，提升回答质量和领域专业性...」\n\n<a id=\"ref-2\"></a>**[2]** jimmysong.io — 向量数据库选型实践 | Jimmy Song\nURL: https://jimmysong.io/zh/book/ai-handbook/rag/vector-databases\n原文片段：「向量数据库选型实践 | Jimmy Song 跳转到主要内容 跳转到导航 跳转到页脚 站内搜索 搜索 类型: 所有类型 当前图书 博客 图书 公告 播客 键盘导航: Tab 下一个结果 | Shift+Tab 上一个结果 | ↑↓ 导航 | Enter 打开链接 | Esc 关闭 向量数据库选型实践 已完成 内容导航 图书内部搜索... 向量数据库是 RAG 系统的“语义底座”，选型决定检索质量与系统可扩展性。工程师必须理解架构与能力，才能做出最优决策。 向量数据库在 RAG（Retrieval-Augmented Generation, 检索增强生成）...」\n\n<a id=\"ref-3\"></a>**[3]** cloudian.com — Vector Database: How It Works, Use Cases & Top 6 in 2026\nURL: https://cloudian.com/guides/ai-infrastructure/vector-database-how-it-works-use-cases-top-6-in-2026\n原文片段：「Vector Database: How It Works, Use Cases & Top 6 in 2026 Blog Partners Events Press Support Search Language 日本語 Deutsch English Pricing Products › ← Back Cloudian Products HyperStore Object Storage HyperScale AIDP HyperStore File Services HyperIQ Observability & Analytics HyperCa...」",
+    "metadata": [
+      "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/a99533d0a1ffdfe437233ab997b73f61.svg",
+      "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/62a96c2b60dcd423fdc72c8f886c3959.svg",
+      "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/0e8c157342231fbdb50c100761195f5d.svg",
+      "https://assets.jimmysong.io/images/book/ai-handbook/rag/vector-databases/67781ab1bf3e90bd49b2405bf23681d7.svg",
+      "https://cloudian.com/wp-content/uploads/2026/02/milvus.png",
+      "https://cloudian.com/wp-content/uploads/2026/02/pinecone.png",
+      "https://cloudian.com/wp-content/themes/merged/images/2024/Cloudian-logo-white.svg",
+      "https://cloudian.com/wp-content/themes/merged/images/2022/close.png"
+    ]
+  }
+}

@@ -1,8 +1,8 @@
 # Project-2 evaluation dashboard
 
-- Generated (UTC): `2026-08-11T02:39:31.518381+00:00`
+- Generated (UTC): `2026-08-11T08:30:29.517509+00:00`
 - Regression queue size: **63**
-- Trace spans indexed: **8**
+- Trace spans indexed: **21**
 
 ## Gate layers
 
@@ -21,6 +21,39 @@
 - Hallucination rate: **0.6571428571428571** (judge=multi_source_evidence_pack_major_only, effective_n=70)
 - Hallucination severity: `{'MAJOR': 46, 'MINOR': 8, 'NONE': 16, 'UNKNOWN': 0}`
 - Hallucination by_bucket: `{'fresh_news': {'n': 9, 'evaluated': 9, 'major': 6, 'hallucinated': 6, 'major_rate': 0.6666666666666666, 'hallucination_rate': 0.6666666666666666}, 'howto_technical': {'n': 16, 'evaluated': 16, 'major': 10, 'hallucinated': 10, 'major_rate': 0.625, 'hallucination_rate': 0.625}, 'landscape_vendor': {'n': 6, 'evaluated': 6, 'major': 5, 'hallucinated': 5, 'major_rate': 0.8333333333333334, 'hallucination_rate': 0.8333333333333334}, 'other': {'n': 33, 'evaluated': 33, 'major': 21, 'hallucinated': 21, 'major_rate': 0.6363636363636364, 'hallucination_rate': 0.6363636363636364}, 'pricing_compare': {'n': 6, 'evaluated': 6, 'major': 4, 'hallucinated': 4, 'major_rate': 0.6666666666666666, 'hallucination_rate': 0.6666666666666666}}`
+
+## Intent routing
+
+### Cheap deterministic routing
+
+- Accuracy: **1.0**; macro P/R/F1: **1.0 / 1.0 / 1.0**
+- Route false-positive rate: **0.0** (0/6)
+- Actual false-creation rate: **0.0** (0/6)
+- Guarded route false positives: **0**
+
+| Intent | Precision | Recall | F1 | Support |
+|--------|-----------|--------|----|---------|
+| `answer_from_report` | 1.0 | 1.0 | 1.0 | 1 |
+| `clarify` | 1.0 | 1.0 | 1.0 | 1 |
+| `create_research_report` | 1.0 | 1.0 | 1.0 | 4 |
+| `quick_search` | 1.0 | 1.0 | 1.0 | 4 |
+
+Confusion matrix (expected → predicted): `{'answer_from_report': {'answer_from_report': 1, 'clarify': 0, 'create_research_report': 0, 'quick_search': 0}, 'clarify': {'answer_from_report': 0, 'clarify': 1, 'create_research_report': 0, 'quick_search': 0}, 'create_research_report': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 4, 'quick_search': 0}, 'quick_search': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 0, 'quick_search': 4}}`
+
+### Live LLM routing
+
+- Accuracy: **1.0**; macro P/R/F1: **1.0 / 1.0 / 1.0**
+- Route false-positive rate: **0.0** (0/2)
+- Actual false-creation rate: **0.0** (0/2)
+- Guarded route false positives: **0**
+
+| Intent | Precision | Recall | F1 | Support |
+|--------|-----------|--------|----|---------|
+| `answer_from_report` | 1.0 | 1.0 | 1.0 | 1 |
+| `clarify` | 1.0 | 1.0 | 1.0 | 1 |
+| `create_research_report` | 1.0 | 1.0 | 1.0 | 1 |
+
+Confusion matrix (expected → predicted): `{'answer_from_report': {'answer_from_report': 1, 'clarify': 0, 'create_research_report': 0}, 'clarify': {'answer_from_report': 0, 'clarify': 1, 'create_research_report': 0}, 'create_research_report': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 1}}`
 
 ## Perf P95
 

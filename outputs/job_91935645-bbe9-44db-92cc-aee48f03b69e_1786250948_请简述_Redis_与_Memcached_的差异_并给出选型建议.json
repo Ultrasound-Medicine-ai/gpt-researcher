@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-08-09T04:49:08.202217",
+  "job_id": "91935645-bbe9-44db-92cc-aee48f03b69e",
+  "events": [],
+  "content": {
+    "query": "请简述 Redis 与 Memcached 的差异，并给出选型建议",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

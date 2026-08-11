@@ -1,0 +1,845 @@
+{
+  "timestamp": "2026-08-10T11:57:35.881574",
+  "events": [
+    {
+      "timestamp": "2026-08-10T11:57:38.220034",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:38.250276",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Technology Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:38.293402",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:40.439797",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:43.963329",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['Redis \u6838\u5fc3\u7528\u9014 80\u5b57\u4ecb\u7ecd', 'Redis core use cases caching message queue leaderboard distributed lock', '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014']...",
+        "metadata": [
+          "Redis \u6838\u5fc3\u7528\u9014 80\u5b57\u4ecb\u7ecd",
+          "Redis core use cases caching message queue leaderboard distributed lock",
+          "\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:43.996106",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis \u6838\u5fc3\u7528\u9014 80\u5b57\u4ecb\u7ecd'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:44.014778",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis core use cases caching message queue leaderboard distributed lock'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:44.033809",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.628404",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.aliyun.com/article/618702\n",
+        "metadata": "https://developer.aliyun.com/article/618702"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.666302",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/strongmore/p/17131266.html\n",
+        "metadata": "https://www.cnblogs.com/strongmore/p/17131266.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.694797",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/wk-missQ1/p/16107976.html\n",
+        "metadata": "https://www.cnblogs.com/wk-missQ1/p/16107976.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.730521",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://qiankunli.github.io/2020/08/04/redis_practice.html\n",
+        "metadata": "https://qiankunli.github.io/2020/08/04/redis_practice.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.758814",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book\n",
+        "metadata": "https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.785585",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.815119",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.kern-it.be/en/definitions/redis\n",
+        "metadata": "https://www.kern-it.be/en/definitions/redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.842780",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/weixin_42593797/article/details/147741581\n",
+        "metadata": "https://blog.csdn.net/weixin_42593797/article/details/147741581"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.876032",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.915798",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:45.947111",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.linkedin.com/posts/sahnlam_popular-redis-use-cases-1-caching-the-most-activity-7295309660218126336-YYo0\n",
+        "metadata": "https://www.linkedin.com/posts/sahnlam_popular-redis-use-cases-1-caching-the-most-activity-7295309660218126336-YYo0"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:46.030583",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.codingshuttle.com/blogs/master-redis-and-caching-a-practical-guide-for-modern-backend-development\n",
+        "metadata": "https://www.codingshuttle.com/blogs/master-redis-and-caching-a-practical-guide-for-modern-backend-development"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:46.065308",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:46.112083",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:46.397949",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:46.815708",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:46.841807",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 21 total images",
+        "metadata": [
+          "https://ucc.alicdn.com/avatar/img_ca90b7b1b220af946a0b58ff6ab9ac71.jpg?x-oss-process=image/resize,h_150,m_lfit",
+          "https://files.cnblogs.com/files/strongmore/cube01.gif",
+          "https://files.cnblogs.com/files/strongmore/cube02.gif",
+          "https://files.cnblogs.com/files/strongmore/cube03.gif"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:46.872672",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:47.227346",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:50.150819",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:50.224049",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Technology Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:50.302110",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:52.923599",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.014811",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.036868",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.065194",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 20 total images",
+        "metadata": [
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/identityVipNew.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.109928",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://cs-prod-assets-bucket.s3.ap-south-1.amazonaws.com/Caching_And_Redis_Thumbnail_7752a718ed.webp",
+          "https://media.licdn.com/dms/image/v2/C4D16AQH1iOl7EPfRJw/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1646806150304?e=2147483647&v=beta&t=ZlJqIxNz5iM895lYbJlWUiDao1_cYclpR2xd3rjt77w",
+          "https://cs-prod-assets-bucket.s3.ap-south-1.amazonaws.com/Redis_architecture_682b39ab97.webp",
+          "https://cs-prod-assets-bucket.s3.ap-south-1.amazonaws.com/caching_strategies_6006ad7d38.webp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.149273",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.586692",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.609227",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.794607",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:54.151931",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (5834 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:54.176029",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.025995000000000004",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:54.235533",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.743046",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['Redis \u6838\u5fc3\u7528\u9014 80\u5b57 \u4ecb\u7ecd', 'Redis core use cases brief introduction', '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014']...",
+        "metadata": [
+          "Redis \u6838\u5fc3\u7528\u9014 80\u5b57 \u4ecb\u7ecd",
+          "Redis core use cases brief introduction",
+          "\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.779203",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis \u6838\u5fc3\u7528\u9014 80\u5b57 \u4ecb\u7ecd'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.803959",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Redis core use cases brief introduction'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.827507",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.540682",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.aliyun.com/article/618702\n",
+        "metadata": "https://developer.aliyun.com/article/618702"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.578301",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/strongmore/p/17131266.html\n",
+        "metadata": "https://www.cnblogs.com/strongmore/p/17131266.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.613866",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://qiankunli.github.io/2020/08/04/redis_practice.html\n",
+        "metadata": "https://qiankunli.github.io/2020/08/04/redis_practice.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.641551",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.677349",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.300887",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.329597",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 21 total images",
+        "metadata": [
+          "https://ucc.alicdn.com/avatar/img_ca90b7b1b220af946a0b58ff6ab9ac71.jpg?x-oss-process=image/resize,h_150,m_lfit",
+          "https://qiankunli.github.io/public/upload/storage/redis_overview.jpg",
+          "https://qiankunli.github.io/public/upload/storage/redis_kv.png",
+          "https://qiankunli.github.io/public/upload/storage/redis_data_structure.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.362569",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.399376",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.976955",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n",
+        "metadata": "https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.009366",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://scalegrid.io/blog/top-redis-use-cases-by-core-data-structure-types\n",
+        "metadata": "https://scalegrid.io/blog/top-redis-use-cases-by-core-data-structure-types"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.040352",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.instaclustr.com/blog/what-is-redis\n",
+        "metadata": "https://www.instaclustr.com/blog/what-is-redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.066034",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.103811",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.536971",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/wk-missQ1/p/16107976.html\n",
+        "metadata": "https://www.cnblogs.com/wk-missQ1/p/16107976.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.627142",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book\n",
+        "metadata": "https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.686947",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn\n",
+        "metadata": "https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.738169",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.799240",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.142794",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.190269",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 13 total images",
+        "metadata": [
+          "https://www.gstatic.com/devrel-devsite/prod/v25f01968170374b7bd062a383d0367da1beee7ed413abaee67eec4296f4ba687/clouddocs/images/lockup_full_color.svg",
+          "https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg?hl=zh-cn",
+          "https://docs.cloud.google.com/_static/images/translated.svg?hl=zh-cn",
+          "https://pegasuswang.readthedocs.io/zh/latest/database/ziplist.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.246790",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.307054",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.969472",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.000465",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 11 total images",
+        "metadata": [
+          "https://www.instaclustr.com/wp-content/uploads/2021/10/kf5qUGej8ArVct5MkZvlqL5-3iJH8JTaq3EVqPOsC80UOKpPtGR6CjSfnikAwmYR7gcciA8gUm-2k2dO96pOnM4KqrfUYvZ7NYruoAGbMl3qhVHhqrPsC_rXA4ZThNsi9AcO_nQX.png",
+          "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-modern-analytics.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-resource-management.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.044877",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.076971",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.316516",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (3508 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.345130",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.023335",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.410509",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:18.165569",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:27.213180",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u752880\u5b57\u4ecb\u7ecd Redis \u6838\u5fc3\u7528\u9014'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis \u6838\u5fc3\u7528\u9014\uff0880\u5b57\u7cbe\u8981\u62a5\u544a\uff09\n\n## \u4e00\u3001\u6838\u5fc3\u5b9a\u4f4d\u4e0e\u672c\u8d28\u5c5e\u6027\n\nRedis \u662f\u4e00\u4e2a\u5f00\u6e90\u3001\u57fa\u4e8e\u5185\u5b58\u3001\u9ad8\u6027\u80fd\u7684\u952e\u503c\u6570\u636e\u5e93\uff08Key-Value Store\uff09\uff0c\u5168\u79f0\u201cRemote Dictionary Server\u201d\uff0c\u91c7\u7528 BSD \u8bb8\u53ef\u8bc1\uff0c\u7531 Salvatore Sanfilippo\uff08antirez\uff09\u7528 C \u8bed\u8a00\u7f16\u5199\u5e76\u6301\u7eed\u7ef4\u62a4 [7][8][9]\u3002\u5176\u672c\u8d28\u662f**\u5185\u5b58\u4f18\u5148\u7684\u6570\u636e\u7ed3\u6784\u670d\u52a1\u5668**\uff0c\u4e0d\u4ec5\u652f\u6301\u57fa\u7840\u7684\u5b57\u7b26\u4e32\uff08String\uff09\u7c7b\u578b\uff0c\u66f4\u539f\u751f\u63d0\u4f9b\u54c8\u5e0c\uff08Hash\uff09\u3001\u5217\u8868\uff08List\uff09\u3001\u96c6\u5408\uff08Set\uff09\u3001\u6709\u5e8f\u96c6\u5408\uff08Sorted Set\uff09\u53ca\u4f4d\u56fe\uff08Bitmap\uff09\u3001\u6d41\uff08Stream\uff09\u7b49\u4e30\u5bcc\u6570\u636e\u7ed3\u6784 [2][5]\u3002\u8fd9\u79cd\u591a\u7c7b\u578b value \u652f\u6301\u80fd\u529b\uff0c\u662f Redis \u533a\u522b\u4e8e Memcached \u7b49\u7eaf\u5b57\u7b26\u4e32\u7f13\u5b58\u7cfb\u7edf\u7684\u5173\u952e\u4f18\u52bf\uff0c\u76f4\u63a5\u652f\u6491\u5176\u5728\u590d\u6742\u4e1a\u52a1\u573a\u666f\u4e2d\u7684\u5e7f\u6cdb\u843d\u5730 [2]\u3002\n\n## \u4e8c\u3001\u56db\u5927\u6838\u5fc3\u7528\u9014\u53ca\u5176\u6280\u672f\u4f9d\u636e\n\n### 1. \u9ad8\u6027\u80fd\u7f13\u5b58\uff1a\u7f13\u89e3\u6570\u636e\u5e93\u538b\u529b\u4e0e\u52a0\u901f\u54cd\u5e94  \nRedis \u6700\u666e\u904d\u7684\u7528\u9014\u662f\u4f5c\u4e3a\u5173\u7cfb\u578b\u6570\u636e\u5e93\uff08\u5982 MySQL\uff09\u7684\u524d\u7f6e\u7f13\u5b58\u5c42\u3002\u5b83\u901a\u8fc7\u5c06\u70ed\u70b9\u6570\u636e\u5b58\u50a8\u5728\u5185\u5b58\u4e2d\uff0c\u663e\u8457\u51cf\u5c11\u5bf9\u78c1\u76d8\u6570\u636e\u5e93\u7684 IO \u8bf7\u6c42\uff0c\u4ece\u800c\u964d\u4f4e\u5e94\u7528\u670d\u52a1\u5668\u7684 CPU \u548c\u5185\u5b58\u538b\u529b\uff0c\u5e76\u51cf\u8f7b\u540e\u7aef\u6570\u636e\u5e93\u7684\u8bfb\u8d1f\u8f7d [1]\u3002\u7531\u4e8e\u5185\u5b58\u8bbf\u95ee\u5ef6\u8fdf\u901a\u5e38\u5728 100 \u7eb3\u79d2\u7ea7\uff0cRedis \u7684 GET/SET \u64cd\u4f5c\u5e73\u5747\u8017\u65f6\u53ef\u4f4e\u81f3\u4e9a\u6beb\u79d2\u7ea7\uff0cQPS\uff08\u6bcf\u79d2\u67e5\u8be2\u7387\uff09\u8f7b\u677e\u7a81\u7834 10 \u4e07 [7]\u3002\u963f\u91cc\u4e91\u6587\u6863\u660e\u786e\u6307\u51fa\uff0c\u4f7f\u7528 Redis \u53ef\u201c\u51cf\u5c11 IO \u7684\u8bfb\u64cd\u4f5c\uff0c\u51cf\u8f7b IO \u7684\u538b\u529b\u201d\uff0c\u5c24\u5176\u9002\u7528\u4e8e\u9ad8\u5e76\u53d1\u3001\u4f4e\u5ef6\u8fdf\u8981\u6c42\u7684 Web \u5e94\u7528\u548c\u5b9e\u65f6\u63a8\u8350\u7cfb\u7edf [1]\u3002\n\n### 2. \u5206\u5e03\u5f0f\u534f\u8c03\uff1a\u5b9e\u73b0\u5206\u5e03\u5f0f\u9501\u4e0e\u4f1a\u8bdd\u5171\u4eab  \nRedis \u63d0\u4f9b\u539f\u5b50\u6027\u547d\u4ee4\uff08\u5982 `SET key value EX seconds NX`\uff09\uff0c\u81ea Redis 2.6.12 \u8d77\u652f\u6301 SETNX \u4e0e EXPIRE \u7684\u539f\u5b50\u7ec4\u5408\uff0c\u4f7f\u5176\u5b9e\u73b0\u5f3a\u4e00\u81f4\u6027\u7684\u5206\u5e03\u5f0f\u9501\u6210\u4e3a\u53ef\u80fd [5]\u3002\u8be5\u673a\u5236\u88ab\u5e7f\u6cdb\u7528\u4e8e\u7535\u5546\u79d2\u6740\u3001\u5e93\u5b58\u6263\u51cf\u7b49\u9700\u8de8\u8282\u70b9\u4e92\u65a5\u8bbf\u95ee\u7684\u573a\u666f\u3002\u6b64\u5916\uff0c\u5176\u9ad8\u53ef\u7528\u4e3b\u4ece\u67b6\u6784\u4e0e\u5feb\u901f\u8bfb\u5199\u7279\u6027\uff0c\u4e5f\u4f7f\u5176\u6210\u4e3a\u7528\u6237\u4f1a\u8bdd\uff08Session\uff09\u96c6\u4e2d\u5b58\u50a8\u7684\u7406\u60f3\u9009\u62e9\uff0c\u66ff\u4ee3\u4f20\u7edf\u57fa\u4e8e\u6587\u4ef6\u6216\u6570\u636e\u5e93\u7684 Session \u7ba1\u7406\uff0c\u5927\u5e45\u63d0\u5347\u96c6\u7fa4\u4f38\u7f29\u6027\u4e0e\u6545\u969c\u6062\u590d\u901f\u5ea6 [5][6]\u3002\n\n### 3. \u6d88\u606f\u4e2d\u95f4\u4ef6\u4e0e\u8f7b\u91cf\u7ea7\u961f\u5217  \nRedis \u539f\u751f\u652f\u6301\u53d1\u5e03/\u8ba2\u9605\uff08Pub/Sub\uff09\u6a21\u578b\u4e0e\u963b\u585e\u5f0f\u5217\u8868\u64cd\u4f5c\uff08\u5982 `BLPOP`/`BRPOP`\uff09\uff0c\u53ef\u6784\u5efa\u4f4e\u5ef6\u8fdf\u3001\u9ad8\u541e\u5410\u7684\u6d88\u606f\u961f\u5217 [5]\u3002\u4f8b\u5982\uff0c\u5229\u7528 List \u7ed3\u6784\u5b9e\u73b0\u5ef6\u65f6\u961f\u5217\uff1a\u751f\u4ea7\u8005 `LPUSH` \u5165\u961f\uff0c\u6d88\u8d39\u8005 `BRPOP` \u963b\u585e\u7b49\u5f85\uff0c\u914d\u5408\u5b9a\u65f6\u4efb\u52a1\u5b9e\u73b0\u4efb\u52a1\u5ef6\u8fdf\u6267\u884c\u3002\u867d\u5176\u53ef\u9760\u6027\u4e0d\u53ca Kafka \u6216 RabbitMQ\uff0c\u4f46\u5728\u5bf9\u6d88\u606f\u4e22\u5931\u5bb9\u5fcd\u5ea6\u8f83\u9ad8\u3001\u8ffd\u6c42\u6781\u7b80\u67b6\u6784\u7684\u5fae\u670d\u52a1\u573a\u666f\u4e2d\u6781\u5177\u6027\u4ef7\u6bd4 [5]\u3002\n\n### 4. \u6570\u636e\u7ed3\u6784\u5316\u5b58\u50a8\u4e0e\u5b9e\u65f6\u8ba1\u7b97  \n\u51ed\u501f\u4e30\u5bcc\u7684\u5e95\u5c42\u6570\u636e\u7ed3\u6784\uff08\u5171 6 \u79cd\u5e95\u5c42\u5b9e\u73b0\uff0c\u5305\u62ec SDS\u3001\u538b\u7f29\u5217\u8868\u3001\u8df3\u8868\u3001\u54c8\u5e0c\u8868\u7b49\uff09\uff0cRedis \u53ef\u76f4\u63a5\u627f\u8f7d\u4e1a\u52a1\u903b\u8f91\u6570\u636e [2][78731a3a-f20b-4b06-b037-3808a2fa1af0]\u3002\u5178\u578b\u6848\u4f8b\u5982\uff1a  \n- \u4f7f\u7528 **\u4f4d\u56fe\uff08Bitmap\uff09** \u7edf\u8ba1\u65e5\u6d3b\uff08DAU\uff09\u3001\u7528\u6237\u7b7e\u5230\uff08`SETBIT`/`BITCOUNT`\uff09\uff0c\u5355 key \u5373\u53ef\u7ba1\u7406 512MB\uff08\u7ea6 43 \u4ebf\uff09\u7528\u6237\u72b6\u6001\uff0c\u7a7a\u95f4\u6548\u7387\u6781\u9ad8 [5]\uff1b  \n- \u4f7f\u7528 **\u6709\u5e8f\u96c6\u5408\uff08Sorted Set\uff09** \u5b9e\u73b0\u6392\u884c\u699c\u3001\u65f6\u95f4\u7ebf\u6392\u5e8f\uff08\u6309 score \u6392\u5e8f\uff09\uff0c\u652f\u6301\u8303\u56f4\u67e5\u8be2\u4e0e\u6392\u540d\u83b7\u53d6\uff0c\u65f6\u95f4\u590d\u6742\u5ea6\u4e3a O(log N) [9]\uff1b  \n- \u4f7f\u7528 **HyperLogLog** \u8fdb\u884c\u6d77\u91cf\u53bb\u91cd\u8ba1\u6570\uff08\u5982 UV \u7edf\u8ba1\uff09\uff0c\u8bef\u5dee\u7387\u4f4e\u4e8e 0.81%\uff0c\u4ec5\u9700 12KB \u5185\u5b58\u5373\u53ef\u7edf\u8ba1 2^64 \u4e2a\u5143\u7d20 [\u672a\u5728\u7ed9\u5b9a\u6e90\u4e2d\u663e\u5f0f\u63d0\u53ca\uff0c\u6545\u4e0d\u5f15\u7528]\u3002\n\n## \u4e09\u3001\u652f\u6491\u6838\u5fc3\u7528\u9014\u7684\u5173\u952e\u6280\u672f\u673a\u5236\n\n| \u6280\u672f\u673a\u5236 | \u529f\u80fd\u8bf4\u660e | \u6765\u6e90\u4f9d\u636e |\n|----------|----------|----------|\n| **\u53cc\u54c8\u5e0c\u8868\u6e10\u8fdb\u5f0f Rehash** | \u4e3a\u907f\u514d\u6269\u5bb9\u963b\u585e\uff0cRedis \u7ef4\u62a4\u4e24\u4e2a\u54c8\u5e0c\u8868\uff08ht \u4e0e ht[1]\uff09\uff0c\u901a\u8fc7\u6bcf\u6b21\u8bf7\u6c42\u8fc1\u79fb\u4e00\u4e2a bucket \u7684\u65b9\u5f0f\u5b8c\u6210 rehash\uff0c\u4fdd\u969c\u9ad8\u5e76\u53d1\u4e0b\u7684\u54cd\u5e94\u7a33\u5b9a\u6027 [3][78731a3a-f20b-4b06-b037-3808a2fa1af0]\u3002 | [3][78731a3a-f20b-4b06-b037-3808a2fa1af0] |\n| **RedisObject \u5143\u6570\u636e\u62bd\u8c61** | \u6240\u6709 key-value \u5747\u5c01\u88c5\u4e3a `redisObject` \u7ed3\u6784\u4f53\uff0c\u7edf\u4e00\u7ba1\u7406\u7c7b\u578b\u3001\u7f16\u7801\u3001LRU \u65f6\u95f4\u6233\u3001\u5f15\u7528\u8ba1\u6570\u53ca\u6307\u5411\u5b9e\u9645\u6570\u636e\u7684\u6307\u9488\uff0c\u5b9e\u73b0\u7075\u6d3b\u7684\u6570\u636e\u7c7b\u578b\u5207\u6362\u4e0e\u5185\u5b58\u4f18\u5316\uff08\u5982\u5c0f\u5b57\u7b26\u4e32\u5d4c\u5165\u3001\u6574\u6570\u76f4\u5b58\uff09 [78731a3a-f20b-4b06-b037-3808a2fa1af0]\u3002 | [78731a3a-f20b-4b06-b037-3808a2fa1af0] |\n| **\u6df7\u5408\u6301\u4e45\u5316\uff08RDB+AOF\uff09** | Redis 4.0 \u5f15\u5165\u6df7\u5408\u6a21\u5f0f\uff1a\u5148\u751f\u6210 RDB \u5feb\u7167\uff0c\u518d\u8ffd\u52a0 AOF \u589e\u91cf\u65e5\u5fd7\uff0c\u517c\u987e RDB \u7684\u5feb\u901f\u6062\u590d\u4e0e AOF \u7684\u4f4e\u6570\u636e\u4e22\u5931\u98ce\u9669\uff0c\u91cd\u542f\u8017\u65f6\u5927\u5e45\u7f29\u77ed [c03e37bb-b5ef-4a53-a52c-ef51bc4559fa]\u3002 | [c03e37bb-b5ef-4a53-a52c-ef51bc4559fa] |\n| **\u5185\u5b58\u6dd8\u6c70\u7b56\u7565** | \u5f53\u5185\u5b58\u4e0d\u8db3\u65f6\uff0cRedis \u63d0\u4f9b LRU\u3001LFU\u3001TTL \u7b49 8 \u79cd\u6dd8\u6c70\u7b56\u7565\uff08\u5982 `volatile-lru`, `allkeys-lfu`\uff09\uff0c\u786e\u4fdd\u7f13\u5b58\u547d\u4e2d\u7387\u4e0e\u5185\u5b58\u53ef\u63a7\u6027 [2]\u3002 | [2] |\n\n## \u56db\u3001\u751f\u6001\u4e0e\u8fd0\u7ef4\u652f\u6491\u80fd\u529b\n\nRedis \u4e0d\u4ec5\u662f\u4e00\u4e2a\u6570\u636e\u5e93\uff0c\u66f4\u5f62\u6210\u4e86\u5b8c\u6574\u7684\u751f\u4ea7\u7ea7\u751f\u6001\u3002Google Cloud \u7684 Memorystore for Redis \u670d\u52a1\u63d0\u4f9b\u6258\u7ba1\u5f0f\u90e8\u7f72\uff0c\u5e76\u5185\u7f6e\u6570\u5341\u9879\u76d1\u63a7\u6307\u6807\uff08\u5982 `redis.googleapis.com/instance/cpu_usage_percent`\u3001`connected_clients`\uff09\uff0c\u652f\u6301\u7cbe\u7ec6\u5316\u5bb9\u91cf\u89c4\u5212\u4e0e\u6545\u969c\u9884\u8b66 [4]\u3002\u540c\u65f6\uff0c\u5176\u534f\u8bae\u7b80\u5355\uff08RESP\uff09\u3001\u5ba2\u6237\u7aef\u5e93\u6210\u719f\uff08Java/Jedis\u3001Python/redis-py \u7b49\uff09\uff0c\u4e0e Spring Boot\u3001Node.js \u7b49\u4e3b\u6d41\u6846\u67b6\u6df1\u5ea6\u96c6\u6210\uff0c\u6781\u5927\u964d\u4f4e\u4e86\u5de5\u7a0b\u843d\u5730\u95e8\u69db [1][6]\u3002\u622a\u81f3 2020 \u5e74\uff0cRedis \u5df2\u6210\u4e3a NoSQL \u9886\u57df\u53d1\u5c55\u6700\u5feb\u3001\u793e\u533a\u6700\u6d3b\u8dc3\u7684\u9879\u76ee\u4e4b\u4e00\uff0c\u5e7f\u6cdb\u5e94\u7528\u4e8e\u76f4\u64ad\u3001\u793e\u4ea4\u3001\u91d1\u878d\u3001\u7269\u8054\u7f51\u7b49\u8d85\u5927\u89c4\u6a21\u9ad8\u5e76\u53d1\u573a\u666f [6][8]\u3002\n\n\u7efc\u4e0a\u6240\u8ff0\uff0cRedis \u7684\u6838\u5fc3\u7528\u9014\u53ef\u51dd\u7ec3\u4e3a\uff1a**\u4ee5\u5185\u5b58\u901f\u5ea6\u627f\u8f7d\u591a\u6837\u5316\u6570\u636e\u7ed3\u6784\uff0c\u670d\u52a1\u4e8e\u7f13\u5b58\u52a0\u901f\u3001\u5206\u5e03\u5f0f\u534f\u8c03\u3001\u6d88\u606f\u901a\u4fe1\u4e0e\u5b9e\u65f6\u8ba1\u7b97\u56db\u5927\u652f\u67f1\u573a\u666f\uff0c\u5176\u9ad8\u6027\u80fd\u3001\u9ad8\u53ef\u7528\u3001\u6613\u6269\u5c55\u7684\u7279\u6027\uff0c\u6e90\u4e8e\u7cbe\u5de7\u7684\u5185\u5b58\u7ba1\u7406\u3001\u6e10\u8fdb\u5f0f\u54c8\u5e0c\u3001\u7edf\u4e00\u5bf9\u8c61\u6a21\u578b\u4e0e\u6df7\u5408\u6301\u4e45\u5316\u7b49\u5173\u952e\u6280\u672f\u8bbe\u8ba1**\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** developer.aliyun.com \u2014 Redis\u6838\u5fc3\u539f\u7406\u6570\u636e\u7c7b\u578b\u6301\u4e45\u5316\u4e0e\u96c6\u7fa4\u5168\u89e3\u6790-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91\nURL: https://developer.aliyun.com/article/618702\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedis\u6838\u5fc3\u539f\u7406\u6570\u636e\u7c7b\u578b\u6301\u4e45\u5316\u4e0e\u96c6\u7fa4\u5168\u89e3\u6790-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u6570\u636e\u5e93 \u6587\u7ae0 \u6b63\u6587 \u4ecb\u7ecdRedis\u7684\u5404\u79cd\u7528\u9014\u4ee5\u53ca\u4f7f\u7528\u573a\u666f 2018-07-26 12479 \u7248\u6743 \u7248\u6743\u58f0\u660e\uff1a \u672c\u6587\u5185\u5bb9\u7531\u963f\u91cc\u4e91\u5b9e\u540d\u6ce8\u518c\u7528\u6237\u81ea\u53d1\u8d21\u732e\uff0c\u7248\u6743\u5f52\u539f\u4f5c\u8005\u6240\u6709\uff0c\u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u4e0d\u62e5\u6709\u5176\u8457\u4f5c\u6743\uff0c\u4ea6\u4e0d\u627f\u62c5\u76f8\u5e94\u6cd5\u5f8b\u8d23\u4efb\u3002\u5177\u4f53\u89c4\u5219\u8bf7\u67e5\u770b\u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u7528\u6237\u670d\u52a1\u534f\u8bae \u300b\u548c \u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u77e5\u8bc6\u4ea7\u6743\u4fdd\u62a4\u6307\u5f15 \u300b\u3002\u5982\u679c\u60a8\u53d1\u73b0\u672c\u793e\u533a\u4e2d\u6709\u6d89\u5acc\u6284\u88ad\u7684\u5185\u5bb9\uff0c\u586b\u5199 \u4fb5\u6743\u6295\u8bc9\u8868\u5355 \u8fdb\u884c\u4e3e\u62a5\uff0c\u4e00\u7ecf\u67e5\u5b9e\uff0c\u672c\u793e\u533a\u5c06\u7acb\u523b\u5220\u9664\u6d89\u5acc\u4fb5\u6743\u5185\u5bb9\u3002 \u7b80\u4ecb\uff1a \u4ecb\u7ecdRedis\u7684\u5404\u79cd\u7528\u9014\u4ee5\u53ca\u4f7f\u7528\u573a\u666f Redis...\u300d\n\n<a id=\"ref-2\"></a>**[2]** qiankunli.github.io \u2014 \u300aRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u73b0\u300b\u7b14\u8bb0 - \u674e\u4e7e\u5764\u7684\u535a\u5ba2\nURL: https://qiankunli.github.io/2020/08/04/redis_practice.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u300aRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u73b0\u300b\u7b14\u8bb0 - \u674e\u4e7e\u5764\u7684\u535a\u5ba2 \u524d\u8a00 \u524d\u8a00 \u6574\u4f53\u67b6\u6784 \u57fa\u672c\u8bbe\u8ba1 \u952e\u548c\u503c\u7528\u4ec0\u4e48\u7ed3\u6784\u7ec4\u7ec7\uff1f \u5e95\u5c42\u6570\u636e\u7ed3\u6784 \u6301\u4e45\u5316/\u5355\u673a\u9ad8\u53ef\u7528 AOF RDB\uff08Redis DataBase\uff09 \u4e3b\u4ece\u540c\u6b65/\u591a\u673a\u9ad8\u53ef\u7528 \u5207\u7247\u96c6\u7fa4 \u7f13\u51b2\u533a \u6dd8\u6c70\u7b56\u7565 \u4e8b\u52a1 \u5f71\u54cdredis \u6027\u80fd\u7684\u51e0\u5927\u56e0\u7d20 \u5176\u5b83 \u6587\u7ae0\u90e8\u5206\u5185\u5bb9\u6765\u81ea\u5bf9 \u300aRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u73b0\u300b\u7684\u5b66\u4e60 \u6574\u4f53\u67b6\u6784 \u57fa\u672c\u8bbe\u8ba1 \u5bf9\u4e8e\u952e\u503c\u6570\u636e\u5e93\u800c\u8a00\uff0c\u57fa\u672c\u7684\u6570\u636e\u6a21\u578b\u662f key-value \u6a21\u578b\u3002key \u4e00\u822c\u662f String \u7c7b\u578b\uff0c\u800c value \u7c7b\u578b\u5219\u6bd4\u8f83\u591a\u6837\u3002\u5728\u5bf9\u952e\u503c\u6570\u636e\u5e93\u8fdb\u884c\u9009\u578b\u65f6\uff0c \u4e00\u4e2a\u91cd\u8981\u7684\u8003\u8651\u56e0\u7d20\u662f\u5b83\u652f\u6301\u7684 value...\u300d\n\n<a id=\"ref-3\"></a>**[3]** cnblogs.com \u2014 \u6781\u5ba2\u65f6\u95f4\u4e4bRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218 - strongmore - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/strongmore/p/17131266.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u6781\u5ba2\u65f6\u95f4\u4e4bRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218 - strongmore - \u535a\u5ba2\u56ed strongmore \u6015\u4ec0\u4e48\u771f\u7406\u65e0\u7a77\uff0c\u8fdb\u4e00\u5bf8\u6709\u4e00\u5bf8\u7684\u6b22\u559c\u3002 \u6781\u5ba2\u65f6\u95f4\u4e4bRedis\u6838\u5fc3\u6280\u672f\u4e0e\u5b9e\u6218 \u5f00\u7bc7\u4ecb\u7ecd \u77e5\u8bc6\u5168\u666f\u56fe \u95ee\u9898\u7fa4\u50cf\u56fe 01-\u57fa\u672c\u67b6\u6784\uff1a\u4e00\u4e2a\u952e\u503c\u6570\u636e\u5e93\u5305\u542b\u4ec0\u4e48 02-\u6570\u636e\u7ed3\u6784\uff1a\u5feb\u901f\u7684Redis\u6709\u54ea\u4e9b\u6162\u64cd\u4f5c\uff1f \u65b0\u7248\u7684\u6570\u636e\u673a\u6784\u6709\u53d8\u5316 rehash\u8fc7\u7a0b \u4e3a\u4e86\u4f7frehash\u64cd\u4f5c\u66f4\u9ad8\u6548\uff0cRedis\u9ed8\u8ba4\u4f7f\u7528\u4e86\u4e24\u4e2a\u5168\u5c40\u54c8\u5e0c\u8868\uff1a\u54c8\u5e0c\u88681\u548c\u54c8\u5e0c\u88682\u3002\u4e00\u5f00\u59cb\uff0c\u5f53\u4f60\u521a\u63d2\u5165\u6570\u636e\u65f6\uff0c\u9ed8\u8ba4\u4f7f\u7528\u54c8\u5e0c\u88681\uff0c\u6b64\u65f6\u7684\u54c8\u5e0c\u88682\u5e76\u6ca1\u6709\u88ab\u5206\u914d\u7a7a\u95f4\u3002\u968f\u7740\u6570\u636e\u9010\u6b65\u589e\u591a\uff0cRedis\u5f00\u59cb\u6267\u884crehash\uff0c\u8fd9\u4e2a\u8fc7\u7a0b\u5206\u4e3a\u4e09\u6b65...\u300d\n\n<a id=\"ref-4\"></a>**[4]** docs.cloud.google.com \u2014 \u652f\u6301\u7684\u76d1\u63a7\u6307\u6807 \u00a0|\u00a0 Memorystore for Redis \u00a0|\u00a0 Google Cloud Documentation\nURL: https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u652f\u6301\u7684\u76d1\u63a7\u6307\u6807 | Memorystore for Redis | Google Cloud Documentation \u8df3\u81f3\u4e3b\u8981\u5185\u5bb9 / \u63a7\u5236\u53f0 English Deutsch Espa\u00f1ol Espa\u00f1ol \u2013 Am\u00e9rica Latina Fran\u00e7ais Indonesia Italiano Portugu\u00eas Portugu\u00eas \u2013 Brasil \u05e2\u05d1\u05e8\u05d9\u05ea \u4e2d\u6587 \u2013 \u7b80\u4f53 \u4e2d\u6587 \u2013 \u7e41\u9ad4 \u65e5\u672c\u8a9e \ud55c\uad6d\uc5b4 \u767b\u5f55 Memorystore Memorystore for Redis \u514d\u8d39\u5f00\u59cb\u4f7f\u7528\u5427 Google \u4f1a\u4f7f\u7528 AI \u6280\u672f\u5c06\u5185\u5bb9\u7ffb\u8bd1\u6210\u60a8\u504f\u597d...\u300d\n\n<a id=\"ref-5\"></a>**[5]** pegasuswang.readthedocs.io \u2014 \u300aRedis\u6df1\u5ea6\u5386\u9669\u6838\u5fc3\u539f\u7406\u548c\u5e94\u7528\u5b9e\u8df5\u300b - PegasusWang\u7684\u8bfb\u4e66\u7b14\u8bb0\nURL: https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u300aRedis\u6df1\u5ea6\u5386\u9669\u6838\u5fc3\u539f\u7406\u548c\u5e94\u7528\u5b9e\u8df5\u300b - PegasusWang\u7684\u8bfb\u4e66\u7b14\u8bb0 \u00bb \u6570\u636e\u5e93 \u00bb \u300aRedis\u6df1\u5ea6\u5386\u9669\u6838\u5fc3\u539f\u7406\u548c\u5e94\u7528\u5b9e\u8df5\u300b \u5e94\u75281\uff1a\u5206\u5e03\u5f0f\u9501 redis2.8 \u4e4b\u540e\u52a0\u5165\u4e86set \u6307\u4ee4\u7684\u6269\u5c55\u53c2\u6570\uff0c \u4f7f\u5f97 setnx \u548c expire \u53ef\u4ee5\u4e00\u8d77\u6267\u884c\uff08\u4fdd\u8bc1\u539f\u5b50\u6027\uff09 \u53ef\u91cd\u5165\u6027\uff1a\u6307\u7684\u662f\u7ebf\u7a0b\u6301\u6709\u9501\u7684\u60c5\u51b5\u4e0b\u518d\u6b21\u8bf7\u6c42\u52a0\u9501\uff0c\u5982\u679c\u4e00\u4e2a\u9501 \u652f\u6301\u540c\u4e00\u4e2a\u7ebf\u7a0b\u7684\u591a\u6b21\u52a0\u9501\uff0c\u5c31\u662f\u53ef\u91cd\u5165\u7684\u3002 \u5e94\u75282\uff1a\u7f13\u5175\u4e4b\u8ba1-\u5ef6\u65f6\u961f\u5217 \u4f7f\u7528 list \u4f5c\u4e3a\u5f02\u6b65\u6d88\u606f\u961f\u5217\uff08\u4f60\u5bf9\u53ef\u9760\u6027\u6ca1\u6709\u6781\u81f4\u8ffd\u6c42\uff09 blpop,brpop \u963b\u585e\u64cd\u4f5c\uff0c\u5982\u679clist \u6ca1\u6709\u6570\u636e\u5c31\u4f1a\u8fdb\u5165\u4f11\u7720\u3002\u8fd9\u91cc\u9700\u8981\u6ce8\u610f\u957f\u65f6\u95f4\u8fde\u63a5\u65ad\u5f00...\u300d\n\n<a id=\"ref-6\"></a>**[6]** cnblogs.com \u2014 Redis\u6838\u5fc3\u539f\u7406\u548c\u5e94\u7528\u573a\u666f - WK_BlogYard - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/wk-missQ1/p/16107976.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300cRedis\u6838\u5fc3\u539f\u7406\u548c\u5e94\u7528\u573a\u666f - WK_BlogYard - \u535a\u5ba2\u56ed WK_BlogYard \u5f88\u591a\u4e1c\u897f\u4e0d\u662f\u4f60\u89c9\u5f97\u6709\u7528\u624d\u53bb\u5b66,\u800c\u662f\u4f60\u5b66\u4e86\u624d\u77e5\u9053\u6709\u7528! Redis\u6838\u5fc3\u539f\u7406\u548c\u5e94\u7528\u573a\u666f Redis\u6838\u5fc3\u539f\u7406\u548c\u4f7f\u7528\u573a\u666f \u539f\u6587\u94fe\u63a5\uff1ahttps://mp.weixin.qq.com/s/7ct-mvSIaT3o4-tsMaKRWA \u4e00 \u4ec0\u4e48\u662fNoSQL\uff1f Nosql = not only sql\uff08\u4e0d\u4ec5\u4ec5\u662fSQL\uff09 \u5173\u7cfb\u578b\u6570\u636e\u5e93\uff1a\u5217+\u884c\uff0c\u540c\u4e00\u4e2a\u8868\u4e0b\u6570\u636e\u7684\u7ed3\u6784\u662f\u4e00\u6837\u7684\u3002 \u975e\u5173\u7cfb\u578b\u6570\u636e\u5e93\uff1a\u6570\u636e\u5b58\u50a8\u6ca1\u6709\u56fa\u5b9a\u7684\u683c\u5f0f\uff0c\u5e76\u4e14\u53ef\u4ee5\u8fdb\u884c\u6a2a\u5411\u6269\u5c55\u3002 NoSQL\u6cdb\u6307\u975e\u5173\u7cfb\u578b\u6570\u636e\u5e93\uff0c\u968f\u7740web...\u300d\n\n<a id=\"ref-7\"></a>**[7]** instaclustr.com \u2014 What Is Redis\u2122? An Overview - Instaclustr\nURL: https://www.instaclustr.com/blog/what-is-redis\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWhat Is Redis\u2122? An Overview - Instaclustr Blog > Technology > What Is Redis\u2122? An Overview What Is Redis\u2122? An Overview October 07, 2020 | By Instaclustr An In-Memory Database or Data Structure Server? Redis is a fast in-memory database and cache, open source under a BSD license, w...\u300d\n\n<a id=\"ref-8\"></a>**[8]** severalnines.com \u2014 Introduction to Redis (What it is, what are the use cases etc) | Severalnines\nURL: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n\u539f\u6587\u7247\u6bb5\uff1a\u300cIntroduction to Redis (What it is, what are the use cases etc) | Severalnines Redis Overview Redis (which means Remote Dictionary Serve) is an open-source NoSQL database known to be a fast, in-memory key-value data store, cache, message broker, and queue. The project started by S...\u300d\n\n<a id=\"ref-9\"></a>**[9]** scalegrid.io \u2014 Top Redis Use Cases By Core Data Structure Types\nURL: https://scalegrid.io/blog/top-redis-use-cases-by-core-data-structure-types\n\u539f\u6587\u7247\u6bb5\uff1a\u300cTop Redis Use Cases By Core Data Structure Types Redis\u00ae , Tech Tips & Insights Top Redis\u00ae Use Cases by Core Data Structure Types Aug 30, 2019 7 min read Top Redis\u00ae Use Cases by Core Data Structure Types SHARE THIS ARTICLE Redis, short for Remote Dictionary Server, is a BSD-licens...\u300d",
+    "metadata": [
+      "https://ucc.alicdn.com/avatar/img_ca90b7b1b220af946a0b58ff6ab9ac71.jpg?x-oss-process=image/resize,h_150,m_lfit",
+      "https://qiankunli.github.io/public/upload/storage/redis_overview.jpg",
+      "https://qiankunli.github.io/public/upload/storage/redis_kv.png",
+      "https://qiankunli.github.io/public/upload/storage/redis_data_structure.jpg",
+      "https://www.gstatic.com/devrel-devsite/prod/v25f01968170374b7bd062a383d0367da1beee7ed413abaee67eec4296f4ba687/clouddocs/images/lockup_full_color.svg",
+      "https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg?hl=zh-cn",
+      "https://docs.cloud.google.com/_static/images/translated.svg?hl=zh-cn",
+      "https://pegasuswang.readthedocs.io/zh/latest/database/ziplist.png",
+      "https://www.instaclustr.com/wp-content/uploads/2021/10/kf5qUGej8ArVct5MkZvlqL5-3iJH8JTaq3EVqPOsC80UOKpPtGR6CjSfnikAwmYR7gcciA8gUm-2k2dO96pOnM4KqrfUYvZ7NYruoAGbMl3qhVHhqrPsC_rXA4ZThNsi9AcO_nQX.png",
+      "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png"
+    ]
+  }
+}

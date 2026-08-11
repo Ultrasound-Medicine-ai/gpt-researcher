@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-08-09T05:27:42.523648",
+  "job_id": "bc93ee83-f4d7-4f79-9a2f-df28f38a520d",
+  "events": [],
+  "content": {
+    "query": "E2E stale recovery: compare Redis and Memcached briefly",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

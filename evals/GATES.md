@@ -37,6 +37,18 @@ Sample reproducibility: `--seed` / `EVAL_SAMPLE_SEED` (default **42**) + `--samp
 Artifacts record `sample_seed`, `sample_mode`, `strata_counts` (SimpleQA) and `by_bucket` (hallucination).
 Hallucination corpus has 70 queries: requesting n≥70 runs the **full** set (`effective_n=70`).
 
+### Intent routing metrics
+
+Chat routing is evaluated as classification, not only as a tool-call assertion.
+Labelled rows record `expected_intent` and `predicted_intent`; the shared Harness
+publishes a confusion matrix, per-class precision/recall/F1 and macro metrics.
+`report_route_false_positive_rate` measures non-create requests routed toward
+creation; `false_report_creation_rate` measures observed non-create requests
+that actually produced the `report_created` side effect. Keeping them separate
+shows whether the policy guard stopped a router mistake. Cheap and live artifacts are written to
+`evals/results/dialogue_latest.json` and `live_chat_latest.json`; the dashboard
+shows both without changing the fixed 68-case product dataset count.
+
 ### cheap contents
 
 1. `pytest` harness-related unit tests (no LLM)

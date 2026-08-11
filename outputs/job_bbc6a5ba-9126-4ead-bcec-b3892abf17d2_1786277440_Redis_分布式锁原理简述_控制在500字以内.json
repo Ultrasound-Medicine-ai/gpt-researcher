@@ -1,0 +1,633 @@
+{
+  "timestamp": "2026-08-09T12:10:40.522652",
+  "job_id": "bbc6a5ba-9126-4ead-bcec-b3892abf17d2",
+  "events": [
+    {
+      "timestamp": "2026-08-09T12:11:31.984641",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for 'Redis 分布式锁原理简述，控制在500字以内'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:32.010969",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 技术专家 Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:32.045625",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: Redis 分布式锁原理简述，控制在500字以内...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:34.612235",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:55.363193",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Redis 分布式锁原理简述', 'Redis distributed lock principle SETNX RedLock Lua', 'Redisson 分布式锁实现原理 加锁解锁 看门狗机制', 'Redis 分布式锁原理简述，控制在500字以内']...",
+        "metadata": [
+          "Redis 分布式锁原理简述",
+          "Redis distributed lock principle SETNX RedLock Lua",
+          "Redisson 分布式锁实现原理 加锁解锁 看门狗机制",
+          "Redis 分布式锁原理简述，控制在500字以内"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:55.471224",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis 分布式锁原理简述'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:55.491701",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis distributed lock principle SETNX RedLock Lua'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:55.512933",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis 分布式锁原理简述，控制在500字以内'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:55.534512",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redisson 分布式锁实现原理 加锁解锁 看门狗机制'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:56.417988",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/Redis_%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%8E%9F%E7%90%86.md\n",
+        "metadata": "https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/Redis_%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%8E%9F%E7%90%86.md"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:56.452262",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://javaguide.cn/distributed-system/distributed-lock-implementations.html\n",
+        "metadata": "https://javaguide.cn/distributed-system/distributed-lock-implementations.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:56.488946",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://juejin.cn/post/7011503283768393736\n",
+        "metadata": "https://juejin.cn/post/7011503283768393736"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:56.526279",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zhuanlan.zhihu.com/p/745274384\n",
+        "metadata": "https://zhuanlan.zhihu.com/p/745274384"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:56.562766",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/crazymakercircle/p/14731826.html\n",
+        "metadata": "https://www.cnblogs.com/crazymakercircle/p/14731826.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:56.591054",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:56.630531",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.219110",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.jdcloud.com/article/3777\n",
+        "metadata": "https://developer.jdcloud.com/article/3777"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.263614",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/Tingfeng__/article/details/142027409\n",
+        "metadata": "https://blog.csdn.net/Tingfeng__/article/details/142027409"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.289179",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.alibabacloud.com/blog/implementation-principles-and-best-practices-of-distributed-lock_600811\n",
+        "metadata": "https://www.alibabacloud.com/blog/implementation-principles-and-best-practices-of-distributed-lock_600811"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.335178",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://juejin.cn/post/7226933611264819237\n",
+        "metadata": "https://juejin.cn/post/7226933611264819237"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.362333",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://redis.io/glossary/redis-lock\n",
+        "metadata": "https://redis.io/glossary/redis-lock"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.402445",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloud.tencent.com/developer/article/2427436\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2427436"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.432801",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://oneuptime.com/blog/post/2026-01-25-distributed-locks-redis-redlock-go/view\n",
+        "metadata": "https://oneuptime.com/blog/post/2026-01-25-distributed-locks-redis-redlock-go/view"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.477721",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.507556",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://redis.io/docs/latest/develop/clients/patterns/distributed-locks\n",
+        "metadata": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.537973",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/jelly12345/p/14699492.html\n",
+        "metadata": "https://www.cnblogs.com/jelly12345/p/14699492.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.575135",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.610794",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://redisson.pro/glossary/redis-lock.html\n",
+        "metadata": "https://redisson.pro/glossary/redis-lock.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.639939",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloud.tencent.com/developer/article/2297075\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2297075"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.676919",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.720828",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://juejin.cn/post/7269385060612309007\n",
+        "metadata": "https://juejin.cn/post/7269385060612309007"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.754400",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.806520",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://seven97.top/database/redis/05-implementdistributedlocks.html\n",
+        "metadata": "https://seven97.top/database/redis/05-implementdistributedlocks.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.848617",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:11:57.906866",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:00.423813",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:00.484310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 24 total images",
+        "metadata": [
+          "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/180c028742ee4c2db9f29d80dc88900c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp",
+          "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcdf24a8c0e245d0ad511f3cc7fe579c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp",
+          "https://www.cnblogs.com/skins/custom/images/logo.gif",
+          "https://img2024.cnblogs.com/blog/35695/202607/35695-20260715081632770-1485313413.webp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:00.614815",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:00.709659",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redisson 分布式锁实现原理 加锁解锁 看门狗机制...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.544056",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.573153",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.603777",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.638345",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 27 total images",
+        "metadata": [
+          "https://i-blog.csdnimg.cn/direct/7afac87954fc4619ab8e24b13e1661a5.png",
+          "https://i-blog.csdnimg.cn/direct/4bcbac1ea22949279ba37b16b3b5f8f4.png",
+          "https://i-blog.csdnimg.cn/direct/28bda1104af6400caeceed45d499caac.png",
+          "https://i-blog.csdnimg.cn/direct/9a58edffa8994e868bb41a3a21c99658.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.667276",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 30 total images",
+        "metadata": [
+          "https://camo.githubusercontent.com/1509268b27dbd0ad0f5c86137e084b9a81d033386f5e1df9e0cfde4fa895b3f3/68747470733a2f2f67697465652e636f6d2f68656962616979696e672f46756c6c2d537461636b2d4e6f7465732f7261772f6d61737465722f70696374757265732f72656469735fe58886e5b883e5bc8fe99481e58e9fe790862e706e67",
+          "https://camo.githubusercontent.com/c175fad4f8ac6450cc429b7ea62524a5ddf48b99c9a35890f054fbeadf3720b7/68747470733a2f2f67697465652e636f6d2f68656962616979696e672f46756c6c2d537461636b2d4e6f7465732f7261772f6d61737465722f70696374757265732f72656469735fe58886e5b883e5bc8fe994815f636c69312e706e67",
+          "https://camo.githubusercontent.com/d21e2e83099951d1b452bc2a6a0ab1dcf3bdd9aab04b8a3c6e896a23dbecbd11/68747470733a2f2f67697465652e636f6d2f68656962616979696e672f46756c6c2d537461636b2d4e6f7465732f7261772f6d61737465722f70696374757265732f72656469735fe58886e5b883e5bc8fe994815f636c69322e706e67",
+          "https://camo.githubusercontent.com/e894333e881577b75b0d988456364708d80fbd25e82ec6fba8b97c3410c0565f/68747470733a2f2f67697465652e636f6d2f68656962616979696e672f46756c6c2d537461636b2d4e6f7465732f7261772f6d61737465722f70696374757265732f72656469735fe58886e5b883e5bc8fe994815f636c69332e706e67"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.696957",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 12 total images",
+        "metadata": [
+          "https://oneuptime.com/blog/post/2026-01-25-distributed-locks-redis-redlock-go/view",
+          "https://avatars.githubusercontent.com/nawazdhandala?s=64",
+          "https://img.alicdn.com/tfs/TB19L9AbXuWBuNjSspnXXX1NVXa-40-26.png",
+          "https://yqintl.alicdn.com/5889d5b9d51aac7faed57af15cffd5eb5c236363.jpeg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.741586",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.768762",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.794779",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.834716",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis 分布式锁原理简述...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.867623",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis 分布式锁原理简述，控制在500字以内...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:03.904455",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis distributed lock principle SETNX RedLock Lua...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:07.448330",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:07.477570",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:07.505411",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:07.533549",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:07.573007",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.036036479999999996",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:07.653559",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for 'Redis 分布式锁原理简述，控制在500字以内'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T12:12:43.972857",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for 'Redis 分布式锁原理简述，控制在500字以内'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "Redis 分布式锁原理简述，控制在500字以内",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis 分布式锁原理简述\n\n## 引言\n在分布式系统中，为了确保多个节点对共享资源的互斥访问，分布式锁成为了一种重要的同步机制。Redis 作为一种高性能、高可用的内存数据库，提供了实现分布式锁的能力。本文将详细探讨基于 Redis 实现分布式锁的基本原理、常见问题及解决方案。\n\n## 基本原理\n\n### SETNX 和 EXPIRE 命令\n最初，基于 Redis 的分布式锁实现通常使用 `SETNX` 和 `EXPIRE` 命令。`SETNX` 命令用于在键不存在时设置键的值，而 `EXPIRE` 命令则为键设置过期时间。通过这两个命令，可以实现一个简单的分布式锁[1]。例如：\n```java\nboolean lock = redis.setnx(\"lock_key\", \"1\");\nif (lock) {\n    // 获取锁成功\n    redis.expire(\"lock_key\", 30); // 设置过期时间为30秒\n} else {\n    // 获取锁失败\n}\n```\n然而，这种方式存在原子性问题，即 `SETNX` 和 `EXPIRE` 是两个独立的操作，如果在 `SETNX` 成功后、`EXPIRE` 执行前客户端崩溃，会导致锁无法释放，从而引发死锁[2]。\n\n### SET 命令带过期时间\n为了解决上述问题，Redis 提供了 `SET` 命令的扩展形式，可以在一条命令中同时设置键的值和过期时间。例如：\n```java\nboolean lock = redis.set(\"lock_key\", \"1\", \"PX\", 30000, \"NX\");\nif (lock != null && lock.equalsIgnoreCase(\"OK\")) {\n    // 获取锁成功\n} else {\n    // 获取锁失败\n}\n```\n这种方式保证了设置键值和过期时间的原子性，避免了死锁的问题[3]。\n\n## 锁续期与看门狗机制\n\n### 自动续期\n虽然设置了过期时间可以防止死锁，但如果业务处理时间超过过期时间，锁会提前释放，导致多个客户端同时访问共享资源。为了解决这个问题，Redisson 提供了自动续期机制，即“看门狗”机制[4]。看门狗会在锁即将过期时自动延长锁的有效期，确保锁不会因为超时而被释放。默认情况下，看门狗的续期时间是30秒，可以通过配置进行调整[5]。\n\n### 看门狗机制的工作原理\n当一个客户端获取到锁后，Redisson 会启动一个后台线程（看门狗），每隔一段时间检查锁是否仍然有效。如果锁仍然有效且业务处理未完成，看门狗会自动延长锁的过期时间。这样可以确保锁不会因为超时而被释放，从而保证了分布式锁的可靠性[6]。\n\n## 解锁操作\n\n### 避免误删\n为了避免误删其他客户端持有的锁，解锁操作需要先验证锁的持有者。一种常见的做法是使用 Lua 脚本来实现解锁操作的原子性。例如：\n```lua\nif redis.call(\"get\", KEYS[1]) == ARGV[1] then\n    return redis.call(\"del\", KEYS[1])\nelse\n    return 0\nend\n```\n这段 Lua 脚本首先检查锁的值是否与当前客户端的唯一标识符匹配，如果匹配则删除锁，否则返回失败[7]。\n\n## 总结\n基于 Redis 实现的分布式锁通过 `SET` 命令的扩展形式保证了设置键值和过期时间的原子性，解决了传统 `SETNX` 和 `EXPIRE` 方案中的死锁问题。Redisson 提供的看门狗机制进一步增强了锁的可靠性，通过自动续期避免了锁因超时而被提前释放。解锁操作通过 Lua 脚本实现了原子性，避免了误删其他客户端持有的锁。这些机制共同确保了分布式锁在高并发场景下的稳定性和可靠性[8]。\n\n通过以上分析，我们可以得出结论：基于 Redis 和 Redisson 实现的分布式锁是一种高效且可靠的解决方案，适用于各种分布式系统中的资源共享控制。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** juejin.cn — Redisson看门狗机制你了解多少Redisson看门狗机制你了解多少 #后端技术学习 前言 谈到Redisson就不 - 掘金\nURL: https://juejin.cn/post/7269385060612309007\n原文片段：「Redisson看门狗机制你了解多少Redisson看门狗机制你了解多少 #后端技术学习 前言 谈到Redisson就不 - 掘金 Redisson看门狗机制你了解多少 Lxlxxx 2023-08-21 7,319 阅读5分钟 前言 谈到Redisson就不得不说Redis了，一想到Redis就不得不想到并发编程锁机制，一想到锁机制那么就不能不考虑一个很头疼的问题，如何保证原子性的问题，高QPS请求量的系统对每次执行数据的原子性由为的关键，保证不了原子性就会导致一系列重复提交的操作，重复的数据导致在某些逻辑运算的时候发生误差； ACID的特性首先是原子...」\n\n<a id=\"ref-2\"></a>**[2]** cnblogs.com — redisson中的看门狗机制总结 - 郭慕荣 - 博客园\nURL: https://www.cnblogs.com/jelly12345/p/14699492.html\n原文片段：「redisson中的看门狗机制总结 - 郭慕荣 - 博客园 郭慕荣博客园 redisson中的看门狗机制总结 1:普通的Redis分布式锁的缺陷 我们在网上看到的redis分布式锁的工具方法，大都满足互斥、防止死锁的特性，有些工具方法会满足可重入特性。 如果只满足上述3种特性会有哪些隐患呢？redis分布式锁无法自动续期，比如，一个锁设置了1分钟超时释放，如果拿到这个锁的线程在一分钟内没有执行完毕，那么这个锁就会被其他线程拿到，可能会导致严重的线上问题，我已经在秒杀系统故障排查文章中，看到好多因为这个缺陷导致的超卖了。 Redisson 锁的加锁机制如上...」\n\n<a id=\"ref-3\"></a>**[3]** cloud.tencent.com — Redis:Redisson看门狗续锁实现分布式锁的原理，及如何避坑-腾讯云开发者社区-腾讯云\nURL: https://cloud.tencent.com/developer/article/2297075\n原文片段：「Redis:Redisson看门狗续锁实现分布式锁的原理，及如何避坑-腾讯云开发者社区-腾讯云 nobody-nobody Redis:Redisson看门狗续锁实现分布式锁的原理，及如何避坑 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 nobody-nobody 社区首页 > 专栏 > Redis:Redisson看门狗续锁实现分布式锁的原理，及如何避坑 Redis:Redisson看门狗续锁实现分布式锁的原理，及如何避坑 nobody-...」\n\n<a id=\"ref-4\"></a>**[4]** seven97.top — Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路\nURL: https://seven97.top/database/redis/05-implementdistributedlocks.html\n原文片段：「Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路 跳至主要內容 Java 数据库 MySQL Redis Redis数据类型全攻略：String、List、Hash、Set的实战应用 Redis是如何高效存储与访问数据？ Redis命令处理机制源码探究 Pipelining原理：批量命令背后的秘密 Redis究竟为什么这么快？ Redis持久化：从AOF到RDB，如何实现数据不丢失？ Redis缓存管理：过期删除策略的深度剖析 Redis内存淘汰策略：如何高效管理有限内存？ Redis主从复制是如何保障数据一致性的？...」\n\n<a id=\"ref-5\"></a>**[5]** cloud.tencent.com — 深入理解分布式锁——以Redis为例-腾讯云开发者社区-腾讯云\nURL: https://cloud.tencent.com/developer/article/2427436\n原文片段：「深入理解分布式锁——以Redis为例-腾讯云开发者社区-腾讯云 windealli 深入理解分布式锁——以Redis为例 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 windealli 社区首页 > 专栏 > 深入理解分布式锁——以Redis为例 深入理解分布式锁——以Redis为例 windealli 关注 发布 于 2024-06-13 18:30:31 发布 于 2024-06-13 18:30:31 21.1K 0 举报 文章被收录...」\n\n<a id=\"ref-6\"></a>**[6]** juejin.cn — Redis分布式锁的实现方式及底层原理Redis分布式锁的实现方式及底层原理 分布式锁在分布式环境中起着非常重要的作用， - 掘金\nURL: https://juejin.cn/post/7226933611264819237\n原文片段：「Redis分布式锁的实现方式及底层原理Redis分布式锁的实现方式及底层原理 分布式锁在分布式环境中起着非常重要的作用， - 掘金 Redis分布式锁的实现方式及底层原理 IT当时语_青山师__JAVA技术栈 2023-04-28 2,100 阅读8分钟 Redis分布式锁的实现方式及底层原理 分布式锁在分布式环境中起着非常重要的作用，它可以协调多个节点的操作，保证数据的一致性。Redis作为一个高性能、高可用的缓存系统，提供了基于Redis的分布式锁的实现方案。 本篇博客将介绍Redis分布式锁的实现方式和底层原理，并通过代码实践来演示如何使用Redi...」\n\n<a id=\"ref-7\"></a>**[7]** blog.csdn.net — Redis 篇-深入了解分布式锁 Redisson 原理（可重入原理、可重试原理、主从一致性原理、解决超时锁失效）_redis可重入锁原理-CSDN博客\nURL: https://blog.csdn.net/Tingfeng__/article/details/142027409\n原文片段：「Redis 篇-深入了解分布式锁 Redisson 原理（可重入原理、可重试原理、主从一致性原理、解决超时锁失效）_redis可重入锁原理-CSDN博客 Redis 篇-深入了解分布式锁 Redisson 原理（可重入原理、可重试原理、主从一致性原理、解决超时锁失效） 最新推荐文章于 2026-08-06 17:34:50 发布 原创 最新推荐文章于 2026-08-06 17:34:50 发布 · 8.2k 阅读 · 101 · 105 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协...」\n\n<a id=\"ref-8\"></a>**[8]** developer.jdcloud.com — 深入理解分布式锁：原理、应用与挑战-京东云开发者社区\nURL: https://developer.jdcloud.com/article/3777\n原文片段：「深入理解分布式锁：原理、应用与挑战-京东云开发者社区 您好！ 欢迎来到京东云开发者社区 登录 首页 博文 课程 大赛 工具  用户中心 开源 首页 博文 课程 大赛 工具  开源 更多 用户中心 开发者社区 > 博文 > 深入理解分布式锁：原理、应用与挑战 分享 打开微信扫码分享 点击前往QQ分享 点击前往微博分享 点击复制链接 深入理解分布式锁：原理、应用与挑战 liuhaozzu 2024-04-30 IP归属：北京 4801浏览 前言 在单机环境中，我们主要通过线程间的加锁机制来确保同一时间只有一个线程能够访问某个共享资源或执行某个关键代码块，...」\n\n<a id=\"ref-9\"></a>**[9]** github.com — Full-Stack-Notes/notes/Redis_分布式锁原理.md at master · heibaiying/Full-Stack-Notes · GitHub\nURL: https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/Redis_%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%8E%9F%E7%90%86.md\n原文片段：「Full-Stack-Notes/notes/Redis_分布式锁原理.md at master · heibaiying/Full-Stack-Notes · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on anot...」\n\n<a id=\"ref-10\"></a>**[10]** javaguide.cn — 分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide\nURL: https://javaguide.cn/distributed-system/distributed-lock-implementations.html\n原文片段：「分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide 跳至主要內容 项目介绍 面试准备（必看） Java 数据库 开发工具 常用框架 系统设计 分布式 分布式系统知识体系 分布式系统入门 ⭐分布式高频面试题 理论&算法&协议 API网关 API网关基础知识总结 Spring Cloud Gateway面试题总结 分布式ID 分布式ID生成方案详解 分布式ID设计实战指南 分布式锁 分布式锁入门介绍 分布式锁常见实现方案总结 分布式事务 分布式事务解决方案总结 分布式配置中心 分布式配置...」\n\n<a id=\"ref-11\"></a>**[11]** juejin.cn — 聊聊redis分布式锁的8大坑前言 在分布式系统中，由于redis分布式锁相对于更简单和高效，成为了分布式锁的首先，被用 - 掘金\nURL: https://juejin.cn/post/7011503283768393736\n原文片段：「聊聊redis分布式锁的8大坑前言 在分布式系统中，由于redis分布式锁相对于更简单和高效，成为了分布式锁的首先，被用 - 掘金 聊聊redis分布式锁的8大坑 苏三说技术 2021-09-24 6,256 阅读19分钟 前言 在分布式系统中，由于redis分布式锁相对于更简单和高效，成为了分布式锁的首先，被用到了很多业务场景当中。 尤其是分布式配置中心：apollo、nocos等的出现，让zookeeper的地位越来越低了。zookeeper分布式锁复杂度更高，想把它使用好并不容易。 所以我们还是好好使用redis分布式锁吧。 不是说用了redis分...」\n\n<a id=\"ref-12\"></a>**[12]** cnblogs.com — Redis分布式锁 （图解-秒懂-史上最全） - 技术自由圈 - 博客园\nURL: https://www.cnblogs.com/crazymakercircle/p/14731826.html\n原文片段：「Redis分布式锁 （图解-秒懂-史上最全） - 技术自由圈 - 博客园 疯狂创客圈 Redis分布式锁 （图解-秒懂-史上最全） 文章很长，而且持续更新，建议收藏起来，慢慢读！ 疯狂创客圈总目录 博客园版 为您奉上珍贵的学习资源 ： 免费赠送 : 《尼恩Java面试宝典》 持续更新+ 史上最全 + 面试必备 2000页+ 面试必备 + 大厂必备 +涨薪必备 免费赠送 经典图书: 《Java高并发核心编程（卷1）加强版》 面试必备 + 大厂必备 +涨薪必备 加尼恩免费领 免费赠送 经典图书: 《Java高并发核心编程（卷2）加强版》 面试必备 + 大厂必...」\n\n<a id=\"ref-13\"></a>**[13]** oneuptime.com — How to Implement Distributed Locks with Redis Redlock in Go\nURL: https://oneuptime.com/blog/post/2026-01-25-distributed-locks-redis-redlock-go/view\n原文片段：「How to Implement Distributed Locks with Redis Redlock in Go Skip to main content How to Implement Distributed Locks with Redis Redlock in Go Learn how to implement distributed locks using the Redlock algorithm in Go to coordinate access to shared resources across multiple process...」\n\n<a id=\"ref-14\"></a>**[14]** redis.io — Redis lock: fast distributed locking explained\nURL: https://redis.io/glossary/redis-lock\n原文片段：「Redis lock: fast distributed locking explained 97% believe in it. 4% have built it. New research: State of context engineering. Read the report Resource Center Events & webinars Blog Videos Glossary Resources Architecture Diagrams Demo Center Resource Center Events & webinars Blo...」\n\n<a id=\"ref-15\"></a>**[15]** redis.io — Distributed Locks with Redis | Docs\nURL: https://redis.io/docs/latest/develop/clients/patterns/distributed-locks\n原文片段：「Distributed Locks with Redis | Docs {\"categories\":[\"docs\",\"develop\",\"stack\",\"oss\",\"rs\",\"rc\",\"oss\",\"kubernetes\",\"clients\"],\"description\":\"A distributed lock pattern with Redis\\n\",\"duplicateOf\":\"head:data-ai-metadata\",\"location\":\"body\",\"title\":\"Distributed Locks with Redis\",\"tableO...」\n\n<a id=\"ref-16\"></a>**[16]** redisson.pro — What Is a Redis Lock? | Redisson\nURL: https://redisson.pro/glossary/redis-lock.html\n原文片段：「What Is a Redis Lock? | Redisson What Is a Redis Lock? A Redis lock is a distributed lock that uses Valkey or Redis as the shared coordination point, so that only one process at a time may operate on a given resource — even when those processes run on different servers. The lock...」\n\n<a id=\"ref-17\"></a>**[17]** alibabacloud.com — Implementation Principles and Best Practices of Distributed Lock - Alibaba Cloud Community\nURL: https://www.alibabacloud.com/blog/implementation-principles-and-best-practices-of-distributed-lock_600811\n原文片段：「Implementation Principles and Best Practices of Distributed Lock - Alibaba Cloud Community Community Blog Events Webinars Tutorials Forum Blog Events Webinars Tutorials Forum Create Account Log In × Community Blog Implementation Principles and Best Practices of Distributed Lock I...」\n\n<a id=\"ref-18\"></a>**[18]** zhuanlan.zhihu.com — zhuanlan.zhihu.com\nURL: https://zhuanlan.zhihu.com/p/745274384",
+    "metadata": [
+      "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/180c028742ee4c2db9f29d80dc88900c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp",
+      "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcdf24a8c0e245d0ad511f3cc7fe579c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp",
+      "https://www.cnblogs.com/skins/custom/images/logo.gif",
+      "https://img2024.cnblogs.com/blog/35695/202607/35695-20260715081632770-1485313413.webp",
+      "https://i-blog.csdnimg.cn/direct/7afac87954fc4619ab8e24b13e1661a5.png",
+      "https://i-blog.csdnimg.cn/direct/4bcbac1ea22949279ba37b16b3b5f8f4.png",
+      "https://i-blog.csdnimg.cn/direct/28bda1104af6400caeceed45d499caac.png",
+      "https://i-blog.csdnimg.cn/direct/9a58edffa8994e868bb41a3a21c99658.png",
+      "https://camo.githubusercontent.com/1509268b27dbd0ad0f5c86137e084b9a81d033386f5e1df9e0cfde4fa895b3f3/68747470733a2f2f67697465652e636f6d2f68656962616979696e672f46756c6c2d537461636b2d4e6f7465732f7261772f6d61737465722f70696374757265732f72656469735fe58886e5b883e5bc8fe99481e58e9fe790862e706e67",
+      "https://camo.githubusercontent.com/c175fad4f8ac6450cc429b7ea62524a5ddf48b99c9a35890f054fbeadf3720b7/68747470733a2f2f67697465652e636f6d2f68656962616979696e672f46756c6c2d537461636b2d4e6f7465732f7261772f6d61737465722f70696374757265732f72656469735fe58886e5b883e5bc8fe994815f636c69312e706e67"
+    ]
+  }
+}

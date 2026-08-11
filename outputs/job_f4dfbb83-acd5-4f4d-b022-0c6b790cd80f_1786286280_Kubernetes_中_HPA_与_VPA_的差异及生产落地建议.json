@@ -1,0 +1,593 @@
+{
+  "timestamp": "2026-08-09T14:38:00.118177",
+  "job_id": "f4dfbb83-acd5-4f4d-b022-0c6b790cd80f",
+  "events": [
+    {
+      "timestamp": "2026-08-09T14:38:29.362758",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for 'Kubernetes 中 HPA 与 VPA 的差异及生产落地建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:38:29.379865",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "☁️ Cloud Native & DevOps Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:38:29.412391",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: Kubernetes 中 HPA 与 VPA 的差异及生产落地建议...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:38:31.109036",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:27.410481",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Kubernetes 中 HPA 与 VPA 的差异及生产落地建议', 'Kubernetes HPA vs VPA production best practices avoid scaling conflicts', 'Kubernetes HPA VPA 协同扩缩容 生产环境 架构设计与配置指南', 'Kubernetes 中 HPA 与 VPA 的差异及生产落地建议']...",
+        "metadata": [
+          "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议",
+          "Kubernetes HPA vs VPA production best practices avoid scaling conflicts",
+          "Kubernetes HPA VPA 协同扩缩容 生产环境 架构设计与配置指南",
+          "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:27.438378",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Kubernetes 中 HPA 与 VPA 的差异及生产落地建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:27.456482",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Kubernetes HPA vs VPA production best practices avoid scaling conflicts'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:27.471511",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Kubernetes HPA VPA 协同扩缩容 生产环境 架构设计与配置指南'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:27.488815",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Kubernetes 中 HPA 与 VPA 的差异及生产落地建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.579166",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.hwchiu.com/docs/2023/autoscaler\n",
+        "metadata": "https://www.hwchiu.com/docs/2023/autoscaler"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.597831",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://akvanewsletter.substack.com/p/kubernetes-autoscaling-hpa-vs-vpa\n",
+        "metadata": "https://akvanewsletter.substack.com/p/kubernetes-autoscaling-hpa-vs-vpa"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.630154",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://scaleops.com/blog/hpa-vs-vpa\n",
+        "metadata": "https://scaleops.com/blog/hpa-vs-vpa"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.651379",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.rack2cloud.com/vpa-vs-hpa-kubernetes\n",
+        "metadata": "https://www.rack2cloud.com/vpa-vs-hpa-kubernetes"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.698832",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.726496",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/gitblog_00525/article/details/152112761\n",
+        "metadata": "https://blog.csdn.net/gitblog_00525/article/details/152112761"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.764118",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.790286",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:28.836440",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:29.183961",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://medium.com/@livewyer/vpa-production-deployment-avoiding-pitfalls-for-safe-and-effective-scaling-742d422f8344\n",
+        "metadata": "https://medium.com/@livewyer/vpa-production-deployment-avoiding-pitfalls-for-safe-and-effective-scaling-742d422f8344"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:29.206030",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://notes.kodekloud.com/docs/Kubernetes-Autoscaling/Vertical-Pod-Autoscaler-VPA/Summary-Closure-and-Limitation-of-HPA-VPA/page\n",
+        "metadata": "https://notes.kodekloud.com/docs/Kubernetes-Autoscaling/Vertical-Pod-Autoscaler-VPA/Summary-Closure-and-Limitation-of-HPA-VPA/page"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:29.226783",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.icertglobal.com/community/kubernetes-hpa-vs-vpa-scaling-strategies\n",
+        "metadata": "https://www.icertglobal.com/community/kubernetes-hpa-vs-vpa-scaling-strategies"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:29.248180",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.serverion.com/uncategorized/auto-scaling-for-kubernetes-workloads\n",
+        "metadata": "https://www.serverion.com/uncategorized/auto-scaling-for-kubernetes-workloads"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:29.269329",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://oneuptime.com/blog/post/2026-02-09-vpa-hpa-together-cpu-memory-autoscaling/view\n",
+        "metadata": "https://oneuptime.com/blog/post/2026-02-09-vpa-hpa-together-cpu-memory-autoscaling/view"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:29.290704",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:29.314020",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:30.393830",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/wzh2010/p/18031123\n",
+        "metadata": "https://www.cnblogs.com/wzh2010/p/18031123"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:30.430005",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/vertical-pod-autoscaling\n",
+        "metadata": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/vertical-pod-autoscaling"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:30.477057",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.alibabacloud.com/help/zh/ack/ack-managed-and-ack-dedicated/user-guide/horizontal-pod-autoscaling\n",
+        "metadata": "https://www.alibabacloud.com/help/zh/ack/ack-managed-and-ack-dedicated/user-guide/horizontal-pod-autoscaling"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:30.546871",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.thebyte.com.cn/container/auto-scaling.html\n",
+        "metadata": "https://www.thebyte.com.cn/container/auto-scaling.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:30.608410",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:30.696310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.146129",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.192845",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 14 total images",
+        "metadata": [
+          "https://substackcdn.com/image/fetch/$s_!0T-M!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2a1110a-7e9b-4572-a713-e524adf7efc0_2844x2653.png",
+          "https://substackcdn.com/image/fetch/$s_!Ulem!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdb6dfb51-a82d-4495-a721-386316656c58_2448x1546.png",
+          "https://substackcdn.com/image/fetch/$s_!Gyg5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56a1cf26-9a1b-4328-a044-c451c40b06e0_2304x1077.png",
+          "https://substackcdn.com/image/fetch/$s_!DFpW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F45b2abfb-818e-4d5e-8e7f-7e2fb207b719_1944x1565.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.235347",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.275813",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Kubernetes 中 HPA 与 VPA 的差异及生产落地建议...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.790951",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.814201",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 12 total images",
+        "metadata": [
+          "https://www.hwchiu.com/assets/images/autoscaler-3beb64af0f36f13a4687e00c3dc91c0f.png",
+          "https://scaleops.com/content/uploads/2026/05/Why-Compare-HPA-vs.-VPA__june2026-1024x669.png",
+          "https://cdn-static.gitcode.com/Group427321440.svg",
+          "https://raw.gitcode.com/GitHub_Trending/au/autoscaler/raw/9d00d4c0cb514d61f112bbf148a84e80766dfc48/multidimensional-pod-autoscaler/kep-imgs/mpa-design.png?utm_source=gitcode_repo_files"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.841641",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:31.865170",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Kubernetes 中 HPA 与 VPA 的差异及生产落地建议...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:32.565752",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:32.590246",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 11 total images",
+        "metadata": [
+          "https://www.thebyte.com.cn/assets/HPA-CFL2sKLt.svg",
+          "https://www.thebyte.com.cn/assets/keda-arch-Cpmvo7xX.png",
+          "https://www.thebyte.com.cn/assets/Cluster-AutoScaler-keIKjf79.png",
+          "https://www.thebyte.com.cn/assets/jd-3o6Q_0Xd.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:32.618675",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:32.645142",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Kubernetes HPA VPA 协同扩缩容 生产环境 架构设计与配置指南...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:33.992396",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:34.019422",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 18 total images",
+        "metadata": [
+          "https://mintcdn.com/kodekloud-c4ac6d9a/Xy-QQj1elzzjSGkz/images/Kubernetes-Autoscaling/Vertical-Pod-Autoscaler-VPA/Summary-Closure-and-Limitation-of-HPA-VPA/hpa-vpa-scaling-comparison-stateless-stateful.jpg?fit=max&auto=format&n=Xy-QQj1elzzjSGkz&q=85&s=fac24eda4d7f92cc4cf496b6ba01f725",
+          "https://mintcdn.com/kodekloud-c4ac6d9a/Xy-QQj1elzzjSGkz/images/Kubernetes-Autoscaling/Vertical-Pod-Autoscaler-VPA/Summary-Closure-and-Limitation-of-HPA-VPA/vpa-known-limitations-oom-pending-conflicts.jpg?fit=max&auto=format&n=Xy-QQj1elzzjSGkz&q=85&s=48f317b675b3a665ab84621dd2e68426",
+          "https://mintcdn.com/kodekloud-c4ac6d9a/Xy-QQj1elzzjSGkz/images/Kubernetes-Autoscaling/Vertical-Pod-Autoscaler-VPA/Summary-Closure-and-Limitation-of-HPA-VPA/known-limitations-hpa-vpa-usage.jpg?fit=max&auto=format&n=Xy-QQj1elzzjSGkz&q=85&s=5e8b40fed60ce580804893f43270c7f2",
+          "https://www.serverion.com/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:34.053259",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:39:34.084732",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Kubernetes HPA vs VPA production best practices avoid scaling conflicts...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:40:03.881904",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:40:03.903484",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:40:03.922948",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:40:03.944064",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:40:03.963836",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.025040720000000002",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:40:21.891402",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for 'Kubernetes 中 HPA 与 VPA 的差异及生产落地建议'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:41:05.147519",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for 'Kubernetes 中 HPA 与 VPA 的差异及生产落地建议'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Kubernetes 中 HPA 与 VPA 的差异及生产落地建议\n\n## 核心概念与工作原理\n\n### HPA：水平扩缩\n\nHPA（Horizontal Pod Autoscaler）是 Kubernetes 内置的自动扩缩机制，通过调整 Pod 副本数量来应对负载变化 [4][6]。其工作原理基于控制循环：当监控指标（如 CPU 使用率）超过设定阈值时，HPA 自动增加副本数；当负载下降时，减少副本数 [6][8]。\n\nHPA 的扩缩算法公式为：`期望副本数 = ceil(当前副本数 × (当前指标值 / 期望指标值))` [9]。例如，当前 CPU 利用率为 70%，期望值为 60%，当前副本数为 10，则期望副本数为 `ceil(10 × (70/60)) = 12` [9]。\n\n### VPA：垂直扩缩\n\nVPA（Vertical Pod Autoscaler）是 Kubernetes 的附加组件，通过调整单个 Pod 的 CPU 和内存请求来优化资源配置 [4][7]。VPA 长期观察 Pod 的资源使用模式，生成资源建议，并可选择自动应用或仅提供建议 [4]。\n\nVPA 支持四种更新模式 [10][12]：\n- **Off**：仅提供建议，不修改 Pod 规格\n- **Initial**：仅在 Pod 创建时应用建议\n- **Recreate**：驱逐 Pod 后重建以应用新资源配置\n- **Auto**：自动驱逐并重建 Pod（已弃用）\n\n## 关键差异对比\n\n| 维度 | HPA | VPA |\n|------|-----|-----|\n| 扩缩对象 | Pod 副本数量 | Pod 资源请求/限制 |\n| 触发条件 | CPU、内存或自定义指标 | CPU 和内存使用历史数据 |\n| Pod 影响 | 不改变 Pod 规格，仅增减副本数 | 可能需要重启 Pod |\n| 适用场景 | 无状态、易水平扩展的应用 | 有状态或单副本工作负载 |\n| 组件性质 | Kubernetes 内置 | 需额外安装的附加组件 |\n| 指标支持 | CPU、内存、自定义/外部指标 | 仅 CPU 和内存 |\n\n## 生产环境冲突风险\n\nHPA 与 VPA 在设计上存在根本性冲突：两者独立运行，缺乏协调机制 [5]。若同时基于相同资源指标（如 CPU）工作，将产生反馈循环和资源震荡 [5][10]。\n\n具体冲突流程如下 [12]：\n1. HPA 检测到 80% CPU 利用率，扩容 Pod\n2. VPA 检测到高使用率，增加 CPU 请求\n3. HPA 基于新请求重新计算利用率，发现百分比降低\n4. HPA 缩容 Pod\n5. 循环往复，造成资源浪费和集群不稳定\n\n阿里云官方文档明确指出：同时使用 VPA 和 HPA 监控 CPU 和内存使用情况会产生冲突；若 HPA 仅监控其他定制化或外部资源使用情况，可避免此冲突 [7]。\n\n## 生产落地最佳实践\n\n### 场景选择策略\n\n**优先选择 HPA 的场景** [10][11]：\n- 无状态 Web 服务，流量波动大\n- 应用可轻松通过增加副本分担负载\n- 需要快速响应流量峰值\n\n**优先选择 VPA 的场景** [7][10]：\n- 有状态应用或无法水平扩展的工作负载\n- 资源需求不确定，难以预估 Request/Limit\n- 单副本关键服务，需要稳定资源配置\n\n### 协同使用方案\n\n若需同时使用 HPA 和 VPA，推荐采用**指标分离策略** [12]：\n\n```yaml\n# HPA 基于 CPU 水平扩缩\napiVersion: autoscaling/v2\nkind\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** akvanewsletter.substack.com — Kubernetes Autoscaling: HPA Vs VPA\nURL: https://akvanewsletter.substack.com/p/kubernetes-autoscaling-hpa-vs-vpa\n原文片段：「Kubernetes Autoscaling: HPA Vs VPA Abhishek Veeramalla (AKVA) Subscribe Sign in Kubernetes Autoscaling: HPA Vs VPA Pods in Motion When to Multiply, When to Amplify Abhishek Veeramalla (AKVA) Jul 16, 2025 89 8 4 Share Hello Welcome again to the AKVAverse, I’m Abhishek Veeramalla,...」\n\n<a id=\"ref-2\"></a>**[2]** rack2cloud.com — VPA vs HPA in Kubernetes: Differences, Use Cases, and When to Use Each\nURL: https://www.rack2cloud.com/vpa-vs-hpa-kubernetes\n原文片段：「VPA vs HPA in Kubernetes: Differences, Use Cases, and When to Use Each Skip to content The VPA vs HPA decision is one of the most misunderstood choices in Kubernetes resource management. Most Kubernetes teams reach for HPA first. It’s visible, it’s familiar, and the CPU metric da...」\n\n<a id=\"ref-3\"></a>**[3]** blog.csdn.net — 终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境-CSDN博客\nURL: https://blog.csdn.net/gitblog_00525/article/details/152112761\n原文片段：「终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境-CSDN博客 终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境 原创 于 2026-01-09 03:17:54 发布 · 882 阅读 · CC 4.0 BY-SA版权 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 · 收录于 当前文章被以下社区和专栏收录： 终极指南：Kubernetes VPA与HPA协同实战，破解弹性伸缩困境 【免费下载链接】autoscaler Kubernetes的自动扩...」\n\n<a id=\"ref-4\"></a>**[4]** hwchiu.com — Kubernetes 中 VPA, HPA, CA, CPA 的差異是什麼? | hwchiu learning note\nURL: https://www.hwchiu.com/docs/2023/autoscaler\n原文片段：「Kubernetes 中 VPA, HPA, CA, CPA 的差異是什麼? | hwchiu learning note Skip to main content On this page Kubernetes 內有各式各樣的自動擴展機制，譬如 HPA(Horizontal Pod Autoscaling)，該技術可根據不同條件而動態調整 Pod 的副本數量，使得 Pod 有更好的能力去處理當前的流量而不需要管理人員不停介入調整數量。 除了 HPA 外，Kubernetes 還有其他相關的機制，如 VPA, CA 以及 CPA，本篇文章就針對這些類別進...」\n\n<a id=\"ref-5\"></a>**[5]** scaleops.com — HPA vs VPA: Choosing the Right Kubernetes Autoscaling Strategy in 2025\nURL: https://scaleops.com/blog/hpa-vs-vpa\n原文片段：「HPA vs VPA: Choosing the Right Kubernetes Autoscaling Strategy in 2025 Skip to content Book a Demo Get Started Sign In All articles HPA vs VPA: Kubernetes Autoscaling Compared (2026 Guide) Konstantin Zelmanovich May 27, 2026 Featured Table of contents Stop paying for resources yo...」\n\n<a id=\"ref-6\"></a>**[6]** thebyte.com.cn — 7.8 资源弹性伸缩 | 深入高可用系统原理与设计\nURL: https://www.thebyte.com.cn/container/auto-scaling.html\n原文片段：「7.8 资源弹性伸缩 | 深入高可用系统原理与设计 # 7.8 资源弹性伸缩 为了平衡资源预估和实际使用之间的差距，Kubernetes 提供了 HPA、VPA 和 CA 三种自动扩缩（autoscaling）机制。 # 7.8.1 Pod 水平自动伸缩 HPA（Horizontal Pod Autoscaler，Pod 水平自动扩缩）是根据工作负载（如 Deployment）的资源使用情况调整 Pod 副本数量的机制。 HPA 的工作原理简单明了： 当负荷较高时，增加 Pod 副本数量； 当负荷较低时，减少 Pod 副本数量。 因此，自动伸缩的关键在于...」\n\n<a id=\"ref-7\"></a>**[7]** help.aliyun.com — 安装和配置VPA实现Pod资源垂直伸缩-容器服务 Kubernetes 版 ACK-阿里云\nURL: https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/vertical-pod-autoscaling\n原文片段：「安装和配置VPA实现Pod资源垂直伸缩-容器服务 Kubernetes 版 ACK-阿里云 官方文档 如果您希望根据 Pod 实际的资源使用情况，动态调整和优化资源配置，以确保 Pod 能够调度到资源充足的节点上，建议您为业务容器开启垂直伸缩 VPA（Vertical Pod Autoscaler）功能。VPA 能够监控 Pod 的资源消耗模式，灵活推荐 CPU 和内存资源分配的配置，并在适当的情况下自动进行调整，而不调整 Pod 的副本数量。这种能力更适用于需要稳定资源配置的有状态应用的扩容等场景。 阅读前提示 为了帮助您更好地使用 VPA 功能，建议...」\n\n<a id=\"ref-8\"></a>**[8]** alibabacloud.com — 使用容器水平伸缩（HPA）基于CPU和内存实现Pod扩缩容 - 容器服务 Kubernetes 版 ACK - 阿里云\nURL: https://www.alibabacloud.com/help/zh/ack/ack-managed-and-ack-dedicated/user-guide/horizontal-pod-autoscaling\n原文片段：「使用容器水平伸缩（HPA）基于CPU和内存实现Pod扩缩容 - 容器服务 Kubernetes 版 ACK - 阿里云 文档中心 全部产品 Search 文档中心 容器服务 Kubernetes 版 ACK ACK托管与专有集群 操作指南 弹性伸缩 工作负载伸缩 容器水平伸缩（HPA） 使用容器水平伸缩（HPA） all-products-head 搜索本产品 搜索本产品 全部产品 容器服务 Kubernetes 版 ACK：使用容器水平伸缩（HPA） 如果您想基于CPU使用率、内存使用率或其他自定义指标实现Pod的自动扩缩，建议您为业务容器开启水平伸缩...」\n\n<a id=\"ref-9\"></a>**[9]** cnblogs.com — 云原生：使用HPA和VPA实现集群扩缩容 - Hello-Brand - 博客园\nURL: https://www.cnblogs.com/wzh2010/p/18031123\n原文片段：「云原生：使用HPA和VPA实现集群扩缩容 - Hello-Brand - 博客园 Brand 一生践行韦特莱法则，一生保持高执行力高效率... 云原生：使用HPA和VPA实现集群扩缩容 1 背景 我们之前介绍过，随着业务流量上涨之后，我们的系统需要适时的进行扩容。 数据存储层我们也介绍过MySQL的扩容 Scale UP（纵向扩展） 和 Scale Out（横向扩展） 垂直拆分（Scale Up 纵向扩展）：包括垂直分库、垂直分表 水平拆分（Scale Out 横向扩展）：包括库内分表、分库分表 详细可以参考笔者这几篇： 《 MySQL全面瓦解28：分库...」\n\n<a id=\"ref-10\"></a>**[10]** notes.kodekloud.com — Summary Closure and Limitation of HPA VPA - KodeKloud\nURL: https://notes.kodekloud.com/docs/Kubernetes-Autoscaling/Vertical-Pod-Autoscaler-VPA/Summary-Closure-and-Limitation-of-HPA-VPA/page\n原文片段：「Summary Closure and Limitation of HPA VPA - KodeKloud Documentation Index Fetch the complete documentation index at: /llms.txt Use this file to discover all available pages before exploring further. Skip to main content This article summarizes the key differences, strengths, and...」\n\n<a id=\"ref-11\"></a>**[11]** serverion.com — Auto-Scaling for Kubernetes Workloads | Serverion\nURL: https://www.serverion.com/uncategorized/auto-scaling-for-kubernetes-workloads\n原文片段：「Auto-Scaling for Kubernetes Workloads | Serverion Contact us info@serverion.com Call us +1 (302) 380 3902 Serverion Kubernetes auto-scaling adjusts your workloads automatically to meet demand, saving costs and improving performance. It uses two main strategies: Horizontal Pod Aut...」\n\n<a id=\"ref-12\"></a>**[12]** oneuptime.com — How to Handle VPA and HPA Together for CPU and Memory Autoscaling\nURL: https://oneuptime.com/blog/post/2026-02-09-vpa-hpa-together-cpu-memory-autoscaling/view\n原文片段：「How to Handle VPA and HPA Together for CPU and Memory Autoscaling Skip to main content How to Handle VPA and HPA Together for CPU and Memory Autoscaling Learn how to safely use Vertical Pod Autoscaler and Horizontal Pod Autoscaler together by splitting metrics, using VPA in recom...」\n\n<a id=\"ref-13\"></a>**[13]** icertglobal.com — How to choose between HPA and VPA for Kubernetes scaling? | iCertGlobal Community\nURL: https://www.icertglobal.com/community/kubernetes-hpa-vs-vpa-scaling-strategies\n原文片段：「How to choose between HPA and VPA for Kubernetes scaling? | iCertGlobal Community Cloud Technology How to choose between HPA and VPA for Kubernetes scaling? BR Asked by Brandon Miller · 14-05-2025 ▲ 0 upvotes 15,573 views 0 comments The question I am managing a cluster where some...」",
+    "metadata": [
+      "https://substackcdn.com/image/fetch/$s_!0T-M!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2a1110a-7e9b-4572-a713-e524adf7efc0_2844x2653.png",
+      "https://substackcdn.com/image/fetch/$s_!Ulem!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdb6dfb51-a82d-4495-a721-386316656c58_2448x1546.png",
+      "https://substackcdn.com/image/fetch/$s_!Gyg5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56a1cf26-9a1b-4328-a044-c451c40b06e0_2304x1077.png",
+      "https://substackcdn.com/image/fetch/$s_!DFpW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F45b2abfb-818e-4d5e-8e7f-7e2fb207b719_1944x1565.png",
+      "https://www.hwchiu.com/assets/images/autoscaler-3beb64af0f36f13a4687e00c3dc91c0f.png",
+      "https://scaleops.com/content/uploads/2026/05/Why-Compare-HPA-vs.-VPA__june2026-1024x669.png",
+      "https://cdn-static.gitcode.com/Group427321440.svg",
+      "https://raw.gitcode.com/GitHub_Trending/au/autoscaler/raw/9d00d4c0cb514d61f112bbf148a84e80766dfc48/multidimensional-pod-autoscaler/kep-imgs/mpa-design.png?utm_source=gitcode_repo_files",
+      "https://www.thebyte.com.cn/assets/HPA-CFL2sKLt.svg",
+      "https://www.thebyte.com.cn/assets/keda-arch-Cpmvo7xX.png"
+    ]
+  }
+}

@@ -1,0 +1,623 @@
+{
+  "timestamp": "2026-08-09T13:59:52.349640",
+  "job_id": "c1cd71ad-ed88-4e96-8f16-c677446cd2ee",
+  "events": [
+    {
+      "timestamp": "2026-08-09T14:00:15.385379",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:00:15.404816",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "🤖 AI & Data Infrastructure Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:00:15.442833",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:00:16.307162",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:05.442598",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant）适用场景', 'Milvus vs pgvector vs Qdrant RAG vector database comparison benchmark performance use cases', 'RAG 向量数据库选型决策框架 数据规模 延迟 运维成本 Milvus Qdrant pgvector 对比', '向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景']...",
+        "metadata": [
+          "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant）适用场景",
+          "Milvus vs pgvector vs Qdrant RAG vector database comparison benchmark performance use cases",
+          "RAG 向量数据库选型决策框架 数据规模 延迟 运维成本 Milvus Qdrant pgvector 对比",
+          "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:05.471865",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant）适用场景'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:05.488599",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'RAG 向量数据库选型决策框架 数据规模 延迟 运维成本 Milvus Qdrant pgvector 对比'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:05.507521",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Milvus vs pgvector vs Qdrant RAG vector database comparison benchmark performance use cases'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:05.523482",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.507687",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://deepseek.csdn.net/6a31fd3d10ee7a33f27e3c8d.html\n",
+        "metadata": "https://deepseek.csdn.net/6a31fd3d10ee7a33f27e3c8d.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.525244",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/m0_59163425/article/details/148499688\n",
+        "metadata": "https://blog.csdn.net/m0_59163425/article/details/148499688"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.546943",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zilliz.com.cn/comparison/qdrant-vs-pgvector\n",
+        "metadata": "https://zilliz.com.cn/comparison/qdrant-vs-pgvector"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.565053",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloud.tencent.com/developer/article/2664756\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2664756"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.588920",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zilliz.com.cn/comparison/milvus-vs-qdrant\n",
+        "metadata": "https://zilliz.com.cn/comparison/milvus-vs-qdrant"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.612059",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/ljbguanli/p/19432729\n",
+        "metadata": "https://www.cnblogs.com/ljbguanli/p/19432729"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.630533",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.648643",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.53ai.com/news/RAG/2025042259746.html\n",
+        "metadata": "https://www.53ai.com/news/RAG/2025042259746.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.680958",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.703313",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zilliz.com.cn/blog/ES-vs-Milvus-vs-PGvector-LLM-Guide\n",
+        "metadata": "https://zilliz.com.cn/blog/ES-vs-Milvus-vs-PGvector-LLM-Guide"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.724892",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:06.748715",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:07.225471",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zilliz.com/what-is-milvus\n",
+        "metadata": "https://zilliz.com/what-is-milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:07.256689",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.dynatrace.com/hub/detail/milvus\n",
+        "metadata": "https://www.dynatrace.com/hub/detail/milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:07.294306",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.ibm.com/think/topics/milvus\n",
+        "metadata": "https://www.ibm.com/think/topics/milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:07.353534",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://hub.docker.com/r/milvusdb/milvus\n",
+        "metadata": "https://hub.docker.com/r/milvusdb/milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:07.413761",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://github.com/milvus-io/milvus\n",
+        "metadata": "https://github.com/milvus-io/milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:07.468484",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:07.548627",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.183864",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.214310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/jzssuanfa/p/19495865\n",
+        "metadata": "https://www.cnblogs.com/jzssuanfa/p/19495865"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.246806",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 30 total images",
+        "metadata": [
+          "https://assets.zilliz.com/cms-cn/zhilian_quote_bdda55bed6.png",
+          "https://assets.zilliz.com/cms-cn/bigo_c2b545f5ce.png",
+          "https://assets.zilliz.com/cms-cn/small_Frame_5317_745d1f4ef9_89711de037.png",
+          "https://assets.zilliz.com/cms-cn/vipshop_1_f1c9d8454a.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.291902",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://adg.csdn.net/694de2e75b9f5f31781ad749.html\n",
+        "metadata": "https://adg.csdn.net/694de2e75b9f5f31781ad749.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.328713",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.369621",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.zair.top/post/vector-database-compare\n",
+        "metadata": "https://www.zair.top/post/vector-database-compare"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.400649",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: 向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant）适用场景...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.483030",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.53ai.com/news/knowledgegraph/2025050637421.html\n",
+        "metadata": "https://www.53ai.com/news/knowledgegraph/2025050637421.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.527724",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:08.615812",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:09.203107",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:09.265208",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 34 total images",
+        "metadata": [
+          "https://www.cnblogs.com/skins/sea/images/xml.gif",
+          "https://img2024.cnblogs.com/blog/35695/202607/35695-20260715081632770-1485313413.webp",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:09.329668",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:09.389529",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: 向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:11.360698",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:11.384076",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 34 total images",
+        "metadata": [
+          "https://i-blog.csdnimg.cn/direct/00f58a0175424da1ab49342806ef2b13.png",
+          "https://i-blog.csdnimg.cn/direct/d09fe4d96b674f05946896cb7e0b4ef0.png",
+          "https://i-blog.csdnimg.cn/direct/17e6de61ce9a4c0ea38fdeaca36e8514.png",
+          "https://i-blog.csdnimg.cn/direct/2fa136d063d748c1a076c3599368b4f4.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:11.410223",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:11.432804",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: RAG 向量数据库选型决策框架 数据规模 延迟 运维成本 Milvus Qdrant pgvector 对比...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:13.045326",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:13.072703",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 26 total images",
+        "metadata": [
+          "https://assets.ibm.com/is/image/ibm/dscf8251?ts=1738234378066&dpr=off",
+          "https://assets.ibm.com/is/image/ibm/trailv2_1200x1200?ts=1746554193743&dpr=off",
+          "https://dt-cdn.net/hub/logos/milvus.png",
+          "https://dt-cdn.net/hub/Imagedeveloper_udHbQsc.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:13.099622",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:13.125206",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Milvus vs pgvector vs Qdrant RAG vector database comparison benchmark performance use cases...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:01:13.150665",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:02:03.723043",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:02:03.744717",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:02:03.764776",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:02:03.795095",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.04496842",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:02:37.107493",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:03:31.429909",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# 向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant）\n\n## 概述\n\n向量数据库在检索增强生成（RAG）系统中扮演着至关重要的角色，它们负责存储和高效检索外部知识，使得大型语言模型（LLMs）能够基于最新的、领域特定的信息生成更准确、更具上下文相关性的答案。本文将详细对比 Milvus、pgvector 和 Qdrant 三种向量数据库，并给出各自的适用场景。\n\n## 1. Milvus\n\n### 1.1 核心特性\n- **开源**：Apache 2.0 许可证 [1]\n- **支持多种索引类型**：HNSW、IVF_FLAT、IVF_SQ8、IVF_PQ、SCANN 等 [9]\n- **分布式架构**：支持水平扩展，适合超大规模数据集 [1][4][6]\n- **高可用性**：支持多副本和故障恢复 [1][4]\n\n### 1.2 性能\n- **延迟**：单查询 <100ms，在高并发和大规模数据集（亿级向量）场景下表现优异 [12]\n- **吞吐量**：2000万768维向量（HNSW索引），单机可达100-500 QPS [12]\n- **召回率**：性能领先，支持多种索引类型以平衡速度和精度 [12]\n\n### 1.3 适用场景\n- **超大规模数据平台**：适用于需要处理十亿级向量的企业级应用 [1][4][6]\n- **高性能要求**：对延迟和吞吐量有严格要求的生产环境 [1][4][6]\n- **复杂过滤需求**：支持高效的标量过滤（布尔、范围、IN 查询等），且可与向量检索联合优化 [9]\n\n## 2. pgvector\n\n### 2.1 核心特性\n- **开源**：PostgreSQL 扩展，遵循 PostgreSQL 许可证 [3]\n- **SQL 兼容**：支持 SQL 查询和向量检索混合 [3][4][6]\n- **部署方式**：任何 PostgreSQL 环境 [3][4][6]\n\n### 2.2 性能\n- **延迟**：P99 延迟约为 100-300ms [4]\n- **吞吐量**：适中，适合中小规模数据集 [4][6]\n- **最大规模**：受 PostgreSQL 限制，通常为千万级以下 [4][6]\n\n### 2.3 适用场景\n- **已有 PostgreSQL 生态**：避免引入新组件，适合已有 PostgreSQL 基础设施的团队 [4][6]\n- **中小规模数据集**：适用于百万至千万级向量的数据集 [4][6]\n- **SQL 开发者友好**：对熟悉 SQL 的开发者非常友好 [4][6]\n\n## 3. Qdrant\n\n### 3.1 核心特性\n- **开源**：Apache 2.0 许可证 [1]\n- **高性能**：Rust 实现，资源利用率高，延迟低 [1][4][6]\n- **功能全面**：支持过滤、多向量、集合等高级功能 [1][4][6]\n- **分布式支持**：支持分片和副本，可集群部署 [1][4][6]\n\n### 3.2 性能\n- **延迟**：单查询 <100ms，2000万向量约100-400 QPS [12]\n- **吞吐量**：单机稍弱，分布式提升有限 [12]\n- **召回率**：性能稳定，支持 HNSW 和量化（如 PQ） [9]\n\n### 3.3 适用场景\n- **中等规模生产环境**：适用于 10 万到 1000 万级向量的数据集 [4][6]\n- **低延迟高吞吐应用**：对延迟和吞吐量有较高要求的应用 [4][6]\n- **稀疏向量支持**：自 v1.7 起支持稀疏向量 [9]\n\n## 4. 对比总结\n\n### 4.1 功能对比\n| 特性 | Milvus | pgvector | Qdrant |\n| --- | --- | --- | --- |\n| 开源 | 是 | 是 | 是 |\n| 索引类型 | 多种 | IVFFlat, HNSW | HNSW, 量化 |\n| 分布式支持 | 支持 | 不支持 | 支持 |\n| 过滤支持 | 高效 | 强大 | 高效 |\n\n### 4.2 性能对比\n| 特性 | Milvus | pgvector | Qdrant |\n| --- | --- | --- | --- |\n| 延迟 (P99) | <100ms | 100-300ms\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** zilliz.com.cn — Milvus vs Qdrant | 向量数据库全面对比与选型指南\nURL: https://zilliz.com.cn/comparison/milvus-vs-qdrant\n原文片段：「Milvus vs Qdrant | 向量数据库全面对比与选型指南 比较 Milvus 对比 Qdrant Milvus 对比 Qdrant 通过以下一系列能力比较 Milvus 对比 Qdrant。我们希望您选择适合您的最佳数据库，即使它不是我们。 免费试用 Zilliz Cloud 探索如何迁移到 Zilliz 向量数据库已成为现代人工智能应用的核心基础设施，支撑着包括检索增强生成（RAG）、AI 智能体、多模态与语义搜索以及各行业的推荐系统在内的广泛场景。选择正确的向量数据库，将直接影响这些应用的性能、可扩展性、成本与可靠性。 这份 Milvus...」\n\n<a id=\"ref-2\"></a>**[2]** deepseek.csdn.net — AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比_人工智能_少林码僧-DeepSeek技术社区\nURL: https://deepseek.csdn.net/6a31fd3d10ee7a33f27e3c8d.html\n原文片段：「AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比_人工智能_少林码僧-DeepSeek技术社区 DeepSeek技术社区 AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比 AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比 少林码僧 486人浏览 · 2026-05-05 00:15:23 少林码僧 · 2026-05-05 00:15:23 发布 为什么向量数据库选型这么难 2026...」\n\n<a id=\"ref-3\"></a>**[3]** zilliz.com.cn — Qdrant vs pgvector | 向量数据库全面对比与选型指南\nURL: https://zilliz.com.cn/comparison/qdrant-vs-pgvector\n原文片段：「Qdrant vs pgvector | 向量数据库全面对比与选型指南 比较 Qdrant 对比 pgvector Qdrant 对比 pgvector 通过以下一系列能力比较 Qdrant 对比 pgvector。我们希望您选择适合您的最佳数据库，即使它不是我们。 免费试用 Zilliz Cloud 探索如何迁移到 Zilliz 向量数据库已成为现代人工智能应用的核心基础设施，支撑着包括检索增强生成（RAG）、AI 智能体、多模态与语义搜索以及各行业的推荐系统在内的广泛场景。选择正确的向量数据库，将直接影响这些应用的性能、可扩展性、成本与可靠性。 这份...」\n\n<a id=\"ref-4\"></a>**[4]** cnblogs.com — 实用指南：AI RAG 向量数据库深度对比 - ljbguanli - 博客园\nURL: https://www.cnblogs.com/ljbguanli/p/19432729\n原文片段：「实用指南：AI RAG 向量数据库深度对比 - ljbguanli - 博客园 ljbguanli 实用指南：AI RAG 向量数据库深度对比 以下是当前主流 AI RAG（Retrieval-Augmented Generation）场景下常用向量数据库的深度对比，涵盖性能、功能、易用性、成本和适用场景，帮助在实际项目中做出合理选型。 一、核心对比总表 特性 / 数据库 Pinecone Weaviate Qdrant Milvus Chroma pgvector（PostgreSQL） 开源 ❌（商业闭源） ✅（Apache 2.0） ✅（Apach...」\n\n<a id=\"ref-5\"></a>**[5]** blog.csdn.net — RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？_rag常用的四种数据库-CSDN博客\nURL: https://blog.csdn.net/m0_59163425/article/details/148499688\n原文片段：「RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？_rag常用的四种数据库-CSDN博客 RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？ 最新推荐文章于 2026-08-08 21:03:00 发布 原创 最新推荐文章于 2026-08-08 21:03:00 发布 · 1.4k 阅读 · 12 · 30 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA...」\n\n<a id=\"ref-6\"></a>**[6]** zilliz.com.cn — ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 - Zilliz 向量数据库\nURL: https://zilliz.com.cn/blog/ES-vs-Milvus-vs-PGvector-LLM-Guide\n原文片段：「ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 - Zilliz 向量数据库 博客 ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 2025-07-30 1 分钟阅读 李成龙 准备好开始了吗？ 立刻创建 Zilliz Cloud 集群，存储和检索您的向量。 免费试用 Zilliz Cloud 分享文章 Copied 互联网时代，关系型数据库为王。相应的，我们的检索方式也是精确匹配查询为主——查找...」\n\n<a id=\"ref-7\"></a>**[7]** 53ai.com — RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？ - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub\nURL: https://www.53ai.com/news/RAG/2025042259746.html\n原文片段：「RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？ - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub 免费POC， 零成本试错 首页 产品服务 热门场景 工作+AI 大模型提升全员工作效率 工作对话 内容创作 方案撰写 魔法菜单 业务+AI 大模型掌握企业知识与流程 微信分身 海外客服 官网客服 抖音客服 数字老师 数字督导 智能服务台 AIx业务 大模型驱动产品智能化改造 智能问数 智能审核 智能工单 企微跟进助手 智能报价 企微销售助手 应...」\n\n<a id=\"ref-8\"></a>**[8]** cloud.tencent.com — 向量数据库选型：从Chroma到Milvus，企业场景怎么选-腾讯云开发者社区-腾讯云\nURL: https://cloud.tencent.com/developer/article/2664756\n原文片段：「向量数据库选型：从Chroma到Milvus，企业场景怎么选-腾讯云开发者社区-腾讯云 AI科技新势力 向量数据库选型：从Chroma到Milvus，企业场景怎么选 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 AI科技新势力 社区首页 > 专栏 > 向量数据库选型：从Chroma到Milvus，企业场景怎么选 向量数据库选型：从Chroma到Milvus，企业场景怎么选 原创 AI科技新势力 关注 发布 于 2026-05-06 16...」\n\n<a id=\"ref-9\"></a>**[9]** adg.csdn.net — 大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南_人工智能_和老莫一起学AI-智能体开发者社区\nURL: https://adg.csdn.net/694de2e75b9f5f31781ad749.html\n原文片段：「大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南_人工智能_和老莫一起学AI-智能体开发者社区 智能体开发者社区 大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南 大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南 和老莫一起学AI 1840人浏览 · 2025-12-08 11:22:18 和老莫一起学AI · 2025-12-08 11:22:18 发布 随着大模型和 RAG（检索增强生成）技术的爆发，向量数据库成为 AI 应用架构中不可或缺的一环。面对 Milvus、Weaviate、Qdrant、FAISS、Ve...」\n\n<a id=\"ref-10\"></a>**[10]** cnblogs.com — RAG系统架构设计中的向量数据库选型：从原理到企业级实践 - 实践 - jzssuanfa - 博客园\nURL: https://www.cnblogs.com/jzssuanfa/p/19495865\n原文片段：「RAG系统架构设计中的向量数据库选型：从原理到企业级实践 - 实践 - jzssuanfa - 博客园 jzssuanfa RAG系统架构设计中的向量数据库选型：从原理到企业级实践 - 实践 目录 摘要 一、向量数据库：RAG系统的“记忆引擎” 1.1 为什么向量数据库是RAG的关键基础设施？ 1.2 向量数据库核心技术原理 1.2.1 近似最近邻(ANN)算法 1.2.2 向量相似度度量 二、主流向量数据库深度横向评测 2.1 七大向量数据库架构与特性对比 2.1.1 Pinecone：全托管云服务标杆 2.1.2 Milvus：大规模分布式事实标准...」\n\n<a id=\"ref-11\"></a>**[11]** zair.top — 向量数据库对比:Weaviate、Milvus和Qdrant | 逐水寻源\nURL: https://www.zair.top/post/vector-database-compare\n原文片段：「向量数据库对比:Weaviate、Milvus和Qdrant | 逐水寻源 RAG检索增强生成 2 向量数据库对比:Weaviate、Milvus和Qdrant Tim 收录于 大语言模型 和 RAG检索增强生成 2024-04-02 2025-11-28 约 6300 字 预计阅读 13 分钟 - 次阅读 目录 RAG系统的成功在很大程度上取决于其高效地获取和处理海量信息的能力。向量数据库又在其中发挥了不可替代的作用，并构成了RAG系统的核心。向量数据库专门用于存储和管理高维向量数据，它们能把文本、图像、音频甚至视频转换为向量并存储（这一点将在后文中详...」\n\n<a id=\"ref-12\"></a>**[12]** 53ai.com — 千万级向量数据库实战对比：Milvus，Qdrant，Chroma，Weaviate - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub\nURL: https://www.53ai.com/news/knowledgegraph/2025050637421.html\n原文片段：「千万级向量数据库实战对比：Milvus，Qdrant，Chroma，Weaviate - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub 免费POC， 零成本试错 首页 产品服务 热门场景 工作+AI 大模型提升全员工作效率 工作对话 内容创作 方案撰写 魔法菜单 业务+AI 大模型掌握企业知识与流程 微信分身 海外客服 官网客服 抖音客服 数字老师 数字督导 智能服务台 AIx业务 大模型驱动产品智能化改造 智能问数 智能审核 智能工单 企微跟进助手 智能报价 企微销售助手 应用智改 企微客服助手 落地咨询 Co...」\n\n<a id=\"ref-13\"></a>**[13]** dynatrace.com — Milvus monitoring & observability | Dynatrace Hub\nURL: https://www.dynatrace.com/hub/detail/milvus\n原文片段：「Milvus monitoring & observability | Dynatrace Hub Skip to technology filters Skip to main content Milvus Milvus Gain insights about vector database resource utilization and cache behavior. Technology Free trial Documentation Product information Overview Vector databases, exemplif...」\n\n<a id=\"ref-14\"></a>**[14]** zilliz.com — Milvus: Open-Source Vector Database Built by Zilliz\nURL: https://zilliz.com/what-is-milvus\n原文片段：「Milvus: Open-Source Vector Database Built by Zilliz What is Milvus? Graduate Project Milvus is an open-source vector database built to handle billions of vectors and powers the largest AI applications in the world. Created by Try Managed Milvus for Free Download Milvus Built on a...」\n\n<a id=\"ref-15\"></a>**[15]** ibm.com — What is Milvus? | IBM\nURL: https://www.ibm.com/think/topics/milvus\n原文片段：「What is Milvus? | IBM Tags Artificial Intelligence Analytics Storage What is Milvus? Authors Matthew Kosinski Staff Editor IBM Think What is Milvus? Milvus is an open-source vector database developed by Zilliz. Milvus is known for providing scalable storage for large amounts of v...」\n\n<a id=\"ref-16\"></a>**[16]** github.com — GitHub - milvus-io/milvus: Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search · GitHub\nURL: https://github.com/milvus-io/milvus\n原文片段：「GitHub - milvus-io/milvus: Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh...」\n\n<a id=\"ref-17\"></a>**[17]** hub.docker.com — milvusdb/milvus - Docker Image\nURL: https://hub.docker.com/r/milvusdb/milvus\n原文片段：「milvusdb/milvus - Docker Image milvusdb/milvus By milvusdb • Updated about 21 hours ago Milvus --- an open-source, high-performance vector database (https://milvus.io) Image 105 50M+ Overview Tags milvusdb / milvus repository overview ⁠ milvusdb/milvus ⁠ What is Milvus Milvus is...」",
+    "metadata": [
+      "https://assets.zilliz.com/cms-cn/zhilian_quote_bdda55bed6.png",
+      "https://assets.zilliz.com/cms-cn/bigo_c2b545f5ce.png",
+      "https://assets.zilliz.com/cms-cn/small_Frame_5317_745d1f4ef9_89711de037.png",
+      "https://assets.zilliz.com/cms-cn/vipshop_1_f1c9d8454a.png",
+      "https://www.cnblogs.com/skins/sea/images/xml.gif",
+      "https://img2024.cnblogs.com/blog/35695/202607/35695-20260715081632770-1485313413.webp",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png",
+      "https://i-blog.csdnimg.cn/direct/00f58a0175424da1ab49342806ef2b13.png",
+      "https://i-blog.csdnimg.cn/direct/d09fe4d96b674f05946896cb7e0b4ef0.png"
+    ]
+  }
+}

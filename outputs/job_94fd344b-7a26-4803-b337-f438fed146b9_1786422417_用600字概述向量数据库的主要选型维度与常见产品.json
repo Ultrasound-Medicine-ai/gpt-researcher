@@ -1,0 +1,400 @@
+{
+  "timestamp": "2026-08-11T04:26:57.392157",
+  "job_id": "94fd344b-7a26-4803-b337-f438fed146b9",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:27:08.575878",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:08.597208",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💾 Database Technology Analyst Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:08.628124",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用600字概述向量数据库的主要选型维度与常见产品...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:10.240037",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:12.745334",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['向量数据库 选型维度 常见产品 对比 2026', 'vector database selection criteria common products comparison Milvus Pinecone', '用600字概述向量数据库的主要选型维度与常见产品']...",
+        "metadata": [
+          "向量数据库 选型维度 常见产品 对比 2026",
+          "vector database selection criteria common products comparison Milvus Pinecone",
+          "用600字概述向量数据库的主要选型维度与常见产品"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:12.780080",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '向量数据库 选型维度 常见产品 对比 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:12.797590",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'vector database selection criteria common products comparison Milvus Pinecone'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:12.815568",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.069305",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.108706",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.142811",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.187175",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.222969",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.252736",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.290403",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.321310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:14.999507",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.cloud.tencent.com/article/2717278?policyId=1003\n",
+        "metadata": "https://developer.cloud.tencent.com/article/2717278?policyId=1003"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.025102",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/OBCE666/p/archive/2026/04/09\n",
+        "metadata": "https://www.cnblogs.com/OBCE666/p/archive/2026/04/09"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.052873",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.091978",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.715038",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.733510",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus\n",
+        "metadata": "https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.757429",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 5 total images",
+        "metadata": [
+          "https://qccommunity.qcloudimg.com/image/new.png",
+          "https://developer.qcloudimg.com/http-save/10011/117c00efbcc420fc44099c7fe7a4ffa2.jpg",
+          "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+          "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.784603",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://sealos.io/blog/what-is-a-vector-database-a-beginners-guide-to-milvus-pinecone-and-more\n",
+        "metadata": "https://sealos.io/blog/what-is-a-vector-database-a-beginners-guide-to-milvus-pinecone-and-more"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:15.807042",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:16.286947",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:16.310266",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:16.334911",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:20.884156",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:20.907713",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 7 total images",
+        "metadata": [
+          "https://blog.emasterlabs.com/wp-content/uploads/2025/12/Pinecone-vs.-Weaviate-1248x702.jpeg",
+          "https://blog.emasterlabs.com/wp-content/uploads/2025/12/Thankyou1-28-1024x576.jpg",
+          "https://sealos.io/api/blog/en/what-is-a-vector-database-a-beginners-guide-to-milvus-pinecone-and-more/thumbnail/400x210.svg",
+          "https://sealos.io/api/blog/en/what-is-an-ai-native-platform-and-why-you-need-one-for-mlops/thumbnail/384x256.svg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:20.938576",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:21.328531",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.071025",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (5785 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.114922",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.0417",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.226370",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用600字概述向量数据库的主要选型维度与常见产品'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:36.832771",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用600字概述向量数据库的主要选型维度与常见产品'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用600字概述向量数据库的主要选型维度与常见产品",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# 向量数据库选型核心维度与主流产品全景分析（2026）\n\n## 一、关键选型维度：业务、架构与运维三维博弈\n\n向量数据库选型已超越单纯性能比拼，演变为业务痛点、成本压力与运维能力的综合决策。2026年实践表明，**80%的RAG场景无需部署Milvus等重型独立引擎**，“杀鸡不用牛刀”成为共识[1]。七家真实企业案例证实：即便Milvus在向量检索领域声名卓著，仍全部转向OceanBase等融合型数据库，主因在于其能统一处理结构化数据与向量检索，显著降低技术栈复杂度与运维负担[2]。\n\n选型首要维度是**架构范式选择**：独立向量引擎（如Milvus、Pinecone）专精高维相似搜索，支持千亿级向量索引与百万级QPS[1]；而融合数据库（如OceanBase、腾讯云VectorDB）将向量能力内嵌于成熟关系型/分布式底座，兼顾ACID事务、SQL兼容性与向量检索[1][2]。其次为**部署形态**：Pinecone主打全托管SaaS模式；Milvus支持开源自建与云托管；腾讯云VectorDB为全托管自研服务，单索引支持千亿向量、毫秒级延迟[1]。第三是**场景适配性**：轻量RAG、语义搜索适用Pinecone或Weaviate；需强一致事务、多模态混合查询（如“用户画像+商品向量推荐”）则倾向OceanBase或腾讯云VectorDB[1][2]。\n\n## 二、主流产品对比：性能、定位与适用场景\n\n| 产品 | 架构类型 | 核心优势 | 典型指标 | 适用场景 |\n|------|----------|----------|----------|----------|\n| **Milvus** | 独立引擎 | 开源生态成熟，索引算法丰富 | 支持千亿向量，高并发检索 | 大规模纯向量检索、研究型AI应用[3][4] |\n| **Pinecone** | 全托管SaaS | 零运维、开箱即用、API友好 | 毫秒延迟，自动扩缩容 | 快速验证MVP、中小型企业AI应用[4] |\n| **OceanBase** | 融合数据库 | 事务一致性+向量检索一体化 | 已被七家企业用于生产环境[2] | 金融、电商等需强一致性的混合负载场景[2] |\n| **腾讯云VectorDB** | 全托管自研 | 国产化、高QPS（百万级）、深度大模型集成 | 单索引千亿向量，毫秒延迟[1] | 政企合规场景、RAG增强、推荐系统[1] |\n\nPinecone、Weaviate与Milvus构成当前最常被对比的“三巨头”，但2026年趋势显示：**融合数据库正加速渗透企业核心系统**。OceanBase的胜出并非技术降级，而是架构理性回归——避免为向量功能单独维护一套基础设施[2]。腾讯云VectorDB则代表国产自研路径，强调全托管与大模型知识库深度协同[1]。\n\n综上，选型本质是权衡：追求极致向量性能选Milvus\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** developer.cloud.tencent.com — 向量数据库选型2026：独立引擎与融合数据库怎么选？-腾讯云开发者社区-腾讯云\nURL: https://developer.cloud.tencent.com/article/2717278?policyId=1003\n原文片段：「向量数据库选型2026：独立引擎与融合数据库怎么选？-腾讯云开发者社区-腾讯云 这个DBA有点耶 向量数据库选型2026：独立引擎与融合数据库怎么选？ 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 这个DBA有点耶 社区首页 > 专栏 > 向量数据库选型2026：独立引擎与融合数据库怎么选？ 向量数据库选型2026：独立引擎与融合数据库怎么选？ 这个DBA有点耶 关注 发布 于 2026-07-28 17:31:04 发布 于 2026...」\n\n<a id=\"ref-2\"></a>**[2]** cnblogs.com — 随笔档案「2026年4月9日」：别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 ...  - 老纪的技术唠嗑局 - 博客园\nURL: https://www.cnblogs.com/OBCE666/p/archive/2026/04/09\n原文片段：「随笔档案「2026年4月9日」：别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 ... - 老纪的技术唠嗑局 - 博客园 OceanBase 别再盲目跟风，七家企业真实场景的向量数据库选型，揭秘核心原则 摘要： 做过架构决策的技术人都懂，技术选型从来不是纸上谈兵，而是业务痛点、成本压力与运维能力的综合博弈。 七家企业在不同场景下对比了Milvus与OceanBase，尽管Milvus在向量检索领域名声显赫，但他们最终都选择了OceanBase，这是为什么？ 阅读全文 posted @ 2026-04-09 17:50 老纪的技术唠嗑局 阅读...」\n\n<a id=\"ref-3\"></a>**[3]** sealos.io — What is a Vector Database? A Beginner's Guide to Milvus, Pinecone, and More | Sealos Blog\nURL: https://sealos.io/blog/what-is-a-vector-database-a-beginners-guide-to-milvus-pinecone-and-more\n原文片段：「What is a Vector Database? A Beginner's Guide to Milvus, Pinecone, and More | Sealos Blog Back to Blogs WHAT-IS September 19, 2025 What is a Vector Database? A Beginner's Guide to Milvus, Pinecone, and More A beginner-friendly overview of vector databases, how they work, and why...」\n\n<a id=\"ref-4\"></a>**[4]** emasterlabs.com — Pinecone vs Weaviate vs Milvus: Choosing the Right Vector Database for AI Apps\nURL: https://emasterlabs.com/pinecone-vs-weaviate-vs-milvus\n原文片段：「Pinecone vs Weaviate vs Milvus: Choosing the Right Vector Database for AI Apps New Free AI market & MVP report – validate your idea in 3 min → Get Started Archives August 2026 July 2026 June 2026 May 2026 April 2026 March 2026 February 2026 January 2026 December 2025 November 202...」",
+    "metadata": [
+      "https://qccommunity.qcloudimg.com/image/new.png",
+      "https://developer.qcloudimg.com/http-save/10011/117c00efbcc420fc44099c7fe7a4ffa2.jpg",
+      "https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200",
+      "https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png",
+      "https://blog.emasterlabs.com/wp-content/uploads/2025/12/Pinecone-vs.-Weaviate-1248x702.jpeg",
+      "https://blog.emasterlabs.com/wp-content/uploads/2025/12/Thankyou1-28-1024x576.jpg",
+      "https://sealos.io/api/blog/en/what-is-a-vector-database-a-beginners-guide-to-milvus-pinecone-and-more/thumbnail/400x210.svg",
+      "https://sealos.io/api/blog/en/what-is-an-ai-native-platform-and-why-you-need-one-for-mlops/thumbnail/384x256.svg"
+    ]
+  }
+}

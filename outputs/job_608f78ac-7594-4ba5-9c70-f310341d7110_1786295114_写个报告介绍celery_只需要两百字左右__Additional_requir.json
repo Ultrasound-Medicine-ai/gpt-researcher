@@ -1,0 +1,220 @@
+{
+  "timestamp": "2026-08-09T17:05:14.813820",
+  "job_id": "608f78ac-7594-4ba5-9c70-f310341d7110",
+  "events": [
+    {
+      "timestamp": "2026-08-09T17:05:23.060588",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:23.088157",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 Code Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:23.134906",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:26.557327",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:57.534147",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Celery 分布式任务队列 介绍', 'Celery Python task queue architecture overview', 'Celery 优缺点 应用场景', '写个报告介绍celery，只需要两百字左右\\n\\nAdditional requirements: 只需要两百字左右']...",
+        "metadata": [
+          "Celery 分布式任务队列 介绍",
+          "Celery Python task queue architecture overview",
+          "Celery 优缺点 应用场景",
+          "写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:57.569508",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Celery 分布式任务队列 介绍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:57.588400",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Celery Python task queue architecture overview'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:57.604309",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Celery 优缺点 应用场景'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:57.620537",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:57.660615",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Celery 分布式任务队列 介绍...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:05:59.251373",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Celery Python task queue architecture overview...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:00.684963",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Celery 优缺点 应用场景...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:02.132505",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: 写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:03.635272",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:03.654737",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:03.673741",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:03.697853",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:03.725593",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.01629",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:03.759838",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T17:06:51.990319",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "写个报告介绍celery，只需要两百字左右\n\nAdditional requirements: 只需要两百字左右",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "output": "# Celery技术报告\n\n## 资料核查\n经严格核查参考资料[1][2][3]，现有内容完全聚焦于Python Web框架（Flask、Django、Quart与FastAPI）的性能对比、异步处理机制及Django的“开箱即用”特性[2]。所有项目结构、部署配置与压测数据均围绕Uvicorn与Gunicorn等ASGI/WSGI服务器展开[1]。\n\n## 结论\n给定上下文中未包含任何关于Celery分布式任务队列的技术说明、架构设计或性能基准。遵循“仅依据提供上下文事实”的原则，无法基于现有资料撰写Celery介绍报告。如需获取Celery的准确技术细节，建议补充专项文献。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** unknown — GitHub - agusmakmun/flask-django-quart-fastapi-performance-test-comparison: Python Web Frameworks Performance Comparison: Flask, Django, Quart and FastAPI · GitHub\nURL: GitHub - agusmakmun/flask-django-quart-fastapi-performance-test-comparison: Python Web Frameworks Performance Comparison: Flask, Django, Quart and FastAPI · GitHub\n原文片段：「th Uvicorn workers. Machine Specs: Table of Contents Project Structure Overview Implementation Details Flask Implementation Quart Implementation FastAPI Implementation Django Implementation Key Differences Flask Quart FastAPI Django Getting Started Performance Testing Performance...」\n\n<a id=\"ref-2\"></a>**[2]** unknown — Which Is the Best Python Web Framework: Django, Flask, or FastAPI? - The JetBrains Blog\nURL: Which Is the Best Python Web Framework: Django, Flask, or FastAPI? - The JetBrains Blog\n原文片段：「can use the Django REST Framework to combine Django with a frontend framework (such as React) to build both mobile and browser-based apps. Explore our comprehensive Django guide , featuring an overview of prerequisite knowledge, a structured learning path, and additional resource...」\n\n<a id=\"ref-3\"></a>**[3]** unknown — GitHub - liaogx/fastapi-tutorial: 整体的介绍 FastAPI，快速上手开发，结合 API 交互文档逐个讲解核心模块的使用。视频学习地址： · GitHub\nURL: GitHub - liaogx/fastapi-tutorial: 整体的介绍 FastAPI，快速上手开发，结合 API 交互文档逐个讲解核心模块的使用。视频学习地址： · GitHub\n原文片段：「GitHub - liaogx/fastapi-tutorial: 整体的介绍 FastAPI，快速上手开发，结合 API 交互文档逐个讲解核心模块的使用。视频学习地址： · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts...」"
+  }
+}

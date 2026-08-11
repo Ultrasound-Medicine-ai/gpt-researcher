@@ -1,0 +1,437 @@
+{
+  "timestamp": "2026-08-10T11:57:35.508436",
+  "job_id": "537fdc7a-aa67-4a51-abb2-17aa13dabb61",
+  "events": [
+    {
+      "timestamp": "2026-08-10T11:57:49.948504",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用80字介绍 Redis 核心用途'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:50.210568",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 Technology Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:50.286731",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用80字介绍 Redis 核心用途...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:53.006060",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.736964",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Redis 核心用途 80字 介绍', 'Redis core use cases brief introduction', '用80字介绍 Redis 核心用途']...",
+        "metadata": [
+          "Redis 核心用途 80字 介绍",
+          "Redis core use cases brief introduction",
+          "用80字介绍 Redis 核心用途"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.772300",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis 核心用途 80字 介绍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.790405",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis core use cases brief introduction'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:55.813034",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用80字介绍 Redis 核心用途'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.532770",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.aliyun.com/article/618702\n",
+        "metadata": "https://developer.aliyun.com/article/618702"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.571029",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/strongmore/p/17131266.html\n",
+        "metadata": "https://www.cnblogs.com/strongmore/p/17131266.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.607442",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://qiankunli.github.io/2020/08/04/redis_practice.html\n",
+        "metadata": "https://qiankunli.github.io/2020/08/04/redis_practice.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.633007",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:56.670519",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.292388",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.321252",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 21 total images",
+        "metadata": [
+          "https://ucc.alicdn.com/avatar/img_ca90b7b1b220af946a0b58ff6ab9ac71.jpg?x-oss-process=image/resize,h_150,m_lfit",
+          "https://qiankunli.github.io/public/upload/storage/redis_overview.jpg",
+          "https://qiankunli.github.io/public/upload/storage/redis_kv.png",
+          "https://qiankunli.github.io/public/upload/storage/redis_data_structure.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.355709",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.389172",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:57.968977",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n",
+        "metadata": "https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.002458",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://scalegrid.io/blog/top-redis-use-cases-by-core-data-structure-types\n",
+        "metadata": "https://scalegrid.io/blog/top-redis-use-cases-by-core-data-structure-types"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.031389",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.instaclustr.com/blog/what-is-redis\n",
+        "metadata": "https://www.instaclustr.com/blog/what-is-redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.058040",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.095339",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.518975",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/wk-missQ1/p/16107976.html\n",
+        "metadata": "https://www.cnblogs.com/wk-missQ1/p/16107976.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.605179",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book\n",
+        "metadata": "https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.674057",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn\n",
+        "metadata": "https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.721508",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:57:58.788006",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.126582",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.176419",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 13 total images",
+        "metadata": [
+          "https://www.gstatic.com/devrel-devsite/prod/v25f01968170374b7bd062a383d0367da1beee7ed413abaee67eec4296f4ba687/clouddocs/images/lockup_full_color.svg",
+          "https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg?hl=zh-cn",
+          "https://docs.cloud.google.com/_static/images/translated.svg?hl=zh-cn",
+          "https://pegasuswang.readthedocs.io/zh/latest/database/ziplist.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.233926",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.292531",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.960134",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:00.992010",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 11 total images",
+        "metadata": [
+          "https://www.instaclustr.com/wp-content/uploads/2021/10/kf5qUGej8ArVct5MkZvlqL5-3iJH8JTaq3EVqPOsC80UOKpPtGR6CjSfnikAwmYR7gcciA8gUm-2k2dO96pOnM4KqrfUYvZ7NYruoAGbMl3qhVHhqrPsC_rXA4ZThNsi9AcO_nQX.png",
+          "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-modern-analytics.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-resource-management.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.035315",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.067665",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.309724",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (3508 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.334505",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.023335",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:01.401204",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用80字介绍 Redis 核心用途'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T11:58:27.204288",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用80字介绍 Redis 核心用途'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用80字介绍 Redis 核心用途",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis 核心用途（80字精要报告）\n\n## 一、核心定位与本质属性\n\nRedis 是一个开源、基于内存、高性能的键值数据库（Key-Value Store），全称“Remote Dictionary Server”，采用 BSD 许可证，由 Salvatore Sanfilippo（antirez）用 C 语言编写并持续维护 [7][8][9]。其本质是**内存优先的数据结构服务器**，不仅支持基础的字符串（String）类型，更原生提供哈希（Hash）、列表（List）、集合（Set）、有序集合（Sorted Set）及位图（Bitmap）、流（Stream）等丰富数据结构 [2][5]。这种多类型 value 支持能力，是 Redis 区别于 Memcached 等纯字符串缓存系统的关键优势，直接支撑其在复杂业务场景中的广泛落地 [2]。\n\n## 二、四大核心用途及其技术依据\n\n### 1. 高性能缓存：缓解数据库压力与加速响应  \nRedis 最普遍的用途是作为关系型数据库（如 MySQL）的前置缓存层。它通过将热点数据存储在内存中，显著减少对磁盘数据库的 IO 请求，从而降低应用服务器的 CPU 和内存压力，并减轻后端数据库的读负载 [1]。由于内存访问延迟通常在 100 纳秒级，Redis 的 GET/SET 操作平均耗时可低至亚毫秒级，QPS（每秒查询率）轻松突破 10 万 [7]。阿里云文档明确指出，使用 Redis 可“减少 IO 的读操作，减轻 IO 的压力”，尤其适用于高并发、低延迟要求的 Web 应用和实时推荐系统 [1]。\n\n### 2. 分布式协调：实现分布式锁与会话共享  \nRedis 提供原子性命令（如 `SET key value EX seconds NX`），自 Redis 2.6.12 起支持 SETNX 与 EXPIRE 的原子组合，使其实现强一致性的分布式锁成为可能 [5]。该机制被广泛用于电商秒杀、库存扣减等需跨节点互斥访问的场景。此外，其高可用主从架构与快速读写特性，也使其成为用户会话（Session）集中存储的理想选择，替代传统基于文件或数据库的 Session 管理，大幅提升集群伸缩性与故障恢复速度 [5][6]。\n\n### 3. 消息中间件与轻量级队列  \nRedis 原生支持发布/订阅（Pub/Sub）模型与阻塞式列表操作（如 `BLPOP`/`BRPOP`），可构建低延迟、高吞吐的消息队列 [5]。例如，利用 List 结构实现延时队列：生产者 `LPUSH` 入队，消费者 `BRPOP` 阻塞等待，配合定时任务实现任务延迟执行。虽其可靠性不及 Kafka 或 RabbitMQ，但在对消息丢失容忍度较高、追求极简架构的微服务场景中极具性价比 [5]。\n\n### 4. 数据结构化存储与实时计算  \n凭借丰富的底层数据结构（共 6 种底层实现，包括 SDS、压缩列表、跳表、哈希表等），Redis 可直接承载业务逻辑数据 [2][78731a3a-f20b-4b06-b037-3808a2fa1af0]。典型案例如：  \n- 使用 **位图（Bitmap）** 统计日活（DAU）、用户签到（`SETBIT`/`BITCOUNT`），单 key 即可管理 512MB（约 43 亿）用户状态，空间效率极高 [5]；  \n- 使用 **有序集合（Sorted Set）** 实现排行榜、时间线排序（按 score 排序），支持范围查询与排名获取，时间复杂度为 O(log N) [9]；  \n- 使用 **HyperLogLog** 进行海量去重计数（如 UV 统计），误差率低于 0.81%，仅需 12KB 内存即可统计 2^64 个元素 [未在给定源中显式提及，故不引用]。\n\n## 三、支撑核心用途的关键技术机制\n\n| 技术机制 | 功能说明 | 来源依据 |\n|----------|----------|----------|\n| **双哈希表渐进式 Rehash** | 为避免扩容阻塞，Redis 维护两个哈希表（ht 与 ht[1]），通过每次请求迁移一个 bucket 的方式完成 rehash，保障高并发下的响应稳定性 [3][78731a3a-f20b-4b06-b037-3808a2fa1af0]。 | [3][78731a3a-f20b-4b06-b037-3808a2fa1af0] |\n| **RedisObject 元数据抽象** | 所有 key-value 均封装为 `redisObject` 结构体，统一管理类型、编码、LRU 时间戳、引用计数及指向实际数据的指针，实现灵活的数据类型切换与内存优化（如小字符串嵌入、整数直存） [78731a3a-f20b-4b06-b037-3808a2fa1af0]。 | [78731a3a-f20b-4b06-b037-3808a2fa1af0] |\n| **混合持久化（RDB+AOF）** | Redis 4.0 引入混合模式：先生成 RDB 快照，再追加 AOF 增量日志，兼顾 RDB 的快速恢复与 AOF 的低数据丢失风险，重启耗时大幅缩短 [c03e37bb-b5ef-4a53-a52c-ef51bc4559fa]。 | [c03e37bb-b5ef-4a53-a52c-ef51bc4559fa] |\n| **内存淘汰策略** | 当内存不足时，Redis 提供 LRU、LFU、TTL 等 8 种淘汰策略（如 `volatile-lru`, `allkeys-lfu`），确保缓存命中率与内存可控性 [2]。 | [2] |\n\n## 四、生态与运维支撑能力\n\nRedis 不仅是一个数据库，更形成了完整的生产级生态。Google Cloud 的 Memorystore for Redis 服务提供托管式部署，并内置数十项监控指标（如 `redis.googleapis.com/instance/cpu_usage_percent`、`connected_clients`），支持精细化容量规划与故障预警 [4]。同时，其协议简单（RESP）、客户端库成熟（Java/Jedis、Python/redis-py 等），与 Spring Boot、Node.js 等主流框架深度集成，极大降低了工程落地门槛 [1][6]。截至 2020 年，Redis 已成为 NoSQL 领域发展最快、社区最活跃的项目之一，广泛应用于直播、社交、金融、物联网等超大规模高并发场景 [6][8]。\n\n综上所述，Redis 的核心用途可凝练为：**以内存速度承载多样化数据结构，服务于缓存加速、分布式协调、消息通信与实时计算四大支柱场景，其高性能、高可用、易扩展的特性，源于精巧的内存管理、渐进式哈希、统一对象模型与混合持久化等关键技术设计**。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** developer.aliyun.com — Redis核心原理数据类型持久化与集群全解析-开发者社区-阿里云\nURL: https://developer.aliyun.com/article/618702\n原文片段：「Redis核心原理数据类型持久化与集群全解析-开发者社区-阿里云 开发者社区 数据库 文章 正文 介绍Redis的各种用途以及使用场景 2018-07-26 12479 版权 版权声明： 本文内容由阿里云实名注册用户自发贡献，版权归原作者所有，阿里云开发者社区不拥有其著作权，亦不承担相应法律责任。具体规则请查看《 阿里云开发者社区用户服务协议 》和 《 阿里云开发者社区知识产权保护指引 》。如果您发现本社区中有涉嫌抄袭的内容，填写 侵权投诉表单 进行举报，一经查实，本社区将立刻删除涉嫌侵权内容。 简介： 介绍Redis的各种用途以及使用场景 Redis...」\n\n<a id=\"ref-2\"></a>**[2]** qiankunli.github.io — 《Redis核心技术与实现》笔记 - 李乾坤的博客\nURL: https://qiankunli.github.io/2020/08/04/redis_practice.html\n原文片段：「《Redis核心技术与实现》笔记 - 李乾坤的博客 前言 前言 整体架构 基本设计 键和值用什么结构组织？ 底层数据结构 持久化/单机高可用 AOF RDB（Redis DataBase） 主从同步/多机高可用 切片集群 缓冲区 淘汰策略 事务 影响redis 性能的几大因素 其它 文章部分内容来自对 《Redis核心技术与实现》的学习 整体架构 基本设计 对于键值数据库而言，基本的数据模型是 key-value 模型。key 一般是 String 类型，而 value 类型则比较多样。在对键值数据库进行选型时， 一个重要的考虑因素是它支持的 value...」\n\n<a id=\"ref-3\"></a>**[3]** cnblogs.com — 极客时间之Redis核心技术与实战 - strongmore - 博客园\nURL: https://www.cnblogs.com/strongmore/p/17131266.html\n原文片段：「极客时间之Redis核心技术与实战 - strongmore - 博客园 strongmore 怕什么真理无穷，进一寸有一寸的欢喜。 极客时间之Redis核心技术与实战 开篇介绍 知识全景图 问题群像图 01-基本架构：一个键值数据库包含什么 02-数据结构：快速的Redis有哪些慢操作？ 新版的数据机构有变化 rehash过程 为了使rehash操作更高效，Redis默认使用了两个全局哈希表：哈希表1和哈希表2。一开始，当你刚插入数据时，默认使用哈希表1，此时的哈希表2并没有被分配空间。随着数据逐步增多，Redis开始执行rehash，这个过程分为三步...」\n\n<a id=\"ref-4\"></a>**[4]** docs.cloud.google.com — 支持的监控指标  |  Memorystore for Redis  |  Google Cloud Documentation\nURL: https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn\n原文片段：「支持的监控指标 | Memorystore for Redis | Google Cloud Documentation 跳至主要内容 / 控制台 English Deutsch Español Español – América Latina Français Indonesia Italiano Português Português – Brasil עברית 中文 – 简体 中文 – 繁體 日本語 한국어 登录 Memorystore Memorystore for Redis 免费开始使用吧 Google 会使用 AI 技术将内容翻译成您偏好...」\n\n<a id=\"ref-5\"></a>**[5]** pegasuswang.readthedocs.io — 《Redis深度历险核心原理和应用实践》 - PegasusWang的读书笔记\nURL: https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book\n原文片段：「《Redis深度历险核心原理和应用实践》 - PegasusWang的读书笔记 » 数据库 » 《Redis深度历险核心原理和应用实践》 应用1：分布式锁 redis2.8 之后加入了set 指令的扩展参数， 使得 setnx 和 expire 可以一起执行（保证原子性） 可重入性：指的是线程持有锁的情况下再次请求加锁，如果一个锁 支持同一个线程的多次加锁，就是可重入的。 应用2：缓兵之计-延时队列 使用 list 作为异步消息队列（你对可靠性没有极致追求） blpop,brpop 阻塞操作，如果list 没有数据就会进入休眠。这里需要注意长时间连接断开...」\n\n<a id=\"ref-6\"></a>**[6]** cnblogs.com — Redis核心原理和应用场景 - WK_BlogYard - 博客园\nURL: https://www.cnblogs.com/wk-missQ1/p/16107976.html\n原文片段：「Redis核心原理和应用场景 - WK_BlogYard - 博客园 WK_BlogYard 很多东西不是你觉得有用才去学,而是你学了才知道有用! Redis核心原理和应用场景 Redis核心原理和使用场景 原文链接：https://mp.weixin.qq.com/s/7ct-mvSIaT3o4-tsMaKRWA 一 什么是NoSQL？ Nosql = not only sql（不仅仅是SQL） 关系型数据库：列+行，同一个表下数据的结构是一样的。 非关系型数据库：数据存储没有固定的格式，并且可以进行横向扩展。 NoSQL泛指非关系型数据库，随着web...」\n\n<a id=\"ref-7\"></a>**[7]** instaclustr.com — What Is Redis™? An Overview - Instaclustr\nURL: https://www.instaclustr.com/blog/what-is-redis\n原文片段：「What Is Redis™? An Overview - Instaclustr Blog > Technology > What Is Redis™? An Overview What Is Redis™? An Overview October 07, 2020 | By Instaclustr An In-Memory Database or Data Structure Server? Redis is a fast in-memory database and cache, open source under a BSD license, w...」\n\n<a id=\"ref-8\"></a>**[8]** severalnines.com — Introduction to Redis (What it is, what are the use cases etc) | Severalnines\nURL: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n原文片段：「Introduction to Redis (What it is, what are the use cases etc) | Severalnines Redis Overview Redis (which means Remote Dictionary Serve) is an open-source NoSQL database known to be a fast, in-memory key-value data store, cache, message broker, and queue. The project started by S...」\n\n<a id=\"ref-9\"></a>**[9]** scalegrid.io — Top Redis Use Cases By Core Data Structure Types\nURL: https://scalegrid.io/blog/top-redis-use-cases-by-core-data-structure-types\n原文片段：「Top Redis Use Cases By Core Data Structure Types Redis® , Tech Tips & Insights Top Redis® Use Cases by Core Data Structure Types Aug 30, 2019 7 min read Top Redis® Use Cases by Core Data Structure Types SHARE THIS ARTICLE Redis, short for Remote Dictionary Server, is a BSD-licens...」",
+    "metadata": [
+      "https://ucc.alicdn.com/avatar/img_ca90b7b1b220af946a0b58ff6ab9ac71.jpg?x-oss-process=image/resize,h_150,m_lfit",
+      "https://qiankunli.github.io/public/upload/storage/redis_overview.jpg",
+      "https://qiankunli.github.io/public/upload/storage/redis_kv.png",
+      "https://qiankunli.github.io/public/upload/storage/redis_data_structure.jpg",
+      "https://www.gstatic.com/devrel-devsite/prod/v25f01968170374b7bd062a383d0367da1beee7ed413abaee67eec4296f4ba687/clouddocs/images/lockup_full_color.svg",
+      "https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/databases-color.svg?hl=zh-cn",
+      "https://docs.cloud.google.com/_static/images/translated.svg?hl=zh-cn",
+      "https://pegasuswang.readthedocs.io/zh/latest/database/ziplist.png",
+      "https://www.instaclustr.com/wp-content/uploads/2021/10/kf5qUGej8ArVct5MkZvlqL5-3iJH8JTaq3EVqPOsC80UOKpPtGR6CjSfnikAwmYR7gcciA8gUm-2k2dO96pOnM4KqrfUYvZ7NYruoAGbMl3qhVHhqrPsC_rXA4ZThNsi9AcO_nQX.png",
+      "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png"
+    ]
+  }
+}

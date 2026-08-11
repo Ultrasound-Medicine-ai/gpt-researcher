@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-08-09T14:17:11.611464",
+  "job_id": "7b8f2a95-474b-452d-bb10-8b18cc4cb44e",
+  "events": [
+    {
+      "timestamp": "2026-08-09T14:19:25.961916",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for 'PostgreSQL 与 MySQL 在高并发写入场景下的取舍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:19:25.984061",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 Tech Expert Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:19:26.044108",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: PostgreSQL 与 MySQL 在高并发写入场景下的取舍...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T14:19:28.582112",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

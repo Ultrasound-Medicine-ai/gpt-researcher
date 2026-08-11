@@ -1,0 +1,638 @@
+{
+  "timestamp": "2026-08-09T16:52:02.150561",
+  "job_id": "bf339991-bbcf-4b1a-880b-c18321d2ea2a",
+  "events": [
+    {
+      "timestamp": "2026-08-09T16:52:27.097636",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '介绍redis，只需要两百字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:52:27.119943",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:52:27.154231",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 介绍redis，只需要两百字左右...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:52:28.577548",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:10.702154",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Redis 简介与核心特性', 'Redis overview data structures and use cases', 'Redis 优缺点与应用场景', '介绍redis，只需要两百字左右']...",
+        "metadata": [
+          "Redis 简介与核心特性",
+          "Redis overview data structures and use cases",
+          "Redis 优缺点与应用场景",
+          "介绍redis，只需要两百字左右"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:10.831069",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis 简介与核心特性'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:10.851232",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis overview data structures and use cases'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:10.874719",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis 优缺点与应用场景'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:10.895874",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '介绍redis，只需要两百字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:12.882217",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAEScwHuR6pNs0dQq0giGZBhBBrE57Ob4Uu0ID3QxshFn_7XcgJXeZLQ5FL4pOsaZ1TjWbx1FpM-UYYtss3qin6pLxFBh9gss_izmU7UylHgF6tuOoJyD7nX-iD6CBMkEkYf7kp0c7kuRfeHfiU515G6fWxgYV8%3D\n",
+        "metadata": "/goto?url=CAEScwHuR6pNs0dQq0giGZBhBBrE57Ob4Uu0ID3QxshFn_7XcgJXeZLQ5FL4pOsaZ1TjWbx1FpM-UYYtss3qin6pLxFBh9gss_izmU7UylHgF6tuOoJyD7nX-iD6CBMkEkYf7kp0c7kuRfeHfiU515G6fWxgYV8%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:12.920013",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESowEB7keqTX-7GIIuXB8NugxjaoW_iYateRSQUvOS2nmyPCDTAEBQwNPGq9pdro92dPklL23nZ1Zrz2oOGw_uKo_X0qqMR24hr0gA-IqnDj-nQahbOMkD2tX1pBNRBi-aFr5Nfikht3MVCXQEI1NK_UTeVCsdDKpqiA9ZG8a1IBl8RVc7CneOIVoVUtEkbVrlhTBfxAypLwoAXrXKZ1UaSCmVrq2n\n",
+        "metadata": "/goto?url=CAESowEB7keqTX-7GIIuXB8NugxjaoW_iYateRSQUvOS2nmyPCDTAEBQwNPGq9pdro92dPklL23nZ1Zrz2oOGw_uKo_X0qqMR24hr0gA-IqnDj-nQahbOMkD2tX1pBNRBi-aFr5Nfikht3MVCXQEI1NK_UTeVCsdDKpqiA9ZG8a1IBl8RVc7CneOIVoVUtEkbVrlhTBfxAypLwoAXrXKZ1UaSCmVrq2n"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:12.959491",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESawHuR6pNrQQ869jvMKS8hUVc5pa3kuWZ3gdEhbcIiYjCmUuw-cMiNgU_2SE8nTRTkEdObLbQKFFju13FytAnT_3QtuPnMsJa3q6YuW3EsrbrwF78ouQ5pNAWXeUXSrWTeTMYU9oZn2DQQQBC\n",
+        "metadata": "/goto?url=CAESawHuR6pNrQQ869jvMKS8hUVc5pa3kuWZ3gdEhbcIiYjCmUuw-cMiNgU_2SE8nTRTkEdObLbQKFFju13FytAnT_3QtuPnMsJa3q6YuW3EsrbrwF78ouQ5pNAWXeUXSrWTeTMYU9oZn2DQQQBC"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.000917",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESbQHuR6pNS8OKGglDk5mbNcIlBBs0YlNVcSoZkyLR1aivE3IWvUmhd2lWR-z9HxFvd9wXk4eNUXx_-ZLzPzToBjimMKjgxmui0ud7ariL3fXQQMSzaNXDOMMRmgV1_7_1b7yu3bVdsveO1uIdKog%3D\n",
+        "metadata": "/goto?url=CAESbQHuR6pNS8OKGglDk5mbNcIlBBs0YlNVcSoZkyLR1aivE3IWvUmhd2lWR-z9HxFvd9wXk4eNUXx_-ZLzPzToBjimMKjgxmui0ud7ariL3fXQQMSzaNXDOMMRmgV1_7_1b7yu3bVdsveO1uIdKog%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.044595",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: /goto?url=CAESXQHuR6pN0Ijt-7HB2K0I1SkwiYtF6IHUgO2f1xdo42G0_qHICdxS19NHDKzCiB4mOuV1pKGyjn5TvQT0ZfODvKJN-RrwF840ctB_nvea3n30yEgWCTleOtrwibUTuw%3D%3D\n",
+        "metadata": "/goto?url=CAESXQHuR6pN0Ijt-7HB2K0I1SkwiYtF6IHUgO2f1xdo42G0_qHICdxS19NHDKzCiB4mOuV1pKGyjn5TvQT0ZfODvKJN-RrwF840ctB_nvea3n30yEgWCTleOtrwibUTuw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.082369",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.128001",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.171620",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.196845",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.229742",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.259867",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '介绍redis，只需要两百字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.551462",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/mikemao/p/17830959.html\n",
+        "metadata": "https://www.cnblogs.com/mikemao/p/17830959.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.585921",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://juejin.cn/post/6844903811421569031\n",
+        "metadata": "https://juejin.cn/post/6844903811421569031"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.621290",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zhuanlan.zhihu.com/p/632293767\n",
+        "metadata": "https://zhuanlan.zhihu.com/p/632293767"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.653304",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.aliyun.com/article/1631136\n",
+        "metadata": "https://developer.aliyun.com/article/1631136"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.692139",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/m0_59166601/article/details/136792633\n",
+        "metadata": "https://blog.csdn.net/m0_59166601/article/details/136792633"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.717619",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.dkmeco.com/en/how-enterprises-use-redis-do-you-really-understand-redis-an-introduction-to-redis-data-structures\n",
+        "metadata": "https://www.dkmeco.com/en/how-enterprises-use-redis-do-you-really-understand-redis-an-introduction-to-redis-data-structures"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.737698",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.777703",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.lenovo.com/us/en/glossary/redis\n",
+        "metadata": "https://www.lenovo.com/us/en/glossary/redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.798020",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.843328",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n",
+        "metadata": "https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.876930",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://medium.com/@abhi.strike/redis-data-structures-f72d3d44ea77\n",
+        "metadata": "https://medium.com/@abhi.strike/redis-data-structures-f72d3d44ea77"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.912492",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.gridgain.com/resources/blog/translating-redis-data-structures-beyond-basic-caching\n",
+        "metadata": "https://www.gridgain.com/resources/blog/translating-redis-data-structures-beyond-basic-caching"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:13.950453",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:14.017504",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.168825",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/2302_79600390/article/details/146488839\n",
+        "metadata": "https://blog.csdn.net/2302_79600390/article/details/146488839"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.251666",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.runoob.com/redis/redis-intro.html\n",
+        "metadata": "https://www.runoob.com/redis/redis-intro.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.345689",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://redis.com.cn/redis-intro.html\n",
+        "metadata": "https://redis.com.cn/redis-intro.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.422791",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.ibm.com/cn-zh/think/topics/redis\n",
+        "metadata": "https://www.ibm.com/cn-zh/think/topics/redis"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.477371",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloud.google.com/discover/what-is-redis-database?hl=zh-CN\n",
+        "metadata": "https://cloud.google.com/discover/what-is-redis-database?hl=zh-CN"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.507583",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.584545",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.719525",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.755614",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 17 total images",
+        "metadata": [
+          "https://i-blog.csdnimg.cn/blog_column_migrate/6e3146f7f0d503140595af22dbe69495.png?x-oss-process=image/resize,m_fixed,h_224,w_224",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/cknowTemplate/cknow-ai-icon.png",
+          "https://i-operation.csdnimg.cn/images/a7311a21245d4888a669ca3155f1f4e5.png",
+          "https://csdnimg.cn/release/blogv2/dist/pc/img/vip-limited-close-newWhite.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.798366",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:15.835729",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis 优缺点与应用场景...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:19.211020",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:19.246212",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 13 total images",
+        "metadata": [
+          "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-modern-analytics.png",
+          "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-resource-management.png",
+          "https://severalnines.com/wp-content/uploads/2026/05/blog-sql-server-to-postgresql.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:19.282363",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:19.313075",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis overview data structures and use cases...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:19.952624",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:19.982742",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 13 total images",
+        "metadata": [
+          "https://assets.ibm.com/is/image/ibm/dataforai_scaling03_still_12k?ts=1780658312295&dpr=off",
+          "https://assets.ibm.com/is/image/ibm/dataforai_secure01_still_12k?ts=1777902421130&dpr=off",
+          "https://assets.ibm.com/is/image/ibm/ibm_think_watonxdata_closeup_still_4k?ts=1777902421507&dpr=off",
+          "https://assets.ibm.com/is/image/ibm/dynamiq-logo-padding?ts=1777902421678&dpr=off"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:20.028541",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:20.080523",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Redis 简介与核心特性...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:52.748623",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:52.770113",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:52.791874",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:52.816879",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.018116100000000003",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:53:52.871965",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '介绍redis，只需要两百字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:54:31.052260",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '介绍redis，只需要两百字左右'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "介绍redis，只需要两百字左右",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis 技术概述\n## 核心定位与性能\nRedis（Remote Dictionary Server）是一款开源的高性能内存键值存储系统，广泛用作数据库、缓存及消息代理[7]。其数据全驻留内存，读写延迟达微秒级，单机可稳定支撑超10万QPS[11]。\n## 数据结构与架构优势\n除基础字符串外，Redis原生支持哈希、列表、集合、有序集合、流等9种复杂数据类型[11]。凭借RDB/AOF混合持久化、哨兵自动故障转移及全原子操作，它已成为热点缓存、分布式锁、实时排行榜与高并发消息队列的首选基础设施[3]。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** blog.csdn.net — 什么数据需要存在Redis里?缓存的缺点?怎样进行数据同步?_什么情况下需要用redis同步数据库的数据-CSDN博客\nURL: https://blog.csdn.net/m0_59166601/article/details/136792633\n原文片段：「什么数据需要存在Redis里?缓存的缺点?怎样进行数据同步?_什么情况下需要用redis同步数据库的数据-CSDN博客 什么数据需要存在Redis里?缓存的缺点?怎样进行数据同步? 最新推荐文章于 2026-08-04 11:57:51 发布 原创 最新推荐文章于 2026-08-04 11:57:51 发布 · 1.8k 阅读 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 GEO检测 · 收录于 Redis 当前文章被收录于： Redis 7 篇...」\n\n<a id=\"ref-2\"></a>**[2]** juejin.cn — Redis的应用场景及优缺点Redis作为一个典型的非关系型数据库，目前来说在企业级应用中使用广泛。 业界常用MySQL - 掘金\nURL: https://juejin.cn/post/6844903811421569031\n原文片段：「Redis的应用场景及优缺点Redis作为一个典型的非关系型数据库，目前来说在企业级应用中使用广泛。 业界常用MySQL - 掘金 Redis的应用场景及优缺点 java后端技术13737 2019-04-02 3,000 阅读4分钟 Redis作为一个典型的非关系型数据库，目前来说在企业级应用中使用广泛。 1、Memcached和Redis相比的劣势 业界常用MySQL+Memcached这样的存储架构，但是随着访问量的不断攀蛇，随之而来的问题也有很多。 1、MySQL需要不停的拆库拆表，Memcached也需要跟着不断扩容； 2、Memcached与...」\n\n<a id=\"ref-3\"></a>**[3]** cnblogs.com — Redis简述｜以及它能用于做什么？ - 毛小毛 - 博客园\nURL: https://www.cnblogs.com/mikemao/p/17830959.html\n原文片段：「Redis简述｜以及它能用于做什么？ - 毛小毛 - 博客园 毛小毛的家 Redis简述｜以及它能用于做什么？ 什么是Redis Redis是一种开源的NoSQL内存数据库，用于高性能的数据存储和访问。Redis支持多种数据类型，包括字符串、哈希、列表、集合和有序集合，并且支持分布式存储和操作。Redis的特点包括快速、高可用和易扩展等，适用于各种应用场景。 Redis应用场景 Redis可以广泛应用于多种场景，包括但不限于以下几种： 1. 缓存 Redis作为一种内存数据库，具有快速的数据访问和高效的数据存储，适合用作缓存的存储层。Redis可以缓存数...」\n\n<a id=\"ref-4\"></a>**[4]** developer.aliyun.com — Redis六大优点与六大缺点深度剖析及选型建议-开发者社区-阿里云\nURL: https://developer.aliyun.com/article/1631136\n原文片段：「Redis六大优点与六大缺点深度剖析及选型建议-开发者社区-阿里云 开发者社区 数据库 文章 正文 介绍一下Redis的优缺点 2024-10-29 992 版权 版权声明： 本文内容由阿里云实名注册用户自发贡献，版权归原作者所有，阿里云开发者社区不拥有其著作权，亦不承担相应法律责任。具体规则请查看《 阿里云开发者社区用户服务协议 》和 《 阿里云开发者社区知识产权保护指引 》。如果您发现本社区中有涉嫌抄袭的内容，填写 侵权投诉表单 进行举报，一经查实，本社区将立刻删除涉嫌侵权内容。 简介： 【10月更文挑战第19天】介绍一下Redis的优缺点 Redi...」\n\n<a id=\"ref-5\"></a>**[5]** gridgain.com — Translating Redis Data Structures Beyond Basic Caching\nURL: https://www.gridgain.com/resources/blog/translating-redis-data-structures-beyond-basic-caching\n原文片段：「Translating Redis Data Structures Beyond Basic Caching Skip to main content ← GridGain Blog Translating Redis Data Structures Beyond Basic Caching Anuja Kumar December 9, 2025 Sections Why People Start with Redis and the Challenge It Brings When developers chase lightning-fast da...」\n\n<a id=\"ref-6\"></a>**[6]** dkmeco.com — How Enterprises Use Redis | Do You Really Understand Redis? An Introduction to Redis Data Structures - DKM Ecosystem\nURL: https://www.dkmeco.com/en/how-enterprises-use-redis-do-you-really-understand-redis-an-introduction-to-redis-data-structures\n原文片段：「How Enterprises Use Redis | Do You Really Understand Redis? An Introduction to Redis Data Structures - DKM Ecosystem Blog Redis is a versatile, in-memory data store used as a database, cache, and message broker. Its optimized data structures (strings, hashes, lists, sets, etc.) e...」\n\n<a id=\"ref-7\"></a>**[7]** severalnines.com — Introduction to Redis (What it is, what are the use cases etc) | Severalnines\nURL: https://severalnines.com/blog/introduction-redis-what-it-what-are-use-cases-etc\n原文片段：「Introduction to Redis (What it is, what are the use cases etc) | Severalnines Redis Overview Redis (which means Remote Dictionary Serve) is an open-source NoSQL database known to be a fast, in-memory key-value data store, cache, message broker, and queue. The project started by S...」\n\n<a id=\"ref-8\"></a>**[8]** lenovo.com — Access Denied\nURL: https://www.lenovo.com/us/en/glossary/redis\n原文片段：「Access Denied Access Denied You don't have permission to access \"http://www.lenovo.com/us/en/glossary/redis\" on this server. Reference #18.5a0c3417.1786294396.8c19e303 https://errors.edgesuite.net/18.5a0c3417.1786294396.8c19e303」\n\n<a id=\"ref-9\"></a>**[9]** cloud.google.com — 什么是 Redis 数据库？ | Google Cloud\nURL: https://cloud.google.com/discover/what-is-redis-database?hl=zh-CN\n原文片段：「什么是 Redis 数据库？ | Google Cloud 什么是 Redis®？ Redis® 是一种可同时用作数据库和缓存的数据存储区，适用于要求低数据延迟的应用。 Valkey 是从 Redis 分支出来的开源数据库。由于数据存储在内存中，避免了缓慢的磁盘访问，因此可实现微秒级数据延迟。 了解 Google Cloud 的 Memorystore for Redis 、 Memorystore for Redis Cluster 和 Memorystore for Valkey 如何为您的工作负载提供可伸缩、高可用性且安全的内存中数据库服务。 准备...」\n\n<a id=\"ref-10\"></a>**[10]** ibm.com — Redis 详解| IBM\nURL: https://www.ibm.com/cn-zh/think/topics/redis\n原文片段：「Redis 详解| IBM 什么是 Redis？ 什么是 Redis？ Redis（ RE mote DI ctionary S erver，远程字典服务器）是一种 开源 的内存中 NoSQL 键值对存储，主要用作应用程序缓存或快速响应数据库。 Redis 将数据存储在内存中，而不是存储在磁盘或 固态硬盘 (SSD) 上，有助于实现无与伦比的速度、可靠性和性能。 当应用程序依赖外部数据源时，这些数据源的延迟和吞吐量可能会成为性能瓶颈，尤其是在流量增加或应用程序规模扩大时。在这种情况下，一种提高性能的方法是在内存中存储和操作数据，这样数据离应用程序更近，访...」\n\n<a id=\"ref-11\"></a>**[11]** redis.com.cn — Redis 简介\nURL: https://redis.com.cn/redis-intro.html\n原文片段：「Redis 简介 首页 Redis 命令 Redis 管理 Redis 教程 Redis 进阶 Redis 客户端 Redis 下载 * Redis 简介 Redis（Remote Dictionary Server）是一个开源的 高性能键值对存储系统 ，通常被称为 数据结构服务器 。它不仅支持简单的字符串，还支持哈希、列表、集合、有序集合、流、位图、HyperLogLog、地理空间等复杂数据类型。 Redis 使用 C 语言 开发，遵守 BSD 协议 ，是互联网技术中使用最为广泛的中间件之一。随着它在新浪微博等大型互联网公司的使用而逐渐风靡国内，也是中...」",
+    "metadata": [
+      "https://i-blog.csdnimg.cn/blog_column_migrate/6e3146f7f0d503140595af22dbe69495.png?x-oss-process=image/resize,m_fixed,h_224,w_224",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/cknowTemplate/cknow-ai-icon.png",
+      "https://i-operation.csdnimg.cn/images/a7311a21245d4888a669ca3155f1f4e5.png",
+      "https://csdnimg.cn/release/blogv2/dist/pc/img/vip-limited-close-newWhite.png",
+      "https://severalnines.com/wp-content/uploads/2026/07/blog-data-modeling-for-clickhouse.png",
+      "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-modern-analytics.png",
+      "https://severalnines.com/wp-content/uploads/2026/06/blog-clickhouse-resource-management.png",
+      "https://severalnines.com/wp-content/uploads/2026/05/blog-sql-server-to-postgresql.png",
+      "https://assets.ibm.com/is/image/ibm/dataforai_scaling03_still_12k?ts=1780658312295&dpr=off",
+      "https://assets.ibm.com/is/image/ibm/dataforai_secure01_still_12k?ts=1777902421130&dpr=off"
+    ]
+  }
+}

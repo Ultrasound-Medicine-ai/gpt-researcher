@@ -1,0 +1,439 @@
+{
+  "timestamp": "2026-08-10T02:20:25.679185",
+  "events": [
+    {
+      "timestamp": "2026-08-10T02:20:46.779644",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:20:46.807599",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:20:46.846378",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:20:47.674008",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:05.344184",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['SSE (Server-Sent Events) \u6280\u672f\u8c03\u7814\u62a5\u544a \u539f\u7406\u4e0e\u5e94\u7528\u573a\u666f', 'Server-Sent Events SSE vs WebSocket technical comparison 2026', '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57']...",
+        "metadata": [
+          "SSE (Server-Sent Events) \u6280\u672f\u8c03\u7814\u62a5\u544a \u539f\u7406\u4e0e\u5e94\u7528\u573a\u666f",
+          "Server-Sent Events SSE vs WebSocket technical comparison 2026",
+          "\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:05.396025",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'SSE (Server-Sent Events) \u6280\u672f\u8c03\u7814\u62a5\u544a \u539f\u7406\u4e0e\u5e94\u7528\u573a\u666f'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:05.422688",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Server-Sent Events SSE vs WebSocket technical comparison 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:05.445344",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.209708",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://zh.wiktionary.org/wiki/%E5%86%99\n",
+        "metadata": "https://zh.wiktionary.org/wiki/%E5%86%99"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.244182",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://chinese.stackexchange.com/questions/53942/i-am-trying-to-understand-%E5%86%99\n",
+        "metadata": "https://chinese.stackexchange.com/questions/53942/i-am-trying-to-understand-%E5%86%99"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.277050",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.dong-chinese.com/wiki/%E5%86%99\n",
+        "metadata": "https://www.dong-chinese.com/wiki/%E5%86%99"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.301622",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.338146",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.874451",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESeQHuR6pN-U-DyL9bzqo2VFAzjDtt_f5k5cAP-F06JSoGYAM8G2PKvdKUSjVcJ1g45H4dAwKkPQJDFHKgvqs3ryb5Lntf1JNkIjiaKsjE9bFcDcV77LLixksdcYZmkxKArQjyntZ4l8M3TCffKOgj5kDseD3r-uCzt4w%3D\n",
+        "metadata": "/goto?url=CAESeQHuR6pN-U-DyL9bzqo2VFAzjDtt_f5k5cAP-F06JSoGYAM8G2PKvdKUSjVcJ1g45H4dAwKkPQJDFHKgvqs3ryb5Lntf1JNkIjiaKsjE9bFcDcV77LLixksdcYZmkxKArQjyntZ4l8M3TCffKOgj5kDseD3r-uCzt4w%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.962662",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESVgHuR6pNxjBPPAy9bejLvPML0I34DnpKhP-ZMsxnBRUHziN1J9R1e6si9jeQu5zOY4nwItcZaQglH-fZEb2VbCv484WkVAMCzeArWbbk2Soxy0E_s7-3\n",
+        "metadata": "/goto?url=CAESVgHuR6pNxjBPPAy9bejLvPML0I34DnpKhP-ZMsxnBRUHziN1J9R1e6si9jeQu5zOY4nwItcZaQglH-fZEb2VbCv484WkVAMCzeArWbbk2Soxy0E_s7-3"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:06.987153",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide\n",
+        "metadata": "https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.034532",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESXgHuR6pNTx9SHdLibppk0Bh2IvIAzmKom6oNQ_Z3xXAybY5N-H-XkWsq5PlFOFWg6vX7AdbOV6NXRlZ4yQ0TOLNSmnYXmyv-KAmVPStY-5yGwAX7FKb0XDmll5Wry_Q%3D\n",
+        "metadata": "/goto?url=CAESXgHuR6pNTx9SHdLibppk0Bh2IvIAzmKom6oNQ_Z3xXAybY5N-H-XkWsq5PlFOFWg6vX7AdbOV6NXRlZ4yQ0TOLNSmnYXmyv-KAmVPStY-5yGwAX7FKb0XDmll5Wry_Q%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.073038",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.svix.com/resources/faq/websocket-vs-sse\n",
+        "metadata": "https://www.svix.com/resources/faq/websocket-vs-sse"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.114802",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.159077",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://websocket.org/comparisons/sse\n",
+        "metadata": "https://websocket.org/comparisons/sse"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.196294",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.218150",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.277113",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.303550",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.344546",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.397857",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.460473",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for 'SSE (Server-Sent Events) \u6280\u672f\u8c03\u7814\u62a5\u544a \u539f\u7406\u4e0e\u5e94\u7528\u573a\u666f'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.505967",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.538179",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 4 total images",
+        "metadata": [
+          "https://www.dong-chinese.com/favicon-32.png",
+          "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_0.png",
+          "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_5.png",
+          "https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.577973",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:07.611396",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:11.677944",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:11.707575",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:11.737345",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf972a8/699c65d475d592ff4cf97d2d_nimble-logo_black.svg",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf97fde_image%20(4).avif",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699f0cbc59001f48677c09e8_Group%202147257077.png",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf9816d_699751b8b1f8df87376c8293_1701730813246.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:11.775927",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:11.806560",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: Server-Sent Events SSE vs WebSocket technical comparison 2026...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:17.099090",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:17.128483",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.026792260000000002",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:17.192788",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T02:22:59.976901",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u5199SSE\u8c03\u7814\u62a5\u544a,\u8981\u6c42\u4e24\u767e\u5b57'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# SSE\u6280\u672f\u8c03\u7814\u62a5\u544a\n\n## \u6280\u672f\u5b9a\u4e49\u4e0e\u5de5\u4f5c\u539f\u7406\nServer-Sent Events\uff08SSE\uff09\u662f\u4e00\u79cd\u57fa\u4e8e\u6807\u51c6HTTP\u534f\u8bae\u7684\u5355\u5411\u670d\u52a1\u5668\u63a8\u9001\u6280\u672f[3]\u3002\u5176\u5de5\u4f5c\u539f\u7406\u4e3a\u5ba2\u6237\u7aef\u901a\u8fc7\u5185\u7f6e\u7684`EventSource` API\u53d1\u8d77GET\u8bf7\u6c42\uff0c\u670d\u52a1\u5668\u54cd\u5e94`Content-Type: text/event-stream`\u5e76\u4fdd\u6301\u957f\u8fde\u63a5\uff0c\u4ee5\u7eaf\u6587\u672c\u683c\u5f0f\u6301\u7eed\u5411\u6d4f\u89c8\u5668\u63a8\u9001\u4e8b\u4ef6\u6d41[4]\u3002\n\n## \u6838\u5fc3\u7279\u6027\u4e0e\u4f18\u52bf\nSSE\u5177\u5907\u539f\u751f\u81ea\u52a8\u91cd\u8fde\u4e0e\u4e8b\u4ef6ID\u65ad\u70b9\u6062\u590d\u673a\u5236\uff0c\u65e0\u9700\u624b\u52a8\u5b9e\u73b0\u5bb9\u9519\u903b\u8f91[3]\u3002\u534f\u8bae\u5b8c\u5168\u517c\u5bb9HTTP\u751f\u6001\uff0c\u53ef\u76f4\u63a5\u590d\u7528Cookie\u8ba4\u8bc1\u3001HTTP\u538b\u7f29\u53ca\u73b0\u6709\u8d1f\u8f7d\u5747\u8861\u8bbe\u65bd[4]\u3002\u5728HTTP/2\u591a\u8def\u590d\u7528\u652f\u6301\u4e0b\uff0cSSE\u6709\u6548\u89c4\u907f\u4e86HTTP/1.1\u5355\u57df\u540d6\u4e2a\u5e76\u53d1\u8fde\u63a5\u7684\u9650\u5236[3]\u3002\n\n## \u5e94\u7528\u573a\u666f\u4e0e\u5bf9\u6bd4\u5206\u6790\n\u4e0e\u5168\u53cc\u5de5\u7684WebSocket\u76f8\u6bd4\uff0cSSE\u4ec5\u652f\u6301\u670d\u52a1\u7aef\u5230\u5ba2\u6237\u7aef\u7684\u5355\u5411\u901a\u4fe1\u4e14\u4ec5\u9650UTF-8\u6587\u672c[4]\u3002\u4f46\u5176\u67b6\u6784\u66f4\u8f7b\u91cf\u3001\u4ee3\u7406\u7a7f\u900f\u6027\u66f4\u5f3a\uff0c\u7279\u522b\u9002\u7528\u4e8e\u5b9e\u65f6\u901a\u77e5\u3001\u8fd0\u7ef4\u65e5\u5fd7\u3001\u91d1\u878d\u884c\u60c5\u53ca\u5927\u6a21\u578bToken\u6d41\u5f0f\u8f93\u51fa\u7b49\u573a\u666f[3]\u3002\n\n## \u7ed3\u8bba\n\u7efc\u5408\u8bc4\u4f30\uff0c\u57282026\u5e74\u7684\u6280\u672f\u6808\u4e2d\uff0c\u82e5\u4e1a\u52a1\u4ec5\u9700\u670d\u52a1\u7aef\u5355\u5411\u6570\u636e\u4e0b\u53d1\uff0cSSE\u51ed\u501f\u4f4e\u590d\u6742\u5ea6\u3001\u9ad8\u517c\u5bb9\u6027\u4e0e\u5185\u7f6e\u5bb9\u9519\u80fd\u529b\uff0c\u662f\u4f18\u4e8eWebSocket\u7684\u6807\u51c6\u5316\u9009\u62e9[4]\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** zh.wiktionary.org \u2014 \u5199 - \u7ef4\u57fa\u8bcd\u5178\uff0c\u81ea\u7531\u7684\u591a\u8bed\u8a00\u8bcd\u5178\nURL: https://zh.wiktionary.org/wiki/%E5%86%99\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5199 - \u7ef4\u57fa\u8bcd\u5178\uff0c\u81ea\u7531\u7684\u591a\u8bed\u8a00\u8bcd\u5178 \u8df3\u8f6c\u5230\u5185\u5bb9 \u7dad\u57fa\u8a5e\u5178\uff0c\u81ea\u7531\u7684\u591a\u8a9e\u8a00\u8a5e\u5178 \u5199 U+5199 , &#20889; \u4e2d\u65e5\u97d3\u7d71\u4e00\u8868\u610f\u6587\u5b57-5199 \u2190 \u5198 [U+5198] \u4e2d\u65e5\u97d3\u7d71\u4e00\u8868\u610f\u6587\u5b57 \u519a \u2192 [U+519A] \u6f22\u5b57 \u5199 \u603b\u7b14\u753b \uff1a 5\u753b \u90e8\u9996 \uff1a \u5196 \uff0b 3 \u756b \u50b3\u7d71\u5b57 \uff1a \u5beb \u5b57\u5f62\u62c6\u89e3\uff0f\u76f8\u95dc\u6d3e\u751f\u6f22\u5b57 \u7cfb\u5217#2056\uff08 \u5199 \uff09\uff1a \u5199 \uff5c \u6cfb \u7cfb\u5217#2362\uff08 \u4e0e \uff09\uff1a \u4e0e \uff5c \u5c7f \uff5c \u7399 \uff5c \u6b24 \uff5c \u5199 \u53c2\u8003 [ \u7f16\u8f91 ] \u5927\u5b57\u6e90 \uff1a292\u9875\uff0c\u7b2c17\u5b57 \u6c49\u8bed\u5927\u5b57\u5178 \uff1a\u7b2c1\u5377\uff0c303\u9875\uff0c\u7b2c1\u5b57 Unihan \u6570\u636e\uff1a U+5199 \u7f16\u7801 [ \u7f16\u8f91 ]...\u300d\n\n<a id=\"ref-2\"></a>**[2]** dong-chinese.com \u2014 \u5199 - Dong Chinese dictionary\nURL: https://www.dong-chinese.com/wiki/%E5%86%99\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5199 - Dong Chinese dictionary Home Search Lists Recent changes Character builder Dong Chinese \u7b80\u4f53 \u7e41\u9ad4 p\u012bny\u012bn \u3105\u3106\u3107\u3108 xi\u011b write Original meaning: relocate Phonosemantic compound. \u5b80 represents the meaning and \u8204 represents the sound. Based on the original meaning \"relocate\". The meaning la...\u300d\n\n<a id=\"ref-3\"></a>**[3]** websocket.org \u2014 WebSocket vs SSE: Which One Should You Use? | WebSocket.org\nURL: https://websocket.org/comparisons/sse\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWebSocket vs SSE: Which One Should You Use? | WebSocket.org Skip to content WebSocket vs SSE: Which One Should You Use? by Matthew O'Riordan \u2022 Published on January 7, 2025 \u2022 Updated March 10, 2026 :::note[Quick Answer] Use SSE for simple server-to-client streaming (notifications,...\u300d\n\n<a id=\"ref-4\"></a>**[4]** svix.com \u2014 Websocket vs Server Sent Events (SSE) | Svix Resources\nURL: https://www.svix.com/resources/faq/websocket-vs-sse\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWebsocket vs Server Sent Events (SSE) | Svix Resources Skip to main content On this page WebSocket vs SSE (Server-Sent Events) WebSockets and server-sent events (SSE) both let a server push data to a client without the client polling for it. The difference is direction. A WebSock...\u300d\n\n<a id=\"ref-5\"></a>**[5]** nimbleway.com \u2014 Server-Sent Events vs WebSockets: Key Differences and Use Cases in 2026\nURL: https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide\n\u539f\u6587\u7247\u6bb5\uff1a\u300cServer-Sent Events vs WebSockets: Key Differences and Use Cases in 2026 Announcing Web Search Agents Self-learning web search for your domain Learn More Login Sign Up Get Expert-Level Web Search for Your AI Agents Let's talk about your use cases and show you how Nimble delivers h...\u300d",
+    "metadata": [
+      "https://www.dong-chinese.com/favicon-32.png",
+      "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_0.png",
+      "https://data.dong-chinese.com/img/sinica/%E5%AF%AB_5.png",
+      "https://i.creativecommons.org/l/by-sa/4.0/88x31.png",
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf972a8/699c65d475d592ff4cf97d2d_nimble-logo_black.svg",
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf97fde_image%20(4).avif",
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699f0cbc59001f48677c09e8_Group%202147257077.png",
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf9816d_699751b8b1f8df87376c8293_1701730813246.jpg"
+    ]
+  }
+}

@@ -1,0 +1,633 @@
+{
+  "timestamp": "2026-08-09T16:16:47.886236",
+  "job_id": "5cf24fbe-69a3-4217-bc40-bf27ac4dbf75",
+  "events": [
+    {
+      "timestamp": "2026-08-09T16:17:15.649595",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '帮我写一个 Django、Flask 与 FastAPI 的对比报告'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:15.673598",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 Software Architect Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:15.713668",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 帮我写一个 Django、Flask 与 FastAPI 的对比报告...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:17.465538",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:46.337059",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Django Flask FastAPI 对比分析 优缺点及应用场景', 'Django vs Flask vs FastAPI performance benchmarks 2026', 'Django vs Flask vs FastAPI scalability and ecosystem comparison', '帮我写一个 Django、Flask 与 FastAPI 的对比报告']...",
+        "metadata": [
+          "Django Flask FastAPI 对比分析 优缺点及应用场景",
+          "Django vs Flask vs FastAPI performance benchmarks 2026",
+          "Django vs Flask vs FastAPI scalability and ecosystem comparison",
+          "帮我写一个 Django、Flask 与 FastAPI 的对比报告"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:46.439311",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Django Flask FastAPI 对比分析 优缺点及应用场景'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:46.455345",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Django vs Flask vs FastAPI performance benchmarks 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:46.472663",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Django vs Flask vs FastAPI scalability and ecosystem comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:46.488944",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '帮我写一个 Django、Flask 与 FastAPI 的对比报告'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:47.412107",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/vipsoft/p/17649262.html\n",
+        "metadata": "https://www.cnblogs.com/vipsoft/p/17649262.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:47.444367",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zhuanlan.zhihu.com/p/686300460\n",
+        "metadata": "https://zhuanlan.zhihu.com/p/686300460"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:47.472001",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://apifox.com/apiskills/fastapi-vs-flask\n",
+        "metadata": "https://apifox.com/apiskills/fastapi-vs-flask"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:47.502542",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.youtube.com/watch?v=nnyVoqfcAl8\n",
+        "metadata": "https://www.youtube.com/watch?v=nnyVoqfcAl8"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:47.530514",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://greyli.com/flask-fastapi\n",
+        "metadata": "https://greyli.com/flask-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:47.551431",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:47.580631",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.169747",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://tech-insider.org/fastapi-vs-flask-2026\n",
+        "metadata": "https://tech-insider.org/fastapi-vs-flask-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.204611",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://medium.com/@inprogrammer/fastapi-vs-flask-vs-django-which-to-choose-in-2026-c51b243174b5\n",
+        "metadata": "https://medium.com/@inprogrammer/fastapi-vs-flask-vs-django-which-to-choose-in-2026-c51b243174b5"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.238546",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.lucentinnovation.com/resources/technology-posts/flask-vs-fastapi-vs-django\n",
+        "metadata": "https://www.lucentinnovation.com/resources/technology-posts/flask-vs-fastapi-vs-django"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.281975",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cipherprojects.com/blog/posts/django-vs-flask-vs-fastapi\n",
+        "metadata": "https://cipherprojects.com/blog/posts/django-vs-flask-vs-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.303051",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloud.tencent.com/developer/article/2294156\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2294156"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.347564",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.zestminds.com/blog/fastapi-vs-django-vs-flask\n",
+        "metadata": "https://www.zestminds.com/blog/fastapi-vs-django-vs-flask"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.372919",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://iivd.net/thread-84608-1-1.html\n",
+        "metadata": "https://iivd.net/thread-84608-1-1.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.406654",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.447631",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.aliyun.com/article/1637395\n",
+        "metadata": "https://developer.aliyun.com/article/1637395"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.487210",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.528333",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.jetbrains.com/zh-hans/pycharm/2025/03/django-flask-fastapi\n",
+        "metadata": "https://blog.jetbrains.com/zh-hans/pycharm/2025/03/django-flask-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.562215",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.youtube.com/watch?v=cNlJCQHSmbE\n",
+        "metadata": "https://www.youtube.com/watch?v=cNlJCQHSmbE"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.589150",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.629482",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.jetbrains.com/pycharm/2025/02/django-flask-fastapi\n",
+        "metadata": "https://blog.jetbrains.com/pycharm/2025/02/django-flask-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.654913",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.695887",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.techforceservices.com/blog/best-python-web-app-framework-django-flask-fastapi\n",
+        "metadata": "https://www.techforceservices.com/blog/best-python-web-app-framework-django-flask-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.736730",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.geeksforgeeks.org/python/comparison-of-fastapi-with-django-and-flask\n",
+        "metadata": "https://www.geeksforgeeks.org/python/comparison-of-fastapi-with-django-and-flask"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.777827",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:49.818425",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:51.870755",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:51.910178",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 13 total images",
+        "metadata": [
+          "http://apifox.com/apiskills/content/images/2023/12/image-100.png",
+          "http://apifox.com/apiskills/content/images/2023/12/image-101.png",
+          "http://apifox.com/apiskills/content/images/2023/12/02_apifox-1.png",
+          "http://apifox.com/apiskills/content/images/2023/12/image-102.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:51.945826",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:51.980785",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: 帮我写一个 Django、Flask 与 FastAPI 的对比报告...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:55.711972",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:55.735020",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 14 total images",
+        "metadata": [
+          "https://blog.jetbrains.com/wp-content/uploads/2025/02/pc-featured_blog_1280x720_en-1.png",
+          "https://www.techforceservices.com/wp-content/uploads/2025/10/Choosing-the-Best-Python-Web-App-Framework.webp",
+          "https://www.techforceservices.com/wp-content/uploads/2026/03/Consulting-Summit-Partner_Horizontal.webp",
+          "https://www.techforceservices.com/wp-content/uploads/2025/08/AI-with-Salesforce-Public-Sector-Solutions.webp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:55.767323",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:55.796347",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Django vs Flask vs FastAPI scalability and ecosystem comparison...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:56.141285",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:56.166515",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 12 total images",
+        "metadata": [
+          "https://tech-insider.org/wp-content/uploads/2026/04/fastapi-vs-flask-2026.jpg",
+          "https://www.zestminds.com/img/shivam.jpg",
+          "https://www.zestminds.com/images/236/fastapi-vs-django-vs-flask-architecture.png",
+          "https://www.zestminds.com/images/236/python-framework-decision-tree.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:56.207633",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:56.242885",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Django vs Flask vs FastAPI performance benchmarks 2026...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:56.913487",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:56.944839",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 12 total images",
+        "metadata": [
+          "https://blog.jetbrains.com/wp-content/uploads/2025/03/pc-featured_blog_1280x720_en.png",
+          "https://blog.jetbrains.com/wp-content/uploads/2026/04/PC-social-BlogFeatured-1280x720-1-4.png",
+          "https://blog.jetbrains.com/wp-content/uploads/2025/11/django_zh-cn.png",
+          "https://blog.jetbrains.com/wp-content/uploads/2025/10/PC-social-BlogFeatured-1280x720-1-12.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:56.985757",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:17:57.025264",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: Django Flask FastAPI 对比分析 优缺点及应用场景...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:18:31.280292",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:18:31.304495",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:18:31.330964",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:18:31.354190",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:18:31.386546",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.027846560000000003",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:18:31.450999",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '帮我写一个 Django、Flask 与 FastAPI 的对比报告'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:19:59.176841",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '帮我写一个 Django、Flask 与 FastAPI 的对比报告'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "帮我写一个 Django、Flask 与 FastAPI 的对比报告",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Django、Flask 与 FastAPI 框架对比报告\n\n在 Python Web 开发领域，Django、Flask 与 FastAPI 长期占据主导地位。截至 2026 年，随着 Python 3.14.6 的稳定发布以及 Django 6.0、Flask 3.1 系列的迭代，三者分别代表了全栈集成、轻量灵活与现代异步 API 三种截然不同的技术路线 [10][11]。本报告从架构哲学、性能表现、工程规范及适用场景四个维度进行深度对比，为技术决策提供客观依据。\n\n## 核心架构与设计哲学\n### 框架定位与底层技术栈\nDjango 诞生于 2005 年，奉行“自带电池”理念，采用 MTV 架构，内置 ORM、身份认证、管理后台与安全中间件，旨在为大型复杂应用提供开箱即用的完整解决方案 [7][8]。Flask 发布于 2010 年，定位为微框架，核心仅包含 Werkzeug WSGI 工具包与 Jinja2 模板引擎，不强制绑定数据库或验证库，赋予开发者极高的组件选择自由度 [7][15]。FastAPI 于 2018 年推出，基于 Starlette 与 Pydantic 构建，原生支持 Python 类型提示，专注于高性能 API 开发 [3][7]。需明确指出，FastAPI 并非通用型框架的直接替代品，其架构本质是“网络层+数据校验层”的胶水组合，与 APIFlask 等基于 Flask 的 API 扩展框架更具可比性 [1]。\n\n### 异步支持与网络接口差异\nFlask 传统上基于同步 WSGI 规范，虽在 2.0 版本后支持异步视图，但整体执行模型仍受限于同步上下文，异步仅作为补充特性 [9][15]。FastAPI 原生采用 ASGI 架构与事件循环，完全支持 `async/await`，属于异步优先（Async-first）设计 [11]。Django 虽为同步优先，但已全面支持 ASGI 与异步视图，配合内置缓存机制可显著优化响应时间，但在纯 API 吞吐场景下仍受限于其全栈架构的额外开销 [8][13]。\n\n## 性能表现与工程规范\n### 吞吐量基准与并发模型\n性能差异直接源于底层网络接口。在简单负载基准测试中，FastAPI 可达到 15,000 至 20,000 次请求/秒，性能约为 Flask 的 6 至 8 倍，与 Node.js 或 Go 框架处于同一梯队 [9]。Flask 在处理高并发 I/O 密集型请求时存在天然瓶颈，需依赖 Gunicorn 等 WSGI 服务器进行多进程扩展 。Django 性能相对保守，但通过数据库连接池、缓存层与异步任务队列的组合，仍能满足企业级高流量场景 [8]。\n\n### 数据验证、文档生成与安全性\nFastAPI 通过类型注解实现请求数据的自动校验与序列化，并内置 OpenAPI 规范，可一键生成 Swagger UI 与 ReDoc 交互式文档，大幅降低前后端联调成本 [3]。Flask 需依赖第三方扩展（如 Flask-RESTX）或手动编写校验逻辑，数据验证与 API 文档均需额外配置 [15]。Django 提供强大的序列化器与分页过滤功能，但构建标准 REST API 通常需引入 Django REST Framework，增加了架构重量 [14]。安全方面，Django 内置防御 XSS、CSRF 与 SQL 注入的中间件；FastAPI 原生支持 OAuth2 与 JWT 认证；Flask 则需开发者自行集成安全扩展并维护依赖链 [8]。\n\n| 维度 | Django | Flask | FastAPI |\n|---|---|---|---|\n| 架构类型 | 全栈框架 (WSGI/ASGI) | 微框架 (WSGI) | 异步 API 框架 (ASGI) |\n| 内置核心 | ORM、Admin、Auth、安全中间件 | 路由、模板、基础请求处理 | 类型校验、自动文档、依赖注入 |\n| 性能基准 | 中等（依赖缓存与异步优化） | 中等（同步为主，扩展性强） | 极高（1.5w-2w QPS） |\n| 学习曲线 | 陡峭（概念多、约定严格） | 平缓（自由度高、需自选组件） | 中等（需掌握异步与类型提示） |\n| 核心风险 | 功能冗余、架构僵化 | 依赖管理复杂、安全需自研 | 生态相对年轻、非全栈 |\n\n## 典型应用场景与选型矩阵\n技术选型应严格匹配业务需求与团队能力。Django 是构建数据库密集型业务系统（如电商平台、内容管理系统、企业后台）的首选，其内置权限管理与 Admin 面板可缩短 30% 以上的开发周期 [11][13]。Flask 适用于轻量级服务、内部工具或需要高度定制技术栈的遗留系统改造，其灵活性在小型团队中优势明显 [10][15]。FastAPI 则是 API 优先架构、AI 模型服务部署、微服务网关及高并发 I/O 场景的最优解，其类型安全与自动文档特性显著提升了\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** greyli.com — 请不要把 Flask 和 FastAPI 放到一起比较 | 李辉 / Grey Li\nURL: https://greyli.com/flask-fastapi\n原文片段：「请不要把 Flask 和 FastAPI 放到一起比较 | 李辉 / Grey Li 目录 + 为什么 Flask 和 FastAPI 不能放到一起比较？ 更合理的比较对象是什么？ 为什么会有这样的误解？ FastAPI 不是银弹 P.S. Flask 2.0 版本即将发布 延伸阅读 The war has begun. Let’s end the war between Flask and FastAPI. 去年在知乎上看到一篇文章，后来想找却找不到了，最后通过关键词「5 分钟」和「四年」在掘金上找到了原文——《 用它5分钟以后，我放弃用了四年的 Fl...」\n\n<a id=\"ref-2\"></a>**[2]** cnblogs.com — Python Web：Django、Flask和FastAPI框架对比 - VipSoft - 博客园\nURL: https://www.cnblogs.com/vipsoft/p/17649262.html\n原文片段：「Python Web：Django、Flask和FastAPI框架对比 - VipSoft - 博客园 VipSoft Python Web：Django、Flask和FastAPI框架对比 Django、Flask和FastAPI是Python Web框架中的三个主要代表。这些框架都有着各自的优点和缺点，适合不同类型和规模的应用程序。 Django： Django是一个全功能的Web框架，它提供了很多内置的应用程序和工具，使得开发Web应用程序更加容易。Django采用了MTV（模型-模板-视图）设计模式，提供ORM等强大的功能，因此适合构建大型、复杂...」\n\n<a id=\"ref-3\"></a>**[3]** apifox.com — FastAPI 与 Flask：Python Web 两大流行框架综合对比\nURL: https://apifox.com/apiskills/fastapi-vs-flask\n原文片段：「FastAPI 与 Flask：Python Web 两大流行框架综合对比 FastAPI 与 Flask：Python Web 两大流行框架综合对比 本文将对 FastAPI 和 Flask 进行综合对比，探讨它们在语法和表达能力、生态系统和社区支持、性能和扩展性等方面的特点 用 Apifox，节省研发团队的每一分钟 FastAPI 与 Flask：Python Web 两大流行框架综合对比 免费使用 Apifox 相关推荐 最新文章 API 一体化协作平台 API 设计 API 文档 API 调试 自动化测试 API Mock API Hub 立即体...」\n\n<a id=\"ref-4\"></a>**[4]** youtube.com — Flask VS Django VS FastAPI - Detailed Comparison & Use Cases - YouTube\nURL: https://www.youtube.com/watch?v=nnyVoqfcAl8\n原文片段：「Flask VS Django VS FastAPI - Detailed Comparison & Use Cases - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket © 2026 Google LLC」\n\n<a id=\"ref-5\"></a>**[5]** youtube.com — FastAPI, Flask or Django - Which Should You Use? - YouTube\nURL: https://www.youtube.com/watch?v=cNlJCQHSmbE\n原文片段：「FastAPI, Flask or Django - Which Should You Use? - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket © 2026 Google LLC」\n\n<a id=\"ref-6\"></a>**[6]** techforceservices.com — Best Python Web App Framework: Django vs Flask vs FastAPI\nURL: https://www.techforceservices.com/blog/best-python-web-app-framework-django-flask-fastapi\n原文片段：「Best Python Web App Framework: Django vs Flask vs FastAPI Back to Blog Choosing the Best Python Web App Framework: Django vs Flask vs FastAPI Updated on October 31, 2025 By: Sowmiya Deepan Technically reviewed by: Krishna Varma Table of Contents Introduction When it comes to web...」\n\n<a id=\"ref-7\"></a>**[7]** geeksforgeeks.org — Comparison of FastAPI with Django and Flask - GeeksforGeeks\nURL: https://www.geeksforgeeks.org/python/comparison-of-fastapi-with-django-and-flask\n原文片段：「Comparison of FastAPI with Django and Flask - GeeksforGeeks Courses Tutorials Interview Prep Python Tutorial Data Types Interview Questions Examples Quizzes DSA Python Data Science NumPy Pandas Practice Django Flask Comparison of FastAPI with Django and Flask Last Updated : 29 Au...」\n\n<a id=\"ref-8\"></a>**[8]** blog.jetbrains.com — Which Is the Best Python Web Framework: Django, Flask, or FastAPI? - The JetBrains Blog\nURL: https://blog.jetbrains.com/pycharm/2025/02/django-flask-fastapi\n原文片段：「Which Is the Best Python Web Framework: Django, Flask, or FastAPI? - The JetBrains Blog PyCharm The only Python IDE you need. Follow Follow: X X Youtube Youtube RSS RSS Download Web Development Which Is the Best Python Web Framework: Django, Flask, or FastAPI? Evgenia Verbina Rea...」\n\n<a id=\"ref-9\"></a>**[9]** tech-insider.org — FastAPI vs Flask: 6-8x Faster + Auto Docs [2026]\nURL: https://tech-insider.org/fastapi-vs-flask-2026\n原文片段：「FastAPI vs Flask: 6-8x Faster + Auto Docs [2026] Skip to content Marcus Chen April 2, 2026 12 min read The Python web framework landscape has undergone a remarkable transformation over the past three years, and nowhere is that shift more visible than in the ongoing debate between...」\n\n<a id=\"ref-10\"></a>**[10]** zestminds.com — FastAPI vs Flask vs Django: Which to Choose in 2026\nURL: https://www.zestminds.com/blog/fastapi-vs-django-vs-flask\n原文片段：「FastAPI vs Flask vs Django: Which to Choose in 2026 Platform Engineering Custom Software Development FastAPI vs Flask vs Django: Performance, Architecture & Use Cases (2026 Guide) FastAPI, Flask, and Django are three widely used Python frameworks, but they solve different backend...」\n\n<a id=\"ref-11\"></a>**[11]** lucentinnovation.com — Flask vs FastAPI vs Django: Best Framework 2026\nURL: https://www.lucentinnovation.com/resources/technology-posts/flask-vs-fastapi-vs-django\n原文片段：「Flask vs FastAPI vs Django: Best Framework 2026 +1-(844) 582-3681 info@lucentinnovation.com SHARE TL;DR Choose Django for database-heavy business applications that need authentication, permissions, admin workflows, and a consistent architecture. Choose FastAPI when the product is...」\n\n<a id=\"ref-12\"></a>**[12]** cipherprojects.com — Django vs Flask vs FastAPI 2026: Performance, Features & Which to Choose | Cipher Projects\nURL: https://cipherprojects.com/blog/posts/django-vs-flask-vs-fastapi\n原文片段：「Django vs Flask vs FastAPI 2026: Performance, Features & Which to Choose | Cipher Projects Back to Blog Web Development Django vs Flask vs FastAPI 2026: Performance, Features & Which to Choose Compare Django, Flask, and FastAPI for 2026: performance benchmarks, built-in features,...」\n\n<a id=\"ref-13\"></a>**[13]** cloud.tencent.com — Django框架：优缺点、实用场景及与Flask、FastAPI的对比-腾讯云开发者社区-腾讯云\nURL: https://cloud.tencent.com/developer/article/2294156\n原文片段：「Django框架：优缺点、实用场景及与Flask、FastAPI的对比-腾讯云开发者社区-腾讯云 江一铭 Django框架：优缺点、实用场景及与Flask、FastAPI的对比 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 江一铭 社区首页 > 专栏 > Django框架：优缺点、实用场景及与Flask、FastAPI的对比 Django框架：优缺点、实用场景及与Flask、FastAPI的对比 江一铭 关注 发布 于 2023-06-04...」\n\n<a id=\"ref-14\"></a>**[14]** developer.aliyun.com — 五大主流Python API框架优缺点与场景选型-开发者社区-阿里云\nURL: https://developer.aliyun.com/article/1637395\n原文片段：「五大主流Python API框架优缺点与场景选型-开发者社区-阿里云 开发者社区 数据库 文章 正文 Python中哪个框架最适合做API？ 2024-11-14 3458 版权 版权声明： 本文内容由阿里云实名注册用户自发贡献，版权归原作者所有，阿里云开发者社区不拥有其著作权，亦不承担相应法律责任。具体规则请查看《 阿里云开发者社区用户服务协议 》和 《 阿里云开发者社区知识产权保护指引 》。如果您发现本社区中有涉嫌抄袭的内容，填写 侵权投诉表单 进行举报，一经查实，本社区将立刻删除涉嫌侵权内容。 简介： 本文介绍了Python生态系统中几个流行的AP...」\n\n<a id=\"ref-15\"></a>**[15]** blog.jetbrains.com — 哪种 Python Web 框架最好：Django、Flask，还是 FastAPI？ - JetBrains 博客\nURL: https://blog.jetbrains.com/zh-hans/pycharm/2025/03/django-flask-fastapi\n原文片段：「哪种 Python Web 框架最好：Django、Flask，还是 FastAPI？ - JetBrains 博客 PyCharm The only Python IDE you need. Follow Follow: X X Youtube Youtube RSS RSS Download Web Development 哪种 Python Web 框架最好：Django、Flask，还是 FastAPI？ Sue Read this post in other languages: English , Deutsch , Español , Fr...」",
+    "metadata": [
+      "http://apifox.com/apiskills/content/images/2023/12/image-100.png",
+      "http://apifox.com/apiskills/content/images/2023/12/image-101.png",
+      "http://apifox.com/apiskills/content/images/2023/12/02_apifox-1.png",
+      "http://apifox.com/apiskills/content/images/2023/12/image-102.png",
+      "https://blog.jetbrains.com/wp-content/uploads/2025/02/pc-featured_blog_1280x720_en-1.png",
+      "https://www.techforceservices.com/wp-content/uploads/2025/10/Choosing-the-Best-Python-Web-App-Framework.webp",
+      "https://www.techforceservices.com/wp-content/uploads/2026/03/Consulting-Summit-Partner_Horizontal.webp",
+      "https://www.techforceservices.com/wp-content/uploads/2025/08/AI-with-Salesforce-Public-Sector-Solutions.webp",
+      "https://tech-insider.org/wp-content/uploads/2026/04/fastapi-vs-flask-2026.jpg",
+      "https://www.zestminds.com/img/shivam.jpg"
+    ]
+  }
+}

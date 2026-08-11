@@ -1,0 +1,3143 @@
+{
+  "task": "开源许可证 GPL、MIT、Apache-2.0 对企业二次开发的影响",
+  "job": {
+    "id": "ec1ad4a7-11fe-49d7-99c6-51df1e2a46fb",
+    "user_id": "shadow-review-7",
+    "tenant_id": "shadow-review",
+    "session_id": "56dcce1b-a960-44cb-a412-1dc7ba2e95e7",
+    "status": "completed",
+    "stage": "finalizing",
+    "progress": "done",
+    "error": null,
+    "payload": {
+      "task": "开源许可证 GPL、MIT、Apache-2.0 对企业二次开发的影响",
+      "tone": "Objective",
+      "headers": null,
+      "user_id": "shadow-review-7",
+      "tenant_id": "shadow-review",
+      "session_id": "56dcce1b-a960-44cb-a412-1dc7ba2e95e7",
+      "mcp_configs": [],
+      "mcp_enabled": false,
+      "report_type": "research_report",
+      "source_urls": [],
+      "total_words": 800,
+      "mcp_strategy": "fast",
+      "document_urls": [],
+      "query_domains": [],
+      "report_source": "web",
+      "report_language": "chinese",
+      "knowledge_policy": "web_first",
+      "max_search_results": null,
+      "force_trusted_sample": true
+    },
+    "result": {
+      "cost": {
+        "status": "completed",
+        "retries": 2,
+        "searches": 4,
+        "llm_calls": 4,
+        "llm_events": [
+          {
+            "ts": 1786287713.090799,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287713.225276,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287713.5006094,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287713.6336722,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287713.8795784,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287714.0177143,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287714.2403567,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287714.3659468,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287714.659984,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287714.813374,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287715.1098194,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287715.2348835,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287715.4311395,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287715.5912967,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287715.7989085,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287715.9378896,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287716.2082016,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287716.344787,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287716.608323,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287716.7316961,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287716.9784281,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287717.096138,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287717.3790016,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287717.522887,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287717.748825,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287717.887442,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287718.078376,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287718.2083917,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287718.4584165,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287718.5939546,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287718.8082201,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287718.9479814,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287719.2284849,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287719.3662815,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287719.6488433,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287719.773387,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287720.0295572,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287720.1658444,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287720.4486406,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287720.5913405,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287720.7747104,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287720.8956466,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.0693111,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287721.1916656,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.4991174,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287721.6469574,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.9387312,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.106564,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.3750157,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.5189571,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.6986246,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.8131077,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.9887795,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.127093,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287723.389572,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.504134,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287723.7887764,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.9066195,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287724.9599624,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287725.1123378,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287728.6897392,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287728.8081622,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287730.8698275,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287730.995038,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287732.8796382,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287733.0052936,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287734.8702111,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287735.003395,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287736.550698,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287736.6725118,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287738.5104563,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287738.662962,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287741.0405858,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287741.1642601,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287741.8909662,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287742.0339153,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287742.760276,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287742.884673,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287743.7635546,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287743.9019673,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "truncations": 0,
+        "rag_degraded": false,
+        "continuations": 0,
+        "model_switches": 2,
+        "chapter_retries": 0,
+        "degrade_reasons": [
+          {
+            "ts": 1786287720.7747004,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287720.8956306,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.0692992,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287721.191651,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.4991002,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287721.6469424,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.9387205,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.1065502,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.375005,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.5189424,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.698611,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.8130934,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.9887683,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.1270773,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287723.389554,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.5041187,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287723.7887652,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.9065857,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287724.9599516,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287725.1123219,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287728.6897275,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287728.8081434,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287730.8698134,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287730.995023,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287732.8796268,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287733.005277,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287734.8702002,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287735.0033786,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287736.5506854,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287736.6724968,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287738.5104434,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287738.6629472,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287741.0405743,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287741.1642447,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287741.8909552,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287742.0339003,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287742.7602656,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287742.8846586,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287743.763542,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287743.9019527,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "scrape_failures": 2,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false
+      },
+      "audit": null,
+      "report": "# 开源许可证 GPL、MIT、Apache-2.0 对企业二次开发的影响分析报告\n\n开源许可证决定了代码的使用、分发和衍生方式，对企业二次开发、集成与商业化具有深远影响。本文针对GPL、MIT及Apache-2.0三种主流协议，分析其在企业场景下的法律义务、合规风险及商业影响。\n\n## 一、GPL：强传染性带来的合规挑战与商业限制\n\nGNU通用公共许可证（GPL）以“版左”著称，具有强传染性。其核心要求是：任何使用GPL代码的衍生作品，在分发时必须以相同的GPL协议开源 [6]。\n\n### 1. 对二次开发的影响\nGPL对企业开发专有软件构成了显著限制。若企业在产品中集成或静态/动态链接了GPL代码并进行分发，整个产品可能被迫开源 [6]。这意味着企业核心代码可能面临“被开源”的风险，严重威胁商业机密和核心竞争力。因此，GPL常被视为商业闭源软件的“禁区”。\n\n### 2. 合规边界\n值得注意的是，GPL的传染性仅在“分发”时触发。若企业仅在内部使用GPL软件进行业务处理（如内部工具），而不向第三方分发，则无需公开源代码 [7]。这为企业留出了内部使用的合规空间。\n\n## 二、MIT：极简宽松背后的合规红线与专利隐忧\n\nMIT许可证是典型的宽松型协议，条款极简，允许用户任意使用、复制、修改及闭源商用，仅需保留原始版权声明和许可文本 [5]。\n\n### 1. 商业友好性与风险\nMIT协议对企业二次开发极为友好，允许将开源代码无缝集成至商业闭源产品中 [6]。然而，宽松不代表无风险。近年来多起合规事件警示企业：**保留版权声明是绝对红线**。\n*   **案例警示**：国内“CEC-IDE”事件中，开发方因未保留VSCode的MIT声明而遭到社区声讨 [1]；“何同学”视频事件亦因删除原作者署名引发争议 [1]。这些案例表明，忽视署名义务将导致严重的声誉与法律风险。\n\n### 2. 专利保护缺失\nMIT协议未包含明确的专利授权条款。这意味着，若代码贡献者拥有相关专利并起诉企业侵权，企业无法依据MIT协议获得防御性保护 [4]。对于涉及复杂专利布局的企业级项目，MIT存在潜在的法律盲区。\n\n## 三、Apache-2.0：企业级开发的法律护盾与专利博弈\n\nApache License 2.0（ALv2）在宽松度上与MIT类似，允许闭源商用，但在法律条款的规范性上更胜一筹，尤其适合企业级应用 [4]。\n\n### 1. 专利授权与防御机制\nALv2最大的优势在于明确的专利条款。协议规定，使用软件所需的所有专利自动授权给用户，且包含“专利反制”条款：若用户因专利问题起诉贡献者，其获得的专利授权将自动终止 [4]。这有效防止了“专利流氓”的骚扰，为企业二次开发提供了法律护盾 [9]。\n\n### 2. 商标与声明义务\nALv2明确不授予商标使用权，避免了下游产品混淆上游品牌的风险 [4]。在合规方面，ALv2要求修改文件中需标注变更说明，并需妥善处理`NOTICE`文件（若存在）[1]。企业在二次开发中需建立严格的代码审计流程，确保符合声明义务。\n\n## 四、综合对比与决策建议\n\n针对企业二次开发的不同需求，三种许可证的核心差异如下表所示：\n\n| 维\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** secrss.com — 5大佛系开源许可协议使用避坑指南 - 安全内参 | 决策者的网络安全知识库\nURL: https://www.secrss.com/articles/77054\n原文片段：「5大佛系开源许可协议使用避坑指南 - 安全内参 | 决策者的网络安全知识库 5大佛系开源许可协议使用避坑指南 互联网 信息通信软件供应链安全社区 2025-03-26 MIT、Apache 2.0、BSD 3-Clause、ISC、Unlicense五大协议暗藏哪些\"生死符\"？ 中国移动-智慧家庭运营中心 郑国忠、王雪珊 开源软件的世界里，许可证（License）就像是一张通行证，决定了代码的使用、分发和衍生方式。对于开发者、创业公司、甚至大厂来说，选错许可证就像踩进法律的雷区，轻则重构代码，重则陷入诉讼。 今天，我们聚焦宽松型开源许可证（Permiss...」\n\n<a id=\"ref-2\"></a>**[2]** allbrightlaw.com — 开源软件项目中Apache许可证合规问题探析 - 专业文章 - 上海市锦天城律师事务所\nURL: https://www.allbrightlaw.com/CN/10475/60ee609a58cc9453.aspx\n原文片段：「开源软件项目中Apache许可证合规问题探析 - 专业文章 - 上海市锦天城律师事务所 你的浏览器版本过低，可能导致网站不能正常访问！ 为了你能正常使用网站功能，请使用这些浏览器。 Chrome Firefox Safari IE9及以上 × 打开微信，扫一扫二维码 订阅我们的微信公众号 × 全站搜索 搜索范围 正文与标题 仅搜标题 搜索 首页 加入我们 联系我们 CN EN JP 锦天城概况 党建工作 专业领域 行业领域 专业人员 全球网络 新闻资讯 出版刊物 订阅下载 首页 锦天城概况 党建工作 专业领域 行业领域 专业人员 全球网络 新闻资讯 出版...」\n\n<a id=\"ref-3\"></a>**[3]** blog.csdn.net — 开源许可证详解：核心区别与适用场景-CSDN博客\nURL: https://blog.csdn.net/m0_74091159/article/details/145420885\n原文片段：「开源许可证详解：核心区别与适用场景-CSDN博客 开源许可证详解：核心区别与适用场景 最新推荐文章于 2026-08-07 16:28:11 发布 原创 最新推荐文章于 2026-08-07 16:28:11 发布 · 2.2k 阅读 · 9 · 19 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 GEO检测 · 收录于 计算机 当前文章被收录于： 计算机 32 篇文章 3 人学习 计算机基础 订阅专栏 查看详情 当前文章被以下社区和专栏收录： 开...」\n\n<a id=\"ref-4\"></a>**[4]** tisonkun.org — 企业开源该选什么软件许可证？ | 夜天之书\nURL: https://tisonkun.org/2022/12/17/enterprise-choose-a-software-license\n原文片段：「企业开源该选什么软件许可证？ | 夜天之书 开源软件和自由软件的概念与其许可证紧密绑定。 通常，开源软件被定义为使用 OSI 认可的，即符合 开源定义 的许可证来分发的软件，而自由软件被定义成使用 GPL 或说 Copyleft 式许可证分发的软件。 尽管今天人们最关心的可能是软件的生产过程即如何进行开源协同，但是为软件选择什么样的许可证，仍然是一个项目启动时必须考虑和决定的问题。某种意义上说，软件可以被如何使用和分发，反过来约束了可能实现的协同模式。 GitHub 维护了 ChooseALicense.com 网站以准确、中立地提供常用开源许可证的介绍...」\n\n<a id=\"ref-5\"></a>**[5]** ningyu1.github.io — 五种开源协议(GPL,LGPL,BSD,MIT,Apache) | 凝雨 - Yun | 快乐编程每一天 - Happy Coding Every Day\nURL: https://ningyu1.github.io/20170919/25-licence.html\n原文片段：「五种开源协议(GPL,LGPL,BSD,MIT,Apache) | 凝雨 - Yun | 快乐编程每一天 - Happy Coding Every Day 凝雨 ningbe111@163.com 五种开源协议(GPL,LGPL,BSD,MIT,Apache) 2017-09-19 Licence 什么是许可协议？ 什么是许可，当你为你的产品签发许可，你是在出让自己的权利，不过，你仍然拥有版权和专利（如果申请了的话），许可的目的是，向使用你产品的人提供 一定的权限。 不管产品是免费向公众分发，还是出售，制定一份许可协议非常有用，否则，对于前者，你相当于放...」\n\n<a id=\"ref-6\"></a>**[6]** junzejun.com — 常见开源许可证的特点剖析与比较\nURL: https://www.junzejun.com/Publications/162538f69de46b-2.html\n原文片段：「常见开源许可证的特点剖析与比较 首页 关于我们 本所介绍 君泽君介绍 君泽君办公室 君泽君文化 发展历程 荣誉奖项 业务领域 专业团队 本所新闻 业务动态 专业及社会活动 本所动态 社会责任 学术研究 加入我们 English 日语 中 EN 日 首页 / 学术研究 学术研究 Publications 上一篇 ：特朗普关税政策（二）： 从美国关税豁免看美国原产地规则 下一篇 ：专利审查档案在专利侵权诉讼中的运用研究 常见开源许可证的特点剖析与比较 发布日期：2025年04月24日 作者：刘良勇 一、引言 在数字化浪潮席卷全球的当下，开源软件凭借其独特优势...」\n\n<a id=\"ref-7\"></a>**[7]** credativ.de — GPL, MIT, or Apache: Choosing the Right License\nURL: https://www.credativ.de/en/blog/credativ-inside/understanding-open-source-licenses-gpl-mit-apache-compared\n原文片段：「GPL, MIT, or Apache: Choosing the Right License Categories: credativ® Inside Tags: Open Source Software Many companies use open-source software without knowing what rights and obligations the respective license—whether GPL, MIT, or Apache—actually entails. Understanding open-sour...」\n\n<a id=\"ref-8\"></a>**[8]** endorlabs.com — Open Source Licensing Simplified: A Comparative Overview of Popular Licenses | Blog | Endor Labs\nURL: https://www.endorlabs.com/learn/open-source-licensing-simplified-a-comparative-overview-of-popular-licenses\n原文片段：「Open Source Licensing Simplified: A Comparative Overview of Popular Licenses | Blog | Endor Labs Meet Endor Labs in Las Vegas for BlackHat 2026 Learn More By clicking “Accept”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and...」\n\n<a id=\"ref-9\"></a>**[9]** exygy.com — {{JfLW1FiZX}}\nURL: https://exygy.com/blog/which-license-should-i-use-mit-vs-apache-vs-gpl\n原文片段：「{{JfLW1FiZX}} Exygy Public Benefits Affordable Housing About Exygy Exygy Public Benefits Affordable Housing About Jun 21, 2016 Which License Should I Use? MIT vs. Apache vs. GPL A guide to knowing which open source licenses to use: MIT, Apache, or GPL and their variants. Most sur...」\n\n<a id=\"ref-10\"></a>**[10]** ijarcce.com — ijarcce.com\nURL: https://ijarcce.com/wp-content/uploads/2026/05/IJARCCE.2026.15589-open.pdf\n原文片段：「ISSN (O) 2278-1021, ISSN (P) 2319-5940 IJARCCE International Journal of Advanced Research in Computer and Communication Engineering Impact Factor 8.471Peer-reviewed & Refereed journalVol. 15, Issue 5, May 2026 DOI: 10.17148/IJARCCE.2026.15589 © IJARCCE This work is licensed u...」",
+      "tenant_id": "shadow-review",
+      "file_paths": {
+        "md": "outputs/task_1786287724_19be3389b8.md",
+        "pdf": "outputs/task_1786287724_19be3389b8.pdf",
+        "docx": "outputs/task_1786287724_19be3389b8.docx",
+        "json": "outputs/job_ec1ad4a7-11fe-49d7-99c6-51df1e2a46fb_1786287452_开源许可证_GPL_MIT_Apache-2_0_对企业二次开发的影响.json"
+      },
+      "session_id": "56dcce1b-a960-44cb-a412-1dc7ba2e95e7",
+      "report_trust": "legacy_unverified",
+      "source_count": 10,
+      "trusted_shadow": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "release_gate:citation_accuracy_below_0.9"
+          ],
+          "total_claims": 0,
+          "supported_claims": 0,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": true,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "error": "citation audit failed",
+        "report": "",
+        "compare": {
+          "legacy_ms": 82331.32910728455,
+          "cost_delta": 0.0,
+          "trusted_ms": 66931.0085773468,
+          "legacy_cost": 0.0,
+          "legacy_chars": 5842,
+          "trusted_cost": 0.0,
+          "trusted_chars": 0,
+          "content_overlap": 0.0,
+          "latency_delta_ms": -15400.32,
+          "legacy_has_citations": true,
+          "trusted_has_citations": false
+        },
+        "artifacts": {
+          "audit": {
+            "warnings": [
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "release_gate:citation_accuracy_below_0.9"
+            ],
+            "total_claims": 0,
+            "supported_claims": 0,
+            "citation_coverage": 1.0,
+            "unsupported_claims": [],
+            "citation_audit_failed": true,
+            "cross_scope_violations": 0,
+            "single_source_numeric_claims": []
+          },
+          "trace": {
+            "spans": [
+              {
+                "ok": true,
+                "meta": {
+                  "report_type": "research_report"
+                },
+                "error": "",
+                "stage": "planner",
+                "span_id": "74076ca3453f",
+                "ended_at": 1786287710.2522678,
+                "started_at": 1786287657.2840168,
+                "duration_ms": 52968.25
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "1"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "4ba3c4092ccb",
+                "ended_at": 1786287712.6132138,
+                "started_at": 1786287710.2627518,
+                "duration_ms": 2350.46
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "1"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "49bde786c11f",
+                "ended_at": 1786287712.6132596,
+                "started_at": 1786287712.6132512,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "1"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "f3fc72c5d04f",
+                "ended_at": 1786287712.6284773,
+                "started_at": 1786287712.6284666,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "2"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "9d2d2205c604",
+                "ended_at": 1786287714.9627883,
+                "started_at": 1786287712.6404023,
+                "duration_ms": 2322.39
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "2"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "866baf5309f5",
+                "ended_at": 1786287714.962862,
+                "started_at": 1786287714.9628506,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "2"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "135584981d74",
+                "ended_at": 1786287714.9941456,
+                "started_at": 1786287714.9941275,
+                "duration_ms": 0.02
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "3"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "3fe6de979409",
+                "ended_at": 1786287717.2433982,
+                "started_at": 1786287715.0097053,
+                "duration_ms": 2233.69
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "3"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "0165a997432e",
+                "ended_at": 1786287717.2434618,
+                "started_at": 1786287717.2434509,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "3"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "8e87215431a0",
+                "ended_at": 1786287717.2650795,
+                "started_at": 1786287717.265069,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "4"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "f1b96d514ec0",
+                "ended_at": 1786287719.5152068,
+                "started_at": 1786287717.2774591,
+                "duration_ms": 2237.75
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "4"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "9e6927418b92",
+                "ended_at": 1786287719.5152564,
+                "started_at": 1786287719.5152476,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "4"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "8dc4b342650b",
+                "ended_at": 1786287719.5360878,
+                "started_at": 1786287719.536078,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "5"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "40eab26b3f43",
+                "ended_at": 1786287721.7986186,
+                "started_at": 1786287719.5483785,
+                "duration_ms": 2250.24
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "5"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "0d25d0d6cba9",
+                "ended_at": 1786287721.7986655,
+                "started_at": 1786287721.798657,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "5"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "e3a92ac9cf95",
+                "ended_at": 1786287721.8225045,
+                "started_at": 1786287721.8224938,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "6"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "49ad2d4bd8f3",
+                "ended_at": 1786287724.1155245,
+                "started_at": 1786287721.834629,
+                "duration_ms": 2280.9
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "6"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "3dc1aaf7965e",
+                "ended_at": 1786287724.1155682,
+                "started_at": 1786287724.1155603,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "6"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "8b8dbcb91ab8",
+                "ended_at": 1786287724.1371632,
+                "started_at": 1786287724.1371522,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "sections": 6
+                },
+                "error": "",
+                "stage": "synthesis",
+                "span_id": "774a7b1a1f07",
+                "ended_at": 1786287724.1491547,
+                "started_at": 1786287724.1491387,
+                "duration_ms": 0.02
+              },
+              {
+                "ok": true,
+                "meta": {},
+                "error": "",
+                "stage": "audit",
+                "span_id": "e84abfe54b23",
+                "ended_at": 1786287724.1614342,
+                "started_at": 1786287724.1611228,
+                "duration_ms": 0.31
+              }
+            ],
+            "by_stage": {
+              "audit": {
+                "ok": true,
+                "meta": {},
+                "error": "",
+                "stage": "audit",
+                "span_id": "e84abfe54b23",
+                "ended_at": 1786287724.1614342,
+                "started_at": 1786287724.1611228,
+                "duration_ms": 0.31
+              },
+              "claim": {
+                "ok": true,
+                "meta": {
+                  "section_id": "6"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "3dc1aaf7965e",
+                "ended_at": 1786287724.1155682,
+                "started_at": 1786287724.1155603,
+                "duration_ms": 0.01
+              },
+              "writer": {
+                "ok": true,
+                "meta": {
+                  "section_id": "6"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "8b8dbcb91ab8",
+                "ended_at": 1786287724.1371632,
+                "started_at": 1786287724.1371522,
+                "duration_ms": 0.01
+              },
+              "planner": {
+                "ok": true,
+                "meta": {
+                  "report_type": "research_report"
+                },
+                "error": "",
+                "stage": "planner",
+                "span_id": "74076ca3453f",
+                "ended_at": 1786287710.2522678,
+                "started_at": 1786287657.2840168,
+                "duration_ms": 52968.25
+              },
+              "evidence": {
+                "ok": true,
+                "meta": {
+                  "section_id": "6"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "49ad2d4bd8f3",
+                "ended_at": 1786287724.1155245,
+                "started_at": 1786287721.834629,
+                "duration_ms": 2280.9
+              },
+              "synthesis": {
+                "ok": true,
+                "meta": {
+                  "sections": 6
+                },
+                "error": "",
+                "stage": "synthesis",
+                "span_id": "774a7b1a1f07",
+                "ended_at": 1786287724.1491547,
+                "started_at": 1786287724.1491387,
+                "duration_ms": 0.02
+              }
+            },
+            "trace_id": "53527e3beb4b47d2b995b1d972d22e75",
+            "total_duration_ms": 66644.14
+          },
+          "claims": [],
+          "report": "",
+          "outline": {
+            "scope": "{'in_scope': ['GPL（含GPLv2与GPLv3）的核心条款及其对二次开发的约束', 'MIT许可证的宽松特性及企业使用场景', 'Apache-2.0许可证的专利条款与企业友好特性', '三种许可证在二次开发场景下的义务对比', '企业合规成本与风险评估', '闭源商业化与开源义务的冲突分析'], 'out_of_scope': ['其他开源许可证（如BSD、LGPL、MPL、AGPL）的详细分析', '具体司法判例的深度法律解读', '特定国家法律体系的详细适用分析', '开源许可证的历史演变细节', '个人开发者或非商业场景的许可证适用']}",
+            "sections": [
+              {
+                "title": "开源许可证基础概念与企业二次开发定义",
+                "purpose": "建立报告的核心概念框架，明确二次开发的法律边界与许可证分类逻辑",
+                "section_id": "1",
+                "search_queries": [
+                  "开源许可证分类 copyleft permissive 区别",
+                  "企业二次开发 开源软件 定义 法律边界",
+                  "开源许可证选择 企业商业影响"
+                ],
+                "depends_on_sections": [],
+                "questions_to_answer": [
+                  "什么是企业二次开发？其法律定义边界如何界定？",
+                  "开源许可证如何分类？copyleft与permissive的核心区别是什么？",
+                  "为何许可证选择对企业商业策略具有战略重要性？"
+                ],
+                "expected_claim_types": [
+                  "definition",
+                  "conceptual_framework",
+                  "category_description"
+                ]
+              },
+              {
+                "title": "GPL许可证对企业二次开发的约束机制",
+                "purpose": "深入分析GPL的传染性条款、分发义务及其对企业闭源商业化的限制",
+                "section_id": "2",
+                "search_queries": [
+                  "GPL许可证 传染性条款 copyleft 详解",
+                  "GPLv2 GPLv3 差异对比 企业影响",
+                  "GPL许可证 企业二次开发 合规义务",
+                  "GPL 闭源商业化 限制 法律风险"
+                ],
+                "depends_on_sections": [
+                  "1"
+                ],
+                "questions_to_answer": [
+                  "GPL的核心条款是什么？何为'传染性'或'copyleft'机制？",
+                  "GPLv2与GPLv3在条款上有何关键差异？",
+                  "企业基于GPL代码进行二次开发时，哪些场景触发开源义务？",
+                  "GPL对企业闭源商业化构成哪些具体限制？",
+                  "企业如何合规使用GPL代码进行内部开发？"
+                ],
+                "expected_claim_types": [
+                  "license_term_analysis",
+                  "obligation_description",
+                  "risk_identification"
+                ]
+              },
+              {
+                "title": "MIT许可证的宽松特性与企业应用优势",
+                "purpose": "阐述MIT许可证的极简条款、最小化约束及其对企业二次开发的友好性",
+                "section_id": "3",
+                "search_queries": [
+                  "MIT许可证 条款内容 企业使用",
+                  "MIT许可证 商业化 闭源 自由度",
+                  "MIT许可证 风险 局限性 专利条款缺失"
+                ],
+                "depends_on_sections": [
+                  "1"
+                ],
+                "questions_to_answer": [
+                  "MIT许可证的核心条款内容是什么？",
+                  "MIT许可证对企业二次开发施加哪些具体义务？",
+                  "MIT许可证在闭源商业化方面为企业提供哪些自由度？",
+                  "MIT许可证的潜在风险或局限性有哪些（如缺乏专利条款）？"
+                ],
+                "expected_claim_types": [
+                  "license_term_analysis",
+                  "freedom_description",
+                  "limitation_identification"
+                ]
+              },
+              {
+                "title": "Apache-2.0许可证的专利保护与企业友好特性",
+                "purpose": "分析Apache-2.0在宽松许可基础上的专利授权机制及其对企业风险管理的价值",
+                "section_id": "4",
+                "search_queries": [
+                  "Apache-2.0许可证 条款详解 专利授权",
+                  "Apache-2.0 MIT许可证 对比差异",
+                  "Apache-2.0 专利反制条款 企业风险",
+                  "Apache-2.0 企业级开源项目 优势"
+                ],
+                "depends_on_sections": [
+                  "1",
+                  "3"
+                ],
+                "questions_to_answer": [
+                  "Apache-2.0许可证的核心条款与MIT有何异同？",
+                  "Apache-2.0的专利授权条款如何运作？对企业有何保护价值？",
+                  "Apache-2.0的专利反制条款是什么？触发条件为何？",
+                  "Apache-2.0的商标条款对企业品牌策略有何影响？",
+                  "为何Apache-2.0被视为企业级开源项目的优选许可证？"
+                ],
+                "expected_claim_types": [
+                  "license_term_analysis",
+                  "patent_clause_description",
+                  "enterprise_benefit"
+                ]
+              },
+              {
+                "title": "三种许可证的对比分析与决策框架",
+                "purpose": "构建系统性的许可证对比维度，为企业提供决策参考框架",
+                "section_id": "5",
+                "search_queries": [
+                  "GPL MIT Apache-2.0 许可证对比 企业选择",
+                  "开源许可证 合规成本 风险评估 框架",
+                  "企业开源许可证选择 决策矩阵",
+                  "混合许可证策略 企业实施"
+                ],
+                "depends_on_sections": [
+                  "2",
+                  "3",
+                  "4"
+                ],
+                "questions_to_answer": [
+                  "三种许可证在开源义务、专利保护、合规成本等维度如何对比？",
+                  "不同商业模式（SaaS、嵌入式、云服务）下许可证选择有何差异？",
+                  "企业如何评估许可证合规成本与法律风险？",
+                  "是否存在混合许可证策略？如何实施？"
+                ],
+                "expected_claim_types": [
+                  "comparative_analysis",
+                  "decision_framework",
+                  "cost_benefit_assessment"
+                ]
+              },
+              {
+                "title": "企业合规实践建议与风险规避策略",
+                "purpose": "提供可操作的合规管理建议，帮助企业规避许可证风险",
+                "section_id": "6",
+                "search_queries": [
+                  "企业开源许可证 合规流程 最佳实践",
+                  "开源代码 许可证标识 追踪管理",
+                  "开源许可证 风险规避 企业法务"
+                ],
+                "depends_on_sections": [
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ],
+                "questions_to_answer": [
+                  "企业应建立哪些开源许可证合规流程？",
+                  "如何进行代码来源追踪与许可证标识？",
+                  "企业法务团队应关注哪些关键合规检查点？",
+                  "如何处理许可证冲突或不确定性场景？"
+                ],
+                "expected_claim_types": [
+                  "best_practice_recommendation",
+                  "process_guidance",
+                  "risk_mitigation_strategy"
+                ]
+              }
+            ],
+            "time_range": "当前适用（2024年），涵盖许可证条款的现行有效版本",
+            "report_thesis": "GPL、MIT、Apache-2.0三种开源许可证对企业二次开发构成截然不同的法律约束与商业影响：GPL的传染性机制要求衍生作品必须开源，显著限制企业的闭源商业化路径；MIT以极简宽松条款赋予企业最大的二次开发自由度；Apache-2.0则在宽松许可的基础上提供专利授权保护，成为企业级项目的平衡选择。企业需根据自身商业模式、技术策略和风险偏好进行许可证选择与合规管理。",
+            "cross_section_questions": [
+              "GPL的传染性是否在SaaS场景下适用？AGPL与GPL的差异如何影响云服务企业？",
+              "企业同时使用多种许可证代码时如何处理许可证兼容性问题？",
+              "贡献者协议（CLA）与企业贡献开源项目时的法律安排如何影响二次开发权利？"
+            ]
+          },
+          "evidence": [],
+          "sections": {
+            "1": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "2": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "3": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "4": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "5": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "6": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            }
+          },
+          "eval_scores": {
+            "details": {
+              "evidence_count": 0,
+              "required_claims": 0,
+              "supported_claims": 0
+            },
+            "duplication_rate": 0.0,
+            "global_coherence": 1.0,
+            "citation_accuracy": 0.0,
+            "citation_coverage": 1.0,
+            "claim_support_rate": 1.0,
+            "fact_conflict_rate": 0.0
+          },
+          "release_gate": {
+            "audit": {
+              "warnings": [
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "release_gate:citation_accuracy_below_0.9"
+              ],
+              "total_claims": 0,
+              "supported_claims": 0,
+              "citation_coverage": 1.0,
+              "unsupported_claims": [],
+              "citation_audit_failed": true,
+              "cross_scope_violations": 0,
+              "single_source_numeric_claims": []
+            },
+            "p95_ms": 66643.83,
+            "passed": false,
+            "scores": {
+              "details": {
+                "evidence_count": 0,
+                "required_claims": 0,
+                "supported_claims": 0
+              },
+              "duplication_rate": 0.0,
+              "global_coherence": 1.0,
+              "citation_accuracy": 0.0,
+              "citation_coverage": 1.0,
+              "claim_support_rate": 1.0,
+              "fact_conflict_rate": 0.0
+            },
+            "reasons": [
+              "citation_accuracy_below_0.9"
+            ],
+            "cost_units": null
+          },
+          "synthesized_markers": ""
+        },
+        "report_trust_if_promoted": "trusted"
+      },
+      "legacy_fallback": false,
+      "trusted_pipeline": {
+        "mode": "shadow",
+        "execution_trace": {
+          "mode": "shadow",
+          "legacy_write": true,
+          "research_only": true,
+          "trusted_write": true,
+          "legacy_write_count": 1,
+          "legacy_write_reason": "shadow",
+          "used_legacy_body_as_claim_source": false,
+          "writer_received_only_verified_claims": true
+        }
+      },
+      "citation_unverified": true,
+      "citation_audit_failed": false
+    },
+    "attempt": 1,
+    "idempotency_key": "shadow-review:806fffa9-d441-496b-9cf7-9a2995b74fb3",
+    "heartbeat_at": 1786287728586,
+    "started_at": 1786287452292,
+    "finished_at": 1786287744519,
+    "enqueued_at": 1786287452094,
+    "next_retry_at": null,
+    "cancel_requested_at": null,
+    "worker_id": "e505f7c5c848:19",
+    "last_error_code": null,
+    "checkpoint_json": {
+      "stage": "finalizing",
+      "budget": {
+        "max_llm_calls": 40,
+        "max_subtopics": 3,
+        "searches_used": 4,
+        "llm_calls_used": 4,
+        "max_output_words": 800,
+        "max_total_searches": 12
+      },
+      "trusted": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "release_gate:citation_accuracy_below_0.9"
+          ],
+          "total_claims": 0,
+          "supported_claims": 0,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": true,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "stage": "citations_injected",
+        "trace": {
+          "spans": [
+            {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "74076ca3453f",
+              "ended_at": 1786287710.2522678,
+              "started_at": 1786287657.2840168,
+              "duration_ms": 52968.25
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "1"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "4ba3c4092ccb",
+              "ended_at": 1786287712.6132138,
+              "started_at": 1786287710.2627518,
+              "duration_ms": 2350.46
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "1"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "49bde786c11f",
+              "ended_at": 1786287712.6132596,
+              "started_at": 1786287712.6132512,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "1"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "f3fc72c5d04f",
+              "ended_at": 1786287712.6284773,
+              "started_at": 1786287712.6284666,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "2"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "9d2d2205c604",
+              "ended_at": 1786287714.9627883,
+              "started_at": 1786287712.6404023,
+              "duration_ms": 2322.39
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "2"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "866baf5309f5",
+              "ended_at": 1786287714.962862,
+              "started_at": 1786287714.9628506,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "2"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "135584981d74",
+              "ended_at": 1786287714.9941456,
+              "started_at": 1786287714.9941275,
+              "duration_ms": 0.02
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "3"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "3fe6de979409",
+              "ended_at": 1786287717.2433982,
+              "started_at": 1786287715.0097053,
+              "duration_ms": 2233.69
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "3"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "0165a997432e",
+              "ended_at": 1786287717.2434618,
+              "started_at": 1786287717.2434509,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "3"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "8e87215431a0",
+              "ended_at": 1786287717.2650795,
+              "started_at": 1786287717.265069,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "4"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "f1b96d514ec0",
+              "ended_at": 1786287719.5152068,
+              "started_at": 1786287717.2774591,
+              "duration_ms": 2237.75
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "4"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "9e6927418b92",
+              "ended_at": 1786287719.5152564,
+              "started_at": 1786287719.5152476,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "4"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "8dc4b342650b",
+              "ended_at": 1786287719.5360878,
+              "started_at": 1786287719.536078,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "5"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "40eab26b3f43",
+              "ended_at": 1786287721.7986186,
+              "started_at": 1786287719.5483785,
+              "duration_ms": 2250.24
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "5"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "0d25d0d6cba9",
+              "ended_at": 1786287721.7986655,
+              "started_at": 1786287721.798657,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "5"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "e3a92ac9cf95",
+              "ended_at": 1786287721.8225045,
+              "started_at": 1786287721.8224938,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "49ad2d4bd8f3",
+              "ended_at": 1786287724.1155245,
+              "started_at": 1786287721.834629,
+              "duration_ms": 2280.9
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "3dc1aaf7965e",
+              "ended_at": 1786287724.1155682,
+              "started_at": 1786287724.1155603,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "8b8dbcb91ab8",
+              "ended_at": 1786287724.1371632,
+              "started_at": 1786287724.1371522,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "sections": 6
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "774a7b1a1f07",
+              "ended_at": 1786287724.1491547,
+              "started_at": 1786287724.1491387,
+              "duration_ms": 0.02
+            },
+            {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "e84abfe54b23",
+              "ended_at": 1786287724.1614342,
+              "started_at": 1786287724.1611228,
+              "duration_ms": 0.31
+            }
+          ],
+          "by_stage": {
+            "audit": {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "e84abfe54b23",
+              "ended_at": 1786287724.1614342,
+              "started_at": 1786287724.1611228,
+              "duration_ms": 0.31
+            },
+            "claim": {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "3dc1aaf7965e",
+              "ended_at": 1786287724.1155682,
+              "started_at": 1786287724.1155603,
+              "duration_ms": 0.01
+            },
+            "writer": {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "8b8dbcb91ab8",
+              "ended_at": 1786287724.1371632,
+              "started_at": 1786287724.1371522,
+              "duration_ms": 0.01
+            },
+            "planner": {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "74076ca3453f",
+              "ended_at": 1786287710.2522678,
+              "started_at": 1786287657.2840168,
+              "duration_ms": 52968.25
+            },
+            "evidence": {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "49ad2d4bd8f3",
+              "ended_at": 1786287724.1155245,
+              "started_at": 1786287721.834629,
+              "duration_ms": 2280.9
+            },
+            "synthesis": {
+              "ok": true,
+              "meta": {
+                "sections": 6
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "774a7b1a1f07",
+              "ended_at": 1786287724.1491547,
+              "started_at": 1786287724.1491387,
+              "duration_ms": 0.02
+            }
+          },
+          "trace_id": "53527e3beb4b47d2b995b1d972d22e75",
+          "total_duration_ms": 66644.14
+        },
+        "report": "",
+        "outline": {
+          "scope": "{'in_scope': ['GPL（含GPLv2与GPLv3）的核心条款及其对二次开发的约束', 'MIT许可证的宽松特性及企业使用场景', 'Apache-2.0许可证的专利条款与企业友好特性', '三种许可证在二次开发场景下的义务对比', '企业合规成本与风险评估', '闭源商业化与开源义务的冲突分析'], 'out_of_scope': ['其他开源许可证（如BSD、LGPL、MPL、AGPL）的详细分析', '具体司法判例的深度法律解读', '特定国家法律体系的详细适用分析', '开源许可证的历史演变细节', '个人开发者或非商业场景的许可证适用']}",
+          "sections": [
+            {
+              "title": "开源许可证基础概念与企业二次开发定义",
+              "purpose": "建立报告的核心概念框架，明确二次开发的法律边界与许可证分类逻辑",
+              "section_id": "1",
+              "search_queries": [
+                "开源许可证分类 copyleft permissive 区别",
+                "企业二次开发 开源软件 定义 法律边界",
+                "开源许可证选择 企业商业影响"
+              ],
+              "depends_on_sections": [],
+              "questions_to_answer": [
+                "什么是企业二次开发？其法律定义边界如何界定？",
+                "开源许可证如何分类？copyleft与permissive的核心区别是什么？",
+                "为何许可证选择对企业商业策略具有战略重要性？"
+              ],
+              "expected_claim_types": [
+                "definition",
+                "conceptual_framework",
+                "category_description"
+              ]
+            },
+            {
+              "title": "GPL许可证对企业二次开发的约束机制",
+              "purpose": "深入分析GPL的传染性条款、分发义务及其对企业闭源商业化的限制",
+              "section_id": "2",
+              "search_queries": [
+                "GPL许可证 传染性条款 copyleft 详解",
+                "GPLv2 GPLv3 差异对比 企业影响",
+                "GPL许可证 企业二次开发 合规义务",
+                "GPL 闭源商业化 限制 法律风险"
+              ],
+              "depends_on_sections": [
+                "1"
+              ],
+              "questions_to_answer": [
+                "GPL的核心条款是什么？何为'传染性'或'copyleft'机制？",
+                "GPLv2与GPLv3在条款上有何关键差异？",
+                "企业基于GPL代码进行二次开发时，哪些场景触发开源义务？",
+                "GPL对企业闭源商业化构成哪些具体限制？",
+                "企业如何合规使用GPL代码进行内部开发？"
+              ],
+              "expected_claim_types": [
+                "license_term_analysis",
+                "obligation_description",
+                "risk_identification"
+              ]
+            },
+            {
+              "title": "MIT许可证的宽松特性与企业应用优势",
+              "purpose": "阐述MIT许可证的极简条款、最小化约束及其对企业二次开发的友好性",
+              "section_id": "3",
+              "search_queries": [
+                "MIT许可证 条款内容 企业使用",
+                "MIT许可证 商业化 闭源 自由度",
+                "MIT许可证 风险 局限性 专利条款缺失"
+              ],
+              "depends_on_sections": [
+                "1"
+              ],
+              "questions_to_answer": [
+                "MIT许可证的核心条款内容是什么？",
+                "MIT许可证对企业二次开发施加哪些具体义务？",
+                "MIT许可证在闭源商业化方面为企业提供哪些自由度？",
+                "MIT许可证的潜在风险或局限性有哪些（如缺乏专利条款）？"
+              ],
+              "expected_claim_types": [
+                "license_term_analysis",
+                "freedom_description",
+                "limitation_identification"
+              ]
+            },
+            {
+              "title": "Apache-2.0许可证的专利保护与企业友好特性",
+              "purpose": "分析Apache-2.0在宽松许可基础上的专利授权机制及其对企业风险管理的价值",
+              "section_id": "4",
+              "search_queries": [
+                "Apache-2.0许可证 条款详解 专利授权",
+                "Apache-2.0 MIT许可证 对比差异",
+                "Apache-2.0 专利反制条款 企业风险",
+                "Apache-2.0 企业级开源项目 优势"
+              ],
+              "depends_on_sections": [
+                "1",
+                "3"
+              ],
+              "questions_to_answer": [
+                "Apache-2.0许可证的核心条款与MIT有何异同？",
+                "Apache-2.0的专利授权条款如何运作？对企业有何保护价值？",
+                "Apache-2.0的专利反制条款是什么？触发条件为何？",
+                "Apache-2.0的商标条款对企业品牌策略有何影响？",
+                "为何Apache-2.0被视为企业级开源项目的优选许可证？"
+              ],
+              "expected_claim_types": [
+                "license_term_analysis",
+                "patent_clause_description",
+                "enterprise_benefit"
+              ]
+            },
+            {
+              "title": "三种许可证的对比分析与决策框架",
+              "purpose": "构建系统性的许可证对比维度，为企业提供决策参考框架",
+              "section_id": "5",
+              "search_queries": [
+                "GPL MIT Apache-2.0 许可证对比 企业选择",
+                "开源许可证 合规成本 风险评估 框架",
+                "企业开源许可证选择 决策矩阵",
+                "混合许可证策略 企业实施"
+              ],
+              "depends_on_sections": [
+                "2",
+                "3",
+                "4"
+              ],
+              "questions_to_answer": [
+                "三种许可证在开源义务、专利保护、合规成本等维度如何对比？",
+                "不同商业模式（SaaS、嵌入式、云服务）下许可证选择有何差异？",
+                "企业如何评估许可证合规成本与法律风险？",
+                "是否存在混合许可证策略？如何实施？"
+              ],
+              "expected_claim_types": [
+                "comparative_analysis",
+                "decision_framework",
+                "cost_benefit_assessment"
+              ]
+            },
+            {
+              "title": "企业合规实践建议与风险规避策略",
+              "purpose": "提供可操作的合规管理建议，帮助企业规避许可证风险",
+              "section_id": "6",
+              "search_queries": [
+                "企业开源许可证 合规流程 最佳实践",
+                "开源代码 许可证标识 追踪管理",
+                "开源许可证 风险规避 企业法务"
+              ],
+              "depends_on_sections": [
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "questions_to_answer": [
+                "企业应建立哪些开源许可证合规流程？",
+                "如何进行代码来源追踪与许可证标识？",
+                "企业法务团队应关注哪些关键合规检查点？",
+                "如何处理许可证冲突或不确定性场景？"
+              ],
+              "expected_claim_types": [
+                "best_practice_recommendation",
+                "process_guidance",
+                "risk_mitigation_strategy"
+              ]
+            }
+          ],
+          "time_range": "当前适用（2024年），涵盖许可证条款的现行有效版本",
+          "report_thesis": "GPL、MIT、Apache-2.0三种开源许可证对企业二次开发构成截然不同的法律约束与商业影响：GPL的传染性机制要求衍生作品必须开源，显著限制企业的闭源商业化路径；MIT以极简宽松条款赋予企业最大的二次开发自由度；Apache-2.0则在宽松许可的基础上提供专利授权保护，成为企业级项目的平衡选择。企业需根据自身商业模式、技术策略和风险偏好进行许可证选择与合规管理。",
+          "cross_section_questions": [
+            "GPL的传染性是否在SaaS场景下适用？AGPL与GPL的差异如何影响云服务企业？",
+            "企业同时使用多种许可证代码时如何处理许可证兼容性问题？",
+            "贡献者协议（CLA）与企业贡献开源项目时的法律安排如何影响二次开发权利？"
+          ]
+        },
+        "sections": {
+          "1": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "2": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "3": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "4": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "5": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "6": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          }
+        },
+        "eval_scores": {
+          "details": {
+            "evidence_count": 0,
+            "required_claims": 0,
+            "supported_claims": 0
+          },
+          "duplication_rate": 0.0,
+          "global_coherence": 1.0,
+          "citation_accuracy": 0.0,
+          "citation_coverage": 1.0,
+          "claim_support_rate": 1.0,
+          "fact_conflict_rate": 0.0
+        },
+        "synthesized": "",
+        "document_map": []
+      },
+      "llm_trace": [
+        {
+          "ts": 1786287713.090799,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287713.225276,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287713.5006094,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287713.6336722,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287713.8795784,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287714.0177143,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287714.2403567,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287714.3659468,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287714.659984,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287714.813374,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287715.1098194,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287715.2348835,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287715.4311395,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287715.5912967,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287715.7989085,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287715.9378896,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287716.2082016,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287716.344787,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287716.608323,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287716.7316961,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287716.9784281,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287717.096138,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287717.3790016,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287717.522887,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287717.748825,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287717.887442,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287718.078376,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287718.2083917,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287718.4584165,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287718.5939546,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287718.8082201,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287718.9479814,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287719.2284849,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287719.3662815,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287719.6488433,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287719.773387,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287720.0295572,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287720.1658444,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287720.4486406,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287720.5913405,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287720.7747104,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287720.8956466,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287721.0693111,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287721.1916656,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287721.4991174,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287721.6469574,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287721.9387312,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287722.106564,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287722.3750157,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287722.5189571,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287722.6986246,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287722.8131077,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287722.9887795,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287723.127093,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287723.389572,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287723.504134,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287723.7887764,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287723.9066195,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287724.9599624,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287725.1123378,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287728.6897392,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287728.8081622,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287730.8698275,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287730.995038,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287732.8796382,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287733.0052936,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287734.8702111,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287735.003395,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287736.550698,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287736.6725118,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287738.5104563,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287738.662962,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287741.0405858,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287741.1642601,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287741.8909662,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287742.0339153,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287742.760276,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287742.884673,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786287743.7635546,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786287743.9019673,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        }
+      ],
+      "file_paths": {
+        "md": "outputs/task_1786287724_19be3389b8.md",
+        "pdf": "outputs/task_1786287724_19be3389b8.pdf",
+        "docx": "outputs/task_1786287724_19be3389b8.docx",
+        "json": "outputs/job_ec1ad4a7-11fe-49d7-99c6-51df1e2a46fb_1786287452_开源许可证_GPL_MIT_Apache-2_0_对企业二次开发的影响.json"
+      },
+      "files_done": true,
+      "degradations": {
+        "reasons": [
+          {
+            "ts": 1786287720.7747004,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287720.8956306,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.0692992,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287721.191651,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.4991002,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287721.6469424,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287721.9387205,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.1065502,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.375005,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.5189424,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.698611,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287722.8130934,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287722.9887683,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.1270773,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287723.389554,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.5041187,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287723.7887652,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287723.9065857,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287724.9599516,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287725.1123219,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287728.6897275,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287728.8081434,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287730.8698134,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287730.995023,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287732.8796268,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287733.005277,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287734.8702002,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287735.0033786,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287736.5506854,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287736.6724968,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287738.5104434,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287738.6629472,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287741.0405743,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287741.1642447,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287741.8909552,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287742.0339003,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287742.7602656,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287742.8846586,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786287743.763542,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786287743.9019527,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "rag_degraded": false,
+        "scrape_failures": 2,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false,
+        "scrape_failure_samples": [
+          {
+            "url": "https://pdf.hanspub.org/csa20211200000_33647650.pdf",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "url": "https://www.quora.com/Whats-the-difference-between-Apache-v2-0-and-MIT-license-What-are-the-major-consequences-of-using-Apache-software-over-MIT",
+            "reason": "too_short",
+            "quality": "low"
+          }
+        ]
+      },
+      "planning_done": true,
+      "research_done": true,
+      "source_policy": {
+        "mode": "web",
+        "reason": "policy_web_first"
+      },
+      "planning_started": true,
+      "report_body_done": true,
+      "report_persisted": true
+    },
+    "version": 20,
+    "created_at": 1786287452057,
+    "updated_at": 1786287744553
+  }
+}

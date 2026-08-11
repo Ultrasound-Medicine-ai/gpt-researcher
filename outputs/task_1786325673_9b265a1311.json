@@ -1,0 +1,414 @@
+{
+  "timestamp": "2026-08-10T01:34:33.567124",
+  "events": [
+    {
+      "timestamp": "2026-08-10T01:34:52.548167",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:34:52.572615",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:34:52.613752",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:34:54.325612",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:29.091330",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['WebSocket \u6280\u672f\u8c03\u7814 \u539f\u7406 \u4f18\u7f3a\u70b9 \u5e94\u7528\u573a\u666f', 'WebSocket protocol overview advantages and limitations compared to HTTP', '\u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57']...",
+        "metadata": [
+          "WebSocket \u6280\u672f\u8c03\u7814 \u539f\u7406 \u4f18\u7f3a\u70b9 \u5e94\u7528\u573a\u666f",
+          "WebSocket protocol overview advantages and limitations compared to HTTP",
+          "\u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:29.160857",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'WebSocket \u6280\u672f\u8c03\u7814 \u539f\u7406 \u4f18\u7f3a\u70b9 \u5e94\u7528\u573a\u666f'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:29.185494",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'WebSocket protocol overview advantages and limitations compared to HTTP'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:29.210988",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.171195",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://juejin.cn/post/7473076469364965410\n",
+        "metadata": "https://juejin.cn/post/7473076469364965410"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.200298",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.digitalsamba.com/blog/websocket-vs-http\n",
+        "metadata": "https://www.digitalsamba.com/blog/websocket-vs-http"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.229437",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://ably.com/topic/websockets\n",
+        "metadata": "https://ably.com/topic/websockets"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.278318",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://cloud.baidu.com/article/3136817\n",
+        "metadata": "https://cloud.baidu.com/article/3136817"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.309481",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.youtube.com/watch?v=d3RJ9o7pXG4\n",
+        "metadata": "https://www.youtube.com/watch?v=d3RJ9o7pXG4"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.362462",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.ruanyifeng.com/blog/2017/05/websocket.html\n",
+        "metadata": "https://www.ruanyifeng.com/blog/2017/05/websocket.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.414883",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.aliyun.com/article/1598468\n",
+        "metadata": "https://developer.aliyun.com/article/1598468"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.448285",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.postman.com/websockets-vs-http-key-differences-explained\n",
+        "metadata": "https://blog.postman.com/websockets-vs-http-key-differences-explained"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.485344",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://tools.ietf.org/html/rfc6455\n",
+        "metadata": "https://tools.ietf.org/html/rfc6455"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.530630",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.568241",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.600167",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.660395",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.700513",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:32.740082",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:33.339560",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:33.372871",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 1 new images from 1 total images",
+        "metadata": [
+          "https://ucc.alicdn.com/avatar/avatar3.jpg?x-oss-process=image/resize,h_150,m_lfit"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:33.411117",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:33.445389",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: WebSocket \u6280\u672f\u8c03\u7814 \u539f\u7406 \u4f18\u7f3a\u70b9 \u5e94\u7528\u573a\u666f...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.133177",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.163265",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.194084",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.225545",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.260285",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.295996",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.323181",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.356223",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for '\u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.380126",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for 'WebSocket protocol overview advantages and limitations compared to HTTP'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.409046",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.027605",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:35:42.475294",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T01:36:32.538970",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u5e2e\u6211\u8c03\u7814WebSocket\uff0c\u8981\u6c42\u4e24\u767e\u5b57'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# WebSocket\u6280\u672f\u8c03\u7814\n## \u6838\u5fc3\u539f\u7406\nWebSocket\u662f\u57fa\u4e8eTCP\u7684\u5168\u53cc\u5de5\u901a\u4fe1\u534f\u8bae\uff0c\u901a\u8fc7\u4e00\u6b21HTTP\u63e1\u624b\u5347\u7ea7\u4e3a\u6301\u4e45\u8fde\u63a5\uff0c\u5b9e\u73b0\u5ba2\u6237\u7aef\u4e0e\u670d\u52a1\u5668\u7684\u53cc\u5411\u5b9e\u65f6\u6570\u636e\u6d41\u4f20\u8f93[2]\u3002\u8be5\u673a\u5236\u5f7b\u5e95\u6452\u5f03\u4f20\u7edfHTTP\u65e0\u72b6\u6001\u8bf7\u6c42\u6a21\u578b\uff0c\u652f\u6301\u670d\u52a1\u5668\u4e3b\u52a8\u63a8\u9001\u6570\u636e[3]\u3002\n\n## \u4f18\u7f3a\u70b9\u5bf9\u6bd4\n| \u7ef4\u5ea6 | \u6838\u5fc3\u7279\u5f81 |\n|---|---|\n| \u4f18\u52bf | \u6781\u4f4e\u5ef6\u8fdf\u4e0e\u9ad8\u541e\u5410\uff0c\u6d88\u9664\u8f6e\u8be2\u5197\u4f59\u5f00\u9500\uff0c\u9002\u7528\u4e8e\u5373\u65f6\u901a\u8baf\u3001\u5728\u7ebf\u534f\u4f5c\u53ca\u5b9e\u65f6\u884c\u60c5[1]\u3002 |\n| \u5c40\u9650 | \u6d77\u91cf\u5e76\u53d1\u663e\u8457\u6d88\u8017\u670d\u52a1\u5668\u5185\u5b58\u4e0e\u6587\u4ef6\u63cf\u8ff0\u7b26\uff1b\u9700\u989d\u5916\u5904\u7406\u5fc3\u8df3\u4fdd\u6d3b\u3001\u8de8\u57df\u914d\u7f6e\u53ca\u9632\u706b\u5899\u7a7f\u900f[1]\u3002 |\n\n## \u5b9e\u8df5\u5efa\u8bae\n\u751f\u4ea7\u73af\u5883\u5e94\u4f18\u5148\u91c7\u7528WSS\u534f\u8bae\u4fdd\u969c\u4f20\u8f93\u5b89\u5168\uff0c\u5e76\u5efa\u7acb\u5b8c\u5584\u7684\u8fde\u63a5\u751f\u547d\u5468\u671f\u7ba1\u7406\u4e0e\u5f02\u5e38\u91cd\u8fde\u673a\u5236\u3002\u5bf9\u4e8e\u5f3a\u53cc\u5411\u4ea4\u4e92\u4e1a\u52a1\uff0cWebSocket\u4e3a\u6700\u4f18\u89e3\uff1b\u82e5\u4ec5\u9700\u670d\u52a1\u5668\u5355\u5411\u63a8\u9001\uff0c\u53ef\u8bc4\u4f30SSE\u65b9\u6848[3]\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** developer.aliyun.com \u2014 \u5168\u9762\u5256\u6790WebSocket\u6280\u672f\u4f18\u7f3a\u70b9\u4e0e\u5b9e\u8df5\u8003\u91cf-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91\nURL: https://developer.aliyun.com/article/1598468\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5168\u9762\u5256\u6790WebSocket\u6280\u672f\u4f18\u7f3a\u70b9\u4e0e\u5b9e\u8df5\u8003\u91cf-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u5b89\u5168 \u6587\u7ae0 \u6b63\u6587 websocket\u4f18\u7f3a\u70b9 2024-08-28 1273 \u7248\u6743 \u7248\u6743\u58f0\u660e\uff1a \u672c\u6587\u5185\u5bb9\u7531\u963f\u91cc\u4e91\u5b9e\u540d\u6ce8\u518c\u7528\u6237\u81ea\u53d1\u8d21\u732e\uff0c\u7248\u6743\u5f52\u539f\u4f5c\u8005\u6240\u6709\uff0c\u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u4e0d\u62e5\u6709\u5176\u8457\u4f5c\u6743\uff0c\u4ea6\u4e0d\u627f\u62c5\u76f8\u5e94\u6cd5\u5f8b\u8d23\u4efb\u3002\u5177\u4f53\u89c4\u5219\u8bf7\u67e5\u770b\u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u7528\u6237\u670d\u52a1\u534f\u8bae \u300b\u548c \u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u77e5\u8bc6\u4ea7\u6743\u4fdd\u62a4\u6307\u5f15 \u300b\u3002\u5982\u679c\u60a8\u53d1\u73b0\u672c\u793e\u533a\u4e2d\u6709\u6d89\u5acc\u6284\u88ad\u7684\u5185\u5bb9\uff0c\u586b\u5199 \u4fb5\u6743\u6295\u8bc9\u8868\u5355 \u8fdb\u884c\u4e3e\u62a5\uff0c\u4e00\u7ecf\u67e5\u5b9e\uff0c\u672c\u793e\u533a\u5c06\u7acb\u523b\u5220\u9664\u6d89\u5acc\u4fb5\u6743\u5185\u5bb9\u3002 \u7b80\u4ecb\uff1a websocket\u4f18\u7f3a\u70b9 \u4f18\u70b9\uff1a \u5b9e\u65f6\u901a\u4fe1\uff1aWebSocket...\u300d\n\n<a id=\"ref-2\"></a>**[2]** juejin.cn \u2014 \u6df1\u5165\u89e3\u6790\uff1aWebSocket\u3001\u77ed\u8f6e\u8be2\u3001\u957f\u8f6e\u8be2\u3001\u957f\u8fde\u63a5\uff08\u539f\u7406\u5230\u5b9e\u73b0\uff09\u4ece\u539f\u7406\u5230\u5b9e\u6218\uff1a\u6df1\u5ea6\u5256\u6790\u77ed\u8f6e\u8be2\u3001\u957f\u8f6e\u8be2\u3001\u957f\u8fde\u63a5\u53ca Web - \u6398\u91d1\nURL: https://juejin.cn/post/7473076469364965410\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u6df1\u5165\u89e3\u6790\uff1aWebSocket\u3001\u77ed\u8f6e\u8be2\u3001\u957f\u8f6e\u8be2\u3001\u957f\u8fde\u63a5\uff08\u539f\u7406\u5230\u5b9e\u73b0\uff09\u4ece\u539f\u7406\u5230\u5b9e\u6218\uff1a\u6df1\u5ea6\u5256\u6790\u77ed\u8f6e\u8be2\u3001\u957f\u8f6e\u8be2\u3001\u957f\u8fde\u63a5\u53ca Web - \u6398\u91d1 \u6df1\u5165\u89e3\u6790\uff1aWebSocket\u3001\u77ed\u8f6e\u8be2\u3001\u957f\u8f6e\u8be2\u3001\u957f\u8fde\u63a5\uff08\u539f\u7406\u5230\u5b9e\u73b0\uff09 Eliauk__ 2025-02-20 659 \u9605\u8bfb8\u5206\u949f \u4ece\u539f\u7406\u5230\u5b9e\u6218\uff1a\u6df1\u5ea6\u5256\u6790\u77ed\u8f6e\u8be2\u3001\u957f\u8f6e\u8be2\u3001\u957f\u8fde\u63a5\u53ca WebSocket \u7684\u5b9e\u73b0\u4e0e\u5dee\u5f02 \u5728\u65e5\u5e38\u5f00\u53d1\u4e2d\uff0c\u77ed\u8f6e\u8be2\u3001\u957f\u8f6e\u8be2\u3001\u957f\u8fde\u63a5\u548cWebSocket\u662f\u5e38\u89c1\u7684\u51e0\u79cd\u901a\u4fe1\u6280\u672f\uff0c\u5404\u81ea\u9002\u7528\u4e8e\u4e0d\u540c\u7684\u573a\u666f\u3002\u672c\u6587\u5c06\u6df1\u5165\u5206\u6790\u8fd9\u56db\u79cd\u6280\u672f\uff0c\u4ece\u539f\u7406\u5230\u5b9e\u73b0\uff0c\u5e76\u63a2\u8ba8\u5b83\u4eec\u7684\u4f18\u7f3a\u70b9\u53ca\u80cc\u540e\u7684\u8bbe\u8ba1\u7406\u5ff5\u3002 \u4e00\u3001\u77ed\u8f6e\u8be2\uff08Polling\uff09 1.1 \u539f...\u300d\n\n<a id=\"ref-3\"></a>**[3]** cloud.baidu.com \u2014 Web\u5b9e\u65f6\u901a\u4fe1\u6280\u672f\u8c03\u7814\uff1a\u957f\u8f6e\u8be2\u3001\u77ed\u8f6e\u8be2\u3001WebSocket \u548c SSE\nURL: https://cloud.baidu.com/article/3136817\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWeb\u5b9e\u65f6\u901a\u4fe1\u6280\u672f\u8c03\u7814\uff1a\u957f\u8f6e\u8be2\u3001\u77ed\u8f6e\u8be2\u3001WebSocket \u548c SSE Web\u5b9e\u65f6\u901a\u4fe1\u6280\u672f\u8c03\u7814\uff1a\u957f\u8f6e\u8be2\u3001\u77ed\u8f6e\u8be2\u3001WebSocket \u548c SSE \u4f5c\u8005\uff1a \u534a\u540a\u5b50\u5168\u6808\u5de5\u5320 2024.02.19 01:27 \u6d4f\u89c8\u91cf\uff1a 37 \u7b80\u4ecb\uff1a \u672c\u6587\u5c06\u8be6\u7ec6\u4ecb\u7ecdWeb\u5b9e\u65f6\u901a\u4fe1\u6280\u672f\u4e2d\u7684\u957f\u8f6e\u8be2\u3001\u77ed\u8f6e\u8be2\u3001WebSocket\u548cSSE\u7684\u5b9e\u73b0\u539f\u7406\u548c\u4f18\u7f3a\u70b9\uff0c\u4ee5\u53ca\u5b83\u4eec\u5728\u5b9e\u8df5\u4e2d\u7684\u5e94\u7528\u573a\u666f\u3002\u901a\u8fc7\u5bf9\u8fd9\u56db\u79cd\u6280\u672f\u7684\u6df1\u5165\u4e86\u89e3\uff0c\u4f60\u5c06\u80fd\u591f\u6839\u636e\u5b9e\u9645\u9700\u6c42\u9009\u62e9\u6700\u9002\u5408\u7684\u901a\u4fe1\u65b9\u5f0f\u3002 \u5728Web\u5f00\u53d1\u4e2d\uff0c\u5b9e\u65f6\u901a\u4fe1\u6280\u672f\u662f\u5b9e\u73b0\u7528\u6237\u4e0e\u670d\u52a1\u5668\u4e4b\u95f4\u5373\u65f6\u4e92\u52a8\u7684\u5173\u952e\u3002\u968f\u7740Web\u6280\u672f\u7684\u53d1\u5c55\uff0c\u51fa\u73b0\u4e86\u591a\u79cd\u5b9e\u65f6\u901a\u4fe1\u6280\u672f\uff0c\u5176\u4e2d\u957f\u8f6e\u8be2\u3001\u77ed\u8f6e\u8be2\u3001We...\u300d",
+    "metadata": [
+      "https://ucc.alicdn.com/avatar/avatar3.jpg?x-oss-process=image/resize,h_150,m_lfit"
+    ]
+  }
+}

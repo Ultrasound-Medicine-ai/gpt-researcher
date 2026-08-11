@@ -1,0 +1,54 @@
+{
+  "created_at": "20260809T135430Z",
+  "api": "http://localhost:8000",
+  "force_sample": true,
+  "count": 5,
+  "shadow_hits": 0,
+  "items": [
+    {
+      "n": 1,
+      "job_id": "88abfaf1-a954-4e34-a777-fcdc0f3f0a43",
+      "task": "Redis 分布式锁的实现原理与常见坑，控制在800字以内",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "01_88abfaf1-a954-4e34-a777-fcdc0f3f0a43.md"
+    },
+    {
+      "n": 2,
+      "job_id": "c1cd71ad-ed88-4e96-8f16-c677446cd2ee",
+      "task": "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "02_c1cd71ad-ed88-4e96-8f16-c677446cd2ee.md"
+    },
+    {
+      "n": 3,
+      "job_id": "7556b993-4a98-4487-a545-5f886f5c6911",
+      "task": "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "03_7556b993-4a98-4487-a545-5f886f5c6911.md"
+    },
+    {
+      "n": 4,
+      "job_id": "6b65c7ef-63eb-4e64-86cb-e23f65085138",
+      "task": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "04_6b65c7ef-63eb-4e64-86cb-e23f65085138.md"
+    },
+    {
+      "n": 5,
+      "job_id": "d52c741a-aac6-45d1-961b-a6bb295308e9",
+      "task": "大模型应用里 Prompt 注入攻击的典型手法与防护要点",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "05_d52c741a-aac6-45d1-961b-a6bb295308e9.md"
+    }
+  ]
+}

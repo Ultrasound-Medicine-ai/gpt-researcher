@@ -1,0 +1,437 @@
+{
+  "timestamp": "2026-08-10T12:06:28.385003",
+  "job_id": "5b10467c-f277-4678-b7a9-07ec60bd0923",
+  "events": [
+    {
+      "timestamp": "2026-08-10T12:06:33.235831",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '用80字介绍 Redis 核心用途'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:33.259786",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "Default Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:33.288887",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 用80字介绍 Redis 核心用途...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:34.036104",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:37.441279",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Redis 核心用途 80字 介绍', 'Redis core use cases caching database message broker', '用80字介绍 Redis 核心用途']...",
+        "metadata": [
+          "Redis 核心用途 80字 介绍",
+          "Redis core use cases caching database message broker",
+          "用80字介绍 Redis 核心用途"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:37.472868",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis 核心用途 80字 介绍'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:37.489760",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Redis core use cases caching database message broker'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:37.511875",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '用80字介绍 Redis 核心用途'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.671646",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.aliyun.com/article/618702\n",
+        "metadata": "https://developer.aliyun.com/article/618702"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.692218",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/wk-missQ1/p/16107976.html\n",
+        "metadata": "https://www.cnblogs.com/wk-missQ1/p/16107976.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.752248",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/strongmore/p/17131266.html\n",
+        "metadata": "https://www.cnblogs.com/strongmore/p/17131266.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.779001",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book\n",
+        "metadata": "https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.832372",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://qiankunli.github.io/2020/08/04/redis_practice.html\n",
+        "metadata": "https://qiankunli.github.io/2020/08/04/redis_practice.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.859676",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn\n",
+        "metadata": "https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.908310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.936548",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:38.991509",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:39.028183",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:40.426309",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.infoworld.com/article/2258622/redis-6-a-high-speed-database-cache-and-message-broker.html\n",
+        "metadata": "https://www.infoworld.com/article/2258622/redis-6-a-high-speed-database-cache-and-message-broker.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:40.611924",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.codingshuttle.com/blogs/master-redis-and-caching-a-practical-guide-for-modern-backend-development\n",
+        "metadata": "https://www.codingshuttle.com/blogs/master-redis-and-caching-a-practical-guide-for-modern-backend-development"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:40.789497",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://redis.io/solutions/caching\n",
+        "metadata": "https://redis.io/solutions/caching"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:40.881683",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:41.001160",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:41.866349",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:41.898129",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:41.975377",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 21 total images",
+        "metadata": [
+          "https://files.cnblogs.com/files/strongmore/cube01.gif",
+          "https://files.cnblogs.com/files/strongmore/cube02.gif",
+          "https://files.cnblogs.com/files/strongmore/cube03.gif",
+          "https://files.cnblogs.com/files/strongmore/cube04.gif"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.013211",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 13 total images",
+        "metadata": [
+          "https://pegasuswang.readthedocs.io/zh/latest/database/ziplist.png",
+          "https://pegasuswang.readthedocs.io/zh/latest/database/intset.png",
+          "https://pegasuswang.readthedocs.io/zh/latest/database/quicklist.png",
+          "https://pegasuswang.readthedocs.io/zh/latest/database/quicklist1.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.080816",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.125371",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.773738",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.821916",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.897846",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.933824",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 21 total images",
+        "metadata": [
+          "https://legacy-us-images.foundryco.app/images/article/2020/06/redis-6-review-01-100849269-large.jpg",
+          "https://legacy-us-images.foundryco.app/images/article/2020/06/redis-6-review-03-100849270-large.jpg",
+          "https://legacy-us-images.foundryco.app/images/article/2020/06/redis-6-review-04-100849268-large.jpg",
+          "https://cs-prod-assets-bucket.s3.ap-south-1.amazonaws.com/Caching_And_Redis_Thumbnail_7752a718ed.webp"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:42.974814",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:43.266668",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:43.533826",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (3483 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:43.562325",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.026455000000000003",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:06:43.626080",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '用80字介绍 Redis 核心用途'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T12:07:08.750486",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '用80字介绍 Redis 核心用途'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "用80字介绍 Redis 核心用途",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Redis 核心用途：高性能内存数据平台的多维定位\n\nRedis 并非单一功能的缓存工具，而是一个**多功能、高并发、低延迟的内存数据平台**，其核心用途覆盖缓存加速、会话管理、分布式协调、实时消息传递、限流计数与轻量级存储六大关键领域。根据权威技术实践与架构文档，Redis 在现代后端系统中承担着不可替代的基础设施角色：97% 的高性能系统采用 Redis 作为缓存层；其单线程事件驱动模型可实现微秒级响应，官方实测吞吐达 10 万+ QPS；支持 String、Hash、List、Set、Sorted Set、Bitmap、HyperLogLog、Stream 八大原生数据结构，远超 Memcached 等纯字符串缓存系统 [8][2][4]。\n\n## 一、高速缓存：降低数据库负载的核心减压阀\n\n缓存是 Redis 最广为人知且最基础的用途。它通过将高频读取、低频变更的数据（如商品详情、用户资料、API 响应）暂存于内存，显著减少对底层关系型数据库（如 MySQL）的 I/O 请求，从而缓解 CPU 和内存压力、降低磁盘 IO 负载 [3]。研究表明，合理使用 Redis 缓存可使应用响应时间缩短 5–10 倍，数据库查询量下降 60%–80% [7]。例如，在电商场景中，热门商品页的 HTML 片段或 JSON 数据可直接缓存，避免每次请求都触发复杂 SQL 查询与 ORM 映射 [7]。Redis 提供多种缓存策略支持——包括 LRU（最近最少使用）、LFU（最不经常使用）、TTL（生存时间）等淘汰机制，确保内存高效利用 [2]。其“快、稳、简”的特性使其成为构建高并发、低延迟系统的首选缓存中间件 [7]。\n\n## 二、分布式状态管理：支撑无状态服务的关键基石\n\n在微服务与云原生架构中，服务实例常被设计为无状态，而用户会话（Session）、登录凭证、临时令牌等状态信息必须跨节点共享。Redis 凭借其高可用性、强一致性（主从同步 + 哨兵/集群）与毫秒级读写能力，成为分布式 Session 存储的事实标准 [7]。例如，Spring Session 或 Django Session 后端均可无缝对接 Redis，实现用户登录态在多个 API 网关或应用实例间实时同步，避免因负载均衡导致的重复登录或会话丢失 [7]。此外，Redis 的原子操作（如 `INCR`、`DECR`、`SETNX`）保障了并发安全，使其天然适配分布式锁场景——自 Redis 2.8 起，`SET` 指令支持 `NX`（不存在才设值）与 `EX`（设置过期时间）组合，实现 `setnx + expire` 的原子性，彻底解决锁释放失败导致死锁的问题 [4]。\n\n## 三、实时消息与事件分发：轻量级消息中间件替代方案\n\nRedis 内置的 Pub/Sub（发布/订阅）模型与 Stream 数据结构，使其具备消息队列能力。Pub/Sub 适用于广播类通知（如系统告警、配置推送），延迟低于 1ms，但不具备消息持久化与消费确认机制；而 Redis 5.0 引入的 Stream 则提供类似 Kafka 的功能：支持多消费者组、消息回溯、ACK 确认与未处理消息重投，适用于订单状态更新、日志聚合等需可靠传递的场景 [9]。相比重型消息中间件，Redis Stream 部署极简、运维成本低，且与缓存逻辑共用同一套基础设施，大幅降低系统复杂度 [9]。\n\n## 四、高频计数与限流控制：保障系统稳定性的数字引擎\n\nRedis 的原子计数器（`INCRBY`、`GETSET`）和位图（Bitmap）结构，使其成为实时统计与速率限制的理想载体。例如，使用 `INCR` 实现页面 PV/UV 统计；利用 Bitmap 的 `BITCOUNT` 快速计算某日活跃用户数（1 位 = 1 用户，100 万用户仅占约 125KB 内存）；借助 `BITOP` 执行用户群体交集/并集运算 [4]。更进一步，Redis 4.0 官方模块 `redis-cell` 提供漏斗（Leaky Bucket）限流指令，支持分布式环境下精确控制接口调用频次（如“用户每分钟最多发送 5 条评论”），避免突发流量击穿下游服务 [chunk_id=3aa32e99-640b-4062-a5bd-45ba55077e2e]。\n\n## 五、轻量级持久化存储：兼顾速度与可靠性的键值数据库\n\n尽管常被用作缓存，Redis 本质是一个功能完备的键值数据库。它支持两种持久化机制：RDB（定时快照）与 AOF（命令日志）。RDB 生成紧凑二进制文件，恢复速度快，适合灾难备份；AOF 记录所有写操作，数据完整性更高，可配置 `everysec` 同步策略平衡性能与安全性 [2]。在部分业务场景中（如排行榜、购物车、临时任务队列），Redis 直接作为主存储使用——Sorted Set 支持按分数排序的 Top-K 查询；List 可构建先进先出队列；Hash 适合存储对象属性。这种“内存为主、磁盘为辅”的混合模式，使其在性能与可靠性之间取得独特平衡 [2][9]。\n\n## 六、高级数据结构赋能：解决特定业务问题的算法引擎\n\nRedis 不同于通用数据库，其价值高度依赖于对八大原生数据结构的精准运用。例如：  \n- **HyperLogLog**：以 12KB 固定内存误差率 < 0.81% 地估算海量去重基数（如日活用户数）；  \n- **GeoHash**：支持地理围栏与附近地点查询（`GEOADD`/`GEORADIUS`）；  \n- **Stream**：实现事件溯源与消息回溯；  \n- **BitMap**：压缩存储布尔状态，百万级开关仅需 KB 级内存 [4]。  \n这些结构将复杂算法封装为 O(1) 或 O(log N) 的原子命令，极大降低了开发者实现难度与运行时开销 [2][4]。\n\n综上所述，Redis 的核心用途已从早期“内存缓存”演进为**统一内存数据平面（Unified In-Memory Data Plane）**：它既是缓存层的加速器，又是分布式系统的协调中枢，还是实时分析的计算引擎，更是轻量级存储的可靠选择。其成功源于三大支柱——极致性能（单核 10 万+ QPS）、丰富语义（八大数据结构 + 原子命令）、生产就绪（主从复制、哨兵高可用、Cluster 分片）[1][2][9]。在 2026 年的云原生与实时化浪潮中，Redis 已成为构建现代化后端架构不可或缺的“瑞士军刀” [7]。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** cnblogs.com — 极客时间之Redis核心技术与实战 - strongmore - 博客园\nURL: https://www.cnblogs.com/strongmore/p/17131266.html\n原文片段：「极客时间之Redis核心技术与实战 - strongmore - 博客园 strongmore 怕什么真理无穷，进一寸有一寸的欢喜。 极客时间之Redis核心技术与实战 开篇介绍 知识全景图 问题群像图 01-基本架构：一个键值数据库包含什么 02-数据结构：快速的Redis有哪些慢操作？ 新版的数据机构有变化 rehash过程 为了使rehash操作更高效，Redis默认使用了两个全局哈希表：哈希表1和哈希表2。一开始，当你刚插入数据时，默认使用哈希表1，此时的哈希表2并没有被分配空间。随着数据逐步增多，Redis开始执行rehash，这个过程分为三步...」\n\n<a id=\"ref-2\"></a>**[2]** qiankunli.github.io — 《Redis核心技术与实现》笔记 - 李乾坤的博客\nURL: https://qiankunli.github.io/2020/08/04/redis_practice.html\n原文片段：「《Redis核心技术与实现》笔记 - 李乾坤的博客 前言 前言 整体架构 基本设计 键和值用什么结构组织？ 底层数据结构 持久化/单机高可用 AOF RDB（Redis DataBase） 主从同步/多机高可用 切片集群 缓冲区 淘汰策略 事务 影响redis 性能的几大因素 其它 文章部分内容来自对 《Redis核心技术与实现》的学习 整体架构 基本设计 对于键值数据库而言，基本的数据模型是 key-value 模型。key 一般是 String 类型，而 value 类型则比较多样。在对键值数据库进行选型时， 一个重要的考虑因素是它支持的 value...」\n\n<a id=\"ref-3\"></a>**[3]** developer.aliyun.com — Redis核心原理数据类型持久化与集群全解析-开发者社区-阿里云\nURL: https://developer.aliyun.com/article/618702\n原文片段：「Redis核心原理数据类型持久化与集群全解析-开发者社区-阿里云 开发者社区 数据库 文章 正文 介绍Redis的各种用途以及使用场景 2018-07-26 12479 版权 版权声明： 本文内容由阿里云实名注册用户自发贡献，版权归原作者所有，阿里云开发者社区不拥有其著作权，亦不承担相应法律责任。具体规则请查看《 阿里云开发者社区用户服务协议 》和 《 阿里云开发者社区知识产权保护指引 》。如果您发现本社区中有涉嫌抄袭的内容，填写 侵权投诉表单 进行举报，一经查实，本社区将立刻删除涉嫌侵权内容。 简介： 介绍Redis的各种用途以及使用场景 Redis...」\n\n<a id=\"ref-4\"></a>**[4]** pegasuswang.readthedocs.io — 《Redis深度历险核心原理和应用实践》 - PegasusWang的读书笔记\nURL: https://pegasuswang.readthedocs.io/zh/latest/database/redis%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/book\n原文片段：「《Redis深度历险核心原理和应用实践》 - PegasusWang的读书笔记 » 数据库 » 《Redis深度历险核心原理和应用实践》 应用1：分布式锁 redis2.8 之后加入了set 指令的扩展参数， 使得 setnx 和 expire 可以一起执行（保证原子性） 可重入性：指的是线程持有锁的情况下再次请求加锁，如果一个锁 支持同一个线程的多次加锁，就是可重入的。 应用2：缓兵之计-延时队列 使用 list 作为异步消息队列（你对可靠性没有极致追求） blpop,brpop 阻塞操作，如果list 没有数据就会进入休眠。这里需要注意长时间连接断开...」\n\n<a id=\"ref-5\"></a>**[5]** cnblogs.com — Redis核心原理和应用场景 - WK_BlogYard - 博客园\nURL: https://www.cnblogs.com/wk-missQ1/p/16107976.html\n原文片段：「Redis核心原理和应用场景 - WK_BlogYard - 博客园 WK_BlogYard 很多东西不是你觉得有用才去学,而是你学了才知道有用! Redis核心原理和应用场景 Redis核心原理和使用场景 原文链接：https://mp.weixin.qq.com/s/7ct-mvSIaT3o4-tsMaKRWA 一 什么是NoSQL？ Nosql = not only sql（不仅仅是SQL） 关系型数据库：列+行，同一个表下数据的结构是一样的。 非关系型数据库：数据存储没有固定的格式，并且可以进行横向扩展。 NoSQL泛指非关系型数据库，随着web...」\n\n<a id=\"ref-6\"></a>**[6]** docs.cloud.google.com — 支持的监控指标  |  Memorystore for Redis  |  Google Cloud Documentation\nURL: https://docs.cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=zh-cn\n原文片段：「支持的监控指标 | Memorystore for Redis | Google Cloud Documentation 跳至主要内容 / 控制台 English Deutsch Español Español – América Latina Français Indonesia Italiano Português Português – Brasil עברית 中文 – 简体 中文 – 繁體 日本語 한국어 登录 Memorystore Memorystore for Redis 免费开始使用吧 Google 会使用 AI 技术将内容翻译成您偏好...」\n\n<a id=\"ref-7\"></a>**[7]** codingshuttle.com — Master Redis and Caching – A Practical Guide for Modern Backend Development | Coding Shuttle\nURL: https://www.codingshuttle.com/blogs/master-redis-and-caching-a-practical-guide-for-modern-backend-development\n原文片段：「Master Redis and Caching – A Practical Guide for Modern Backend Development | Coding Shuttle Master Redis and Caching – A Practical Guide for Modern Backend Development This Redis & Caching Cheatsheet explains how caching works and how Redis is used to build fast, scalable system...」\n\n<a id=\"ref-8\"></a>**[8]** redis.io — Fast caching solutions with Redis\nURL: https://redis.io/solutions/caching\n原文片段：「Fast caching solutions with Redis 97% believe in it. 4% have built it. New research: State of context engineering. Read the report Your high-performance caching solution A fast, highly available, resilient, and scalable caching layer that spans across clouds, on prem, and hybrid....」\n\n<a id=\"ref-9\"></a>**[9]** infoworld.com — Redis 6: A high-speed database, cache, and message broker | InfoWorld\nURL: https://www.infoworld.com/article/2258622/redis-6-a-high-speed-database-cache-and-message-broker.html\n原文片段：「Redis 6: A high-speed database, cache, and message broker | InfoWorld Topics Close Analytics Artificial Intelligence Careers Cloud Computing Data Management Databases Development Tools Devops Emerging Technology Enterprise Buyer’s Guides Generative AI IT Leadership Java JavaScrip...」",
+    "metadata": [
+      "https://files.cnblogs.com/files/strongmore/cube01.gif",
+      "https://files.cnblogs.com/files/strongmore/cube02.gif",
+      "https://files.cnblogs.com/files/strongmore/cube03.gif",
+      "https://files.cnblogs.com/files/strongmore/cube04.gif",
+      "https://pegasuswang.readthedocs.io/zh/latest/database/ziplist.png",
+      "https://pegasuswang.readthedocs.io/zh/latest/database/intset.png",
+      "https://pegasuswang.readthedocs.io/zh/latest/database/quicklist.png",
+      "https://pegasuswang.readthedocs.io/zh/latest/database/quicklist1.png",
+      "https://legacy-us-images.foundryco.app/images/article/2020/06/redis-6-review-01-100849269-large.jpg",
+      "https://legacy-us-images.foundryco.app/images/article/2020/06/redis-6-review-03-100849270-large.jpg"
+    ]
+  }
+}

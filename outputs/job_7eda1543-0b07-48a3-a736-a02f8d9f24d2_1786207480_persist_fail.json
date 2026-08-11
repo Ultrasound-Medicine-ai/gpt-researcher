@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-08-09T00:44:40.728265",
+  "job_id": "7eda1543-0b07-48a3-a736-a02f8d9f24d2",
+  "events": [],
+  "content": {
+    "query": "persist fail",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

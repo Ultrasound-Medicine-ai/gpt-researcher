@@ -1,0 +1,2978 @@
+{
+  "task": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+  "job": {
+    "id": "e3fa4815-4360-4492-a741-23cc23725c19",
+    "user_id": "shadow-review-4",
+    "tenant_id": "shadow-review",
+    "session_id": "4844d6e3-f4c8-42c0-9902-0b52257228b2",
+    "status": "completed",
+    "stage": "finalizing",
+    "progress": "done",
+    "error": null,
+    "payload": {
+      "task": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+      "tone": "Objective",
+      "headers": null,
+      "user_id": "shadow-review-4",
+      "tenant_id": "shadow-review",
+      "session_id": "4844d6e3-f4c8-42c0-9902-0b52257228b2",
+      "mcp_configs": [],
+      "mcp_enabled": false,
+      "report_type": "research_report",
+      "source_urls": [],
+      "total_words": 800,
+      "mcp_strategy": "fast",
+      "document_urls": [],
+      "query_domains": [],
+      "report_source": "web",
+      "report_language": "chinese",
+      "knowledge_policy": "web_first",
+      "max_search_results": null,
+      "force_trusted_sample": true
+    },
+    "result": {
+      "cost": {
+        "status": "completed",
+        "retries": 2,
+        "searches": 4,
+        "llm_calls": 4,
+        "llm_events": [
+          {
+            "ts": 1786286845.0169444,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286845.1452286,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286845.3497322,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286845.473371,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286845.896087,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286846.0272837,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286846.2546775,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286846.38062,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286846.6552215,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286846.7998142,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286847.014376,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286847.1621773,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286847.3344836,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286847.4738657,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286847.6649406,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286847.7791243,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286848.0950058,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286848.235255,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286848.4644046,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286848.5792515,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286848.8246715,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286848.9514706,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286849.1850114,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286849.3114808,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286849.5357213,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286849.6625113,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286849.8665073,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286850.011329,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286850.334508,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286850.4645078,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286850.7645192,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286850.9017644,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286851.2456384,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286851.3850365,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286851.5766191,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286851.7061348,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286851.895085,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286852.0598423,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286852.2871428,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286852.4275348,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286852.765126,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286852.887909,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.1162412,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286853.2622404,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.5171509,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286853.6652062,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.905033,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.0919344,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286854.305111,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.4389284,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286854.6356592,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.7718728,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286855.085968,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286855.2237265,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286855.4453542,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286855.5633154,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286856.4254391,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286856.5849793,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286859.7056093,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286859.8361433,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286861.795938,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286861.9394426,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286864.065866,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286864.1860278,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286865.2763073,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286865.4130476,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286866.926319,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286867.0594406,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286869.166374,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286869.2854083,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286870.176419,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286870.3121548,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286870.5166476,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286870.6755598,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286871.5672119,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286871.702151,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286872.6071835,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286872.7329473,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286873.3673086,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286873.5004442,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "truncations": 0,
+        "rag_degraded": false,
+        "continuations": 0,
+        "model_switches": 2,
+        "chapter_retries": 0,
+        "degrade_reasons": [
+          {
+            "ts": 1786286852.765114,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286852.8878906,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.1162295,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286853.262225,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.5171402,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286853.665189,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.9050205,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.091918,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286854.3050997,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.4389064,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286854.6356406,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.7718575,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286855.0859563,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286855.2237115,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286855.4453363,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286855.5633004,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286856.4254274,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286856.5849636,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286859.7055964,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286859.836127,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286861.795926,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286861.939423,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286864.0658534,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286864.186013,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286865.2762954,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286865.413023,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286866.9263053,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286867.0594232,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286869.166362,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286869.2853882,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286870.1764069,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286870.3121395,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286870.516629,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286870.675542,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286871.5672,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286871.7021348,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286872.6071715,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286872.7329326,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286873.3672924,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286873.5004277,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "scrape_failures": 3,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false
+      },
+      "audit": null,
+      "report": "# PostgreSQL 与 MySQL 在高并发写入场景下的架构权衡与性能表现\n\n在高并发写入场景下，PostgreSQL 与 MySQL 展现出截然不同的性能特征与架构取舍。二者在并发控制模型、写入延迟及维护开销上的差异，决定了它们各自适用的业务边界。\n\n## 架构与并发控制机制\n\nPostgreSQL 采用多进程架构，并为每个连接分配独立的系统进程，内存开销较大（约 10MB/连接），但其内置的多版本并发控制（MVCC）机制在处理并发写入时具有显著优势。MVCC 通过创建记录的重复副本来实现读写互不阻塞，允许用户在读取数据的同时进行更新，无需设置读写锁定，从而在高并发写入场景下提供了更好的数据完整性保障 [1]。相比之下，MySQL 采用单进程多线程架构，在处理并发写入时使用写锁定来实现真正的并发性。这意味着当一个用户正在编辑表时，其他用户可能必须等待操作完成，这在极端写入压力下可能成为瓶颈 [1]。\n\n## 性能基准测试数据对比\n\n根据 2024-2025 年的公开测评数据，在硬件配置相同且参数优化的前提下，两者的性能表现呈现出明显的场景分化：\n\n在纯写入极限场景中，PostgreSQL 凭借 WAL（预写式日志）与 MVCC 的顺序写优势，表现出较强的竞争力。测试数据显示，在 write-only 场景下，PostgreSQL 的 TPS（每秒事务数）达到 9,500，优于 MySQL 8.0 的 8,000，性能高出约 19% [3]。\n\n在高并发连接压力测试中，PostgreSQL 的优势更为显著。当并发连接数达到 1000 时，PostgreSQL 的平均延迟仅为 40ms，而 MySQL 则达到 80ms，延迟降低了一半。这主要是因为在高并发（≥1000 连接）环境下，MySQL 的线程池模型面临严重的上下文切换瓶颈，而 PostgreSQL 的 MVCC 无锁读特性使其在处理大量并发请求时更加稳健 [3]。\n\n## 写入放大与维护开销的权衡\n\n尽管 PostgreSQL 在并发写入性能上表现出色，但其 MVCC 实现也带来了特定的维护成本。Uber 曾在 2016 年公开其从 PostgreSQL 迁移至 MySQL 的案例，主要原因包括索引膨胀、写放大以及 Vacuum 清理机制带来的维护开销，这些问题在极高写入频率下限制了系统的扩展能力 [5]。然而，随着 PostgreSQL 17 及后续版本的发布，其在查询规划和高吞吐量短查询方面已有显著改进，许多历史瓶颈已得到优化 [6]。\n\n相比之下，MySQL 的 InnoDB 引擎虽然在写入锁定上较为保守，但其插件化存储引擎设计提供了灵活性。对于读多写少、需要快速上线或基于 LAMP 架构的应用，MySQL 凭借其简单的配置和较低的入门门槛，依然是主流选择 [1][5]。\n\n## 选型建议\n\n综合架构\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** aws.amazon.com — PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS\nURL: https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql\n原文片段：「PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS 跳至主要内容 MySQL 和 PostgreSQL 有何区别？ 创建 AWS 账户 MySQL 和 PostgreSQL 有何区别？ PostgreSQL 和 MySQL 有何相似之处？ 主要区别：PostgreSQL 与 MySQL 如何在 PostgreSQL 与 MySQL 之间做出选择 区别摘要：PostgreSQL 与 MySQL AWS 如何支持您的 PostgreSQL 和 MySQL 要求？ MySQL 和 PostgreSQL 有何区别？...」\n\n<a id=\"ref-2\"></a>**[2]** blog.csdn.net — PostgreSQL 【vs】 MySQL-CSDN博客\nURL: https://blog.csdn.net/weixin_45541665/article/details/155555184\n原文片段：「PostgreSQL 【vs】 MySQL-CSDN博客 PostgreSQL 【vs】 MySQL 最新推荐文章于 2026-08-08 18:28:07 发布 原创 最新推荐文章于 2026-08-08 18:28:07 发布 · 1k 阅读 · 13 · 12 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 GEO检测 · 收录于 关系型数据库 当前文章被收录于： 关系型数据库 9 篇文章 0 人学习 订阅专栏 查看详情 Mysql 当前文章被...」\n\n<a id=\"ref-3\"></a>**[3]** cnblogs.com — postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园\nURL: https://www.cnblogs.com/xulinforDB/p/20071262\n原文片段：「postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园 数据库小白（专注） postgresql和MYSQL的对比 postgresql和MYSQL的对比 目录 postgresql和MYSQL的对比 一、结论 二、测试环境对齐（所有来源一致硬件） 三、OLTP 场景（sysbench 1.1，表 10 × 1 000 万行） 四、OLAP/复杂查询（同库 50–100 GB） 五、可扩展与并发控制 六、实战选型速查表 以下报告基于 2024-2025 年公开测评数据，在“硬件配置相同、参数均经官方推荐优化”前提下，对 MySQL 8...」\n\n<a id=\"ref-4\"></a>**[4]** cc.pigsty.io — MySQL vs PostgreSQL @ 2025 | PIGSTY\nURL: https://cc.pigsty.io/blog/db/mysql-vs-pgsql\n原文片段：「MySQL vs PostgreSQL @ 2025 | PIGSTY 查看页面源码 编辑此页 添加子页面 提交文档问题 提交项目问题 整节打印 Modules APP 10 BLOG 8 DOCKER 9 ETCD 7 FERRET 6 INFRA 17 JUPYTER 1 KAFKA 1 MINIO 9 MYSQL 1 NODE 11 PGEXT 479 PGSQL 44 PIGSTY 42 REDIS 7 SOFTWARE 16 TigerBeetle 4 VICTORIA 1 Categories About 10 Admin 31 AI 4 A...」\n\n<a id=\"ref-5\"></a>**[5]** developer.cloud.tencent.com — 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云\nURL: https://developer.cloud.tencent.com/article/2545225\n原文片段：「如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云 用户11680974 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 用户11680974 社区首页 > 专栏 > 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 如何选择数据库？从真实案例看 PostgreSQL 与 My...」\n\n<a id=\"ref-6\"></a>**[6]** tech-insider.org — PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026]\nURL: https://tech-insider.org/postgresql-vs-mysql-2026\n原文片段：「PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026] Skip to content Sofia Lindström March 19, 2026 30 min read The database wars have never been more consequential. In 2026, the choice between PostgreSQL vs MySQL sits at the center of nearly every new architecture decision...」\n\n<a id=\"ref-7\"></a>**[7]** youtube.com — MySQL vs PostgreSQL Performance Benchmark (Latency - Throughput - Saturation) - YouTube\nURL: https://www.youtube.com/watch?v=R7jBtnrUmYI\n原文片段：「MySQL vs PostgreSQL Performance Benchmark (Latency - Throughput - Saturation) - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket © 2026 Google LLC」\n\n<a id=\"ref-8\"></a>**[8]** liquibase.com — PostgreSQL vs MySQL 2025: Complete Database Comparison\nURL: https://www.liquibase.com/resources/guides/postgresql-vs-mysql\n原文片段：「PostgreSQL vs MySQL 2025: Complete Database Comparison Change Intelligence is Coming. Get a First Look › Get Started Free PostgreSQL vs MySQL 2025: Complete Database Comparison Guide Table of contents Example H2 Example H3 The Ultimate Database Showdown (2025) PostgreSQL vs MySQL...」\n\n<a id=\"ref-9\"></a>**[9]** velodb.io — PostgreSQL vs MySQL: Why PostgreSQL Is Winning and When It Matters\nURL: https://www.velodb.io/glossary/postgresql-vs-mysql\n原文片段：「PostgreSQL vs MySQL: Why PostgreSQL Is Winning and When It Matters Back PostgreSQL vs MySQL: Why PostgreSQL Is Winning and When It Matters 2026/03/04 PostgreSQL vs MySQL is no longer a close contest in developer mindshare. The data tells a clear story: PostgreSQL has been climbin...」\n\n<a id=\"ref-10\"></a>**[10]** pigsty.cc — MySQL vs PostgreSQL @ 2025 | PIGSTY\nURL: https://pigsty.cc/blog/db/mysql-vs-pgsql\n原文片段：「MySQL vs PostgreSQL @ 2025 | PIGSTY PIGSTY 搜索 ⌘ K 博客 文档 博客 收录了与 Pigsty、云计算、数据库、AI/Agent 领域有关的文章，以及关于 PostgreSQL 开发、管理、内核原理的笔记 patroni 文档 Patroni PostgreSQL 高可用模板，v4.1.4 中文文档 pgbackrest 文档 可靠的 PostgreSQL 备份与恢复工具 —— pgBackRest 文档与参考手册。 pgbouncer 文档 PgBouncer —— PostgreSQL 轻量级连接池，v1...」\n\n<a id=\"ref-11\"></a>**[11]** wiki.postgresql.org — 数据库对比 - PostgreSQL wiki\nURL: https://wiki.postgresql.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E6%AF%94\n原文片段：「数据库对比 - PostgreSQL wiki Want to edit, but don't see an edit button when logged in? Click here. 数据库对比 From PostgreSQL wiki Jump to navigation Jump to search Contents 1 前言 1.1 起因 1.2 约定 1.2.1 数据库版本约定 2 历史 2.1 数据库技术简史 2.2 Oracle数据库简史 2.3 PostgreSQL数据库简史 2.4 MySQL数据库简史 3 技术 3.1 概述 3....」",
+      "tenant_id": "shadow-review",
+      "file_paths": {
+        "md": "outputs/task_1786286855_c6e0a7688f.md",
+        "pdf": "outputs/task_1786286855_c6e0a7688f.pdf",
+        "docx": "outputs/task_1786286855_c6e0a7688f.docx",
+        "json": "outputs/job_e3fa4815-4360-4492-a741-23cc23725c19_1786286576_PostgreSQL_与_MySQL_在高并发写入场景下的取舍.json"
+      },
+      "session_id": "4844d6e3-f4c8-42c0-9902-0b52257228b2",
+      "report_trust": "legacy_unverified",
+      "source_count": 11,
+      "trusted_shadow": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "release_gate:citation_accuracy_below_0.9"
+          ],
+          "total_claims": 0,
+          "supported_claims": 0,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": true,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "error": "citation audit failed",
+        "report": "",
+        "compare": {
+          "legacy_ms": 66518.36013793945,
+          "cost_delta": 0.0,
+          "trusted_ms": 86140.96260070801,
+          "legacy_cost": 0.0,
+          "legacy_chars": 6085,
+          "trusted_cost": 0.0,
+          "trusted_chars": 0,
+          "content_overlap": 0.0,
+          "latency_delta_ms": 19622.6,
+          "legacy_has_citations": true,
+          "trusted_has_citations": false
+        },
+        "artifacts": {
+          "audit": {
+            "warnings": [
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "no_claims_for_section",
+              "release_gate:citation_accuracy_below_0.9"
+            ],
+            "total_claims": 0,
+            "supported_claims": 0,
+            "citation_coverage": 1.0,
+            "unsupported_claims": [],
+            "citation_audit_failed": true,
+            "cross_scope_violations": 0,
+            "single_source_numeric_claims": []
+          },
+          "trace": {
+            "spans": [
+              {
+                "ok": true,
+                "meta": {
+                  "report_type": "research_report"
+                },
+                "error": "",
+                "stage": "planner",
+                "span_id": "43d6aac1f183",
+                "ended_at": 1786286843.9690428,
+                "started_at": 1786286769.632248,
+                "duration_ms": 74336.79
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s1"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "00ad53df1ef4",
+                "ended_at": 1786286846.5245237,
+                "started_at": 1786286843.9901533,
+                "duration_ms": 2534.37
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s1"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "756ee1815f9b",
+                "ended_at": 1786286846.5246181,
+                "started_at": 1786286846.5246089,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s1"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "b89e483dbadf",
+                "ended_at": 1786286846.546805,
+                "started_at": 1786286846.5467935,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s2"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "2aa7f9a61c5b",
+                "ended_at": 1786286848.7023094,
+                "started_at": 1786286846.5607014,
+                "duration_ms": 2141.61
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s2"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "e49b94bf9b3d",
+                "ended_at": 1786286848.702373,
+                "started_at": 1786286848.7023618,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s2"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "35396b44b8b4",
+                "ended_at": 1786286848.7242887,
+                "started_at": 1786286848.7242785,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s3"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "20154581061a",
+                "ended_at": 1786286851.0304923,
+                "started_at": 1786286848.7360346,
+                "duration_ms": 2294.46
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s3"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "1833ff2e65d5",
+                "ended_at": 1786286851.0305443,
+                "started_at": 1786286851.030536,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s3"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "4eaf532a6fbc",
+                "ended_at": 1786286851.0448487,
+                "started_at": 1786286851.044838,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s4"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "ce8b18b35d8c",
+                "ended_at": 1786286853.4072647,
+                "started_at": 1786286851.0569854,
+                "duration_ms": 2350.28
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s4"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "7026e6b4ecb7",
+                "ended_at": 1786286853.4073086,
+                "started_at": 1786286853.4073002,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s4"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "1efe6a051202",
+                "ended_at": 1786286853.4224777,
+                "started_at": 1786286853.4224665,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s5"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "9aaec442fe67",
+                "ended_at": 1786286855.679263,
+                "started_at": 1786286853.4344037,
+                "duration_ms": 2244.86
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s5"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "12fbbe1107d2",
+                "ended_at": 1786286855.6793087,
+                "started_at": 1786286855.6793005,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "s5"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "9110e0bc9e76",
+                "ended_at": 1786286855.7024856,
+                "started_at": 1786286855.702475,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "sections": 5
+                },
+                "error": "",
+                "stage": "synthesis",
+                "span_id": "9f5eeca0490f",
+                "ended_at": 1786286855.714518,
+                "started_at": 1786286855.714503,
+                "duration_ms": 0.02
+              },
+              {
+                "ok": true,
+                "meta": {},
+                "error": "",
+                "stage": "audit",
+                "span_id": "c70de462f46d",
+                "ended_at": 1786286855.7246678,
+                "started_at": 1786286855.7243621,
+                "duration_ms": 0.31
+              }
+            ],
+            "by_stage": {
+              "audit": {
+                "ok": true,
+                "meta": {},
+                "error": "",
+                "stage": "audit",
+                "span_id": "c70de462f46d",
+                "ended_at": 1786286855.7246678,
+                "started_at": 1786286855.7243621,
+                "duration_ms": 0.31
+              },
+              "claim": {
+                "ok": true,
+                "meta": {
+                  "section_id": "s5"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "12fbbe1107d2",
+                "ended_at": 1786286855.6793087,
+                "started_at": 1786286855.6793005,
+                "duration_ms": 0.01
+              },
+              "writer": {
+                "ok": true,
+                "meta": {
+                  "section_id": "s5"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "9110e0bc9e76",
+                "ended_at": 1786286855.7024856,
+                "started_at": 1786286855.702475,
+                "duration_ms": 0.01
+              },
+              "planner": {
+                "ok": true,
+                "meta": {
+                  "report_type": "research_report"
+                },
+                "error": "",
+                "stage": "planner",
+                "span_id": "43d6aac1f183",
+                "ended_at": 1786286843.9690428,
+                "started_at": 1786286769.632248,
+                "duration_ms": 74336.79
+              },
+              "evidence": {
+                "ok": true,
+                "meta": {
+                  "section_id": "s5"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "9aaec442fe67",
+                "ended_at": 1786286855.679263,
+                "started_at": 1786286853.4344037,
+                "duration_ms": 2244.86
+              },
+              "synthesis": {
+                "ok": true,
+                "meta": {
+                  "sections": 5
+                },
+                "error": "",
+                "stage": "synthesis",
+                "span_id": "9f5eeca0490f",
+                "ended_at": 1786286855.714518,
+                "started_at": 1786286855.714503,
+                "duration_ms": 0.02
+              }
+            },
+            "trace_id": "dcbe644c3a71499db563be9e24930518",
+            "total_duration_ms": 85902.8
+          },
+          "claims": [],
+          "report": "",
+          "outline": {
+            "scope": "本报告聚焦于 PostgreSQL 与 MySQL 在高并发写入场景下的架构差异、锁机制、事务处理性能及资源消耗对比。范围涵盖数据库内核层面的 MVCC 实现差异、不同隔离级别下的写入表现、I/O 模型对写入性能的影响，以及针对高写入负载的调优策略。报告不涉及读密集型场景、NoSQL 数据库对比或非事务型存储引擎的分析。",
+            "sections": [
+              {
+                "title": "MVCC 实现机制对写入性能的影响",
+                "purpose": "深入分析两者在并发控制核心机制上的差异，解释其对写入性能的根本性影响。",
+                "section_id": "s1",
+                "search_queries": [
+                  "PostgreSQL MVCC implementation vs MySQL InnoDB write performance",
+                  "PostgreSQL write amplification high concurrency",
+                  "MySQL InnoDB undo log contention high write load"
+                ],
+                "depends_on_sections": [],
+                "questions_to_answer": [
+                  "PostgreSQL 的 Append-only 模式与 MySQL InnoDB 的 Update-in-place 模式在高并发写入下有何本质区别？",
+                  "PostgreSQL 的 MVCC 机制导致的写放大问题在何种场景下会成为瓶颈？",
+                  "MySQL InnoDB 的 Undo Log 回滚段管理在高并发写入下是否存在性能隐患？"
+                ],
+                "expected_claim_types": [
+                  "TechnicalPrinciple",
+                  "ComparativeAnalysis"
+                ]
+              },
+              {
+                "title": "锁机制与并发控制粒度对比",
+                "purpose": "对比两者在处理并发写入冲突时的锁策略，评估其对吞吐量的影响。",
+                "section_id": "s2",
+                "search_queries": [
+                  "PostgreSQL row level locking vs MySQL InnoDB performance",
+                  "MySQL InnoDB gap lock deadlock high concurrency",
+                  "PostgreSQL advisory locks vs MySQL locks for concurrency"
+                ],
+                "depends_on_sections": [
+                  "s1"
+                ],
+                "questions_to_answer": [
+                  "PostgreSQL 的行级锁实现与 MySQL InnoDB 的锁机制在热点行更新时有何不同表现？",
+                  "MySQL 的 Gap Lock（间隙锁）在并发写入场景下是否会导致死锁或吞吐量下降？",
+                  "PostgreSQL 的 Advisory Locks 在处理应用层并发写入逻辑时是否具备优势？"
+                ],
+                "expected_claim_types": [
+                  "TechnicalFact",
+                  "PerformanceTradeoff"
+                ]
+              },
+              {
+                "title": "事务隔离级别与持久化策略",
+                "purpose": "探讨不同事务隔离级别对写入延迟的影响，以及 WAL/Redo Log 机制的性能差异。",
+                "section_id": "s3",
+                "search_queries": [
+                  "PostgreSQL WAL vs MySQL Redo Log performance high write",
+                  "PostgreSQL vs MySQL transaction isolation level performance impact",
+                  "MySQL double write bottleneck high concurrency"
+                ],
+                "depends_on_sections": [
+                  "s1"
+                ],
+                "questions_to_answer": [
+                  "在 Repeatable Read 或 Serializable 隔离级别下，两者的并发写入吞吐量表现如何？",
+                  "PostgreSQL 的 WAL 机制与 MySQL的 Redo Log/Binlog 双写机制在 I/O 延迟上有何差异？",
+                  "同步提交与异步提交配置对两者高并发写入性能的影响对比。"
+                ],
+                "expected_claim_types": [
+                  "PerformanceMetric",
+                  "ConfigurationImpact"
+                ]
+              },
+              {
+                "title": "资源消耗与维护成本分析",
+                "purpose": "分析高并发写入下的系统资源占用及后台维护进程对性能的干扰。",
+                "section_id": "s4",
+                "search_queries": [
+                  "PostgreSQL vacuum performance impact high write throughput",
+                  "MySQL InnoDB buffer pool dirty page flushing latency",
+                  "PostgreSQL process model vs MySQL thread model resource usage"
+                ],
+                "depends_on_sections": [
+                  "s1",
+                  "s2"
+                ],
+                "questions_to_answer": [
+                  "PostgreSQL 的 Vacuum 进程在高并发写入环境下是否会阻塞业务写入或导致 I/O 抖动？",
+                  "MySQL InnoDB Buffer Pool 的脏页刷新策略在高写入负载下如何影响响应时间？",
+                  "两者在连接处理模型（Process-based vs Thread-based）上的差异对高并发写入的资源开销有何影响？"
+                ],
+                "expected_claim_types": [
+                  "ResourceUtilization",
+                  "OperationalChallenge"
+                ]
+              },
+              {
+                "title": "场景化选型结论与建议",
+                "purpose": "基于前述分析，总结适用场景并提供选型决策框架。",
+                "section_id": "s5",
+                "search_queries": [
+                  "PostgreSQL vs MySQL high write load benchmark 2023 2024",
+                  "when to choose PostgreSQL over MySQL for write intensive applications",
+                  "best database for high concurrency transactional write"
+                ],
+                "depends_on_sections": [
+                  "s1",
+                  "s2",
+                  "s3",
+                  "s4"
+                ],
+                "questions_to_answer": [
+                  "在何种业务模型下（如简单日志写入 vs 复杂交易事务）PostgreSQL 的写入优势更明显？",
+                  "在何种业务模型下 MySQL 的写入性能更优？",
+                  "针对高并发写入场景，两者在硬件选型与参数调优上有何核心建议？"
+                ],
+                "expected_claim_types": [
+                  "BestPractice",
+                  "DecisionCriteria"
+                ]
+              }
+            ],
+            "time_range": "2020年至2024年（涵盖 PostgreSQL 12-16 版本与 MySQL 5.7/8.0+ 版本的主流特性对比）",
+            "report_thesis": "在高并发写入场景下，PostgreSQL 与 MySQL 的选择取决于对数据一致性、事务复杂度及写入吞吐量的具体权衡。PostgreSQL 凭借其 MVCC 机制无需回滚段，在处理复杂事务和数据完整性上更具优势，但需面对 Vacuum 带来的维护开销；MySQL (InnoDB) 凭借成熟的生态系统和细粒度锁机制，在简单高并发写入中表现稳定，但需应对回滚段膨胀及间隙锁带来的并发瓶颈。取舍的关键在于业务模型是否需要复杂事务支持以及对写入延迟与吞吐量的敏感度。",
+            "cross_section_questions": [
+              "PostgreSQL 的 Vacuum 开销与 MySQL 的 Undo Log 清理开销，在持续高并发写入压力下，哪一方对业务实时吞吐量的负面影响更大？",
+              "考虑到硬件发展（如 NVMe SSD），PostgreSQL 的 I/O 写放大问题是否已不再是主要瓶颈？"
+            ]
+          },
+          "evidence": [],
+          "sections": {
+            "s1": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "s2": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "s3": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "s4": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            },
+            "s5": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            }
+          },
+          "eval_scores": {
+            "details": {
+              "evidence_count": 0,
+              "required_claims": 0,
+              "supported_claims": 0
+            },
+            "duplication_rate": 0.0,
+            "global_coherence": 1.0,
+            "citation_accuracy": 0.0,
+            "citation_coverage": 1.0,
+            "claim_support_rate": 1.0,
+            "fact_conflict_rate": 0.0
+          },
+          "release_gate": {
+            "audit": {
+              "warnings": [
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "no_claims_for_section",
+                "release_gate:citation_accuracy_below_0.9"
+              ],
+              "total_claims": 0,
+              "supported_claims": 0,
+              "citation_coverage": 1.0,
+              "unsupported_claims": [],
+              "citation_audit_failed": true,
+              "cross_scope_violations": 0,
+              "single_source_numeric_claims": []
+            },
+            "p95_ms": 85902.49,
+            "passed": false,
+            "scores": {
+              "details": {
+                "evidence_count": 0,
+                "required_claims": 0,
+                "supported_claims": 0
+              },
+              "duplication_rate": 0.0,
+              "global_coherence": 1.0,
+              "citation_accuracy": 0.0,
+              "citation_coverage": 1.0,
+              "claim_support_rate": 1.0,
+              "fact_conflict_rate": 0.0
+            },
+            "reasons": [
+              "citation_accuracy_below_0.9"
+            ],
+            "cost_units": null
+          },
+          "synthesized_markers": ""
+        },
+        "report_trust_if_promoted": "trusted"
+      },
+      "legacy_fallback": false,
+      "trusted_pipeline": {
+        "mode": "shadow",
+        "execution_trace": {
+          "mode": "shadow",
+          "legacy_write": true,
+          "research_only": true,
+          "trusted_write": true,
+          "legacy_write_count": 1,
+          "legacy_write_reason": "shadow",
+          "used_legacy_body_as_claim_source": false,
+          "writer_received_only_verified_claims": true
+        }
+      },
+      "citation_unverified": true,
+      "citation_audit_failed": false
+    },
+    "attempt": 1,
+    "idempotency_key": "shadow-review:437bd521-8297-4f39-8109-2665dc7d293b",
+    "heartbeat_at": 1786286869067,
+    "started_at": 1786286576905,
+    "finished_at": 1786286875387,
+    "enqueued_at": 1786286576795,
+    "next_retry_at": null,
+    "cancel_requested_at": null,
+    "worker_id": "e505f7c5c848:19",
+    "last_error_code": null,
+    "checkpoint_json": {
+      "stage": "finalizing",
+      "budget": {
+        "max_llm_calls": 40,
+        "max_subtopics": 3,
+        "searches_used": 4,
+        "llm_calls_used": 4,
+        "max_output_words": 800,
+        "max_total_searches": 12
+      },
+      "trusted": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "release_gate:citation_accuracy_below_0.9"
+          ],
+          "total_claims": 0,
+          "supported_claims": 0,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": true,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "stage": "citations_injected",
+        "trace": {
+          "spans": [
+            {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "43d6aac1f183",
+              "ended_at": 1786286843.9690428,
+              "started_at": 1786286769.632248,
+              "duration_ms": 74336.79
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s1"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "00ad53df1ef4",
+              "ended_at": 1786286846.5245237,
+              "started_at": 1786286843.9901533,
+              "duration_ms": 2534.37
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s1"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "756ee1815f9b",
+              "ended_at": 1786286846.5246181,
+              "started_at": 1786286846.5246089,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s1"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "b89e483dbadf",
+              "ended_at": 1786286846.546805,
+              "started_at": 1786286846.5467935,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s2"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "2aa7f9a61c5b",
+              "ended_at": 1786286848.7023094,
+              "started_at": 1786286846.5607014,
+              "duration_ms": 2141.61
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s2"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "e49b94bf9b3d",
+              "ended_at": 1786286848.702373,
+              "started_at": 1786286848.7023618,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s2"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "35396b44b8b4",
+              "ended_at": 1786286848.7242887,
+              "started_at": 1786286848.7242785,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s3"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "20154581061a",
+              "ended_at": 1786286851.0304923,
+              "started_at": 1786286848.7360346,
+              "duration_ms": 2294.46
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s3"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "1833ff2e65d5",
+              "ended_at": 1786286851.0305443,
+              "started_at": 1786286851.030536,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s3"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "4eaf532a6fbc",
+              "ended_at": 1786286851.0448487,
+              "started_at": 1786286851.044838,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s4"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "ce8b18b35d8c",
+              "ended_at": 1786286853.4072647,
+              "started_at": 1786286851.0569854,
+              "duration_ms": 2350.28
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s4"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "7026e6b4ecb7",
+              "ended_at": 1786286853.4073086,
+              "started_at": 1786286853.4073002,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s4"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "1efe6a051202",
+              "ended_at": 1786286853.4224777,
+              "started_at": 1786286853.4224665,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "9aaec442fe67",
+              "ended_at": 1786286855.679263,
+              "started_at": 1786286853.4344037,
+              "duration_ms": 2244.86
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "12fbbe1107d2",
+              "ended_at": 1786286855.6793087,
+              "started_at": 1786286855.6793005,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "9110e0bc9e76",
+              "ended_at": 1786286855.7024856,
+              "started_at": 1786286855.702475,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "sections": 5
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "9f5eeca0490f",
+              "ended_at": 1786286855.714518,
+              "started_at": 1786286855.714503,
+              "duration_ms": 0.02
+            },
+            {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "c70de462f46d",
+              "ended_at": 1786286855.7246678,
+              "started_at": 1786286855.7243621,
+              "duration_ms": 0.31
+            }
+          ],
+          "by_stage": {
+            "audit": {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "c70de462f46d",
+              "ended_at": 1786286855.7246678,
+              "started_at": 1786286855.7243621,
+              "duration_ms": 0.31
+            },
+            "claim": {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "12fbbe1107d2",
+              "ended_at": 1786286855.6793087,
+              "started_at": 1786286855.6793005,
+              "duration_ms": 0.01
+            },
+            "writer": {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "9110e0bc9e76",
+              "ended_at": 1786286855.7024856,
+              "started_at": 1786286855.702475,
+              "duration_ms": 0.01
+            },
+            "planner": {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "43d6aac1f183",
+              "ended_at": 1786286843.9690428,
+              "started_at": 1786286769.632248,
+              "duration_ms": 74336.79
+            },
+            "evidence": {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "9aaec442fe67",
+              "ended_at": 1786286855.679263,
+              "started_at": 1786286853.4344037,
+              "duration_ms": 2244.86
+            },
+            "synthesis": {
+              "ok": true,
+              "meta": {
+                "sections": 5
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "9f5eeca0490f",
+              "ended_at": 1786286855.714518,
+              "started_at": 1786286855.714503,
+              "duration_ms": 0.02
+            }
+          },
+          "trace_id": "dcbe644c3a71499db563be9e24930518",
+          "total_duration_ms": 85902.8
+        },
+        "report": "",
+        "outline": {
+          "scope": "本报告聚焦于 PostgreSQL 与 MySQL 在高并发写入场景下的架构差异、锁机制、事务处理性能及资源消耗对比。范围涵盖数据库内核层面的 MVCC 实现差异、不同隔离级别下的写入表现、I/O 模型对写入性能的影响，以及针对高写入负载的调优策略。报告不涉及读密集型场景、NoSQL 数据库对比或非事务型存储引擎的分析。",
+          "sections": [
+            {
+              "title": "MVCC 实现机制对写入性能的影响",
+              "purpose": "深入分析两者在并发控制核心机制上的差异，解释其对写入性能的根本性影响。",
+              "section_id": "s1",
+              "search_queries": [
+                "PostgreSQL MVCC implementation vs MySQL InnoDB write performance",
+                "PostgreSQL write amplification high concurrency",
+                "MySQL InnoDB undo log contention high write load"
+              ],
+              "depends_on_sections": [],
+              "questions_to_answer": [
+                "PostgreSQL 的 Append-only 模式与 MySQL InnoDB 的 Update-in-place 模式在高并发写入下有何本质区别？",
+                "PostgreSQL 的 MVCC 机制导致的写放大问题在何种场景下会成为瓶颈？",
+                "MySQL InnoDB 的 Undo Log 回滚段管理在高并发写入下是否存在性能隐患？"
+              ],
+              "expected_claim_types": [
+                "TechnicalPrinciple",
+                "ComparativeAnalysis"
+              ]
+            },
+            {
+              "title": "锁机制与并发控制粒度对比",
+              "purpose": "对比两者在处理并发写入冲突时的锁策略，评估其对吞吐量的影响。",
+              "section_id": "s2",
+              "search_queries": [
+                "PostgreSQL row level locking vs MySQL InnoDB performance",
+                "MySQL InnoDB gap lock deadlock high concurrency",
+                "PostgreSQL advisory locks vs MySQL locks for concurrency"
+              ],
+              "depends_on_sections": [
+                "s1"
+              ],
+              "questions_to_answer": [
+                "PostgreSQL 的行级锁实现与 MySQL InnoDB 的锁机制在热点行更新时有何不同表现？",
+                "MySQL 的 Gap Lock（间隙锁）在并发写入场景下是否会导致死锁或吞吐量下降？",
+                "PostgreSQL 的 Advisory Locks 在处理应用层并发写入逻辑时是否具备优势？"
+              ],
+              "expected_claim_types": [
+                "TechnicalFact",
+                "PerformanceTradeoff"
+              ]
+            },
+            {
+              "title": "事务隔离级别与持久化策略",
+              "purpose": "探讨不同事务隔离级别对写入延迟的影响，以及 WAL/Redo Log 机制的性能差异。",
+              "section_id": "s3",
+              "search_queries": [
+                "PostgreSQL WAL vs MySQL Redo Log performance high write",
+                "PostgreSQL vs MySQL transaction isolation level performance impact",
+                "MySQL double write bottleneck high concurrency"
+              ],
+              "depends_on_sections": [
+                "s1"
+              ],
+              "questions_to_answer": [
+                "在 Repeatable Read 或 Serializable 隔离级别下，两者的并发写入吞吐量表现如何？",
+                "PostgreSQL 的 WAL 机制与 MySQL的 Redo Log/Binlog 双写机制在 I/O 延迟上有何差异？",
+                "同步提交与异步提交配置对两者高并发写入性能的影响对比。"
+              ],
+              "expected_claim_types": [
+                "PerformanceMetric",
+                "ConfigurationImpact"
+              ]
+            },
+            {
+              "title": "资源消耗与维护成本分析",
+              "purpose": "分析高并发写入下的系统资源占用及后台维护进程对性能的干扰。",
+              "section_id": "s4",
+              "search_queries": [
+                "PostgreSQL vacuum performance impact high write throughput",
+                "MySQL InnoDB buffer pool dirty page flushing latency",
+                "PostgreSQL process model vs MySQL thread model resource usage"
+              ],
+              "depends_on_sections": [
+                "s1",
+                "s2"
+              ],
+              "questions_to_answer": [
+                "PostgreSQL 的 Vacuum 进程在高并发写入环境下是否会阻塞业务写入或导致 I/O 抖动？",
+                "MySQL InnoDB Buffer Pool 的脏页刷新策略在高写入负载下如何影响响应时间？",
+                "两者在连接处理模型（Process-based vs Thread-based）上的差异对高并发写入的资源开销有何影响？"
+              ],
+              "expected_claim_types": [
+                "ResourceUtilization",
+                "OperationalChallenge"
+              ]
+            },
+            {
+              "title": "场景化选型结论与建议",
+              "purpose": "基于前述分析，总结适用场景并提供选型决策框架。",
+              "section_id": "s5",
+              "search_queries": [
+                "PostgreSQL vs MySQL high write load benchmark 2023 2024",
+                "when to choose PostgreSQL over MySQL for write intensive applications",
+                "best database for high concurrency transactional write"
+              ],
+              "depends_on_sections": [
+                "s1",
+                "s2",
+                "s3",
+                "s4"
+              ],
+              "questions_to_answer": [
+                "在何种业务模型下（如简单日志写入 vs 复杂交易事务）PostgreSQL 的写入优势更明显？",
+                "在何种业务模型下 MySQL 的写入性能更优？",
+                "针对高并发写入场景，两者在硬件选型与参数调优上有何核心建议？"
+              ],
+              "expected_claim_types": [
+                "BestPractice",
+                "DecisionCriteria"
+              ]
+            }
+          ],
+          "time_range": "2020年至2024年（涵盖 PostgreSQL 12-16 版本与 MySQL 5.7/8.0+ 版本的主流特性对比）",
+          "report_thesis": "在高并发写入场景下，PostgreSQL 与 MySQL 的选择取决于对数据一致性、事务复杂度及写入吞吐量的具体权衡。PostgreSQL 凭借其 MVCC 机制无需回滚段，在处理复杂事务和数据完整性上更具优势，但需面对 Vacuum 带来的维护开销；MySQL (InnoDB) 凭借成熟的生态系统和细粒度锁机制，在简单高并发写入中表现稳定，但需应对回滚段膨胀及间隙锁带来的并发瓶颈。取舍的关键在于业务模型是否需要复杂事务支持以及对写入延迟与吞吐量的敏感度。",
+          "cross_section_questions": [
+            "PostgreSQL 的 Vacuum 开销与 MySQL 的 Undo Log 清理开销，在持续高并发写入压力下，哪一方对业务实时吞吐量的负面影响更大？",
+            "考虑到硬件发展（如 NVMe SSD），PostgreSQL 的 I/O 写放大问题是否已不再是主要瓶颈？"
+          ]
+        },
+        "sections": {
+          "s1": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "s2": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "s3": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "s4": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "s5": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          }
+        },
+        "eval_scores": {
+          "details": {
+            "evidence_count": 0,
+            "required_claims": 0,
+            "supported_claims": 0
+          },
+          "duplication_rate": 0.0,
+          "global_coherence": 1.0,
+          "citation_accuracy": 0.0,
+          "citation_coverage": 1.0,
+          "claim_support_rate": 1.0,
+          "fact_conflict_rate": 0.0
+        },
+        "synthesized": "",
+        "document_map": []
+      },
+      "llm_trace": [
+        {
+          "ts": 1786286845.0169444,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286845.1452286,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286845.3497322,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286845.473371,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286845.896087,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286846.0272837,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286846.2546775,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286846.38062,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286846.6552215,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286846.7998142,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286847.014376,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286847.1621773,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286847.3344836,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286847.4738657,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286847.6649406,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286847.7791243,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286848.0950058,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286848.235255,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286848.4644046,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286848.5792515,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286848.8246715,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286848.9514706,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286849.1850114,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286849.3114808,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286849.5357213,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286849.6625113,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286849.8665073,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286850.011329,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286850.334508,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286850.4645078,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286850.7645192,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286850.9017644,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286851.2456384,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286851.3850365,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286851.5766191,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286851.7061348,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286851.895085,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286852.0598423,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286852.2871428,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286852.4275348,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286852.765126,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286852.887909,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286853.1162412,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286853.2622404,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286853.5171509,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286853.6652062,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286853.905033,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286854.0919344,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286854.305111,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286854.4389284,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286854.6356592,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286854.7718728,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286855.085968,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286855.2237265,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286855.4453542,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286855.5633154,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286856.4254391,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286856.5849793,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286859.7056093,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286859.8361433,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286861.795938,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286861.9394426,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286864.065866,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286864.1860278,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286865.2763073,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286865.4130476,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286866.926319,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286867.0594406,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286869.166374,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286869.2854083,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286870.176419,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286870.3121548,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286870.5166476,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286870.6755598,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286871.5672119,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286871.702151,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286872.6071835,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286872.7329473,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786286873.3673086,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786286873.5004442,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        }
+      ],
+      "file_paths": {
+        "md": "outputs/task_1786286855_c6e0a7688f.md",
+        "pdf": "outputs/task_1786286855_c6e0a7688f.pdf",
+        "docx": "outputs/task_1786286855_c6e0a7688f.docx",
+        "json": "outputs/job_e3fa4815-4360-4492-a741-23cc23725c19_1786286576_PostgreSQL_与_MySQL_在高并发写入场景下的取舍.json"
+      },
+      "files_done": true,
+      "degradations": {
+        "reasons": [
+          {
+            "ts": 1786286852.765114,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286852.8878906,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.1162295,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286853.262225,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.5171402,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286853.665189,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286853.9050205,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.091918,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286854.3050997,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.4389064,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286854.6356406,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286854.7718575,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286855.0859563,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286855.2237115,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286855.4453363,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286855.5633004,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286856.4254274,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286856.5849636,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286859.7055964,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286859.836127,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286861.795926,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286861.939423,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286864.0658534,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286864.186013,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286865.2762954,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286865.413023,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286866.9263053,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286867.0594232,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286869.166362,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286869.2853882,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286870.1764069,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286870.3121395,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286870.516629,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286870.675542,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286871.5672,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286871.7021348,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286872.6071715,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286872.7329326,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786286873.3672924,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786286873.5004277,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "rag_degraded": false,
+        "scrape_failures": 3,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false,
+        "scrape_failure_samples": [
+          {
+            "url": "https://blog.csdn.net/lihaiming_2008/article/details/148539770",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "url": "https://medium.com/@jholt1055/postgresql-vs-mysql-in-2025-what-10-years-managing-both-at-fortune-500-scale-taught-me-adc002c10453",
+            "reason": "too_short",
+            "quality": "low"
+          },
+          {
+            "url": "https://freemankevin.uk/2024/12/26/postgresql-optimization",
+            "reason": "scrape_failed",
+            "quality": "failed"
+          }
+        ]
+      },
+      "planning_done": true,
+      "research_done": true,
+      "source_policy": {
+        "mode": "web",
+        "reason": "policy_web_first"
+      },
+      "planning_started": true,
+      "report_body_done": true,
+      "report_persisted": true
+    },
+    "version": 21,
+    "created_at": 1786286576756,
+    "updated_at": 1786286875408
+  }
+}

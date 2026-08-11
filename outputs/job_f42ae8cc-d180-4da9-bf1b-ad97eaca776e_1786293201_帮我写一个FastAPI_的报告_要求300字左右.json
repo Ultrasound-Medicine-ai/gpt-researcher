@@ -1,0 +1,643 @@
+{
+  "timestamp": "2026-08-09T16:33:21.488871",
+  "job_id": "f42ae8cc-d180-4da9-bf1b-ad97eaca776e",
+  "events": [
+    {
+      "timestamp": "2026-08-09T16:33:47.707279",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '帮我写一个FastAPI 的报告，要求300字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:33:47.728170",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:33:47.766948",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 帮我写一个FastAPI 的报告，要求300字左右...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:33:49.939820",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:37.562747",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['FastAPI 报告 核心特点总结', 'FastAPI framework advantages and disadvantages', 'FastAPI performance vs Flask Django comparison', '帮我写一个FastAPI 的报告，要求300字左右']...",
+        "metadata": [
+          "FastAPI 报告 核心特点总结",
+          "FastAPI framework advantages and disadvantages",
+          "FastAPI performance vs Flask Django comparison",
+          "帮我写一个FastAPI 的报告，要求300字左右"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:37.664409",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'FastAPI 报告 核心特点总结'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:37.684651",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'FastAPI framework advantages and disadvantages'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:37.710554",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'FastAPI performance vs Flask Django comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:37.732947",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '帮我写一个FastAPI 的报告，要求300字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:38.637997",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.reddit.com/r/FastAPI\n",
+        "metadata": "https://www.reddit.com/r/FastAPI"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:38.665881",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://fastapi.tiangolo.com/zh-hant/tutorial\n",
+        "metadata": "https://fastapi.tiangolo.com/zh-hant/tutorial"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:38.698727",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://docs.posit.co/connect/user/fastapi\n",
+        "metadata": "https://docs.posit.co/connect/user/fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:38.729418",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://docs.cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-fastapi-service\n",
+        "metadata": "https://docs.cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-fastapi-service"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:38.762463",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://github.com/fastapi/fastapi\n",
+        "metadata": "https://github.com/fastapi/fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:38.784682",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:38.813039",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.418791",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://fastapi.tiangolo.com/zh-hant/features\n",
+        "metadata": "https://fastapi.tiangolo.com/zh-hant/features"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.450506",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://cloud.tencent.com/developer/article/2550667\n",
+        "metadata": "https://cloud.tencent.com/developer/article/2550667"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.481976",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://fastapi.tiangolo.com/zh-hant\n",
+        "metadata": "https://fastapi.tiangolo.com/zh-hant"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.526803",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://fastapi.tiangolo.com/zh/history-design-future\n",
+        "metadata": "https://fastapi.tiangolo.com/zh/history-design-future"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.568130",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.geeksforgeeks.org/python/introduction-to-fastapi\n",
+        "metadata": "https://www.geeksforgeeks.org/python/introduction-to-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.594847",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://github.com/liaogx/fastapi-tutorial\n",
+        "metadata": "https://github.com/liaogx/fastapi-tutorial"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.623951",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.647100",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.codecademy.com/article/fastapi-vs-flask-key-differences-performance-and-use-cases\n",
+        "metadata": "https://www.codecademy.com/article/fastapi-vs-flask-key-differences-performance-and-use-cases"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.686147",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.planeks.net/pros-and-cons-of-fastapi\n",
+        "metadata": "https://www.planeks.net/pros-and-cons-of-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.709765",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.748919",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://dev.to/fuadrafid/fastapi-the-good-the-bad-and-the-ugly-20ob\n",
+        "metadata": "https://dev.to/fuadrafid/fastapi-the-good-the-bad-and-the-ugly-20ob"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.778445",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://yeonwoosung.github.io/posts/pros-and-cons-of-fastapi\n",
+        "metadata": "https://yeonwoosung.github.io/posts/pros-and-cons-of-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.840529",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.906210",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 5 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.954475",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://github.com/agusmakmun/flask-django-quart-fastapi-performance-test-comparison\n",
+        "metadata": "https://github.com/agusmakmun/flask-django-quart-fastapi-performance-test-comparison"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:39.993227",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.zestminds.com/blog/fastapi-vs-django-vs-flask\n",
+        "metadata": "https://www.zestminds.com/blog/fastapi-vs-django-vs-flask"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:40.036179",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.geeksforgeeks.org/python/comparison-of-fastapi-with-django-and-flask\n",
+        "metadata": "https://www.geeksforgeeks.org/python/comparison-of-fastapi-with-django-and-flask"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:40.114161",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.jetbrains.com/pycharm/2025/02/django-flask-fastapi\n",
+        "metadata": "https://blog.jetbrains.com/pycharm/2025/02/django-flask-fastapi"
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:40.171002",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:40.226112",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 4 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:45.648651",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:45.683555",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:45.726808",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 19 total images",
+        "metadata": [
+          "https://blog.jetbrains.com/wp-content/uploads/2025/02/pc-featured_blog_1280x720_en-1.png",
+          "https://blog.jetbrains.com/wp-content/uploads/2026/03/PC-social-BlogFeatured-1280x720-1.png",
+          "https://blog.jetbrains.com/wp-content/uploads/2025/10/PC-social-BlogFeatured-1280x720-1-20.png",
+          "https://blog.jetbrains.com/wp-content/uploads/2025/10/Blog_1280x720-1.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:45.767084",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 43 total images",
+        "metadata": [
+          "https://fastapi.tiangolo.com/img/sponsors/blockbee-banner.png",
+          "https://fastapi.tiangolo.com/img/sponsors/propelauth-banner.png",
+          "https://fastapi.tiangolo.com/img/sponsors/render-banner.svg",
+          "https://fastapi.tiangolo.com/img/sponsors/coderabbit-banner.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:45.827520",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:45.907614",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:45.990631",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: FastAPI performance vs Flask Django comparison...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:47.802893",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 4 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:47.825484",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: FastAPI 报告 核心特点总结...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:47.863278",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 5 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:47.894512",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 31 total images",
+        "metadata": [
+          "https://www.gstatic.com/devrel-devsite/prod/v25f01968170374b7bd062a383d0367da1beee7ed413abaee67eec4296f4ba687/clouddocs/images/lockup_full_color.svg",
+          "https://docs.cloud.google.com/_static/clouddocs/images/icons/products/run-color.svg",
+          "https://cloud.google.com/sustainability/region-carbon/gleaf.svg",
+          "https://camo.githubusercontent.com/c6dfa6467cf5965f88acb219e3df6b5df68ac278543764abf5ae4a1d1c7dd020/68747470733a2f2f666173746170692e7469616e676f6c6f2e636f6d2f696d672f6c6f676f2d6d617267696e2f6c6f676f2d7465616c2e706e67"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:47.932019",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 17 total images",
+        "metadata": [
+          "https://media.geeksforgeeks.org/wp-content/uploads/20260620103428359889/Screenshot-2026-06-20-103320.png",
+          "https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2F7yxcdbt72bwrj0cwm89y.PNG",
+          "https://static-assets.codecademy.com/Courses/Course-Cards/pillars.svg",
+          "https://static-assets.codecademy.com/flask-fast-api/flask_vs_fastapi_search_trends.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:47.979436",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.014162",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.061658",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: 帮我写一个FastAPI 的报告，要求300字左右...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.094370",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "📚 Getting relevant content based on query: FastAPI framework advantages and disadvantages...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.376963",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.404719",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.430310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "🤷 No content found for '帮我写一个FastAPI 的报告，要求300字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.460291",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.486239",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.019759600000000002",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:34:48.564850",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '帮我写一个FastAPI 的报告，要求300字左右'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T16:35:43.025029",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '帮我写一个FastAPI 的报告，要求300字左右'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "帮我写一个FastAPI 的报告，要求300字左右",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# FastAPI 技术评估报告\n\n## 核心架构\nFastAPI 是一款基于 Python 的现代高性能 Web 框架，专为构建 API 与后端服务设计[11]。其底层依托 Starlette 处理异步 Web 请求，并结合 Pydantic 实现严格的数据验证[5]。\n\n### 标准化与自动化\n框架全面支持 Python 类型提示，可自动生成符合 OpenAPI 与 JSON Schema 标准的交互式文档，大幅降低接口联调成本[16]。\n\n## 性能优势\nFastAPI 的并发处理能力可与 NodeJS 和 Go 媲美，是 Python 生态中最快的框架之一[11]。相较于传统的 Flask 与 Django，其原生 ASGI 架构与内置依赖注入系统显著减少了代码冗余，开发效率可提升 200% 至 300%[5]。严格的类型校验机制进一步降低了约 40% 的人为开发错误[11]。\n\n## 应用场景\n该框架高度契合 RESTful API、微服务架构及机器学习模型部署需求[3]。凭借高并发能力与极简语法，FastAPI 已被 Microsoft、Uber、Netflix 与 Cisco 等企业广泛采纳，成为现代 API-first 策略的核心组件[11]。综合性能基准与工程实践，对于追求高吞吐、低延迟与快速迭代的研发团队，FastAPI 是当前 Python 后端开发的最优技术选型[4]。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** github.com — GitHub - agusmakmun/flask-django-quart-fastapi-performance-test-comparison: Python Web Frameworks Performance Comparison: Flask, Django, Quart and FastAPI · GitHub\nURL: https://github.com/agusmakmun/flask-django-quart-fastapi-performance-test-comparison\n原文片段：「GitHub - agusmakmun/flask-django-quart-fastapi-performance-test-comparison: Python Web Frameworks Performance Comparison: Flask, Django, Quart and FastAPI · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another...」\n\n<a id=\"ref-2\"></a>**[2]** blog.jetbrains.com — Which Is the Best Python Web Framework: Django, Flask, or FastAPI? - The JetBrains Blog\nURL: https://blog.jetbrains.com/pycharm/2025/02/django-flask-fastapi\n原文片段：「Which Is the Best Python Web Framework: Django, Flask, or FastAPI? - The JetBrains Blog PyCharm The only Python IDE you need. Follow Follow: X X Youtube Youtube RSS RSS Download Web Development Which Is the Best Python Web Framework: Django, Flask, or FastAPI? Evgenia Verbina Rea...」\n\n<a id=\"ref-3\"></a>**[3]** geeksforgeeks.org — Comparison of FastAPI with Django and Flask - GeeksforGeeks\nURL: https://www.geeksforgeeks.org/python/comparison-of-fastapi-with-django-and-flask\n原文片段：「Comparison of FastAPI with Django and Flask - GeeksforGeeks Courses Tutorials Interview Prep Python Tutorial Data Types Interview Questions Examples Quizzes DSA Python Data Science NumPy Pandas Practice Django Flask Comparison of FastAPI with Django and Flask Last Updated : 29 Au...」\n\n<a id=\"ref-4\"></a>**[4]** zestminds.com — FastAPI vs Flask vs Django: Which to Choose in 2026\nURL: https://www.zestminds.com/blog/fastapi-vs-django-vs-flask\n原文片段：「FastAPI vs Flask vs Django: Which to Choose in 2026 Platform Engineering Custom Software Development FastAPI vs Flask vs Django: Performance, Architecture & Use Cases (2026 Guide) FastAPI, Flask, and Django are three widely used Python frameworks, but they solve different backend...」\n\n<a id=\"ref-5\"></a>**[5]** fastapi.tiangolo.com — 历史、设计、未来 - FastAPI\nURL: https://fastapi.tiangolo.com/zh/history-design-future\n原文片段：「历史、设计、未来 - FastAPI 跳转至 Deploy on FastAPI Cloud 🚀 FastAPI Conf '26 — Oct 28, 2026, Amsterdam 🎤 Follow @fastapi on X (Twitter) to stay updated Follow FastAPI on LinkedIn to stay updated Subscribe to the FastAPI and friends newsletter 🎉 sponsor sponsor sponsor sponsor sponsor sponso...」\n\n<a id=\"ref-6\"></a>**[6]** cloud.tencent.com — FastAPI 实用教程：构建高性能 Python Web API 的终极指南-腾讯云开发者社区-腾讯云\nURL: https://cloud.tencent.com/developer/article/2550667\n原文片段：「FastAPI 实用教程：构建高性能 Python Web API 的终极指南-腾讯云开发者社区-腾讯云 熊猫钓鱼 FastAPI 实用教程：构建高性能 Python Web API 的终极指南 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 熊猫钓鱼 社区首页 > 专栏 > FastAPI 实用教程：构建高性能 Python Web API 的终极指南 FastAPI 实用教程：构建高性能 Python Web API 的终极指南 熊猫钓鱼...」\n\n<a id=\"ref-7\"></a>**[7]** fastapi.tiangolo.com — FastAPI - FastAPI\nURL: https://fastapi.tiangolo.com/zh-hant\n原文片段：「FastAPI - FastAPI 跳轉至 Deploy on FastAPI Cloud 🚀 FastAPI Conf '26 — Oct 28, 2026, Amsterdam 🎤 Follow @fastapi on X (Twitter) to stay updated Follow FastAPI on LinkedIn to stay updated Subscribe to the FastAPI and friends newsletter 🎉 sponsor sponsor sponsor sponsor sponsor sponsor...」\n\n<a id=\"ref-8\"></a>**[8]** github.com — GitHub - liaogx/fastapi-tutorial: 整体的介绍 FastAPI，快速上手开发，结合 API 交互文档逐个讲解核心模块的使用。视频学习地址： · GitHub\nURL: https://github.com/liaogx/fastapi-tutorial\n原文片段：「GitHub - liaogx/fastapi-tutorial: 整体的介绍 FastAPI，快速上手开发，结合 API 交互文档逐个讲解核心模块的使用。视频学习地址： · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts...」\n\n<a id=\"ref-9\"></a>**[9]** fastapi.tiangolo.com — 特性 - FastAPI\nURL: https://fastapi.tiangolo.com/zh-hant/features\n原文片段：「特性 - FastAPI 跳轉至 Deploy on FastAPI Cloud 🚀 FastAPI Conf '26 — Oct 28, 2026, Amsterdam 🎤 Follow @fastapi on X (Twitter) to stay updated Follow FastAPI on LinkedIn to stay updated Subscribe to the FastAPI and friends newsletter 🎉 sponsor sponsor sponsor sponsor sponsor sponsor spon...」\n\n<a id=\"ref-10\"></a>**[10]** docs.cloud.google.com — Quickstart: Deploy a Python (FastAPI) web app to Google Cloud with Cloud Run  |  Google Cloud Documentation\nURL: https://docs.cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-fastapi-service\n原文片段：「Quickstart: Deploy a Python (FastAPI) web app to Google Cloud with Cloud Run | Google Cloud Documentation Skip to main content / Console English Deutsch Español Español – América Latina Français Indonesia Italiano Português Português – Brasil עברית 中文 – 简体 中文 – 繁體 日本語 한국어 Sign in...」\n\n<a id=\"ref-11\"></a>**[11]** github.com — GitHub - fastapi/fastapi: FastAPI framework, high performance, easy to learn, fast to code, ready for production · GitHub\nURL: https://github.com/fastapi/fastapi\n原文片段：「GitHub - fastapi/fastapi: FastAPI framework, high performance, easy to learn, fast to code, ready for production · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your sess...」\n\n<a id=\"ref-12\"></a>**[12]** fastapi.tiangolo.com — 教學 - 使用者指南 - FastAPI\nURL: https://fastapi.tiangolo.com/zh-hant/tutorial\n原文片段：「教學 - 使用者指南 - FastAPI 跳轉至 Deploy on FastAPI Cloud 🚀 FastAPI Conf '26 — Oct 28, 2026, Amsterdam 🎤 Follow @fastapi on X (Twitter) to stay updated Follow FastAPI on LinkedIn to stay updated Subscribe to the FastAPI and friends newsletter 🎉 sponsor sponsor sponsor sponsor sponsor spon...」\n\n<a id=\"ref-13\"></a>**[13]** docs.posit.co — FastAPI – Connect Documentation Version 2026.07.0\nURL: https://docs.posit.co/connect/user/fastapi\n原文片段：「FastAPI – Connect Documentation Version 2026.07.0 Documentation Version You are viewing version 2026.07.0 . View the latest version . Enhanced Advanced FastAPI is a Python ASGI web API framework. FastAPI uses type annotations and Pydantic models to provide input validation and au...」\n\n<a id=\"ref-14\"></a>**[14]** planeks.net — Захищена сторінка\nURL: https://www.planeks.net/pros-and-cons-of-fastapi\n原文片段：「Захищена сторінка захищено adm.tools 134.195.101.74 — 2026-08-09T16:34:41.527Z Щоб переглянути сайт, увімкніть JavaScript у своєму браузері Навіщо включати JavaScript? З вашої IP-адреси було зафіксовано діяльність шкідливих програм. Увімкнення JavaScript дозволить нам переконатис...」\n\n<a id=\"ref-15\"></a>**[15]** codecademy.com — FastAPI vs Flask: Key Differences, Performance, and Use Cases  | Codecademy\nURL: https://www.codecademy.com/article/fastapi-vs-flask-key-differences-performance-and-use-cases\n原文片段：「FastAPI vs Flask: Key Differences, Performance, and Use Cases | Codecademy Skip to Content Articles FastAPI vs Flask: Key Differences, Performance, and Use Cases Codecademy Team Share Contents If you are starting to build web apps and APIs in Python, you will hear about Flask and...」\n\n<a id=\"ref-16\"></a>**[16]** geeksforgeeks.org — Introduction to FastAPI - GeeksforGeeks\nURL: https://www.geeksforgeeks.org/python/introduction-to-fastapi\n原文片段：「Introduction to FastAPI - GeeksforGeeks Courses Tutorials Interview Prep Python Tutorial Data Types Interview Questions Examples Quizzes DSA Python Data Science NumPy Pandas Practice Django Flask Introduction to FastAPI Last Updated : 20 Jun, 2026 FastAPI is a modern Python web f...」\n\n<a id=\"ref-17\"></a>**[17]** yeonwoosung.github.io — Pros and Cons of FastAPI | YeonwooSung's Blog\nURL: https://yeonwoosung.github.io/posts/pros-and-cons-of-fastapi\n原文片段：「Pros and Cons of FastAPI | YeonwooSung's Blog YeonwooSung's Blog As I've always been Home Pros and Cons of FastAPI Post Cancel Pros and Cons of FastAPI Posted Jun 21, 2023 By 1 min read Pros FastAPI is very fast and efficient, making it a great choice for building high-performanc...」\n\n<a id=\"ref-18\"></a>**[18]** dev.to — FastAPI - The Good, the bad and the ugly. - DEV Community\nURL: https://dev.to/fuadrafid/fastapi-the-good-the-bad-and-the-ugly-20ob\n原文片段：「FastAPI - The Good, the bad and the ugly. - DEV Community Add reaction Like Unicorn Exploding Head Raised Hands Fire Jump to Comments Save Boost Copy link Copied to Clipboard Share to X Share to LinkedIn Share to Facebook Share to Mastodon Report Abuse FastAPI is a relatively new...」",
+    "metadata": [
+      "https://blog.jetbrains.com/wp-content/uploads/2025/02/pc-featured_blog_1280x720_en-1.png",
+      "https://blog.jetbrains.com/wp-content/uploads/2026/03/PC-social-BlogFeatured-1280x720-1.png",
+      "https://blog.jetbrains.com/wp-content/uploads/2025/10/PC-social-BlogFeatured-1280x720-1-20.png",
+      "https://blog.jetbrains.com/wp-content/uploads/2025/10/Blog_1280x720-1.png",
+      "https://fastapi.tiangolo.com/img/sponsors/blockbee-banner.png",
+      "https://fastapi.tiangolo.com/img/sponsors/propelauth-banner.png",
+      "https://fastapi.tiangolo.com/img/sponsors/render-banner.svg",
+      "https://fastapi.tiangolo.com/img/sponsors/coderabbit-banner.png",
+      "https://www.gstatic.com/devrel-devsite/prod/v25f01968170374b7bd062a383d0367da1beee7ed413abaee67eec4296f4ba687/clouddocs/images/lockup_full_color.svg",
+      "https://docs.cloud.google.com/_static/clouddocs/images/icons/products/run-color.svg"
+    ]
+  }
+}

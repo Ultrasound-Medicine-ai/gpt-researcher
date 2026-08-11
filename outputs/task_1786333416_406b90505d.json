@@ -1,0 +1,456 @@
+{
+  "timestamp": "2026-08-10T03:43:36.579498",
+  "events": [
+    {
+      "timestamp": "2026-08-10T03:43:58.364491",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:43:58.386385",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:43:58.451179",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:44:00.706845",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:24.341465",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['SSE Server-Sent Events \u6280\u672f\u539f\u7406\u4e0e\u4f18\u7f3a\u70b9', 'Server-Sent Events vs WebSocket comparison', '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86']...",
+        "metadata": [
+          "SSE Server-Sent Events \u6280\u672f\u539f\u7406\u4e0e\u4f18\u7f3a\u70b9",
+          "Server-Sent Events vs WebSocket comparison",
+          "\u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:24.407596",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'SSE Server-Sent Events \u6280\u672f\u539f\u7406\u4e0e\u4f18\u7f3a\u70b9'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:24.424736",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Server-Sent Events vs WebSocket comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:24.445266",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.184496",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.trainchinese.com/v2/wordDetails.php?rAp=0&wordId=3550&tcLanguage=en\n",
+        "metadata": "https://www.trainchinese.com/v2/wordDetails.php?rAp=0&wordId=3550&tcLanguage=en"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.223103",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://chinese.yabla.com/chinese-english-pinyin-dictionary.php?define=%E5%B8%AE\n",
+        "metadata": "https://chinese.yabla.com/chinese-english-pinyin-dictionary.php?define=%E5%B8%AE"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.261480",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://prepedu.com/vi/blog/bang-bangmang-va-bangzhu-tieng-trung\n",
+        "metadata": "https://prepedu.com/vi/blog/bang-bangmang-va-bangzhu-tieng-trung"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.296309",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.348236",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.799499",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide\n",
+        "metadata": "https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.830774",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.svix.com/resources/faq/websocket-vs-sse\n",
+        "metadata": "https://www.svix.com/resources/faq/websocket-vs-sse"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.869503",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://websocket.org/comparisons/sse\n",
+        "metadata": "https://websocket.org/comparisons/sse"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.899420",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:25.940998",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:26.822069",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/crazymakercircle/p/19065461\n",
+        "metadata": "https://www.cnblogs.com/crazymakercircle/p/19065461"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:26.868241",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.aliyun.com/article/633718\n",
+        "metadata": "https://developer.aliyun.com/article/633718"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:26.927880",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519\n",
+        "metadata": "https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:26.968908",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:27.033831",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:27.255563",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:27.280890",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf972a8/699c65d475d592ff4cf97d2d_nimble-logo_black.svg",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf97fde_image%20(4).avif",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699f0cbc59001f48677c09e8_Group%202147257077.png",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf9816d_699751b8b1f8df87376c8293_1701730813246.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:27.315530",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:27.357066",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: Server-Sent Events vs WebSocket comparison...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.595042",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.617662",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.643934",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://static-assets.prepcdn.com/content-management-system/bang_bangmang_va_bangzhu_tieng_trung_69ae43cddf.png",
+          "https://static-assets.prepcdn.com/content-management-system/cach_dung_bang_8a0bfc04ed.jpg",
+          "https://static-assets.prepcdn.com/content-management-system/cach_dung_bangmang_3574be6090.jpg",
+          "https://static-assets.prepcdn.com/content-management-system/cach_dung_bangzhu_d64d1e3c03.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.669757",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 13 total images",
+        "metadata": [
+          "https://kimi-web-img.moonshot.cn/img/placeholder-0620/%E5%9B%BE%E7%89%8721.png",
+          "https://yqfile.alicdn.com/img_93cd89fe6376d2dddc23b28fcfd129c8.png?x-oss-process=image/resize,w_1400/format,webp",
+          "https://ucc.alicdn.com/avatar/img_8d044c10f7e36066a0dada1e7849ef54.jpeg?x-oss-process=image/resize,h_150,m_lfit",
+          "https://ucc.alicdn.com/r43put2rqnbp4/developer-article1679559/20250829/c7450b229d49420c8f8e9a86e2668ebe.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.706864",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.735812",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.775026",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: \u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.931577",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "fetching_query_content",
+        "output": "\ud83d\udcda Getting relevant content based on query: SSE Server-Sent Events \u6280\u672f\u539f\u7406\u4e0e\u4f18\u7f3a\u70b9...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:29.988758",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:30.016277",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:30.039225",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:30.067432",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.02880490000000001",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:45:30.138952",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T03:46:32.106177",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u4e24\u767e\u5b57\u5c31\u53ef\u4ee5\u4e86'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# SSE\uff08Server-Sent Events\uff09\u6280\u672f\u8c03\u7814\u62a5\u544a\n\n## \u6280\u672f\u6982\u8ff0\u4e0e\u6838\u5fc3\u539f\u7406\nServer-Sent Events\uff08SSE\uff09\u662f\u4e00\u79cd\u57fa\u4e8e\u6807\u51c6 HTTP \u534f\u8bae\u7684\u670d\u52a1\u5668\u63a8\u9001\u6280\u672f\uff0c\u5141\u8bb8\u670d\u52a1\u7aef\u4e3b\u52a8\u5411\u5ba2\u6237\u7aef\u5efa\u7acb\u5355\u5411\u6301\u4e45\u8fde\u63a5\u5e76\u5b9e\u65f6\u63a8\u9001\u6570\u636e\u6d41[4]\u3002\u5176\u672c\u8d28\u5e76\u975e\u72ec\u7acb\u7684\u65b0\u534f\u8bae\uff0c\u800c\u662f\u6784\u5efa\u5728 HTTP/1.1 \u6216 HTTP/2 \u4e4b\u4e0a\u7684\u6807\u51c6\u5316\u6269\u5c55\u7528\u6cd5[6]\u3002\u5ba2\u6237\u7aef\u901a\u8fc7\u539f\u751f `EventSource` API \u53d1\u8d77 GET \u8bf7\u6c42\uff0c\u670d\u52a1\u7aef\u4ee5 `Content-Type: text/event-stream` \u54cd\u5e94\u5e76\u4fdd\u6301\u8fde\u63a5\u957f\u5f00\uff0c\u4ece\u800c\u5f7b\u5e95\u6452\u5f03\u4e86\u4f20\u7edf\u77ed\u8f6e\u8be2\u4e0e\u957f\u8f6e\u8be2\u673a\u5236[4]\u3002\n\n## \u6838\u5fc3\u7279\u6027\u4e0e\u534f\u8bae\u89c4\u8303\nSSE \u91c7\u7528 UTF-8 \u7eaf\u6587\u672c\u4f20\u8f93\uff0c\u6d88\u606f\u4f53\u7531 `data:`\u3001`event:`\u3001`id:` \u548c `retry:` \u5b57\u6bb5\u6784\u6210\uff0c\u4ee5\u53cc\u6362\u884c\u7b26\u5206\u9694[4]\u3002\u5176\u6838\u5fc3\u5de5\u7a0b\u4f18\u52bf\u5728\u4e8e\u5185\u7f6e\u65ad\u7ebf\u81ea\u52a8\u91cd\u8fde\u673a\u5236\uff0c\u5e76\u652f\u6301\u901a\u8fc7 `Last-Event-ID` \u5b9e\u73b0\u6d88\u606f\u7eed\u4f20\uff0c\u663e\u8457\u964d\u4f4e\u4e86\u8fde\u63a5\u7ef4\u62a4\u4e0e\u72b6\u6001\u540c\u6b65\u7684\u5f00\u53d1\u6210\u672c[4]\u3002\u5728 HTTP/1.1 \u73af\u5883\u4e0b\uff0c\u6d4f\u89c8\u5668\u5b58\u5728\u5355\u57df\u540d 6 \u4e2a\u5e76\u53d1\u8fde\u63a5\u7684\u9650\u5236\uff0c\u4f46\u5347\u7ea7\u81f3 HTTP/2 \u540e\u53ef\u901a\u8fc7\u591a\u8def\u590d\u7528\u5f7b\u5e95\u6d88\u9664\u8be5\u74f6\u9888[2]\u3002\n\n## \u4e0e WebSocket \u7684\u5bf9\u6bd4\u5206\u6790\n| \u7279\u6027\u7ef4\u5ea6 | SSE | WebSocket |\n|---|---|---|\n| \u901a\u4fe1\u65b9\u5411 | \u5355\u5411\uff08\u670d\u52a1\u7aef\u2192\u5ba2\u6237\u7aef\uff09 | \u53cc\u5411\u5168\u53cc\u5de5 |\n| \u534f\u8bae\u57fa\u7840 | \u6807\u51c6 HTTP | \u72ec\u7acb\u534f\u8bae\uff08\u9700 HTTP \u5347\u7ea7\u63e1\u624b\uff09 |\n| \u91cd\u8fde\u673a\u5236 | \u6d4f\u89c8\u5668\u5185\u7f6e\u81ea\u52a8\u91cd\u8fde | \u9700\u5f00\u53d1\u8005\u624b\u52a8\u5b9e\u73b0 |\n| \u6570\u636e\u683c\u5f0f | \u4ec5\u652f\u6301\u6587\u672c | \u652f\u6301\u6587\u672c\u4e0e\u4e8c\u8fdb\u5236 |\n| \u7f51\u7edc\u517c\u5bb9\u6027 | \u6781\u4f73\uff08\u65e0\u7f1d\u517c\u5bb9\u4ee3\u7406/CDN/\u9632\u706b\u5899\uff09 | \u9700\u989d\u5916\u914d\u7f6e\u652f\u6301 |\n*(\u6570\u636e\u7efc\u5408\u81ea\uff1a[1], [2])*\n\n## \u5178\u578b\u5e94\u7528\u573a\u666f\u4e0e\u9009\u578b\u5efa\u8bae\nSSE \u6781\u5176\u9002\u7528\u4e8e\u670d\u52a1\u7aef\u4e3b\u5bfc\u7684\u5b9e\u65f6\u6570\u636e\u6d41\u573a\u666f\uff0c\u5982 AI \u5927\u6a21\u578b\u9010\u5b57\u8f93\u51fa\uff08Token Streaming\uff09\u3001\u7cfb\u7edf\u8fd0\u7ef4\u76d1\u63a7\u3001\u91d1\u878d\u884c\u60c5\u63a8\u9001\u53ca\u793e\u4ea4\u52a8\u6001\u901a\u77e5[4]\u3002\u82e5\u4e1a\u52a1\u4ec5\u9700\u670d\u52a1\u7aef\u5411\u5ba2\u6237\u7aef\u5355\u5411\u5e7f\u64ad\uff0cSSE \u51ed\u501f\u8f7b\u91cf\u67b6\u6784\u3001\u514d\u7ef4\u62a4\u91cd\u8fde\u53ca\u539f\u751f HTTP \u517c\u5bb9\u6027\uff0c\u662f\u6bd4 WebSocket \u66f4\u4f18\u7684\u5de5\u7a0b\u9009\u62e9[1]\u3002\u4ec5\u5728\u9700\u8981\u5ba2\u6237\u7aef\u9ad8\u9891\u4e0a\u884c\u4ea4\u4e92\uff08\u5982\u5728\u7ebf\u534f\u540c\u7f16\u8f91\u3001\u591a\u4eba\u6e38\u620f\u3001\u5373\u65f6\u804a\u5929\uff09\u65f6\uff0c\u624d\u5e94\u9009\u7528 WebSocket[2]\u3002\u7efc\u5408\u800c\u8a00\uff0cSSE \u4ee5\u6781\u7b80\u8bbe\u8ba1\u5b9e\u73b0\u4e86\u9ad8\u6548\u7684\u5b9e\u65f6\u63a8\u9001\uff0c\u662f\u73b0\u4ee3 Web \u5b9e\u65f6\u901a\u4fe1\u6808\u4e2d\u4e0d\u53ef\u6216\u7f3a\u7684\u8f7b\u91cf\u7ea7\u65b9\u6848\u3002\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** websocket.org \u2014 WebSocket vs SSE: Which One Should You Use? | WebSocket.org\nURL: https://websocket.org/comparisons/sse\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWebSocket vs SSE: Which One Should You Use? | WebSocket.org Skip to content WebSocket vs SSE: Which One Should You Use? by Matthew O'Riordan \u2022 Published on January 7, 2025 \u2022 Updated March 10, 2026 :::note[Quick Answer] Use SSE for simple server-to-client streaming (notifications,...\u300d\n\n<a id=\"ref-2\"></a>**[2]** svix.com \u2014 Websocket vs Server Sent Events (SSE) | Svix Resources\nURL: https://www.svix.com/resources/faq/websocket-vs-sse\n\u539f\u6587\u7247\u6bb5\uff1a\u300cWebsocket vs Server Sent Events (SSE) | Svix Resources Skip to main content On this page WebSocket vs SSE (Server-Sent Events) WebSockets and server-sent events (SSE) both let a server push data to a client without the client polling for it. The difference is direction. A WebSock...\u300d\n\n<a id=\"ref-3\"></a>**[3]** nimbleway.com \u2014 Server-Sent Events vs WebSockets: Key Differences and Use Cases in 2026\nURL: https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide\n\u539f\u6587\u7247\u6bb5\uff1a\u300cServer-Sent Events vs WebSockets: Key Differences and Use Cases in 2026 Announcing Web Search Agents Self-learning web search for your domain Learn More Login Sign Up Get Expert-Level Web Search for Your AI Agents Let's talk about your use cases and show you how Nimble delivers h...\u300d\n\n<a id=\"ref-4\"></a>**[4]** kimi.com \u2014 Server-Sent Events (SSE) \u6280\u672f\u8be6\u89e3\nURL: https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519\n\u539f\u6587\u7247\u6bb5\uff1a\u300cServer-Sent Events (SSE) \u6280\u672f\u8be6\u89e3 Server-Sent Events \u6280\u672f\u8be6\u89e3 \u57fa\u4e8e HTTP \u7684\u670d\u52a1\u5668\u63a8\u9001\u6280\u672f\uff0c\u5b9e\u73b0\u9ad8\u6548\u3001\u7b80\u5355\u7684\u5355\u5411\u5b9e\u65f6\u901a\u4fe1 \u5b9e\u65f6\u901a\u4fe1 \u8f7b\u91cf\u7ea7 HTTP \u6807\u51c6 \u6838\u5fc3\u4ef7\u503c \u5355\u5411\u63a8\u9001 \u670d\u52a1\u5668\u4e3b\u52a8\u63a8\u9001\u66f4\u65b0\uff0c\u65e0\u9700\u5ba2\u6237\u7aef\u8f6e\u8be2 \u81ea\u52a8\u91cd\u8fde \u5185\u7f6e\u65ad\u7ebf\u91cd\u8fde\u4e0e\u6d88\u606f\u7eed\u4f20\u673a\u5236 \u7b80\u5355\u5b9e\u73b0 \u57fa\u4e8e\u6807\u51c6 HTTP\uff0c\u6613\u4e8e\u96c6\u6210\u90e8\u7f72 SSE \u6280\u672f\u6982\u8ff0 \u4ec0\u4e48\u662f Server-Sent Events Server-Sent Events (SSE) \u662f\u4e00\u79cd\u57fa\u4e8e HTTP \u7684\u670d\u52a1\u5668\u63a8\u9001\u6280\u672f\uff0c\u5b83\u5141\u8bb8\u670d\u52a1\u5668\u5c06\u5b9e\u65f6\u66f4\u65b0\u4e3b\u52a8\u53d1\u9001\u5230\u5ba2\u6237\u7aef\uff08\u901a\u5e38\u662f Web \u6d4f\u89c8\u5668...\u300d\n\n<a id=\"ref-5\"></a>**[5]** developer.aliyun.com \u2014 \u8be6\u89e3SSE\u670d\u52a1\u5668\u63a8\u9001\u4e8b\u4ef6\u539f\u7406\u4e0e\u5b9e\u73b0\u5e76\u5bf9\u6bd4WebSocket-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91\nURL: https://developer.aliyun.com/article/633718\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u8be6\u89e3SSE\u670d\u52a1\u5668\u63a8\u9001\u4e8b\u4ef6\u539f\u7406\u4e0e\u5b9e\u73b0\u5e76\u5bf9\u6bd4WebSocket-\u5f00\u53d1\u8005\u793e\u533a-\u963f\u91cc\u4e91 \u5f00\u53d1\u8005\u793e\u533a \u5f00\u53d1\u4e0e\u8fd0\u7ef4 \u6587\u7ae0 \u6b63\u6587 SSE\u6280\u672f\u8be6\u89e3\uff1a\u4e00\u79cd\u5168\u65b0\u7684HTML5\u670d\u52a1\u5668\u63a8\u9001\u4e8b\u4ef6\u6280\u672f 2016-07-18 2724 \u7248\u6743 \u7248\u6743\u58f0\u660e\uff1a \u672c\u6587\u5185\u5bb9\u7531\u963f\u91cc\u4e91\u5b9e\u540d\u6ce8\u518c\u7528\u6237\u81ea\u53d1\u8d21\u732e\uff0c\u7248\u6743\u5f52\u539f\u4f5c\u8005\u6240\u6709\uff0c\u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u4e0d\u62e5\u6709\u5176\u8457\u4f5c\u6743\uff0c\u4ea6\u4e0d\u627f\u62c5\u76f8\u5e94\u6cd5\u5f8b\u8d23\u4efb\u3002\u5177\u4f53\u89c4\u5219\u8bf7\u67e5\u770b\u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u7528\u6237\u670d\u52a1\u534f\u8bae \u300b\u548c \u300a \u963f\u91cc\u4e91\u5f00\u53d1\u8005\u793e\u533a\u77e5\u8bc6\u4ea7\u6743\u4fdd\u62a4\u6307\u5f15 \u300b\u3002\u5982\u679c\u60a8\u53d1\u73b0\u672c\u793e\u533a\u4e2d\u6709\u6d89\u5acc\u6284\u88ad\u7684\u5185\u5bb9\uff0c\u586b\u5199 \u4fb5\u6743\u6295\u8bc9\u8868\u5355 \u8fdb\u884c\u4e3e\u62a5\uff0c\u4e00\u7ecf\u67e5\u5b9e\uff0c\u672c\u793e\u533a\u5c06\u7acb\u523b\u5220\u9664\u6d89\u5acc\u4fb5\u6743\u5185\u5bb9\u3002 \u7b80\u4ecb\uff1a \u524d\u8a00\u4e00\u822c\u6765\u8bf4\uff0cW...\u300d\n\n<a id=\"ref-6\"></a>**[6]** cnblogs.com \u2014 SSE\uff08Server-Sent Events\uff09\u5723\u7ecf\uff1a \u5e95\u5c42\u539f\u7406 + \u5e94\u7528\u5f00\u53d1 + \u6280\u672f\u5bf9\u6bd4 \uff08\u56fe\u89e3+\u79d2\u61c2+\u53f2\u4e0a\u6700\u5168\uff09 - \u6280\u672f\u81ea\u7531\u5708 - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/crazymakercircle/p/19065461\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSSE\uff08Server-Sent Events\uff09\u5723\u7ecf\uff1a \u5e95\u5c42\u539f\u7406 + \u5e94\u7528\u5f00\u53d1 + \u6280\u672f\u5bf9\u6bd4 \uff08\u56fe\u89e3+\u79d2\u61c2+\u53f2\u4e0a\u6700\u5168\uff09 - \u6280\u672f\u81ea\u7531\u5708 - \u535a\u5ba2\u56ed \u75af\u72c2\u521b\u5ba2\u5708 SSE\uff08Server-Sent Events\uff09\u5723\u7ecf\uff1a \u5e95\u5c42\u539f\u7406 + \u5e94\u7528\u5f00\u53d1 + \u6280\u672f\u5bf9\u6bd4 \uff08\u56fe\u89e3+\u79d2\u61c2+\u53f2\u4e0a\u6700\u5168\uff09 \u672c\u6587 \u7684 \u539f\u6587 \u5730\u5740 \u539f\u59cb\u7684\u5185\u5bb9\uff0c\u8bf7\u53c2\u8003 \u672c\u6587 \u7684 \u539f\u6587 \u5730\u5740 \u672c\u6587 \u7684 \u539f\u6587 \u5730\u5740 \u5c3c\u6069\u8bf4\u5728\u524d\u9762 \u572845\u5c81\u8001\u67b6\u6784\u5e08 \u5c3c\u6069\u7684 \u8bfb\u8005\u4ea4\u6d41\u7fa4 (50+)\u4e2d\uff0c\u901a\u8fc7 Java+AI\u53cc\u9a71\u67b6\u6784 \u5e2e\u52a9\u5f88\u591a\u5c0f\u4f19\u4f34\u62ff\u5230\u4e86\u4e00\u7ebf\u4f01\u4e1a\u5982 \u5b57\u8282\u3001\u5f97\u7269\u3001\u963f\u91cc\u3001\u6ef4\u6ef4\u3001\u6781\u5154\u3001\u6709\u8d5e\u3001\u5e0c\u97f3\u3001\u767e\u5ea6\u3001\u7f51\u6613\u3001\u7f8e\u56e2\u3001\u8682\u8681\u3001\u5f97\u7269...\u300d\n\n<a id=\"ref-7\"></a>**[7]** trainchinese.com \u2014 Translation of \u5e2e to English with examples of \u5e2e -Chinese-English dictionary Trainchinese\nURL: https://www.trainchinese.com/v2/wordDetails.php?rAp=0&wordId=3550&tcLanguage=en\n\u539f\u6587\u7247\u6bb5\uff1a\u300cTranslation of \u5e2e to English with examples of \u5e2e -Chinese-English dictionary Trainchinese \u00d7 Message to trainchinese Please select the reason for your contacting us Suggest improvement or new functionality Inform about technical functionallity / error in page Found error in the text...\u300d\n\n<a id=\"ref-8\"></a>**[8]** prepedu.com \u2014 C\u00e1ch d\u00f9ng 3 t\u1eeb \u5e2e, \u5e2e\u5fd9 v\u00e0 \u5e2e\u52a9 trong ti\u1ebfng Trung\nURL: https://prepedu.com/vi/blog/bang-bangmang-va-bangzhu-tieng-trung\n\u539f\u6587\u7247\u6bb5\uff1a\u300cC\u00e1ch d\u00f9ng 3 t\u1eeb \u5e2e, \u5e2e\u5fd9 v\u00e0 \u5e2e\u52a9 trong ti\u1ebfng Trung Ph\u00e2n bi\u1ec7t \u5e2e, \u5e2e\u5fd9 v\u00e0 \u5e2e\u52a9 trong ti\u1ebfng Trung HSK T\u1eea V\u1ef0NG Quy t\u1eafc bi\u00ean t\u1eadp v\u00e0 xu\u1ea5t b\u1ea3n n\u1ed9i dung \u5e2e, \u5e2e\u5fd9 v\u00e0 \u5e2e\u52a9 trong ti\u1ebfng Trung \u0111\u1ec1u mang \u00fd ngh\u0129a l\u00e0 \u201cgi\u00fap \u0111\u1ee1\u201d. V\u1eady 3 t\u1eeb n\u00e0y d\u00f9ng trong tr\u01b0\u1eddng h\u1ee3p n\u00e0o? Theo d\u00f5i b\u00e0i vi\u1ebft d\u01b0\u1edbi \u0111\u00e2y \u0111\u1ec3 \u0111\u01b0\u1ee3c PREP h\u01b0\u1edbn...\u300d",
+    "metadata": [
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf972a8/699c65d475d592ff4cf97d2d_nimble-logo_black.svg",
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf97fde_image%20(4).avif",
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699f0cbc59001f48677c09e8_Group%202147257077.png",
+      "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf9816d_699751b8b1f8df87376c8293_1701730813246.jpg",
+      "https://kimi-web-img.moonshot.cn/img/placeholder-0620/%E5%9B%BE%E7%89%8721.png",
+      "https://yqfile.alicdn.com/img_93cd89fe6376d2dddc23b28fcfd129c8.png?x-oss-process=image/resize,w_1400/format,webp",
+      "https://ucc.alicdn.com/avatar/img_8d044c10f7e36066a0dada1e7849ef54.jpeg?x-oss-process=image/resize,h_150,m_lfit",
+      "https://ucc.alicdn.com/r43put2rqnbp4/developer-article1679559/20250829/c7450b229d49420c8f8e9a86e2668ebe.png",
+      "https://static-assets.prepcdn.com/content-management-system/bang_bangmang_va_bangzhu_tieng_trung_69ae43cddf.png",
+      "https://static-assets.prepcdn.com/content-management-system/cach_dung_bang_8a0bfc04ed.jpg"
+    ]
+  }
+}

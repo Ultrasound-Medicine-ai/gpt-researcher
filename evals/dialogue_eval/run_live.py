@@ -83,10 +83,10 @@ def run_case(base: str, case: dict, cookie: str) -> dict:
     code, payload, _ = _http_json(
         f"{base.rstrip('/')}/api/chat",
         data={
-            "report": "",
-            "messages": [{"role": "user", "content": user}],
-            "research_topic": "",
-            "research_context": "",
+            "report": case.get("report") or "",
+            "messages": case.get("messages") or [{"role": "user", "content": user}],
+            "research_topic": case.get("research_topic") or "",
+            "research_context": case.get("research_context") or "",
             "report_language": "chinese",
         },
         headers=headers,
@@ -111,6 +111,15 @@ def run_case(base: str, case: dict, cookie: str) -> dict:
         tool_calls = []
 
     tools = [str(t.get("tool") or "") for t in tool_calls if isinstance(t, dict)]
+    route = meta.get("intent_route") if isinstance(meta, dict) else {}
+    route = route if isinstance(route, dict) else {}
+    predicted_intent = str(route.get("action") or "")
+    expected_intent = str(expect.get("expected_intent") or "")
+
+    if expected_intent and predicted_intent != expected_intent:
+        failures.append(
+            f"expected intent {expected_intent} got={predicted_intent or 'missing'}"
+        )
 
     if expect.get("tool"):
         if expect["tool"] not in tools:
@@ -147,6 +156,11 @@ def run_case(base: str, case: dict, cookie: str) -> dict:
         "failures": failures,
         "elapsed_sec": elapsed,
         "tools": tools,
+        "expected_intent": expected_intent or None,
+        "predicted_intent": predicted_intent or None,
+        "report_created": (
+            "create_research_report" in tools or bool(meta.get("report_request"))
+        ),
         "reply_preview": content[:200],
     }
 

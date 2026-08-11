@@ -1,0 +1,2555 @@
+{
+  "task": "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景",
+  "job": {
+    "id": "c1cd71ad-ed88-4e96-8f16-c677446cd2ee",
+    "user_id": "shadow-review-2",
+    "tenant_id": "shadow-review",
+    "session_id": "9b199574-6ae1-4da6-b8f0-a49b9a0cf729",
+    "status": "completed",
+    "stage": "finalizing",
+    "progress": "done",
+    "error": null,
+    "payload": {
+      "task": "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景",
+      "tone": "Objective",
+      "headers": null,
+      "user_id": "shadow-review-2",
+      "tenant_id": "shadow-review",
+      "session_id": "9b199574-6ae1-4da6-b8f0-a49b9a0cf729",
+      "mcp_configs": [],
+      "mcp_enabled": false,
+      "report_type": "research_report",
+      "source_urls": [],
+      "total_words": 800,
+      "mcp_strategy": "fast",
+      "document_urls": [],
+      "query_domains": [],
+      "report_source": "web",
+      "report_language": "chinese",
+      "knowledge_policy": "web_first",
+      "max_search_results": null,
+      "force_trusted_sample": true
+    },
+    "result": {
+      "cost": {
+        "status": "completed",
+        "retries": 0,
+        "searches": 4,
+        "llm_calls": 4,
+        "llm_events": [
+          {
+            "ts": 1786284231.8179514,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284231.9452963,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284232.1273916,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284232.2736673,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284232.4887655,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284232.6471472,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284232.82711,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284232.9727972,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284233.188664,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284233.3458834,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284233.5571423,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284233.7111475,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284234.0671961,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284234.1857493,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284234.3778274,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284234.5185053,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284234.6880834,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284234.816944,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284234.9878705,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284235.14531,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284235.3454082,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284235.4983287,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284235.685582,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284235.8186953,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284236.1755805,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284236.3218277,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284236.5148516,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284236.6451972,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284236.824587,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284236.9449751,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284237.144783,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284237.2870495,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284237.4648855,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284237.6062543,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284237.817969,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284237.9491906,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284238.1861322,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284238.3288445,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284238.5861907,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284238.7222004,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284239.0255077,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284239.1612654,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284239.405324,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284239.5776675,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284241.0260065,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284241.1678464,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284246.8963366,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284247.0398123,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284249.3767977,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284249.5089946,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284250.997341,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284251.1415339,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284253.267588,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284253.42334,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284255.157023,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284255.2964385,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284257.4771302,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284257.620978,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284260.0481422,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284260.189401,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284262.3378093,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284262.4756873,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284264.7385645,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284264.8759294,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284267.026349,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284267.1796067,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284269.4966433,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284269.6365333,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284271.9181201,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284272.0619318,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284273.9966078,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284274.1462598,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284274.9184146,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284275.0760617,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284275.876789,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284276.0185034,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284277.5672405,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284277.6851878,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284278.67933,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284278.8777764,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "truncations": 0,
+        "rag_degraded": true,
+        "continuations": 0,
+        "model_switches": 0,
+        "chapter_retries": 0,
+        "degrade_reasons": [
+          {
+            "ts": 1786284239.025492,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284239.16125,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284239.4053094,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284239.577653,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284241.0259943,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284241.167831,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284246.896323,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284247.0397973,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284249.376783,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284249.5089798,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284250.997317,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284251.141519,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284253.2675748,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284253.4233227,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284255.1570108,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284255.2964242,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284257.477118,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284257.6209636,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284260.048126,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284260.1893842,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284262.337788,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284262.4756727,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284264.7385526,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284264.8759093,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284267.0263343,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284267.179591,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284269.4966311,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284269.636519,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284271.9181077,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284272.061917,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284273.9965944,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284274.1462436,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284274.918403,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284275.076043,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284275.8767762,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284276.018477,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284277.5672278,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284277.6851668,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284278.679301,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284278.8777568,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "scrape_failures": 0,
+        "search_keys_used": [
+          "...94gDjY5L"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false
+      },
+      "audit": null,
+      "report": "# 向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant）\n\n## 概述\n\n向量数据库在检索增强生成（RAG）系统中扮演着至关重要的角色，它们负责存储和高效检索外部知识，使得大型语言模型（LLMs）能够基于最新的、领域特定的信息生成更准确、更具上下文相关性的答案。本文将详细对比 Milvus、pgvector 和 Qdrant 三种向量数据库，并给出各自的适用场景。\n\n## 1. Milvus\n\n### 1.1 核心特性\n- **开源**：Apache 2.0 许可证 [1]\n- **支持多种索引类型**：HNSW、IVF_FLAT、IVF_SQ8、IVF_PQ、SCANN 等 [9]\n- **分布式架构**：支持水平扩展，适合超大规模数据集 [1][4][6]\n- **高可用性**：支持多副本和故障恢复 [1][4]\n\n### 1.2 性能\n- **延迟**：单查询 <100ms，在高并发和大规模数据集（亿级向量）场景下表现优异 [12]\n- **吞吐量**：2000万768维向量（HNSW索引），单机可达100-500 QPS [12]\n- **召回率**：性能领先，支持多种索引类型以平衡速度和精度 [12]\n\n### 1.3 适用场景\n- **超大规模数据平台**：适用于需要处理十亿级向量的企业级应用 [1][4][6]\n- **高性能要求**：对延迟和吞吐量有严格要求的生产环境 [1][4][6]\n- **复杂过滤需求**：支持高效的标量过滤（布尔、范围、IN 查询等），且可与向量检索联合优化 [9]\n\n## 2. pgvector\n\n### 2.1 核心特性\n- **开源**：PostgreSQL 扩展，遵循 PostgreSQL 许可证 [3]\n- **SQL 兼容**：支持 SQL 查询和向量检索混合 [3][4][6]\n- **部署方式**：任何 PostgreSQL 环境 [3][4][6]\n\n### 2.2 性能\n- **延迟**：P99 延迟约为 100-300ms [4]\n- **吞吐量**：适中，适合中小规模数据集 [4][6]\n- **最大规模**：受 PostgreSQL 限制，通常为千万级以下 [4][6]\n\n### 2.3 适用场景\n- **已有 PostgreSQL 生态**：避免引入新组件，适合已有 PostgreSQL 基础设施的团队 [4][6]\n- **中小规模数据集**：适用于百万至千万级向量的数据集 [4][6]\n- **SQL 开发者友好**：对熟悉 SQL 的开发者非常友好 [4][6]\n\n## 3. Qdrant\n\n### 3.1 核心特性\n- **开源**：Apache 2.0 许可证 [1]\n- **高性能**：Rust 实现，资源利用率高，延迟低 [1][4][6]\n- **功能全面**：支持过滤、多向量、集合等高级功能 [1][4][6]\n- **分布式支持**：支持分片和副本，可集群部署 [1][4][6]\n\n### 3.2 性能\n- **延迟**：单查询 <100ms，2000万向量约100-400 QPS [12]\n- **吞吐量**：单机稍弱，分布式提升有限 [12]\n- **召回率**：性能稳定，支持 HNSW 和量化（如 PQ） [9]\n\n### 3.3 适用场景\n- **中等规模生产环境**：适用于 10 万到 1000 万级向量的数据集 [4][6]\n- **低延迟高吞吐应用**：对延迟和吞吐量有较高要求的应用 [4][6]\n- **稀疏向量支持**：自 v1.7 起支持稀疏向量 [9]\n\n## 4. 对比总结\n\n### 4.1 功能对比\n| 特性 | Milvus | pgvector | Qdrant |\n| --- | --- | --- | --- |\n| 开源 | 是 | 是 | 是 |\n| 索引类型 | 多种 | IVFFlat, HNSW | HNSW, 量化 |\n| 分布式支持 | 支持 | 不支持 | 支持 |\n| 过滤支持 | 高效 | 强大 | 高效 |\n\n### 4.2 性能对比\n| 特性 | Milvus | pgvector | Qdrant |\n| --- | --- | --- | --- |\n| 延迟 (P99) | <100ms | 100-300ms\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** zilliz.com.cn — Milvus vs Qdrant | 向量数据库全面对比与选型指南\nURL: https://zilliz.com.cn/comparison/milvus-vs-qdrant\n原文片段：「Milvus vs Qdrant | 向量数据库全面对比与选型指南 比较 Milvus 对比 Qdrant Milvus 对比 Qdrant 通过以下一系列能力比较 Milvus 对比 Qdrant。我们希望您选择适合您的最佳数据库，即使它不是我们。 免费试用 Zilliz Cloud 探索如何迁移到 Zilliz 向量数据库已成为现代人工智能应用的核心基础设施，支撑着包括检索增强生成（RAG）、AI 智能体、多模态与语义搜索以及各行业的推荐系统在内的广泛场景。选择正确的向量数据库，将直接影响这些应用的性能、可扩展性、成本与可靠性。 这份 Milvus...」\n\n<a id=\"ref-2\"></a>**[2]** deepseek.csdn.net — AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比_人工智能_少林码僧-DeepSeek技术社区\nURL: https://deepseek.csdn.net/6a31fd3d10ee7a33f27e3c8d.html\n原文片段：「AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比_人工智能_少林码僧-DeepSeek技术社区 DeepSeek技术社区 AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比 AI工程师的向量数据库选型2026：Qdrant、Milvus、Weaviate与pgvector深度对比 少林码僧 486人浏览 · 2026-05-05 00:15:23 少林码僧 · 2026-05-05 00:15:23 发布 为什么向量数据库选型这么难 2026...」\n\n<a id=\"ref-3\"></a>**[3]** zilliz.com.cn — Qdrant vs pgvector | 向量数据库全面对比与选型指南\nURL: https://zilliz.com.cn/comparison/qdrant-vs-pgvector\n原文片段：「Qdrant vs pgvector | 向量数据库全面对比与选型指南 比较 Qdrant 对比 pgvector Qdrant 对比 pgvector 通过以下一系列能力比较 Qdrant 对比 pgvector。我们希望您选择适合您的最佳数据库，即使它不是我们。 免费试用 Zilliz Cloud 探索如何迁移到 Zilliz 向量数据库已成为现代人工智能应用的核心基础设施，支撑着包括检索增强生成（RAG）、AI 智能体、多模态与语义搜索以及各行业的推荐系统在内的广泛场景。选择正确的向量数据库，将直接影响这些应用的性能、可扩展性、成本与可靠性。 这份...」\n\n<a id=\"ref-4\"></a>**[4]** cnblogs.com — 实用指南：AI RAG 向量数据库深度对比 - ljbguanli - 博客园\nURL: https://www.cnblogs.com/ljbguanli/p/19432729\n原文片段：「实用指南：AI RAG 向量数据库深度对比 - ljbguanli - 博客园 ljbguanli 实用指南：AI RAG 向量数据库深度对比 以下是当前主流 AI RAG（Retrieval-Augmented Generation）场景下常用向量数据库的深度对比，涵盖性能、功能、易用性、成本和适用场景，帮助在实际项目中做出合理选型。 一、核心对比总表 特性 / 数据库 Pinecone Weaviate Qdrant Milvus Chroma pgvector（PostgreSQL） 开源 ❌（商业闭源） ✅（Apache 2.0） ✅（Apach...」\n\n<a id=\"ref-5\"></a>**[5]** blog.csdn.net — RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？_rag常用的四种数据库-CSDN博客\nURL: https://blog.csdn.net/m0_59163425/article/details/148499688\n原文片段：「RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？_rag常用的四种数据库-CSDN博客 RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？ 最新推荐文章于 2026-08-08 21:03:00 发布 原创 最新推荐文章于 2026-08-08 21:03:00 发布 · 1.4k 阅读 · 12 · 30 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA...」\n\n<a id=\"ref-6\"></a>**[6]** zilliz.com.cn — ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 - Zilliz 向量数据库\nURL: https://zilliz.com.cn/blog/ES-vs-Milvus-vs-PGvector-LLM-Guide\n原文片段：「ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 - Zilliz 向量数据库 博客 ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 ES vs Milvus vs PG vector :LLM时代的向量数据库选型指南 2025-07-30 1 分钟阅读 李成龙 准备好开始了吗？ 立刻创建 Zilliz Cloud 集群，存储和检索您的向量。 免费试用 Zilliz Cloud 分享文章 Copied 互联网时代，关系型数据库为王。相应的，我们的检索方式也是精确匹配查询为主——查找...」\n\n<a id=\"ref-7\"></a>**[7]** 53ai.com — RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？ - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub\nURL: https://www.53ai.com/news/RAG/2025042259746.html\n原文片段：「RAG应用必备！10种向量数据库全解析、Weaviate、Milvus、pgvector、Qdrant等热门工具谁更强？ - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub 免费POC， 零成本试错 首页 产品服务 热门场景 工作+AI 大模型提升全员工作效率 工作对话 内容创作 方案撰写 魔法菜单 业务+AI 大模型掌握企业知识与流程 微信分身 海外客服 官网客服 抖音客服 数字老师 数字督导 智能服务台 AIx业务 大模型驱动产品智能化改造 智能问数 智能审核 智能工单 企微跟进助手 智能报价 企微销售助手 应...」\n\n<a id=\"ref-8\"></a>**[8]** cloud.tencent.com — 向量数据库选型：从Chroma到Milvus，企业场景怎么选-腾讯云开发者社区-腾讯云\nURL: https://cloud.tencent.com/developer/article/2664756\n原文片段：「向量数据库选型：从Chroma到Milvus，企业场景怎么选-腾讯云开发者社区-腾讯云 AI科技新势力 向量数据库选型：从Chroma到Milvus，企业场景怎么选 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 AI科技新势力 社区首页 > 专栏 > 向量数据库选型：从Chroma到Milvus，企业场景怎么选 向量数据库选型：从Chroma到Milvus，企业场景怎么选 原创 AI科技新势力 关注 发布 于 2026-05-06 16...」\n\n<a id=\"ref-9\"></a>**[9]** adg.csdn.net — 大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南_人工智能_和老莫一起学AI-智能体开发者社区\nURL: https://adg.csdn.net/694de2e75b9f5f31781ad749.html\n原文片段：「大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南_人工智能_和老莫一起学AI-智能体开发者社区 智能体开发者社区 大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南 大模型干货：向量数据库怎么选？一文看懂主流方案对比与选型指南 和老莫一起学AI 1840人浏览 · 2025-12-08 11:22:18 和老莫一起学AI · 2025-12-08 11:22:18 发布 随着大模型和 RAG（检索增强生成）技术的爆发，向量数据库成为 AI 应用架构中不可或缺的一环。面对 Milvus、Weaviate、Qdrant、FAISS、Ve...」\n\n<a id=\"ref-10\"></a>**[10]** cnblogs.com — RAG系统架构设计中的向量数据库选型：从原理到企业级实践 - 实践 - jzssuanfa - 博客园\nURL: https://www.cnblogs.com/jzssuanfa/p/19495865\n原文片段：「RAG系统架构设计中的向量数据库选型：从原理到企业级实践 - 实践 - jzssuanfa - 博客园 jzssuanfa RAG系统架构设计中的向量数据库选型：从原理到企业级实践 - 实践 目录 摘要 一、向量数据库：RAG系统的“记忆引擎” 1.1 为什么向量数据库是RAG的关键基础设施？ 1.2 向量数据库核心技术原理 1.2.1 近似最近邻(ANN)算法 1.2.2 向量相似度度量 二、主流向量数据库深度横向评测 2.1 七大向量数据库架构与特性对比 2.1.1 Pinecone：全托管云服务标杆 2.1.2 Milvus：大规模分布式事实标准...」\n\n<a id=\"ref-11\"></a>**[11]** zair.top — 向量数据库对比:Weaviate、Milvus和Qdrant | 逐水寻源\nURL: https://www.zair.top/post/vector-database-compare\n原文片段：「向量数据库对比:Weaviate、Milvus和Qdrant | 逐水寻源 RAG检索增强生成 2 向量数据库对比:Weaviate、Milvus和Qdrant Tim 收录于 大语言模型 和 RAG检索增强生成 2024-04-02 2025-11-28 约 6300 字 预计阅读 13 分钟 - 次阅读 目录 RAG系统的成功在很大程度上取决于其高效地获取和处理海量信息的能力。向量数据库又在其中发挥了不可替代的作用，并构成了RAG系统的核心。向量数据库专门用于存储和管理高维向量数据，它们能把文本、图像、音频甚至视频转换为向量并存储（这一点将在后文中详...」\n\n<a id=\"ref-12\"></a>**[12]** 53ai.com — 千万级向量数据库实战对比：Milvus，Qdrant，Chroma，Weaviate - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub\nURL: https://www.53ai.com/news/knowledgegraph/2025050637421.html\n原文片段：「千万级向量数据库实战对比：Milvus，Qdrant，Chroma，Weaviate - 53AI-AI知识库|企业AI知识库|大模型知识库|前线部署工程师|FDE|AIHub 免费POC， 零成本试错 首页 产品服务 热门场景 工作+AI 大模型提升全员工作效率 工作对话 内容创作 方案撰写 魔法菜单 业务+AI 大模型掌握企业知识与流程 微信分身 海外客服 官网客服 抖音客服 数字老师 数字督导 智能服务台 AIx业务 大模型驱动产品智能化改造 智能问数 智能审核 智能工单 企微跟进助手 智能报价 企微销售助手 应用智改 企微客服助手 落地咨询 Co...」\n\n<a id=\"ref-13\"></a>**[13]** dynatrace.com — Milvus monitoring & observability | Dynatrace Hub\nURL: https://www.dynatrace.com/hub/detail/milvus\n原文片段：「Milvus monitoring & observability | Dynatrace Hub Skip to technology filters Skip to main content Milvus Milvus Gain insights about vector database resource utilization and cache behavior. Technology Free trial Documentation Product information Overview Vector databases, exemplif...」\n\n<a id=\"ref-14\"></a>**[14]** zilliz.com — Milvus: Open-Source Vector Database Built by Zilliz\nURL: https://zilliz.com/what-is-milvus\n原文片段：「Milvus: Open-Source Vector Database Built by Zilliz What is Milvus? Graduate Project Milvus is an open-source vector database built to handle billions of vectors and powers the largest AI applications in the world. Created by Try Managed Milvus for Free Download Milvus Built on a...」\n\n<a id=\"ref-15\"></a>**[15]** ibm.com — What is Milvus? | IBM\nURL: https://www.ibm.com/think/topics/milvus\n原文片段：「What is Milvus? | IBM Tags Artificial Intelligence Analytics Storage What is Milvus? Authors Matthew Kosinski Staff Editor IBM Think What is Milvus? Milvus is an open-source vector database developed by Zilliz. Milvus is known for providing scalable storage for large amounts of v...」\n\n<a id=\"ref-16\"></a>**[16]** github.com — GitHub - milvus-io/milvus: Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search · GitHub\nURL: https://github.com/milvus-io/milvus\n原文片段：「GitHub - milvus-io/milvus: Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh...」\n\n<a id=\"ref-17\"></a>**[17]** hub.docker.com — milvusdb/milvus - Docker Image\nURL: https://hub.docker.com/r/milvusdb/milvus\n原文片段：「milvusdb/milvus - Docker Image milvusdb/milvus By milvusdb • Updated about 21 hours ago Milvus --- an open-source, high-performance vector database (https://milvus.io) Image 105 50M+ Overview Tags milvusdb / milvus repository overview ⁠ milvusdb/milvus ⁠ What is Milvus Milvus is...」",
+      "tenant_id": "shadow-review",
+      "file_paths": {
+        "md": "outputs/task_1786284239_def750f16c.md",
+        "pdf": "outputs/task_1786284239_def750f16c.pdf",
+        "docx": "outputs/task_1786284239_def750f16c.docx",
+        "json": "outputs/job_c1cd71ad-ed88-4e96-8f16-c677446cd2ee_1786283992_向量数据库在_RAG_中的选型对比_Milvus___pgvector___Qd.json"
+      },
+      "session_id": "9b199574-6ae1-4da6-b8f0-a49b9a0cf729",
+      "report_trust": "legacy_unverified",
+      "source_count": 17,
+      "trusted_shadow": {
+        "error": "citation audit failed"
+      },
+      "legacy_fallback": false,
+      "trusted_pipeline": {
+        "mode": "shadow",
+        "execution_trace": {
+          "mode": "shadow",
+          "legacy_write": true,
+          "research_only": true,
+          "trusted_write": false,
+          "legacy_write_count": 1,
+          "legacy_write_reason": "shadow",
+          "used_legacy_body_as_claim_source": false,
+          "writer_received_only_verified_claims": true
+        }
+      },
+      "citation_unverified": true,
+      "citation_audit_failed": false
+    },
+    "attempt": 1,
+    "idempotency_key": "shadow-review:4403de4f-4dc7-4d57-8c59-ea18fd6e4098",
+    "heartbeat_at": 1786284273885,
+    "started_at": 1786283992340,
+    "finished_at": 1786284279271,
+    "enqueued_at": 1786283991932,
+    "next_retry_at": null,
+    "cancel_requested_at": null,
+    "worker_id": "b74dc3943c23:19",
+    "last_error_code": null,
+    "checkpoint_json": {
+      "stage": "finalizing",
+      "budget": {
+        "max_llm_calls": 40,
+        "max_subtopics": 3,
+        "searches_used": 4,
+        "llm_calls_used": 4,
+        "max_output_words": 800,
+        "max_total_searches": 12
+      },
+      "trusted": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "no_claims_for_section",
+            "release_gate:citation_accuracy_below_0.9"
+          ],
+          "total_claims": 0,
+          "supported_claims": 0,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": true,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "stage": "audited",
+        "trace": {
+          "spans": [
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "e6a8d7ac439c",
+              "ended_at": 1786284220.4773836,
+              "started_at": 1786284212.638279,
+              "duration_ms": 7839.1
+            },
+            {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "e7e459a4352a",
+              "ended_at": 1786284226.2182982,
+              "started_at": 1786284211.4737139,
+              "duration_ms": 14744.58
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "1"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "f63050dab0e2",
+              "ended_at": 1786284227.7747715,
+              "started_at": 1786284226.2408879,
+              "duration_ms": 1533.88
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "1"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "c419a6419154",
+              "ended_at": 1786284227.7748163,
+              "started_at": 1786284227.774809,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "s5"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "80801427f681",
+              "ended_at": 1786284227.7782547,
+              "started_at": 1786284220.5013137,
+              "duration_ms": 7276.94
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "1"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "f1a918e37e55",
+              "ended_at": 1786284227.7935567,
+              "started_at": 1786284227.7935467,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "2"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "f38b48ec473b",
+              "ended_at": 1786284229.1965804,
+              "started_at": 1786284227.8079288,
+              "duration_ms": 1388.65
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "2"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "ea8d2c6e289a",
+              "ended_at": 1786284229.1966267,
+              "started_at": 1786284229.1966195,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "2"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "f09a9b0e5de2",
+              "ended_at": 1786284229.234237,
+              "started_at": 1786284229.2342265,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "3"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "8ea155ecdf65",
+              "ended_at": 1786284231.6984696,
+              "started_at": 1786284229.2481177,
+              "duration_ms": 2450.35
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "3"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "aeea43420352",
+              "ended_at": 1786284231.6985393,
+              "started_at": 1786284231.6985269,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "3"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "2c0b6032a415",
+              "ended_at": 1786284231.712967,
+              "started_at": 1786284231.7129564,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "4"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "0ab7c6802186",
+              "ended_at": 1786284233.9188452,
+              "started_at": 1786284231.7271042,
+              "duration_ms": 2191.74
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "4"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "eafb3e944049",
+              "ended_at": 1786284233.9189014,
+              "started_at": 1786284233.9188917,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "4"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "a4a7044577d0",
+              "ended_at": 1786284233.9451754,
+              "started_at": 1786284233.9451656,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "5"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "416ec918edbb",
+              "ended_at": 1786284236.0294049,
+              "started_at": 1786284233.9569926,
+              "duration_ms": 2072.41
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "5"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "dd9160c964f3",
+              "ended_at": 1786284236.0294485,
+              "started_at": 1786284236.029441,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "5"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "771fecadcde7",
+              "ended_at": 1786284236.0587828,
+              "started_at": 1786284236.0587723,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "ef4ffd8e615b",
+              "ended_at": 1786284237.70142,
+              "started_at": 1786284236.0751827,
+              "duration_ms": 1626.24
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "396c4e485dd6",
+              "ended_at": 1786284237.7014673,
+              "started_at": 1786284237.7014601,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "6"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "f5f695288d06",
+              "ended_at": 1786284237.7234492,
+              "started_at": 1786284237.7234395,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "7"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "e18b793719ed",
+              "ended_at": 1786284239.717661,
+              "started_at": 1786284237.7353156,
+              "duration_ms": 1982.35
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "7"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "8fd2ce8b7997",
+              "ended_at": 1786284239.7177713,
+              "started_at": 1786284239.7177606,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "7"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "161bd2914877",
+              "ended_at": 1786284239.7397444,
+              "started_at": 1786284239.7397342,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "sections": 7
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "6f4fb611469b",
+              "ended_at": 1786284239.751802,
+              "started_at": 1786284239.7517858,
+              "duration_ms": 0.02
+            },
+            {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "c4b4af030a10",
+              "ended_at": 1786284239.764014,
+              "started_at": 1786284239.7636232,
+              "duration_ms": 0.39
+            }
+          ],
+          "by_stage": {
+            "audit": {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "c4b4af030a10",
+              "ended_at": 1786284239.764014,
+              "started_at": 1786284239.7636232,
+              "duration_ms": 0.39
+            },
+            "claim": {
+              "ok": true,
+              "meta": {
+                "section_id": "7"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "8fd2ce8b7997",
+              "ended_at": 1786284239.7177713,
+              "started_at": 1786284239.7177606,
+              "duration_ms": 0.01
+            },
+            "writer": {
+              "ok": true,
+              "meta": {
+                "section_id": "7"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "161bd2914877",
+              "ended_at": 1786284239.7397444,
+              "started_at": 1786284239.7397342,
+              "duration_ms": 0.01
+            },
+            "planner": {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "e7e459a4352a",
+              "ended_at": 1786284226.2182982,
+              "started_at": 1786284211.4737139,
+              "duration_ms": 14744.58
+            },
+            "evidence": {
+              "ok": true,
+              "meta": {
+                "section_id": "7"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "e18b793719ed",
+              "ended_at": 1786284239.717661,
+              "started_at": 1786284237.7353156,
+              "duration_ms": 1982.35
+            },
+            "synthesis": {
+              "ok": true,
+              "meta": {
+                "sections": 7
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "6f4fb611469b",
+              "ended_at": 1786284239.751802,
+              "started_at": 1786284239.7517858,
+              "duration_ms": 0.02
+            }
+          },
+          "trace_id": "2be4c7021b704f5bb116a311f012677e",
+          "total_duration_ms": 43106.79
+        },
+        "outline": {
+          "scope": "报告将涵盖这三种向量数据库的基本特性、性能指标、易用性、社区支持以及成本效益等方面，并基于这些因素推荐适合不同应用场景的最佳选项。",
+          "sections": [
+            {
+              "title": "引言",
+              "purpose": "介绍研究背景及目的。",
+              "section_id": "1",
+              "search_queries": [
+                "向量数据库的重要性",
+                "RAG技术趋势"
+              ],
+              "depends_on_sections": [],
+              "questions_to_answer": [
+                "为什么需要比较不同的向量数据库？",
+                "本次比较的目标是什么？"
+              ],
+              "expected_claim_types": [
+                "定义",
+                "背景"
+              ]
+            },
+            {
+              "title": "向量数据库概述",
+              "purpose": "简要介绍什么是向量数据库及其在RAG中的作用。",
+              "section_id": "2",
+              "search_queries": [
+                "向量数据库定义",
+                "向量数据库在RAG中的应用"
+              ],
+              "depends_on_sections": [],
+              "questions_to_answer": [
+                "什么是向量数据库？",
+                "向量数据库如何支持RAG？"
+              ],
+              "expected_claim_types": [
+                "定义",
+                "解释"
+              ]
+            },
+            {
+              "title": "Milvus综述",
+              "purpose": "详细介绍Milvus的特点、优势及局限。",
+              "section_id": "3",
+              "search_queries": [
+                "Milvus功能",
+                "Milvus优点",
+                "Milvus缺点"
+              ],
+              "depends_on_sections": [
+                "2"
+              ],
+              "questions_to_answer": [
+                "Milvus的主要特点是什么？",
+                "Milvus的优势在哪里？",
+                "使用Milvus时可能遇到哪些挑战？"
+              ],
+              "expected_claim_types": [
+                "描述",
+                "评估"
+              ]
+            },
+            {
+              "title": "pgvector综述",
+              "purpose": "详细介绍pgvector的特点、优势及局限。",
+              "section_id": "4",
+              "search_queries": [
+                "pgvector功能",
+                "pgvector优点",
+                "pgvector缺点"
+              ],
+              "depends_on_sections": [
+                "2"
+              ],
+              "questions_to_answer": [
+                "pgvector的主要特点是什么？",
+                "pgvector的优势在哪里？",
+                "使用pgvector时可能遇到哪些挑战？"
+              ],
+              "expected_claim_types": [
+                "描述",
+                "评估"
+              ]
+            },
+            {
+              "title": "Qdrant综述",
+              "purpose": "详细介绍Qdrant的特点、优势及局限。",
+              "section_id": "5",
+              "search_queries": [
+                "Qdrant功能",
+                "Qdrant优点",
+                "Qdrant缺点"
+              ],
+              "depends_on_sections": [
+                "2"
+              ],
+              "questions_to_answer": [
+                "Qdrant的主要特点是什么？",
+                "Qdrant的优势在哪里？",
+                "使用Qdrant时可能遇到哪些挑战？"
+              ],
+              "expected_claim_types": [
+                "描述",
+                "评估"
+              ]
+            },
+            {
+              "title": "性能对比",
+              "purpose": "通过具体数据对比三个系统的性能。",
+              "section_id": "6",
+              "search_queries": [
+                "Milvus vs pgvector vs Qdrant 性能测试",
+                "向量数据库性能基准"
+              ],
+              "depends_on_sections": [
+                "3",
+                "4",
+                "5"
+              ],
+              "questions_to_answer": [
+                "这三个系统在处理速度上有什么区别？",
+                "它们的存储效率如何？",
+                "哪个系统更易于扩展？"
+              ],
+              "expected_claim_types": [
+                "数据",
+                "比较"
+              ]
+            },
+            {
+              "title": "适用场景建议",
+              "purpose": "根据上述分析提出每种数据库最适合的应用场景。",
+              "section_id": "7",
+              "search_queries": [
+                "向量数据库选型指南",
+                "特定场景下的最佳向量数据库"
+              ],
+              "depends_on_sections": [
+                "3",
+                "4",
+                "5",
+                "6"
+              ],
+              "questions_to_answer": [
+                "对于大规模数据集，哪种数据库最适用？",
+                "如果预算有限，应该选择哪一种？",
+                "哪种数据库最适合快速原型开发？"
+              ],
+              "expected_claim_types": [
+                "建议",
+                "结论"
+              ]
+            }
+          ],
+          "time_range": "最近两年内",
+          "report_thesis": "本报告旨在对比分析Milvus、pgvector和Qdrant三种向量数据库在检索增强生成（RAG）中的性能与适用场景，为开发者和技术决策者提供选择依据。",
+          "cross_section_questions": [
+            "综合考虑所有因素后，哪种向量数据库最适合RAG项目？",
+            "未来向量数据库的发展方向是什么？"
+          ]
+        },
+        "sections": {
+          "1": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "2": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "3": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "4": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "5": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "6": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          },
+          "7": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          }
+        },
+        "eval_scores": {
+          "details": {
+            "evidence_count": 0,
+            "required_claims": 0,
+            "supported_claims": 0
+          },
+          "duplication_rate": 0.0,
+          "global_coherence": 1.0,
+          "citation_accuracy": 0.0,
+          "citation_coverage": 1.0,
+          "claim_support_rate": 1.0,
+          "fact_conflict_rate": 0.0
+        },
+        "synthesized": "",
+        "document_map": []
+      },
+      "llm_trace": [
+        {
+          "ts": 1786284231.8179514,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284231.9452963,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284232.1273916,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284232.2736673,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284232.4887655,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284232.6471472,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284232.82711,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284232.9727972,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284233.188664,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284233.3458834,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284233.5571423,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284233.7111475,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284234.0671961,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284234.1857493,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284234.3778274,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284234.5185053,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284234.6880834,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284234.816944,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284234.9878705,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284235.14531,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284235.3454082,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284235.4983287,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284235.685582,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284235.8186953,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284236.1755805,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284236.3218277,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284236.5148516,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284236.6451972,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284236.824587,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284236.9449751,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284237.144783,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284237.2870495,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284237.4648855,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284237.6062543,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284237.817969,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284237.9491906,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284238.1861322,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284238.3288445,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284238.5861907,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284238.7222004,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284239.0255077,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284239.1612654,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284239.405324,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284239.5776675,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284241.0260065,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284241.1678464,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284246.8963366,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284247.0398123,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284249.3767977,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284249.5089946,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284250.997341,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284251.1415339,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284253.267588,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284253.42334,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284255.157023,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284255.2964385,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284257.4771302,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284257.620978,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284260.0481422,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284260.189401,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284262.3378093,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284262.4756873,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284264.7385645,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284264.8759294,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284267.026349,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284267.1796067,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284269.4966433,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284269.6365333,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284271.9181201,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284272.0619318,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284273.9966078,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284274.1462598,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284274.9184146,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284275.0760617,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284275.876789,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284276.0185034,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284277.5672405,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284277.6851878,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786284278.67933,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786284278.8777764,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        }
+      ],
+      "file_paths": {
+        "md": "outputs/task_1786284239_def750f16c.md",
+        "pdf": "outputs/task_1786284239_def750f16c.pdf",
+        "docx": "outputs/task_1786284239_def750f16c.docx",
+        "json": "outputs/job_c1cd71ad-ed88-4e96-8f16-c677446cd2ee_1786283992_向量数据库在_RAG_中的选型对比_Milvus___pgvector___Qd.json"
+      },
+      "files_done": true,
+      "degradations": {
+        "reasons": [
+          {
+            "ts": 1786284239.025492,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284239.16125,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284239.4053094,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284239.577653,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284241.0259943,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284241.167831,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284246.896323,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284247.0397973,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284249.376783,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284249.5089798,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284250.997317,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284251.141519,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284253.2675748,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284253.4233227,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284255.1570108,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284255.2964242,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284257.477118,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284257.6209636,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284260.048126,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284260.1893842,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284262.337788,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284262.4756727,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284264.7385526,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284264.8759093,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284267.0263343,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284267.179591,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284269.4966311,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284269.636519,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284271.9181077,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284272.061917,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284273.9965944,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284274.1462436,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284274.918403,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284275.076043,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284275.8767762,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284276.018477,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284277.5672278,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284277.6851668,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786284278.679301,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786284278.8777568,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "rag_degraded": true,
+        "scrape_failures": 0,
+        "search_keys_used": [
+          "...94gDjY5L"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false,
+        "scrape_failure_samples": []
+      },
+      "planning_done": true,
+      "research_done": true,
+      "source_policy": {
+        "mode": "web",
+        "reason": "policy_web_first"
+      },
+      "planning_started": true,
+      "report_body_done": true,
+      "report_persisted": true
+    },
+    "version": 19,
+    "created_at": 1786283991882,
+    "updated_at": 1786284279305
+  }
+}

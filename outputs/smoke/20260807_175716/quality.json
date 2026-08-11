@@ -1,0 +1,17 @@
+{
+  "char_count": 0,
+  "word_count": 0,
+  "heading_count": 0,
+  "link_count": 0,
+  "bracket_citation_count": 0,
+  "checks": {
+    "non_empty": false,
+    "min_length_300": false,
+    "min_words_80": false,
+    "has_headings": false,
+    "has_links_or_citations": false
+  },
+  "quality_score": "0/5",
+  "grade": "FAIL",
+  "preview": ""
+}

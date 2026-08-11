@@ -1,0 +1,60 @@
+[
+  {
+    "name": "api_root",
+    "ok": true,
+    "status": 200,
+    "body": {
+      "service": "GPT Researcher API",
+      "ui": "http://localhost:3000",
+      "docs": "/docs",
+      "websocket": "/ws",
+      "chat": "/api/chat"
+    }
+  },
+  {
+    "name": "api_docs",
+    "ok": true,
+    "status": 200
+  },
+  {
+    "name": "nextjs_ui",
+    "ok": true,
+    "skipped": true
+  },
+  {
+    "name": "websocket_research",
+    "ok": false,
+    "elapsed_sec": 542.3,
+    "path_message": null,
+    "errors": [],
+    "query": "Redis 在使用场景中有哪些主要限制？请简要说明。"
+  },
+  {
+    "name": "report_quality",
+    "ok": false,
+    "char_count": 0,
+    "word_count": 0,
+    "heading_count": 0,
+    "link_count": 0,
+    "bracket_citation_count": 0,
+    "checks": {
+      "non_empty": false,
+      "min_length_300": false,
+      "min_words_80": false,
+      "has_headings": false,
+      "has_links_or_citations": false
+    },
+    "quality_score": "0/5",
+    "grade": "FAIL",
+    "preview": ""
+  },
+  {
+    "name": "chat_api",
+    "ok": true,
+    "status": 200,
+    "response_chars": 37,
+    "tool_calls": null,
+    "preview": "这篇报告的核心观点是：CRISPR是一种源自细菌免疫系统的基因组编辑技术。",
+    "error": null
+  }
+]

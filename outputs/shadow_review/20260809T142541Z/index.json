@@ -1,0 +1,81 @@
+{
+  "created_at": "20260809T142541Z",
+  "api": "http://localhost:8000",
+  "force_sample": true,
+  "count": 8,
+  "shadow_hits": 1,
+  "items": [
+    {
+      "n": 1,
+      "job_id": "8b54f118-617b-436f-b7cb-49e78355162a",
+      "task": "Redis 分布式锁的实现原理与常见坑，控制在800字以内",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": true,
+      "md": "01_8b54f118-617b-436f-b7cb-49e78355162a.md"
+    },
+    {
+      "n": 2,
+      "job_id": "e8553c13-41fc-4d1a-b92e-0588fc623681",
+      "task": "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "02_e8553c13-41fc-4d1a-b92e-0588fc623681.md"
+    },
+    {
+      "n": 3,
+      "job_id": "f4dfbb83-acd5-4f4d-b022-0c6b790cd80f",
+      "task": "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "03_f4dfbb83-acd5-4f4d-b022-0c6b790cd80f.md"
+    },
+    {
+      "n": 4,
+      "job_id": "e3fa4815-4360-4492-a741-23cc23725c19",
+      "task": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "04_e3fa4815-4360-4492-a741-23cc23725c19.md"
+    },
+    {
+      "n": 5,
+      "job_id": "6470b303-3d9f-4c7c-bd4b-44824ac42233",
+      "task": "大模型应用里 Prompt 注入攻击的典型手法与防护要点",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "05_6470b303-3d9f-4c7c-bd4b-44824ac42233.md"
+    },
+    {
+      "n": 6,
+      "job_id": "0503b6f0-cc38-4150-871c-6ba08a2d1ea2",
+      "task": "边缘计算与云计算协同架构的优势与挑战",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "06_0503b6f0-cc38-4150-871c-6ba08a2d1ea2.md"
+    },
+    {
+      "n": 7,
+      "job_id": "ec1ad4a7-11fe-49d7-99c6-51df1e2a46fb",
+      "task": "开源许可证 GPL、MIT、Apache-2.0 对企业二次开发的影响",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "07_ec1ad4a7-11fe-49d7-99c6-51df1e2a46fb.md"
+    },
+    {
+      "n": 8,
+      "job_id": "513dd392-45b1-44b6-a32b-50e86946b8eb",
+      "task": "企业知识库搭建时文档切片与检索质量的关键权衡",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "08_513dd392-45b1-44b6-a32b-50e86946b8eb.md"
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "timestamp": "2026-08-11T04:27:01.715802",
+  "events": [
+    {
+      "timestamp": "2026-08-11T04:27:17.057266",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:17.077283",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\uddc4\ufe0f Database & AI Infrastructure Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:17.104934",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:18.565688",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:21.860749",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['\u5411\u91cf\u6570\u636e\u5e93 \u4e3b\u8981\u9009\u578b\u7ef4\u5ea6 \u5e38\u89c1\u4ea7\u54c1 \u6982\u8ff0', 'vector database selection criteria popular products Milvus Pinecone Qdrant comparison', '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1']...",
+        "metadata": [
+          "\u5411\u91cf\u6570\u636e\u5e93 \u4e3b\u8981\u9009\u578b\u7ef4\u5ea6 \u5e38\u89c1\u4ea7\u54c1 \u6982\u8ff0",
+          "vector database selection criteria popular products Milvus Pinecone Qdrant comparison",
+          "\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:21.900538",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5411\u91cf\u6570\u636e\u5e93 \u4e3b\u8981\u9009\u578b\u7ef4\u5ea6 \u5e38\u89c1\u4ea7\u54c1 \u6982\u8ff0'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:21.915343",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'vector database selection criteria popular products Milvus Pinecone Qdrant comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:22.352468",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.105834",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D\n",
+        "metadata": "/goto?url=CAESdQHuR6pNxATbUWiMwgjVYpO2pAtanst0LkmaWJaL-LCrQUZLzAKfrWAcXqM-X4hv_IIGyQAUd3vNfaOVvvrI43nV8J6xyoUVeRz-JT3kXVyJyiasdcGjPUKxYjNoQIj85a5rXVYDJZLOivUiTLjJRojwyUMZsw%3D%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.173410",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D\n",
+        "metadata": "/goto?url=CAESZwHuR6pN6xXVs2kP3xVFdSsFs7KHp05qbmmFZhAhvURI-QRZ1D0wj0cH3rx1h0Twp40hzI3nrm6l6P_vW_AU65DyBCHRfiK7lVyzYjeLfQYKMf9ck-dapmUrYbhlj2AG1x2MNte7FWA%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.207310",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.273376",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.315798",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESVQHuR6pN359B1wpL6n0i4IFSe75V5ovnZiAX2ccG5RLH7dM_3HLg-PKysv8O0qwcN2DwJceyey2_5mqwqem-gOalx3ibqigibMIXqVD1kxEW0UzLIeo%3D\n",
+        "metadata": "/goto?url=CAESVQHuR6pN359B1wpL6n0i4IFSe75V5ovnZiAX2ccG5RLH7dM_3HLg-PKysv8O0qwcN2DwJceyey2_5mqwqem-gOalx3ibqigibMIXqVD1kxEW0UzLIeo%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.334780",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.364330",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.383566",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: /goto?url=CAESWAHuR6pNOqhHIfO1pbNccaAWPqJQssxqG-2BA6bGBNwKaRzsOLBIwGRIsfmgsJ2m1eVia0sy-WccOt-e-BUDZAy1n65jPlI-0CjppcTO0PKWiVYv6BXRZXc%3D\n",
+        "metadata": "/goto?url=CAESWAHuR6pNOqhHIfO1pbNccaAWPqJQssxqG-2BA6bGBNwKaRzsOLBIwGRIsfmgsJ2m1eVia0sy-WccOt-e-BUDZAy1n65jPlI-0CjppcTO0PKWiVYv6BXRZXc%3D"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.755817",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.776560",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.798426",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://main.qcloudimg.com/raw/document/product/pdf/1709_94949_cn.pdf\n",
+        "metadata": "https://main.qcloudimg.com/raw/document/product/pdf/1709_94949_cn.pdf"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.833742",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.853607",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.872522",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://developer.volcengine.com/articles/7602479797138931762\n",
+        "metadata": "https://developer.volcengine.com/articles/7602479797138931762"
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.901862",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.924951",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 0 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.952456",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:24.972105",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 2 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:25.002366",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:25.035555",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subquery_context_not_found",
+        "output": "\ud83e\udd37 No content found for 'vector database selection criteria popular products Milvus Pinecone Qdrant comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:26.892541",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:26.934870",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 3 new images from 5 total images",
+        "metadata": [
+          "https://lf3-static.bytednsdoc.com/obj/eden-cn/nulopslf/developer/community_logo.svg",
+          "https://p26-passport.byteacctimg.com/img/mosaic-legacy/3791/5070639578~300x300.image",
+          "https://portal.volccdn.com/obj/volcfe-scm/deploy/volc_developer_/42325/static/image/rec-product.424eb1f0.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:26.978655",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:27.669641",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:29.828605",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (4010 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:29.856770",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.042300000000000004",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:29.930482",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-11T04:27:42.709533",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u7528600\u5b57\u6982\u8ff0\u5411\u91cf\u6570\u636e\u5e93\u7684\u4e3b\u8981\u9009\u578b\u7ef4\u5ea6\u4e0e\u5e38\u89c1\u4ea7\u54c1'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# \u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u7ef4\u5ea6\u4e0e\u4e3b\u6d41\u4ea7\u54c1\u6982\u89c8\uff082026\u5e74\uff09\n\n## \u4e00\u3001\u6838\u5fc3\u9009\u578b\u7ef4\u5ea6\n\n\u5411\u91cf\u6570\u636e\u5e93\u9009\u578b\u9700\u7efc\u5408\u8bc4\u4f30\u516d\u5927\u5173\u952e\u7ef4\u5ea6\uff1a**\u7d22\u5f15\u4e0e\u68c0\u7d22\u7b97\u6cd5\u3001\u6570\u636e\u89c4\u6a21\u4e0e\u6027\u80fd\u5339\u914d\u3001\u5143\u6570\u636e\u8fc7\u6ee4\u4e0e\u6df7\u5408\u641c\u7d22\u80fd\u529b\u3001\u4e00\u81f4\u6027\u4e0e\u53ef\u7528\u6027\u4fdd\u969c\u3001\u90e8\u7f72\u8fd0\u7ef4\u590d\u6742\u5ea6\u3001\u751f\u6001\u96c6\u6210\u4e0e\u6210\u672c\u6548\u76ca**\u3002\n\n### \u7d22\u5f15\u7c7b\u578b\u51b3\u5b9a\u6027\u80fd-\u7cbe\u5ea6\u6743\u8861  \n\u817e\u8baf\u4e91\u6587\u6863\u660e\u786e\u6307\u51fa\uff0c\u4e0d\u540c\u7d22\u5f15\u9002\u7528\u4e8e\u4e0d\u540c\u89c4\u6a21\u573a\u666f\uff1aFLAT\uff08\u66b4\u529b\u68c0\u7d22\uff09\u9002\u7528\u4e8e\u226410\u4e07\u6761\u3001\u8981\u6c42100%\u53ec\u56de\u7684\u4f4e\u5ef6\u8fdf\u573a\u666f\uff1bHNSW\u572810\u4e07\u20131\u4ebf\u6761\u95f4\u5b9e\u73b0\u9ad8\u53ec\u56de\u7387\uff08\u226595%\uff09\u4e0e\u5feb\u901f\u54cd\u5e94\u7684\u5e73\u8861\uff1bIVF\u7cfb\u5217\u53caDISK_FLAT\u5219\u9762\u5411\u8d85\u5927\u89c4\u6a21\uff08>1\u4ebf\u6761\uff09\uff0c\u4ee5\u53ef\u63a7\u7cbe\u5ea6\u635f\u5931\u6362\u53d6\u9ad8\u901f\u4e0e\u4f4e\u6210\u672c\uff0c\u5176\u4e2dDISK_FLAT\u4e13\u4e3a\u591a\u79df\u6237\u4f18\u5316\uff0c\u652f\u6301\u78c1\u76d8\u76f4\u68c0\u3001\u65e0\u9700\u91cd\u5efa\u7d22\u5f15[1]\u3002\n\n### \u89c4\u6a21\u9002\u914d\u4e0e\u8d44\u6e90\u4f30\u7b97  \n\u9700\u7ed3\u5408\u5411\u91cf\u7ef4\u5ea6\uff08\u5982768/1024\u7ef4\uff09\u3001\u603b\u6761\u6570\uff08\u5efa\u8bae\u9884\u7559\u589e\u957f\u7a7a\u95f4\uff09\u53ca\u5199\u5165/\u67e5\u8be2QPS\u9884\u4f30\u8282\u70b9\u89c4\u683c\u4e0e\u5206\u7247\u6570\u3002\u4f8b\u5982\uff0cDISK_FLAT\u5206\u7247\u5efa\u8bae\u6309\u201c\u603b\u6570\u636e\u91cf\u00f7300\u4e07\u201d\u8ba1\u7b97\uff0c\u5355\u5206\u7247\u63a7\u5236\u5728300\u4e07\u6761\u4ee5\u5185\uff0c\u4e14\u526f\u672c\u6570\u81f3\u5c11\u4e3a2[1]\u3002\n\n### \u573a\u666f\u5316\u529f\u80fd\u9700\u6c42  \n\u706b\u5c71\u5f15\u64ce\u6307\u5357\u5f3a\u8c03\uff1a\u5c0f\u9879\u76ee\uff08<10\u4e07\u6761\uff09\u9996\u9009Chroma\u6216Qdrant\u5355\u673a\u7248\uff1b\u4e2d\u578b\u5e94\u7528\uff0810\u4e07\u20131000\u4e07\u6761\uff09\u63a8\u8350Qdrant\u6216Weaviate\uff1b\u4f01\u4e1a\u7ea7\u9ad8\u5e76\u53d1\uff08>1000\u4e07\u6761\uff09\u5b9c\u9009Milvus\u6216\u6258\u7ba1\u670d\u52a1Pinecone\uff1b\u5df2\u6709\u6280\u672f\u6808\u53ef\u590d\u7528pgvector\uff08PostgreSQL\uff09\u3001ES\u5411\u91cf\u68c0\u7d22\u6216Redis Stack[2]\u3002\n\n## \u4e8c\u3001\u4e3b\u6d41\u4ea7\u54c1\u5bf9\u6bd4\n\n| \u4ea7\u54c1       | \u5b9a\u4f4d\u7279\u70b9                     | \u5178\u578b\u9002\u7528\u573a\u666f               | \u5173\u952e\u80fd\u529b                     |\n|------------|------------------------------|--------------------------|----------------------------|\n| **Chroma** | \u8f7b\u91cf\u5d4c\u5165\u5f0f\uff0c\u96f6\u914d\u7f6e\u542f\u52a8         | \u4e2a\u4eba\u5b66\u4e60\u3001\u539f\u578b\u9a8c\u8bc1         | \u6781\u7b80API\uff0c\u672c\u5730\u6301\u4e45\u5316[2]        |\n| **Qdrant** | \u5f00\u6e90+\u4e91\u6258\u7ba1\uff0c\u5e73\u8861\u529f\u80fd\u4e0e\u6613\u7528\u6027   | \u521b\u4e1a\u516c\u53f8\u3001\u4e2d\u578b\u7ebf\u4e0a\u4e1a\u52a1      | \u652f\u6301HNSW/SCANN\u3001\u4e30\u5bcc\u8fc7\u6ee4\u8bed\u6cd5[2] |\n| **Weaviate** | \u6a21\u5757\u5316\u77e5\u8bc6\u56fe\u8c31\u878d\u5408\u5411\u91cf\u68c0\u7d22     | \u9700\u8bed\u4e49+\u7ed3\u6784\u5316\u8054\u5408\u67e5\u8be2\u573a\u666f    | \u5185\u7f6eGraphQL\u3001\u81ea\u52a8schema\u63a8\u65ad[2] |\n| **Milvus** | \u5206\u5e03\u5f0f\u67b6\u6784\uff0c\u4f01\u4e1a\u7ea7SLA\u4fdd\u969c      | \u5343\u4e07\u7ea7+\u9ad8\u541e\u5410\u5b9e\u65f6\u68c0\u7d22        | \u591a\u7d22\u5f15\u7b56\u7565\u3001\u7ec6\u7c92\u5ea6\u6743\u9650\u63a7\u5236[2]   |\n| **Pinecone** | \u6258\u7ba1SaaS\uff0c\u514d\u8fd0\u7ef4               | \u5feb\u901f\u4e0a\u7ebf\u3001\u65e0DBA\u56e2\u961f\u4f01\u4e1a      | \u81ea\u52a8\u6269\u7f29\u5bb9\u3001\u4e9a\u79d2\u7ea7\u66f4\u65b0[2]       |\n| **\u817e\u8baf\u4e91\u5411\u91cf\u6570\u636e\u5e93** | \u6807\u51c6\u7248\uff08\u5185\u5b58\u7d22\u5f15\uff09/\u5bb9\u91cf\u589e\u5f3a\u7248\uff08DISK_FLAT\uff09 | \u591a\u79df\u6237\u964d\u672c\u3001\u4f4e\u5ef6\u8fdf\u5728\u7ebf\u670d\u52a1   | DISK_FLAT\u652f\u6301tenant_id\u8fc7\u6ee4\u9694\u79bb[1] |\n\n\u9009\u578b\u5e94\u907f\u514d\u201c\u4e00\u5200\u5207\u201d\uff1a\u6807\u51c6\u7248\u9002\u5408\u6027\u80fd\u654f\u611f\u578b\u5728\u7ebf\u4e1a\u52a1\uff0c\u5bb9\u91cf\u589e\u5f3a\u7248\u5219\u9488\u5bf9\u6210\u672c\u654f\u611f\u7684\u591a\u79df\u6237\u573a\u666f\uff0c\u4e8c\u8005\u4e0d\u652f\u6301\u4e92\u8fc1\uff0c\u987b\u521d\u59cb\u5373\u51b3\u7b56[1]\u3002\u7efc\u5408\u6765\u770b\uff0c\u6280\u672f\u6808\u517c\u5bb9\u6027\u3001\u56e2\u961f\u8fd0\u7ef4\u80fd\u529b\u4e0e\u957f\u671f\u6570\n\n[truncated]\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** main.qcloudimg.com \u2014 main.qcloudimg.com\nURL: https://main.qcloudimg.com/raw/document/product/pdf/1709_94949_cn.pdf\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5411\u91cf\u6570\u636e\u5e93 \u7248\u6743\u6240\u6709\uff1a\u817e\u8baf\u4e91\u8ba1\u7b97\uff08\u5317\u4eac\uff09\u6709\u9650\u8d23\u4efb\u516c\u53f8 \u7b2c1 \u517112\u9875 \u5411\u91cf\u6570\u636e\u5e93 \u914d\u7f6e\u89c4\u683c\uff08\u9009\u578b\uff09 \u5411\u91cf\u6570\u636e\u5e93 \u7248\u6743\u6240\u6709\uff1a\u817e\u8baf\u4e91\u8ba1\u7b97\uff08\u5317\u4eac\uff09\u6709\u9650\u8d23\u4efb\u516c\u53f8 \u7b2c2 \u517112\u9875 \u3010\u7248\u6743\u58f0\u660e\u3011 \u00a92013-2026 \u817e\u8baf\u4e91\u7248\u6743\u6240\u6709 \u672c\u6587\u6863\uff08\u542b\u6240\u6709\u6587\u5b57\u3001\u6570\u636e\u3001\u56fe\u7247\u7b49\u5185\u5bb9\uff09\u5b8c\u6574\u7684\u8457\u4f5c\u6743\u5f52\u817e\u8baf\u4e91\u8ba1\u7b97\uff08\u5317\u4eac\uff09\u6709\u9650\u8d23\u4efb\u516c\u53f8\u5355\u72ec\u6240\u6709\uff0c\u672a\u7ecf\u817e\u8baf\u4e91 \u4e8b\u5148\u660e\u786e\u4e66\u9762\u8bb8\u53ef\uff0c\u4efb\u4f55\u4e3b\u4f53\u4e0d\u5f97\u4ee5\u4efb\u4f55\u5f62\u5f0f\u590d\u5236\u3001\u4fee\u6539\u3001\u4f7f\u7528\u3001\u6284\u88ad\u3001\u4f20\u64ad\u672c\u6587\u6863\u5168\u90e8\u6216\u90e8\u5206\u5185\u5bb9\u3002\u524d\u8ff0\u884c\u4e3a\u6784\u6210 \u5bf9\u817e\u8baf\u4e91\u8457\u4f5c\u6743\u7684\u4fb5\u72af\uff0c\u817e\u8baf\u4e91\u5c06\u4f9d\u6cd5\u91c7\u53d6\u63aa\u65bd\u8ffd\u7a76\u6cd5\u5f8b\u8d23\u4efb\u3002 \u3010\u5546\u6807\u58f0\u660e\u3011 \u53ca\u5176\u5b83\u817e\u8baf\u4e91\u670d\u52a1\u76f8\u5173\u7684\u5546\u6807\u5747\u4e3a\u817e\u8baf\u4e91\u8ba1\u7b97\uff08\u5317\u4eac\uff09\u6709\u9650\u8d23\u4efb\u516c...\u300d\n\n<a id=\"ref-2\"></a>**[2]** developer.volcengine.com \u2014 \u5411\u91cf\u6570\u636e\u5e93\u5168\u653b\u7565\uff1a\u4ece\u201c\u662f\u4ec0\u4e48\u201d\u5230\u201c\u600e\u4e48\u9009\u201d\u7684\u5b8c\u6574\u6307\u5357 - \u6587\u7ae0 - \u5f00\u53d1\u8005\u793e\u533a - \u706b\u5c71\u5f15\u64ce\nURL: https://developer.volcengine.com/articles/7602479797138931762\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5411\u91cf\u6570\u636e\u5e93\u5168\u653b\u7565\uff1a\u4ece\u201c\u662f\u4ec0\u4e48\u201d\u5230\u201c\u600e\u4e48\u9009\u201d\u7684\u5b8c\u6574\u6307\u5357 - \u6587\u7ae0 - \u5f00\u53d1\u8005\u793e\u533a - \u706b\u5c71\u5f15\u64ce \u6587\u6863 \u5907\u6848 \u63a7\u5236\u53f0 \u767b\u5f55 \u6ce8\u518c \u9996\u9875 AI \u5927\u6a21\u578b\u4f53\u9a8c\u4e2d\u5fc3 \u52a8\u624b\u5b9e\u9a8c\u5ba4 Agent \u8bc4\u6d4b\u96c6 AI \u6848\u4f8b\u5e7f\u573a \u706b\u5c71\u676f\u5927\u8d5b \u5b66\u4e60\u4e2d\u5fc3 \u793e\u533a \u53bb\u53d1\u5e03 \u9996\u9875 AI \u5927\u6a21\u578b\u4f53\u9a8c\u4e2d\u5fc3 \u52a8\u624b\u5b9e\u9a8c\u5ba4 Agent \u8bc4\u6d4b\u96c6 AI \u6848\u4f8b\u5e7f\u573a \u5b66\u4e60\u4e2d\u5fc3 \u793e\u533a \u5411\u91cf\u6570\u636e\u5e93\u5168\u653b\u7565\uff1a\u4ece\u201c\u662f\u4ec0\u4e48\u201d\u5230\u201c\u600e\u4e48\u9009\u201d\u7684\u5b8c\u6574\u6307\u5357 maoku66 AI AI\u751f\u6001 AI\u89e3\u51b3\u65b9\u6848 \u5f15\u8a00\uff1aAI\u65f6\u4ee3\u7684\u201c\u8bb0\u5fc6\u56fe\u4e66\u9986\u201d\u2014\u2014\u4e3a\u4ec0\u4e48\u4f60\u9700\u8981\u5411\u91cf\u6570\u636e\u5e93\uff1f \u670b\u53cb\u4eec\uff0c\u60f3\u8c61\u4e00\u4e0b\u8fd9\u4e2a\u573a\u666f\uff1a\u4f60\u60f3\u627e\u4e00\u7bc7\u6628\u5929\u5728\u5fae\u4fe1\u91cc\u770b\u8fc7\u7684\u6587\u7ae0\uff0c\u53ea\u8bb0\u5f97\u5927\u6982...\u300d",
+    "metadata": [
+      "https://lf3-static.bytednsdoc.com/obj/eden-cn/nulopslf/developer/community_logo.svg",
+      "https://p26-passport.byteacctimg.com/img/mosaic-legacy/3791/5070639578~300x300.image",
+      "https://portal.volccdn.com/obj/volcfe-scm/deploy/volc_developer_/42325/static/image/rec-product.424eb1f0.png"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-08-09T07:00:19.457614",
+  "job_id": "59ef1bb8-d8f3-4b95-b8eb-9ba9bb07b3e6",
+  "events": [],
+  "content": {
+    "query": "slot hold slot-e2e-b-1786258819",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

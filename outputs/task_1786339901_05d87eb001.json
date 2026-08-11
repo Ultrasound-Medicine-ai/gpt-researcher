@@ -1,0 +1,429 @@
+{
+  "timestamp": "2026-08-10T05:31:41.565197",
+  "events": [
+    {
+      "timestamp": "2026-08-10T05:32:00.115768",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u8981\u6c42400\u5b57\u5de6\u53f3'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:32:00.135778",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udcbb Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:32:00.164000",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: \u5e2e\u6211\u8c03\u7814SSE\uff0c\u8981\u6c42400\u5b57\u5de6\u53f3...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:32:02.227389",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:20.271412",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['SSE \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 \u5e02\u573a\u6982\u51b5\u4e0e\u76d1\u7ba1\u67b6\u6784', 'Shanghai Stock Exchange overview history and market analysis', '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u8981\u6c42400\u5b57\u5de6\u53f3']...",
+        "metadata": [
+          "SSE \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 \u5e02\u573a\u6982\u51b5\u4e0e\u76d1\u7ba1\u67b6\u6784",
+          "Shanghai Stock Exchange overview history and market analysis",
+          "\u5e2e\u6211\u8c03\u7814SSE\uff0c\u8981\u6c42400\u5b57\u5de6\u53f3"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:20.330852",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'SSE \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 \u5e02\u573a\u6982\u51b5\u4e0e\u76d1\u7ba1\u67b6\u6784'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:20.348479",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'Shanghai Stock Exchange overview history and market analysis'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:20.381971",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u8981\u6c42400\u5b57\u5de6\u53f3'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:21.149088",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?stockid=600141&id=12063215\n",
+        "metadata": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?stockid=600141&id=12063215"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:21.175796",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: http://www.csrc.gov.cn/csrc_en/c102062/c1372558/1372558/files/P020191021578054453121.pdf\n",
+        "metadata": "http://www.csrc.gov.cn/csrc_en/c102062/c1372558/1372558/files/P020191021578054453121.pdf"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:21.201521",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-06-06/508027_20250606_K184.pdf\n",
+        "metadata": "https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-06-06/508027_20250606_K184.pdf"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:21.221951",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:21.252093",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:22.056058",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://english.sse.com.cn/aboutsse/overview\n",
+        "metadata": "https://english.sse.com.cn/aboutsse/overview"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:22.119246",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange\n",
+        "metadata": "https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:22.178786",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://expatinvestchina.com/the-shanghai-stock-exchange-an-introduction\n",
+        "metadata": "https://expatinvestchina.com/the-shanghai-stock-exchange-an-introduction"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:22.265232",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:22.628665",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:23.369524",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://zh.wikipedia.org/zh-hans/%E4%B8%8A%E6%B5%B7%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80\n",
+        "metadata": "https://zh.wikipedia.org/zh-hans/%E4%B8%8A%E6%B5%B7%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:23.748603",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://baike.baidu.com/item/%E4%B8%8A%E6%B5%B7%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80/1247763\n",
+        "metadata": "https://baike.baidu.com/item/%E4%B8%8A%E6%B5%B7%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80/1247763"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:23.836633",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: http://www.sse.com.cn/aboutus/sseintroduction/introduction\n",
+        "metadata": "http://www.sse.com.cn/aboutus/sseintroduction/introduction"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:23.902723",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:23.991446",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:26.730547",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:26.809924",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 16 total images",
+        "metadata": [
+          "https://expatinvestchina.com/wp-content/uploads/2022/11/Screen-Shot-2022-11-05-at-5.36.12-PM.png",
+          "https://expatinvestchina.com/wp-content/uploads/2024/01/Template.png",
+          "https://expatinvestchina.com/wp-content/uploads/2024/02/The-Shenzhen-Stock-Exchange-SZSE-Guide-ExpatInvest.png",
+          "https://expatinvestchina.com/wp-content/uploads/2024/03/Stock-Markets-of-China-Opening-Schedule-and-Calendar-TeamedUp-China.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:26.891301",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:29.940855",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:30.087773",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:30.113608",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 1 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:30.140356",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 12 total images",
+        "metadata": [
+          "http://www.sse.com.cn/xhtml/images/logo.png",
+          "http://www.sse.com.cn/xhtml/images/ui_home_enter_edu_2024.png",
+          "http://www.sse.com.cn/xhtml/images/ui_home_enter_member_2024.png",
+          "http://www.sse.com.cn/xhtml/images/ui_home_enter_nss_2024.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:30.164589",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 0 new images from 0 total images",
+        "metadata": []
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:30.205360",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:30.232282",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:31.099519",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:31.123070",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:34.581069",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (3613 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:34.606867",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.035945000000000005",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:34.667984",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u8981\u6c42400\u5b57\u5de6\u53f3'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T05:33:42.434055",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for '\u5e2e\u6211\u8c03\u7814SSE\uff0c\u8981\u6c42400\u5b57\u5de6\u53f3'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** en.wikipedia.org \u2014 Shanghai Stock Exchange - Wikipedia\nURL: https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange\n\u539f\u6587\u7247\u6bb5\uff1a\u300cShanghai Stock Exchange - Wikipedia Jump to content Coordinates : 31\u00b014\u203212.3\u2033N 121\u00b030\u203231.5\u2033E \ufeff / \ufeff 31.236750\u00b0N 121.508750\u00b0E \ufeff / 31.236750; 121.508750 From Wikipedia, the free encyclopedia Stock exchange in Shanghai, China Shanghai Stock Exchange \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 Type Stock exchange Locati...\u300d\n\n<a id=\"ref-2\"></a>**[2]** english.sse.com.cn \u2014 SHANGHAI STOCK EXCHANGE\nURL: https://english.sse.com.cn/aboutsse/overview\n\u539f\u6587\u7247\u6bb5\uff1a\u300cSHANGHAI STOCK EXCHANGE Overview History and Development Shanghai is Mainland China\u2019s first city to see the emergence of stocks, stock trading and stock exchanges. Stock trading started in Shanghai as early as the 1860s. In 1891, the Shanghai Share Brokers Association, an early f...\u300d\n\n<a id=\"ref-3\"></a>**[3]** expatinvestchina.com \u2014 The Shanghai Stock Exchange: An Introduction\nURL: https://expatinvestchina.com/the-shanghai-stock-exchange-an-introduction\n\u539f\u6587\u7247\u6bb5\uff1a\u300cThe Shanghai Stock Exchange: An Introduction Skip to content The modern version of the Shanghai Stock Exchange (SSE) was established in November 1990, making it only 32 years old. In that time it has grown rapidly to become the third-largest exchange by market cap in the world! L...\u300d\n\n<a id=\"ref-4\"></a>**[4]** sse.com.cn \u2014 \u4ea4\u6613\u6240\u4ecb\u7ecd  | \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240\nURL: http://www.sse.com.cn/aboutus/sseintroduction/introduction\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u4ea4\u6613\u6240\u4ecb\u7ecd | \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240\u670d\u52a1\u70ed\u7ebf\uff1a 400-8888-400 APP\u4e0b\u8f7d \u5fae\u535a\u5fae\u4fe1 English \u7e41 \u4e00\u7f51\u901a\u529e \u201c\u4e09\u5f00\u95e8\u201d\u4e13\u680f \u7b80\u4e2d EN \u4e00\u7f51\u901a\u529e \u201c\u4e09\u5f00\u95e8\u201d\u4e13\u680f \u7528\u6237\u5165\u53e3 \u6295\u8d44\u8005 \u4f1a\u5458\u673a\u6784 \u62df\u4e0a\u5e02\u516c\u53f8 \u503a\u5238\u673a\u6784 \u4e0a\u5e02\u516c\u53f8 \u57fa\u91d1\u516c\u53f8 \u9ad8\u6548\u529e\u6210\u4e00\u4ef6\u4e8b \u80a1\u7968\u6295\u8d44\u4e00\u4ef6\u4e8b \u503a\u5238\u53d1\u884c\u4e0a\u5e02\u4e00\u4ef6\u4e8b \u671f\u6743\u6295\u8d44\u4e00\u4ef6\u4e8b REITs\u53d1\u884c\u4e0a\u5e02\u4e00\u4ef6\u4e8b \u4f01\u4e1a\u4e0a\u5e02\u4e00\u4ef6\u4e8b \u670d\u52a1\u9884\u7ea6\u4e00\u4ef6\u4e8b \u4fe1\u606f\u62ab\u9732\u4e00\u4ef6\u4e8b \u4e00\u7f51\u901a\u529e\u79fb\u52a8\u7aef \u4e0a\u4ea4\u6240APP\"\u901a\u529e\"\u680f\u76ee - \u6b22\u8fce\u626b\u7801\u5b89\u88c5 - \u5c55\u5f00\u5bfc\u822a\u83dc\u5355 \u4e0a\u4ea4\u6240\u53d1\u5e03 \u4e0a\u4ea4\u6240\u79fb\u52a8App \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240\uff08\u4ee5\u4e0b\u7b80\u79f0\u4e0a\u4ea4\u6240\uff09\u6210\u7acb\u4e8e1990\u5e741...\u300d\n\n<a id=\"ref-5\"></a>**[5]** zh.wikipedia.org \u2014 \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 - \u7ef4\u57fa\u767e\u79d1\uff0c\u81ea\u7531\u7684\u767e\u79d1\u5168\u4e66\nURL: https://zh.wikipedia.org/zh-hans/%E4%B8%8A%E6%B5%B7%E8%AF%81%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 - \u7ef4\u57fa\u767e\u79d1\uff0c\u81ea\u7531\u7684\u767e\u79d1\u5168\u4e66 \u8df3\u8f6c\u5230\u5185\u5bb9 \u5750\u6807 \uff1a 31\u00b013\u203219\u2033N 121\u00b031\u203251\u2033E \ufeff / \ufeff 31.221893\u00b0N 121.530928\u00b0E \ufeff / 31.221893; 121.530928 \u7ef4\u57fa\u767e\u79d1\uff0c\u81ea\u7531\u7684\u767e\u79d1\u5168\u4e66 \u4e0a\u6d77\u8bc1\u5238\u4ea4\u6613\u6240 \u7c7b\u578b \u8bc1\u5238\u4ea4\u6613\u6240 \u6b63\u53f8\u5c40\u7ea7 \u4e8b\u4e1a\u5355\u4f4d \u5730\u70b9 \u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd \u4e0a\u6d77\u5e02 \u6d66\u4e1c\u65b0\u533a \u6768\u9ad8\u5357\u8def 388\u53f7 \u4e0a\u6d77\u91d1\u878d\u4ea4\u6613\u5e7f\u573a \u5750\u6807 31\u00b013\u203219\u2033N 121\u00b031\u203251\u2033E \ufeff / \ufeff 31.221893\u00b0N 121.530928\u00b0E \ufeff / 31.221893; 121.530928 \u6210\u7acb\u4e8e...\u300d\n\n<a id=\"ref-6\"></a>**[6]** sse.com.cn \u2014 sse.com.cn\nURL: https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-06-06/508027_20250606_K184.pdf\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u4e1c\u5434\u82cf\u5dde\u5de5\u4e1a\u56ed\u533a\u4ea7\u4e1a\u56ed \u5c01\u95ed\u5f0f\u57fa\u7840\u8bbe\u65bd\u8bc1\u5238\u6295\u8d44\u57fa\u91d1 \u62db\u52df\u8bf4\u660e\u4e66\uff08\u66f4\u65b0\uff09 \u2014\u4e1c\u5434\u57fa\u91d1\u7ba1\u7406\u6709\u9650\u516c\u53f82025 \u5e741 \u53f7 \u57fa\u91d1\u7ba1\u7406\u4eba\uff1a\u4e1c\u5434\u57fa\u91d1\u7ba1\u7406\u6709\u9650\u516c\u53f8 \u57fa\u91d1\u6258\u7ba1\u4eba\uff1a\u62db\u5546\u94f6\u884c\u80a1\u4efd\u6709\u9650\u516c\u53f8 \u4e1c\u5434\u82cf\u5dde\u5de5\u4e1a\u56ed\u533a\u4ea7\u4e1a\u56ed\u5c01\u95ed\u5f0f\u57fa\u7840\u8bbe\u65bd\u8bc1\u5238\u6295\u8d44\u57fa\u91d1\u62db\u52df\u8bf4\u660e\u4e66\uff08\u66f4\u65b0\uff09 1 \u91cd\u8981\u63d0\u793a \u672c\u57fa\u91d1\u7ecf\u4e2d\u56fd\u8bc1\u5238\u76d1\u7763\u7ba1\u7406\u59d4\u5458\u4f1a\uff08\u4ee5\u4e0b\u7b80\u79f0\u201c\u4e2d\u56fd\u8bc1\u76d1\u4f1a\u201d\uff092021 \u5e745 \u6708 17 \u65e5\u8bc1\u76d1\u8bb8\u53ef[2021]1668 \u53f7\u6587\u6ce8\u518c\u3002 \u57fa\u91d1\u7ba1\u7406\u4eba\u4fdd\u8bc1\u62db\u52df\u8bf4\u660e\u4e66\u7684\u5185\u5bb9\u771f\u5b9e\u3001\u51c6\u786e\u3001\u5b8c\u6574\u3002\u672c\u62db\u52df\u8bf4\u660e\u4e66\u7ecf\u4e2d\u56fd \u8bc1\u76d1\u4f1a\u6ce8\u518c\uff0c\u4f46\u4e2d\u56fd\u8bc1\u76d1\u4f1a\u5bf9\u672c\u57fa\u91d1\u52df\u96c6\u7684\u6ce8\u518c\uff0c\u8bc1\u5238\u4ea4\u6613\u6240\u540c\u610f\u57fa\u91d1\u4efd\u989d\u4e0a\u5e02\uff0c \u5e76\u4e0d\u8868\u660e\u5176\u5bf9\u672c\u57fa\u91d1\u7684\u4ef7\u503c\u548c\u6536...\u300d",
+    "metadata": [
+      "https://expatinvestchina.com/wp-content/uploads/2022/11/Screen-Shot-2022-11-05-at-5.36.12-PM.png",
+      "https://expatinvestchina.com/wp-content/uploads/2024/01/Template.png",
+      "https://expatinvestchina.com/wp-content/uploads/2024/02/The-Shenzhen-Stock-Exchange-SZSE-Guide-ExpatInvest.png",
+      "https://expatinvestchina.com/wp-content/uploads/2024/03/Stock-Markets-of-China-Opening-Schedule-and-Calendar-TeamedUp-China.png",
+      "http://www.sse.com.cn/xhtml/images/logo.png",
+      "http://www.sse.com.cn/xhtml/images/ui_home_enter_edu_2024.png",
+      "http://www.sse.com.cn/xhtml/images/ui_home_enter_member_2024.png",
+      "http://www.sse.com.cn/xhtml/images/ui_home_enter_nss_2024.png"
+    ]
+  }
+}

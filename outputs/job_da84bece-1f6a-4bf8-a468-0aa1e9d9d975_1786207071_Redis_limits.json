@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-08-09T00:37:51.923369",
+  "job_id": "da84bece-1f6a-4bf8-a468-0aa1e9d9d975",
+  "events": [],
+  "content": {
+    "query": "Redis limits",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

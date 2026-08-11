@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-08-09T13:26:10.499932",
+  "job_id": "08ad7441-58d5-4261-b352-deb5ffa1fb45",
+  "events": [],
+  "content": {
+    "query": "retry test",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

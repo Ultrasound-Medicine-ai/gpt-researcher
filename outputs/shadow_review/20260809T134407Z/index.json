@@ -1,0 +1,42 @@
+{
+  "created_at": "20260809T134407Z",
+  "api": "http://localhost:8000",
+  "force_sample": true,
+  "count": 5,
+  "shadow_hits": 0,
+  "items": [
+    {
+      "n": 1,
+      "job_id": "672da9d5-3055-46fc-82e9-823d9a91eb28",
+      "task": "Redis 分布式锁的实现原理与常见坑，控制在800字以内",
+      "status": "completed",
+      "mode": "shadow",
+      "shadow_hit": false,
+      "md": "01_672da9d5-3055-46fc-82e9-823d9a91eb28.md"
+    },
+    {
+      "n": 2,
+      "task": "向量数据库在 RAG 中的选型对比（Milvus / pgvector / Qdrant），给出适用场景",
+      "error": "Remote end closed connection without response",
+      "shadow_hit": false
+    },
+    {
+      "n": 3,
+      "task": "Kubernetes 中 HPA 与 VPA 的差异及生产落地建议",
+      "error": "<urlopen error [WinError 10053] 你的主机中的软件中止了一个已建立的连接。>",
+      "shadow_hit": false
+    },
+    {
+      "n": 4,
+      "task": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+      "error": "Remote end closed connection without response",
+      "shadow_hit": false
+    },
+    {
+      "n": 5,
+      "task": "大模型应用里 Prompt 注入攻击的典型手法与防护要点",
+      "error": "Remote end closed connection without response",
+      "shadow_hit": false
+    }
+  ]
+}

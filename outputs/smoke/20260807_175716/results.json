@@ -1,0 +1,61 @@
+[
+  {
+    "name": "api_root",
+    "ok": true,
+    "status": 200,
+    "body": {
+      "service": "GPT Researcher API",
+      "ui": "http://localhost:3000",
+      "docs": "/docs",
+      "websocket": "/ws",
+      "chat": "/api/chat"
+    }
+  },
+  {
+    "name": "api_docs",
+    "ok": true,
+    "status": 200
+  },
+  {
+    "name": "nextjs_ui",
+    "ok": true,
+    "status": 200,
+    "url": "http://localhost:3000"
+  },
+  {
+    "name": "websocket_research",
+    "ok": false,
+    "elapsed_sec": 914.8,
+    "path_message": null,
+    "errors": [],
+    "query": "什么是 GPT Researcher？请用中文简要说明其主要功能。"
+  },
+  {
+    "name": "report_quality",
+    "ok": false,
+    "char_count": 0,
+    "word_count": 0,
+    "heading_count": 0,
+    "link_count": 0,
+    "bracket_citation_count": 0,
+    "checks": {
+      "non_empty": false,
+      "min_length_300": false,
+      "min_words_80": false,
+      "has_headings": false,
+      "has_links_or_citations": false
+    },
+    "quality_score": "0/5",
+    "grade": "FAIL",
+    "preview": ""
+  },
+  {
+    "name": "chat_api",
+    "ok": false,
+    "status": 200,
+    "response_chars": 0,
+    "tool_calls": null,
+    "preview": "",
+    "error": "Failed to get response from openai API"
+  }
+]

@@ -1,0 +1,437 @@
+{
+  "timestamp": "2026-08-10T06:33:38.263234",
+  "job_id": "a555c1c4-1608-4604-aed9-f6dc2b0b688b",
+  "events": [
+    {
+      "timestamp": "2026-08-10T06:34:02.430921",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for '帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:02.456928",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "💻 Tech Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:02.489764",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: 帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:04.582949",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:39.543316",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['Server-Sent Events SSE 技术原理与优缺点调研', 'Server-Sent Events vs WebSockets technical comparison', '帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）']...",
+        "metadata": [
+          "Server-Sent Events SSE 技术原理与优缺点调研",
+          "Server-Sent Events vs WebSockets technical comparison",
+          "帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:39.611814",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Server-Sent Events SSE 技术原理与优缺点调研'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:39.636901",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'Server-Sent Events vs WebSockets technical comparison'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:39.665193",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for '帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:41.897645",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://developer.cloud.tencent.com/article/2301543\n",
+        "metadata": "https://developer.cloud.tencent.com/article/2301543"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:41.935316",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/crazymakercircle/p/19065461\n",
+        "metadata": "https://www.cnblogs.com/crazymakercircle/p/19065461"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:41.982202",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519\n",
+        "metadata": "https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.014122",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://baike.baidu.com/item/%E5%B8%AE/4012240\n",
+        "metadata": "https://baike.baidu.com/item/%E5%B8%AE/4012240"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.043223",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.098710",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://prepedu.com/vi/blog/bang-bangmang-va-bangzhu-tieng-trung\n",
+        "metadata": "https://prepedu.com/vi/blog/bang-bangmang-va-bangzhu-tieng-trung"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.139997",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.205308",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://zh.wiktionary.org/wiki/%E5%B8%AE\n",
+        "metadata": "https://zh.wiktionary.org/wiki/%E5%B8%AE"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.245509",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.301698",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.503626",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide\n",
+        "metadata": "https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.571441",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://websocket.org/comparisons/sse\n",
+        "metadata": "https://websocket.org/comparisons/sse"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.647994",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://ably.com/blog/websockets-vs-sse\n",
+        "metadata": "https://ably.com/blog/websockets-vs-sse"
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.747569",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:42.851255",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:43.189456",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:43.238047",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 18 total images",
+        "metadata": [
+          "https://kimi-web-img.moonshot.cn/img/placeholder-0620/%E5%9B%BE%E7%89%8721.png",
+          "https://qccommunity.qcloudimg.com/image/new.png",
+          "https://ask.qcloudimg.com/http-save/yehe-8916337/cdcd38125857412684f7cc293b183e9e.jpeg",
+          "https://developer.qcloudimg.com/http-save/yehe-8916337/36e9da73c985098afa321f0045842280.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:43.304772",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:44.419307",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:44.920663",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 2 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:44.976728",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 10 total images",
+        "metadata": [
+          "https://static-assets.prepcdn.com/content-management-system/bang_bangmang_va_bangzhu_tieng_trung_69ae43cddf.png",
+          "https://static-assets.prepcdn.com/content-management-system/cach_dung_bang_8a0bfc04ed.jpg",
+          "https://static-assets.prepcdn.com/content-management-system/cach_dung_bangmang_3574be6090.jpg",
+          "https://static-assets.prepcdn.com/content-management-system/cach_dung_bangzhu_d64d1e3c03.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:45.233287",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:45.893494",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:45.922964",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:45.954068",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 16 total images",
+        "metadata": [
+          "https://ik.imagekit.io/ably/ghost/prod/2022/11/server_sent_events_how_it_works.png",
+          "https://ik.imagekit.io/ably/ghost/prod/2022/11/websockets.webp",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf972a8/699c65d475d592ff4cf97d2d_nimble-logo_black.svg",
+          "https://cdn.prod.website-files.com/699c65d475d592ff4cf9729d/699c65d475d592ff4cf97fde_image%20(4).avif"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:46.000441",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:46.197218",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:51.014007",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (3540 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:51.039849",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.022755",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:34:51.108188",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for '帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-10T06:36:09.681088",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for '帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "帮我调研SSE，要求400字（指：Server-Sent Events (SSE; HTTP EventSource server push)）",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Server-Sent Events (SSE) 技术调研报告\n\n## 核心原理与技术特性\nServer-Sent Events (SSE) 是一种基于标准 HTTP 协议的服务器推送技术，专为实现高效、轻量级的单向实时通信而设计 [1][2]。其底层机制依赖客户端通过 `EventSource` 对象发起 HTTP GET 请求，服务器以 `Content-Type: text/event-stream` 响应并维持持久连接 [1]。数据采用 UTF-8 文本格式传输，严格遵循 `data:`、`event:` 与 `id:` 字段规范 [1]。SSE 的核心价值在于内置断线自动重连机制，并支持通过 `Last-Event-ID` 实现消息续传，有效保障了数据流的连续性与可靠性 [1]。\n\n## 协议对比与架构优势\n相较于 WebSocket 的全双工通信与独立协议栈，SSE 仅支持服务器至客户端的单向数据流，完全复用现有 HTTP 基础设施，无需复杂握手，且原生具备自动重连能力，集成复杂度显著更低 [1][6]。与传统长轮询相比，SSE 仅需建立一次连接即可持续推送多事件，彻底消除了高频请求带来的网络开销与服务器负载，在实时性与资源效率上均占据优势 [1]。\n\n| 特性维度 | SSE | WebSocket | 长轮询 |\n|---|---|---|---|\n| 通信方向 | 单向（服务器→客户端） | 双向（全双工） | 单向（请求-响应） |\n| 协议基础 | 标准 HTTP | 独立 WebSocket 协议 | 标准 HTTP |\n| 数据格式 | 文本（UTF-8） | 文本或二进制 | 文本/JSON |\n| 重连机制 | 内置自动重连与续传 | 需手动实现 | 依赖客户端循环重试 |\n\n## 典型场景与工程实践\nSSE 高度契合服务器驱动型数据流场景。在 AI 大语言模型应用中，SSE 被广泛用于 Token 级流式输出，有效缓解用户等待焦虑并提升交互体验 [1][6]。同时，金融行情推送、服务器性能监控、赛事直播及在线协同工具的状态同步，均依赖 SSE 实现低延迟更新 [1]。工程部署时需注意，现代主流浏览器已原生支持 `EventSource`，但 IE 环境需引入 Polyfill 降级至长轮询 [1]；此外，跨域请求受 CORS 策略严格约束，服务端需正确配置跨域响应头 [1]。\n\n## 调研结论\n综合技术特性与生态现状，SSE 是构建单向实时数据流的最优解。其基于 HTTP 的轻量架构、开箱即用的重连机制及极低的运维成本，使其在 AI 流式交互、实时通知与监控领域具备不可替代性。对于无需客户端高频回传数据的业务，SSE 在开发效率、网络兼容性与资源消耗上均优于 WebSocket，建议作为单向推送场景的首选技术栈 [1][6]。\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** kimi.com — Server-Sent Events (SSE) 技术详解\nURL: https://www.kimi.com/preview/197bf3c5-a5c1-878a-8825-cfbcc8000519\n原文片段：「Server-Sent Events (SSE) 技术详解 Server-Sent Events 技术详解 基于 HTTP 的服务器推送技术，实现高效、简单的单向实时通信 实时通信 轻量级 HTTP 标准 核心价值 单向推送 服务器主动推送更新，无需客户端轮询 自动重连 内置断线重连与消息续传机制 简单实现 基于标准 HTTP，易于集成部署 SSE 技术概述 什么是 Server-Sent Events Server-Sent Events (SSE) 是一种基于 HTTP 的服务器推送技术，它允许服务器将实时更新主动发送到客户端（通常是 Web 浏览器...」\n\n<a id=\"ref-2\"></a>**[2]** developer.cloud.tencent.com — 每日一博 - Server-Sent Events推送技术-腾讯云开发者社区-腾讯云\nURL: https://developer.cloud.tencent.com/article/2301543\n原文片段：「每日一博 - Server-Sent Events推送技术-腾讯云开发者社区-腾讯云 小小工匠 每日一博 - Server-Sent Events推送技术 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 小小工匠 社区首页 > 专栏 > 每日一博 - Server-Sent Events推送技术 每日一博 - Server-Sent Events推送技术 小小工匠 关注 发布 于 2023-07-11 11:24:56 发布 于 2023-07...」\n\n<a id=\"ref-3\"></a>**[3]** cnblogs.com — SSE（Server-Sent Events）圣经： 底层原理 + 应用开发 + 技术对比 （图解+秒懂+史上最全） - 技术自由圈 - 博客园\nURL: https://www.cnblogs.com/crazymakercircle/p/19065461\n原文片段：「SSE（Server-Sent Events）圣经： 底层原理 + 应用开发 + 技术对比 （图解+秒懂+史上最全） - 技术自由圈 - 博客园 疯狂创客圈 SSE（Server-Sent Events）圣经： 底层原理 + 应用开发 + 技术对比 （图解+秒懂+史上最全） 本文 的 原文 地址 原始的内容，请参考 本文 的 原文 地址 本文 的 原文 地址 尼恩说在前面 在45岁老架构师 尼恩的 读者交流群 (50+)中，通过 Java+AI双驱架构 帮助很多小伙伴拿到了一线企业如 字节、得物、阿里、滴滴、极兔、有赞、希音、百度、网易、美团、蚂蚁、得物...」\n\n<a id=\"ref-4\"></a>**[4]** zh.wiktionary.org — 帮 - 维基词典，自由的多语言词典\nURL: https://zh.wiktionary.org/wiki/%E5%B8%AE\n原文片段：「帮 - 维基词典，自由的多语言词典 跳转到内容 維基詞典，自由的多語言詞典 帮 U+5E2E , &#24110; 中日韓統一表意文字-5E2E ← 席 [U+5E2D] 中日韓統一表意文字 帯 → [U+5E2F] 跨語言 [ 编辑 ] 筆順 繁體中文 幫 日本新字体 幇 简体中文 帮 漢字 [ 编辑 ] 帮 （ 巾部 +7畫，共10畫， 倉頡碼 ：手中中月（ QLLB ）， 四角號碼 ： 5722 7 ， 部件組合 ： ⿱ 邦 巾 ） 來源 [ 编辑 ] 康熙字典 ：未收錄，如收錄將位於 第332页 第12字的下一個 大漢和辭典 ：第8928字 大字...」\n\n<a id=\"ref-5\"></a>**[5]** prepedu.com — Cách dùng 3 từ 帮, 帮忙 và 帮助 trong tiếng Trung\nURL: https://prepedu.com/vi/blog/bang-bangmang-va-bangzhu-tieng-trung\n原文片段：「Cách dùng 3 từ 帮, 帮忙 và 帮助 trong tiếng Trung Phân biệt 帮, 帮忙 và 帮助 trong tiếng Trung HSK TỪ VỰNG Quy tắc biên tập và xuất bản nội dung 帮, 帮忙 và 帮助 trong tiếng Trung đều mang ý nghĩa là “giúp đỡ”. Vậy 3 từ này dùng trong trường hợp nào? Theo dõi bài viết dưới đây để được PREP hướn...」\n\n<a id=\"ref-6\"></a>**[6]** websocket.org — WebSocket vs SSE: Which One Should You Use? | WebSocket.org\nURL: https://websocket.org/comparisons/sse\n原文片段：「WebSocket vs SSE: Which One Should You Use? | WebSocket.org Skip to content WebSocket vs SSE: Which One Should You Use? by Matthew O'Riordan • Published on January 7, 2025 • Updated March 10, 2026 :::note[Quick Answer] Use SSE for simple server-to-client streaming (notifications,...」\n\n<a id=\"ref-7\"></a>**[7]** nimbleway.com — Server-Sent Events vs WebSockets: Key Differences and Use Cases in 2026\nURL: https://www.nimbleway.com/blog/server-sent-events-vs-websockets-what-is-the-difference-2026-guide\n原文片段：「Server-Sent Events vs WebSockets: Key Differences and Use Cases in 2026 Announcing Web Search Agents Self-learning web search for your domain Learn More Login Sign Up Get Expert-Level Web Search for Your AI Agents Let's talk about your use cases and show you how Nimble delivers h...」\n\n<a id=\"ref-8\"></a>**[8]** ably.com — ably.com\nURL: https://ably.com/blog/websockets-vs-sse\n原文片段：「On this page WebSockets and Server-Sent Events are commonly used in realtime applications where quick and efficient data transfer is a critical requirement. The expectations of realtime experiences in applications has only grown with time, with improving technology and understand...」",
+    "metadata": [
+      "https://kimi-web-img.moonshot.cn/img/placeholder-0620/%E5%9B%BE%E7%89%8721.png",
+      "https://qccommunity.qcloudimg.com/image/new.png",
+      "https://ask.qcloudimg.com/http-save/yehe-8916337/cdcd38125857412684f7cc293b183e9e.jpeg",
+      "https://developer.qcloudimg.com/http-save/yehe-8916337/36e9da73c985098afa321f0045842280.png",
+      "https://static-assets.prepcdn.com/content-management-system/bang_bangmang_va_bangzhu_tieng_trung_69ae43cddf.png",
+      "https://static-assets.prepcdn.com/content-management-system/cach_dung_bang_8a0bfc04ed.jpg",
+      "https://static-assets.prepcdn.com/content-management-system/cach_dung_bangmang_3574be6090.jpg",
+      "https://static-assets.prepcdn.com/content-management-system/cach_dung_bangzhu_d64d1e3c03.jpg",
+      "https://ik.imagekit.io/ably/ghost/prod/2022/11/server_sent_events_how_it_works.png",
+      "https://ik.imagekit.io/ably/ghost/prod/2022/11/websockets.webp"
+    ]
+  }
+}

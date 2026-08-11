@@ -1,0 +1,3894 @@
+{
+  "task": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+  "job": {
+    "id": "7b8f2a95-474b-452d-bb10-8b18cc4cb44e",
+    "user_id": "shadow-review",
+    "tenant_id": "shadow-review",
+    "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+    "status": "completed",
+    "stage": "finalizing",
+    "progress": "done",
+    "error": null,
+    "payload": {
+      "task": "PostgreSQL 与 MySQL 在高并发写入场景下的取舍",
+      "tone": "Objective",
+      "headers": null,
+      "user_id": "shadow-review",
+      "tenant_id": "shadow-review",
+      "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+      "mcp_configs": [],
+      "mcp_enabled": false,
+      "report_type": "research_report",
+      "source_urls": [],
+      "total_words": 800,
+      "mcp_strategy": "fast",
+      "document_urls": [],
+      "query_domains": [],
+      "report_source": "web",
+      "report_language": "chinese",
+      "knowledge_policy": "web_first",
+      "max_search_results": null,
+      "force_trusted_sample": true
+    },
+    "result": {
+      "cost": {
+        "status": "completed",
+        "retries": 0,
+        "searches": 4,
+        "llm_calls": 17,
+        "llm_events": [
+          {
+            "ts": 1786285382.2769291,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285382.311695,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285382.3266525,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285382.3425872,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285382.3554082,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285382.3696184,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285382.3856344,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285382.3993948,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.3490582,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.3492148,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.395467,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.3956177,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.4423773,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.4425259,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.472883,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.4730597,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.5191317,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285439.5192757,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.2175143,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.21776,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.2673872,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.2675338,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.3148377,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.3150053,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.3510482,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.351302,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.3873472,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285461.3875413,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.3195295,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.319697,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.346827,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.3469636,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.3758364,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.3760414,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.4070258,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.4071813,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.4561331,
+            "type": "degrade_embedding",
+            "reason": "circuit_open",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285488.4562848,
+            "type": "degrade_rag",
+            "reason": "vector_query:embedding_unavailable",
+            "rag_degraded": true
+          },
+          {
+            "ts": 1786285516.9706275,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285517.2107577,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285519.3296323,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285519.47983,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285519.70133,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285519.8253953,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285520.0307524,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285520.1775637,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285520.4204752,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285520.5592265,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285559.5728498,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285559.6886547,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285559.9909995,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.1116357,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285560.2909355,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.429144,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285560.6405826,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.7725637,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285589.481172,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285589.6210892,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285593.3691733,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285593.498104,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285595.5543613,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285595.707333,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285597.7652879,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285597.908562,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285599.892618,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285600.026215,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285602.1123044,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285602.2429557,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285603.5220697,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285603.8746955,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285605.3652208,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285605.4902456,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285606.4135702,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285606.5503066,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285607.4534419,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285607.6065564,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285608.492721,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285608.6297958,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285609.505785,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285609.6492012,
+            "type": "degrade_embedding",
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "truncations": 0,
+        "rag_degraded": true,
+        "continuations": 0,
+        "model_switches": 0,
+        "chapter_retries": 0,
+        "degrade_reasons": [
+          {
+            "ts": 1786285519.329615,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285519.4798157,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285519.701318,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285519.8253815,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285520.030733,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285520.1775491,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285520.4204636,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285520.559208,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285559.5728323,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285559.68864,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285559.9909878,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.1116204,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285560.290925,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.4291291,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285560.640573,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.7725496,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285589.481159,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285589.621069,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285593.3691597,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285593.4980881,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285595.554349,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285595.707319,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285597.765276,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285597.9085472,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285599.8926013,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285600.0262,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285602.112287,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285602.2429376,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285603.5220573,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285603.8746805,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285605.3652089,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285605.4902313,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285606.413557,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285606.5502918,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285607.4534292,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285607.6065419,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285608.4927118,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285608.6297817,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285609.505772,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285609.6491854,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "scrape_failures": 1,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false
+      },
+      "audit": null,
+      "report": "# PostgreSQL 与 MySQL 在高并发写入场景下的取舍\n\n## 引言\n在现代应用中，数据库的性能和稳定性至关重要。特别是在高并发写入场景下，选择合适的数据库系统可以显著提升系统的整体表现。本文将基于最新的研究数据和技术实践，深入分析PostgreSQL与MySQL在高并发写入场景下的机制差异、性能瓶颈、扩展方案及架构选型建议。\n\n## 高并发写入场景下的机制差异\n\n### 并发控制机制\n**PostgreSQL** 使用多版本并发控制（MVCC）机制，通过创建数据的不同版本来实现读写不阻塞。这种机制在高并发写入场景下表现出色，因为读操作不会被写操作阻塞，从而提高了系统的吞吐量 [3]。此外，PostgreSQL 的 MVCC 实现更为彻底，读写互不阻塞，这使得它在金融级交易系统等高并发写入场景中具有明显优势 [4]。\n\n**MySQL** 则依赖于行锁和间隙锁来实现并发控制。虽然 InnoDB 存储引擎支持 MVCC，但在高并发写入场景下，MySQL 的线程池模型可能会出现上下文切换瓶颈，导致性能下降 [5]。此外，MySQL 的间隙锁在高并发环境下可能导致死锁增加 [4]。\n\n### 写入性能\n根据最新的基准测试结果，PostgreSQL 在高并发写入场景下的表现优于 MySQL。例如，在一项针对单行插入操作的测试中，PostgreSQL 在 Ubuntu 24.04 上每秒可完成 21,338 次插入操作，而 MySQL 仅能完成 4,383 次 [6]。这表明 PostgreSQL 在处理高并发写入时具有更高的吞吐量。\n\n### 延迟\n在高并发写入场景下，延迟是另一个关键指标。根据 Sysbench 测试结果，PostgreSQL 在 1000 并发连接下的平均延迟为 40 ms，而 MySQL 为 80 ms [5]。这说明 PostgreSQL 在高并发写入场景下不仅吞吐量更高，而且延迟更低。\n\n## 性能瓶颈与优化策略\n\n### PostgreSQL 的性能瓶颈\n尽管 PostgreSQL 在高并发写入场景下表现出色，但其底层的 \"insert-only\" 设计在某些情况下仍存在一些固有的限制。例如，大规模升级和维护开销较高，尤其是在使用 vacuum 机制时 [4]。因此，在选择 PostgreSQL 时，需要考虑这些潜在的性能瓶颈，并采取相应的优化措施。\n\n### MySQL 的性能瓶颈\nMySQL 在高并发写入场景下的主要瓶颈在于其线程池模型和锁机制。当并发连接数较高时，MySQL 的线程池可能会出现上下文切换瓶颈，导致性能下降 [5]。此外，MySQL 的间隙锁在高并发环境下可能导致死锁增加 [4]。为了缓解这些问题，可以通过调整参数、优化查询和使用缓存层等方式进行优化。\n\n## 扩展方案\n\n### PostgreSQL 的扩展方案\nPostgreSQL 支持多种扩展方案，以应对高并发写入场景的需求。例如，Citus 扩展可以实现分布式集群，支撑亿级用户的消息存储 [4]。此外，PostgreSQL\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** blog.csdn.net — 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客\nURL: https://blog.csdn.net/lihaiming_2008/article/details/148539770\n原文片段：「从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析 最新推荐文章于 2026-06-22 16:17:22 发布 原创 最新推荐文章于 2026-06-22 16:17:22 发布 · 1.7k 阅读 · 28 · 18 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 G...」\n\n<a id=\"ref-2\"></a>**[2]** segmentfault.com — 不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否\nURL: https://segmentfault.com/a/1190000047808786\n原文片段：「不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否 不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 烦恼的沙发 6 月 1 日 广东 阅读 3 分钟 0 程序员都知道，关系型数据库的选型直接决定了系统后期的扩展性与性能上限。目前主流的开源关系型数据库主要有 PostgreSQL、MySQL 和 SQLite，但这几个数据库的底层架构、查询优化机制以及适用场景上却有所不同。本文将从技术实现细节入手，深入剖析这三种数据库的实际表现。 三大关系型数据库架构与定位...」\n\n<a id=\"ref-3\"></a>**[3]** aws.amazon.com — PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS\nURL: https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql\n原文片段：「PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS 跳至主要内容 MySQL 和 PostgreSQL 有何区别？ 创建 AWS 账户 MySQL 和 PostgreSQL 有何区别？ PostgreSQL 和 MySQL 有何相似之处？ 主要区别：PostgreSQL 与 MySQL 如何在 PostgreSQL 与 MySQL 之间做出选择 区别摘要：PostgreSQL 与 MySQL AWS 如何支持您的 PostgreSQL 和 MySQL 要求？ MySQL 和 PostgreSQL 有何区别？...」\n\n<a id=\"ref-4\"></a>**[4]** developer.cloud.tencent.com — 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云\nURL: https://developer.cloud.tencent.com/article/2545225\n原文片段：「如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云 用户11680974 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 用户11680974 社区首页 > 专栏 > 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 如何选择数据库？从真实案例看 PostgreSQL 与 My...」\n\n<a id=\"ref-5\"></a>**[5]** cnblogs.com — postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园\nURL: https://www.cnblogs.com/xulinforDB/p/20071262\n原文片段：「postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园 数据库小白（专注） postgresql和MYSQL的对比 postgresql和MYSQL的对比 目录 postgresql和MYSQL的对比 一、结论 二、测试环境对齐（所有来源一致硬件） 三、OLTP 场景（sysbench 1.1，表 10 × 1 000 万行） 四、OLAP/复杂查询（同库 50–100 GB） 五、可扩展与并发控制 六、实战选型速查表 以下报告基于 2024-2025 年公开测评数据，在“硬件配置相同、参数均经官方推荐优化”前提下，对 MySQL 8...」\n\n<a id=\"ref-6\"></a>**[6]** cc.pigsty.io — MySQL vs PostgreSQL @ 2025 | PIGSTY\nURL: https://cc.pigsty.io/blog/db/mysql-vs-pgsql\n原文片段：「MySQL vs PostgreSQL @ 2025 | PIGSTY 查看页面源码 编辑此页 添加子页面 提交文档问题 提交项目问题 整节打印 Modules APP 10 BLOG 8 DOCKER 9 ETCD 7 FERRET 6 INFRA 17 JUPYTER 1 KAFKA 1 MINIO 9 MYSQL 1 NODE 11 PGEXT 479 PGSQL 44 PIGSTY 42 REDIS 7 SOFTWARE 16 TigerBeetle 4 VICTORIA 1 Categories About 10 Admin 31 AI 4 A...」\n\n<a id=\"ref-7\"></a>**[7]** kunalganglani.com — PostgreSQL vs MySQL 2026: July Data Changes the Answer\nURL: https://www.kunalganglani.com/blog/postgresql-vs-mysql-2026\n原文片段：「PostgreSQL vs MySQL 2026: July Data Changes the Answer Skip to content 🛠 Part of the Dev Tools & AI Workflow series → ⚡ 30-second version PostgreSQL and MySQL both shipped major updates in 2025-2026, but the gap between them is growing — not shrinking. PostgreSQL is the only top-...」\n\n<a id=\"ref-8\"></a>**[8]** commandlinux.com — Database Performance On Linux Statistics 2026\nURL: https://commandlinux.com/statistics/database-performance-statistics-on-linux-mysql-postgresql-benchmark-data\n原文片段：「Database Performance On Linux Statistics 2026 Close Menu Facebook X (Twitter) Instagram Database Performance On Linux Statistics 2026 By Willie March 14, 2026 Updated: March 14, 2026 No Comments 5 Mins Read PostgreSQL completed a SELECT query against one million records in under...」\n\n<a id=\"ref-9\"></a>**[9]** builder.ai2sql.io — MySQL vs PostgreSQL (2026): Speed, Features, Cost — Real Benchmarks\nURL: https://builder.ai2sql.io/blog/mysql-vs-postgresql\n原文片段：「MySQL vs PostgreSQL (2026): Speed, Features, Cost — Real Benchmarks Database Comparison MySQL vs PostgreSQL: Which Database Should You Use in 2026? A comprehensive comparison of MySQL and PostgreSQL covering syntax differences, performance, data types, scalability, cloud ecosyste...」\n\n<a id=\"ref-10\"></a>**[10]** tech-insider.org — PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026]\nURL: https://tech-insider.org/postgresql-vs-mysql-2026\n原文片段：「PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026] Skip to content Sofia Lindström March 19, 2026 30 min read The database wars have never been more consequential. In 2026, the choice between PostgreSQL vs MySQL sits at the center of nearly every new architecture decision...」\n\n<a id=\"ref-11\"></a>**[11]** blog.webhostmost.com — PostgreSQL Vs MySQL 2026: Which Database Should You Actually Use?\nURL: https://blog.webhostmost.com/postgresql-vs-mysql\n原文片段：「PostgreSQL Vs MySQL 2026: Which Database Should You Actually Use? PostgreSQL vs MySQL 2026: The Complete Guide to Choosing the Right Database PostgreSQL vs MySQL comparison with real benchmarks. MySQL dominates WordPress (20-35% faster) and read-heavy apps. PostgreSQL excels at J...」",
+      "tenant_id": "shadow-review",
+      "file_paths": {
+        "md": "outputs/task_1786285587_c6e0a7688f.md",
+        "pdf": "outputs/task_1786285587_c6e0a7688f.pdf",
+        "docx": "outputs/task_1786285587_c6e0a7688f.docx",
+        "json": "outputs/job_7b8f2a95-474b-452d-bb10-8b18cc4cb44e_1786285294_PostgreSQL_与_MySQL_在高并发写入场景下的取舍.json"
+      },
+      "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+      "report_trust": "legacy_unverified",
+      "source_count": 11,
+      "trusted_shadow": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section"
+          ],
+          "total_claims": 4,
+          "supported_claims": 4,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": false,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "report": "## 引言\n\n在数据库技术领域，选择合适的数据库管理系统对于项目的成功至关重要。MySQL 和 PostgreSQL 作为两种广泛使用的开源数据库系统，各自拥有独特的特性和优势，这使得它们成为了许多开发者和企业考虑的对象。[1] MySQL 是一个纯粹的关系数据库，以其简单易用、性能高效而闻名；相比之下，PostgreSQL 则是一个对象关系数据库，提供了更为丰富的数据类型支持以及更强大的功能集。[2] 这些差异不仅体现在基本架构上，还涉及到数据类型的支持范围、系统的可扩展性、处理并发请求的能力以及确保数据完整性的机制等方面。因此，深入比较这两种数据库系统的特点与适用场景，可以帮助用户根据自身需求做出更加明智的选择。\n\n## 性能对比\n\n在评估数据库系统时，特别是在高并发写入操作的情况下，性能是一个关键考量因素。根据公开的测评数据显示，PostgreSQL 在处理大量并发写入请求时的表现优于 MySQL，尤其是在那些写密集型的应用场景中[2]。这表明对于需要频繁执行写操作的应用程序来说，选择 PostgreSQL 可能更加合适。\n\n影响这两种数据库性能差异的因素之一是它们各自采用的数据存储和检索机制。例如，MySQL 中的 InnoDB 存储引擎利用主键聚簇索引的方式来组织数据，这种方法在应对高并发读写请求方面展现出了显著的优势[1]。这意味着，在设计上支持高效访问模式的数据库能够更好地适应高负载环境下的需求。\n\n综上所述，当应用程序面临高并发写入挑战时，考虑到 PostgreSQL 在该领域的优越表现以及 InnoDB 存储引擎提供的优化特性，开发者可以根据具体应用场景的需求来决定最适合的技术方案。\n\n## 架构与并发控制\n\n在探讨 PostgreSQL 和 MySQL 的底层架构及其对并发处理能力的影响时，首先需要了解两者在并发控制机制上的差异。PostgreSQL 在整个系统中采用了多版本并发控制（MVCC）技术，这意味着无论用户如何配置数据库，MVCC 都是默认启用的。相比之下，MySQL 对于 MVCC 的支持则依赖于所选择的具体存储引擎；例如，InnoDB 存储引擎支持 MVCC，而 MyISAM 则不提供这种功能[2]。\n\n此外，在数据一致性和事务处理方面也存在显著区别。PostgreSQL 设计为在所有情况下都完全符合 ACID（原子性、一致性、隔离性、持久性）属性，确保了即使是在高并发环境下也能保持数据的一致性和可靠性。相反地，MySQL 只有当使用像 InnoDB 或 NDB Cluster 这样的特定存储引擎时才能达到 ACID 标准的要求[1]。\n\n这些架构上的不同点直接影响到了两种数据库管理系统处理并发请求的能力。由于 PostgreSQL 普遍应用了 MVCC 以及其固有的 ACID 兼容性，它能够更有效地管理大量同时发生的读写操作，尤其是在那些要求高度一致性的应用场景中表现尤为突出。另一方面，虽然 MySQL 通过采用如 InnoDB 等高级存储引擎也可以实现良好的并发性能，但其灵活性意味着最终效果可能会根据具体配置而有所变化。因此，在选择适合特定需求的数据库解决方案时，理解这些基础架构特点是非常重要的。\n\n## 实际应用案例分析\n\n在实际应用中，不同的公司和项目根据自身需求选择了 PostgreSQL 或 MySQL 作为其数据库解决方案。一个典型的例子是蚂蚁金服在其核心交易系统中采用了 PostgreSQL 作为底层数据库[2]。这一选择背后的原因揭示了 PostgreSQL 在特定场景下的优势。\n\n蚂蚁金服之所以倾向于使用 PostgreSQL，主要基于几个关键因素。首先，PostgreSQL 拥有强大的事务处理能力，这对于金融行业来说至关重要，因为它确保了数据的一致性和可靠性。此外，PostgreSQL 的多版本并发控制（MVCC）机制也是吸引蚂蚁金服的一个重要因素。这种机制允许在同一时间点对同一数据进行读写操作而不会相互干扰，从而提高了系统的整体性能[2]。特别是在高并发环境下，PostgreSQL 提供的行级锁以及读写不阻塞特性，使得它能够更有效地管理大量同时发生的请求，这直接增强了用户体验并减少了延迟问题。\n\n通过蚂蚁金服的例子可以看出，在需要高度可靠且能有效处理复杂事务及高并发访问的应用场景中，PostgreSQL 展现出了显著的优势。这些特点不仅满足了金融服务对于数据安全性的严格要求，同时也支持了业务快速发展的需求。\n\n## 结论与建议\n\n综合上述分析，我们可以得出以下结论：在高并发写入场景下，PostgreSQL 通常表现出更好的性能和更高的数据一致性。然而，MySQL 通过其灵活的存储引擎配置（尤其是 InnoDB）也能在某些情况下提供出色的性能。因此，选择哪种数据库取决于具体的应用需求和优先级。\n\n对于需要高度一致性和强大事务处理能力的应用，如金融系统，PostgreSQL 可能是更好的选择。而对于那些更注重简单易用性和成本效益的应用，MySQL 仍然是一个值得考虑的选项。此外，未来的数据库发展趋势也需要纳入考虑，以确保所选技术能够持续满足不断增长的需求。\n\n总之，通过深入了解 PostgreSQL 和 MySQL 的性能、架构和实际应用案例，用户可以更好地根据自身需求做出明智的选择。\n\n## References\n\n[1] PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS — https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql\n> 只有将 MySQL 与 InnoDB 和 NDB 集群存储引擎或软件模块一起使用时，它才符合 ACID 标准。PostgreSQL 在所有配置中都完全兼容 ACID。\n\n[2] 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客 — https://blog.csdn.net/lihaiming_2008/article/details/148539770\n> 蚂蚁金服在核心交易系统中采用PostgreSQL作为底层数据库，利用其强大的事务处理能力和MVCC机制，实现了每秒数十万笔交易的高并发处理。在双11等大促期间，PostgreSQL的行级锁和读写不阻塞特性，确保了交易处理的高效性和数据一致性。\n",
+        "compare": {
+          "legacy_ms": 38303.46751213074,
+          "cost_delta": 0.0,
+          "trusted_ms": 167094.41351890564,
+          "legacy_cost": 0.0,
+          "legacy_chars": 6333,
+          "trusted_cost": 0.0,
+          "trusted_chars": 2717,
+          "content_overlap": 0.0574,
+          "latency_delta_ms": 128790.95,
+          "legacy_has_citations": true,
+          "trusted_has_citations": true
+        },
+        "artifacts": {
+          "audit": {
+            "warnings": [
+              "no_claims_for_section"
+            ],
+            "total_claims": 4,
+            "supported_claims": 4,
+            "citation_coverage": 1.0,
+            "unsupported_claims": [],
+            "citation_audit_failed": false,
+            "cross_scope_violations": 0,
+            "single_source_numeric_claims": []
+          },
+          "trace": {
+            "spans": [
+              {
+                "ok": true,
+                "meta": {
+                  "report_type": "research_report"
+                },
+                "error": "",
+                "stage": "planner",
+                "span_id": "718a9cb85d14",
+                "ended_at": 1786285439.3207004,
+                "started_at": 1786285420.7455099,
+                "duration_ms": 18575.19
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_1"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "27ca3e93e85f",
+                "ended_at": 1786285450.5309591,
+                "started_at": 1786285439.333509,
+                "duration_ms": 11197.45
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_1"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "ff30219c3526",
+                "ended_at": 1786285455.6111095,
+                "started_at": 1786285450.5309968,
+                "duration_ms": 5080.11
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_1"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "28319370c932",
+                "ended_at": 1786285461.170384,
+                "started_at": 1786285455.6366825,
+                "duration_ms": 5533.7
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_2"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "6da27d13c91e",
+                "ended_at": 1786285476.7654314,
+                "started_at": 1786285461.193433,
+                "duration_ms": 15572.0
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_2"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "d9e5f2abe2f5",
+                "ended_at": 1786285481.8616438,
+                "started_at": 1786285476.7654676,
+                "duration_ms": 5096.18
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_2"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "6d6135803a21",
+                "ended_at": 1786285488.2816887,
+                "started_at": 1786285481.9065025,
+                "duration_ms": 6375.19
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_3"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "e521daebccb8",
+                "ended_at": 1786285500.5007892,
+                "started_at": 1786285488.3049848,
+                "duration_ms": 12195.8
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_3"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "5e64e3031f8b",
+                "ended_at": 1786285506.861414,
+                "started_at": 1786285500.5008173,
+                "duration_ms": 6360.6
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_3"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "001972f21033",
+                "ended_at": 1786285516.8427284,
+                "started_at": 1786285506.8864052,
+                "duration_ms": 9956.32
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_4"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "6d7f11042e90",
+                "ended_at": 1786285546.1581564,
+                "started_at": 1786285516.8692067,
+                "duration_ms": 29288.95
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_4"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "dbcdd8a1c31c",
+                "ended_at": 1786285551.1967022,
+                "started_at": 1786285546.1582034,
+                "duration_ms": 5038.5
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_4"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "44d3a2d39f70",
+                "ended_at": 1786285559.4627037,
+                "started_at": 1786285551.2127824,
+                "duration_ms": 8249.92
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_5"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "506b62bcdb61",
+                "ended_at": 1786285560.8637452,
+                "started_at": 1786285559.4792066,
+                "duration_ms": 1384.54
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_5"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "9129cdaa645f",
+                "ended_at": 1786285560.86379,
+                "started_at": 1786285560.8637822,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_5"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "bc552034c431",
+                "ended_at": 1786285560.886885,
+                "started_at": 1786285560.8868752,
+                "duration_ms": 0.01
+              },
+              {
+                "ok": true,
+                "meta": {
+                  "sections": 5
+                },
+                "error": "",
+                "stage": "synthesis",
+                "span_id": "c679836fa73c",
+                "ended_at": 1786285587.7523305,
+                "started_at": 1786285560.9008787,
+                "duration_ms": 26851.45
+              },
+              {
+                "ok": true,
+                "meta": {},
+                "error": "",
+                "stage": "audit",
+                "span_id": "b68ec2606523",
+                "ended_at": 1786285587.7803805,
+                "started_at": 1786285587.7769237,
+                "duration_ms": 3.46
+              }
+            ],
+            "by_stage": {
+              "audit": {
+                "ok": true,
+                "meta": {},
+                "error": "",
+                "stage": "audit",
+                "span_id": "b68ec2606523",
+                "ended_at": 1786285587.7803805,
+                "started_at": 1786285587.7769237,
+                "duration_ms": 3.46
+              },
+              "claim": {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_5"
+                },
+                "error": "",
+                "stage": "claim",
+                "span_id": "9129cdaa645f",
+                "ended_at": 1786285560.86379,
+                "started_at": 1786285560.8637822,
+                "duration_ms": 0.01
+              },
+              "writer": {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_5"
+                },
+                "error": "",
+                "stage": "writer",
+                "span_id": "bc552034c431",
+                "ended_at": 1786285560.886885,
+                "started_at": 1786285560.8868752,
+                "duration_ms": 0.01
+              },
+              "planner": {
+                "ok": true,
+                "meta": {
+                  "report_type": "research_report"
+                },
+                "error": "",
+                "stage": "planner",
+                "span_id": "718a9cb85d14",
+                "ended_at": 1786285439.3207004,
+                "started_at": 1786285420.7455099,
+                "duration_ms": 18575.19
+              },
+              "evidence": {
+                "ok": true,
+                "meta": {
+                  "section_id": "sec_5"
+                },
+                "error": "",
+                "stage": "evidence",
+                "span_id": "506b62bcdb61",
+                "ended_at": 1786285560.8637452,
+                "started_at": 1786285559.4792066,
+                "duration_ms": 1384.54
+              },
+              "synthesis": {
+                "ok": true,
+                "meta": {
+                  "sections": 5
+                },
+                "error": "",
+                "stage": "synthesis",
+                "span_id": "c679836fa73c",
+                "ended_at": 1786285587.7523305,
+                "started_at": 1786285560.9008787,
+                "duration_ms": 26851.45
+              }
+            },
+            "trace_id": "d4ca47fae746475ea02e3f36393cbc76",
+            "total_duration_ms": 166759.38
+          },
+          "claims": [
+            {
+              "caveat": "",
+              "claim_id": "claim_1",
+              "rejected": false,
+              "statement": "MySQL 是一个纯粹的关系数据库，而 PostgreSQL 是一个对象关系数据库。",
+              "claim_type": "定义",
+              "confidence": "0.9",
+              "section_id": "sec_1",
+              "evidence_ids": [
+                "1"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": false,
+              "contains_number": false,
+              "requires_citation": true
+            },
+            {
+              "caveat": "",
+              "claim_id": "claim_2",
+              "rejected": false,
+              "statement": "比较 PostgreSQL 和 MySQL 的原因是它们在数据类型、可扩展性、并发性和数据完整性方面提供了不同的功能和灵活性。",
+              "claim_type": "背景信息",
+              "confidence": "0.8",
+              "section_id": "sec_1",
+              "evidence_ids": [
+                "2"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": false,
+              "contains_number": false,
+              "requires_citation": true
+            },
+            {
+              "caveat": "single-source numeric claim",
+              "claim_id": "claim_1",
+              "rejected": false,
+              "statement": "PostgreSQL在高并发写入操作中表现优于MySQL，特别是在写密集型场景下。",
+              "claim_type": "实验结果",
+              "confidence": "0.9",
+              "section_id": "sec_2",
+              "evidence_ids": [
+                "2"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": true,
+              "contains_number": true,
+              "requires_citation": true
+            },
+            {
+              "caveat": "",
+              "claim_id": "claim_2",
+              "rejected": false,
+              "statement": "InnoDB存储引擎通过主键聚簇索引的方式组织数据，在处理高并发读写时具有优势。",
+              "claim_type": "统计数据",
+              "confidence": "0.7",
+              "section_id": "sec_2",
+              "evidence_ids": [
+                "3"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": false,
+              "contains_number": false,
+              "requires_citation": true
+            },
+            {
+              "caveat": "",
+              "claim_id": "claim_1",
+              "rejected": false,
+              "statement": "PostgreSQL 在所有配置下均支持多版本并发控制（MVCC），而 MySQL 的 MVCC 支持取决于所使用的存储引擎，如InnoDB支持MVCC，MyISAM则不支持。",
+              "claim_type": "技术说明",
+              "confidence": "0.9",
+              "section_id": "sec_3",
+              "evidence_ids": [
+                "1"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": false,
+              "contains_number": false,
+              "requires_citation": true
+            },
+            {
+              "caveat": "",
+              "claim_id": "claim_2",
+              "rejected": false,
+              "statement": "PostgreSQL 在所有配置中都完全兼容ACID特性，而MySQL仅在使用特定存储引擎如InnoDB和NDB集群时才符合ACID标准。",
+              "claim_type": "技术说明",
+              "confidence": "0.8",
+              "section_id": "sec_3",
+              "evidence_ids": [
+                "2"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": false,
+              "contains_number": false,
+              "requires_citation": true
+            },
+            {
+              "caveat": "",
+              "claim_id": "1",
+              "rejected": false,
+              "statement": "蚂蚁金服在其核心交易系统中选择了PostgreSQL作为底层数据库。",
+              "claim_type": "案例研究",
+              "confidence": "0.95",
+              "section_id": "sec_4",
+              "evidence_ids": [
+                "1"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": false,
+              "contains_number": false,
+              "requires_citation": true
+            },
+            {
+              "caveat": "",
+              "claim_id": "2",
+              "rejected": false,
+              "statement": "蚂蚁金服选择PostgreSQL的原因包括其强大的事务处理能力和MVCC机制，以及在高并发情况下的行级锁和读写不阻塞特性。",
+              "claim_type": "用户反馈",
+              "confidence": "0.95",
+              "section_id": "sec_4",
+              "evidence_ids": [
+                "1"
+              ],
+              "contains_date": false,
+              "reject_reason": "",
+              "single_source": false,
+              "contains_number": false,
+              "requires_citation": true
+            }
+          ],
+          "report": "## 引言\n\n在数据库技术领域，选择合适的数据库管理系统对于项目的成功至关重要。MySQL 和 PostgreSQL 作为两种广泛使用的开源数据库系统，各自拥有独特的特性和优势，这使得它们成为了许多开发者和企业考虑的对象。[1] MySQL 是一个纯粹的关系数据库，以其简单易用、性能高效而闻名；相比之下，PostgreSQL 则是一个对象关系数据库，提供了更为丰富的数据类型支持以及更强大的功能集。[2] 这些差异不仅体现在基本架构上，还涉及到数据类型的支持范围、系统的可扩展性、处理并发请求的能力以及确保数据完整性的机制等方面。因此，深入比较这两种数据库系统的特点与适用场景，可以帮助用户根据自身需求做出更加明智的选择。\n\n## 性能对比\n\n在评估数据库系统时，特别是在高并发写入操作的情况下，性能是一个关键考量因素。根据公开的测评数据显示，PostgreSQL 在处理大量并发写入请求时的表现优于 MySQL，尤其是在那些写密集型的应用场景中[2]。这表明对于需要频繁执行写操作的应用程序来说，选择 PostgreSQL 可能更加合适。\n\n影响这两种数据库性能差异的因素之一是它们各自采用的数据存储和检索机制。例如，MySQL 中的 InnoDB 存储引擎利用主键聚簇索引的方式来组织数据，这种方法在应对高并发读写请求方面展现出了显著的优势[1]。这意味着，在设计上支持高效访问模式的数据库能够更好地适应高负载环境下的需求。\n\n综上所述，当应用程序面临高并发写入挑战时，考虑到 PostgreSQL 在该领域的优越表现以及 InnoDB 存储引擎提供的优化特性，开发者可以根据具体应用场景的需求来决定最适合的技术方案。\n\n## 架构与并发控制\n\n在探讨 PostgreSQL 和 MySQL 的底层架构及其对并发处理能力的影响时，首先需要了解两者在并发控制机制上的差异。PostgreSQL 在整个系统中采用了多版本并发控制（MVCC）技术，这意味着无论用户如何配置数据库，MVCC 都是默认启用的。相比之下，MySQL 对于 MVCC 的支持则依赖于所选择的具体存储引擎；例如，InnoDB 存储引擎支持 MVCC，而 MyISAM 则不提供这种功能[2]。\n\n此外，在数据一致性和事务处理方面也存在显著区别。PostgreSQL 设计为在所有情况下都完全符合 ACID（原子性、一致性、隔离性、持久性）属性，确保了即使是在高并发环境下也能保持数据的一致性和可靠性。相反地，MySQL 只有当使用像 InnoDB 或 NDB Cluster 这样的特定存储引擎时才能达到 ACID 标准的要求[1]。\n\n这些架构上的不同点直接影响到了两种数据库管理系统处理并发请求的能力。由于 PostgreSQL 普遍应用了 MVCC 以及其固有的 ACID 兼容性，它能够更有效地管理大量同时发生的读写操作，尤其是在那些要求高度一致性的应用场景中表现尤为突出。另一方面，虽然 MySQL 通过采用如 InnoDB 等高级存储引擎也可以实现良好的并发性能，但其灵活性意味着最终效果可能会根据具体配置而有所变化。因此，在选择适合特定需求的数据库解决方案时，理解这些基础架构特点是非常重要的。\n\n## 实际应用案例分析\n\n在实际应用中，不同的公司和项目根据自身需求选择了 PostgreSQL 或 MySQL 作为其数据库解决方案。一个典型的例子是蚂蚁金服在其核心交易系统中采用了 PostgreSQL 作为底层数据库[2]。这一选择背后的原因揭示了 PostgreSQL 在特定场景下的优势。\n\n蚂蚁金服之所以倾向于使用 PostgreSQL，主要基于几个关键因素。首先，PostgreSQL 拥有强大的事务处理能力，这对于金融行业来说至关重要，因为它确保了数据的一致性和可靠性。此外，PostgreSQL 的多版本并发控制（MVCC）机制也是吸引蚂蚁金服的一个重要因素。这种机制允许在同一时间点对同一数据进行读写操作而不会相互干扰，从而提高了系统的整体性能[2]。特别是在高并发环境下，PostgreSQL 提供的行级锁以及读写不阻塞特性，使得它能够更有效地管理大量同时发生的请求，这直接增强了用户体验并减少了延迟问题。\n\n通过蚂蚁金服的例子可以看出，在需要高度可靠且能有效处理复杂事务及高并发访问的应用场景中，PostgreSQL 展现出了显著的优势。这些特点不仅满足了金融服务对于数据安全性的严格要求，同时也支持了业务快速发展的需求。\n\n## 结论与建议\n\n综合上述分析，我们可以得出以下结论：在高并发写入场景下，PostgreSQL 通常表现出更好的性能和更高的数据一致性。然而，MySQL 通过其灵活的存储引擎配置（尤其是 InnoDB）也能在某些情况下提供出色的性能。因此，选择哪种数据库取决于具体的应用需求和优先级。\n\n对于需要高度一致性和强大事务处理能力的应用，如金融系统，PostgreSQL 可能是更好的选择。而对于那些更注重简单易用性和成本效益的应用，MySQL 仍然是一个值得考虑的选项。此外，未来的数据库发展趋势也需要纳入考虑，以确保所选技术能够持续满足不断增长的需求。\n\n总之，通过深入了解 PostgreSQL 和 MySQL 的性能、架构和实际应用案例，用户可以更好地根据自身需求做出明智的选择。\n\n## References\n\n[1] PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS — https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql\n> 只有将 MySQL 与 InnoDB 和 NDB 集群存储引擎或软件模块一起使用时，它才符合 ACID 标准。PostgreSQL 在所有配置中都完全兼容 ACID。\n\n[2] 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客 — https://blog.csdn.net/lihaiming_2008/article/details/148539770\n> 蚂蚁金服在核心交易系统中采用PostgreSQL作为底层数据库，利用其强大的事务处理能力和MVCC机制，实现了每秒数十万笔交易的高并发处理。在双11等大促期间，PostgreSQL的行级锁和读写不阻塞特性，确保了交易处理的高效性和数据一致性。\n",
+          "outline": {
+            "scope": "本报告将专注于 PostgreSQL 和 MySQL 在高并发写入环境下的表现，包括但不限于性能测试结果、架构差异、并发控制机制以及实际应用案例分析。",
+            "sections": [
+              {
+                "title": "引言",
+                "purpose": "介绍研究背景及目的，概述 PostgreSQL 和 MySQL 的基本特点。",
+                "section_id": "sec_1",
+                "search_queries": [
+                  "PostgreSQL 基本特性",
+                  "MySQL 基本特性",
+                  "数据库选型重要性"
+                ],
+                "depends_on_sections": [],
+                "questions_to_answer": [
+                  "为什么需要比较 PostgreSQL 和 MySQL？",
+                  "这两种数据库的基本特性是什么？"
+                ],
+                "expected_claim_types": [
+                  "定义",
+                  "背景信息"
+                ]
+              },
+              {
+                "title": "性能对比",
+                "purpose": "基于公开测评数据，对比两种数据库在高并发写入情况下的性能表现。",
+                "section_id": "sec_2",
+                "search_queries": [
+                  "PostgreSQL 高并发写入性能",
+                  "MySQL 高并发写入性能",
+                  "数据库性能测试方法"
+                ],
+                "depends_on_sections": [
+                  "sec_1"
+                ],
+                "questions_to_answer": [
+                  "哪种数据库在高并发写入时表现更好？",
+                  "影响性能的关键因素有哪些？"
+                ],
+                "expected_claim_types": [
+                  "统计数据",
+                  "实验结果"
+                ]
+              },
+              {
+                "title": "架构与并发控制",
+                "purpose": "探讨两种数据库的底层架构及其对并发处理能力的影响。",
+                "section_id": "sec_3",
+                "search_queries": [
+                  "PostgreSQL 架构",
+                  "MySQL 架构",
+                  "数据库并发控制机制"
+                ],
+                "depends_on_sections": [
+                  "sec_1"
+                ],
+                "questions_to_answer": [
+                  "PostgreSQL 和 MySQL 的架构有何不同？",
+                  "这些差异如何影响它们的并发处理能力？"
+                ],
+                "expected_claim_types": [
+                  "技术说明",
+                  "理论分析"
+                ]
+              },
+              {
+                "title": "实际应用案例分析",
+                "purpose": "通过分析真实世界中的使用案例来理解两种数据库的实际表现。",
+                "section_id": "sec_4",
+                "search_queries": [
+                  "PostgreSQL 应用案例",
+                  "MySQL 应用案例",
+                  "数据库选型案例分析"
+                ],
+                "depends_on_sections": [
+                  "sec_1",
+                  "sec_2",
+                  "sec_3"
+                ],
+                "questions_to_answer": [
+                  "哪些公司或项目选择了 PostgreSQL 或 MySQL？",
+                  "他们选择的理由是什么？"
+                ],
+                "expected_claim_types": [
+                  "案例研究",
+                  "用户反馈"
+                ]
+              },
+              {
+                "title": "结论与建议",
+                "purpose": "总结全文，并为面临相似决策情境的用户提供实用建议。",
+                "section_id": "sec_5",
+                "search_queries": [
+                  "数据库选型最佳实践",
+                  "高并发写入解决方案"
+                ],
+                "depends_on_sections": [
+                  "sec_1",
+                  "sec_2",
+                  "sec_3",
+                  "sec_4"
+                ],
+                "questions_to_answer": [
+                  "综合考虑后，哪种数据库更适合高并发写入场景？",
+                  "选择时还应考虑哪些其他因素？"
+                ],
+                "expected_claim_types": [
+                  "总结",
+                  "建议"
+                ]
+              }
+            ],
+            "time_range": "2024-2026",
+            "report_thesis": "在高并发写入场景下，PostgreSQL 和 MySQL 各有优势和局限性。通过对比两者在性能、扩展性、并发控制等方面的表现，可以帮助用户根据具体需求选择更适合的数据库系统。",
+            "cross_section_questions": [
+              "对于特定规模的企业来说，选择 PostgreSQL 还是 MySQL 更具成本效益？",
+              "未来几年内，哪一种数据库的发展趋势更有利于支持高并发写入需求？"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+              "page": null,
+              "quote": "MySQL 是一个纯粹的关系数据库。而另一方面，PostgreSQL 是一个对象关系数据库。这意味着在 PostgreSQL 中，您可以将数据存储为具有属性的对象。",
+              "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+              "supports": [
+                "这两种数据库的基本特性是什么？"
+              ],
+              "relevance": 0.9,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+              "evidence_id": "1",
+              "published_at": "",
+              "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+              "source_quality": "high",
+              "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+            },
+            {
+              "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+              "page": null,
+              "quote": "MySQL 是一个关系数据库管理系统，通过该系统，您可以将数据存储为包含行和列的表格。它是一个常用系统，支持许多 Web 应用程序、动态网站和嵌入式系统。PostgreSQL 是一个对象关系数据库管理系统，它可以提供比 MySQL 更多的功能。它可以为您在数据类型、可扩展性、并发性和数据完整性方面带来更大的灵活性。",
+              "chunk_id": "baf6d1be-741f-499e-b015-c7df7d704a12",
+              "supports": [
+                "为什么需要比较 PostgreSQL 和 MySQL？"
+              ],
+              "relevance": 0.8,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+              "evidence_id": "2",
+              "published_at": "",
+              "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+              "source_quality": "high",
+              "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+            },
+            {
+              "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+              "page": null,
+              "quote": "PostgreSQL 更适合具有频繁写入操作和复杂查询的企业级应用程序。",
+              "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+              "supports": [
+                "哪种数据库在高并发写入时表现更好？"
+              ],
+              "relevance": 0.8,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+              "evidence_id": "1",
+              "published_at": "",
+              "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+              "source_quality": "5",
+              "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+            },
+            {
+              "url": "https://blog.csdn.net/lihaiming_2008/article/details/148539770",
+              "page": null,
+              "quote": "根据ACM Transactions on Database Systems的研究，PostgreSQL在并发事务处理中的死锁率比MySQL低32%，尤其在写密集型场景下表现更优。",
+              "chunk_id": "e7c69130-4f22-4652-bcd3-50222ba71583",
+              "supports": [
+                "哪种数据库在高并发写入时表现更好？"
+              ],
+              "relevance": 0.9,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "ebea2dae-086d-4f5c-bfee-2834936893b0",
+              "evidence_id": "2",
+              "published_at": "",
+              "source_title": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+              "source_quality": "5",
+              "parent_chunk_id": "d9eff4af-d162-4792-b918-2c9bd574ecc4"
+            },
+            {
+              "url": "https://segmentfault.com/a/1190000047808786",
+              "page": null,
+              "quote": "InnoDB 存储引擎通过主键聚簇索引的方式组织数据，在主键查询和高并发读写场景下具备明显优势。",
+              "chunk_id": "53145e42-788a-4691-9fa4-efd08e9ec7eb",
+              "supports": [
+                "影响性能的关键因素有哪些？"
+              ],
+              "relevance": 0.7,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "49c5722b-2259-4bd6-bca4-94396cc6d827",
+              "evidence_id": "3",
+              "published_at": "",
+              "source_title": "不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否",
+              "source_quality": "5",
+              "parent_chunk_id": "75ddf352-d933-40d8-bb03-2d62bd657999"
+            },
+            {
+              "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+              "page": null,
+              "quote": "MySQL 中的 MVCC 因存储引擎的不同而异。例如，使用 InnoDB 存储引擎时可完全支持 MVCC。MyISAM 存储引擎则不支持 MVCC。PostgreSQL 在所有配置下均支持 MVCC。",
+              "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+              "supports": [
+                "这些差异如何影响它们的并发处理能力？"
+              ],
+              "relevance": 0.9,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+              "evidence_id": "1",
+              "published_at": "",
+              "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+              "source_quality": "5",
+              "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+            },
+            {
+              "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+              "page": null,
+              "quote": "只有将 MySQL 与 InnoDB 和 NDB 集群存储引擎或软件模块一起使用时，它才符合 ACID 标准。PostgreSQL 在所有配置中都完全兼容 ACID。",
+              "chunk_id": "baf6d1be-741f-499e-b015-c7df7d704a12",
+              "supports": [
+                "PostgreSQL 和 MySQL 的架构有何不同？"
+              ],
+              "relevance": 0.8,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+              "evidence_id": "2",
+              "published_at": "",
+              "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+              "source_quality": "5",
+              "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+            },
+            {
+              "url": "https://blog.csdn.net/lihaiming_2008/article/details/148539770",
+              "page": null,
+              "quote": "蚂蚁金服在核心交易系统中采用PostgreSQL作为底层数据库，利用其强大的事务处理能力和MVCC机制，实现了每秒数十万笔交易的高并发处理。在双11等大促期间，PostgreSQL的行级锁和读写不阻塞特性，确保了交易处理的高效性和数据一致性。",
+              "chunk_id": "49062059-3e26-4eea-9570-40de290363a5",
+              "supports": [
+                "哪些公司或项目选择了 PostgreSQL 或 MySQL？"
+              ],
+              "relevance": 1.0,
+              "tenant_id": "shadow-review",
+              "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+              "document_id": "ebea2dae-086d-4f5c-bfee-2834936893b0",
+              "evidence_id": "1",
+              "published_at": "2026-06-22 16:17:22",
+              "source_title": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+              "source_quality": "high",
+              "parent_chunk_id": "d9eff4af-d162-4792-b918-2c9bd574ecc4"
+            }
+          ],
+          "sections": {
+            "sec_1": {
+              "draft": "## 引言\n\n在数据库技术领域，选择合适的数据库管理系统对于项目的成功至关重要。MySQL 和 PostgreSQL 作为两种广泛使用的开源数据库系统，各自拥有独特的特性和优势，这使得它们成为了许多开发者和企业考虑的对象。[[claim:claim_2]] MySQL 是一个纯粹的关系数据库，它以其简单易用、性能高效而闻名；相比之下，PostgreSQL 则是一个对象关系数据库，提供了更为丰富的数据类型支持以及更强大的功能集。[[claim:claim_1]] 这些差异不仅体现在基本架构上，还涉及到数据类型的支持范围、系统的可扩展性、处理并发请求的能力以及确保数据完整性的机制等方面。因此，深入比较这两种数据库系统的特点与适用场景，可以帮助用户根据自身需求做出更加明智的选择。",
+              "claims": [
+                {
+                  "caveat": "",
+                  "claim_id": "claim_1",
+                  "rejected": false,
+                  "statement": "MySQL 是一个纯粹的关系数据库，而 PostgreSQL 是一个对象关系数据库。",
+                  "claim_type": "定义",
+                  "confidence": "0.9",
+                  "section_id": "sec_1",
+                  "evidence_ids": [
+                    "1"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": false,
+                  "contains_number": false,
+                  "requires_citation": true
+                },
+                {
+                  "caveat": "",
+                  "claim_id": "claim_2",
+                  "rejected": false,
+                  "statement": "比较 PostgreSQL 和 MySQL 的原因是它们在数据类型、可扩展性、并发性和数据完整性方面提供了不同的功能和灵活性。",
+                  "claim_type": "背景信息",
+                  "confidence": "0.8",
+                  "section_id": "sec_1",
+                  "evidence_ids": [
+                    "2"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": false,
+                  "contains_number": false,
+                  "requires_citation": true
+                }
+              ],
+              "evidence": [
+                {
+                  "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                  "page": null,
+                  "quote": "MySQL 是一个纯粹的关系数据库。而另一方面，PostgreSQL 是一个对象关系数据库。这意味着在 PostgreSQL 中，您可以将数据存储为具有属性的对象。",
+                  "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+                  "supports": [
+                    "这两种数据库的基本特性是什么？"
+                  ],
+                  "relevance": 0.9,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                  "evidence_id": "1",
+                  "published_at": "",
+                  "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                  "source_quality": "high",
+                  "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+                },
+                {
+                  "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                  "page": null,
+                  "quote": "MySQL 是一个关系数据库管理系统，通过该系统，您可以将数据存储为包含行和列的表格。它是一个常用系统，支持许多 Web 应用程序、动态网站和嵌入式系统。PostgreSQL 是一个对象关系数据库管理系统，它可以提供比 MySQL 更多的功能。它可以为您在数据类型、可扩展性、并发性和数据完整性方面带来更大的灵活性。",
+                  "chunk_id": "baf6d1be-741f-499e-b015-c7df7d704a12",
+                  "supports": [
+                    "为什么需要比较 PostgreSQL 和 MySQL？"
+                  ],
+                  "relevance": 0.8,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                  "evidence_id": "2",
+                  "published_at": "",
+                  "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                  "source_quality": "high",
+                  "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+                }
+              ],
+              "cross_scope": 0
+            },
+            "sec_2": {
+              "draft": "## 性能对比\n\n在评估数据库系统时，特别是在高并发写入操作的情况下，性能是一个关键考量因素。根据公开的测评数据显示，PostgreSQL在处理大量并发写入请求时的表现优于MySQL，尤其是在那些写密集型的应用场景中[[claim:claim_1]]。这表明对于需要频繁执行写操作的应用程序来说，选择PostgreSQL可能更加合适。\n\n影响这两种数据库性能差异的因素之一是它们各自采用的数据存储和检索机制。例如，MySQL中的InnoDB存储引擎利用主键聚簇索引的方式来组织数据，这种方法在应对高并发读写请求方面展现出了显著的优势[[claim:claim_2]]。这意味着，在设计上支持高效访问模式的数据库能够更好地适应高负载环境下的需求。\n\n综上所述，当应用程序面临高并发写入挑战时，考虑到PostgreSQL在该领域的优越表现以及InnoDB存储引擎提供的优化特性，开发者可以根据具体应用场景的需求来决定最适合的技术方案。",
+              "claims": [
+                {
+                  "caveat": "single-source numeric claim",
+                  "claim_id": "claim_1",
+                  "rejected": false,
+                  "statement": "PostgreSQL在高并发写入操作中表现优于MySQL，特别是在写密集型场景下。",
+                  "claim_type": "实验结果",
+                  "confidence": "0.9",
+                  "section_id": "sec_2",
+                  "evidence_ids": [
+                    "2"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": true,
+                  "contains_number": true,
+                  "requires_citation": true
+                },
+                {
+                  "caveat": "",
+                  "claim_id": "claim_2",
+                  "rejected": false,
+                  "statement": "InnoDB存储引擎通过主键聚簇索引的方式组织数据，在处理高并发读写时具有优势。",
+                  "claim_type": "统计数据",
+                  "confidence": "0.7",
+                  "section_id": "sec_2",
+                  "evidence_ids": [
+                    "3"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": false,
+                  "contains_number": false,
+                  "requires_citation": true
+                }
+              ],
+              "evidence": [
+                {
+                  "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                  "page": null,
+                  "quote": "PostgreSQL 更适合具有频繁写入操作和复杂查询的企业级应用程序。",
+                  "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+                  "supports": [
+                    "哪种数据库在高并发写入时表现更好？"
+                  ],
+                  "relevance": 0.8,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                  "evidence_id": "1",
+                  "published_at": "",
+                  "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                  "source_quality": "5",
+                  "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+                },
+                {
+                  "url": "https://blog.csdn.net/lihaiming_2008/article/details/148539770",
+                  "page": null,
+                  "quote": "根据ACM Transactions on Database Systems的研究，PostgreSQL在并发事务处理中的死锁率比MySQL低32%，尤其在写密集型场景下表现更优。",
+                  "chunk_id": "e7c69130-4f22-4652-bcd3-50222ba71583",
+                  "supports": [
+                    "哪种数据库在高并发写入时表现更好？"
+                  ],
+                  "relevance": 0.9,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "ebea2dae-086d-4f5c-bfee-2834936893b0",
+                  "evidence_id": "2",
+                  "published_at": "",
+                  "source_title": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+                  "source_quality": "5",
+                  "parent_chunk_id": "d9eff4af-d162-4792-b918-2c9bd574ecc4"
+                },
+                {
+                  "url": "https://segmentfault.com/a/1190000047808786",
+                  "page": null,
+                  "quote": "InnoDB 存储引擎通过主键聚簇索引的方式组织数据，在主键查询和高并发读写场景下具备明显优势。",
+                  "chunk_id": "53145e42-788a-4691-9fa4-efd08e9ec7eb",
+                  "supports": [
+                    "影响性能的关键因素有哪些？"
+                  ],
+                  "relevance": 0.7,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "49c5722b-2259-4bd6-bca4-94396cc6d827",
+                  "evidence_id": "3",
+                  "published_at": "",
+                  "source_title": "不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否",
+                  "source_quality": "5",
+                  "parent_chunk_id": "75ddf352-d933-40d8-bb03-2d62bd657999"
+                }
+              ],
+              "cross_scope": 0
+            },
+            "sec_3": {
+              "draft": "## 架构与并发控制\n\n在探讨PostgreSQL和MySQL的底层架构及其对并发处理能力的影响时，首先需要了解两者在并发控制机制上的差异。PostgreSQL在整个系统中采用了多版本并发控制（MVCC）技术，这意味着无论用户如何配置数据库，MVCC都是默认启用的。相比之下，MySQL对于MVCC的支持则依赖于所选择的具体存储引擎；例如，InnoDB存储引擎支持MVCC，而MyISAM则不提供这种功能[[claim:claim_1]]。\n\n此外，在数据一致性和事务处理方面也存在显著区别。PostgreSQL设计为在所有情况下都完全符合ACID（原子性、一致性、隔离性、持久性）属性，确保了即使是在高并发环境下也能保持数据的一致性和可靠性。相反地，MySQL只有当使用像InnoDB或NDB Cluster这样的特定存储引擎时才能达到ACID标准的要求[[claim:claim_2]]。\n\n这些架构上的不同点直接影响到了两种数据库管理系统处理并发请求的能力。由于PostgreSQL普遍应用了MVCC以及其固有的ACID兼容性，它能够更有效地管理大量同时发生的读写操作，尤其是在那些要求高度一致性的应用场景中表现尤为突出。另一方面，虽然MySQL通过采用如InnoDB等高级存储引擎也可以实现良好的并发性能，但其灵活性意味着最终效果可能会根据具体配置而有所变化。因此，在选择适合特定需求的数据库解决方案时，理解这些基础架构特点是非常重要的。",
+              "claims": [
+                {
+                  "caveat": "",
+                  "claim_id": "claim_1",
+                  "rejected": false,
+                  "statement": "PostgreSQL 在所有配置下均支持多版本并发控制（MVCC），而 MySQL 的 MVCC 支持取决于所使用的存储引擎，如InnoDB支持MVCC，MyISAM则不支持。",
+                  "claim_type": "技术说明",
+                  "confidence": "0.9",
+                  "section_id": "sec_3",
+                  "evidence_ids": [
+                    "1"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": false,
+                  "contains_number": false,
+                  "requires_citation": true
+                },
+                {
+                  "caveat": "",
+                  "claim_id": "claim_2",
+                  "rejected": false,
+                  "statement": "PostgreSQL 在所有配置中都完全兼容ACID特性，而MySQL仅在使用特定存储引擎如InnoDB和NDB集群时才符合ACID标准。",
+                  "claim_type": "技术说明",
+                  "confidence": "0.8",
+                  "section_id": "sec_3",
+                  "evidence_ids": [
+                    "2"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": false,
+                  "contains_number": false,
+                  "requires_citation": true
+                }
+              ],
+              "evidence": [
+                {
+                  "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                  "page": null,
+                  "quote": "MySQL 中的 MVCC 因存储引擎的不同而异。例如，使用 InnoDB 存储引擎时可完全支持 MVCC。MyISAM 存储引擎则不支持 MVCC。PostgreSQL 在所有配置下均支持 MVCC。",
+                  "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+                  "supports": [
+                    "这些差异如何影响它们的并发处理能力？"
+                  ],
+                  "relevance": 0.9,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                  "evidence_id": "1",
+                  "published_at": "",
+                  "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                  "source_quality": "5",
+                  "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+                },
+                {
+                  "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                  "page": null,
+                  "quote": "只有将 MySQL 与 InnoDB 和 NDB 集群存储引擎或软件模块一起使用时，它才符合 ACID 标准。PostgreSQL 在所有配置中都完全兼容 ACID。",
+                  "chunk_id": "baf6d1be-741f-499e-b015-c7df7d704a12",
+                  "supports": [
+                    "PostgreSQL 和 MySQL 的架构有何不同？"
+                  ],
+                  "relevance": 0.8,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                  "evidence_id": "2",
+                  "published_at": "",
+                  "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                  "source_quality": "5",
+                  "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+                }
+              ],
+              "cross_scope": 0
+            },
+            "sec_4": {
+              "draft": "## 实际应用案例分析\n\n在实际应用中，不同的公司和项目根据自身需求选择了PostgreSQL或MySQL作为其数据库解决方案。一个典型的例子是蚂蚁金服在其核心交易系统中采用了PostgreSQL作为底层数据库[[claim:1]]。这一选择背后的原因揭示了PostgreSQL在特定场景下的优势。\n\n蚂蚁金服之所以倾向于使用PostgreSQL，主要基于几个关键因素。首先，PostgreSQL拥有强大的事务处理能力，这对于金融行业来说至关重要，因为它确保了数据的一致性和可靠性。此外，PostgreSQL的多版本并发控制（MVCC）机制也是吸引蚂蚁金服的一个重要因素。这种机制允许在同一时间点对同一数据进行读写操作而不会相互干扰，从而提高了系统的整体性能[[claim:2]]。特别是在高并发环境下，PostgreSQL提供的行级锁以及读写不阻塞特性，使得它能够更有效地管理大量同时发生的请求，这直接增强了用户体验并减少了延迟问题。\n\n通过蚂蚁金服的例子可以看出，在需要高度可靠且能有效处理复杂事务及高并发访问的应用场景中，PostgreSQL展现出了显著的优势。这些特点不仅满足了金融服务对于数据安全性的严格要求，同时也支持了业务快速发展的需求。",
+              "claims": [
+                {
+                  "caveat": "",
+                  "claim_id": "1",
+                  "rejected": false,
+                  "statement": "蚂蚁金服在其核心交易系统中选择了PostgreSQL作为底层数据库。",
+                  "claim_type": "案例研究",
+                  "confidence": "0.95",
+                  "section_id": "sec_4",
+                  "evidence_ids": [
+                    "1"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": false,
+                  "contains_number": false,
+                  "requires_citation": true
+                },
+                {
+                  "caveat": "",
+                  "claim_id": "2",
+                  "rejected": false,
+                  "statement": "蚂蚁金服选择PostgreSQL的原因包括其强大的事务处理能力和MVCC机制，以及在高并发情况下的行级锁和读写不阻塞特性。",
+                  "claim_type": "用户反馈",
+                  "confidence": "0.95",
+                  "section_id": "sec_4",
+                  "evidence_ids": [
+                    "1"
+                  ],
+                  "contains_date": false,
+                  "reject_reason": "",
+                  "single_source": false,
+                  "contains_number": false,
+                  "requires_citation": true
+                }
+              ],
+              "evidence": [
+                {
+                  "url": "https://blog.csdn.net/lihaiming_2008/article/details/148539770",
+                  "page": null,
+                  "quote": "蚂蚁金服在核心交易系统中采用PostgreSQL作为底层数据库，利用其强大的事务处理能力和MVCC机制，实现了每秒数十万笔交易的高并发处理。在双11等大促期间，PostgreSQL的行级锁和读写不阻塞特性，确保了交易处理的高效性和数据一致性。",
+                  "chunk_id": "49062059-3e26-4eea-9570-40de290363a5",
+                  "supports": [
+                    "哪些公司或项目选择了 PostgreSQL 或 MySQL？"
+                  ],
+                  "relevance": 1.0,
+                  "tenant_id": "shadow-review",
+                  "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                  "document_id": "ebea2dae-086d-4f5c-bfee-2834936893b0",
+                  "evidence_id": "1",
+                  "published_at": "2026-06-22 16:17:22",
+                  "source_title": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+                  "source_quality": "high",
+                  "parent_chunk_id": "d9eff4af-d162-4792-b918-2c9bd574ecc4"
+                }
+              ],
+              "cross_scope": 0
+            },
+            "sec_5": {
+              "draft": "",
+              "claims": [],
+              "evidence": [],
+              "cross_scope": 0
+            }
+          },
+          "eval_scores": {
+            "details": {
+              "evidence_count": 8,
+              "required_claims": 8,
+              "supported_claims": 8
+            },
+            "duplication_rate": 0.0,
+            "global_coherence": 1.0,
+            "citation_accuracy": 1.0,
+            "citation_coverage": 1.0,
+            "claim_support_rate": 1.0,
+            "fact_conflict_rate": 0.0
+          },
+          "release_gate": {
+            "audit": {
+              "warnings": [
+                "no_claims_for_section"
+              ],
+              "total_claims": 4,
+              "supported_claims": 4,
+              "citation_coverage": 1.0,
+              "unsupported_claims": [],
+              "citation_audit_failed": false,
+              "cross_scope_violations": 0,
+              "single_source_numeric_claims": []
+            },
+            "p95_ms": 166755.92,
+            "passed": true,
+            "scores": {
+              "details": {
+                "evidence_count": 8,
+                "required_claims": 8,
+                "supported_claims": 8
+              },
+              "duplication_rate": 0.0,
+              "global_coherence": 1.0,
+              "citation_accuracy": 1.0,
+              "citation_coverage": 1.0,
+              "claim_support_rate": 1.0,
+              "fact_conflict_rate": 0.0
+            },
+            "reasons": [],
+            "cost_units": null
+          },
+          "synthesized_markers": "## 引言\n\n在数据库技术领域，选择合适的数据库管理系统对于项目的成功至关重要。MySQL 和 PostgreSQL 作为两种广泛使用的开源数据库系统，各自拥有独特的特性和优势，这使得它们成为了许多开发者和企业考虑的对象。[[claim:claim_2]] MySQL 是一个纯粹的关系数据库，以其简单易用、性能高效而闻名；相比之下，PostgreSQL 则是一个对象关系数据库，提供了更为丰富的数据类型支持以及更强大的功能集。[[claim:claim_1]] 这些差异不仅体现在基本架构上，还涉及到数据类型的支持范围、系统的可扩展性、处理并发请求的能力以及确保数据完整性的机制等方面。因此，深入比较这两种数据库系统的特点与适用场景，可以帮助用户根据自身需求做出更加明智的选择。\n\n## 性能对比\n\n在评估数据库系统时，特别是在高并发写入操作的情况下，性能是一个关键考量因素。根据公开的测评数据显示，PostgreSQL 在处理大量并发写入请求时的表现优于 MySQL，尤其是在那些写密集型的应用场景中[[claim:claim_1]]。这表明对于需要频繁执行写操作的应用程序来说，选择 PostgreSQL 可能更加合适。\n\n影响这两种数据库性能差异的因素之一是它们各自采用的数据存储和检索机制。例如，MySQL 中的 InnoDB 存储引擎利用主键聚簇索引的方式来组织数据，这种方法在应对高并发读写请求方面展现出了显著的优势[[claim:claim_2]]。这意味着，在设计上支持高效访问模式的数据库能够更好地适应高负载环境下的需求。\n\n综上所述，当应用程序面临高并发写入挑战时，考虑到 PostgreSQL 在该领域的优越表现以及 InnoDB 存储引擎提供的优化特性，开发者可以根据具体应用场景的需求来决定最适合的技术方案。\n\n## 架构与并发控制\n\n在探讨 PostgreSQL 和 MySQL 的底层架构及其对并发处理能力的影响时，首先需要了解两者在并发控制机制上的差异。PostgreSQL 在整个系统中采用了多版本并发控制（MVCC）技术，这意味着无论用户如何配置数据库，MVCC 都是默认启用的。相比之下，MySQL 对于 MVCC 的支持则依赖于所选择的具体存储引擎；例如，InnoDB 存储引擎支持 MVCC，而 MyISAM 则不提供这种功能[[claim:claim_1]]。\n\n此外，在数据一致性和事务处理方面也存在显著区别。PostgreSQL 设计为在所有情况下都完全符合 ACID（原子性、一致性、隔离性、持久性）属性，确保了即使是在高并发环境下也能保持数据的一致性和可靠性。相反地，MySQL 只有当使用像 InnoDB 或 NDB Cluster 这样的特定存储引擎时才能达到 ACID 标准的要求[[claim:claim_2]]。\n\n这些架构上的不同点直接影响到了两种数据库管理系统处理并发请求的能力。由于 PostgreSQL 普遍应用了 MVCC 以及其固有的 ACID 兼容性，它能够更有效地管理大量同时发生的读写操作，尤其是在那些要求高度一致性的应用场景中表现尤为突出。另一方面，虽然 MySQL 通过采用如 InnoDB 等高级存储引擎也可以实现良好的并发性能，但其灵活性意味着最终效果可能会根据具体配置而有所变化。因此，在选择适合特定需求的数据库解决方案时，理解这些基础架构特点是非常重要的。\n\n## 实际应用案例分析\n\n在实际应用中，不同的公司和项目根据自身需求选择了 PostgreSQL 或 MySQL 作为其数据库解决方案。一个典型的例子是蚂蚁金服在其核心交易系统中采用了 PostgreSQL 作为底层数据库[[claim:1]]。这一选择背后的原因揭示了 PostgreSQL 在特定场景下的优势。\n\n蚂蚁金服之所以倾向于使用 PostgreSQL，主要基于几个关键因素。首先，PostgreSQL 拥有强大的事务处理能力，这对于金融行业来说至关重要，因为它确保了数据的一致性和可靠性。此外，PostgreSQL 的多版本并发控制（MVCC）机制也是吸引蚂蚁金服的一个重要因素。这种机制允许在同一时间点对同一数据进行读写操作而不会相互干扰，从而提高了系统的整体性能[[claim:2]]。特别是在高并发环境下，PostgreSQL 提供的行级锁以及读写不阻塞特性，使得它能够更有效地管理大量同时发生的请求，这直接增强了用户体验并减少了延迟问题。\n\n通过蚂蚁金服的例子可以看出，在需要高度可靠且能有效处理复杂事务及高并发访问的应用场景中，PostgreSQL 展现出了显著的优势。这些特点不仅满足了金融服务对于数据安全性的严格要求，同时也支持了业务快速发展的需求。\n\n## 结论与建议\n\n综合上述分析，我们可以得出以下结论：在高并发写入场景下，PostgreSQL 通常表现出更好的性能和更高的数据一致性。然而，MySQL 通过其灵活的存储引擎配置（尤其是 InnoDB）也能在某些情况下提供出色的性能。因此，选择哪种数据库取决于具体的应用需求和优先级。\n\n对于需要高度一致性和强大事务处理能力的应用，如金融系统，PostgreSQL 可能是更好的选择。而对于那些更注重简单易用性和成本效益的应用，MySQL 仍然是一个值得考虑的选项。此外，未来的数据库发展趋势也需要纳入考虑，以确保所选技术能够持续满足不断增长的需求。\n\n总之，通过深入了解 PostgreSQL 和 MySQL 的性能、架构和实际应用案例，用户可以更好地根据自身需求做出明智的选择。"
+        },
+        "report_trust_if_promoted": "trusted"
+      },
+      "legacy_fallback": false,
+      "trusted_pipeline": {
+        "mode": "shadow",
+        "execution_trace": {
+          "mode": "shadow",
+          "legacy_write": true,
+          "research_only": true,
+          "trusted_write": true,
+          "legacy_write_count": 1,
+          "legacy_write_reason": "shadow",
+          "used_legacy_body_as_claim_source": false,
+          "writer_received_only_verified_claims": true
+        }
+      },
+      "citation_unverified": true,
+      "citation_audit_failed": false
+    },
+    "attempt": 2,
+    "idempotency_key": "shadow-review:42725faf-d371-48fe-8eab-872bf5c67747",
+    "heartbeat_at": 1786285597643,
+    "started_at": 1786285293963,
+    "finished_at": 1786285610491,
+    "enqueued_at": 1786285290116,
+    "next_retry_at": null,
+    "cancel_requested_at": null,
+    "worker_id": "e505f7c5c848:19",
+    "last_error_code": null,
+    "checkpoint_json": {
+      "stage": "finalizing",
+      "budget": {
+        "max_llm_calls": 40,
+        "max_subtopics": 3,
+        "searches_used": 4,
+        "llm_calls_used": 17,
+        "max_output_words": 800,
+        "max_total_searches": 12
+      },
+      "trusted": {
+        "audit": {
+          "warnings": [
+            "no_claims_for_section"
+          ],
+          "total_claims": 4,
+          "supported_claims": 4,
+          "citation_coverage": 1.0,
+          "unsupported_claims": [],
+          "citation_audit_failed": false,
+          "cross_scope_violations": 0,
+          "single_source_numeric_claims": []
+        },
+        "stage": "citations_injected",
+        "trace": {
+          "spans": [
+            {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "718a9cb85d14",
+              "ended_at": 1786285439.3207004,
+              "started_at": 1786285420.7455099,
+              "duration_ms": 18575.19
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_1"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "27ca3e93e85f",
+              "ended_at": 1786285450.5309591,
+              "started_at": 1786285439.333509,
+              "duration_ms": 11197.45
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_1"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "ff30219c3526",
+              "ended_at": 1786285455.6111095,
+              "started_at": 1786285450.5309968,
+              "duration_ms": 5080.11
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_1"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "28319370c932",
+              "ended_at": 1786285461.170384,
+              "started_at": 1786285455.6366825,
+              "duration_ms": 5533.7
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_2"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "6da27d13c91e",
+              "ended_at": 1786285476.7654314,
+              "started_at": 1786285461.193433,
+              "duration_ms": 15572.0
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_2"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "d9e5f2abe2f5",
+              "ended_at": 1786285481.8616438,
+              "started_at": 1786285476.7654676,
+              "duration_ms": 5096.18
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_2"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "6d6135803a21",
+              "ended_at": 1786285488.2816887,
+              "started_at": 1786285481.9065025,
+              "duration_ms": 6375.19
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_3"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "e521daebccb8",
+              "ended_at": 1786285500.5007892,
+              "started_at": 1786285488.3049848,
+              "duration_ms": 12195.8
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_3"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "5e64e3031f8b",
+              "ended_at": 1786285506.861414,
+              "started_at": 1786285500.5008173,
+              "duration_ms": 6360.6
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_3"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "001972f21033",
+              "ended_at": 1786285516.8427284,
+              "started_at": 1786285506.8864052,
+              "duration_ms": 9956.32
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_4"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "6d7f11042e90",
+              "ended_at": 1786285546.1581564,
+              "started_at": 1786285516.8692067,
+              "duration_ms": 29288.95
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_4"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "dbcdd8a1c31c",
+              "ended_at": 1786285551.1967022,
+              "started_at": 1786285546.1582034,
+              "duration_ms": 5038.5
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_4"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "44d3a2d39f70",
+              "ended_at": 1786285559.4627037,
+              "started_at": 1786285551.2127824,
+              "duration_ms": 8249.92
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_5"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "506b62bcdb61",
+              "ended_at": 1786285560.8637452,
+              "started_at": 1786285559.4792066,
+              "duration_ms": 1384.54
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_5"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "9129cdaa645f",
+              "ended_at": 1786285560.86379,
+              "started_at": 1786285560.8637822,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_5"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "bc552034c431",
+              "ended_at": 1786285560.886885,
+              "started_at": 1786285560.8868752,
+              "duration_ms": 0.01
+            },
+            {
+              "ok": true,
+              "meta": {
+                "sections": 5
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "c679836fa73c",
+              "ended_at": 1786285587.7523305,
+              "started_at": 1786285560.9008787,
+              "duration_ms": 26851.45
+            },
+            {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "b68ec2606523",
+              "ended_at": 1786285587.7803805,
+              "started_at": 1786285587.7769237,
+              "duration_ms": 3.46
+            }
+          ],
+          "by_stage": {
+            "audit": {
+              "ok": true,
+              "meta": {},
+              "error": "",
+              "stage": "audit",
+              "span_id": "b68ec2606523",
+              "ended_at": 1786285587.7803805,
+              "started_at": 1786285587.7769237,
+              "duration_ms": 3.46
+            },
+            "claim": {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_5"
+              },
+              "error": "",
+              "stage": "claim",
+              "span_id": "9129cdaa645f",
+              "ended_at": 1786285560.86379,
+              "started_at": 1786285560.8637822,
+              "duration_ms": 0.01
+            },
+            "writer": {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_5"
+              },
+              "error": "",
+              "stage": "writer",
+              "span_id": "bc552034c431",
+              "ended_at": 1786285560.886885,
+              "started_at": 1786285560.8868752,
+              "duration_ms": 0.01
+            },
+            "planner": {
+              "ok": true,
+              "meta": {
+                "report_type": "research_report"
+              },
+              "error": "",
+              "stage": "planner",
+              "span_id": "718a9cb85d14",
+              "ended_at": 1786285439.3207004,
+              "started_at": 1786285420.7455099,
+              "duration_ms": 18575.19
+            },
+            "evidence": {
+              "ok": true,
+              "meta": {
+                "section_id": "sec_5"
+              },
+              "error": "",
+              "stage": "evidence",
+              "span_id": "506b62bcdb61",
+              "ended_at": 1786285560.8637452,
+              "started_at": 1786285559.4792066,
+              "duration_ms": 1384.54
+            },
+            "synthesis": {
+              "ok": true,
+              "meta": {
+                "sections": 5
+              },
+              "error": "",
+              "stage": "synthesis",
+              "span_id": "c679836fa73c",
+              "ended_at": 1786285587.7523305,
+              "started_at": 1786285560.9008787,
+              "duration_ms": 26851.45
+            }
+          },
+          "trace_id": "d4ca47fae746475ea02e3f36393cbc76",
+          "total_duration_ms": 166759.38
+        },
+        "report": "## 引言\n\n在数据库技术领域，选择合适的数据库管理系统对于项目的成功至关重要。MySQL 和 PostgreSQL 作为两种广泛使用的开源数据库系统，各自拥有独特的特性和优势，这使得它们成为了许多开发者和企业考虑的对象。[1] MySQL 是一个纯粹的关系数据库，以其简单易用、性能高效而闻名；相比之下，PostgreSQL 则是一个对象关系数据库，提供了更为丰富的数据类型支持以及更强大的功能集。[2] 这些差异不仅体现在基本架构上，还涉及到数据类型的支持范围、系统的可扩展性、处理并发请求的能力以及确保数据完整性的机制等方面。因此，深入比较这两种数据库系统的特点与适用场景，可以帮助用户根据自身需求做出更加明智的选择。\n\n## 性能对比\n\n在评估数据库系统时，特别是在高并发写入操作的情况下，性能是一个关键考量因素。根据公开的测评数据显示，PostgreSQL 在处理大量并发写入请求时的表现优于 MySQL，尤其是在那些写密集型的应用场景中[2]。这表明对于需要频繁执行写操作的应用程序来说，选择 PostgreSQL 可能更加合适。\n\n影响这两种数据库性能差异的因素之一是它们各自采用的数据存储和检索机制。例如，MySQL 中的 InnoDB 存储引擎利用主键聚簇索引的方式来组织数据，这种方法在应对高并发读写请求方面展现出了显著的优势[1]。这意味着，在设计上支持高效访问模式的数据库能够更好地适应高负载环境下的需求。\n\n综上所述，当应用程序面临高并发写入挑战时，考虑到 PostgreSQL 在该领域的优越表现以及 InnoDB 存储引擎提供的优化特性，开发者可以根据具体应用场景的需求来决定最适合的技术方案。\n\n## 架构与并发控制\n\n在探讨 PostgreSQL 和 MySQL 的底层架构及其对并发处理能力的影响时，首先需要了解两者在并发控制机制上的差异。PostgreSQL 在整个系统中采用了多版本并发控制（MVCC）技术，这意味着无论用户如何配置数据库，MVCC 都是默认启用的。相比之下，MySQL 对于 MVCC 的支持则依赖于所选择的具体存储引擎；例如，InnoDB 存储引擎支持 MVCC，而 MyISAM 则不提供这种功能[2]。\n\n此外，在数据一致性和事务处理方面也存在显著区别。PostgreSQL 设计为在所有情况下都完全符合 ACID（原子性、一致性、隔离性、持久性）属性，确保了即使是在高并发环境下也能保持数据的一致性和可靠性。相反地，MySQL 只有当使用像 InnoDB 或 NDB Cluster 这样的特定存储引擎时才能达到 ACID 标准的要求[1]。\n\n这些架构上的不同点直接影响到了两种数据库管理系统处理并发请求的能力。由于 PostgreSQL 普遍应用了 MVCC 以及其固有的 ACID 兼容性，它能够更有效地管理大量同时发生的读写操作，尤其是在那些要求高度一致性的应用场景中表现尤为突出。另一方面，虽然 MySQL 通过采用如 InnoDB 等高级存储引擎也可以实现良好的并发性能，但其灵活性意味着最终效果可能会根据具体配置而有所变化。因此，在选择适合特定需求的数据库解决方案时，理解这些基础架构特点是非常重要的。\n\n## 实际应用案例分析\n\n在实际应用中，不同的公司和项目根据自身需求选择了 PostgreSQL 或 MySQL 作为其数据库解决方案。一个典型的例子是蚂蚁金服在其核心交易系统中采用了 PostgreSQL 作为底层数据库[2]。这一选择背后的原因揭示了 PostgreSQL 在特定场景下的优势。\n\n蚂蚁金服之所以倾向于使用 PostgreSQL，主要基于几个关键因素。首先，PostgreSQL 拥有强大的事务处理能力，这对于金融行业来说至关重要，因为它确保了数据的一致性和可靠性。此外，PostgreSQL 的多版本并发控制（MVCC）机制也是吸引蚂蚁金服的一个重要因素。这种机制允许在同一时间点对同一数据进行读写操作而不会相互干扰，从而提高了系统的整体性能[2]。特别是在高并发环境下，PostgreSQL 提供的行级锁以及读写不阻塞特性，使得它能够更有效地管理大量同时发生的请求，这直接增强了用户体验并减少了延迟问题。\n\n通过蚂蚁金服的例子可以看出，在需要高度可靠且能有效处理复杂事务及高并发访问的应用场景中，PostgreSQL 展现出了显著的优势。这些特点不仅满足了金融服务对于数据安全性的严格要求，同时也支持了业务快速发展的需求。\n\n## 结论与建议\n\n综合上述分析，我们可以得出以下结论：在高并发写入场景下，PostgreSQL 通常表现出更好的性能和更高的数据一致性。然而，MySQL 通过其灵活的存储引擎配置（尤其是 InnoDB）也能在某些情况下提供出色的性能。因此，选择哪种数据库取决于具体的应用需求和优先级。\n\n对于需要高度一致性和强大事务处理能力的应用，如金融系统，PostgreSQL 可能是更好的选择。而对于那些更注重简单易用性和成本效益的应用，MySQL 仍然是一个值得考虑的选项。此外，未来的数据库发展趋势也需要纳入考虑，以确保所选技术能够持续满足不断增长的需求。\n\n总之，通过深入了解 PostgreSQL 和 MySQL 的性能、架构和实际应用案例，用户可以更好地根据自身需求做出明智的选择。\n\n## References\n\n[1] PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS — https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql\n> 只有将 MySQL 与 InnoDB 和 NDB 集群存储引擎或软件模块一起使用时，它才符合 ACID 标准。PostgreSQL 在所有配置中都完全兼容 ACID。\n\n[2] 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客 — https://blog.csdn.net/lihaiming_2008/article/details/148539770\n> 蚂蚁金服在核心交易系统中采用PostgreSQL作为底层数据库，利用其强大的事务处理能力和MVCC机制，实现了每秒数十万笔交易的高并发处理。在双11等大促期间，PostgreSQL的行级锁和读写不阻塞特性，确保了交易处理的高效性和数据一致性。\n",
+        "outline": {
+          "scope": "本报告将专注于 PostgreSQL 和 MySQL 在高并发写入环境下的表现，包括但不限于性能测试结果、架构差异、并发控制机制以及实际应用案例分析。",
+          "sections": [
+            {
+              "title": "引言",
+              "purpose": "介绍研究背景及目的，概述 PostgreSQL 和 MySQL 的基本特点。",
+              "section_id": "sec_1",
+              "search_queries": [
+                "PostgreSQL 基本特性",
+                "MySQL 基本特性",
+                "数据库选型重要性"
+              ],
+              "depends_on_sections": [],
+              "questions_to_answer": [
+                "为什么需要比较 PostgreSQL 和 MySQL？",
+                "这两种数据库的基本特性是什么？"
+              ],
+              "expected_claim_types": [
+                "定义",
+                "背景信息"
+              ]
+            },
+            {
+              "title": "性能对比",
+              "purpose": "基于公开测评数据，对比两种数据库在高并发写入情况下的性能表现。",
+              "section_id": "sec_2",
+              "search_queries": [
+                "PostgreSQL 高并发写入性能",
+                "MySQL 高并发写入性能",
+                "数据库性能测试方法"
+              ],
+              "depends_on_sections": [
+                "sec_1"
+              ],
+              "questions_to_answer": [
+                "哪种数据库在高并发写入时表现更好？",
+                "影响性能的关键因素有哪些？"
+              ],
+              "expected_claim_types": [
+                "统计数据",
+                "实验结果"
+              ]
+            },
+            {
+              "title": "架构与并发控制",
+              "purpose": "探讨两种数据库的底层架构及其对并发处理能力的影响。",
+              "section_id": "sec_3",
+              "search_queries": [
+                "PostgreSQL 架构",
+                "MySQL 架构",
+                "数据库并发控制机制"
+              ],
+              "depends_on_sections": [
+                "sec_1"
+              ],
+              "questions_to_answer": [
+                "PostgreSQL 和 MySQL 的架构有何不同？",
+                "这些差异如何影响它们的并发处理能力？"
+              ],
+              "expected_claim_types": [
+                "技术说明",
+                "理论分析"
+              ]
+            },
+            {
+              "title": "实际应用案例分析",
+              "purpose": "通过分析真实世界中的使用案例来理解两种数据库的实际表现。",
+              "section_id": "sec_4",
+              "search_queries": [
+                "PostgreSQL 应用案例",
+                "MySQL 应用案例",
+                "数据库选型案例分析"
+              ],
+              "depends_on_sections": [
+                "sec_1",
+                "sec_2",
+                "sec_3"
+              ],
+              "questions_to_answer": [
+                "哪些公司或项目选择了 PostgreSQL 或 MySQL？",
+                "他们选择的理由是什么？"
+              ],
+              "expected_claim_types": [
+                "案例研究",
+                "用户反馈"
+              ]
+            },
+            {
+              "title": "结论与建议",
+              "purpose": "总结全文，并为面临相似决策情境的用户提供实用建议。",
+              "section_id": "sec_5",
+              "search_queries": [
+                "数据库选型最佳实践",
+                "高并发写入解决方案"
+              ],
+              "depends_on_sections": [
+                "sec_1",
+                "sec_2",
+                "sec_3",
+                "sec_4"
+              ],
+              "questions_to_answer": [
+                "综合考虑后，哪种数据库更适合高并发写入场景？",
+                "选择时还应考虑哪些其他因素？"
+              ],
+              "expected_claim_types": [
+                "总结",
+                "建议"
+              ]
+            }
+          ],
+          "time_range": "2024-2026",
+          "report_thesis": "在高并发写入场景下，PostgreSQL 和 MySQL 各有优势和局限性。通过对比两者在性能、扩展性、并发控制等方面的表现，可以帮助用户根据具体需求选择更适合的数据库系统。",
+          "cross_section_questions": [
+            "对于特定规模的企业来说，选择 PostgreSQL 还是 MySQL 更具成本效益？",
+            "未来几年内，哪一种数据库的发展趋势更有利于支持高并发写入需求？"
+          ]
+        },
+        "sections": {
+          "sec_1": {
+            "draft": "## 引言\n\n在数据库技术领域，选择合适的数据库管理系统对于项目的成功至关重要。MySQL 和 PostgreSQL 作为两种广泛使用的开源数据库系统，各自拥有独特的特性和优势，这使得它们成为了许多开发者和企业考虑的对象。[[claim:claim_2]] MySQL 是一个纯粹的关系数据库，它以其简单易用、性能高效而闻名；相比之下，PostgreSQL 则是一个对象关系数据库，提供了更为丰富的数据类型支持以及更强大的功能集。[[claim:claim_1]] 这些差异不仅体现在基本架构上，还涉及到数据类型的支持范围、系统的可扩展性、处理并发请求的能力以及确保数据完整性的机制等方面。因此，深入比较这两种数据库系统的特点与适用场景，可以帮助用户根据自身需求做出更加明智的选择。",
+            "claims": [
+              {
+                "caveat": "",
+                "claim_id": "claim_1",
+                "rejected": false,
+                "statement": "MySQL 是一个纯粹的关系数据库，而 PostgreSQL 是一个对象关系数据库。",
+                "claim_type": "定义",
+                "confidence": "0.9",
+                "section_id": "sec_1",
+                "evidence_ids": [
+                  "1"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": false,
+                "contains_number": false,
+                "requires_citation": true
+              },
+              {
+                "caveat": "",
+                "claim_id": "claim_2",
+                "rejected": false,
+                "statement": "比较 PostgreSQL 和 MySQL 的原因是它们在数据类型、可扩展性、并发性和数据完整性方面提供了不同的功能和灵活性。",
+                "claim_type": "背景信息",
+                "confidence": "0.8",
+                "section_id": "sec_1",
+                "evidence_ids": [
+                  "2"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": false,
+                "contains_number": false,
+                "requires_citation": true
+              }
+            ],
+            "evidence": [
+              {
+                "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                "page": null,
+                "quote": "MySQL 是一个纯粹的关系数据库。而另一方面，PostgreSQL 是一个对象关系数据库。这意味着在 PostgreSQL 中，您可以将数据存储为具有属性的对象。",
+                "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+                "supports": [
+                  "这两种数据库的基本特性是什么？"
+                ],
+                "relevance": 0.9,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                "evidence_id": "1",
+                "published_at": "",
+                "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                "source_quality": "high",
+                "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+              },
+              {
+                "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                "page": null,
+                "quote": "MySQL 是一个关系数据库管理系统，通过该系统，您可以将数据存储为包含行和列的表格。它是一个常用系统，支持许多 Web 应用程序、动态网站和嵌入式系统。PostgreSQL 是一个对象关系数据库管理系统，它可以提供比 MySQL 更多的功能。它可以为您在数据类型、可扩展性、并发性和数据完整性方面带来更大的灵活性。",
+                "chunk_id": "baf6d1be-741f-499e-b015-c7df7d704a12",
+                "supports": [
+                  "为什么需要比较 PostgreSQL 和 MySQL？"
+                ],
+                "relevance": 0.8,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                "evidence_id": "2",
+                "published_at": "",
+                "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                "source_quality": "high",
+                "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+              }
+            ],
+            "cross_scope": 0
+          },
+          "sec_2": {
+            "draft": "## 性能对比\n\n在评估数据库系统时，特别是在高并发写入操作的情况下，性能是一个关键考量因素。根据公开的测评数据显示，PostgreSQL在处理大量并发写入请求时的表现优于MySQL，尤其是在那些写密集型的应用场景中[[claim:claim_1]]。这表明对于需要频繁执行写操作的应用程序来说，选择PostgreSQL可能更加合适。\n\n影响这两种数据库性能差异的因素之一是它们各自采用的数据存储和检索机制。例如，MySQL中的InnoDB存储引擎利用主键聚簇索引的方式来组织数据，这种方法在应对高并发读写请求方面展现出了显著的优势[[claim:claim_2]]。这意味着，在设计上支持高效访问模式的数据库能够更好地适应高负载环境下的需求。\n\n综上所述，当应用程序面临高并发写入挑战时，考虑到PostgreSQL在该领域的优越表现以及InnoDB存储引擎提供的优化特性，开发者可以根据具体应用场景的需求来决定最适合的技术方案。",
+            "claims": [
+              {
+                "caveat": "single-source numeric claim",
+                "claim_id": "claim_1",
+                "rejected": false,
+                "statement": "PostgreSQL在高并发写入操作中表现优于MySQL，特别是在写密集型场景下。",
+                "claim_type": "实验结果",
+                "confidence": "0.9",
+                "section_id": "sec_2",
+                "evidence_ids": [
+                  "2"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": true,
+                "contains_number": true,
+                "requires_citation": true
+              },
+              {
+                "caveat": "",
+                "claim_id": "claim_2",
+                "rejected": false,
+                "statement": "InnoDB存储引擎通过主键聚簇索引的方式组织数据，在处理高并发读写时具有优势。",
+                "claim_type": "统计数据",
+                "confidence": "0.7",
+                "section_id": "sec_2",
+                "evidence_ids": [
+                  "3"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": false,
+                "contains_number": false,
+                "requires_citation": true
+              }
+            ],
+            "evidence": [
+              {
+                "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                "page": null,
+                "quote": "PostgreSQL 更适合具有频繁写入操作和复杂查询的企业级应用程序。",
+                "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+                "supports": [
+                  "哪种数据库在高并发写入时表现更好？"
+                ],
+                "relevance": 0.8,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                "evidence_id": "1",
+                "published_at": "",
+                "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                "source_quality": "5",
+                "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+              },
+              {
+                "url": "https://blog.csdn.net/lihaiming_2008/article/details/148539770",
+                "page": null,
+                "quote": "根据ACM Transactions on Database Systems的研究，PostgreSQL在并发事务处理中的死锁率比MySQL低32%，尤其在写密集型场景下表现更优。",
+                "chunk_id": "e7c69130-4f22-4652-bcd3-50222ba71583",
+                "supports": [
+                  "哪种数据库在高并发写入时表现更好？"
+                ],
+                "relevance": 0.9,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "ebea2dae-086d-4f5c-bfee-2834936893b0",
+                "evidence_id": "2",
+                "published_at": "",
+                "source_title": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+                "source_quality": "5",
+                "parent_chunk_id": "d9eff4af-d162-4792-b918-2c9bd574ecc4"
+              },
+              {
+                "url": "https://segmentfault.com/a/1190000047808786",
+                "page": null,
+                "quote": "InnoDB 存储引擎通过主键聚簇索引的方式组织数据，在主键查询和高并发读写场景下具备明显优势。",
+                "chunk_id": "53145e42-788a-4691-9fa4-efd08e9ec7eb",
+                "supports": [
+                  "影响性能的关键因素有哪些？"
+                ],
+                "relevance": 0.7,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "49c5722b-2259-4bd6-bca4-94396cc6d827",
+                "evidence_id": "3",
+                "published_at": "",
+                "source_title": "不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否",
+                "source_quality": "5",
+                "parent_chunk_id": "75ddf352-d933-40d8-bb03-2d62bd657999"
+              }
+            ],
+            "cross_scope": 0
+          },
+          "sec_3": {
+            "draft": "## 架构与并发控制\n\n在探讨PostgreSQL和MySQL的底层架构及其对并发处理能力的影响时，首先需要了解两者在并发控制机制上的差异。PostgreSQL在整个系统中采用了多版本并发控制（MVCC）技术，这意味着无论用户如何配置数据库，MVCC都是默认启用的。相比之下，MySQL对于MVCC的支持则依赖于所选择的具体存储引擎；例如，InnoDB存储引擎支持MVCC，而MyISAM则不提供这种功能[[claim:claim_1]]。\n\n此外，在数据一致性和事务处理方面也存在显著区别。PostgreSQL设计为在所有情况下都完全符合ACID（原子性、一致性、隔离性、持久性）属性，确保了即使是在高并发环境下也能保持数据的一致性和可靠性。相反地，MySQL只有当使用像InnoDB或NDB Cluster这样的特定存储引擎时才能达到ACID标准的要求[[claim:claim_2]]。\n\n这些架构上的不同点直接影响到了两种数据库管理系统处理并发请求的能力。由于PostgreSQL普遍应用了MVCC以及其固有的ACID兼容性，它能够更有效地管理大量同时发生的读写操作，尤其是在那些要求高度一致性的应用场景中表现尤为突出。另一方面，虽然MySQL通过采用如InnoDB等高级存储引擎也可以实现良好的并发性能，但其灵活性意味着最终效果可能会根据具体配置而有所变化。因此，在选择适合特定需求的数据库解决方案时，理解这些基础架构特点是非常重要的。",
+            "claims": [
+              {
+                "caveat": "",
+                "claim_id": "claim_1",
+                "rejected": false,
+                "statement": "PostgreSQL 在所有配置下均支持多版本并发控制（MVCC），而 MySQL 的 MVCC 支持取决于所使用的存储引擎，如InnoDB支持MVCC，MyISAM则不支持。",
+                "claim_type": "技术说明",
+                "confidence": "0.9",
+                "section_id": "sec_3",
+                "evidence_ids": [
+                  "1"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": false,
+                "contains_number": false,
+                "requires_citation": true
+              },
+              {
+                "caveat": "",
+                "claim_id": "claim_2",
+                "rejected": false,
+                "statement": "PostgreSQL 在所有配置中都完全兼容ACID特性，而MySQL仅在使用特定存储引擎如InnoDB和NDB集群时才符合ACID标准。",
+                "claim_type": "技术说明",
+                "confidence": "0.8",
+                "section_id": "sec_3",
+                "evidence_ids": [
+                  "2"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": false,
+                "contains_number": false,
+                "requires_citation": true
+              }
+            ],
+            "evidence": [
+              {
+                "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                "page": null,
+                "quote": "MySQL 中的 MVCC 因存储引擎的不同而异。例如，使用 InnoDB 存储引擎时可完全支持 MVCC。MyISAM 存储引擎则不支持 MVCC。PostgreSQL 在所有配置下均支持 MVCC。",
+                "chunk_id": "44250ab6-ffe4-4126-841f-0a60f39680a9",
+                "supports": [
+                  "这些差异如何影响它们的并发处理能力？"
+                ],
+                "relevance": 0.9,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                "evidence_id": "1",
+                "published_at": "",
+                "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                "source_quality": "5",
+                "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+              },
+              {
+                "url": "https://aws.amazon.com/cn/compare/the-difference-between-mysql-vs-postgresql",
+                "page": null,
+                "quote": "只有将 MySQL 与 InnoDB 和 NDB 集群存储引擎或软件模块一起使用时，它才符合 ACID 标准。PostgreSQL 在所有配置中都完全兼容 ACID。",
+                "chunk_id": "baf6d1be-741f-499e-b015-c7df7d704a12",
+                "supports": [
+                  "PostgreSQL 和 MySQL 的架构有何不同？"
+                ],
+                "relevance": 0.8,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+                "evidence_id": "2",
+                "published_at": "",
+                "source_title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                "source_quality": "5",
+                "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695"
+              }
+            ],
+            "cross_scope": 0
+          },
+          "sec_4": {
+            "draft": "## 实际应用案例分析\n\n在实际应用中，不同的公司和项目根据自身需求选择了PostgreSQL或MySQL作为其数据库解决方案。一个典型的例子是蚂蚁金服在其核心交易系统中采用了PostgreSQL作为底层数据库[[claim:1]]。这一选择背后的原因揭示了PostgreSQL在特定场景下的优势。\n\n蚂蚁金服之所以倾向于使用PostgreSQL，主要基于几个关键因素。首先，PostgreSQL拥有强大的事务处理能力，这对于金融行业来说至关重要，因为它确保了数据的一致性和可靠性。此外，PostgreSQL的多版本并发控制（MVCC）机制也是吸引蚂蚁金服的一个重要因素。这种机制允许在同一时间点对同一数据进行读写操作而不会相互干扰，从而提高了系统的整体性能[[claim:2]]。特别是在高并发环境下，PostgreSQL提供的行级锁以及读写不阻塞特性，使得它能够更有效地管理大量同时发生的请求，这直接增强了用户体验并减少了延迟问题。\n\n通过蚂蚁金服的例子可以看出，在需要高度可靠且能有效处理复杂事务及高并发访问的应用场景中，PostgreSQL展现出了显著的优势。这些特点不仅满足了金融服务对于数据安全性的严格要求，同时也支持了业务快速发展的需求。",
+            "claims": [
+              {
+                "caveat": "",
+                "claim_id": "1",
+                "rejected": false,
+                "statement": "蚂蚁金服在其核心交易系统中选择了PostgreSQL作为底层数据库。",
+                "claim_type": "案例研究",
+                "confidence": "0.95",
+                "section_id": "sec_4",
+                "evidence_ids": [
+                  "1"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": false,
+                "contains_number": false,
+                "requires_citation": true
+              },
+              {
+                "caveat": "",
+                "claim_id": "2",
+                "rejected": false,
+                "statement": "蚂蚁金服选择PostgreSQL的原因包括其强大的事务处理能力和MVCC机制，以及在高并发情况下的行级锁和读写不阻塞特性。",
+                "claim_type": "用户反馈",
+                "confidence": "0.95",
+                "section_id": "sec_4",
+                "evidence_ids": [
+                  "1"
+                ],
+                "contains_date": false,
+                "reject_reason": "",
+                "single_source": false,
+                "contains_number": false,
+                "requires_citation": true
+              }
+            ],
+            "evidence": [
+              {
+                "url": "https://blog.csdn.net/lihaiming_2008/article/details/148539770",
+                "page": null,
+                "quote": "蚂蚁金服在核心交易系统中采用PostgreSQL作为底层数据库，利用其强大的事务处理能力和MVCC机制，实现了每秒数十万笔交易的高并发处理。在双11等大促期间，PostgreSQL的行级锁和读写不阻塞特性，确保了交易处理的高效性和数据一致性。",
+                "chunk_id": "49062059-3e26-4eea-9570-40de290363a5",
+                "supports": [
+                  "哪些公司或项目选择了 PostgreSQL 或 MySQL？"
+                ],
+                "relevance": 1.0,
+                "tenant_id": "shadow-review",
+                "session_id": "e03d0270-1049-4b12-ac3d-d19d83d00d57",
+                "document_id": "ebea2dae-086d-4f5c-bfee-2834936893b0",
+                "evidence_id": "1",
+                "published_at": "2026-06-22 16:17:22",
+                "source_title": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+                "source_quality": "high",
+                "parent_chunk_id": "d9eff4af-d162-4792-b918-2c9bd574ecc4"
+              }
+            ],
+            "cross_scope": 0
+          },
+          "sec_5": {
+            "draft": "",
+            "claims": [],
+            "evidence": [],
+            "cross_scope": 0
+          }
+        },
+        "eval_scores": {
+          "details": {
+            "evidence_count": 8,
+            "required_claims": 8,
+            "supported_claims": 8
+          },
+          "duplication_rate": 0.0,
+          "global_coherence": 1.0,
+          "citation_accuracy": 1.0,
+          "citation_coverage": 1.0,
+          "claim_support_rate": 1.0,
+          "fact_conflict_rate": 0.0
+        },
+        "synthesized": "## 引言\n\n在数据库技术领域，选择合适的数据库管理系统对于项目的成功至关重要。MySQL 和 PostgreSQL 作为两种广泛使用的开源数据库系统，各自拥有独特的特性和优势，这使得它们成为了许多开发者和企业考虑的对象。[[claim:claim_2]] MySQL 是一个纯粹的关系数据库，以其简单易用、性能高效而闻名；相比之下，PostgreSQL 则是一个对象关系数据库，提供了更为丰富的数据类型支持以及更强大的功能集。[[claim:claim_1]] 这些差异不仅体现在基本架构上，还涉及到数据类型的支持范围、系统的可扩展性、处理并发请求的能力以及确保数据完整性的机制等方面。因此，深入比较这两种数据库系统的特点与适用场景，可以帮助用户根据自身需求做出更加明智的选择。\n\n## 性能对比\n\n在评估数据库系统时，特别是在高并发写入操作的情况下，性能是一个关键考量因素。根据公开的测评数据显示，PostgreSQL 在处理大量并发写入请求时的表现优于 MySQL，尤其是在那些写密集型的应用场景中[[claim:claim_1]]。这表明对于需要频繁执行写操作的应用程序来说，选择 PostgreSQL 可能更加合适。\n\n影响这两种数据库性能差异的因素之一是它们各自采用的数据存储和检索机制。例如，MySQL 中的 InnoDB 存储引擎利用主键聚簇索引的方式来组织数据，这种方法在应对高并发读写请求方面展现出了显著的优势[[claim:claim_2]]。这意味着，在设计上支持高效访问模式的数据库能够更好地适应高负载环境下的需求。\n\n综上所述，当应用程序面临高并发写入挑战时，考虑到 PostgreSQL 在该领域的优越表现以及 InnoDB 存储引擎提供的优化特性，开发者可以根据具体应用场景的需求来决定最适合的技术方案。\n\n## 架构与并发控制\n\n在探讨 PostgreSQL 和 MySQL 的底层架构及其对并发处理能力的影响时，首先需要了解两者在并发控制机制上的差异。PostgreSQL 在整个系统中采用了多版本并发控制（MVCC）技术，这意味着无论用户如何配置数据库，MVCC 都是默认启用的。相比之下，MySQL 对于 MVCC 的支持则依赖于所选择的具体存储引擎；例如，InnoDB 存储引擎支持 MVCC，而 MyISAM 则不提供这种功能[[claim:claim_1]]。\n\n此外，在数据一致性和事务处理方面也存在显著区别。PostgreSQL 设计为在所有情况下都完全符合 ACID（原子性、一致性、隔离性、持久性）属性，确保了即使是在高并发环境下也能保持数据的一致性和可靠性。相反地，MySQL 只有当使用像 InnoDB 或 NDB Cluster 这样的特定存储引擎时才能达到 ACID 标准的要求[[claim:claim_2]]。\n\n这些架构上的不同点直接影响到了两种数据库管理系统处理并发请求的能力。由于 PostgreSQL 普遍应用了 MVCC 以及其固有的 ACID 兼容性，它能够更有效地管理大量同时发生的读写操作，尤其是在那些要求高度一致性的应用场景中表现尤为突出。另一方面，虽然 MySQL 通过采用如 InnoDB 等高级存储引擎也可以实现良好的并发性能，但其灵活性意味着最终效果可能会根据具体配置而有所变化。因此，在选择适合特定需求的数据库解决方案时，理解这些基础架构特点是非常重要的。\n\n## 实际应用案例分析\n\n在实际应用中，不同的公司和项目根据自身需求选择了 PostgreSQL 或 MySQL 作为其数据库解决方案。一个典型的例子是蚂蚁金服在其核心交易系统中采用了 PostgreSQL 作为底层数据库[[claim:1]]。这一选择背后的原因揭示了 PostgreSQL 在特定场景下的优势。\n\n蚂蚁金服之所以倾向于使用 PostgreSQL，主要基于几个关键因素。首先，PostgreSQL 拥有强大的事务处理能力，这对于金融行业来说至关重要，因为它确保了数据的一致性和可靠性。此外，PostgreSQL 的多版本并发控制（MVCC）机制也是吸引蚂蚁金服的一个重要因素。这种机制允许在同一时间点对同一数据进行读写操作而不会相互干扰，从而提高了系统的整体性能[[claim:2]]。特别是在高并发环境下，PostgreSQL 提供的行级锁以及读写不阻塞特性，使得它能够更有效地管理大量同时发生的请求，这直接增强了用户体验并减少了延迟问题。\n\n通过蚂蚁金服的例子可以看出，在需要高度可靠且能有效处理复杂事务及高并发访问的应用场景中，PostgreSQL 展现出了显著的优势。这些特点不仅满足了金融服务对于数据安全性的严格要求，同时也支持了业务快速发展的需求。\n\n## 结论与建议\n\n综合上述分析，我们可以得出以下结论：在高并发写入场景下，PostgreSQL 通常表现出更好的性能和更高的数据一致性。然而，MySQL 通过其灵活的存储引擎配置（尤其是 InnoDB）也能在某些情况下提供出色的性能。因此，选择哪种数据库取决于具体的应用需求和优先级。\n\n对于需要高度一致性和强大事务处理能力的应用，如金融系统，PostgreSQL 可能是更好的选择。而对于那些更注重简单易用性和成本效益的应用，MySQL 仍然是一个值得考虑的选项。此外，未来的数据库发展趋势也需要纳入考虑，以确保所选技术能够持续满足不断增长的需求。\n\n总之，通过深入了解 PostgreSQL 和 MySQL 的性能、架构和实际应用案例，用户可以更好地根据自身需求做出明智的选择。",
+        "document_map": [
+          {
+            "title": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+            "sections": [
+              {
+                "heading": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "d9eff4af-d162-4792-b918-2c9bd574ecc4",
+                "summary_or_excerpt": "从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析_从大厂实践看 postgresql 与 mysql 的选型逻辑-CSDN博客 从大厂实践看PostgreSQL与MySQL的选型逻辑：万字长文带你深度剖析 最新推荐文章于 2026-06-22 16:17:22 发布 原创 最新推荐文章于 2026-06-22 16:17:22 发布 · 1.7k 阅读 · 28 · 18 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。…"
+              }
+            ],
+            "document_id": "ebea2dae-086d-4f5c-bfee-2834936893b0",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否",
+            "sections": [
+              {
+                "heading": "不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "75ddf352-d933-40d8-bb03-2d62bd657999",
+                "summary_or_excerpt": "不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 - 烦恼的沙发 - SegmentFault 思否 不要再盲选了，PostgreSQL、MySQL与SQLite真实性能对比 烦恼的沙发 6 月 1 日 广东 阅读 3 分钟 0 程序员都知道，关系型数据库的选型直接决定了系统后期的扩展性与性能上限。目前主流的开源关系型数据库主要有 PostgreSQL、MySQL 和 SQLite，但这几个数据库的底层架构、查询优化机制以及适用场景上却有所不同。本文将从技术实现细节入手，深入剖析这三种数据库的实际表现。 三大关系型数据库架构与定…"
+              }
+            ],
+            "document_id": "49c5722b-2259-4bd6-bca4-94396cc6d827",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+            "sections": [
+              {
+                "heading": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "24b064a1-0a4f-4459-8bef-a3b26af6f695",
+                "summary_or_excerpt": "PostgreSQL 与 MySQL — 关系数据库管理系统（RDBMS）之间的区别 — AWS 跳至主要内容 MySQL 和 PostgreSQL 有何区别？ 创建 AWS 账户 MySQL 和 PostgreSQL 有何区别？ PostgreSQL 和 MySQL 有何相似之处？ 主要区别：PostgreSQL 与 MySQL 如何在 PostgreSQL 与 MySQL 之间做出选择 区别摘要：PostgreSQL 与 MySQL AWS 如何支持您的 PostgreSQL 和 MySQL 要求？ MySQL 和 PostgreSQL 有何区别？…"
+              }
+            ],
+            "document_id": "03d3c2f2-1e8e-4946-bfc9-40ed36d4dfd0",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云",
+            "sections": [
+              {
+                "heading": "如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "cd4146de-e5e0-47d0-8e52-21c25ffdce91",
+                "summary_or_excerpt": "如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡-腾讯云开发者社区-腾讯云 用户11680974 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 原创 关注作者 腾讯云 开发者社区 文档 建议反馈 控制台 登录/注册 首页 学习 活动 专区 圈层 工具 MCP广场 文章/答案/技术大牛 搜索 搜索 关闭 发布 用户11680974 社区首页 > 专栏 > 如何选择数据库？从真实案例看 PostgreSQL 与 MySQL 的优劣权衡 如何选择数据库？从真实案例看 PostgreSQL 与 M…"
+              }
+            ],
+            "document_id": "bcd62409-db8c-4154-a68d-fda58981313b",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园",
+            "sections": [
+              {
+                "heading": "postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园",
+                "position": 1,
+                "child_count": 2,
+                "parent_chunk_id": "b26772e2-c771-495d-bf30-ebdc07e6d4a5",
+                "summary_or_excerpt": "postgresql和MYSQL的对比 - 数据库小白（专注） - 博客园 数据库小白（专注） postgresql和MYSQL的对比 postgresql和MYSQL的对比 目录 postgresql和MYSQL的对比 一、结论 二、测试环境对齐（所有来源一致硬件） 三、OLTP 场景（sysbench 1.1，表 10 × 1 000 万行） 四、OLAP/复杂查询（同库 50–100 GB） 五、可扩展与并发控制 六、实战选型速查表 以下报告基于 2024-2025 年公开测评数据，在“硬件配置相同、参数均经官方推荐优化”前提下，对 MySQL…"
+              }
+            ],
+            "document_id": "c3f452aa-2b2a-415e-83d7-4c45dd98fbc7",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "MySQL vs PostgreSQL @ 2025 | PIGSTY",
+            "sections": [
+              {
+                "heading": "MySQL vs PostgreSQL @ 2025 | PIGSTY",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "38b73cf6-51ae-491a-af33-5882da85ae96",
+                "summary_or_excerpt": "MySQL vs PostgreSQL @ 2025 | PIGSTY 查看页面源码 编辑此页 添加子页面 提交文档问题 提交项目问题 整节打印 Modules APP 10 BLOG 8 DOCKER 9 ETCD 7 FERRET 6 INFRA 17 JUPYTER 1 KAFKA 1 MINIO 9 MYSQL 1 NODE 11 PGEXT 479 PGSQL 44 PIGSTY 42 REDIS 7 SOFTWARE 16 TigerBeetle 4 VICTORIA 1 Categories About 10 Admin 31 AI 4…"
+              }
+            ],
+            "document_id": "a28bbb52-b8c3-450e-9feb-0fb6dddf7c76",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "PostgreSQL vs MySQL 2026: July Data Changes the Answer",
+            "sections": [
+              {
+                "heading": "PostgreSQL vs MySQL 2026: July Data Changes the Answer",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "a78e83e3-6552-4578-9a5f-ca4dba519203",
+                "summary_or_excerpt": "PostgreSQL vs MySQL 2026: July Data Changes the Answer Skip to content 🛠 Part of the Dev Tools & AI Workflow series → ⚡ 30-second version PostgreSQL and MySQL both shipped major updates in 2025-2026, but the gap between them is growing — not shrinking. PostgreSQL is the only top…"
+              }
+            ],
+            "document_id": "b34c6584-8d4d-4367-ab3e-93e26282f08c",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "Database Performance On Linux Statistics 2026",
+            "sections": [
+              {
+                "heading": "Database Performance On Linux Statistics 2026",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "9d3b1a33-3cd4-4176-872e-12408f0bf43f",
+                "summary_or_excerpt": "Database Performance On Linux Statistics 2026 Close Menu Facebook X (Twitter) Instagram Database Performance On Linux Statistics 2026 By Willie March 14, 2026 Updated: March 14, 2026 No Comments 5 Mins Read PostgreSQL completed a SELECT query against one million records in under…"
+              }
+            ],
+            "document_id": "77a47e97-2945-4df3-9ab2-50028776facf",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "MySQL vs PostgreSQL (2026): Speed, Features, Cost — Real Benchmarks",
+            "sections": [
+              {
+                "heading": "MySQL vs PostgreSQL (2026): Speed, Features, Cost — Real Benchmarks",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "f9f58528-2388-44b8-854e-ae5586aa73dd",
+                "summary_or_excerpt": "MySQL vs PostgreSQL (2026): Speed, Features, Cost — Real Benchmarks Database Comparison MySQL vs PostgreSQL: Which Database Should You Use in 2026? A comprehensive comparison of MySQL and PostgreSQL covering syntax differences, performance, data types, scalability, cloud ecosyst…"
+              }
+            ],
+            "document_id": "09cfc9af-f00c-4932-94c1-10920ad5f6c3",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026]",
+            "sections": [
+              {
+                "heading": "PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026]",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "140b347b-1079-44a5-978d-9c678e434e63",
+                "summary_or_excerpt": "PostgreSQL vs MySQL: 5 Benchmarks Reveal the Winner [2026] Skip to content Sofia Lindström March 19, 2026 30 min read The database wars have never been more consequential. In 2026, the choice between PostgreSQL vs MySQL sits at the center of nearly every new architecture decisio…"
+              }
+            ],
+            "document_id": "f46060d4-91d7-4d59-be10-71af90a81eaf",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          },
+          {
+            "title": "PostgreSQL Vs MySQL 2026: Which Database Should You Actually Use?",
+            "sections": [
+              {
+                "heading": "PostgreSQL Vs MySQL 2026: Which Database Should You Actually Use?",
+                "position": 1,
+                "child_count": 3,
+                "parent_chunk_id": "cad8ee29-6c74-4795-bcc4-f6f2d4059c86",
+                "summary_or_excerpt": "PostgreSQL Vs MySQL 2026: Which Database Should You Actually Use? PostgreSQL vs MySQL 2026: The Complete Guide to Choosing the Right Database PostgreSQL vs MySQL comparison with real benchmarks. MySQL dominates WordPress (20-35% faster) and read-heavy apps. PostgreSQL excels at…"
+              }
+            ],
+            "document_id": "65977307-c7d3-4b84-9127-e2a3e5c35d40",
+            "source_type": "scrape",
+            "published_at": "",
+            "source_quality": ""
+          }
+        ]
+      },
+      "llm_trace": [
+        {
+          "ts": 1786285382.2769291,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285382.311695,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285382.3266525,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285382.3425872,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285382.3554082,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285382.3696184,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285382.3856344,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285382.3993948,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.3490582,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.3492148,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.395467,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.3956177,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.4423773,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.4425259,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.472883,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.4730597,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.5191317,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285439.5192757,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.2175143,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.21776,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.2673872,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.2675338,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.3148377,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.3150053,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.3510482,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.351302,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.3873472,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285461.3875413,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.3195295,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.319697,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.346827,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.3469636,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.3758364,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.3760414,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.4070258,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.4071813,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.4561331,
+          "type": "degrade_embedding",
+          "reason": "circuit_open",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285488.4562848,
+          "type": "degrade_rag",
+          "reason": "vector_query:embedding_unavailable",
+          "rag_degraded": true
+        },
+        {
+          "ts": 1786285516.9706275,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285517.2107577,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285519.3296323,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285519.47983,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285519.70133,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285519.8253953,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285520.0307524,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285520.1775637,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285520.4204752,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285520.5592265,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285559.5728498,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285559.6886547,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285559.9909995,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285560.1116357,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285560.2909355,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285560.429144,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285560.6405826,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285560.7725637,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285589.481172,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285589.6210892,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285593.3691733,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285593.498104,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285595.5543613,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285595.707333,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285597.7652879,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285597.908562,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285599.892618,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285600.026215,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285602.1123044,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285602.2429557,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285603.5220697,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285603.8746955,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285605.3652208,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285605.4902456,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285606.4135702,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285606.5503066,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285607.4534419,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285607.6065564,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285608.492721,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285608.6297958,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        },
+        {
+          "ts": 1786285609.505785,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "dashscope:text-embedding-v2",
+          "from_model": "dashscope:text-embedding-v1"
+        },
+        {
+          "ts": 1786285609.6492012,
+          "type": "degrade_embedding",
+          "reason": "runtime_switch",
+          "to_model": "ollama:nomic-embed-text",
+          "from_model": "dashscope:text-embedding-v2"
+        }
+      ],
+      "file_paths": {
+        "md": "outputs/task_1786285587_c6e0a7688f.md",
+        "pdf": "outputs/task_1786285587_c6e0a7688f.pdf",
+        "docx": "outputs/task_1786285587_c6e0a7688f.docx",
+        "json": "outputs/job_7b8f2a95-474b-452d-bb10-8b18cc4cb44e_1786285294_PostgreSQL_与_MySQL_在高并发写入场景下的取舍.json"
+      },
+      "files_done": true,
+      "degradations": {
+        "reasons": [
+          {
+            "ts": 1786285519.329615,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285519.4798157,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285519.701318,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285519.8253815,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285520.030733,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285520.1775491,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285520.4204636,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285520.559208,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285559.5728323,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285559.68864,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285559.9909878,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.1116204,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285560.290925,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.4291291,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285560.640573,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285560.7725496,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285589.481159,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285589.621069,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285593.3691597,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285593.4980881,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285595.554349,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285595.707319,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285597.765276,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285597.9085472,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285599.8926013,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285600.0262,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285602.112287,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285602.2429376,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285603.5220573,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285603.8746805,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285605.3652089,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285605.4902313,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285606.413557,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285606.5502918,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285607.4534292,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285607.6065419,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285608.4927118,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285608.6297817,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          },
+          {
+            "ts": 1786285609.505772,
+            "reason": "runtime_switch",
+            "to_model": "dashscope:text-embedding-v2",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v1"
+          },
+          {
+            "ts": 1786285609.6491854,
+            "reason": "runtime_switch",
+            "to_model": "ollama:nomic-embed-text",
+            "subsystem": "embedding",
+            "from_model": "dashscope:text-embedding-v2"
+          }
+        ],
+        "rag_degraded": true,
+        "scrape_failures": 1,
+        "search_keys_used": [
+          "...lOj1Ct85"
+        ],
+        "embedding_switches": [
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "dashscope:text-embedding-v2",
+            "from": "dashscope:text-embedding-v1",
+            "reason": "runtime_switch"
+          },
+          {
+            "to": "ollama:nomic-embed-text",
+            "from": "dashscope:text-embedding-v2",
+            "reason": "runtime_switch"
+          }
+        ],
+        "search_keys_failed": [],
+        "search_unavailable": false,
+        "scrape_failure_samples": [
+          {
+            "url": "https://zhuanlan.zhihu.com/p/1930701609584799931",
+            "reason": "too_short",
+            "quality": "low"
+          }
+        ]
+      },
+      "planning_done": true,
+      "research_done": true,
+      "source_policy": {
+        "mode": "web",
+        "reason": "policy_web_first"
+      },
+      "planning_started": true,
+      "report_body_done": true,
+      "report_persisted": true
+    },
+    "version": 39,
+    "created_at": 1786285030966,
+    "updated_at": 1786285610532
+  }
+}

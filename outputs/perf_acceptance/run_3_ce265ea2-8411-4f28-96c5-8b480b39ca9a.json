@@ -1,0 +1,75 @@
+{
+  "job_id": "ce265ea2-8411-4f28-96c5-8b480b39ca9a",
+  "task": "Redis 分布式锁原理简述，控制在500字以内",
+  "status": "completed",
+  "error": null,
+  "created_at": 1786279306.724,
+  "started_at": 1786279311.748,
+  "updated_at": 1786279440.092,
+  "queue_sec": 5.02,
+  "total_sec": 133.37,
+  "searches": 4,
+  "llm_calls": 3,
+  "retries": 0,
+  "model_switches": 0,
+  "embedding_switches": [],
+  "embedding_switch_count": 0,
+  "rag_degraded": false,
+  "scrape_failures": 2,
+  "search_unavailable": false,
+  "event_types": {
+    "degrade_scrape": 2
+  },
+  "model_field_mentions": {},
+  "llm_events": [
+    {
+      "ts": 1786279399.207247,
+      "url": "https://blog.csdn.net/Tingfeng__/article/details/142027409",
+      "type": "degrade_scrape",
+      "reason": "too_short",
+      "quality": "low"
+    },
+    {
+      "ts": 1786279399.20732,
+      "url": "https://support.huaweicloud.com/intl/zh-cn/redisug-nosql/redis_bestpractice_2_010.html",
+      "type": "degrade_scrape",
+      "reason": "too_short",
+      "quality": "low"
+    }
+  ],
+  "scrape_batches_logged": 4,
+  "scrape_complete_logged": 0,
+  "timeout_mentions_in_job_logs": 0,
+  "embedding_retry_log_lines": 0,
+  "qwen_max_before_writing_report": false,
+  "qwen_max_near_planning_heuristic": false,
+  "report": {
+    "report_chars": 6998,
+    "report_cjk_chars": 2117,
+    "body_citation_nums": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "body_citation_count": 12,
+    "reference_entry_count": 12,
+    "heading_count": 12,
+    "has_truncated": false,
+    "has_ref_anchors": true,
+    "missing_refs": []
+  },
+  "auto_quality": {
+    "score": 5,
+    "notes": []
+  },
+  "run": 3
+}

@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-08-09T08:51:38.871691",
+  "job_id": "80d66c20-566b-4f57-8a44-bf2d8d9d9d35",
+  "events": [
+    {
+      "timestamp": "2026-08-09T08:51:39.322215",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for 'Redis 并发控制简述，控制在600字以内'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T08:51:39.361655",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "Default Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T08:51:39.401029",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: Redis 并发控制简述，控制在600字以内...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-09T08:51:41.316484",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "Redis 并发控制简述，控制在600字以内",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0
+  }
+}

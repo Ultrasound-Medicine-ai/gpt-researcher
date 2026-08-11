@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import os
 import uuid
@@ -35,52 +36,6 @@ logging.basicConfig(
 
 # Note: LLM client is now handled through GPT Researcher's unified LLM system
 # This supports all configured providers (OpenAI, Google Gemini, Anthropic, etc.)
-
-
-def _looks_like_report_request(text: str) -> bool:
-    """Heuristic for explicit new-report asks when the model skips the tool. :-)"""
-    # Keep Chinese intent detection independent of the source-file encoding.
-    # The old literal-keyword list below can be garbled by an editor, so use
-    # Unicode escapes for the safety-critical path.
-    raw = (text or "").strip()
-    if "\u62a5\u544a" in raw and any(
-        marker in raw.lower() or marker in raw
-        for marker in (
-            "\u5e2e\u6211",  # 帮我
-            "\u5199",  # 写
-            "\u751f\u6210",  # 生成
-            "\u521b\u5efa",  # 创建
-            "\u64b0\u5199",  # 撰写
-            "\u8c03\u7814",  # 调研
-            "\u63d0\u4ea4",  # 提交
-            "write",
-            "generate",
-            "create",
-            "research",
-            "submit",
-        )
-    ):
-        return True
-    t = (text or "").strip().lower()
-    if not t:
-        return False
-    keys = (
-        "写一份报告",
-        "写一篇报告",
-        "写个报告",
-        "生成报告",
-        "研究报告",
-        "独立报告",
-        "提交报告",
-        "帮我写一份",
-        "帮我调研并写",
-        "write a report",
-        "research report",
-        "generate a report",
-        "create a report",
-        "submit a report",
-    )
-    return any(k in t for k in keys)
 
 
 def _latest_user_text(messages: list) -> str:
@@ -228,13 +183,53 @@ class ChatAgentWithMemory:
             }
 
 
-    async def process_chat_completion(self, messages: List[Dict[str, str]]):
+    async def process_chat_completion(
+        self,
+        messages: List[Dict[str, str]],
+        *,
+        allow_report_creation: bool = True,
+        forced_quick_search_query: str = "",
+    ):
         """Process chat completion using configured LLM provider with tool calling support"""
+        forced_query = " ".join((forced_quick_search_query or "").split()).strip()
+        if forced_query:
+            # Once the policy selects quick_search, execution is deterministic:
+            # run exactly one search, then let the answer model synthesize it.
+            search_result = await asyncio.to_thread(self.quick_search, forced_query)
+            evidence = json.dumps(search_result, ensure_ascii=False, default=str)[:12000]
+            answer_messages = [
+                *messages,
+                {
+                    "role": "system",
+                    "content": (
+                        "The policy selected a web search for this turn. Answer from "
+                        "the search evidence below, mention uncertainty when evidence "
+                        "is insufficient, and do not claim a report was created.\n\n"
+                        f"Search query: {forced_query}\nSearch evidence: {evidence}"
+                    ),
+                },
+            ]
+            response = await create_chat_completion(
+                messages=answer_messages,
+                model=self.config.smart_llm_model,
+                temperature=0.2,
+                max_tokens=4000,
+                llm_provider=self.config.smart_llm_provider,
+                llm_kwargs=self.config.llm_kwargs,
+            )
+            return response, [
+                {
+                    "tool": "quick_search",
+                    "query": forced_query,
+                    "search_metadata": self.search_metadata,
+                }
+            ]
+
         # Create a search tool using the utility function
         search_tool = create_search_tool(self.quick_search)
         tools = [search_tool]
 
-        if self.report_request_callback is not None:
+        if self.report_request_callback is not None and allow_report_creation:
             from langchain_core.tools import tool
 
             callback = self.report_request_callback
@@ -354,16 +349,96 @@ class ChatAgentWithMemory:
             citations: list[dict] = []
             rag_degraded = False
 
+            # Semantic understanding is separated from execution.  The router
+            # returns a validated intent; the policy decides whether a report
+            # side-effect may even be requested.  Permission/concurrency/budget
+            # remain enforced by POST /api/jobs/research.
+            from chat.intent_router import (
+                apply_intent_policy,
+                classify_chat_intent,
+                route_metadata,
+            )
+
+            latest_user = _latest_user_text(messages)
+            router_model = (
+                os.getenv("CHAT_INTENT_ROUTER_MODEL") or self.config.fast_llm_model
+            )
+            router_provider = (
+                os.getenv("CHAT_INTENT_ROUTER_PROVIDER")
+                or self.config.fast_llm_provider
+            )
+            intent = await classify_chat_intent(
+                latest_message=latest_user,
+                has_report=has_report,
+                report_topic=topic,
+                messages=list(messages or []),
+                model=router_model,
+                llm_provider=router_provider,
+                llm_kwargs=self.config.llm_kwargs,
+            )
+            decision = apply_intent_policy(
+                intent,
+                has_report=has_report,
+                report_creation_available=self.report_request_callback is not None,
+            )
+            intent_meta = route_metadata(intent, decision)
+            logger.info(
+                "Chat intent action=%s target=%s confidence=%.3f source=%s "
+                "policy=%s allow_report_side_effect=%s",
+                intent.action.value,
+                intent.target.value,
+                intent.confidence,
+                intent.source,
+                decision.action,
+                decision.allow_report_side_effect,
+            )
+
+            if decision.action == "clarify":
+                return decision.message, intent_meta
+
+            if decision.action == "request_report_creation":
+                callback_result = self.report_request_callback(
+                    decision.query or latest_user,
+                    "",
+                )
+                if hasattr(callback_result, "__await__"):
+                    callback_result = await callback_result
+                if not isinstance(callback_result, dict):
+                    callback_result = {}
+                if callback_result.get("action") != "create_report":
+                    # A failed application callback must never be presented as
+                    # successful report submission.
+                    failed_decision = decision.model_copy(
+                        update={
+                            "action": "clarify",
+                            "allow_report_side_effect": False,
+                            "message": (
+                                "当前无法创建独立报告。我可以先在对话中帮助你梳理需求。"
+                            ),
+                            "reason": "report_callback_rejected",
+                        }
+                    )
+                    return failed_decision.message, route_metadata(intent, failed_decision)
+                meta = {
+                    **intent_meta,
+                    "tool_calls": [
+                        {
+                            "tool": "create_research_report",
+                            **callback_result,
+                        }
+                    ],
+                }
+                return (
+                    "已确认创建独立研究报告。左侧将显示任务进度；"
+                    "当前对话仍可继续使用。",
+                    meta,
+                )
+
             # Hybrid RAG: FTS + vector (RRF), tenant/session scoped
             if research_id:
                 try:
                     from rag.pipeline import citations_as_metadata, retrieve_for_chat
 
-                    latest_user = ""
-                    for msg in reversed(messages or []):
-                        if isinstance(msg, dict) and msg.get("role") == "user":
-                            latest_user = str(msg.get("content") or "")
-                            break
                     query_text = latest_user or topic
                     assembled = retrieve_for_chat(
                         query_text,
@@ -383,6 +458,24 @@ class ChatAgentWithMemory:
 
             normalized_language = (report_language or "chinese").lower()
             language_label = "Chinese" if normalized_language in ("chinese", "zh", "zh-cn", "zh-tw") else "English"
+
+            if decision.action == "quick_search":
+                routing_note = (
+                    "The intent router selected quick_search. Use quick_search before "
+                    "answering, and do not create a report."
+                )
+            elif has_report and decision.reason == "current_report_operation":
+                routing_note = (
+                    "The intent router selected the current report. Answer, summarize, "
+                    "translate, rewrite, explain, or extract directly in chat. Do not "
+                    "create a separate report."
+                )
+            else:
+                routing_note = (
+                    "The intent router selected an in-chat response. Answer directly; "
+                    "use quick_search only if fresh external information is needed. "
+                    "Do not create a separate report."
+                )
 
             if has_report:
                 context_section = f"""
@@ -421,15 +514,12 @@ class ChatAgentWithMemory:
 
             {phase_note}
 
-            You have quick_search for live web search and create_research_report for a new,
-            long-form research request. When the user explicitly asks for a new report, new
-            research, or to submit a report topic, you MUST call create_research_report
-            (tool call) before any confirmation text. Never claim a report was submitted
-            unless that tool was actually called. Do not first call quick_search for that
-            request: the report worker retrieves the private knowledge base first and decides
-            whether web search is needed. After a successful report-tool call, reply only with
-            a short confirmation that the separate report task has been submitted. Do not put
-            the report body in this chat reply.
+            A separate structured intent router has already decided whether this turn may
+            create a research Job. New-report requests are handled before this response call,
+            so you must not claim that a report was created or submitted here.
+
+            Turn routing policy:
+            {routing_note}
 
             For normal chat questions, use quick_search whenever live web search would help:
             current events, missing facts, verification, statistics, or anything not fully
@@ -477,7 +567,13 @@ class ChatAgentWithMemory:
                     logger.warning(f"Skipping message with missing role or content: {msg}")
             
             # Process the chat using configured LLM provider
-            ai_message, tool_calls_metadata = await self.process_chat_completion(formatted_messages)
+            ai_message, tool_calls_metadata = await self.process_chat_completion(
+                formatted_messages,
+                allow_report_creation=False,
+                forced_quick_search_query=(
+                    decision.query if decision.action == "quick_search" else ""
+                ),
+            )
 
             # process_chat_completion returns a list of tool metadatas — never dict(). :-)
             tool_calls: list[dict] = []
@@ -490,32 +586,6 @@ class ChatAgentWithMemory:
                 elif tool_calls_metadata.get("tool"):
                     tool_calls = [tool_calls_metadata]
 
-            # Safety net: model may confirm without calling the report tool. :-)
-            has_report_tool = any(
-                t.get("tool") == "create_research_report" and t.get("action") == "create_report"
-                for t in tool_calls
-            )
-            latest_user = _latest_user_text(messages)
-            if (
-                self.report_request_callback is not None
-                and not has_report_tool
-                and _looks_like_report_request(latest_user)
-            ):
-                logger.warning(
-                    "Report intent detected but create_research_report was not called; forcing callback"
-                )
-                forced = self.report_request_callback(latest_user, "")
-                if hasattr(forced, "__await__"):
-                    forced = await forced
-                if isinstance(forced, dict) and forced.get("action") == "create_report":
-                    tool_calls.append(
-                        {"tool": "create_research_report", **forced}
-                    )
-                    ai_message = (
-                        "已开始生成独立报告。左侧显示进度；"
-                        "右侧对话保持不变，可继续提问或再请求生成报告。"
-                    )
-
             # Provide fallback response if message is empty
             if not ai_message:
                 logger.warning("No AI message content found in response, using fallback message")
@@ -523,7 +593,7 @@ class ChatAgentWithMemory:
             
             logger.info(f"Generated response: {ai_message[:100]}..." if len(ai_message) > 100 else f"Generated response: {ai_message}")
 
-            meta: dict[str, Any] = {}
+            meta: dict[str, Any] = dict(intent_meta)
             if tool_calls:
                 meta["tool_calls"] = tool_calls
             if citations:
