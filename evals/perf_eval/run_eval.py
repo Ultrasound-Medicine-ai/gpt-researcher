@@ -36,7 +36,7 @@ def _http_json(
     data: dict | None = None,
     headers: dict | None = None,
     timeout: int = 180,
-) -> tuple[int, dict, float]:
+) -> tuple[int, dict, float, str]:
     body = None if data is None else json.dumps(data, ensure_ascii=False).encode("utf-8")
     req = urllib.request.Request(
         url,
@@ -49,33 +49,62 @@ def _http_json(
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             raw = resp.read().decode("utf-8")
             payload = json.loads(raw) if raw else {}
-            return resp.status, payload, (time.perf_counter() - t0) * 1000.0
+            set_cookie = resp.headers.get("Set-Cookie") or ""
+            return (
+                resp.status,
+                payload,
+                (time.perf_counter() - t0) * 1000.0,
+                set_cookie,
+            )
     except urllib.error.HTTPError as exc:
         raw = exc.read().decode("utf-8", errors="replace")
         try:
             payload = json.loads(raw)
         except json.JSONDecodeError:
             payload = {"error": raw[:300]}
-        return exc.code, payload, (time.perf_counter() - t0) * 1000.0
+        return exc.code, payload, (time.perf_counter() - t0) * 1000.0, ""
     except Exception as exc:  # noqa: BLE001
-        return 599, {"error": str(exc)}, (time.perf_counter() - t0) * 1000.0
+        return 599, {"error": str(exc)}, (time.perf_counter() - t0) * 1000.0, ""
+
+
+def _cookie_from_set_cookie(set_cookie: str) -> str:
+    # Prefer gptr_uid=...; fall back to first Cookie name=value. :-)
+    text = set_cookie or ""
+    for part in text.replace(",", ";").split(";"):
+        nv = part.strip()
+        if nv.lower().startswith("gptr_uid="):
+            return nv
+    for part in text.split(";"):
+        nv = part.strip()
+        if "=" in nv and not nv.lower().startswith(
+            ("path=", "max-age=", "expires=", "httponly", "samesite=", "secure")
+        ):
+            return nv
+    return ""
 
 
 def _api_up(base: str) -> bool:
-    code, _, _ = _http_json(f"{base.rstrip('/')}/api/auth/me", timeout=10)
+    code, _, _, _ = _http_json(f"{base.rstrip('/')}/api/auth/me", timeout=10)
     return code < 500
 
 
 def _bootstrap_cookie(base: str) -> str:
-    code, _, ms = _http_json(f"{base.rstrip('/')}/api/auth/me", timeout=20)
-    # urllib doesn't give Set-Cookie easily here; visitor cookie often optional. :-)
-    _ = (code, ms)
-    return ""
+    code, _, _, set_cookie = _http_json(f"{base.rstrip('/')}/api/auth/me", timeout=20)
+    if code >= 400:
+        return ""
+    return _cookie_from_set_cookie(set_cookie)
+
+
+def _job_status(payload: dict) -> str:
+    job = payload.get("job") if isinstance(payload.get("job"), dict) else None
+    if job:
+        return str(job.get("status") or "")
+    return str(payload.get("status") or "")
 
 
 def _chat_once(base: str, user: str, cookie: str) -> float:
     headers = {"Cookie": cookie} if cookie else {}
-    code, _, ms = _http_json(
+    code, _, ms, _ = _http_json(
         f"{base.rstrip('/')}/api/chat",
         data={
             "report": "",
@@ -133,47 +162,76 @@ def _run_chat_p95(case: dict, base: str, *, concurrency: int, requests_n: int) -
 
 
 def _run_job_p95(case: dict, base: str, *, concurrency: int) -> dict:
-    """Submit short research jobs and measure wall-clock to terminal status. :-)"""
+    """Submit short research jobs and measure wall-clock to terminal status.
+
+    Each concurrent submit uses its own visitor cookie so we do not trip the
+    per-user concurrency limit. Create retries on 429 (slot busy). Product
+    default RESEARCH_MAX_CONCURRENT_GLOBAL=2, so job concurrency is capped. :-)
+    """
     expect = case.get("expect") or {}
     max_sec = float(expect.get("p95_wall_sec_max") or 180)
     task = str(case.get("task") or "用100字介绍 Redis 是什么")
+    # Align with backend jobs/slots.py default global cap. :-)
+    job_concurrency = max(1, min(concurrency, 2))
     walls: list[float] = []
     errors = 0
+    last_err = ""
 
     def _one(_: int) -> float:
+        nonlocal last_err
+        cookie = _bootstrap_cookie(base)
+        headers = {"Cookie": cookie} if cookie else {}
         t0 = time.perf_counter()
-        code, payload, _ = _http_json(
-            f"{base.rstrip('/')}/api/jobs/research",
-            data={
-                "task": task,
-                "report_type": "research_report",
-                "report_source": "web",
-                "tone": "Objective",
-                "report_language": "chinese",
-            },
-            timeout=60,
-        )
+        payload: dict = {}
+        code = 599
+        for attempt in range(8):
+            code, payload, _, _ = _http_json(
+                f"{base.rstrip('/')}/api/jobs/research",
+                data={
+                    "task": task,
+                    "report_type": "research_report",
+                    "report_source": "web",
+                    "tone": "Objective",
+                    "report_language": "chinese",
+                },
+                headers=headers,
+                timeout=60,
+            )
+            if code == 429:
+                wait = float(payload.get("retry_after") or 15)
+                time.sleep(min(max(wait, 5.0), 45.0))
+                continue
+            break
         if code >= 400 or not payload.get("job_id"):
-            raise RuntimeError(f"create job failed HTTP {code}: {payload}")
+            last_err = f"create job failed HTTP {code}: {payload}"
+            raise RuntimeError(last_err)
         job_id = payload["job_id"]
+        status = ""
         deadline = time.time() + max_sec + 30
         while time.time() < deadline:
-            c2, st, _ = _http_json(
-                f"{base.rstrip('/')}/api/jobs/{job_id}", timeout=30
+            c2, st, _, _ = _http_json(
+                f"{base.rstrip('/')}/api/jobs/{job_id}",
+                headers=headers,
+                timeout=30,
             )
-            status = str((st or {}).get("status") or "")
+            status = _job_status(st)
             if c2 < 400 and status in {"completed", "failed", "cancelled"}:
+                if status != "completed":
+                    last_err = f"job {job_id} ended as {status}"
+                    raise RuntimeError(last_err)
                 return time.perf_counter() - t0
             time.sleep(1.5)
-        raise TimeoutError(f"job {job_id} not terminal within budget")
+        last_err = f"job {job_id} not terminal within budget (last_status={status!r})"
+        raise TimeoutError(last_err)
 
-    with ThreadPoolExecutor(max_workers=max(1, concurrency)) as pool:
-        futs = [pool.submit(_one, i) for i in range(concurrency)]
+    with ThreadPoolExecutor(max_workers=job_concurrency) as pool:
+        futs = [pool.submit(_one, i) for i in range(job_concurrency)]
         for fut in as_completed(futs):
             try:
                 walls.append(fut.result())
-            except Exception:  # noqa: BLE001
+            except Exception as exc:  # noqa: BLE001
                 errors += 1
+                last_err = str(exc)
 
     value = p95(walls) if walls else float("inf")
     failures: list[str] = []
@@ -182,7 +240,9 @@ def _run_job_p95(case: dict, base: str, *, concurrency: int) -> dict:
     elif value > max_sec:
         failures.append(f"p95={value:.1f}s exceeds max={max_sec}s")
     if errors:
-        failures.append(f"{errors}/{concurrency} jobs failed")
+        failures.append(f"{errors}/{job_concurrency} jobs failed")
+        if last_err:
+            failures.append(last_err[:240])
 
     return {
         "id": case["id"],
@@ -192,7 +252,7 @@ def _run_job_p95(case: dict, base: str, *, concurrency: int) -> dict:
         "samples": len(walls),
         "errors": errors,
         "max_sec": max_sec,
-        "concurrency": concurrency,
+        "concurrency": job_concurrency,
     }
 
 
@@ -295,7 +355,7 @@ def run_full(
             )
         elif target == "job":
             results.append(
-                _run_job_p95(case, base, concurrency=min(concurrency, 3))
+                _run_job_p95(case, base, concurrency=min(concurrency, 2))
             )
         else:
             results.append(

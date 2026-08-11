@@ -1,2 +1,2 @@
 {"id": "perf-chat-p95-001", "pillar": "perf", "suite": "full", "status": "active", "target": "chat", "user": "你好，用一句话介绍 GPT Researcher", "scenario": "10 concurrent /api/chat fact questions", "expect": {"p95_latency_ms_max": 8000}}
-{"id": "perf-job-queue-p95-001", "pillar": "perf", "suite": "full", "status": "active", "target": "job", "task": "用80字介绍 Redis 核心用途", "scenario": "up to 3 concurrent short research jobs", "expect": {"p95_wall_sec_max": 180}}
+{"id": "perf-job-queue-p95-001", "pillar": "perf", "suite": "full", "status": "active", "target": "job", "task": "用80字介绍 Redis 核心用途", "scenario": "up to 2 concurrent short research jobs (matches RESEARCH_MAX_CONCURRENT_GLOBAL default)", "expect": {"p95_wall_sec_max": 180}}

@@ -24,11 +24,11 @@ _REPORT_RE = re.compile(
     re.IGNORECASE,
 )
 _SEARCH_RE = re.compile(
-    r"(查一下|搜索|最新|现在|什么版本|多少钱|新闻)",
+    r"(查一下|搜索|最新|现在|什么版本|多少钱|新闻|是什么)",
     re.IGNORECASE,
 )
 _REFUSE_RE = re.compile(
-    r"(入侵|窃取|黑客攻击|制作炸弹|违法犯罪)",
+    r"(入侵|窃取|黑客攻击|制作炸弹|违法犯罪|破解他人)",
     re.IGNORECASE,
 )
 

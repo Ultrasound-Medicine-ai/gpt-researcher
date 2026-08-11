@@ -77,14 +77,22 @@ async def evaluate_single_query(query: str, evaluator: SimpleQAEval) -> dict:
     }
 
 
-async def main_async(num_examples: int, seed: int | None = None) -> dict:
+async def main_async(
+    num_examples: int,
+    seed: int | None = None,
+    sample_mode: str = "stratified",
+) -> dict:
     from _common import resolve_sample_seed
 
     _require_research_keys()
     grader = build_grader_chat_model()
     sample_seed = resolve_sample_seed(seed)
+    mode = (sample_mode or os.getenv("EVAL_SAMPLE_MODE") or "stratified").strip().lower()
     evaluator = SimpleQAEval(
-        grader_model=grader, num_examples=num_examples, seed=sample_seed
+        grader_model=grader,
+        num_examples=num_examples,
+        seed=sample_seed,
+        sample_mode=mode,
     )
     results = []
     for example in evaluator.examples:
@@ -92,10 +100,20 @@ async def main_async(num_examples: int, seed: int | None = None) -> dict:
         if not query:
             continue
         try:
-            results.append(await evaluate_single_query(query, evaluator))
+            row = await evaluate_single_query(query, evaluator)
+            row["topic"] = example.get("_topic")
+            row["answer_type"] = example.get("_answer_type")
+            results.append(row)
         except Exception as exc:  # noqa: BLE001
             print(f"✗ Error evaluating query: {exc}")
-            results.append({"query": query, "error": str(exc)})
+            results.append(
+                {
+                    "query": query,
+                    "error": str(exc),
+                    "topic": example.get("_topic"),
+                    "answer_type": example.get("_answer_type"),
+                }
+            )
 
     successful = [r for r in results if "error" not in r]
     correct = sum(1 for r in successful if r.get("evaluation_grade") == "CORRECT")
@@ -121,7 +139,11 @@ async def main_async(num_examples: int, seed: int | None = None) -> dict:
     summary = {
         "suite": "simpleqa",
         "num_examples": num_examples,
+        "effective_n": len(evaluator.examples),
         "sample_seed": sample_seed,
+        "sample_mode": mode,
+        "strata_counts": getattr(evaluator, "strata_counts", {}),
+        "answer_type_counts": getattr(evaluator, "answer_type_counts", {}),
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "metrics": metrics,
         "results": results,
@@ -150,8 +172,17 @@ def main() -> None:
         default=None,
         help="Sample seed (default: EVAL_SAMPLE_SEED or 42)",
     )
+    parser.add_argument(
+        "--sample-mode",
+        choices=["stratified", "random"],
+        default=None,
+        help="stratified (default) = topic-proportional; random = uniform",
+    )
     args = parser.parse_args()
-    summary = asyncio.run(main_async(args.num_examples, seed=args.seed))
+    mode = args.sample_mode or os.getenv("EVAL_SAMPLE_MODE") or "stratified"
+    summary = asyncio.run(
+        main_async(args.num_examples, seed=args.seed, sample_mode=mode)
+    )
     # Soft-fail only if zero successful graded rows
     if summary["metrics"]["successful"] == 0:
         raise SystemExit(1)

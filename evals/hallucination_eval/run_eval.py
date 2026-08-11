@@ -28,6 +28,10 @@ if str(REPO_ROOT / "evals") not in sys.path:
 load_dotenv(REPO_ROOT / ".env")
 
 from _common import resolve_sample_seed, seeded_sample  # noqa: E402
+from evals.hallucination_eval.query_buckets import (  # noqa: E402
+    risk_bucket,
+    summarize_by_bucket,
+)
 from gpt_researcher.agent import GPTResearcher  # noqa: E402
 from gpt_researcher.utils.enum import ReportSource, ReportType, Tone  # noqa: E402
 
@@ -64,9 +68,17 @@ class ResearchEvaluator:
             for line in f:
                 data = json.loads(line.strip())
                 queries.append(data["question"])
-        if num_queries and num_queries < len(queries):
+        corpus_n = len(queries)
+        if num_queries and num_queries < corpus_n:
             sample_seed = resolve_sample_seed(seed)
             return seeded_sample(queries, num_queries, seed=sample_seed)
+        if num_queries and num_queries > corpus_n:
+            logger.info(
+                "Requested n=%s but corpus has %s; using full corpus (effective_n=%s)",
+                num_queries,
+                corpus_n,
+                corpus_n,
+            )
         return queries
 
     async def run_research(self, query: str) -> Dict:
@@ -140,6 +152,7 @@ async def main_async(
             logger.info("Processing query: %s", query)
             research_data = await evaluator.run_research(query)
             eval_results = evaluator.evaluate_research(research_data, output_dir=output_dir)
+            eval_results["risk_bucket"] = risk_bucket(query)
             all_results.append(eval_results)
             total_responses += 1
             if eval_results.get("is_hallucination") is not None:
@@ -152,16 +165,26 @@ async def main_async(
             severity_counts[sev] += 1
         except Exception as exc:  # noqa: BLE001
             logger.error("Error processing query '%s': %s", query, exc)
-            all_results.append({"input": query, "error": str(exc), "is_hallucination": None})
+            all_results.append(
+                {
+                    "input": query,
+                    "error": str(exc),
+                    "is_hallucination": None,
+                    "risk_bucket": risk_bucket(query),
+                }
+            )
 
     hallucination_rate = (
         total_hallucinated / total_evaluated if total_evaluated > 0 else None
     )
+    by_bucket = summarize_by_bucket(all_results)
     aggregate_results = {
         "suite": "hallucination",
         "judge": judge,
         "judge_mode": "multi_source_evidence_pack_major_only",
         "sample_seed": sample_seed,
+        "requested_n": num_queries,
+        "effective_n": len(queries),
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "total_queries": len(queries),
         "successful_queries": len([r for r in all_results if "error" not in r]),
@@ -170,6 +193,7 @@ async def main_async(
         "total_hallucinated": total_hallucinated,
         "hallucination_rate": hallucination_rate,
         "severity_counts": severity_counts,
+        "by_bucket": by_bucket,
         "total_cost": sum(float(r.get("cost") or 0) for r in all_results),
         "results": all_results,
     }
@@ -186,10 +210,12 @@ async def main_async(
     )
 
     print("\n=== Evaluation Summary ===")
-    print(f"Queries processed: {len(queries)}")
+    print(f"Queries processed: {len(queries)} (requested_n={num_queries})")
     print(f"Responses evaluated: {total_evaluated}")
     if hallucination_rate is not None:
         print(f"Hallucination rate: {hallucination_rate * 100:.1f}%")
+    if by_bucket:
+        print(f"By risk bucket: {json.dumps(by_bucket, ensure_ascii=False)}")
     print(f"Wrote {latest}")
     return aggregate_results
 

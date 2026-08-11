@@ -23,6 +23,12 @@ def main() -> None:
         default=None,
         help="Sample seed (default: EVAL_SAMPLE_SEED or 42)",
     )
+    parser.add_argument(
+        "--sample-mode",
+        choices=["stratified", "random"],
+        default="stratified",
+        help="SimpleQA sampling mode (default: stratified)",
+    )
     args = parser.parse_args()
     cmd = [
         sys.executable,
@@ -31,6 +37,8 @@ def main() -> None:
         "nightly",
         "--num-examples",
         str(args.num_examples),
+        "--sample-mode",
+        args.sample_mode,
     ]
     if args.seed is not None:
         cmd.extend(["--seed", str(args.seed)])

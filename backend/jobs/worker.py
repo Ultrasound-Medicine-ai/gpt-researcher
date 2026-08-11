@@ -50,6 +50,7 @@ def _build_cost_payload(
     budget: Any | None,
     runtime: Any | None,
     status: str | None,
+    researcher: Any | None = None,
 ) -> dict[str, Any]:
     snap = budget.snapshot() if budget is not None else {}
     cost: dict[str, Any] = {
@@ -59,6 +60,25 @@ def _build_cost_payload(
     }
     if runtime is not None and hasattr(runtime, "cost_trace"):
         cost.update(runtime.cost_trace())
+    # USD estimate accumulated by GPTResearcher.add_costs (tiktoken / provider rules). :-)
+    if researcher is not None:
+        try:
+            llm_usd = float(researcher.get_costs())
+        except Exception:  # noqa: BLE001
+            llm_usd = None
+        step_costs = None
+        try:
+            if hasattr(researcher, "get_step_costs"):
+                step_costs = {
+                    str(k): round(float(v), 6) for k, v in (researcher.get_step_costs() or {}).items()
+                }
+        except Exception:  # noqa: BLE001
+            step_costs = None
+        if llm_usd is not None:
+            cost["llm_usd"] = round(llm_usd, 6)
+            cost["llm_usd_source"] = "researcher.get_costs"
+        if step_costs:
+            cost["llm_step_costs_usd"] = step_costs
     return cost
 
 

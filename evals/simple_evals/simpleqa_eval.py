@@ -98,6 +98,31 @@ CHOICE_STRINGS = ["CORRECT", "INCORRECT", "NOT_ATTEMPTED"]
 CHOICE_LETTER_TO_STRING = dict(zip(CHOICE_LETTERS, CHOICE_STRINGS))
 
 
+def _parse_simpleqa_meta(raw) -> tuple[str, str]:
+    import ast
+
+    if isinstance(raw, dict):
+        meta = raw
+    elif isinstance(raw, str) and raw.strip():
+        try:
+            meta = ast.literal_eval(raw)
+        except (SyntaxError, ValueError):
+            meta = {}
+    else:
+        meta = {}
+    if not isinstance(meta, dict):
+        meta = {}
+    return str(meta.get("topic") or "Unknown"), str(meta.get("answer_type") or "Unknown")
+
+
+def _count_by(rows: list[dict], key: str) -> dict[str, int]:
+    out: dict[str, int] = {}
+    for row in rows:
+        k = str(row.get(key) or "Unknown")
+        out[k] = out.get(k, 0) + 1
+    return dict(sorted(out.items()))
+
+
 class SimpleQAEval:
     def __init__(
         self,
@@ -105,9 +130,13 @@ class SimpleQAEval:
         num_examples=1,
         csv_path: str | None = None,
         seed: int | None = None,
+        sample_mode: str = "stratified",
     ):
         """Initialize the evaluator with a grader model and number of examples."""
         self.grader_model = grader_model
+        self.sample_mode = (sample_mode or "stratified").strip().lower()
+        if self.sample_mode not in {"stratified", "random"}:
+            raise ValueError("sample_mode must be 'stratified' or 'random'")
 
         # Prefer local mirrored CSV (offline / reproducible). Fall back to OpenAI blob.
         local = Path(
@@ -128,44 +157,65 @@ class SimpleQAEval:
         for ex in all_examples:
             if "problem" not in ex and "question" in ex:
                 ex["problem"] = ex["question"]
+            topic, answer_type = _parse_simpleqa_meta(ex.get("metadata"))
+            ex["_topic"] = topic
+            ex["_answer_type"] = answer_type
 
         # Deterministic subset (seeded) without replacement. :-)
         if num_examples > len(all_examples):
-            print(f"Warning: Requested {num_examples} examples but only {len(all_examples)} available")
+            print(
+                f"Warning: Requested {num_examples} examples but only "
+                f"{len(all_examples)} available"
+            )
             num_examples = len(all_examples)
 
-        from _common import resolve_sample_seed, seeded_sample
+        from _common import resolve_sample_seed, seeded_sample, seeded_stratified_sample
 
         self.sample_seed = resolve_sample_seed(seed)
-        self.examples = seeded_sample(all_examples, num_examples, seed=self.sample_seed)
+        if self.sample_mode == "random":
+            self.examples = seeded_sample(
+                all_examples, num_examples, seed=self.sample_seed
+            )
+            self.strata_counts = _count_by(self.examples, "_topic")
+        else:
+            self.examples, self.strata_counts = seeded_stratified_sample(
+                all_examples,
+                num_examples,
+                key_fn=lambda ex: ex.get("_topic") or "Unknown",
+                seed=self.sample_seed,
+            )
+        self.answer_type_counts = _count_by(self.examples, "_answer_type")
         print(
-            f"Selected {num_examples} examples for evaluation "
-            f"(seed={self.sample_seed})"
+            f"Selected {len(self.examples)} examples for evaluation "
+            f"(seed={self.sample_seed}, mode={self.sample_mode})"
         )
+        if self.strata_counts:
+            print(f"Topic strata: {self.strata_counts}")
 
     def evaluate_example(self, example: dict) -> dict:
         """Evaluate a single example."""
         problem = example.get("problem") or example.get("question")
         correct_answer = example["answer"]
         predicted_answer = example["predicted"]
-        
+
         grade = self.grade_response(problem, correct_answer, predicted_answer)
-        
-        # Calculate metrics based on grade
+
         metrics = {
             "grade": grade,
             "is_correct": 1.0 if grade == "CORRECT" else 0.0,
             "is_incorrect": 1.0 if grade == "INCORRECT" else 0.0,
-            "is_not_attempted": 1.0 if grade == "NOT_ATTEMPTED" else 0.0
+            "is_not_attempted": 1.0 if grade == "NOT_ATTEMPTED" else 0.0,
         }
-        
+
         return {
-            "score": metrics["is_correct"],  # Score is 1.0 for CORRECT, 0.0 otherwise
+            "score": metrics["is_correct"],
             "metrics": {"grade": grade},
             "html": "",
-            "convo": [{"role": "evaluator", "content": problem},
-                      {"role": "evaluator", "content": correct_answer},
-                      {"role": "agent", "content": predicted_answer}]
+            "convo": [
+                {"role": "evaluator", "content": problem},
+                {"role": "evaluator", "content": correct_answer},
+                {"role": "agent", "content": predicted_answer},
+            ],
         }
 
     def grade_response(self, question: str, correct_answer: str, model_answer: str) -> str:
@@ -174,26 +224,25 @@ class SimpleQAEval:
         print(f"Question: {question}")
         print(f"Gold target: {correct_answer}")
         print(f"Predicted answer: {model_answer}")
-        
+
         prompt = GRADER_TEMPLATE.format(
             question=question,
             target=correct_answer,
-            predicted_answer=model_answer
+            predicted_answer=model_answer,
         )
-        
+
         messages = [{"role": "user", "content": prompt}]
         response = self.grader_model.invoke(messages)
         response_text = response.content.strip()
-        
-        # Convert letter response to grade string
+
         if response_text in CHOICE_LETTERS:
             grade = CHOICE_LETTER_TO_STRING[response_text]
         else:
-            # Fallback for direct string responses
             for grade in CHOICE_STRINGS:
                 if grade in response_text:
                     return grade
-            grade = "NOT_ATTEMPTED"  # Default if no grade found
-            
+            grade = "NOT_ATTEMPTED"
+
         print(f"\nGrade: {grade}")
-        return grade 
+        return grade
+ 

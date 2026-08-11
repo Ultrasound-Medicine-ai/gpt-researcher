@@ -1,3 +1,5 @@
 {"id": "live-chat-report-001", "suite": "full", "status": "active", "user": "请帮我写一份关于 Redis 的短调研报告，要求150字左右", "expect": {"tool": "create_research_report", "task_contains_any": ["Redis"]}}
 {"id": "live-chat-clarify-001", "suite": "full", "status": "active", "user": "帮我调研SSE，400字左右", "expect": {"clarify_or_report": true, "must_include_any": ["Server-Sent", "上海证券", "上交所", "已开始生成", "报告"]}}
 {"id": "live-chat-search-001", "suite": "full", "status": "active", "user": "用一句话解释什么是 pgvector", "expect": {"forbid_tool": "create_research_report", "min_reply_chars": 20}}
+{"id": "live-chat-chitchat-001", "suite": "full", "status": "active", "user": "你好，你是谁？", "expect": {"forbid_tool": "create_research_report", "min_reply_chars": 8}}
+{"id": "live-chat-search-news-001", "suite": "full", "status": "active", "user": "搜索一下向量数据库最近有什么进展", "expect": {"forbid_tool": "create_research_report", "min_reply_chars": 15}}

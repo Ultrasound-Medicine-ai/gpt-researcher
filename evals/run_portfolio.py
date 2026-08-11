@@ -55,13 +55,24 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
     live = metrics.get("live_chat") or {}
     cheap = metrics.get("cheap") or {}
     harness = metrics.get("harness_full") or {}
+    product = metrics.get("product_strata") or {}
 
     lines = [
         "# Portfolio evaluation metrics",
         "",
         f"- Generated (UTC): `{metrics.get('timestamp')}`",
-        f"- Sample size (SimpleQA / hallucination): **{metrics.get('num_examples')}**",
+        f"- Sample size (SimpleQA requested / hallucination requested): "
+        f"**{metrics.get('num_examples')}**",
         f"- Sample seed: **{metrics.get('sample_seed')}**",
+        f"- SimpleQA sample mode: **{sqa.get('sample_mode') or metrics.get('sample_mode') or 'n/a'}**",
+        "",
+        "## Pillar ledger (do not merge into one accuracy)",
+        "",
+        "| Pillar | What it measures | Notes |",
+        "|--------|------------------|-------|",
+        "| A Fact (SimpleQA) | short-form factuality | topic-stratified sample |",
+        "| B Faithfulness (hallucination) | MAJOR vs evidence pack | full corpus when n≥70 |",
+        "| C Product behavior | dialogue / tool / fuzz / memory | cheap JSONL gates |",
         "",
         "## Gate layers",
         "",
@@ -75,27 +86,36 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
         "",
         "## Headline numbers (resume-friendly)",
         "",
+        "### A — Fact (SimpleQA)",
+        "",
     ]
     sqm = sqa.get("metrics") or {}
     if sqm:
         lines += [
-            f"- **SimpleQA accuracy (among attempted):** {sqm.get('accuracy', 0):.1%}",
-            f"- **SimpleQA F1:** {sqm.get('f1', 0):.3f}",
-            f"- **SimpleQA correct rate:** {sqm.get('correct_rate', 0):.1%} "
+            f"- **accuracy (among attempted):** {sqm.get('accuracy', 0):.1%}",
+            f"- **F1:** {sqm.get('f1', 0):.3f}",
+            f"- **correct rate:** {sqm.get('correct_rate', 0):.1%} "
             f"({sqm.get('successful', 0)} graded)",
-            f"- **SimpleQA cost (sample):** ${sqm.get('total_cost', 0):.4f}",
+            f"- **effective_n / mode:** {sqa.get('effective_n', sqa.get('num_examples'))} / "
+            f"`{sqa.get('sample_mode') or 'n/a'}`",
+            f"- **topic strata:** `{sqa.get('strata_counts') or {}}`",
+            f"- **answer_type mix (report-only):** `{sqa.get('answer_type_counts') or {}}`",
+            f"- **cost:** ${sqm.get('total_cost', 0):.4f}",
             "",
         ]
     else:
         lines += ["- SimpleQA: not available in this run", ""]
 
+    lines += ["### B — Faithfulness (hallucination)", ""]
     if hall:
         rate = hall.get("hallucination_rate")
         rate_s = f"{rate:.1%}" if isinstance(rate, (int, float)) else "n/a"
         sev = hall.get("severity_counts") or {}
         lines += [
-            f"- **Hallucination rate (MAJOR):** {rate_s} "
+            f"- **MAJOR hallucination detection rate:** {rate_s} "
             f"({hall.get('total_hallucinated', 0)}/{hall.get('total_evaluated', 0)} evaluated)",
+            f"- **effective_n:** {hall.get('effective_n', hall.get('total_queries'))} "
+            f"(requested {hall.get('requested_n', metrics.get('num_examples'))})",
             f"- **Judge mode:** `{hall.get('judge_mode') or hall.get('judge') or 'lite'}`",
         ]
         if sev:
@@ -103,12 +123,26 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
                 f"- **Severity mix:** MAJOR {sev.get('MAJOR', 0)} / "
                 f"MINOR {sev.get('MINOR', 0)} / NONE {sev.get('NONE', 0)}"
             )
+        by_bucket = hall.get("by_bucket") or {}
+        if by_bucket:
+            lines.append(f"- **by risk bucket:** `{by_bucket}`")
         lines += [
-            f"- **Hallucination sample cost:** ${float(hall.get('total_cost') or 0):.4f}",
+            f"- **cost:** ${float(hall.get('total_cost') or 0):.4f}",
             "",
         ]
     else:
         lines += ["- Hallucination: not available in this run", ""]
+
+    lines += ["### C — Product behavior", ""]
+    if product:
+        for pillar, row in product.items():
+            lines.append(
+                f"- **{pillar}:** active {row.get('active', 0)} "
+                f"(blocked {row.get('blocked', 0)})"
+            )
+        lines.append("")
+    else:
+        lines += ["- Product strata: not available in this run", ""]
 
     if live:
         lines += [
@@ -121,13 +155,33 @@ def write_portfolio_md(metrics: dict, path: Path) -> None:
         "",
         "1. **Cheap gate** catches regressions without spending tokens (intent clarify, tool policy, citations).",
         "2. **Full gate** samples live Agent A (research job) + Agent B (chat tools).",
-        "3. **Nightly / portfolio** measures quality: SimpleQA + multi-source faithfulness (MAJOR only).",
-        "4. Metrics are written to `evals/results/*_latest.json` for audit/repro.",
+        "3. **Nightly / portfolio** measures quality with a **pillar ledger**: "
+        "SimpleQA topic-stratified factuality + hallucination MAJOR rate (full 70) + product JSONL.",
+        "4. Never merge pillars into one “overall accuracy”.",
+        "5. Metrics are written to `evals/results/*_latest.json` for audit/repro.",
         "",
-        "See [PORTFOLIO.md](./PORTFOLIO.md) for the full narrative.",
+        "See [PORTFOLIO.md](../PORTFOLIO.md) for the full narrative.",
         "",
     ]
     path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def _product_strata() -> dict:
+    """Count active/blocked cases per product pillar JSONL. :-)"""
+    if str(REPO_ROOT / "evals") not in sys.path:
+        sys.path.insert(0, str(REPO_ROOT / "evals"))
+    from _common import load_jsonl
+
+    out: dict = {}
+    for pillar in ("dialogue", "tool", "fuzz", "memory"):
+        path = REPO_ROOT / "evals" / f"{pillar}_eval" / "cases.jsonl"
+        if not path.is_file():
+            continue
+        active = load_jsonl(path, suite="cheap", include_blocked=False)
+        all_rows = load_jsonl(path, suite="cheap", include_blocked=True)
+        blocked = [c for c in all_rows if (c.get("status") or "").lower() == "blocked"]
+        out[pillar] = {"active": len(active), "blocked": len(blocked)}
+    return out
 
 
 def main() -> None:
@@ -138,6 +192,12 @@ def main() -> None:
         type=int,
         default=None,
         help="Sample seed for SimpleQA/hallucination (default: EVAL_SAMPLE_SEED or 42)",
+    )
+    parser.add_argument(
+        "--sample-mode",
+        choices=["stratified", "random"],
+        default="stratified",
+        help="SimpleQA sampling mode (default: stratified by topic)",
     )
     parser.add_argument("--harness-limit", type=int, default=1)
     parser.add_argument("--skip-live-chat", action="store_true")
@@ -161,6 +221,7 @@ def main() -> None:
         "EVAL_TOTAL_WORDS": os.getenv("EVAL_TOTAL_WORDS") or "350",
         "EVAL_LIVE_CHAT": "1",
         "EVAL_SAMPLE_SEED": str(sample_seed),
+        "EVAL_SAMPLE_MODE": args.sample_mode,
     }
 
     steps = []
@@ -205,6 +266,8 @@ def main() -> None:
                     str(args.num_examples),
                     "--seed",
                     str(sample_seed),
+                    "--sample-mode",
+                    args.sample_mode,
                 ],
                 env=eval_env,
             )
@@ -229,6 +292,8 @@ def main() -> None:
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "num_examples": args.num_examples,
         "sample_seed": sample_seed,
+        "sample_mode": args.sample_mode,
+        "product_strata": _product_strata(),
         "cheap": {"ok": steps[0]["ok"], **steps[0]},
         "harness_full": {"ok": steps[1]["ok"], **steps[1]},
         "live_chat": _load_json(RESULTS / "live_chat_latest.json"),

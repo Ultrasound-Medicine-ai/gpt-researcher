@@ -4,7 +4,17 @@
 
 ## 一句话定位
 
-> 为研究 Agent SaaS 建了分层评测闭环：cheap 离线护栏（对话/工具/记忆/Fuzz/Perf schema）→ full 抽样 live + Chat P95 → nightly SimpleQA/幻觉，指标落盘到看板与回归队列，抽样 seed 可复现。
+> 为研究 Agent SaaS 建了分层评测闭环：cheap 离线护栏（对话/工具/记忆/Fuzz/Perf schema）→ full 抽样 live + Chat P95 → nightly **支柱分账**（SimpleQA topic 分层事实性 / 幻觉全量 70 + risk bucket / 产品 JSONL），指标落盘到看板与回归队列，seed 可复现。
+
+## 抽样分层（支柱内 + 支柱间）
+
+| 支柱 | 抽样方式 | 默认 |
+|------|----------|------|
+| A 事实 SimpleQA | 按 `metadata.topic` **比例分层**（`--sample-mode stratified`） | n=100, seed=42 |
+| B 忠实度幻觉 | 母集仅 70：请求 n≥70 时 **全量**；按 risk_bucket 分桶报告 | effective_n=70 |
+| C 产品行为 | dialogue/tool/fuzz/memory JSONL 全量门禁（含 blocked） | 不并入 SimpleQA |
+
+禁止把三支柱合成一个「总准确率」。`--sample-mode random` 保留旧均匀随机行为。
 
 ## 面试必补三个数字
 
@@ -12,12 +22,12 @@
 
 | 资产 | 数量 | 说明 |
 |------|------|------|
-| 产品回归 JSONL | **29** 条（active **26** / blocked **3**） | dialogue+live chat+tool+memory+fuzz+perf+harness |
-| cheap 单测（pytest） | **37** | citation / language / planning / seed / p95 helper |
-| SimpleQA 题库 | **4326**（日常抽样 **n=10**） | 上游 CSV，seed=42 可复现子集 |
-| 幻觉查询集 | **70**（日常抽样 **n=10**） | 上游 jsonl + MAJOR-only judge |
+| 产品回归 JSONL | **68** 条（active **65** / blocked **3**） | dialogue+live chat+tool+memory+fuzz+perf+harness |
+| cheap 单测（pytest） | **40+** | citation / language / planning / seed+stratified / product JSONL floor / p95 helper |
+| SimpleQA 题库 | **4326**（对外质量 **topic 分层 n=100**） | 上游 CSV，seed=42，`sample_mode=stratified` |
+| 幻觉查询集 | **70**（对外质量 **全量**） | 上游 jsonl + MAJOR-only judge + risk_bucket |
 
-**面试一句：**「产品回归约 30 条 JSONL + 37 条单测；质量基准复用 4k+ SimpleQA / 70 条幻觉题，简历数字用 seed=42 的 n=10 抽样。」
+**面试一句：**「事实用 SimpleQA 按 topic 分层抽 100；幻觉跑全量 70 高风险开放题并分桶；工具/澄清另走产品 JSONL，三支柱分账不混报。」
 
 ### （2）门禁耗时（本机实测 / 量级）
 
@@ -34,42 +44,53 @@
 
 | 项 | 阈值（门禁） | 本机结果（2026-08-10） |
 |----|--------------|------------------------|
-| `/api/chat` P95 | **&lt; 8000 ms（8s）** | **≈ 2395 ms（2.4s）PASS** |
-| 压测设定 | 并发 **5**，请求 **n=10** | `perf-chat-p95-001` |
-| Job 队列 P95 | **&lt; 180s**（可选） | 默认 SKIP；`--include-jobs` 开启 |
+| `/api/chat` P95 | **&lt; 8000 ms（8s）** | **≈ 1.6–2.4s PASS**（并发 2–5，n=10） |
+| Job 队列 P95 | **&lt; 180s** | **≈ 70s PASS**（并发 2，对齐全局槽位默认） |
+| 压测设定 | Chat 并发 **2–5** / Job 并发 **2** | Redis + ARQ 异步 Job，非 Celery |
 
-**面试一句：**「Chat P95 门禁阈值 8 秒，本机并发 5、10 次请求测到约 2.4 秒。」
+**面试一句：**「Chat P95 门禁 8 秒，实测约 2 秒；异步研究 Job 端到端 P95 门禁 180 秒，实测约 70 秒。」
 
 ## 简历可直接粘贴（中文）
 
-**项目二 · Agent 评测与观测体系（GPT-Researcher 二次开发）**  
-为多用户研究/对话 SaaS 搭建七支柱评测与分层门禁（cheap / full / nightly + CI）。产品回归 **29** 条 JSONL + **37** 条单测；质量基准复用 SimpleQA **4326** / 幻觉 **70**，日常 **n=10、seed=42** 可复现。cheap **&lt;1 分钟**；full **约 2–5 分钟**；nightly n=10 **约 20–40 分钟**。Chat P95 门禁 **&lt;8s**，本机实测 **≈2.4s**。质量抽样：SimpleQA accuracy/F1 **70%**；幻觉 MAJOR **50%**（多源 evidence pack）。  
-*技术栈：Python / pytest / FastAPI 契约评测 / JSONL case / LLM-as-judge（Matpool）*
+### 标准版（推荐投递）
 
-**面试 30 秒版：**  
-项目一做产品，项目二做护栏：约 30 条回归用例 + 37 单测进 CI（分钟级）；发版前 full 含 live Chat 与 P95&lt;8s（实测约 2.4s）；夜间 n=10 出 SimpleQA/幻觉数字，失败进回归队列，Fuzz 可回流。
+**项目二 · 研究 Agent 评测体系与发布门禁（GPT-Researcher 二次开发）**  
+面向多用户研究 Agent SaaS，独立搭建可复现的分层评测与发布护栏：CI **cheap** 离线门禁（对话意图澄清 / 工具路由 / 记忆槽位 / Fuzz / 引用与语言契约）→ 发版前 **full**（live Chat + 研究 Job）→ 夜间 **nightly** 质量三支柱分账（事实 / 忠实度 / 产品行为，禁止合成「总准确率」）。  
+- **规模：** 产品回归 JSONL **68** 条（active **65** / blocked **3**）+ pytest **40+**；事实侧复用 SimpleQA **4326**，对外质量按 topic **分层抽样 n=100**（seed=42）；忠实度侧 **70** 条高风险开放题 **全量**评测并按 risk bucket 分桶。  
+- **性能：** `/api/chat` P95 门禁 **&lt;8s**（实测 **≈1.6–2.4s**）；异步研究 Job（Redis + ARQ）端到端 P95 门禁 **&lt;180s**（实测 **≈70s**）。  
+- **质量结果：** SimpleQA 分层 n=100 事实 accuracy **≈81.5%**（F1≈0.78）；高风险集 MAJOR 级错误检出率 **≈65.7%**（多源 evidence pack + LLM-as-Judge）。  
+- **闭环：** 失败写入回归队列，Fuzz 弱点可晋升为正式用例；已知能力缺口用 blocked 显式隔离。  
+*技术栈：Python / pytest / FastAPI / JSONL harness / Redis+ARQ / LLM-as-Judge / CI gate / 指标看板*
+
+### 精简版（一行偏紧）
+
+搭建研究 Agent 分层评测（cheap / full / nightly，三支柱分账）：68 条产品 JSONL；Chat P95&lt;8s（≈2s）、Job P95&lt;180s（≈70s）；SimpleQA topic 分层 n=100 accuracy≈81.5%；高风险幻觉全量 70，MAJOR 检出率≈65.7%；失败 Case 回流可晋升。
+
+### 面试 30 秒版
+
+项目一做产品能力，项目二做可发布护栏：CI cheap 分钟级防回归；发版前验 live Chat 与异步 Job P95；夜间用分层 SimpleQA（n=100）和高风险幻觉全量 70 出质量数字——事实准确率与 MAJOR 检出率分账，不混成一个总准确率；失败进队列可晋升用例。
 
 ## 跑出指标（推荐）
 
 环境：`conda activate gptresearcher`（Python ≥ 3.10），API 容器在 `8000` 可选（live chat 用）。
 
 ```bash
-# 一键 portfolio：cheap + harness full(1) + live chat + SimpleQA(3) + hallucination(3)
-# 默认 sample seed=42（可用 --seed / EVAL_SAMPLE_SEED 覆盖，保证同一子集可复现）
-D:\anaconda3\envs\gptresearcher\python.exe evals/run_portfolio.py --num-examples 3 --seed 42
+# 一键 portfolio：默认 SimpleQA topic 分层；幻觉 n≥70 即全量
+# 默认 sample seed=42（可用 --seed / EVAL_SAMPLE_SEED 覆盖）
+D:\anaconda3\envs\gptresearcher\python.exe evals/run_portfolio.py --num-examples 100 --seed 42 --sample-mode stratified
 ```
 
 产物：
 
 | 文件 | 内容 |
 |------|------|
-| `evals/results/portfolio_latest.json` | 全量结构化结果 |
-| `evals/results/PORTFOLIO_METRICS.md` | 简历可用摘要表 |
-| `evals/results/simpleqa_latest.json` | accuracy / F1 / cost |
-| `evals/results/hallucination_latest.json` | hallucination_rate |
+| `evals/results/portfolio_latest.json` | 全量结构化结果（含 sample_mode / product_strata） |
+| `evals/results/PORTFOLIO_METRICS.md` | 简历可用摘要表（A/B/C 分账） |
+| `evals/results/simpleqa_latest.json` | accuracy / F1 / strata_counts / cost |
+| `evals/results/hallucination_latest.json` | hallucination_rate / by_bucket |
 | `evals/results/live_chat_latest.json` | Chat 工具路由抽样 |
 
-成本可控：`EVAL_TOTAL_WORDS=350`（默认）缩短成文；`--num-examples 3` 即可讲故事，不必上百题。
+成本可控：`EVAL_TOTAL_WORDS=350`（默认）缩短成文；冒烟可用 `--num-examples 3`，对外质量用 **n=100 stratified**。
 
 ## 分层门禁（面试时按这个讲）
 
@@ -106,7 +127,8 @@ nightly / portfolio（质量基准）
 从 `evals/results/PORTFOLIO_METRICS.md` 抄最新值。本机 2026-08-10 **n=10** 样例：
 
 - Cheap / full harness / live chat：**PASS**（live chat 3/3）
-- Chat P95（live，并发 5、n=10）：**≈ 2.4s**（阈值 8s，PASS）
+- Chat P95（live，n=10）：**≈ 1.6–2.4s**（阈值 8s，PASS）
+- Job P95（live，并发 2）：**≈ 70s**（阈值 180s，PASS；Redis+ARQ）
 - SimpleQA：**accuracy / F1 = 70%**（7/10 CORRECT），成本 ≈ **$0.47**
 - Hallucination（MAJOR）：**50%**（5/10；severity: MAJOR 5 / MINOR 1 / NONE 4），成本 ≈ **$0.53**
   - judge=`lite` + **multi-source evidence pack** + 仅计 MAJOR（虚构实体/数字/错误归因）
@@ -128,7 +150,10 @@ A: `resolve_report_intent` 进 dialogue cheap；期望 `clarify` 而不是直接
 A: 上游 SimpleQA 只覆盖报告事实性；项目二并列加了 Chat 工具链与记忆门禁，并统一 `run_gates`/`run_portfolio`。
 
 **Q: 指标能复现吗？**  
-A: case JSONL + `*_latest.json` 落盘；SimpleQA 用本地 CSV；抽样用 `--seed` / `EVAL_SAMPLE_SEED`（默认 42），结果里带 `sample_seed`。
+A: case JSONL + `*_latest.json` 落盘；SimpleQA 用本地 CSV；抽样用 `--seed` / `EVAL_SAMPLE_SEED`（默认 42）+ `--sample-mode stratified|random`，结果里带 `sample_seed` / `sample_mode` / `strata_counts`。
+
+**Q: n=100 是随机还是分层？**  
+A: 默认 **topic 比例分层**（非均匀随机）；幻觉母集 70 条在 n≥70 时全量跑，并按 risk_bucket 分桶；工具场景不混进 SimpleQA。
 
 ## 与开源上游的关系
 

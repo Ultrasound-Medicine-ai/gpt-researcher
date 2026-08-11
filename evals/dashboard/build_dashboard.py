@@ -196,11 +196,15 @@ def render_md(artifacts: dict[str, Any], failures: list[dict], traces: dict) -> 
         "",
         "## Quality headlines",
         "",
-        f"- SimpleQA accuracy: **{sqm.get('accuracy', 'n/a')}** (seed={sqa.get('sample_seed')})",
+        f"- SimpleQA accuracy: **{sqm.get('accuracy', 'n/a')}** "
+        f"(seed={sqa.get('sample_seed')}, mode={sqa.get('sample_mode')})",
         f"- SimpleQA F1: **{sqm.get('f1', 'n/a')}**",
+        f"- SimpleQA topic strata: `{sqa.get('strata_counts') or {}}`",
         f"- Hallucination rate: **{hall.get('hallucination_rate', 'n/a')}** "
-        f"(judge={hall.get('judge_mode') or hall.get('judge')})",
+        f"(judge={hall.get('judge_mode') or hall.get('judge')}, "
+        f"effective_n={hall.get('effective_n', hall.get('total_queries'))})",
         f"- Hallucination severity: `{hall.get('severity_counts')}`",
+        f"- Hallucination by_bucket: `{hall.get('by_bucket') or {}}`",
         "",
         "## Perf P95",
         "",

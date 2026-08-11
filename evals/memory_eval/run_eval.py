@@ -25,7 +25,19 @@ def _extract_slots(turns: list[dict]) -> dict[str, str]:
         slots["language"] = "chinese"
     if re.search(r"english|英文", blob, re.IGNORECASE):
         slots["language"] = slots.get("language") or "english"
-    m = re.search(r"(FastAPI|Flask|Django|Redis|SSE|WebSocket)", blob, re.IGNORECASE)
+    if re.search(r"markdown|\.md\b|md\s*格式", blob, re.IGNORECASE):
+        slots["format"] = "markdown"
+    if re.search(r"\bpdf\b|导出\s*pdf", blob, re.IGNORECASE):
+        slots["format"] = slots.get("format") or "pdf"
+    m_len = re.search(r"(?:不超过|最多|限制)?\s*(\d+)\s*字", blob)
+    if m_len:
+        slots["max_chars"] = m_len.group(1)
+    m = re.search(
+        r"(FastAPI|Flask|Django|Redis|SSE|WebSocket|LangGraph|PostgreSQL|"
+        r"Celery|pgvector|Kubernetes|Docker)",
+        blob,
+        re.IGNORECASE,
+    )
     if m:
         slots["entity"] = m.group(1)
     return slots
@@ -46,9 +58,13 @@ def _mock_answer(case: dict, slots: dict[str, str]) -> str:
         parts.append(summary)
     if "语言偏好" in last or "language" in last.lower():
         parts.append(f"你的语言偏好是{slots.get('language', '未记录')}。")
-    if "它" in last or "优势" in last:
+    if "格式" in last and slots.get("format"):
+        parts.append(f"你偏好的输出格式是{slots['format']}。")
+    if "字数" in last or "多长" in last:
+        parts.append(f"字数约束是{slots.get('max_chars', '未记录')}字。")
+    if "它" in last or "这个" in last or "优势" in last or "对比" in last:
         ent = expect.get("resolved_entity") or slots.get("entity") or "该主题"
-        parts.append(f"{ent} 相对同类框架更适合异步 API 与自动文档。")
+        parts.append(f"{ent} 相对同类方案更适合当前上下文中的约束。")
     if expect.get("must_include_any") and not parts:
         parts.append(" ".join(expect["must_include_any"]))
     return " ".join(parts) if parts else "已记住上下文。"

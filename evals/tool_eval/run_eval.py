@@ -20,7 +20,10 @@ _REPORT_RE = re.compile(
     r"(写(?:一份)?(?:调研)?报告|调研报告|生成报告|帮我写报告|写个报告)",
     re.IGNORECASE,
 )
-_SEARCH_RE = re.compile(r"(查一下|搜索|检索|什么是|新闻)", re.IGNORECASE)
+_SEARCH_RE = re.compile(
+    r"(查一下|搜索|检索|什么是|新闻|多少钱|最新版|是什么)",
+    re.IGNORECASE,
+)
 _CHITCHAT_RE = re.compile(r"^(你好|您好|hi|hello|你是谁)", re.IGNORECASE)
 
 

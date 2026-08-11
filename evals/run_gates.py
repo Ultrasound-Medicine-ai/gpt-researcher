@@ -45,6 +45,7 @@ def run_cheap() -> list[dict]:
                 "tests/test_report_language.py",
                 "tests/test_planning_context.py",
                 "tests/test_eval_sample_seed.py",
+                "tests/test_eval_product_cases.py",
                 "tests/test_perf_p95.py",
                 "-q",
             ]
@@ -126,7 +127,11 @@ def run_full(limit: int, *, live_chat: bool = True, base_url: str = "http://127.
     return steps
 
 
-def run_nightly(num_examples: int, seed: int | None = None) -> list[dict]:
+def run_nightly(
+    num_examples: int,
+    seed: int | None = None,
+    sample_mode: str = "stratified",
+) -> list[dict]:
     steps: list[dict] = []
     # Skip harness nightly alias noise; focus on quality baselines.
     simpleqa_cmd = [
@@ -134,6 +139,8 @@ def run_nightly(num_examples: int, seed: int | None = None) -> list[dict]:
         "evals/simple_evals/run_eval.py",
         "--num_examples",
         str(num_examples),
+        "--sample-mode",
+        sample_mode,
     ]
     hall_cmd = [
         sys.executable,
@@ -207,6 +214,12 @@ def main() -> None:
         help="Sample seed for nightly (default: EVAL_SAMPLE_SEED or 42)",
     )
     parser.add_argument(
+        "--sample-mode",
+        choices=["stratified", "random"],
+        default="stratified",
+        help="SimpleQA sampling mode (default: stratified by topic)",
+    )
+    parser.add_argument(
         "--base-url",
         default="http://127.0.0.1:8000",
         help="API base for live chat in full suite",
@@ -218,7 +231,9 @@ def main() -> None:
     elif args.suite == "full":
         steps = run_full(args.limit, base_url=args.base_url)
     else:
-        steps = run_nightly(args.num_examples, seed=args.seed)
+        steps = run_nightly(
+            args.num_examples, seed=args.seed, sample_mode=args.sample_mode
+        )
 
     out = write_summary(args.suite, steps)
     failed = [

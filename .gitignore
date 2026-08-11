@@ -1,54 +1,14 @@
-#Ignore env containing secrets
-.env
-.venv
-.envrc
-
-#Ignore Virtual Env
-env/
-venv/
-.venv/
-
-# Other Environments
-ENV/
-env.bak/
-venv.bak/
-
-#Ignore generated outputs
-outputs/
-*.lock
-dist/
-gpt_researcher.egg-info/
-
-#Ignore my local docs
-my-docs/
-
-#Ignore pycache
-**/__pycache__/
-
-#Ignore mypy cache
-.mypy_cache/
-node_modules
-.idea
-.DS_Store
-.docusaurus
-build
-docs/build
-
-.vscode/launch.json
-.langgraph-data/
-.next/
-package-lock.json
-
-#Vim swp files
-*.swp
-
-# Log files
+﻿# 实验输出结果，不上传仓库
+evals/results/*.json
+evals/results/archive_*/
+# 本地私有数据/配置
+backend/data/
+me.json
+*.env
+# 缓存、编译文件
+__pycache__/
 logs/
-*.orig
-*.log
-server_log.txt
-
-#Cursor Rules
-.cursorrules
-CURSOR_RULES.md
-/.history
+cache/
+# IDE配置文件
+.vscode/
+.idea/
