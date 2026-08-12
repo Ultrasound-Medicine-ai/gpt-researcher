@@ -1,0 +1,80 @@
+{"id": "intent-quick_search-01", "seed": 42, "category": "explicit", "text": "search the web for latest Redis", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-02", "seed": 42, "category": "implicit", "text": "search the web: current FastAPI version", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-03", "seed": 42, "category": "colloquial", "text": "search the web for SSE news", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-04", "seed": 42, "category": "mixed_language", "text": "search the web: Kubernetes pricing", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-05", "seed": 42, "category": "typo", "text": "search the web for latest Docker -- do not create a report", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-06", "seed": 42, "category": "long", "text": "search the web: current Redis version", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-07", "seed": 42, "category": "negation", "text": "search the web for FastAPI news", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-08", "seed": 42, "category": "change_mind", "text": "search the web: SSE pricing", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-09", "seed": 42, "category": "explicit", "text": "search the web for latest Kubernetes", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-10", "seed": 42, "category": "implicit", "text": "search the web: current Docker version -- do not create a report", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-11", "seed": 42, "category": "colloquial", "text": "search the web for Redis news", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-12", "seed": 42, "category": "mixed_language", "text": "search the web: FastAPI pricing", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-13", "seed": 42, "category": "typo", "text": "search the web for latest SSE", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-14", "seed": 42, "category": "long", "text": "search the web: current Kubernetes version", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-15", "seed": 42, "category": "negation", "text": "search the web for Docker news -- do not create a report", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-16", "seed": 42, "category": "change_mind", "text": "search the web: Redis pricing", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-17", "seed": 42, "category": "explicit", "text": "search the web for latest FastAPI", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-18", "seed": 42, "category": "implicit", "text": "search the web: current SSE version", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-19", "seed": 42, "category": "colloquial", "text": "search the web for Kubernetes news", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-quick_search-20", "seed": 42, "category": "mixed_language", "text": "search the web: Docker pricing", "expected_intent": "quick_search", "has_report": false}
+{"id": "intent-create_research_report-01", "seed": 42, "category": "explicit", "text": "write a research report about Redis", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-02", "seed": 42, "category": "implicit", "text": "create a new research report on FastAPI", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-03", "seed": 42, "category": "colloquial", "text": "generate a research report for SSE", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-04", "seed": 42, "category": "mixed_language", "text": "please write a research report: Kubernetes", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-05", "seed": 42, "category": "typo", "text": "write a research report about Docker", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-06", "seed": 42, "category": "long", "text": "create a new research report on Redis", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-07", "seed": 42, "category": "negation", "text": "generate a research report for FastAPI", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-08", "seed": 42, "category": "change_mind", "text": "please write a research report: SSE", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-09", "seed": 42, "category": "explicit", "text": "write a research report about Kubernetes", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-10", "seed": 42, "category": "implicit", "text": "create a new research report on Docker", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-11", "seed": 42, "category": "colloquial", "text": "generate a research report for Redis", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-12", "seed": 42, "category": "mixed_language", "text": "please write a research report: FastAPI", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-13", "seed": 42, "category": "typo", "text": "write a research report about SSE", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-14", "seed": 42, "category": "long", "text": "create a new research report on Kubernetes", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-15", "seed": 42, "category": "negation", "text": "generate a research report for Docker", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-16", "seed": 42, "category": "change_mind", "text": "please write a research report: Redis", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-17", "seed": 42, "category": "explicit", "text": "write a research report about FastAPI", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-18", "seed": 42, "category": "implicit", "text": "create a new research report on SSE", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-19", "seed": 42, "category": "colloquial", "text": "generate a research report for Kubernetes", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-create_research_report-20", "seed": 42, "category": "mixed_language", "text": "please write a research report: Docker", "expected_intent": "create_research_report", "has_report": false}
+{"id": "intent-clarify-01", "seed": 42, "category": "explicit", "text": "help me research Redis", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-02", "seed": 42, "category": "implicit", "text": "do something with FastAPI", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-03", "seed": 42, "category": "colloquial", "text": "SSE please", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-04", "seed": 42, "category": "mixed_language", "text": "I changed my mind about Kubernetes", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-05", "seed": 42, "category": "typo", "text": "help me research Docker", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-06", "seed": 42, "category": "long", "text": "do something with Redis", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-07", "seed": 42, "category": "negation", "text": "FastAPI please", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-08", "seed": 42, "category": "change_mind", "text": "I changed my mind about SSE", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-09", "seed": 42, "category": "explicit", "text": "help me research Kubernetes", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-10", "seed": 42, "category": "implicit", "text": "do something with Docker", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-11", "seed": 42, "category": "colloquial", "text": "Redis please", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-12", "seed": 42, "category": "mixed_language", "text": "I changed my mind about FastAPI", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-13", "seed": 42, "category": "typo", "text": "help me research SSE", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-14", "seed": 42, "category": "long", "text": "do something with Kubernetes", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-15", "seed": 42, "category": "negation", "text": "Docker please", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-16", "seed": 42, "category": "change_mind", "text": "I changed my mind about Redis", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-17", "seed": 42, "category": "explicit", "text": "help me research FastAPI", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-18", "seed": 42, "category": "implicit", "text": "do something with SSE", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-19", "seed": 42, "category": "colloquial", "text": "Kubernetes please", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-clarify-20", "seed": 42, "category": "mixed_language", "text": "I changed my mind about Docker", "expected_intent": "clarify", "has_report": false}
+{"id": "intent-answer_from_report-01", "seed": 42, "category": "explicit", "text": "continue with this report about Redis", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-02", "seed": 42, "category": "implicit", "text": "continue with this report on FastAPI", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-03", "seed": 42, "category": "colloquial", "text": "continue with this report: explain SSE", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-04", "seed": 42, "category": "mixed_language", "text": "continue with this report: Kubernetes", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-05", "seed": 42, "category": "typo", "text": "continue with this report about Docker", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-06", "seed": 42, "category": "long", "text": "continue with this report on Redis", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-07", "seed": 42, "category": "negation", "text": "continue with this report: explain FastAPI", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-08", "seed": 42, "category": "change_mind", "text": "continue with this report: SSE", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-09", "seed": 42, "category": "explicit", "text": "continue with this report about Kubernetes", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-10", "seed": 42, "category": "implicit", "text": "continue with this report on Docker", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-11", "seed": 42, "category": "colloquial", "text": "continue with this report: explain Redis", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-12", "seed": 42, "category": "mixed_language", "text": "continue with this report: FastAPI", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-13", "seed": 42, "category": "typo", "text": "continue with this report about SSE", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-14", "seed": 42, "category": "long", "text": "continue with this report on Kubernetes", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-15", "seed": 42, "category": "negation", "text": "continue with this report: explain Docker", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-16", "seed": 42, "category": "change_mind", "text": "continue with this report: Redis", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-17", "seed": 42, "category": "explicit", "text": "continue with this report about FastAPI", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-18", "seed": 42, "category": "implicit", "text": "continue with this report on SSE", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-19", "seed": 42, "category": "colloquial", "text": "continue with this report: explain Kubernetes", "expected_intent": "answer_from_report", "has_report": true}
+{"id": "intent-answer_from_report-20", "seed": 42, "category": "mixed_language", "text": "continue with this report: Docker", "expected_intent": "answer_from_report", "has_report": true}

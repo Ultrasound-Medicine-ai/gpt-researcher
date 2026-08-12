@@ -190,6 +190,9 @@ class LiteHallucinationEvaluator:
         return {
             "output": model_output,
             "source": source[:800],
+            # Keep the complete, already-packed evidence for judge replays.  The
+            # short `source` field is retained as a dashboard preview only.
+            "evidence_pack": source,
             "source_pack_chars": len(source),
             "source_doc_count": doc_count or (1 if source else 0),
             "severity": severity,

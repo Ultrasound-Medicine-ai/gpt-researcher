@@ -70,6 +70,8 @@ def run_cheap() -> list[dict]:
     steps.append(
         _run([sys.executable, "evals/perf_eval/run_eval.py", "--suite", "cheap"])
     )
+    steps.append(_run([sys.executable, "evals/agent_harness/generate_cases.py"]))
+    steps.append(_run([sys.executable, "evals/agent_harness/run_offline.py"]))
     steps.append(
         _run([sys.executable, "evals/dashboard/build_dashboard.py"])
     )

@@ -1,0 +1,30 @@
+{"id": "fuzz-generated-01", "seed": 42, "category": "ambiguous_reference", "user": "check that Redis thing", "expected_intent": "clarify", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-02", "seed": 42, "category": "asr_noise", "user": "plz serch FastAPI latest", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-03", "seed": 42, "category": "typo", "user": "searhc SSE versoin", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-04", "seed": 42, "category": "multi_task", "user": "search Redis, explain Docker, but do not create report", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-05", "seed": 42, "category": "redundant_noise", "user": "hello hello, search FastAPI, thanks", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-06", "seed": 42, "category": "ambiguous_reference", "user": "check that SSE thing", "expected_intent": "clarify", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-07", "seed": 42, "category": "asr_noise", "user": "plz serch Redis latest", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-08", "seed": 42, "category": "typo", "user": "searhc FastAPI versoin", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-09", "seed": 42, "category": "multi_task", "user": "search SSE, explain Docker, but do not create report", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-10", "seed": 42, "category": "redundant_noise", "user": "hello hello, search Redis, thanks", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-11", "seed": 42, "category": "ambiguous_reference", "user": "check that FastAPI thing", "expected_intent": "clarify", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-12", "seed": 42, "category": "asr_noise", "user": "plz serch SSE latest", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-13", "seed": 42, "category": "typo", "user": "searhc Redis versoin", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-14", "seed": 42, "category": "multi_task", "user": "search FastAPI, explain Docker, but do not create report", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-15", "seed": 42, "category": "redundant_noise", "user": "hello hello, search SSE, thanks", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-16", "seed": 42, "category": "ambiguous_reference", "user": "check that Redis thing", "expected_intent": "clarify", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-17", "seed": 42, "category": "asr_noise", "user": "plz serch FastAPI latest", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-18", "seed": 42, "category": "typo", "user": "searhc SSE versoin", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-19", "seed": 42, "category": "multi_task", "user": "search Redis, explain Docker, but do not create report", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-20", "seed": 42, "category": "redundant_noise", "user": "hello hello, search FastAPI, thanks", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-21", "seed": 42, "category": "ambiguous_reference", "user": "check that SSE thing", "expected_intent": "clarify", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-22", "seed": 42, "category": "asr_noise", "user": "plz serch Redis latest", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-23", "seed": 42, "category": "typo", "user": "searhc FastAPI versoin", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-24", "seed": 42, "category": "multi_task", "user": "search SSE, explain Docker, but do not create report", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-25", "seed": 42, "category": "redundant_noise", "user": "hello hello, search Redis, thanks", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-26", "seed": 42, "category": "ambiguous_reference", "user": "check that FastAPI thing", "expected_intent": "clarify", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-27", "seed": 42, "category": "asr_noise", "user": "plz serch SSE latest", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-28", "seed": 42, "category": "typo", "user": "searhc Redis versoin", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-29", "seed": 42, "category": "multi_task", "user": "search FastAPI, explain Docker, but do not create report", "expected_intent": "quick_search", "expect": {"no_report_created": true}}
+{"id": "fuzz-generated-30", "seed": 42, "category": "redundant_noise", "user": "hello hello, search SSE, thanks", "expected_intent": "quick_search", "expect": {"no_report_created": true}}

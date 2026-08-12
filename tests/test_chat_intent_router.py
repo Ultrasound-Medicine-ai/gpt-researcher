@@ -13,6 +13,21 @@ from chat.intent_router import (
 from evals._common import build_intent_metrics
 
 
+def test_report_creation_text_guard_denies_negated_request() -> None:
+    from chat.intent_router import report_creation_allowed_by_text, constrain_report_route
+
+    assert not report_creation_allowed_by_text("search Redis news; do not create a report")
+    assert not report_creation_allowed_by_text("不要创建报告，先搜索 Redis")
+    assert report_creation_allowed_by_text("create a new research report about Redis")
+    forced = ChatIntent(
+        action=IntentAction.CREATE_RESEARCH_REPORT,
+        target=IntentTarget.NEW_TOPIC,
+        confidence=0.95,
+    )
+    assert constrain_report_route(forced, "search Redis news; do not create a report").action == IntentAction.QUICK_SEARCH
+    assert constrain_report_route(forced, "help me research Redis").action == IntentAction.CLARIFY
+
+
 @pytest.mark.asyncio
 async def test_structured_router_parses_llm_json() -> None:
     async def completion(**_kwargs) -> str:

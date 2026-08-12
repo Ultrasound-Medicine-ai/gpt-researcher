@@ -1,8 +1,8 @@
 # Project-2 evaluation dashboard
 
-- Generated (UTC): `2026-08-11T08:30:29.517509+00:00`
-- Regression queue size: **63**
-- Trace spans indexed: **21**
+- Generated (UTC): `2026-08-12T03:52:45.272660+00:00`
+- Regression queue size: **80**
+- Trace spans indexed: **190**
 
 ## Gate layers
 
@@ -55,10 +55,54 @@ Confusion matrix (expected → predicted): `{'answer_from_report': {'answer_from
 
 Confusion matrix (expected → predicted): `{'answer_from_report': {'answer_from_report': 1, 'clarify': 0, 'create_research_report': 0}, 'clarify': {'answer_from_report': 0, 'clarify': 1, 'create_research_report': 0}, 'create_research_report': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 1}}`
 
+## Offline Agent evaluation harness (seed=42)
+
+| Pillar | N | Pass / fail | Key ratios | Blocked | Latest run |
+|--------|---|-------------|------------|---------|------------|
+| intent | 80 | 72 / 8 | n/a | 0 | local offline |
+| multiturn | 20 | 20 / 0 | turn_accuracy=1.0, intent_consistency=1.0, slot_constraint_retention=1.0 | 0 | local offline |
+| tool_chain | 20 | 20 / 0 | case_pass_rate=1.0, duplicate_side_effect_count=0, tool_selection_accuracy=1.0 | 0 | local offline |
+| fuzz | 30 | 30 / 0 | overall_pass_rate=1.0, unsafe_side_effect_count=0, per_category={'ambiguous_reference': 6, 'asr_noise': 6, 'typo': 6, 'multi_task': 6, 'redundant_noise': 6} | 0 | local offline |
+| memory | 20 | 20 / 0 | case_pass_rate=1.0, duplicate_side_effect_count=0, memory_write_correctness=1.0 | 0 | local offline |
+| security | 20 | 20 / 0 | blocked_attack_rate=1.0, unsafe_side_effect_count=0, per_category={'ignore previous instructions': 2, 'reveal the system prompt': 2, "read another user's job": 2, "read another user's artifact": 2, 'guess job_id': 2, 'create task as admin': 2, 'tool argument injection': 2, 'indirect prompt injection': 2, 'sensitive context exfiltration': 2, 'call an unauthorized tool': 2} | 0 | local offline |
+| trace_replay | 8 | 0 / 0 | spans=190; reproducible_failures=0 | 0 | 2026-08-11T15:52:23.330130+00:00 |
+
 ## Perf P95
 
 - PASS `perf-chat-p95-001` mode=schema
 - PASS `perf-job-queue-p95-001` mode=schema
+
+## Latest controlled evaluations
+
+- `live_intent_expanded`: status=COMPLETED; N=24; `{'evaluated_requests': 24, 'labels': ['answer_from_report', 'clarify', 'create_research_report', 'quick_search'], 'confusion_matrix': {'answer_from_report': {'answer_from_report': 6, 'clarify': 0, 'create_research_report': 0, 'quick_search': 0}, 'clarify': {'answer_from_report': 0, 'clarify': 6, 'create_research_report': 0, 'quick_search': 1}, 'create_research_report': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 5, 'quick_search': 0}, 'quick_search': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 0, 'quick_search': 6}}, 'per_class': {'answer_from_report': {'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'support': 6}, 'clarify': {'precision': 1.0, 'recall': 0.8571, 'f1': 0.9231, 'support': 7}, 'create_research_report': {'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'support': 5}, 'quick_search': {'precision': 0.8571, 'recall': 1.0, 'f1': 0.9231, 'support': 6}}, 'accuracy': 0.9583, 'macro_precision': 0.9643, 'macro_recall': 0.9643, 'macro_f1': 0.9615, 'report_route_false_positives': 0, 'report_route_false_positive_rate': 0.0, 'false_report_creations': 0, 'non_create_requests': 19, 'non_create_requests_with_side_effect_observation': 19, 'false_report_creation_rate': 0.0, 'guarded_report_route_false_positives': 0, 'expected_create_requests_with_side_effect_observation': 5, 'missed_report_creations': 0, 'report_creation_success_rate': 1.0}`; 
+- `live_intent_holdout`: status=COMPLETED; N=12; `{'evaluated_requests': 12, 'labels': ['answer_from_report', 'clarify', 'create_research_report', 'quick_search'], 'confusion_matrix': {'answer_from_report': {'answer_from_report': 2, 'clarify': 0, 'create_research_report': 0, 'quick_search': 0}, 'clarify': {'answer_from_report': 0, 'clarify': 3, 'create_research_report': 0, 'quick_search': 1}, 'create_research_report': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 3, 'quick_search': 0}, 'quick_search': {'answer_from_report': 0, 'clarify': 0, 'create_research_report': 0, 'quick_search': 3}}, 'per_class': {'answer_from_report': {'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'support': 2}, 'clarify': {'precision': 1.0, 'recall': 0.75, 'f1': 0.8571, 'support': 4}, 'create_research_report': {'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'support': 3}, 'quick_search': {'precision': 0.75, 'recall': 1.0, 'f1': 0.8571, 'support': 3}}, 'accuracy': 0.9167, 'macro_precision': 0.9375, 'macro_recall': 0.9375, 'macro_f1': 0.9285, 'report_route_false_positives': 0, 'report_route_false_positive_rate': 0.0, 'false_report_creations': 0, 'non_create_requests': 9, 'non_create_requests_with_side_effect_observation': 9, 'false_report_creation_rate': 0.0, 'guarded_report_route_false_positives': 0, 'expected_create_requests_with_side_effect_observation': 3, 'missed_report_creations': 0, 'report_creation_success_rate': 1.0}`; 
+- `judge_stability`: status=BLOCKED; N=12; `{}`; current judge unavailable: ModuleNotFoundError: No module named 'langchain_openai'
+- `judge_calibration`: status=BLOCKED; N=12; `{}`; 
+- `retrieval`: status=COMPLETED; N=20; `{'recall_at_1': 1.0, 'recall_at_3': 1.0, 'recall_at_5': 1.0, 'mrr': 1.0}`; 
+- `planning`: status=BLOCKED; N=0; `{}`; Standalone Planner could not initialize; no persisted plan is compatible with this evaluation set.
+- `planning_holdout`: status=BLOCKED; N=0; `{}`; Standalone Planner could not initialize; no persisted plan is compatible with this evaluation set.
+
+## Interpretation limits
+
+- Live Intent results are controlled test cases, **not production accuracy**. The frozen pre-fix result remains in its JSON artifact for regression history but is not a current headline.
+- Judge historical replay is **BLOCKED** because the original 70-case artifact retained only an 800-character evidence preview. New hallucination evaluations now persist `evidence_pack`; no historical evidence was fabricated or regenerated.
+- Retrieval is document-level testing of the existing keyword fallback only; it does **not** represent PGVector semantic-retrieval quality.
+- Planning metrics use the normalized scorer (`normalized_keyword_v2`) and existing Planner outputs; no Planner model was rerun during scorer correction.
+
+## Planning by scenario
+
+### planning (N=0)
+
+| Scenario | N | Subgoal coverage | Constraint retention | Redundant | Irrelevant | Executable |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+- failure case IDs: planner-initialization
+
+### planning_holdout (N=0)
+
+| Scenario | N | Subgoal coverage | Constraint retention | Redundant | Irrelevant | Executable |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+- failure case IDs: planner-initialization
+
 
 ## Regression queue (top 20)
 

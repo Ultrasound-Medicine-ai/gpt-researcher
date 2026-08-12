@@ -231,6 +231,7 @@ def render_md(artifacts: dict[str, Any], failures: list[dict], traces: dict) -> 
     live = artifacts.get("live_chat") or {}
     dialogue = artifacts.get("dialogue") or {}
     perf = artifacts.get("perf") or {}
+    extended = {name: artifacts.get(name) or {} for name in ("intent", "multiturn", "tool_chain", "fuzz", "memory", "security", "trace_replay")}
     sqm = sqa.get("metrics") or {}
     live_intent_metrics = live.get("intent_metrics") or {}
     cheap_intent_metrics = dialogue.get("intent_metrics") or {}
@@ -267,9 +268,22 @@ def render_md(artifacts: dict[str, Any], failures: list[dict], traces: dict) -> 
         "",
         *_intent_metric_lines("Cheap deterministic routing", cheap_intent_metrics),
         *_intent_metric_lines("Live LLM routing", live_intent_metrics),
-        "## Perf P95",
+        "## Offline Agent evaluation harness (seed=42)",
         "",
+        "| Pillar | N | Pass / fail | Key ratios | Blocked | Latest run |",
+        "|--------|---|-------------|------------|---------|------------|",
     ]
+    for name, payload in extended.items():
+        if name == "trace_replay":
+            total = payload.get("replay_case_count", 0)
+            passed = payload.get("reproducible_failure_count", 0)
+            key = f"spans={payload.get('span_count', 0)}; reproducible_failures={passed}"
+        else:
+            total = payload.get("total", 0)
+            passed = payload.get("passed", 0)
+            key = ", ".join(f"{k}={v}" for k, v in list((payload.get("metrics") or {}).items())[:3]) or "n/a"
+        lines.append(f"| {name} | {total} | {passed} / {payload.get('failed', 0)} | {key} | 0 | {payload.get('timestamp', 'local offline')} |")
+    lines += ["", "## Perf P95", ""]
     for row in perf.get("results") or []:
         if row.get("skipped"):
             lines.append(f"- SKIP `{row.get('id')}`: {row.get('reason')}")
@@ -288,6 +302,36 @@ def render_md(artifacts: dict[str, Any], failures: list[dict], traces: dict) -> 
         else:
             mark = "PASS" if row.get("passed") else "FAIL"
             lines.append(f"- {mark} `{row.get('id')}` mode={row.get('mode')}")
+
+    lines += ["", "## Latest controlled evaluations", ""]
+    for name in ("live_intent_expanded", "live_intent_holdout", "judge_stability", "judge_calibration", "retrieval", "planning", "planning_holdout"):
+        payload = artifacts.get(name) or {}
+        metric_blob = payload.get("intent_metrics") or payload.get("metrics") or {
+            key: payload.get(key) for key in ("severity_exact_agreement", "major_non_major_agreement", "subgoal_coverage", "coverage", "constraint_retention", "redundant_step_rate", "duplicate_subtask_rate", "irrelevant_step_rate", "irrelevant_subtask_rate", "executable_plan_rate") if key in payload
+        }
+        lines.append(f"- `{name}`: status={payload.get('status', 'n/a')}; N={payload.get('total', 0)}; `{metric_blob}`; {payload.get('reason', '')}")
+
+    lines += [
+        "",
+        "## Interpretation limits",
+        "",
+        "- Live Intent results are controlled test cases, **not production accuracy**. The frozen pre-fix result remains in its JSON artifact for regression history but is not a current headline.",
+        "- Judge historical replay is **BLOCKED** because the original 70-case artifact retained only an 800-character evidence preview. New hallucination evaluations now persist `evidence_pack`; no historical evidence was fabricated or regenerated.",
+        "- Retrieval is document-level testing of the existing keyword fallback only; it does **not** represent PGVector semantic-retrieval quality.",
+        "- Planning metrics use the normalized scorer (`normalized_keyword_v2`) and existing Planner outputs; no Planner model was rerun during scorer correction.",
+    ]
+    lines += ["", "## Planning by scenario", ""]
+    for name in ("planning", "planning_holdout"):
+        payload=artifacts.get(name) or {}
+        lines.append(f"### {name} (N={payload.get('total', 0)})")
+        lines.append("")
+        lines.append("| Scenario | N | Subgoal coverage | Constraint retention | Redundant | Irrelevant | Executable |")
+        lines.append("| --- | ---: | ---: | ---: | ---: | ---: | ---: |")
+        for scenario, metric in (payload.get("category_metrics") or {}).items():
+            lines.append(f"| {scenario} | {metric.get('n', 0)} | {metric.get('subgoal_coverage', 0):.2%} | {metric.get('constraint_retention', 0):.2%} | {metric.get('redundant_step_rate', 0):.2%} | {metric.get('irrelevant_step_rate', 0):.2%} | {metric.get('executable_plan_rate', 0):.2%} |")
+        scenario_failures=payload.get("failure_case_ids") or [item.get("case_id") for item in payload.get("failed_cases") or []]
+        lines.append(f"- failure case IDs: {', '.join(scenario_failures) if scenario_failures else 'none'}")
+        lines.append("")
 
     lines += ["", "## Regression queue (top 20)", ""]
     if not failures:
@@ -359,9 +403,29 @@ def main() -> None:
         "live_chat": _load(RESULTS / "live_chat_latest.json"),
         "dialogue": _load(RESULTS / "dialogue_latest.json"),
         "perf": _load(RESULTS / "perf_latest.json"),
+        "intent": _load(RESULTS / "intent_latest.json"),
+        "multiturn": _load(RESULTS / "multiturn_latest.json"),
+        "tool_chain": _load(RESULTS / "tool_chain_latest.json"),
+        "fuzz": _load(RESULTS / "fuzz_latest.json"),
+        "memory": _load(RESULTS / "memory_latest.json"),
+        "security": _load(RESULTS / "security_latest.json"),
+        "trace_replay": _load(RESULTS / "trace_replay_latest.json"),
+        "live_intent_expanded": _load(RESULTS / "live_intent_expanded.json"),
+        "live_intent_before_fix": _load(RESULTS / "live_intent_expanded_before_fix.json"),
+        "live_intent_holdout": _load(RESULTS / "live_intent_holdout.json"),
+        "judge_stability": _load(RESULTS / "judge_stability_latest.json"),
+        "judge_calibration": _load(RESULTS / "judge_calibration_latest.json"),
+        "retrieval": _load(RESULTS / "retrieval_latest.json"),
+        "planning": _load(RESULTS / "planning_latest.json"),
+        "planning_holdout": _load(RESULTS / "planning_holdout_latest.json"),
     }
     failures = collect_failures(artifacts)
     traces = build_trace_index(artifacts)
+    replay = artifacts.get("trace_replay") or {}
+    if replay.get("spans"):
+        traces.update({key: replay[key] for key in ("replay_case_count", "reproducible_failure_count", "failure_stage_distribution")})
+        traces["spans"] = replay["spans"][:200]
+        traces["span_count"] = len(traces["spans"])
     md = render_md(artifacts, failures, traces)
 
     (out_dir / "DASHBOARD.md").write_text(md, encoding="utf-8")

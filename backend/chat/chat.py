@@ -356,6 +356,7 @@ class ChatAgentWithMemory:
             from chat.intent_router import (
                 apply_intent_policy,
                 classify_chat_intent,
+                report_creation_allowed_by_text,
                 route_metadata,
             )
 
@@ -380,6 +381,7 @@ class ChatAgentWithMemory:
                 intent,
                 has_report=has_report,
                 report_creation_available=self.report_request_callback is not None,
+                side_effects_allowed=report_creation_allowed_by_text(latest_user),
             )
             intent_meta = route_metadata(intent, decision)
             logger.info(

@@ -1,0 +1,13 @@
+case_id,question,old_label,new_label,manual_label,notes
+judge-01,Compare pricing and features of the top vector database platforms.,MAJOR,MAJOR,MAJOR,
+judge-02,Compare recent benchmarks of open-source LLMs under 10B parameters.,MAJOR,MAJOR,MAJOR,
+judge-03,Explain how vector quantization works in neural networks.,MAJOR,MAJOR,MAJOR,
+judge-04,Find live coverage or recaps of the 2025 NVIDIA GTC keynote.,MAJOR,MAJOR,MAJOR,
+judge-05,Summarize public sentiment on Apple's latest AI announcements.,MINOR,MAJOR,MINOR,
+judge-06,What are common guardrail techniques for AI safety?,MINOR,MAJOR,MINOR,
+judge-07,What are common mistakes when building LLM agents?,MINOR,MAJOR,MINOR,
+judge-08,What are current SOTA methods for aligning LLMs with human feedback?,MINOR,MAJOR,MINOR,
+judge-09,Find courses or learning paths for prompt engineering.,NONE,MAJOR,NONE,
+judge-10,How are traditional banks integrating generative AI?,NONE,MAJOR,NONE,
+judge-11,How does Mistral's licensing model compare to Meta's LLaMA?,NONE,MAJOR,NONE,
+judge-12,How is AI contributing to scientific discovery in climate modeling?,NONE,MAJOR,NONE,

@@ -214,9 +214,45 @@ _EXPLICIT_NEW_REPORT = re.compile(
     re.IGNORECASE,
 )
 _EXPLICIT_SEARCH = re.compile(
-    r"搜索|查一下|检索|最新|今天|近期|当前价格|多少钱|价格|什么版本|现在.{0,40}版本|search\s+(?:the\s+)?web",
+    r"搜索|查一下|检索|最新|今天|近期|当前价格|多少钱|价格|什么版本|现在.{0,40}版本|(?:search|look\s+up)\b",
     re.IGNORECASE,
 )
+
+_REPORT_NEGATION = re.compile(
+    r"(?:do\s+not|don't|dont|no|not)\s+(?:create|generate|write|start).*?report"
+    r"|(?:不要|不用|别|別|不需要).{0,12}(?:创建|生成|写|做).{0,12}(?:报告|调研)",
+    re.IGNORECASE,
+)
+
+
+def report_creation_allowed_by_text(latest_message: str) -> bool:
+    """Fail closed for an expensive report Job when user wording is not explicit."""
+    text = " ".join((latest_message or "").split()).strip()
+    return not _REPORT_NEGATION.search(text) and bool(_EXPLICIT_NEW_REPORT.search(text))
+
+
+def constrain_report_route(intent: ChatIntent, latest_message: str) -> ChatIntent:
+    """Make a costly report route consistent with explicit user wording."""
+    if intent.action != IntentAction.CREATE_RESEARCH_REPORT:
+        return intent
+    text = latest_message or ""
+    if report_creation_allowed_by_text(text):
+        return intent
+    if _REPORT_NEGATION.search(text) and _EXPLICIT_SEARCH.search(text):
+        return intent.model_copy(update={
+            "action": IntentAction.QUICK_SEARCH,
+            "target": IntentTarget.WEB,
+            "confidence": 1.0,
+            "reason": "negative_report_request_with_explicit_search",
+            "source": "fallback",
+        })
+    return intent.model_copy(update={
+        "action": IntentAction.CLARIFY,
+        "target": IntentTarget.UNKNOWN,
+        "confidence": 0.0,
+        "reason": "report_request_not_explicit",
+        "source": "fallback",
+    })
 
 
 def fallback_intent(
@@ -372,7 +408,7 @@ async def classify_chat_intent(
         intent = ChatIntent.model_validate(payload)
         if not intent.rewritten_query.strip():
             intent.rewritten_query = latest_message.strip()
-        return intent
+        return constrain_report_route(intent, latest_message)
     except (TimeoutError, ValueError, TypeError, ValidationError, json.JSONDecodeError) as exc:
         logger.warning("Structured intent router failed closed: %s", exc)
     except Exception as exc:  # provider/network errors are non-fatal to chat

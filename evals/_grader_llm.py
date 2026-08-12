@@ -35,7 +35,10 @@ class _GPTRGrader:
                 model=self.model,
                 llm_provider=self.provider,
                 temperature=0,
-                max_tokens=800,
+                # The judge contract needs two labels plus a short reason;
+                # keeping the completion bounded avoids provider timeouts while
+                # leaving the evidence and scoring rubric unchanged.
+                max_tokens=250,
             )
 
         def _run_sync() -> str:
