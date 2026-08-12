@@ -1,14 +1,22 @@
-﻿# 实验输出结果，不上传仓库
-evals/results/*.json
-evals/results/archive_*/
-# 本地私有数据/配置
-backend/data/
-me.json
+﻿# 密钥环境文件（核心屏蔽项）
+.env
+.env.local
+.env.prod
 *.env
-# 缓存、编译文件
+secrets.json
+secret*.txt
+api_key*.txt
+
+# Python项目缓存、虚拟环境
+venv/
 __pycache__/
-logs/
-cache/
-# IDE配置文件
-.vscode/
-.idea/
+*.pyc
+*.pyd
+*.log
+
+# 评测临时结果、缓存文件
+evals/results/
+*.tmp
+*.csv
+*.jsonl
+minio_cache/
