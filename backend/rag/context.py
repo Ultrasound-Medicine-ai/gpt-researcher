@@ -66,6 +66,104 @@ def session_summary_stub(messages: list[dict], *, max_chars: int = 800) -> str:
     return f"Initial: {users[0][:300]}\nLatest: {users[-1][:300]}"[:max_chars]
 
 
+def _prefix_within_tokens(text: str, token_budget: int) -> str:
+    text = text or ""
+    if token_budget <= 0:
+        return ""
+    if estimate_tokens(text) <= token_budget:
+        return text
+    lo, hi = 0, len(text)
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if estimate_tokens(text[:mid]) <= token_budget:
+            lo = mid
+        else:
+            hi = mid - 1
+    return text[:lo].rstrip()
+
+
+def _remove_exact_overlap(previous: str, current: str, *, min_chars: int = 8) -> str:
+    """Remove the longest exact suffix/prefix overlap from current."""
+    left = (previous or "").rstrip()
+    right = (current or "").lstrip()
+    max_chars = min(len(left), len(right))
+    for size in range(max_chars, min_chars - 1, -1):
+        if left[-size:] == right[:size]:
+            return right[size:].lstrip()
+    return right
+
+
+def _continuous_child_groups(
+    children: list[RetrievedChunk],
+) -> list[list[RetrievedChunk]]:
+    by_parent: dict[str, list[RetrievedChunk]] = {}
+    for chunk in children:
+        by_parent.setdefault(chunk.parent_id or chunk.chunk_id, []).append(chunk)
+
+    runs: list[list[RetrievedChunk]] = []
+    for family in by_parent.values():
+        family.sort(
+            key=lambda c: (
+                c.child_index is None,
+                c.child_index if c.child_index is not None else c.retrieval_rank,
+                c.retrieval_rank,
+            )
+        )
+        current: list[RetrievedChunk] = []
+        for chunk in family:
+            is_contiguous = bool(
+                current
+                and current[-1].child_index is not None
+                and chunk.child_index is not None
+                and chunk.child_index == current[-1].child_index + 1
+            )
+            if current and not is_contiguous:
+                runs.append(current)
+                current = []
+            current.append(chunk)
+        if current:
+            runs.append(current)
+
+    runs.sort(
+        key=lambda group: (
+            min(c.retrieval_priority for c in group),
+            min(c.retrieval_rank for c in group),
+            -max(c.score for c in group),
+        )
+    )
+    return runs
+
+
+def _render_evidence_group(
+    group: list[RetrievedChunk],
+) -> tuple[str, list[Citation]]:
+    first = group[0]
+    child_ids = ",".join(chunk.chunk_id for chunk in group)
+    cite_line = (
+        f"[chunk_id={first.chunk_id} child_ids={child_ids}"
+        + (f" page={first.page_number}" if first.page_number is not None else "")
+        + (f" url={first.source_url}" if first.source_url else "")
+        + "]"
+    )
+    merged = first.content.strip()
+    for chunk in group[1:]:
+        remainder = _remove_exact_overlap(merged, chunk.content)
+        if remainder:
+            merged = f"{merged}\n\n{remainder}"
+    block = f"{cite_line}\nTitle: {first.title}\n{merged}"
+    citations = [
+        Citation(
+            chunk_id=chunk.chunk_id,
+            title=chunk.title,
+            page_number=chunk.page_number,
+            source_url=chunk.source_url,
+            excerpt=chunk.content[:240],
+        )
+        for chunk in group
+    ]
+    return block, citations
+
+
 def assemble_evidence(
     children: list[RetrievedChunk],
     *,
@@ -75,80 +173,33 @@ def assemble_evidence(
     Merge children that share a parent; truncate to token budget.
     Evidence text embeds chunk_id / page / url for the model to cite.
     """
-    budget = token_budget or _env_int("RAG_CONTEXT_TOKEN_BUDGET", 3500)
-    # Group by parent (or self if no parent)
-    groups: dict[str, list[RetrievedChunk]] = {}
-    for ch in children:
-        key = ch.parent_id or ch.chunk_id
-        groups.setdefault(key, []).append(ch)
-
-    # Preserve score order by best child in group
-    ordered_keys = sorted(
-        groups.keys(),
-        key=lambda k: max(c.score for c in groups[k]),
-        reverse=True,
+    budget = (
+        max(1, token_budget)
+        if token_budget is not None
+        else _env_int("RAG_CONTEXT_TOKEN_BUDGET", 3500)
     )
 
     blocks: list[str] = []
     citations: list[Citation] = []
-    used = 0
-    for key in ordered_keys:
-        group = sorted(groups[key], key=lambda c: c.score, reverse=True)
-        merged_parts = []
-        group_citations: list[Citation] = []
-        for ch in group:
-            cite_line = (
-                f"[chunk_id={ch.chunk_id}"
-                + (f" page={ch.page_number}" if ch.page_number is not None else "")
-                + (f" url={ch.source_url}" if ch.source_url else "")
-                + "]"
-            )
-            part = f"{cite_line}\nTitle: {ch.title}\n{ch.content.strip()}"
-            merged_parts.append(part)
-            group_citations.append(
-                Citation(
-                    chunk_id=ch.chunk_id,
-                    title=ch.title,
-                    page_number=ch.page_number,
-                    source_url=ch.source_url,
-                    excerpt=ch.content[:240],
-                )
-            )
-        block = "\n\n".join(merged_parts)
-        cost = estimate_tokens(block)
-        if used + cost > budget and blocks:
-            break
-        # If single block exceeds budget, truncate content
-        if cost > budget and not blocks:
-            # keep head of first child only
-            ch = group[0]
-            excerpt = ch.content[: max(200, budget * 2)]
-            block = (
-                f"[chunk_id={ch.chunk_id}"
-                + (f" page={ch.page_number}" if ch.page_number is not None else "")
-                + (f" url={ch.source_url}" if ch.source_url else "")
-                + f"]\nTitle: {ch.title}\n{excerpt}"
-            )
-            citations = [
-                Citation(
-                    chunk_id=ch.chunk_id,
-                    title=ch.title,
-                    page_number=ch.page_number,
-                    source_url=ch.source_url,
-                    excerpt=excerpt[:240],
-                )
-            ]
-            blocks = [block]
-            used = estimate_tokens(block)
-            break
-        blocks.append(block)
-        citations.extend(group_citations)
-        used += cost
+    for group in _continuous_child_groups(children):
+        block, group_citations = _render_evidence_group(group)
+        candidate = "\n\n---\n\n".join([*blocks, block])
+        if estimate_tokens(candidate) <= budget:
+            blocks.append(block)
+            citations.extend(group_citations)
+            continue
+        if not blocks:
+            truncated = _prefix_within_tokens(block, budget)
+            if truncated:
+                blocks = [truncated]
+                citations = group_citations
+        # Continue: a later, smaller evidence group may still fit.
 
+    evidence_block = "\n\n---\n\n".join(blocks)
     return AssembledContext(
-        evidence_block="\n\n---\n\n".join(blocks),
+        evidence_block=evidence_block,
         citations=citations,
-        total_tokens=used,
+        total_tokens=estimate_tokens(evidence_block),
     )
 
 
@@ -159,9 +210,9 @@ def build_full_context(
     base_context: str = "",
     rag_degraded: bool = False,
 ) -> AssembledContext:
+    budget = _env_int("RAG_CONTEXT_TOKEN_BUDGET", 3500)
     recent = recent_dialog_text(messages)
     summary = session_summary_stub(messages)
-    evidence = assemble_evidence(children)
     parts = []
     if summary:
         parts.append(f"Session summary:\n{summary}")
@@ -173,12 +224,25 @@ def build_full_context(
         if estimate_tokens(trimmed) > _env_int("RAG_BASE_CONTEXT_TOKENS", 1500):
             trimmed = trimmed[:3000]
         parts.append(f"Session materials:\n{trimmed}")
+    prefix = "\n\n".join(parts)
+    evidence_heading = (
+        "Retrieved evidence (cite chunk_id/page/url; if insufficient say you are uncertain):\n"
+    )
+    # Keep room for at least one evidence span when retrieval produced results.
+    prefix_limit = max(0, budget - (200 if children else 0))
+    prefix = _prefix_within_tokens(prefix, prefix_limit)
+    evidence_overhead = estimate_tokens(
+        f"{prefix}\n\n{evidence_heading}" if prefix else evidence_heading
+    )
+    evidence = assemble_evidence(
+        children,
+        token_budget=max(1, budget - evidence_overhead),
+    )
+    full_parts = [prefix] if prefix else []
     if evidence.evidence_block:
-        parts.append(
-            "Retrieved evidence (cite chunk_id/page/url; if insufficient say you are uncertain):\n"
-            + evidence.evidence_block
-        )
-    full = "\n\n".join(parts)
+        full_parts.append(evidence_heading + evidence.evidence_block)
+    full = "\n\n".join(full_parts)
+    full = _prefix_within_tokens(full, budget)
     evidence.recent_dialog = recent
     evidence.summary = summary
     evidence.evidence_block = full

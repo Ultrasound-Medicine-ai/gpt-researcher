@@ -106,6 +106,8 @@ async def ingest_text_document(
     try:
         from db.session import get_session_factory, is_db_enabled
         from db.models import Document, DocumentChunk
+        from rag.fts import fts_index_text
+        from sqlalchemy import func
 
         if not is_db_enabled():
             return None
@@ -210,6 +212,7 @@ async def ingest_text_document(
                         session_id=sid,
                         metadata_json=draft.metadata,
                         embedding=None,
+                        content_tsv=func.to_tsvector("simple", fts_index_text(draft.title, draft.content)),
                     )
                 )
             for i, draft in enumerate(drafts):
@@ -236,6 +239,7 @@ async def ingest_text_document(
                         session_id=sid,
                         metadata_json=draft.metadata,
                         embedding=vec_by_draft.get(i),
+                        content_tsv=func.to_tsvector("simple", fts_index_text(draft.title, draft.content)),
                     )
                 )
             await session.commit()

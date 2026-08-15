@@ -1,0 +1,6 @@
+{
+  "evaluation_role": "query_paraphrase_robustness_candidate",
+  "included_in_formal_retrieval_benchmark": false,
+  "formal_gold_expansion": false,
+  "note": "V2 has unique queries but reuses Frozen Pilot evidence signatures; retain it only for paraphrase and retrieval-robustness review."
+}

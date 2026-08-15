@@ -1,0 +1,432 @@
+{
+  "timestamp": "2026-08-15T08:28:30.397931",
+  "events": [
+    {
+      "timestamp": "2026-08-15T08:28:46.152456",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "\ud83d\udd0d Starting the research task for 'docker\u600e\u4e48\u4f7f\u7528\uff0c\u7528\u6765\u5e72\u4ec0\u4e48\uff0cdocker compose\u662f\u4ec0\u4e48'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:46.179184",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "\ud83d\udc33 Docker Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:46.217238",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83c\udf10 Browsing the web to learn more about the task: docker\u600e\u4e48\u4f7f\u7528\uff0c\u7528\u6765\u5e72\u4ec0\u4e48\uff0cdocker compose\u662f\u4ec0\u4e48...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:50.123374",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "\ud83e\udd14 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.273992",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "\ud83d\uddc2\ufe0f I will conduct my research based on the following queries: ['docker\u600e\u4e48\u4f7f\u7528 \u7528\u6765\u5e72\u4ec0\u4e48 docker compose\u662f\u4ec0\u4e48 \u6559\u7a0b', 'what is Docker Compose how to use Docker multi-container applications 2026', 'docker\u600e\u4e48\u4f7f\u7528\uff0c\u7528\u6765\u5e72\u4ec0\u4e48\uff0cdocker compose\u662f\u4ec0\u4e48']...",
+        "metadata": [
+          "docker\u600e\u4e48\u4f7f\u7528 \u7528\u6765\u5e72\u4ec0\u4e48 docker compose\u662f\u4ec0\u4e48 \u6559\u7a0b",
+          "what is Docker Compose how to use Docker multi-container applications 2026",
+          "docker\u600e\u4e48\u4f7f\u7528\uff0c\u7528\u6765\u5e72\u4ec0\u4e48\uff0cdocker compose\u662f\u4ec0\u4e48"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.330611",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'docker\u600e\u4e48\u4f7f\u7528 \u7528\u6765\u5e72\u4ec0\u4e48 docker compose\u662f\u4ec0\u4e48 \u6559\u7a0b'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.351913",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'what is Docker Compose how to use Docker multi-container applications 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.372015",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n\ud83d\udd0d Running research for 'docker\u600e\u4e48\u4f7f\u7528\uff0c\u7528\u6765\u5e72\u4ec0\u4e48\uff0cdocker compose\u662f\u4ec0\u4e48'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.438226",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://tech-insider.org/docker-compose-tutorial-multi-container-apps-2026\n",
+        "metadata": "https://tech-insider.org/docker-compose-tutorial-multi-container-apps-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.488657",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://medium.com/@adriansyah1230/mastering-docker-compose-a-practical-guide-to-multi-container-applications-c76811010131\n",
+        "metadata": "https://medium.com/@adriansyah1230/mastering-docker-compose-a-practical-guide-to-multi-container-applications-c76811010131"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.541898",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://docs.docker.com/compose\n",
+        "metadata": "https://docs.docker.com/compose"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.571076",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.cnblogs.com/johnnyzen/p/17785405.html\n",
+        "metadata": "https://www.cnblogs.com/johnnyzen/p/17785405.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.610489",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.655872",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.ugnas.com/play-detail/id-68.html\n",
+        "metadata": "https://www.ugnas.com/play-detail/id-68.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.764185",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.816809",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.youtube.com/watch?v=qiPH3MOG9d0\n",
+        "metadata": "https://www.youtube.com/watch?v=qiPH3MOG9d0"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.854423",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.910561",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.143793",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://www.freecodecamp.org/chinese/news/what-is-docker-compose-how-to-use-it\n",
+        "metadata": "https://www.freecodecamp.org/chinese/news/what-is-docker-compose-how-to-use-it"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.190185",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://blog.csdn.net/weixin_43310500/article/details/135619355\n",
+        "metadata": "https://blog.csdn.net/weixin_43310500/article/details/135619355"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.242530",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "\u2705 Added source url to research: https://juejin.cn/post/7249033891810050108\n",
+        "metadata": "https://juejin.cn/post/7249033891810050108"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.293313",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "\ud83e\udd14 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.359853",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "\ud83c\udf10 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.594470",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.632993",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 20 total images",
+        "metadata": [
+          "https://www.cnblogs.com/skins/custom/images/logo.gif",
+          "https://img2023.cnblogs.com/blog/1173617/202310/1173617-20231024173944070-1664543542.png",
+          "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826234557654-489156154.png",
+          "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826235810164-261037574.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.692791",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.624355",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.657818",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.693537",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 1 new images from 1 total images",
+        "metadata": [
+          "https://tech-insider.org/wp-content/uploads/2026/03/docker-compose-tutorial-multi-container-apps-2026-1.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.742382",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.995683",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.162678",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "\ud83d\udcc4 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.196271",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "\ud83d\uddbc\ufe0f Selected 4 new images from 24 total images",
+        "metadata": [
+          "https://chinese.freecodecamp.org/news/content/images/size/w2000/2023/06/What-is-Docker-compose-1.png",
+          "https://chinese.freecodecamp.org/news/content/images/size/w60/2020/12/1607069929888.jpg",
+          "https://cdn.hashnode.com/res/hashnode/image/upload/v1766227758075/1cafb145-1477-49a7-a8c1-5d08fc7ff6db.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp",
+          "https://www.freecodecamp.org/news/content/images/2023/04/image-43.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.241203",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "\ud83c\udf10 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.466417",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "\ud83d\udcda Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:04.801610",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "\ud83d\udce6 Evidence Pack ready (3608 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:04.832807",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n\ud83d\udcb8 Total Research Costs: $0.021740000000000002",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:04.902451",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "\u270d\ufe0f Writing report for 'docker\u600e\u4e48\u4f7f\u7528\uff0c\u7528\u6765\u5e72\u4ec0\u4e48\uff0cdocker compose\u662f\u4ec0\u4e48'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:27.880335",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "\ud83d\udcdd Report written for 'docker\u600e\u4e48\u4f7f\u7528\uff0c\u7528\u6765\u5e72\u4ec0\u4e48\uff0cdocker compose\u662f\u4ec0\u4e48'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Docker \u4e0e Docker Compose\uff1a\u539f\u7406\u3001\u7528\u9014\u4e0e\u5b9e\u8df5\u8be6\u89e3\n\n## \u4e00\u3001Docker \u662f\u4ec0\u4e48\uff1f\u6838\u5fc3\u529f\u80fd\u4e0e\u4f7f\u7528\u76ee\u7684\n\nDocker \u662f\u4e00\u4e2a\u5f00\u6e90\u7684\u5bb9\u5668\u5316\u5e73\u53f0\uff0c\u5176\u672c\u8d28\u662f**\u8f7b\u91cf\u7ea7\u3001\u53ef\u79fb\u690d\u3001\u81ea\u5305\u542b\u7684\u5e94\u7528\u6253\u5305\u4e0e\u8fd0\u884c\u5f15\u64ce**\u3002\u5b83\u901a\u8fc7\u64cd\u4f5c\u7cfb\u7edf\u7ea7\u865a\u62df\u5316\u6280\u672f\uff08Linux namespaces \u548c cgroups\uff09\uff0c\u5c06\u5e94\u7528\u7a0b\u5e8f\u53ca\u5176\u6240\u6709\u4f9d\u8d56\uff08\u8fd0\u884c\u65f6\u3001\u5e93\u3001\u914d\u7f6e\u6587\u4ef6\u3001\u73af\u5883\u53d8\u91cf\u7b49\uff09\u5c01\u88c5\u4e3a\u6807\u51c6\u5316\u7684\u201c\u5bb9\u5668\u201d\uff08Container\uff09\uff0c\u5b9e\u73b0\u201c\u4e00\u6b21\u6784\u5efa\uff0c\u5904\u5904\u8fd0\u884c\u201d[3]\u3002\u4e0e\u4f20\u7edf\u865a\u62df\u673a\u76f8\u6bd4\uff0cDocker \u5bb9\u5668\u4e0d\u5305\u542b\u5b8c\u6574\u64cd\u4f5c\u7cfb\u7edf\u5185\u6838\uff0c\u4ec5\u5171\u4eab\u5bbf\u4e3b\u673a\u5185\u6838\uff0c\u56e0\u6b64\u542f\u52a8\u66f4\u5feb\uff08\u6beb\u79d2\u7ea7\uff09\u3001\u8d44\u6e90\u5f00\u9500\u66f4\u4f4e\uff08\u5185\u5b58\u5360\u7528\u51cf\u5c11\u7ea670%\u201380%\uff09\u3001\u5bc6\u5ea6\u66f4\u9ad8[7]\u3002\n\nDocker \u7684\u6838\u5fc3\u4ef7\u503c\u5728\u4e8e\u89e3\u51b3\u5f00\u53d1\u4e0e\u8fd0\u7ef4\u4e4b\u95f4\u7684\u201c\u73af\u5883\u4e00\u81f4\u6027\u201d\u96be\u9898\u3002\u4f8b\u5982\uff0c\u4e00\u4e2a\u9700 Java 8\u3001Node.js 14\u3001MySQL\u3001MongoDB\u3001RabbitMQ \u7b49 10 \u4f59\u4e2a\u670d\u52a1\u534f\u540c\u8fd0\u884c\u7684\u9879\u76ee\uff0c\u82e5\u624b\u52a8\u9010\u4e2a\u62c9\u53d6\u955c\u50cf\u3001\u914d\u7f6e\u7f51\u7edc\u3001\u6302\u8f7d\u5377\u3001\u8bbe\u7f6e\u73af\u5883\u53d8\u91cf\u5e76\u7ba1\u7406\u542f\u52a8\u987a\u5e8f\uff0c\u6781\u6613\u51fa\u9519\u4e14\u4e0d\u53ef\u590d\u73b0\uff1b\u800c\u4f7f\u7528 Docker\uff0c\u5f00\u53d1\u8005\u53ea\u9700\u5b9a\u4e49 `Dockerfile` \u63cf\u8ff0\u5355\u4e2a\u670d\u52a1\u7684\u6784\u5efa\u8fc7\u7a0b\uff0c\u5373\u53ef\u5728\u4efb\u610f\u5b89\u88c5 Docker \u7684\u673a\u5668\u4e0a\u4e00\u952e\u751f\u6210\u5b8c\u5168\u4e00\u81f4\u7684\u8fd0\u884c\u73af\u5883[7]\u3002\u8fd9\u663e\u8457\u63d0\u5347\u4e86\u534f\u4f5c\u6548\u7387\u3001\u6d4b\u8bd5\u53ef\u9760\u6027\u4e0e\u90e8\u7f72\u901f\u5ea6\u2014\u2014\u4ece\u6570\u5c0f\u65f6\u7f29\u77ed\u81f3\u6570\u5206\u949f[7]\u3002\n\n\u5178\u578b\u4f7f\u7528\u573a\u666f\u5305\u62ec\uff1a  \n- \u5feb\u901f\u642d\u5efa\u672c\u5730\u5f00\u53d1/\u6d4b\u8bd5\u73af\u5883\uff08\u5982 LAMP/MEAN \u6808\uff09\uff1b  \n- \u6784\u5efa CI/CD \u6d41\u6c34\u7ebf\u4e2d\u7684\u6807\u51c6\u5316\u6784\u5efa\u4e0e\u6d4b\u8bd5\u5355\u5143\uff1b  \n- \u5728 NAS \u8bbe\u5907\uff08\u5982\u7eff\u8054 DX \u7cfb\u5217\uff09\u4e0a\u62d3\u5c55\u5e94\u7528\u751f\u6001\uff0c\u90e8\u7f72\u4e0b\u8f7d\u5de5\u5177\u3001\u5a92\u4f53\u670d\u52a1\u3001\u76d1\u63a7\u7cfb\u7edf\u7b49[3]\uff1b  \n- \u5b9e\u73b0\u5fae\u670d\u52a1\u67b6\u6784\u4e2d\u5404\u670d\u52a1\u7684\u72ec\u7acb\u6253\u5305\u4e0e\u5f39\u6027\u4f38\u7f29\u57fa\u7840\u3002\n\n## \u4e8c\u3001Docker Compose \u662f\u4ec0\u4e48\uff1f\u8bbe\u8ba1\u5b9a\u4f4d\u4e0e\u6838\u5fc3\u673a\u5236\n\nDocker Compose \u662f Docker \u5b98\u65b9\u63d0\u4f9b\u7684**\u591a\u5bb9\u5668\u5e94\u7528\u7f16\u6392\u5de5\u5177**\uff0c\u4e13\u4e3a\u89e3\u51b3\u201c\u5355\u673a\u591a\u5bb9\u5668\u534f\u540c\u201d\u8fd9\u4e00\u5173\u952e\u75db\u70b9\u800c\u751f[4][8]\u3002\u5176\u5b98\u65b9\u5b9a\u4e49\u660e\u786e\u6307\u51fa\uff1a\u201cCompose \u662f\u7528\u4e8e\u5b9a\u4e49\u548c\u8fd0\u884c\u591a\u5bb9\u5668 Docker \u5e94\u7528\u7a0b\u5e8f\u7684\u5de5\u5177\u201d[1]\uff0c\u5e76\u88ab\u5e7f\u6cdb\u89c6\u4e3a\u201c\u5b9a\u4e49\u548c\u8fd0\u884c\u591a\u5bb9\u5668\u5e94\u7528\u7684\u6807\u51c6\u5de5\u5177\u201d[6]\u3002\n\nCompose \u7684\u6838\u5fc3\u673a\u5236\u662f**\u58f0\u660e\u5f0f YAML \u914d\u7f6e\u9a71\u52a8**\u3002\u7528\u6237\u901a\u8fc7\u4e00\u4e2a\u540d\u4e3a `docker-compose.yml` \u7684 YAML \u6587\u4ef6\uff0c\u4ee5\u7ed3\u6784\u5316\u65b9\u5f0f\u7edf\u4e00\u5b9a\u4e49\u6574\u4e2a\u5e94\u7528\u6240\u9700\u7684\u5168\u90e8\u670d\u52a1\uff08Service\uff09\u3001\u7f51\u7edc\uff08Network\uff09\u3001\u5377\uff08Volume\uff09\u3001\u73af\u5883\u53d8\u91cf\u3001\u7aef\u53e3\u6620\u5c04\u3001\u4f9d\u8d56\u5173\u7cfb\u53ca\u542f\u52a8\u987a\u5e8f\u7b49[1][7][9]\u3002\u8be5\u6587\u4ef6\u672c\u8d28\u4e0a\u662f\u4e00\u4e2a\u201c\u57fa\u7840\u8bbe\u65bd\u5373\u4ee3\u7801\u201d\uff08IaC\uff09\u6a21\u677f\uff0c\u4f7f\u590d\u6742\u73af\u5883\u5177\u5907\u9ad8\u5ea6\u53ef\u590d\u73b0\u6027\u4e0e\u7248\u672c\u53ef\u63a7\u6027\u3002\n\n\u5176\u5de5\u4f5c\u6d41\u7a0b\u4e25\u683c\u9075\u5faa\u4e09\u6b65\u6cd5\uff1a  \n1. **Step 1**\uff1a\u7528 `Dockerfile` \u5b9a\u4e49\u6bcf\u4e2a\u670d\u52a1\u7684\u6784\u5efa\u73af\u5883\uff1b  \n2. **Step 2**\uff1a\u7528 `docker-compose.yml` \u5b9a\u4e49\u670d\u52a1\u95f4\u62d3\u6251\u5173\u7cfb\u4e0e\u8fd0\u884c\u53c2\u6570\uff1b  \n3. **Step 3**\uff1a\u6267\u884c `docker compose up` \u547d\u4ee4\uff0c\u81ea\u52a8\u5b8c\u6210\u955c\u50cf\u6784\u5efa\uff08\u82e5\u9700\uff09\u3001\u5bb9\u5668\u521b\u5efa\u3001\u7f51\u7edc\u521d\u59cb\u5316\u3001\u5377\u6302\u8f7d\u53ca\u6309\u4f9d\u8d56\u987a\u5e8f\u542f\u52a8\u5168\u90e8\u670d\u52a1[1]\u3002  \n\n\u8fd9\u4e00\u673a\u5236\u5f7b\u5e95\u53d6\u4ee3\u4e86\u8fc7\u53bb\u9700\u7f16\u5199\u5197\u957f Shell \u811a\u672c\u6216\u624b\u52a8\u6267\u884c\u6570\u5341\u6761 `docker run` \u547d\u4ee4\u7684\u4f4e\u6548\u65b9\u5f0f[9]\uff0c\u5c06\u591a\u5bb9\u5668\u5e94\u7528\u7684\u751f\u547d\u5468\u671f\u7ba1\u7406\u7b80\u5316\u4e3a\u5355\u4e00\u547d\u4ee4\u64cd\u4f5c\u3002\n\n## \u4e09\u3001Docker \u4e0e Docker Compose \u7684\u672c\u8d28\u533a\u522b\u4e0e\u534f\u540c\u5173\u7cfb\n\n| \u7ef4\u5ea6         | Docker\uff08CLI\uff09                          | Docker Compose                              |\n|--------------|------------------------------------------|---------------------------------------------|\n| **\u4f5c\u7528\u8303\u56f4** | \u5355\u5bb9\u5668\u7ba1\u7406\uff08\u521b\u5efa\u3001\u8fd0\u884c\u3001\u505c\u6b62\u3001\u5220\u9664\uff09       | \u591a\u5bb9\u5668\u7f16\u6392\uff08\u5b9a\u4e49\u3001\u542f\u52a8\u3001\u505c\u6b62\u3001\u91cd\u5efa\u6574\u5957\u5e94\u7528\uff09   |\n| **\u914d\u7f6e\u65b9\u5f0f** | \u547d\u4ee4\u884c\u53c2\u6570\u6216 `Dockerfile`\uff08\u5355\u670d\u52a1\u6784\u5efa\uff09    | `docker-compose.yml`\uff08\u591a\u670d\u52a1\u58f0\u660e\u5f0f\u914d\u7f6e\uff09      |\n| **\u9002\u7528\u573a\u666f** | \u7b80\u5355\u670d\u52a1\u3001\u8c03\u8bd5\u5355\u4e2a\u5bb9\u5668\u3001CI \u4e2d\u539f\u5b50\u4efb\u52a1       | Web \u5e94\u7528\uff08\u524d\u7aef+\u540e\u7aef+DB\uff09\u3001\u5fae\u670d\u52a1\u5f00\u53d1\u73af\u5883\u3001NAS \u591a\u5e94\u7528\u90e8\u7f72[3][7] |\n| **\u4f9d\u8d56\u7ba1\u7406** | \u65e0\u539f\u751f\u652f\u6301\uff0c\u9700\u4eba\u5de5\u534f\u8c03\u542f\u52a8\u987a\u5e8f              | \u5185\u7f6e `depends_on`\u3001\u5065\u5eb7\u68c0\u67e5\u7b49\u5f85\u673a\u5236\uff0c\u786e\u4fdd\u670d\u52a1\u6309\u5e8f\u5c31\u7eea[9] |\n\n\u4e8c\u8005\u5e76\u975e\u66ff\u4ee3\u5173\u7cfb\uff0c\u800c\u662f**\u5206\u5c42\u534f\u4f5c\u5173\u7cfb**\uff1aDocker \u63d0\u4f9b\u5bb9\u5668\u8fd0\u884c\u65f6\u57fa\u7840\u80fd\u529b\uff0cCompose \u5219\u5728\u5176\u4e4b\u4e0a\u6784\u5efa\u5e94\u7528\u7ea7\u62bd\u8c61\u5c42\u3002\u5982\u90e8\u7f72\u4e00\u4e2a\u5178\u578b\u4e09\u5c42\u67b6\u6784\u5e94\u7528\uff08Nginx + Spring Boot + MySQL\uff09\uff0cDocker \u8d1f\u8d23\u5404\u81ea\u5bb9\u5668\u7684\u9694\u79bb\u4e0e\u8fd0\u884c\uff0c\u800c Compose \u8d1f\u8d23\u5b9a\u4e49\u4e09\u8005\u95f4\u7684\u7f51\u7edc\u4e92\u901a\u3001MySQL \u521d\u59cb\u5316\u811a\u672c\u6302\u8f7d\u3001Nginx \u9759\u6001\u6587\u4ef6\u5377\u6620\u5c04\uff0c\u5e76\u786e\u4fdd MySQL \u542f\u52a8\u5b8c\u6210\u540e\u518d\u542f\u52a8\u5e94\u7528\u670d\u52a1[9][8]\u3002\u8fd9\u79cd\u5206\u5de5\u4f7f\u5f00\u53d1\u8005\u80fd\u805a\u7126\u4e1a\u52a1\u903b\u8f91\uff0c\u800c\u975e\u5e95\u5c42\u8fd0\u7ef4\u7ec6\u8282\u3002\n\n## \u56db\u3001\u5178\u578b\u4f7f\u7528\u573a\u666f\u4e0e\u5b9e\u8df5\u4ef7\u503c\n\nDocker Compose \u7684\u6838\u5fc3\u4ef7\u503c\u4f53\u73b0\u5728\u4e09\u5927\u9ad8\u9891\u573a\u666f\u4e2d\uff1a\n\n### 1. \u5f00\u53d1\u4e0e\u6d4b\u8bd5\u73af\u5883\u5feb\u901f\u4ea4\u4ed8  \n\u5bf9\u4e8e\u9700\u524d\u7aef\uff08React\uff09\u3001\u540e\u7aef\uff08Python Flask\uff09\u3001\u6570\u636e\u5e93\uff08PostgreSQL\uff09\u3001\u7f13\u5b58\uff08Redis\uff09\u534f\u540c\u5de5\u4f5c\u7684\u9879\u76ee\uff0c`docker-compose.yml` \u53ef\u5728 5\n\n[truncated]\n\n## \u53c2\u8003\u6587\u732e\n\n<a id=\"ref-1\"></a>**[1]** cnblogs.com \u2014 [Docker] Docker Compose \u57fa\u7840\u6559\u7a0b\uff08\u6982\u5ff5/\u57fa\u7840\u64cd\u4f5c\uff09 - \u5343\u5343\u5bf0\u5b87 - \u535a\u5ba2\u56ed\nURL: https://www.cnblogs.com/johnnyzen/p/17785405.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c[Docker] Docker Compose \u57fa\u7840\u6559\u7a0b\uff08\u6982\u5ff5/\u57fa\u7840\u64cd\u4f5c\uff09 - \u5343\u5343\u5bf0\u5b87 - \u535a\u5ba2\u56ed \u5343\u5343\u5bf0\u5b87 \u5927\u6570\u636e\u4e0eJava\u8f6f\u4ef6\u5f00\u53d1\u4ece\u4e1a\u8005\uff0c\u6570\u667a\u5316\u8f6c\u578b\u5b9e\u8df5\u8005\u3002 \u3010\u597d\u7269\u63a8\u8350\u3011 [Docker] Docker Compose \u57fa\u7840\u6559\u7a0b\uff08\u6982\u5ff5/\u57fa\u7840\u64cd\u4f5c\uff09 1 Docker Compose \u6982\u8ff0 1.1 Docker Compose \u7b80\u8ff0 Compose \u662f\u7528\u4e8e\u5b9a\u4e49\u548c\u8fd0\u884c\u591a\u5bb9\u5668 Docker \u5e94\u7528\u7a0b\u5e8f\u7684\u5de5\u5177\u3002 \u901a\u8fc7 Compose\uff0c\u60a8\u53ef\u4ee5\u4f7f\u7528 YML \u6587\u4ef6\u6765\u914d\u7f6e\u5e94\u7528\u7a0b\u5e8f\u9700\u8981\u7684\u6240\u6709\u670d\u52a1\u3002 \u7136\u540e\uff0c\u4f7f\u7528\u4e00\u4e2a\u547d\u4ee4\uff0c\u5c31\u53ef\u4ee5\u4ece YML \u6587\u4ef6\u914d\u7f6e\u4e2d\u521b\u5efa\u5e76\u542f\u52a8\u6240\u6709\u670d\u52a1\u3002 \u5982...\u300d\n\n<a id=\"ref-2\"></a>**[2]** youtube.com \u2014 https://www.youtube.com/watch?v=qiPH3MOG9d0\nURL: https://www.youtube.com/watch?v=qiPH3MOG9d0\n\u539f\u6587\u7247\u6bb5\uff1a\u300chttps://www.youtube.com/watch?v=qiPH3MOG9d0 In order to continue, please enable javascript on your web browser. About this page Our systems have detected unusual traffic from your computer network. This page checks to see if it's really you sending the requests, and not a robot....\u300d\n\n<a id=\"ref-3\"></a>**[3]** ugnas.com \u2014 \u5feb\u901f\u4e86\u89e3\u4f7f\u7528Docker\u548cDocker Compose\u7684\u533a\u522b\uff0c\u62d3\u5c55NAS\u5e94\u7528\u80fd\u529b\nURL: https://www.ugnas.com/play-detail/id-68.html\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u5feb\u901f\u4e86\u89e3\u4f7f\u7528Docker\u548cDocker Compose\u7684\u533a\u522b\uff0c\u62d3\u5c55NAS\u5e94\u7528\u80fd\u529b \u8d2d\u4e70 \u4eac\u4e1c\u81ea\u8425 \u5929\u732b\u81ea\u8425 \u793e\u533a \u767b\u5f55 \u731c\u4f60\u60f3\u641c DH4300 Plus DXP4800 Pro \u7eff\u8054DXP4800 \u7eff\u8054DXP6800 \u9996\u9875 / \u670d\u52a1\u4e2d\u5fc3 / \u6559\u7a0b\u4e2d\u5fc3 / \u8fdb\u9636\u6559\u7a0b / \u5feb\u901f\u4e86\u89e3\u4f7f\u7528Docker\u548cDocker Compose\u7684\u533a\u522b\uff0c\u62d3\u5c55NAS\u5e94\u7528\u80fd\u529b \u5feb\u901f\u4e86\u89e3\u4f7f\u7528Docker\u548cDocker Compose\u7684\u533a\u522b\uff0c\u62d3\u5c55NAS\u5e94\u7528\u80fd\u529b 2025/02/25 \u5728 NAS \u7cfb\u7edf\u4e2d\uff0cDocker \u662f\u4e00\u6b3e\u975e\u5e38\u91cd\u8981\u7684\u5e94\u7528\u7a0b\u5e8f\uff0c\u5b83\u53ef\u4ee5\u6781\u5927\u5730\u62d3\u5c55 NAS \u7684\u5e94\u7528\u80fd\u529b\u3002\u672c\u6307\u5357...\u300d\n\n<a id=\"ref-4\"></a>**[4]** docs.docker.com \u2014 Docker Compose | Docker Docs\nURL: https://docs.docker.com/compose\n\u539f\u6587\u7247\u6bb5\uff1a\u300cDocker Compose | Docker Docs Start a new chat When enabled, Gordon considers the current page you're viewing to provide more relevant answers. Share feedback Answers are generated based on the documentation. Back Manuals Get started Guides Reference Docker Compose Ask Gordon Copy...\u300d\n\n<a id=\"ref-5\"></a>**[5]** medium.com \u2014 Medium\nURL: https://medium.com/@adriansyah1230/mastering-docker-compose-a-practical-guide-to-multi-container-applications-c76811010131\n\u539f\u6587\u7247\u6bb5\uff1a\u300cMedium Mastering Docker Compose: A Practical Guide to Multi-Container Applications | by Adrian Syah Abidin | Medium Sitemap Open in app Sign up Sign in Get app Write Search Sign up Sign in DevOps Devsecops Docker Compose Mastering Docker Compose: A Practical Guide to Multi-Contai...\u300d\n\n<a id=\"ref-6\"></a>**[6]** tech-insider.org \u2014 Docker Compose: Build 3-Tier Apps in 15 Min [2026]\nURL: https://tech-insider.org/docker-compose-tutorial-multi-container-apps-2026\n\u539f\u6587\u7247\u6bb5\uff1a\u300cDocker Compose: Build 3-Tier Apps in 15 Min [2026] Skip to content Marcus Chen March 23, 2026 22 min read Docker Compose has become the standard tool for defining and running multi-container applications, and the 2026 release cycle has introduced transformative features that ever...\u300d\n\n<a id=\"ref-7\"></a>**[7]** freecodecamp.org \u2014 Docker Compose \u662f\u4ec0\u4e48\uff1f\u901a\u8fc7\u793a\u4f8b\u5b66\u4e60\u5982\u4f55\u4f7f\u7528\u5b83\nURL: https://www.freecodecamp.org/chinese/news/what-is-docker-compose-how-to-use-it\n\u539f\u6587\u7247\u6bb5\uff1a\u300cDocker Compose \u662f\u4ec0\u4e48\uff1f\u901a\u8fc7\u793a\u4f8b\u5b66\u4e60\u5982\u4f55\u4f7f\u7528\u5b83 \u8bd1\u8005\uff1aMiya Liu \u4f5c\u8005\uff1aArunachalam B (\u82f1\u8bed) \u539f\u6587\uff1a What is Docker Compose? How to Use it with an Example Docker \u5e2e\u52a9\u4f60\u5728\u4f60\u7684\u673a\u5668\u4e0a\u5feb\u901f\u5efa\u7acb\u4e00\u4e2a\u5f00\u53d1\u73af\u5883\u3002\u5b8c\u6210\u6574\u4e2a\u8fc7\u7a0b\u53ea\u9700\u8981\u51e0\u5206\u949f\u65f6\u95f4\u3002 \u4f46\u662f\uff0c\u8ba9\u6211\u4eec\u5047\u8bbe\u4f60\u88ab\u5206\u914d\u5230\u4e00\u4e2a\u9879\u76ee\u4e0a\uff0c\u8be5\u9879\u76ee\u9700\u8981\u81f3\u5c11 10 \u4e2a\u4e0d\u540c\u7684\u670d\u52a1\u5904\u4e8e\u8fd0\u884c\u72b6\u6001\u6765\u8fd0\u884c\u4f60\u7684\u9879\u76ee\u3002\u4f8b\u5982\uff0c\u5047\u8bbe\u4f60\u7684\u9879\u76ee\u9700\u8981 Java 8\u3001Node 14\u3001MySQL\u3001MongoDB\u3001Ruby on rails\u3001RabbitMQ...\u300d\n\n<a id=\"ref-8\"></a>**[8]** juejin.cn \u2014 \u3010docker\u57fa\u7840\u3011: \u4f7f\u7528docker composedocker compose docker compose \u662f\u4ec0 - \u6398\u91d1\nURL: https://juejin.cn/post/7249033891810050108\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u3010docker\u57fa\u7840\u3011: \u4f7f\u7528docker composedocker compose docker compose \u662f\u4ec0 - \u6398\u91d1 \u3010docker\u57fa\u7840\u3011: \u4f7f\u7528docker compose \u6309\u65f6\u4ea4\u4f5c\u4e1a 2023-06-27 2,421 \u9605\u8bfb3\u5206\u949f docker compose docker compose \u662f\u4ec0\u4e48 Docker Compose \u662f\u4e00\u4e2a\u7528\u4e8e\u5b9a\u4e49\u548c\u8fd0\u884c\u591a\u4e2a Docker \u5bb9\u5668\u7684\u5de5\u5177\uff0c\u5b83\u5141\u8bb8\u4f60\u4f7f\u7528\u4e00\u4e2a YAML \u6587\u4ef6\u6765\u914d\u7f6e\u548c\u7ba1\u7406 Docker \u5bb9\u5668\u3002 \u5982\u679c\u4f60\u5df2\u7ecf\u4e0b\u8f7d\u4e86docker\u56fe\u5f62\u5316\u754c\u9762\uff0c\u90a3\u4e48\u4f60\u5c31\u53ef\u4ee5\u76f4\u63a5\u4f7f\u7528\u4e86\uff0c\u91cc\u9762\u5185\u5d4c\u4e86\u8fd9\u4e2a\u3002 \u5982\u679c\u6ca1\u6709\u4e0b\u8f7d...\u300d\n\n<a id=\"ref-9\"></a>**[9]** blog.csdn.net \u2014 \u4ec0\u4e48\u662fDocker Compose\uff1f\u8bf7\u7b80\u8ff0\u5176\u4f5c\u7528\u548c\u4f7f\u7528\u573a\u666f_docker compose\u7684\u4f5c\u7528-CSDN\u535a\u5ba2\nURL: https://blog.csdn.net/weixin_43310500/article/details/135619355\n\u539f\u6587\u7247\u6bb5\uff1a\u300c\u4ec0\u4e48\u662fDocker Compose\uff1f\u8bf7\u7b80\u8ff0\u5176\u4f5c\u7528\u548c\u4f7f\u7528\u573a\u666f_docker compose\u7684\u4f5c\u7528-CSDN\u535a\u5ba2 \u4ec0\u4e48\u662fDocker Compose\uff1f\u8bf7\u7b80\u8ff0\u5176\u4f5c\u7528\u548c\u4f7f\u7528\u573a\u666f \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-08-12 10:43:59 \u53d1\u5e03 \u539f\u521b \u6700\u65b0\u63a8\u8350\u6587\u7ae0\u4e8e 2026-08-12 10:43:59 \u53d1\u5e03 \u00b7 2.3k \u9605\u8bfb \u00b7 10 \u00b7 6 \u00b7 \u672c\u5185\u5bb9\u9075\u5faaCC 4.0 BY-SA\u7248\u6743\u534f\u8bae \u7248\u6743\u58f0\u660e\uff1a\u672c\u6587\u4e3a\u535a\u4e3b\u539f\u521b\u6587\u7ae0\uff0c\u9075\u5faa CC 4.0 BY-SA \u7248\u6743\u534f\u8bae\uff0c\u8f6c\u8f7d\u8bf7\u9644\u4e0a\u539f\u6587\u51fa\u5904\u94fe\u63a5\u548c\u672c\u58f0\u660e\u3002 GEO\u68c0\u6d4b \u00b7 \u6536\u5f55\u4e8e \u5341\u3001Docker\u4e0eK8S \u5f53\u524d\u6587\u7ae0\u88ab\u6536\u5f55\u4e8e\uff1a...\u300d",
+    "metadata": [
+      "https://www.cnblogs.com/skins/custom/images/logo.gif",
+      "https://img2023.cnblogs.com/blog/1173617/202310/1173617-20231024173944070-1664543542.png",
+      "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826234557654-489156154.png",
+      "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826235810164-261037574.png",
+      "https://tech-insider.org/wp-content/uploads/2026/03/docker-compose-tutorial-multi-container-apps-2026-1.jpg",
+      "https://chinese.freecodecamp.org/news/content/images/size/w2000/2023/06/What-is-Docker-compose-1.png",
+      "https://chinese.freecodecamp.org/news/content/images/size/w60/2020/12/1607069929888.jpg",
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1766227758075/1cafb145-1477-49a7-a8c1-5d08fc7ff6db.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      "https://www.freecodecamp.org/news/content/images/2023/04/image-43.png"
+    ]
+  }
+}

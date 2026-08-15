@@ -1,0 +1,613 @@
+{
+  "loss_case_count": 10,
+  "cases": [
+    {
+      "case_id": "pilot-010",
+      "query_type": "semantic_paraphrase",
+      "query": "Redis 没有依赖多工作线程仍能获得高吞吐，关键的软件和 I/O 设计是什么？",
+      "query_terms": [
+        "redis",
+        "没有",
+        "依赖",
+        "多",
+        "工作",
+        "线程",
+        "仍",
+        "能",
+        "获得",
+        "高",
+        "吞吐",
+        "关键",
+        "软件",
+        "i",
+        "o",
+        "设计",
+        "是"
+      ],
+      "anchor_terms": [
+        "redis"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "990c8e05-be6a-4808-90e4-bfad6a98da21",
+          "fts_rank": null,
+          "vector_rank": 5,
+          "fused_rank": 13,
+          "content": "1）不需要各种锁的性能消耗\nRedis 的数据结构并不全是简单的 Key-Value，还有 list，hash 等复杂的结构，这些结构有可能会进行很细粒度的操作，比如在很长的列表后面添加一个元素，在 hash 当中添加或者删除一个对象。这些操作可能就需要加非常多的锁，导致的结果是同步开销大大增加。总之，在单线程的情况下，就不用去考虑各种锁的问题，不存在加锁释放锁操作，没有因为可能出现死锁而导致的性能消耗。\n2）单线程多进程集群方案\n单线程的威力实际上非常强大，每核心效率也非常高，多线程自然是可以比单线程有更高的性能上限，但是在今天的计算环境中，即使是单机多线程的上限也往往不能满足需要了，需要进一步摸索的是多服务器集群化的方案，这些方案中多线程的技术照样是用不上的。\n3）CPU 消耗\n采用单线程，避免了不必要的上下文切换和竞争条件，也不存在多进程或者多线程导致的切换而消耗 CPU。但是如果 CPU 成为 Redis 瓶颈，或者不想让服务器其他 CPU 核闲置，那怎么办？可以考虑多起几个 Redis 进程，Redis 是 key-value 数据库，不是关系数据库，数据之间没有约束。只要客"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "28c730cd-e1ab-4dee-8274-0dc8032e05ed",
+          "fts_rank": 8,
+          "vector_rank": 18,
+          "fused_rank": 3,
+          "content": "存占用过高。\nRedis\n大\nkey\n和\n热\nkey\n问题\n及处理\nlvyuanj的专栏\n03-09\n2462\nredis\n大\nkey\n和\n热\nkey\n问题\n及处理\nredis\n_exporter + Prometheus监控\nRedis\n: 指标采集、告警与远程抓取\n热门推荐\n2401_87848736的博客\n08-0\n\n4\n1万+\nRedis\n承担\n缓存\n、分布式锁或限流等任务后，服务进程仍在运行，并不代表实例状态完全正常。内存持续增长、连接数接近上限、\n缓存\n命中率下降或主从同步异常，都可能在业务明显报错前逐渐出现。\nredis\n_exporter可以读取\nRedis\n的运行信息，并将内存、连接、命令、持久化和网络等数据转换为Prometheus能够抓取的指标。Prometheus再按照固定周期保存这些数据，并通过PromQL和告警规则判断异常状态。本文将部署\nredis\n_exporter并验证/metrics。\nRedis\n持久化：RDB 与 AOF\n08-03\n464\nRDB（\nRedis\nDatabase Backup）就是把某一时刻的内存数据完整写入磁盘，生成一个二进制"
+        },
+        {
+          "child_id": "52d5136c-852b-4ab4-b94c-e7ece673f314",
+          "fts_rank": 21,
+          "vector_rank": 20,
+          "fused_rank": 4,
+          "content": "是按钮连点、移动网络重传、网关超时重试、调用方没有收到响应后的补偿重试，也可能是支付平台重复回调或消息中间件再次投递。对查询接口来说，多执行一次通常只是浪费资源；对下单、扣款、\n\n发券、库存变更而言，一次重复就可能变成真实损失。很多教程把幂等简化为“\nRedis\nSETNX成功就放行”，但这只能挡住一部分并发。\nRedis\n占位成功后应用可能崩溃，\n数据库\n提交后回包可能丢失，TTL 可能早于业务结束，\n缓存\n还可能因淘汰或故障切换丢键。\nCodex 精准 高并发点赞系统终极\n解决方案\n｜前端防抖幂等 +\nRedis\n抗并发 + 异步落库\n十年老程序猿，AI 疯狂研究专家，前沿硬核知识分享\n08-04\n474\n防抖锁：拦截短时间连续点击幂等 ID：规避网络重试产生重复请求乐观 UI：优化交互，消除等待卡顿前端依靠防抖、幂等、乐观 UI 拦截大部分无效流量；后端标准架构：\nRedis\n承载流量峰值 + MQ 异步落库 + 定时任务数据校正；高并发系统通用思路：请求拦截、流量削峰、接口幂等、最终一致性兜底；AI 高效开发方式：精准架构约束提示词 + Codex Agent 工程能力，直接落"
+        },
+        {
+          "child_id": "c7e2bfee-252e-4f4d-a5ec-76c6c89793e3",
+          "fts_rank": 23,
+          "vector_rank": 22,
+          "fused_rank": 5,
+          "content": "le）记录的是\nRedis\n执行的每一个写命令。每次执行写操作，命令就会被追加到 AOF 文件末尾。把所有写操作写成日记，重启时重放日记就能恢复数据。AOF 会按照\nRedis\n协议格式记录每一次写命令，而不是简单保存命令字符串。\nCodex 精准 高并发点赞系统终极解决方案｜前端防抖幂等 +\nRedis\n抗并发 + 异步落库\n十年老程序猿，AI 疯狂研究专家，前沿硬核知识分享\n08-04\n474\n防抖锁：拦截短时间连续点击幂等 ID：规避网络重试产生重复请求乐观 UI：优化交互，消除等待卡顿前端依靠防抖、幂等、乐观 UI 拦截大部分无效流量；后端标准架构：\nRedis\n承载流量峰值 + MQ 异步落库 + 定时任务数据校正；高并发系统通用思路：请求拦截、流量削峰、接口幂等、最终一致性兜底；AI 高效开发方式：精准架构约束提示词 + Codex Agent 工程能力，直接落地生产级代码。\nSpring Boot 接口幂等实战：重复提交、\nRedis\nLua、唯一索引与消息重复消费一次讲透\n2501_94007735的博客\n08-07\n355\n用户只点了一次“提交订单”，服务端为什么收到"
+        },
+        {
+          "child_id": "3cf40045-186d-4dc5-993f-fcb1c1b7c6b2",
+          "fts_rank": 1,
+          "vector_rank": null,
+          "fused_rank": 6,
+          "content": "Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路\n跳至主要內容\nJava\n数据库\nMySQL\nRedis\nRedis数据类型全攻略：String、List、Hash、Set的实战应用\nRedis是如何高效存储与访问数据？\nRedis命令处理机制源码探究\nPipelining原理：批量命令背后的秘密\nRedis究竟为什么这么快？\nRedis持久化：从AOF到RDB，如何实现数据不丢失？\nRedis缓存管理：过期删除策略的深度剖析\nRedis内存淘汰策略：如何高效管理有限内存？\nRedis主从复制是如何保障数据一致性的？\nRedis哨兵机制是如何优化主从切换流程的？\nRedis集群机制深度剖析\nRedis分布式锁：从SETNX到Redisson的演进\nRedis中的事务有何不同？\nRedis容量评估模型\nRedis连接数调整\nRedis中的常见延迟问题\nRedis的内存碎片问题\nRedis实现高并发场景下的计数器设计\nRedis实现分页+多条件模糊查询组合方案\n常用框架\n微服务/分布式\n工具类库\n计算机基础\n架构思想\n系统设计/实践\n大数据框架\nAI\n"
+        },
+        {
+          "child_id": "0b3de9be-5f4f-44bf-a724-0c10a7cafc4e",
+          "fts_rank": 2,
+          "vector_rank": null,
+          "fused_rank": 7,
+          "content": "时\n锁key要注意过期时间，不能长期占用\n加锁关键逻辑\npublic\nstatic\nboolean\ntryLock(\nString\nkey\n,\nString\nuniqueId, int seconds) {\nreturn\n\"OK\"\n.\nequals\n(jedis.\nset\n(\nkey\n, uniqueId,\n\"NX\"\n,\n\"EX\"\n, seconds));\n}\n解锁关键逻辑\npublic\nstatic\nbool\n\nean\nreleaseLock\n(\nString\nkey,\nString\nuniqueId\n) {\nString\nluaScript =\n\"if redis.call('get', KEYS[1]) == ARGV[1] then \"\n+\n\"return redis.call('del', KEYS[1]) else return 0 end\"\n;\nreturn\njedis.\neval\n( luaScript,\nCollections\n.\nsingletonList\n(key),\nCollections\n.\nsingletonList\n(uniqueId) ).\nequals"
+        }
+      ]
+    },
+    {
+      "case_id": "pilot-011",
+      "query_type": "cross_chunk_boundary",
+      "query": "从用户感知到数值区间，怎样判断网络延迟是否会影响游戏、视频会议和网页浏览？",
+      "query_terms": [
+        "从",
+        "用户",
+        "感知",
+        "到",
+        "数值",
+        "区间",
+        "判断",
+        "网络",
+        "延迟",
+        "会",
+        "影响",
+        "游戏",
+        "视频会议",
+        "网页",
+        "浏览"
+      ],
+      "anchor_terms": [],
+      "lost_gold": [
+        {
+          "child_id": "bbf08b13-d43d-4b9b-97fd-ae471cf73df2",
+          "fts_rank": null,
+          "vector_rank": 6,
+          "fused_rank": 11,
+          "content": "how\nfiber internet will change the way you game online and stream everything else\nto see what a difference it makes.\nA low-latency connection doesn't just feel faster—it fundamentally changes what's possible online. It's th\n\ne key to a more productive workday and a more immersive entertainment experience.\nSetting the Standard: What’s a “Good” Latency?\nSo, what kind of latency should you be aiming for? Understanding the numbers is key. For households and remote workers who depend on Premier Broad"
+        },
+        {
+          "child_id": "1faa2ec4-de5a-42eb-837e-526305a00b04",
+          "fts_rank": null,
+          "vector_rank": 5,
+          "fused_rank": 9,
+          "content": "-time conversation\nClear audio/video, minimal delay\nOccasional choppiness or talking over\nConstant interruptions, unusable\nGeneral Web Browsing\nPages load instantly\nFast and responsive\nNoticeable but tolerable loading\nSluggish and frustrating\nStreaming Video (HD/4K)\nBuffe\n\nring is non-existent\nStarts quickly, no interruptions\nMay buffer at the start\nFrequent buffering and low quality\nAs you can see, the lower your latency, the better your experience will be across the board. The goal is to get t"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "8e87ed0b-2c14-4533-84fd-b6aa0ae6703a",
+          "fts_rank": 2,
+          "vector_rank": null,
+          "fused_rank": 2,
+          "content": "立的 Redis master 依次请求申请加锁，如果客户端能够在严格多数派实例上成功完成加锁操作，那么就可以认为客户端成功获得分布式锁，否则加锁失败。\nRedlock 的完整判断条件如下：\n使用 N 个相\n\n互独立的 Redis master（不是 Redis Cluster 分片）。\n客户端记录开始时间。\n依次向各节点用相同的 key、value、TTL 加锁，每次请求设置较短超时，避免单个节点拖慢整体加锁。\n只有获得至少\nN/2 + 1\n个节点成功，且总耗时小于 TTL，才算加锁成功。\n锁的实际有效时间约为\nTTL - 加锁耗时 - 时钟漂移余量\n。\n失败时要向所有节点发起释放，包括加锁失败或请求超时的节点。\nRedlock 是直接操作独立 Redis 节点的，并不是通过 Redis Cluster 操作的，这样才可以避免单个主从分片故障转移导致的锁丢失问题。\nRedlock 实现比较复杂，性能比较差，发生时钟变迁的情况下还存在安全性隐患。《数据密集型应用系统设计》一书的作者 Martin Kleppmann 曾经专门发文（\nHow to do distributed locki"
+        },
+        {
+          "child_id": "01ecf051-6c41-4c07-af22-3d003dc05ee6",
+          "fts_rank": 3,
+          "vector_rank": null,
+          "fused_rank": 4,
+          "content": "Key\n的请求，导致 CPU 使用率急剧上升。\n- 网络 IO 瓶颈：请求量过大可能会导致\nRedis\n服务器的网络流量激增，影响整体响应速度。\n-\n缓存\n穿透、\n缓存\n击穿风险：如果\n热\nKey\n过期或者未命中，可能导致大量请求直接打到\n数据库\n，引发雪\nRedis\n解决\n热\nkey\n问题\n言之。\n01-11\n1万+\n当\nRedis\n遇到\n热\nkey\n问题\n时，即某个或某些\nkey\n被频繁访问，可能导致单个\nRedis\n节点负载过高，影响整个系统性能。\n热\nKey\n问题\n及其\n解决方案\n：\nRedis\n高并发场景下的性能优化\n猫步轻移，以学求知。余于此方寸之地，如猫观鼠，细察技艺所得，思维所悟。灵思如猫之警觉，日积月累，终成智海；\n04-06\n1826\n在分布式\n缓存\n系统中，你是否曾遇到过某个\nKey\n突然成为\"明星\"，吸引大量流量而导致系统负载失衡、响应缓慢甚至宕机的情况？这就是典型的\"\n热\nKey\n\"\n问题\n——一个在高并发系统架构中不可忽视的性能瓶颈。本文深入剖析\nRedis\n热\nKey\n的本质、识别方法与多维度\n解决方案\n，从技术原理到实战策略，全方位提升你应对高并发挑战的"
+        },
+        {
+          "child_id": "05bd4f06-587d-4ebc-a1b1-3df7543bbc4d",
+          "fts_rank": 4,
+          "vector_rank": null,
+          "fused_rank": 6,
+          "content": "影响它的「正确性」。\nMartin\n的结论\nRedlock 不伦不类：对于偏好效率来讲，Redlock 比较重，没必要这么做，而对于偏好正确性来说，Redlock 是不够安全的。\n时钟假设不合理：该算法对系统时钟做出了危险的假设\n\n（假设多个节点机器时钟都是一致的），如果不满足这些假设，锁就会失效。\n无法保证正确性：Redlock 不能提供类似 fencing token 的方案，所以解决不了正确性的问题。为了正确性，请使用有「共识系统」的软件，例如 Zookeeper。\n以上就是\nMartin\n反对使用 Redlock 的观点，有理有据。接下来我们来看 Redis 作者 Antirez 是如何反驳的。\nRedis 作者 Antirez 的反驳\n在 Redis 作者的反驳文章中，有 3 个重点\n时钟问题\n首先，Redis 作者一眼就看穿了对方提出的最为核心的问题：时钟问题。\n为什么 Redis 作者优先解释时钟问题？因为在后面的反驳过程中，需要依赖这个基础做进一步解释。\nRedis 作者表示，Redlock 并不需要完全一致的时钟，只需要大体一致就可以了，允许有「误差」，只要误差不要超"
+        },
+        {
+          "child_id": "0ea1bbef-eb11-48fa-93f1-603ba17f7560",
+          "fts_rank": 5,
+          "vector_rank": null,
+          "fused_rank": 8,
+          "content": "列、按用户散列等。\n随机散列的示意 Java 代码如下：\n代码语言：\njavascript\n复制\nint N = M * 2//M是集群里的节点数，得到备份数量 //生成随机数 int random = new Random().nextInt(N); //构造备份新key String b\n\nakHotKey = hotKey + “_” + random； String data = getFromRedis(bakHotKey); if (data == null) {//查询不到缓存，从数据库查询出来放到对应的备份Key data = getFromDB(); saveToRedis(bakHotKey, expireTime); }\n注：以上代码中 N 取了节点数 2 倍的原因是，由于 Redis 的散列存储算法是内置固定的，我们无法 100% 保证不同的备份 key 肯定落在不同副本上，所以 N 的取值上取了一点冗余。\n读写分离：\n开启读写分离，利用备节点扛住读流量。适用于热 Key 主要是读场景的情况。\n京东hotkeys框架：\n京东开源的hotkeys框架可用于实时侦测"
+        }
+      ]
+    },
+    {
+      "case_id": "pilot-013",
+      "query_type": "cross_chunk_boundary",
+      "query": "一次缓存读取到一次同步写入，Cache-Aside、Read-Through 和 Write-Through 的完整流程有什么差别？",
+      "query_terms": [
+        "一次",
+        "缓存",
+        "读取",
+        "到",
+        "同步",
+        "写入",
+        "cache-aside",
+        "read-through",
+        "write-through",
+        "完整",
+        "流程",
+        "有",
+        "差别"
+      ],
+      "anchor_terms": [
+        "cache-aside",
+        "read-through",
+        "write-through"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "b2cf4ad2-19d5-4a62-aaa1-0f06834642ce",
+          "fts_rank": null,
+          "vector_rank": 6,
+          "fused_rank": 15,
+          "content": "？\n当数据发生变化时，选择修改缓存（update），还是删除缓存（delete）？\n将这两个问题排列组合，会出现四种方案：\n先更新缓存，再更新数据库；\n先更新数据库，再更新缓存；\n先删除缓存，再更新数据库；\n先更新数\n\n据库，再删除缓存。\n接下来的分析大家不必死记硬背，关键在于在推演的过程中大家只需要考虑以下两个场景会不会带来严重问题即可：\n其中第一个操作成功，第二个失败会导致什么问题？\n在高并发情况下会不会造成读取数据不一致？\n为啥不考虑第一个失败，第二个成功的情况呀？\n你猜？\n既然第一个都失败了，第二个就不用执行了，直接在第一步返回 50x 等异常信息即可，不会出现不一致问题。\n只有第一个成功，第二个失败才让人头痛，想要保证他们的原子性，就涉及到分布式事务的范畴了。\n3.1 先更新缓存，再更新数据库\n如果先更新缓存成功，写数据库失败，就会导致缓存是最新数据，数据库是旧数据，那缓存就是脏数据了。\n之后，其他查询立马请求进来的时候就会获取这个数据，而这个数据数据库中却不存在。\n数据库都不存在的数据，缓存并返回客户端就毫无意义了。\n该方案直接\nPass\n。\n3.2 先更新数据库，再更新缓"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "132e91da-edb2-411e-b67a-a4af80175f73",
+          "fts_rank": 3,
+          "vector_rank": 12,
+          "fused_rank": 5,
+          "content": "掘地三尺，搞定 Redis 与 MySQL 数据一致性问题 | 社区征文 - 文章 - 开发者社区 - 火山引擎\n文档\n备案\n控制台\n登录\n注册\n首页\nAI 大模型体验中心\n动手实验室\nAgent 评测集\nAI 案例广场\n火山杯大赛\n学习中心\n社区\n去发布\n首页\nAI 大模型体验中心\n动手实验室\nAgent 评测集\nAI 案例广场\n学习中心\n社区\n掘地三尺，搞定 Redis 与 MySQL 数据一致性问题 | 社区征文\n码哥字节\n大数据\n社区征文\nNoSQL\nRedis 拥有高性能的数据读写功能，被我们广泛用在缓存场景，一是能提高业务系统的性能，二是为数据库抵挡了高并发的流量请求，\n点我 -> 解密 Redis 为什么这么快的秘密\n。\n把 Redis 作为缓存组件，需要防止出现以下的一些问题，否则可能会造成生产事故。\nRedis 缓存满了怎么办？\n缓存穿透、缓存击穿、缓存雪崩如何解决？\nRedis 数据过期了会被立马删除么？\nRedis 突然变慢了如何做性能排查并解决？\nRedis 与 MySQL 数据一致性问题怎么应对？\n今天「码哥」跟大家一起深入探索\n缓存的工作机制和缓存一致性应对"
+        }
+      ]
+    },
+    {
+      "case_id": "pilot-016",
+      "query_type": "multi_parent_synthesis",
+      "query": "生产集群应如何分别配置 HPA 与 VPA，并避免两套控制器互相干扰？",
+      "query_terms": [
+        "生产",
+        "集群",
+        "应",
+        "配置",
+        "hpa",
+        "vpa",
+        "避免",
+        "两套",
+        "控制器",
+        "互相",
+        "干扰"
+      ],
+      "anchor_terms": [
+        "hpa",
+        "vpa"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "4ce5d77d-cc81-406f-b23e-2bdf244edd18",
+          "fts_rank": 13,
+          "vector_rank": 8,
+          "fused_rank": 11,
+          "content": "**目标**：VPA 通过调整单个 Pod 的资源请求（CPU 和内存）来优化资源利用率，适用于需要稳定资源配置的应用 [2]。\n- **触发条件**：VPA 会监控 Pod 的资源使用情况，并根据历史数据推荐新的资源配置。如果当前配置与推荐值不一致，VPA 会更新 Pod 的资源配置 [5]。\n- **调整对象**：VPA 调整的是单个 Pod 的资源请求和限制，而不是 Pod 的副本数量 [6]。"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "ec679cc8-0bab-4a42-8c82-71b8ccc41ffe",
+          "fts_rank": 1,
+          "vector_rank": 9,
+          "fused_rank": 4,
+          "content": "<a id=\"ref-10\"></a>**[10]** lixueduan.com — Kubernetes教程(十二)---VPA:垂直 Pod 自动扩缩容 - 探索云原生\nURL: https://www.lixueduan.com/posts/kubernetes/12-vpa\n原文片段：「Kubernetes教程(十二)---VPA:垂直 Pod 自动扩缩容 - 探索云原生 Kubernetes教程(十二)---VPA:垂直 Pod 自动扩缩容 意琦行 收录于 Kubernetes 2022-10-14 00:00:00 约 2900 字 预计阅读 6 分钟 - 次阅读 目录 本文主要记录 k8s 中与 HPA 相对应的 VPA 功能，包括架构、大致实现以及 demo。 什么是 VPA？ VPA 全称 Vertical Pod Autoscaler,即垂直 Pod 自动扩缩容 ,它根据容器资源使用率自动设置 CPU 和内存的request...」\n\n<a id=\"ref-11\"></a>**[11]** cnblogs.com — 云原生：使用HPA和VPA实现集群扩缩容 - "
+        }
+      ]
+    },
+    {
+      "case_id": "pilot-017",
+      "query_type": "multi_parent_synthesis",
+      "query": "从底层组件到工程收益，FastAPI 为什么适合作为机器学习服务的 API 层？",
+      "query_terms": [
+        "从",
+        "底层",
+        "组件",
+        "到",
+        "工程",
+        "收益",
+        "fastapi",
+        "适合",
+        "作为",
+        "机器",
+        "学习",
+        "服务",
+        "api",
+        "层"
+      ],
+      "anchor_terms": [
+        "fastapi",
+        "api"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "3e7aa036-d7eb-4d93-ba6e-ea98f6847a57",
+          "fts_rank": null,
+          "vector_rank": 3,
+          "fused_rank": 11,
+          "content": "FastAPI 的并发处理能力可与 NodeJS 和 Go 媲美，是 Python 生态中最快的框架之一[11]。相较于传统的 Flask 与 Django，其原生 ASGI 架构与内置依赖注入系统显著减少了代码冗余，开发效率可提升 200% 至 300%[5]。严格的类型校验机制进一步降低了约 40% 的人为开发错误[11]。"
+        },
+        {
+          "child_id": "af997fce-c3ce-442b-accd-dc790211fbc9",
+          "fts_rank": null,
+          "vector_rank": 8,
+          "fused_rank": 14,
+          "content": "框架全面支持 Python 类型提示，可自动生成符合 OpenAPI 与 JSON Schema 标准的交互式文档，大幅降低接口联调成本[16]。"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "04dc005d-210b-4537-ac99-54ebcb5048dc",
+          "fts_rank": 6,
+          "vector_rank": 9,
+          "fused_rank": 6,
+          "content": "2026.07.0 Documentation Version You are viewing version 2026.07.0 . View the latest version . Enhanced Advanced FastAPI is a Python ASGI web API framework. FastAPI uses type annotations and Pydantic models to provide input validation and au...」\n\n<a id=\"ref-14\"></a>**[14]** planeks.net — Захищена сторінка\nURL: https://www.planeks.net/pros-and-cons-of-fastapi\n原文片段：「Захищена сторінка захищено adm.tools 134.195.101.74 — 2026-08-09T16:34:41.527Z Щоб переглянути сайт, увімкніть JavaScript у своєму бра"
+        },
+        {
+          "child_id": "4a9feba0-c54d-47a2-9ed8-e73c1a1e7d40",
+          "fts_rank": 11,
+          "vector_rank": 13,
+          "fused_rank": 7,
+          "content": "Redis 最广泛的应用是作为关系型数据库（如 MySQL）的前置缓存层，缓存高频访问的热点数据（如商品详情、用户资料、API 响应），从而大幅降低后端数据库负载。阿里云文档明确指出：“配合关系型数据库做高速缓存”“缓存高频次访问的数据，降低数据库 I/O”[2]。实测表明，合理使用 Redis 可将数据库读请求减少 70%–90%，显著提升响应速度并保障系统稳定性 [2]。其内存存储特性使平均读写延迟稳定在 sub-millisecond 级别，远优于磁盘型数据库 [5]。"
+        }
+      ]
+    },
+    {
+      "case_id": "pilot-019",
+      "query_type": "multi_parent_synthesis",
+      "query": "请从数据能力、单机性能、I/O/事件模型和高可用机制解释 Redis 的核心技术特点。",
+      "query_terms": [
+        "从",
+        "数据",
+        "能力",
+        "单机",
+        "性能",
+        "i",
+        "o",
+        "事件",
+        "模型",
+        "高",
+        "可用",
+        "机制",
+        "解释",
+        "redis",
+        "核心技术",
+        "特点"
+      ],
+      "anchor_terms": [
+        "redis"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "1a763fce-c3ae-4b78-aff5-d2473ef3805e",
+          "fts_rank": null,
+          "vector_rank": 7,
+          "fused_rank": 15,
+          "content": "Redis 是一个开源（BSD 许可）的，\n内存\n中的数据结构存储系统，它可以用作\n数据库、缓存和消息中间件\n。 它支持多种类型的数据结构，如\n字符串（strings）\n，\n散列（hashes）\n，\n列表（lists）\n，\n集合（sets）\n，\n有序集合（sorted sets）\n与范围查询\nbitmaps\n，\nhyperloglogs\n和 地理空间（\ngeospatial\n） 索引半径查询。 Redis 内置了\n复制（replication）\n，\nLUA脚本（Lua scripting）\n，\nLRU驱动事件（LRU eviction）\n，\n事务（transactions）\n和不同级别的\n磁盘持久化（persistence）\n， 并通过\nRedis哨兵（Sentinel）\n和\n自动分区（Cluster）\n提供高可用性（high availability）。"
+        },
+        {
+          "child_id": "7bce1e61-ee7d-479b-916a-4853022919de",
+          "fts_rank": null,
+          "vector_rank": 5,
+          "fused_rank": 12,
+          "content": "Redis 采用网络 IO 多路复用技术来保证在多连接的时候， 系统的高吞吐量。\n多路——指的是多个 socket 连接，复用——指的是复用一个线程。\n多路复用主要有三种技术：select，poll，epoll。\nepoll\n是最新的也是目前最好的多路复用技术。\n这里“多路”指的是多个网络连接，“复用”指的是复用同一个线程。采用多路 I/O 复用技术可以让单个线程高效的处理多个连接请求（尽量减少网络 IO 的时间消耗），且 Redis 在内存中操作数据的速度非常快（内存内的操作不会成为这里的性能瓶颈），主要以上两点造就了 Redis 具有很高的吞吐量。"
+        },
+        {
+          "child_id": "d4121f65-aaf7-4e4e-b49f-9f08cee13d7f",
+          "fts_rank": null,
+          "vector_rank": 3,
+          "fused_rank": 9,
+          "content": "Redis 是\n纯内存\n数据库，一般都是简单的存取操作，线程占用的时间很多，时间的花费主要集中在 IO 上，所以读取速度快。\nRedis 使用的是\n非阻塞 IO\n，\nIO 多路复用\n，使用了单线程来轮询描述符，将数据库的开、关、读、写都转换成了事件，减少了线程切换时上下文的切换和竞争。\nRedis 采用了\n单线程\n的模型，保证了每个操作的\n原子性\n，也减少了线程的上下文切换和竞争。\nRedis 存储结构多样化，不同的数据结构对数据存储进行了优化，如\n压缩\n表，对短数据进行压缩存储，再如，\n跳表\n，使用有序的数据结构加快读取的速度。\nRedis 采用自己实现的事件分离器，效率比较高，内部采用非阻塞的执行方式，吞吐能力比较大。"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "62e6e94b-7c6d-425b-8506-20a2f78d8e1f",
+          "fts_rank": 2,
+          "vector_rank": 15,
+          "fused_rank": 4,
+          "content": "dCache，复杂\nRedis\n操作使用 StackExchange.\nRedis\n，国内企业项目使用 CS\nRedis\n。如果你是一名 .NET 开发者，StackExchange.\nRedis\n基本属于必须掌握的技能。因为它不仅是\nRedis\n客户端，更是很多企业级 .NET 系统中的基础组件。\n生产环境实战：基于 Flink (Scala) 的高性能\nRedis\nSink 设计与踩坑复盘\n渣渣盟的博客\n08-07\n354\n本文介绍了基于Flink(Scala)构建高性能\nRedis\nSink的实战经验。文章首先分析了实时流写入\nRedis\n的常见\n问题\n，如数据重复、写入超时等。接着深入讲解了Flink Sink的两阶段提交机制与幂等性设计，对比了\nRedis\n不同数据结构的适用场景，推荐使用HSET实现精确一次语义。 核心部分详细剖析了\nRedis\nSink的底层原理，包括序列化机制和连接池I/O模型，并提供了完整的实战代码。文章特别补充了原文缺失的ClickSource实现，修正了\nRedis\n连接配置的常见错误，如主机地址设置和端口配置。\n橡 皮 人\n博客等级\n码龄7年\n1"
+        },
+        {
+          "child_id": "28c730cd-e1ab-4dee-8274-0dc8032e05ed",
+          "fts_rank": 14,
+          "vector_rank": 17,
+          "fused_rank": 5,
+          "content": "存占用过高。\nRedis\n大\nkey\n和\n热\nkey\n问题\n及处理\nlvyuanj的专栏\n03-09\n2462\nredis\n大\nkey\n和\n热\nkey\n问题\n及处理\nredis\n_exporter + Prometheus监控\nRedis\n: 指标采集、告警与远程抓取\n热门推荐\n2401_87848736的博客\n08-0\n\n4\n1万+\nRedis\n承担\n缓存\n、分布式锁或限流等任务后，服务进程仍在运行，并不代表实例状态完全正常。内存持续增长、连接数接近上限、\n缓存\n命中率下降或主从同步异常，都可能在业务明显报错前逐渐出现。\nredis\n_exporter可以读取\nRedis\n的运行信息，并将内存、连接、命令、持久化和网络等数据转换为Prometheus能够抓取的指标。Prometheus再按照固定周期保存这些数据，并通过PromQL和告警规则判断异常状态。本文将部署\nredis\n_exporter并验证/metrics。\nRedis\n持久化：RDB 与 AOF\n08-03\n464\nRDB（\nRedis\nDatabase Backup）就是把某一时刻的内存数据完整写入磁盘，生成一个二进制"
+        },
+        {
+          "child_id": "c7e2bfee-252e-4f4d-a5ec-76c6c89793e3",
+          "fts_rank": 20,
+          "vector_rank": 22,
+          "fused_rank": 6,
+          "content": "le）记录的是\nRedis\n执行的每一个写命令。每次执行写操作，命令就会被追加到 AOF 文件末尾。把所有写操作写成日记，重启时重放日记就能恢复数据。AOF 会按照\nRedis\n协议格式记录每一次写命令，而不是简单保存命令字符串。\nCodex 精准 高并发点赞系统终极解决方案｜前端防抖幂等 +\nRedis\n抗并发 + 异步落库\n十年老程序猿，AI 疯狂研究专家，前沿硬核知识分享\n08-04\n474\n防抖锁：拦截短时间连续点击幂等 ID：规避网络重试产生重复请求乐观 UI：优化交互，消除等待卡顿前端依靠防抖、幂等、乐观 UI 拦截大部分无效流量；后端标准架构：\nRedis\n承载流量峰值 + MQ 异步落库 + 定时任务数据校正；高并发系统通用思路：请求拦截、流量削峰、接口幂等、最终一致性兜底；AI 高效开发方式：精准架构约束提示词 + Codex Agent 工程能力，直接落地生产级代码。\nSpring Boot 接口幂等实战：重复提交、\nRedis\nLua、唯一索引与消息重复消费一次讲透\n2501_94007735的博客\n08-07\n355\n用户只点了一次“提交订单”，服务端为什么收到"
+        },
+        {
+          "child_id": "3cf40045-186d-4dc5-993f-fcb1c1b7c6b2",
+          "fts_rank": 3,
+          "vector_rank": null,
+          "fused_rank": 8,
+          "content": "Redis分布式锁：从SETNX到Redisson的演进 | Seven的菜鸟成长之路\n跳至主要內容\nJava\n数据库\nMySQL\nRedis\nRedis数据类型全攻略：String、List、Hash、Set的实战应用\nRedis是如何高效存储与访问数据？\nRedis命令处理机制源码探究\nPipelining原理：批量命令背后的秘密\nRedis究竟为什么这么快？\nRedis持久化：从AOF到RDB，如何实现数据不丢失？\nRedis缓存管理：过期删除策略的深度剖析\nRedis内存淘汰策略：如何高效管理有限内存？\nRedis主从复制是如何保障数据一致性的？\nRedis哨兵机制是如何优化主从切换流程的？\nRedis集群机制深度剖析\nRedis分布式锁：从SETNX到Redisson的演进\nRedis中的事务有何不同？\nRedis容量评估模型\nRedis连接数调整\nRedis中的常见延迟问题\nRedis的内存碎片问题\nRedis实现高并发场景下的计数器设计\nRedis实现分页+多条件模糊查询组合方案\n常用框架\n微服务/分布式\n工具类库\n计算机基础\n架构思想\n系统设计/实践\n大数据框架\nAI\n"
+        }
+      ]
+    },
+    {
+      "case_id": "pilot-020",
+      "query_type": "multi_parent_synthesis",
+      "query": "一个可用于生产的 Redis 分布式锁，需要同时满足哪些语义并处理超时和节点故障？",
+      "query_terms": [
+        "一个",
+        "可",
+        "用于",
+        "生产",
+        "redis",
+        "分布式",
+        "锁",
+        "同时",
+        "满足",
+        "语义",
+        "处理",
+        "超时",
+        "节点",
+        "故障"
+      ],
+      "anchor_terms": [
+        "redis"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "e6dd8ca0-f495-4e6f-af0a-e85d1e3dd6e6",
+          "fts_rank": null,
+          "vector_rank": 2,
+          "fused_rank": 9,
+          "content": "如果 Redis 是单点部署，当 Redis 服务宕机时，所有分布式锁操作都会失效，导致整个系统的并发控制崩溃[2]。\n\n#### 解决方案\n采用 Redis 集群部署，常见的方案有：\n- **主从复制 + 哨兵模式**：部署 Redis 主从集群，通过哨兵监控主节点状态，当主节点宕机时，哨兵自动将从节点切换为主节点。但存在脑裂风险[2]。\n- **Redlock 算法**：同时向多个独立的 Redis 主节点发起加锁请求，只\n\n[truncated]"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "c3c1c313-3662-4dc7-bff6-309e3b9e45d1",
+          "fts_rank": 12,
+          "vector_rank": 20,
+          "fused_rank": 4,
+          "content": "状态修改）放入锁内，非核心逻辑（如日志记录、消息推送）移至锁外执行。\n异步化处理：若锁内必须执行耗时操作，将其异步化（如用线程池、消息队列），缩短锁持有时间。\n设置锁持有超时预警：通过监控工具统计锁持有时间，超过阈值（如 20 秒）时告警，及时排查耗时业务。\n问题 8：锁 key 设计不当——锁粒度问题引发并发瓶颈\n成因\n：锁 key 粒度太粗（如用“lock:stock”作为所有商品的库存锁），导致所有商品的库存操作都互斥，即使操作不同商品，也需排队等待锁释放，彻底丧失分布式系统的并发优势。\n表现\n：系统并发量极低，不同商品的库存扣减请求串行执行，接口吞吐量远低于预期。\n解决方案\n：精细化设计锁 key，按具体资源标识拆分锁。比如库存锁，用“lock:stock:1001”（1001 为商品 ID）作为锁 key，仅对同一商品的库存操作互斥，不同商品可并行处理，大幅提升并发量。\n延伸：高并发场景下，可进一步用“分段锁”拆分资源（如将商品 ID 哈希到 10 个分段，锁 key 为“lock:stock:segment:1”），同一分段互斥，不同分段并行，进一步提升并发能力。\n问题 9"
+        },
+        {
+          "child_id": "b41377c6-65b7-4905-ae36-395f7b73025d",
+          "fts_rank": 19,
+          "vector_rank": 19,
+          "fused_rank": 5,
+          "content": "存扣减\n分布式定时任务调度（如 Quartz 集群）\n集群配置热更新\n分布式数据一致性操作（如去重、幂等）\n主流实现方式有：SETNX、Redlock、基于 Lua 脚本的原子锁、Zookeeper 锁等。\n下面我们把主流 Redis 分布式锁方\n\n案的实现原理、优缺点和适用场景进行对比。\n实现方案\n原理简介\n容错性\n一致性\n适用场景\nSETNX+EXPIRE\n利用 SETNX 加锁、EXPIRE 设置超时\n一般\n弱一致性\n轻量锁、简单业务\nRedlock\n多节点投票，过半加锁成功\n高\n强一致\n高可用高一致性需求\nLua 脚本锁\nLua 保证原子性\n较高\n一致\n有解锁幂等需求\nZookeeper\n基于临时节点\n很高\n强一致\n极致一致性场景\n分布式锁方案选型的本质，是在\n一致性、可用性和性能\n之间做权衡。\nSETNX\n简单高效，但一致性较弱；\nRedlock\n提供强一致，但实现复杂且性能有损耗。\nLua 脚本锁**则兼顾了性能和一定的一致性，代码实现也较为优雅。Zookeeper 虽然一致性极强，但对性能有较大损耗，且引入了额外中间件。\n需要注意的问题：\n锁续期如何保证？防止业务异常锁未"
+        },
+        {
+          "child_id": "84775e2a-dca2-439d-9b35-3dc79163ba95",
+          "fts_rank": 1,
+          "vector_rank": null,
+          "fused_rank": 6,
+          "content": "使用 Redisson 实现分布式锁：\n// 1.获取指定的分布式锁对象\nRLock\nlock\n=\nredisson\n.\ngetLock\n(\n\"lock\"\n);\n// 2.拿锁且不设置锁超时时间，具备 Watch Dog 自动续期机制\nlock\n.\nlock\n();\n// 3.执行业务\n...\n// 4.释放锁\nlock\n.\nun\n\nlock\n();\n只有未指定锁超时时间，才会使用到 Watch Dog 自动续期机制。\n// 手动给锁设置过期时间，不具备 Watch Dog 自动续期机制\nlock\n.\nlock\n(\n10\n,\nTimeUnit\n.\nSECONDS\n);\n如果使用 Redis 来实现分布式锁的话，还是比较推荐直接基于 Redisson 来做的。\n如何实现可重入锁？\n所谓可重入锁指的是在一个线程中可以多次获取同一把锁，比如一个线程在执行一个带锁的方法，该方法中又调用了另一个需要相同锁的方法，则该线程可以直接执行调用的方法即可重入，而无需重新获得锁。像 Java 中的\nsynchronized\n和\nReentrantLock\n都属于可重入锁。\n不可重入的分布式锁基本可以满足绝"
+        },
+        {
+          "child_id": "1e242036-0b6a-4186-8ed8-9aaa3f0169fb",
+          "fts_rank": 2,
+          "vector_rank": null,
+          "fused_rank": 8,
+          "content": "获取当前时间，以毫秒为单位；\n2\n依次尝试从5个实例，使用相同的 key 和随机值（例如 UUID）获取锁。当向Redis 请求获取锁时，客户端应该设置一个超时时间，这个超时时间应该\n小于锁的失效时间\n\n。例如你的锁自动失效时间为 10 秒，则超时时间应该在 5-50 毫秒之间。这样可以防止客户端在试图与一个宕机的 Redis 节点对话时长时间处于阻塞状态。如果一个实例不可用，客户端应该尽快尝试去另外一个 Redis 实例请求获取锁；\n3\n客户端通过当前时间减去步骤 1 记录的时间来计算获取锁使用的时间。当且仅当从大多数（N/2+1，这里是 3 个节点）的 Redis 节点都取到锁，并且\n获取锁使用的时间小于锁失效时间\n时，锁才算获取成功；\n4\n如果取到了锁，其真正有效时间等于初始有效时间减去获取锁所使用的时间（步骤 3 计算的结果）。\n5\n如果由于某些原因未能获得锁（无法在至少 N/2 + 1 个 Redis 实例获取锁、或获取锁的时间超过了有效时间），客户端应该\n在所有的 Redis 实例上进行解锁\n（即便某些Redis实例根本就没有加锁成功，防止某些节点获取到锁但是客户端没有得到"
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-030",
+      "query_type": "semantic_paraphrase",
+      "query": "用 ZooKeeper 做锁时，客户端失联后锁为什么能被回收？",
+      "query_terms": [
+        "用",
+        "zookeeper",
+        "做",
+        "锁",
+        "客户端",
+        "失",
+        "联",
+        "后",
+        "能",
+        "被",
+        "回收"
+      ],
+      "anchor_terms": [],
+      "lost_gold": [
+        {
+          "child_id": "fb18e10b-3846-43da-8584-c83729afdfc3",
+          "fts_rank": null,
+          "vector_rank": 6,
+          "fused_rank": 13,
+          "content": "在出现故障之后，对应的子节点由于是临时顺序节点，也会被自动删除，避免了锁无法被释放。\n我们前面说的事件监听器其实监听的就是这个子节点删除事件，子节点删除就意味着锁被释放。\n实际项目中，推荐使用 Curator 来实现 ZooKeeper 分布式锁。Curator 是 Netflix 公司开源的一套 ZooKeeper Java 客户端框架，相比于 ZooKeeper 自带的客户端 zookeeper 来说，Curator 的封装更加完善，各种 API 都可以比较方便地使用。\nCurator\n主要实现了下面四种锁：\nInterProcessMutex\n：分布式可重入排它锁\nInterProcessSemaphoreMutex\n：分布式不可重入排它锁\nInterProcessReadWriteLock\n：分布式读写锁\nInterProcessMultiLock\n：将多个锁作为单个实体管理的容器，获取锁的时候获取所有锁，释放锁也会释放所有锁资源（忽略释放失败的锁）。\nCuratorFramework\nclient\n=\nZKUtils\n.\ngetClient\n();\nclient\n.\nstar"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "5aa79783-f469-4e29-8a31-734d7c8dbdd8",
+          "fts_rank": 6,
+          "vector_rank": 19,
+          "fused_rank": 3,
+          "content": "加锁失败（包括网络超时、锁被其它人持有等各种异常情况），就立即向下一个 Redis 实例申请加锁\n如果客户端从 >=3 个（大多数）以上 Redis 实例加锁成功，则再次获取「当前时间戳 T2」，如果锁的租期 >\n\nT2 - T1 ，此时，认为客户端加锁成功，否则认为加锁失败\n加锁成功，去操作共享资源\n加锁失败或操作结束，向「全部节点」发起释放锁请求（前面讲到的 Lua 脚本释放锁）\n注意，重点是 1-3，在步骤 3，加锁成功后为什么要重新获取「当前时间戳 T2」？还用 T2 - T1 的时间，与锁的过期时间做比较？\nRedis 作者强调：如果在 1-3 发生了网络延迟、进程暂停等耗时长的异常情况，那在第 3 步 T2 - T1，是可以检测出来的，如果超出了锁设置的过期时间，那这时就认为加锁会失败，之后释放所有节点的锁就好了！\nRedis 作者继续论述，如果对方认为，发生网络延迟、进程暂停是在步骤 3 之后，也就是客户端确认拿到了锁，去操作共享资源的途中发生了问题，导致锁失效，那这不止是 Redlock 的问题，任何其它锁服务例如 Zookeeper，都有类似的问题，这不在讨论范畴内。"
+        },
+        {
+          "child_id": "96189317-7bb6-425a-9b1c-5d496ac9793e",
+          "fts_rank": 11,
+          "vector_rank": 15,
+          "fused_rank": 4,
+          "content": "停的例子，指出了 Redlock 安全性问题：\n客户端 1 请求锁定节点 A、B、C、D、E\n客户端 1 的拿到锁后，进入进程暂停（时间比较久）\n所有 Redis 节点上的锁都过期了\n客户端 2 获取到了 A、B、C、\n\nD、E 上的锁\n客户端 1 GC 结束，认为成功获取锁\n客户端 2 也认为获取到了锁，发生「冲突」\nMartin 认为，进程暂停可能发生在程序的任意时刻，而且执行时间是不可控的。\n注：当然，即使没有进程暂停，在发生网络延迟、时钟漂移时，也都有可能导致 Redlock 出现此类问题，这里\nMartin\n只是拿进程暂停举例\n假设时钟正确是不合理的\nRelock 有一个隐含条件是所有的主机时间都是正确的，如果时间不正确就会出问题，例如\n客户端 1 获取到节点 A、B、C 上的锁\n节点 C 上的时钟「向前跳跃」，导致锁到期\n客户端 2 获取节点 C、D、E 上的锁\n客户端 1 和 2 现在都相信它们持有了锁（冲突）\nMartin 认为 Redlock 必须「强依赖」多个节点的时钟是保持同步的，一旦有节点时钟发生错误，那这个算法模型就失效了。而机器的时钟发生错误，是很有可能发生"
+        },
+        {
+          "child_id": "52cf0868-6956-414d-8f9a-9066d6b522bf",
+          "fts_rank": 15,
+          "vector_rank": 21,
+          "fused_rank": 5,
+          "content": "间设置过长，又会影响到性能。\n这也是后文需要 Fencing Token 的根源：单纯延长 TTL 不能消除“客户端 A 仍以为自己持锁，但锁实际已过期并被客户端 B 获取”的窗口。\n你或许在想：\n如果操作共享资源\n\n的操作还未完成，锁过期时间能够自己续期就好了！\n如何实现锁的优雅续期？\n对于 Java 开发的小伙伴来说，已经有了现成的解决方案：\nRedisson\n。其他语言的解决方案，可以在 Redis 官方文档中找到，地址：\nhttps://redis.io/docs/latest/develop/clients/patterns/distributed-locks/\n。\nRedisson 是一个开源的 Java 语言 Redis 客户端，提供了很多开箱即用的功能，不仅仅包括多种分布式锁的实现。并且，Redisson 还支持 Redis 单机、Redis Sentinel、Redis Cluster 等多种部署架构。\nRedisson 中的分布式锁自带自动续期机制，使用起来非常简单，原理也比较简单，其提供了一个专门用来监控和续期锁的\nWatch Dog（看门狗）\n，如果操作共享资源"
+        },
+        {
+          "child_id": "03149ceb-40e8-42b4-8c30-d8a2cb5db380",
+          "fts_rank": 1,
+          "vector_rank": null,
+          "fused_rank": 6,
+          "content": "用户发起一个数据插入请求时，如果没有分布式锁机制保证，那么那多台机器上的多个服务可能进行并发插入操作，导致数据重复插入，对于某些不允许有多余数据的业务来说，这就会造成问题。\n\n而分布式锁机制就是为了解决类似这类问题，保证多个服务之间互斥的访问共享资源，如果一个服务抢占了分布式锁，其他服务没获取到锁，就不进行后续操作。\n大致意思如下图所示（不一定准确）：\n说明：本文会以pdf格式持续更新，更多最新尼恩3高pdf笔记，请从下面的链接获取：\n语雀\n或者\n码云\n何为分布式锁？\n何为分布式锁？\n当在分布式模型下，数据只有一份（或有限制），此时需要利用锁的技术控制某一时刻修改数据的进程数。\n用一个状态值表示锁，对锁的占用和释放通过状态值来标识。\n分布式锁的条件：\n互斥性。在任意时刻，只有一个客户端能持有锁。\n不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。\n具有容错性。只要大部分的 Redis 节点正常运行，客户端就可以加锁和解锁。\n解铃还须系铃人。加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了。\n分布式锁的实现：\n分布式锁的实现由很多"
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-031",
+      "query_type": "cross_chunk_boundary",
+      "query": "设计 Redlock 时，释放锁怎样确认所有者，获取锁又以什么条件判定成功？",
+      "query_terms": [
+        "设计",
+        "redlock",
+        "释放",
+        "锁",
+        "确认",
+        "所有者",
+        "获取",
+        "以",
+        "条件",
+        "判定",
+        "成功"
+      ],
+      "anchor_terms": [
+        "redlock"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "b39ddde1-9b8a-46d1-bcfc-23c468c1634f",
+          "fts_rank": null,
+          "vector_rank": 8,
+          "fused_rank": 18,
+          "content": "lock algorithm designed by Salvatore Tridici (Redis's creator), comes into play.\nRedlock's Goal:\nRedlock aims to provide a more robust and fault-tolerant distributed lock across multiple independent Redis instances. The core idea is to ac\n\nquire locks on a majority of Redis instances rather than just one.\nRedlock Algorithm Steps:\nAssume N independent Redis master instances, and the client needs to acquire a lock with a\nresource_name\nand a\nvalidity_time\n(how long the lock is considered valid).\nGe"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "96189317-7bb6-425a-9b1c-5d496ac9793e",
+          "fts_rank": 11,
+          "vector_rank": 9,
+          "fused_rank": 3,
+          "content": "停的例子，指出了 Redlock 安全性问题：\n客户端 1 请求锁定节点 A、B、C、D、E\n客户端 1 的拿到锁后，进入进程暂停（时间比较久）\n所有 Redis 节点上的锁都过期了\n客户端 2 获取到了 A、B、C、\n\nD、E 上的锁\n客户端 1 GC 结束，认为成功获取锁\n客户端 2 也认为获取到了锁，发生「冲突」\nMartin 认为，进程暂停可能发生在程序的任意时刻，而且执行时间是不可控的。\n注：当然，即使没有进程暂停，在发生网络延迟、时钟漂移时，也都有可能导致 Redlock 出现此类问题，这里\nMartin\n只是拿进程暂停举例\n假设时钟正确是不合理的\nRelock 有一个隐含条件是所有的主机时间都是正确的，如果时间不正确就会出问题，例如\n客户端 1 获取到节点 A、B、C 上的锁\n节点 C 上的时钟「向前跳跃」，导致锁到期\n客户端 2 获取节点 C、D、E 上的锁\n客户端 1 和 2 现在都相信它们持有了锁（冲突）\nMartin 认为 Redlock 必须「强依赖」多个节点的时钟是保持同步的，一旦有节点时钟发生错误，那这个算法模型就失效了。而机器的时钟发生错误，是很有可能发生"
+        },
+        {
+          "child_id": "1f9e1434-6586-4764-bd77-50ae14dabdb3",
+          "fts_rank": 14,
+          "vector_rank": 20,
+          "fused_rank": 5,
+          "content": "分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗 | JavaGuide\n跳至主要內容\n项目介绍\n面试准备（必看）\nJava\n数据库\n开发工具\n常用框架\n系统设计\n分布式\n分布式系统知识体系\n分布式系统入门\n⭐分布式高频面试题\n理论&算法&协议\nAPI网关\nAPI网关基础知识总结\nSpring Cloud Gateway面试题总结\n分布式ID\n分布式ID生成方案详解\n分布式ID设计实战指南\n分布式锁\n分布式锁入门介绍\n分布式锁常见实现方案总结\n分布式事务\n分布式事务解决方案总结\n分布式配置中心\n分布式配置中心面试题总结\nRPC\nZooKeeper\n高性能\n高可用\n分布式锁实现方案详解：Redis、Redlock、ZooKeeper 与 Redisson 看门狗\nGuide\n分布式\n分布式锁\n约 6222 字\n大约 21 分钟\n通常情况下，我们一般会选择基于 Redis 或者 ZooKeeper 实现分布式锁，Redis 用的要更多一点，我这里也先以 Redis 为例介绍分布式锁的实现。\n这篇文章默认你已经知道为什么需要分布式锁。如果你还"
+        },
+        {
+          "child_id": "1cc83662-096d-4bb9-be35-bc9a7e8b844c",
+          "fts_rank": 24,
+          "vector_rank": 11,
+          "fused_rank": 6,
+          "content": "k、Zookeeper 都无能为力\n所以，Redis 作者认为 Redlock 在保证时钟正确的基础上，是可以保证正确性的。\n质疑 fencing token 机制\nRedis 作者对于对方提出的\nfecing token\n机制，也提出了质疑，主要分为 2 个问题\n第一共享资源服务器能拒绝旧 token\n这个方案必须要求要操作的「共享资源服务器」有拒绝「旧 token」的能力。\n假设共享资源服务器是 MySQL，我们要操作 MySQL，从锁服务拿到一个递增数字的 token，\n然后客户端要带着这个 token 去改 MySQL 的某一行，这就需要利用 MySQL 的「事物隔离性」来做。\nSQL\n//\n两个客户端必须利用事物和隔离性达到目的\n//\n注意\ntoken\n的判断条件\nUPDATE\ntable\nT\nSET\nval\n=\n$\nnew_val\nWHERE\nid\n=\n$\nid\nAND\ncurrent_token\n<\n$\ntoken\n但如果操作的不是 MySQL 而是向磁盘上写一个文件，或发起一个 HTTP 请求，那这个方案就无能为力了，这对要操作的资源服务器，提出了更高的要求。\n再者，既"
+        },
+        {
+          "child_id": "ca51e67f-0d3e-4452-902c-4ba2cea05965",
+          "fts_rank": 12,
+          "vector_rank": 24,
+          "fused_rank": 7,
+          "content": "情，参考\nZookeeper 实现分布式锁\n保持持有锁\n客户端 1 创建临时节点后，Zookeeper 是如何保证让这个客户端一直持有锁呢？\n原因就在于，客户端 1 此时会与 Zookeeper 服务器维护一个 Session，这个 Session 会依\n\n赖客户端「定时心跳」来维持连接。\n如果 Zookeeper 长时间收不到客户端的心跳，就认为这个 Session 过期了，也会把这个临时节点删除。\nZookeeper 分布式锁下的 NPC 问题\n同样的 Zookeeper 的分布式锁也存在 NPC 问题，以进程暂停为例\n客户端 1 创建临时节点 /lock 成功，拿到了锁\n客户端 1 发生长时间进程暂停\n客户端 1 无法给 Zookeeper 发送心跳，Zookeeper 把临时节点「删除」\n客户端 2 创建临时节点 /lock 成功，拿到了锁\n客户端 1 进程暂停结束，它仍然认为自己持有锁（冲突）\n可见，即使是使用 Zookeeper，也无法保证进程暂停、网络延迟异常场景下的安全性。\n这就是前面 Redis 作者在反驳的文章中提到的：如果 进程暂停、网络延迟是发生在客户端拿到锁之"
+        },
+        {
+          "child_id": "84775e2a-dca2-439d-9b35-3dc79163ba95",
+          "fts_rank": 1,
+          "vector_rank": null,
+          "fused_rank": 8,
+          "content": "使用 Redisson 实现分布式锁：\n// 1.获取指定的分布式锁对象\nRLock\nlock\n=\nredisson\n.\ngetLock\n(\n\"lock\"\n);\n// 2.拿锁且不设置锁超时时间，具备 Watch Dog 自动续期机制\nlock\n.\nlock\n();\n// 3.执行业务\n...\n// 4.释放锁\nlock\n.\nun\n\nlock\n();\n只有未指定锁超时时间，才会使用到 Watch Dog 自动续期机制。\n// 手动给锁设置过期时间，不具备 Watch Dog 自动续期机制\nlock\n.\nlock\n(\n10\n,\nTimeUnit\n.\nSECONDS\n);\n如果使用 Redis 来实现分布式锁的话，还是比较推荐直接基于 Redisson 来做的。\n如何实现可重入锁？\n所谓可重入锁指的是在一个线程中可以多次获取同一把锁，比如一个线程在执行一个带锁的方法，该方法中又调用了另一个需要相同锁的方法，则该线程可以直接执行调用的方法即可重入，而无需重新获得锁。像 Java 中的\nsynchronized\n和\nReentrantLock\n都属于可重入锁。\n不可重入的分布式锁基本可以满足绝"
+        }
+      ]
+    },
+    {
+      "case_id": "candidate-032",
+      "query_type": "cross_chunk_boundary",
+      "query": "为什么 Redis 主从切换仍可能丢锁？Redlock 在节点数、耗时与通信方式上需要满足哪些条件？",
+      "query_terms": [
+        "redis",
+        "主从",
+        "切换",
+        "仍",
+        "可能",
+        "丢",
+        "锁",
+        "redlock",
+        "节点",
+        "数",
+        "耗时",
+        "通信",
+        "方式",
+        "上",
+        "满足",
+        "条件"
+      ],
+      "anchor_terms": [
+        "redis",
+        "redlock"
+      ],
+      "lost_gold": [
+        {
+          "child_id": "dfef6d0c-18a6-4651-9ad2-4cf3ed6aa4db",
+          "fts_rank": null,
+          "vector_rank": 6,
+          "fused_rank": 16,
+          "content": "此这里的 N 个 Redis 实例并不要求是一个真正的 Redis 集群，它们彼此之间可以是完全独立的，但由于只需要半数节点获得锁就能真正获得锁，因此其仍然具备容错性和高可用性。后面使用 Redisson\n\n来演示 RedLock 时会再次验证这一点。\n3.2 低延迟通讯\n另外实现 RedLock 方案的客户端与所有 Redis 实例进行通讯时，必须要保证低延迟，而且最好能使用多路复用技术来保证一次性将 SET 命令发送到所有 Redis 节点上，并获取到对应的执行结果。如果网络延迟较高，假设客户端 A 和 B 都在尝试创建锁：\nSET key 随机数A EX 3 NX"
+        }
+      ],
+      "fts_injected": [
+        {
+          "child_id": "ca36a0dc-24cf-4a63-8f2a-e251992e37ec",
+          "fts_rank": 4,
+          "vector_rank": 13,
+          "fused_rank": 3,
+          "content": "致锁在业务完成前就自动过期释放，其他服务可趁机加锁，引发并发冲突。比如锁设为 30 秒过期，但数据库复杂查询、第三方接口调用耗时 40 秒，就会出现锁提前失效。\n表现\n：业务执行中锁被释放，\n\n多个服务同时操作资源，出现数据错误，且问题具有随机性（取决于业务耗时是否超过过期时间）。\n解决方案\n：引入“锁续约（Watch Dog）”机制。服务成功加锁后，启动后台守护线程，每隔锁过期时间的 1/3 （如 10 秒）检查锁是否仍被自身持有，若持有则延长锁的过期时间（重置为 30 秒），直到业务完成主动释放锁。\n实际开发中无需手动实现，Redisson 框架内置 Watch Dog 机制，加锁后自动续约，彻底解决锁提前释放问题。\n问题 3：Redis 单点故障——锁服务整体不可用\n成因\n：Redis 采用单点部署，当 Redis 服务宕机（如进程崩溃、服务器断电），所有分布式锁的加锁、释放操作都会失败，导致分布式系统的并发控制机制崩溃，无法正常处理资源竞争。\n表现\n：所有依赖分布式锁的业务接口报错，无法执行（如库存扣减、订单创建接口），甚至引发服务雪崩。\n解决方案\n：采用 Redis 高可用集"
+        },
+        {
+          "child_id": "1e242036-0b6a-4186-8ed8-9aaa3f0169fb",
+          "fts_rank": 9,
+          "vector_rank": 9,
+          "fused_rank": 6,
+          "content": "获取当前时间，以毫秒为单位；\n2\n依次尝试从5个实例，使用相同的 key 和随机值（例如 UUID）获取锁。当向Redis 请求获取锁时，客户端应该设置一个超时时间，这个超时时间应该\n小于锁的失效时间\n\n。例如你的锁自动失效时间为 10 秒，则超时时间应该在 5-50 毫秒之间。这样可以防止客户端在试图与一个宕机的 Redis 节点对话时长时间处于阻塞状态。如果一个实例不可用，客户端应该尽快尝试去另外一个 Redis 实例请求获取锁；\n3\n客户端通过当前时间减去步骤 1 记录的时间来计算获取锁使用的时间。当且仅当从大多数（N/2+1，这里是 3 个节点）的 Redis 节点都取到锁，并且\n获取锁使用的时间小于锁失效时间\n时，锁才算获取成功；\n4\n如果取到了锁，其真正有效时间等于初始有效时间减去获取锁所使用的时间（步骤 3 计算的结果）。\n5\n如果由于某些原因未能获得锁（无法在至少 N/2 + 1 个 Redis 实例获取锁、或获取锁的时间超过了有效时间），客户端应该\n在所有的 Redis 实例上进行解锁\n（即便某些Redis实例根本就没有加锁成功，防止某些节点获取到锁但是客户端没有得到"
+        },
+        {
+          "child_id": "9fba524a-17cf-4976-92af-3dc64812d24a",
+          "fts_rank": 5,
+          "vector_rank": 14,
+          "fused_rank": 7,
+          "content": "——嵌套业务死锁\n成因\n：基础实现的锁不支持重入，即同一服务的同一线程在持有锁的情况下，再次请求加同一把锁会失败。典型场景：服务 A 加锁后，执行的方法中又调用了另一个需要加同一把锁\n\n的方法，第二次加锁失败，导致线程阻塞，引发死锁。\n表现\n：业务线程阻塞，接口超时无响应，排查后发现是同一线程重复加锁被拒。\n解决方案\n：实现可重入锁机制。锁的 value 存储“唯一标识 + 重入次数”，第一次加锁时存入标识和次数 1；同一线程再次加锁时，验证标识一致，将次数加 1；释放锁时，次数减 1，直到次数为 0 才删除键彻底释放锁。\n手动实现逻辑复杂，推荐使用 Redisson 的 RLock 接口，天然支持可重入，用法与本地 synchronized 锁一致，无需额外开发。\n问题 5：主从切换锁丢失（脑裂）——集群环境下的隐形坑\n成因\n：Redis 主从集群中，主节点存储锁数据后，尚未同步到从节点就宕机；哨兵将从节点切换为主节点，新主节点无该锁数据，其他服务可重新加锁，导致原锁失效，出现多个服务持有锁的情况。这是主从 + 哨兵模式的固有风险。\n表现\n：主从切换后，原持有锁的服务仍在执行业务，新"
+        }
+      ]
+    }
+  ]
+}

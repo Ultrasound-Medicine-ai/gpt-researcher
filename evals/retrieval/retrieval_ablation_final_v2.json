@@ -1,0 +1,104 @@
+{
+  "benchmark": {
+    "case_count": 40,
+    "gold_version": "final_v1",
+    "frozen": true,
+    "retriever_driven_gold_changes_prohibited": true
+  },
+  "fts": {
+    "non_empty_rate": 1.0,
+    "top20_gold_hit_rate": 0.825
+  },
+  "sanity": {
+    "candidate-021": {
+      "fts_top20_nonempty": true,
+      "gold_ranks": {
+        "a3d8f9ec-9e3c-4b75-9d23-c6f423bc9911": 1
+      }
+    },
+    "candidate-026": {
+      "fts_top20_nonempty": true,
+      "gold_ranks": {
+        "c8bb7bc9-148d-484b-8640-2c75872ffc94": 4
+      }
+    },
+    "candidate-031": {
+      "fts_top20_nonempty": true,
+      "gold_ranks": {
+        "da6f4372-fa23-4d84-b2f3-98dd256253f0": null,
+        "b39ddde1-9b8a-46d1-bcfc-23c468c1634f": null
+      }
+    }
+  },
+  "schemes": {
+    "fts_only": {
+      "hit_at_5": 0.65,
+      "hit_at_8": 0.7,
+      "recall_at_5": 0.51875,
+      "recall_at_8": 0.6125,
+      "mrr_at_8": 0.452292,
+      "parent_recall_at_8": 0.6625,
+      "evidence_recall_at_3500": null,
+      "context_token_count_estimated_mean": null
+    },
+    "pgvector_only": {
+      "hit_at_5": 0.8,
+      "hit_at_8": 0.9,
+      "recall_at_5": 0.5925,
+      "recall_at_8": 0.751667,
+      "mrr_at_8": 0.598333,
+      "parent_recall_at_8": 0.8475,
+      "evidence_recall_at_3500": null,
+      "context_token_count_estimated_mean": null
+    },
+    "hybrid_rrf": {
+      "hit_at_5": 0.775,
+      "hit_at_8": 0.85,
+      "recall_at_5": 0.602083,
+      "recall_at_8": 0.707917,
+      "mrr_at_8": 0.54753,
+      "parent_recall_at_8": 0.757917,
+      "evidence_recall_at_3500": null,
+      "context_token_count_estimated_mean": null
+    },
+    "hybrid_rrf_context": {
+      "hit_at_5": 0.775,
+      "hit_at_8": 0.85,
+      "recall_at_5": 0.602083,
+      "recall_at_8": 0.707917,
+      "mrr_at_8": 0.54753,
+      "parent_recall_at_8": 0.757917,
+      "evidence_recall_at_3500": 0.54,
+      "context_token_count_estimated_mean": 3019.6
+    }
+  },
+  "query_type_recall_at_8": {
+    "fts_only": {
+      "cross_chunk_boundary": 0.5,
+      "exact_keyword": 0.9,
+      "multi_parent_synthesis": 0.45,
+      "semantic_paraphrase": 0.6
+    },
+    "pgvector_only": {
+      "cross_chunk_boundary": 0.766667,
+      "exact_keyword": 0.8,
+      "multi_parent_synthesis": 0.64,
+      "semantic_paraphrase": 0.8
+    },
+    "hybrid_rrf": {
+      "cross_chunk_boundary": 0.6,
+      "exact_keyword": 0.8,
+      "multi_parent_synthesis": 0.565,
+      "semantic_paraphrase": 0.866667
+    },
+    "hybrid_rrf_context": {
+      "cross_chunk_boundary": 0.6,
+      "exact_keyword": 0.8,
+      "multi_parent_synthesis": 0.565,
+      "semantic_paraphrase": 0.866667
+    }
+  },
+  "runtime": {
+    "vector_nonempty_cases": 40
+  }
+}

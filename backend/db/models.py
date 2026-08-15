@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import uuid
 from datetime import date, datetime, timezone
+from typing import Any
 
 import os
 
 from sqlalchemy import Date, DateTime, ForeignKey, Index, Integer, String, Text, UniqueConstraint, text
-from sqlalchemy.dialects.postgresql import JSONB, UUID
+from sqlalchemy.dialects.postgresql import JSONB, TSVECTOR, UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.types import JSON
 
@@ -253,6 +254,7 @@ class DocumentChunk(Base):
     )
     chunk_level: Mapped[str] = mapped_column(String(16), default="child")  # parent|child
     content: Mapped[str] = mapped_column(Text, default="")
+    content_tsv: Mapped[Any | None] = mapped_column(TSVECTOR, nullable=True)
     title: Mapped[str] = mapped_column(Text, default="")
     page_number: Mapped[int | None] = mapped_column(Integer, nullable=True)
     source_url: Mapped[str] = mapped_column(Text, default="")

@@ -1,0 +1,433 @@
+{
+  "timestamp": "2026-08-15T08:28:30.156725",
+  "job_id": "7ae40640-f54c-45c5-a84a-e616972f6b7d",
+  "events": [
+    {
+      "timestamp": "2026-08-15T08:28:46.144053",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "starting_research",
+        "output": "🔍 Starting the research task for 'docker怎么使用，用来干什么，docker compose是什么'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:46.171681",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "agent_generated",
+        "output": "🐳 Docker Agent",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:46.208795",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🌐 Browsing the web to learn more about the task: docker怎么使用，用来干什么，docker compose是什么...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:50.113736",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "planning_research",
+        "output": "🤔 Planning the research strategy and subtasks...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.263805",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "subqueries",
+        "output": "🗂️ I will conduct my research based on the following queries: ['docker怎么使用 用来干什么 docker compose是什么 教程', 'what is Docker Compose how to use Docker multi-container applications 2026', 'docker怎么使用，用来干什么，docker compose是什么']...",
+        "metadata": [
+          "docker怎么使用 用来干什么 docker compose是什么 教程",
+          "what is Docker Compose how to use Docker multi-container applications 2026",
+          "docker怎么使用，用来干什么，docker compose是什么"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.321487",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'docker怎么使用 用来干什么 docker compose是什么 教程'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.341305",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'what is Docker Compose how to use Docker multi-container applications 2026'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:53.359511",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "running_subquery_research",
+        "output": "\n🔍 Running research for 'docker怎么使用，用来干什么，docker compose是什么'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.424453",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://tech-insider.org/docker-compose-tutorial-multi-container-apps-2026\n",
+        "metadata": "https://tech-insider.org/docker-compose-tutorial-multi-container-apps-2026"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.474437",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://medium.com/@adriansyah1230/mastering-docker-compose-a-practical-guide-to-multi-container-applications-c76811010131\n",
+        "metadata": "https://medium.com/@adriansyah1230/mastering-docker-compose-a-practical-guide-to-multi-container-applications-c76811010131"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.530103",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://docs.docker.com/compose\n",
+        "metadata": "https://docs.docker.com/compose"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.558314",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.cnblogs.com/johnnyzen/p/17785405.html\n",
+        "metadata": "https://www.cnblogs.com/johnnyzen/p/17785405.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.598223",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.644005",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.ugnas.com/play-detail/id-68.html\n",
+        "metadata": "https://www.ugnas.com/play-detail/id-68.html"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.755233",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.806111",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.youtube.com/watch?v=qiPH3MOG9d0\n",
+        "metadata": "https://www.youtube.com/watch?v=qiPH3MOG9d0"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.841946",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:55.899375",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.131897",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://www.freecodecamp.org/chinese/news/what-is-docker-compose-how-to-use-it\n",
+        "metadata": "https://www.freecodecamp.org/chinese/news/what-is-docker-compose-how-to-use-it"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.177771",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://blog.csdn.net/weixin_43310500/article/details/135619355\n",
+        "metadata": "https://blog.csdn.net/weixin_43310500/article/details/135619355"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.229353",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "added_source_url",
+        "output": "✅ Added source url to research: https://juejin.cn/post/7249033891810050108\n",
+        "metadata": "https://juejin.cn/post/7249033891810050108"
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.274264",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "researching",
+        "output": "🤔 Researching for relevant information across multiple sources...\n",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.344212",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_urls",
+        "output": "🌐 Scraping content from 3 URLs...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.582355",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.621622",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 20 total images",
+        "metadata": [
+          "https://www.cnblogs.com/skins/custom/images/logo.gif",
+          "https://img2023.cnblogs.com/blog/1173617/202310/1173617-20231024173944070-1664543542.png",
+          "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826234557654-489156154.png",
+          "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826235810164-261037574.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:57.677231",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.612366",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.645763",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.681826",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 1 new images from 1 total images",
+        "metadata": [
+          "https://tech-insider.org/wp-content/uploads/2026/03/docker-compose-tutorial-multi-container-apps-2026-1.jpg"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.727354",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:58.984893",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.150258",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_content",
+        "output": "📄 Scraped 3 pages of content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.185881",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_images",
+        "output": "🖼️ Selected 4 new images from 24 total images",
+        "metadata": [
+          "https://chinese.freecodecamp.org/news/content/images/size/w2000/2023/06/What-is-Docker-compose-1.png",
+          "https://chinese.freecodecamp.org/news/content/images/size/w60/2020/12/1607069929888.jpg",
+          "https://cdn.hashnode.com/res/hashnode/image/upload/v1766227758075/1cafb145-1477-49a7-a8c1-5d08fc7ff6db.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp",
+          "https://www.freecodecamp.org/news/content/images/2023/04/image-43.png"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.229914",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "scraping_complete",
+        "output": "🌐 Scraping complete",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:28:59.456312",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "context_combined",
+        "output": "📚 Combined research context: 0 MCP sources, web content",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:04.791083",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "web_evidence_pack",
+        "output": "📦 Evidence Pack ready (3608 chars)",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:04.823104",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "research_step_finalized",
+        "output": "Finalized research step.\n💸 Total Research Costs: $0.021740000000000002",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:04.893264",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "writing_report",
+        "output": "✍️ Writing report for 'docker怎么使用，用来干什么，docker compose是什么'...",
+        "metadata": null
+      }
+    },
+    {
+      "timestamp": "2026-08-15T08:29:27.869623",
+      "type": "event",
+      "data": {
+        "type": "logs",
+        "content": "report_written",
+        "output": "📝 Report written for 'docker怎么使用，用来干什么，docker compose是什么'",
+        "metadata": null
+      }
+    }
+  ],
+  "content": {
+    "query": "docker怎么使用，用来干什么，docker compose是什么",
+    "sources": [],
+    "context": [],
+    "report": "",
+    "costs": 0.0,
+    "type": "report_complete",
+    "content": "selected_images",
+    "output": "# Docker 与 Docker Compose：原理、用途与实践详解\n\n## 一、Docker 是什么？核心功能与使用目的\n\nDocker 是一个开源的容器化平台，其本质是**轻量级、可移植、自包含的应用打包与运行引擎**。它通过操作系统级虚拟化技术（Linux namespaces 和 cgroups），将应用程序及其所有依赖（运行时、库、配置文件、环境变量等）封装为标准化的“容器”（Container），实现“一次构建，处处运行”[3]。与传统虚拟机相比，Docker 容器不包含完整操作系统内核，仅共享宿主机内核，因此启动更快（毫秒级）、资源开销更低（内存占用减少约70%–80%）、密度更高[7]。\n\nDocker 的核心价值在于解决开发与运维之间的“环境一致性”难题。例如，一个需 Java 8、Node.js 14、MySQL、MongoDB、RabbitMQ 等 10 余个服务协同运行的项目，若手动逐个拉取镜像、配置网络、挂载卷、设置环境变量并管理启动顺序，极易出错且不可复现；而使用 Docker，开发者只需定义 `Dockerfile` 描述单个服务的构建过程，即可在任意安装 Docker 的机器上一键生成完全一致的运行环境[7]。这显著提升了协作效率、测试可靠性与部署速度——从数小时缩短至数分钟[7]。\n\n典型使用场景包括：  \n- 快速搭建本地开发/测试环境（如 LAMP/MEAN 栈）；  \n- 构建 CI/CD 流水线中的标准化构建与测试单元；  \n- 在 NAS 设备（如绿联 DX 系列）上拓展应用生态，部署下载工具、媒体服务、监控系统等[3]；  \n- 实现微服务架构中各服务的独立打包与弹性伸缩基础。\n\n## 二、Docker Compose 是什么？设计定位与核心机制\n\nDocker Compose 是 Docker 官方提供的**多容器应用编排工具**，专为解决“单机多容器协同”这一关键痛点而生[4][8]。其官方定义明确指出：“Compose 是用于定义和运行多容器 Docker 应用程序的工具”[1]，并被广泛视为“定义和运行多容器应用的标准工具”[6]。\n\nCompose 的核心机制是**声明式 YAML 配置驱动**。用户通过一个名为 `docker-compose.yml` 的 YAML 文件，以结构化方式统一定义整个应用所需的全部服务（Service）、网络（Network）、卷（Volume）、环境变量、端口映射、依赖关系及启动顺序等[1][7][9]。该文件本质上是一个“基础设施即代码”（IaC）模板，使复杂环境具备高度可复现性与版本可控性。\n\n其工作流程严格遵循三步法：  \n1. **Step 1**：用 `Dockerfile` 定义每个服务的构建环境；  \n2. **Step 2**：用 `docker-compose.yml` 定义服务间拓扑关系与运行参数；  \n3. **Step 3**：执行 `docker compose up` 命令，自动完成镜像构建（若需）、容器创建、网络初始化、卷挂载及按依赖顺序启动全部服务[1]。  \n\n这一机制彻底取代了过去需编写冗长 Shell 脚本或手动执行数十条 `docker run` 命令的低效方式[9]，将多容器应用的生命周期管理简化为单一命令操作。\n\n## 三、Docker 与 Docker Compose 的本质区别与协同关系\n\n| 维度         | Docker（CLI）                          | Docker Compose                              |\n|--------------|------------------------------------------|---------------------------------------------|\n| **作用范围** | 单容器管理（创建、运行、停止、删除）       | 多容器编排（定义、启动、停止、重建整套应用）   |\n| **配置方式** | 命令行参数或 `Dockerfile`（单服务构建）    | `docker-compose.yml`（多服务声明式配置）      |\n| **适用场景** | 简单服务、调试单个容器、CI 中原子任务       | Web 应用（前端+后端+DB）、微服务开发环境、NAS 多应用部署[3][7] |\n| **依赖管理** | 无原生支持，需人工协调启动顺序              | 内置 `depends_on`、健康检查等待机制，确保服务按序就绪[9] |\n\n二者并非替代关系，而是**分层协作关系**：Docker 提供容器运行时基础能力，Compose 则在其之上构建应用级抽象层。如部署一个典型三层架构应用（Nginx + Spring Boot + MySQL），Docker 负责各自容器的隔离与运行，而 Compose 负责定义三者间的网络互通、MySQL 初始化脚本挂载、Nginx 静态文件卷映射，并确保 MySQL 启动完成后再启动应用服务[9][8]。这种分工使开发者能聚焦业务逻辑，而非底层运维细节。\n\n## 四、典型使用场景与实践价值\n\nDocker Compose 的核心价值体现在三大高频场景中：\n\n### 1. 开发与测试环境快速交付  \n对于需前端（React）、后端（Python Flask）、数据库（PostgreSQL）、缓存（Redis）协同工作的项目，`docker-compose.yml` 可在 5\n\n[truncated]\n\n## 参考文献\n\n<a id=\"ref-1\"></a>**[1]** cnblogs.com — [Docker] Docker Compose 基础教程（概念/基础操作） - 千千寰宇 - 博客园\nURL: https://www.cnblogs.com/johnnyzen/p/17785405.html\n原文片段：「[Docker] Docker Compose 基础教程（概念/基础操作） - 千千寰宇 - 博客园 千千寰宇 大数据与Java软件开发从业者，数智化转型实践者。 【好物推荐】 [Docker] Docker Compose 基础教程（概念/基础操作） 1 Docker Compose 概述 1.1 Docker Compose 简述 Compose 是用于定义和运行多容器 Docker 应用程序的工具。 通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。 然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。 如...」\n\n<a id=\"ref-2\"></a>**[2]** youtube.com — https://www.youtube.com/watch?v=qiPH3MOG9d0\nURL: https://www.youtube.com/watch?v=qiPH3MOG9d0\n原文片段：「https://www.youtube.com/watch?v=qiPH3MOG9d0 In order to continue, please enable javascript on your web browser. About this page Our systems have detected unusual traffic from your computer network. This page checks to see if it's really you sending the requests, and not a robot....」\n\n<a id=\"ref-3\"></a>**[3]** ugnas.com — 快速了解使用Docker和Docker Compose的区别，拓展NAS应用能力\nURL: https://www.ugnas.com/play-detail/id-68.html\n原文片段：「快速了解使用Docker和Docker Compose的区别，拓展NAS应用能力 购买 京东自营 天猫自营 社区 登录 猜你想搜 DH4300 Plus DXP4800 Pro 绿联DXP4800 绿联DXP6800 首页 / 服务中心 / 教程中心 / 进阶教程 / 快速了解使用Docker和Docker Compose的区别，拓展NAS应用能力 快速了解使用Docker和Docker Compose的区别，拓展NAS应用能力 2025/02/25 在 NAS 系统中，Docker 是一款非常重要的应用程序，它可以极大地拓展 NAS 的应用能力。本指南...」\n\n<a id=\"ref-4\"></a>**[4]** docs.docker.com — Docker Compose | Docker Docs\nURL: https://docs.docker.com/compose\n原文片段：「Docker Compose | Docker Docs Start a new chat When enabled, Gordon considers the current page you're viewing to provide more relevant answers. Share feedback Answers are generated based on the documentation. Back Manuals Get started Guides Reference Docker Compose Ask Gordon Copy...」\n\n<a id=\"ref-5\"></a>**[5]** medium.com — Medium\nURL: https://medium.com/@adriansyah1230/mastering-docker-compose-a-practical-guide-to-multi-container-applications-c76811010131\n原文片段：「Medium Mastering Docker Compose: A Practical Guide to Multi-Container Applications | by Adrian Syah Abidin | Medium Sitemap Open in app Sign up Sign in Get app Write Search Sign up Sign in DevOps Devsecops Docker Compose Mastering Docker Compose: A Practical Guide to Multi-Contai...」\n\n<a id=\"ref-6\"></a>**[6]** tech-insider.org — Docker Compose: Build 3-Tier Apps in 15 Min [2026]\nURL: https://tech-insider.org/docker-compose-tutorial-multi-container-apps-2026\n原文片段：「Docker Compose: Build 3-Tier Apps in 15 Min [2026] Skip to content Marcus Chen March 23, 2026 22 min read Docker Compose has become the standard tool for defining and running multi-container applications, and the 2026 release cycle has introduced transformative features that ever...」\n\n<a id=\"ref-7\"></a>**[7]** freecodecamp.org — Docker Compose 是什么？通过示例学习如何使用它\nURL: https://www.freecodecamp.org/chinese/news/what-is-docker-compose-how-to-use-it\n原文片段：「Docker Compose 是什么？通过示例学习如何使用它 译者：Miya Liu 作者：Arunachalam B (英语) 原文： What is Docker Compose? How to Use it with an Example Docker 帮助你在你的机器上快速建立一个开发环境。完成整个过程只需要几分钟时间。 但是，让我们假设你被分配到一个项目上，该项目需要至少 10 个不同的服务处于运行状态来运行你的项目。例如，假设你的项目需要 Java 8、Node 14、MySQL、MongoDB、Ruby on rails、RabbitMQ...」\n\n<a id=\"ref-8\"></a>**[8]** juejin.cn — 【docker基础】: 使用docker composedocker compose docker compose 是什 - 掘金\nURL: https://juejin.cn/post/7249033891810050108\n原文片段：「【docker基础】: 使用docker composedocker compose docker compose 是什 - 掘金 【docker基础】: 使用docker compose 按时交作业 2023-06-27 2,421 阅读3分钟 docker compose docker compose 是什么 Docker Compose 是一个用于定义和运行多个 Docker 容器的工具，它允许你使用一个 YAML 文件来配置和管理 Docker 容器。 如果你已经下载了docker图形化界面，那么你就可以直接使用了，里面内嵌了这个。 如果没有下载...」\n\n<a id=\"ref-9\"></a>**[9]** blog.csdn.net — 什么是Docker Compose？请简述其作用和使用场景_docker compose的作用-CSDN博客\nURL: https://blog.csdn.net/weixin_43310500/article/details/135619355\n原文片段：「什么是Docker Compose？请简述其作用和使用场景_docker compose的作用-CSDN博客 什么是Docker Compose？请简述其作用和使用场景 最新推荐文章于 2026-08-12 10:43:59 发布 原创 最新推荐文章于 2026-08-12 10:43:59 发布 · 2.3k 阅读 · 10 · 6 · 本内容遵循CC 4.0 BY-SA版权协议 版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。 GEO检测 · 收录于 十、Docker与K8S 当前文章被收录于：...」",
+    "metadata": [
+      "https://www.cnblogs.com/skins/custom/images/logo.gif",
+      "https://img2023.cnblogs.com/blog/1173617/202310/1173617-20231024173944070-1664543542.png",
+      "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826234557654-489156154.png",
+      "https://img2023.cnblogs.com/blog/1173617/202308/1173617-20230826235810164-261037574.png",
+      "https://tech-insider.org/wp-content/uploads/2026/03/docker-compose-tutorial-multi-container-apps-2026-1.jpg",
+      "https://chinese.freecodecamp.org/news/content/images/size/w2000/2023/06/What-is-Docker-compose-1.png",
+      "https://chinese.freecodecamp.org/news/content/images/size/w60/2020/12/1607069929888.jpg",
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1766227758075/1cafb145-1477-49a7-a8c1-5d08fc7ff6db.jpeg?w=500&h=500&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      "https://www.freecodecamp.org/news/content/images/2023/04/image-43.png"
+    ]
+  }
+}
