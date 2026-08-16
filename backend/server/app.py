@@ -115,6 +115,40 @@ class ChatRequest(BaseModel):
     research_id: str | None = None
 
 
+def _latest_user_content(messages: list[dict]) -> str:
+    for message in reversed(messages or []):
+        if isinstance(message, dict) and message.get("role") == "user":
+            return str(message.get("content") or "").strip()
+    return ""
+
+
+async def _persist_episode_memory(
+    *,
+    tenant_id: str,
+    user_id: str,
+    session_id: str | None,
+    messages: list[dict],
+    response: str,
+    topic_key: str = "",
+) -> None:
+    """Best-effort episode memory; no session means no persistent chat memory."""
+    if not session_id:
+        return
+    latest_user = _latest_user_content(messages)
+    if not latest_user and not response:
+        return
+    try:
+        from rag.episode_memory import record_episode_turns
+
+        await record_episode_turns(
+            tenant_id=str(tenant_id), user_id=str(user_id), session_id=str(session_id),
+            turns=[("user", latest_user), ("assistant", response)],
+            topic_key=topic_key,
+        )
+    except Exception as exc:
+        logger.debug("Episode memory write skipped: %s", exc)
+
+
 from server.chat_report_request import chat_report_request as _chat_report_request
 
 
@@ -652,6 +686,10 @@ async def chat(chat_request: ChatRequest, request: Request):
             "timestamp": int(time.time() * 1000),  # Current time in milliseconds
             "metadata": meta,
         }
+        await _persist_episode_memory(
+            tenant_id=tenant_id, user_id=user_id, session_id=session_id,
+            messages=messages, response=response_content, topic_key=research_topic,
+        )
 
         logger.info(f"Returning formatted response: {json.dumps(response_message)[:100]}...")
         return {"response": response_message}
@@ -704,28 +742,11 @@ async def _run_session_chat(research_id: str, data: dict, user_id: str | None = 
         tenant_id=str(tenant_id),
         user_id=str(chat_user),
     )
-    # Ingest latest user turn into RAG (best-effort)
-    try:
-        from rag.ingest import ingest_text_document
-
-        latest_user = ""
-        for msg in reversed(data.get("messages") or []):
-            if isinstance(msg, dict) and msg.get("role") == "user":
-                latest_user = str(msg.get("content") or "")
-                break
-        if latest_user.strip():
-            await ingest_text_document(
-                text=latest_user,
-                title="chat_user_turn",
-                uri=f"chat:{research_id}",
-                source_type="chat",
-                tenant_id=str(tenant_id),
-                user_id=str(chat_user),
-                session_id=research_id,
-                metadata={"role": "user"},
-            )
-    except Exception as chat_ingest_exc:
-        logger.debug("Chat turn ingest skipped: %s", chat_ingest_exc)
+    await _persist_episode_memory(
+        tenant_id=str(tenant_id), user_id=str(chat_user), session_id=research_id,
+        messages=data.get("messages") or [], response=response_content,
+        topic_key=research_topic,
+    )
 
     meta = None
     if tool_calls_metadata:

@@ -125,6 +125,14 @@ def _scope_sql(
     return " AND ".join(clauses), params
 
 
+def _active_episode_sql() -> str:
+    """Exclude archived/expired episodic memory from the normal RAG path."""
+    return (
+        "(d.source_type <> 'chat_episode' OR "
+        "coalesce(d.metadata_json->>'episode_status', 'active') = 'active')"
+    )
+
+
 def fts_search(
     query: str,
     *,
@@ -159,6 +167,7 @@ def fts_search(
         )
         SELECT c.id::text
         FROM document_chunks c
+        JOIN documents d ON d.id = c.document_id
         CROSS JOIN query_data q
         CROSS JOIN LATERAL (
             SELECT count(*) FILTER (
@@ -172,7 +181,7 @@ def fts_search(
                    ) AS anchor_hits
             FROM unnest(q.anchors) AS anchor
         ) anchor_score
-        WHERE {where}
+        WHERE {where} AND {_active_episode_sql()}
           AND c.content_tsv @@ q.query
         ORDER BY anchor_score.anchor_hits DESC,
                  coverage_score.coverage DESC,
@@ -245,7 +254,8 @@ def vector_search(
     sql = f"""
         SELECT c.id::text
         FROM document_chunks c
-        WHERE {where}
+        JOIN documents d ON d.id = c.document_id
+        WHERE {where} AND {_active_episode_sql()}
           AND c.embedding IS NOT NULL
         ORDER BY c.embedding <=> %s::vector
         LIMIT %s
@@ -417,7 +427,7 @@ def _fetch_siblings(
                coalesce(d.source_type, ''), c.metadata_json
         FROM document_chunks c
         LEFT JOIN documents d ON d.id = c.document_id
-        WHERE {where} AND c.parent_id = ANY(%s::uuid[])
+        WHERE {where} AND {_active_episode_sql()} AND c.parent_id = ANY(%s::uuid[])
         ORDER BY c.parent_id, c.created_at, c.id
     """
     try:
@@ -584,7 +594,8 @@ def _ilike_fallback(
     params.append(top_k)
     sql = f"""
         SELECT c.id::text FROM document_chunks c
-        WHERE {where} AND ({likes})
+        JOIN documents d ON d.id = c.document_id
+        WHERE {where} AND {_active_episode_sql()} AND ({likes})
         LIMIT %s
     """
     try:

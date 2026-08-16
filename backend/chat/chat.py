@@ -45,6 +45,17 @@ def _latest_user_text(messages: list) -> str:
     return ""
 
 
+def _messages_for_model(messages: list, *, research_id: str | None) -> list:
+    """Bound persisted-session history; older turns are recalled through Child memory."""
+    if not research_id:
+        return list(messages or [])
+    try:
+        turns = max(1, int(os.getenv("CHAT_RECENT_TURNS", "6")))
+    except ValueError:
+        turns = 6
+    return list(messages or [])[-(turns * 2) :]
+
+
 def get_tools():
     """Define tools for LLM function calling (primarily for OpenAI-compatible providers)"""
     tools = [
@@ -494,7 +505,7 @@ class ChatAgentWithMemory:
             - The completed research report
             - The original research topic and ALL preparation conversation before the report was generated
             - Research context (sources, sub-queries, gathered notes, prior web search snippets)
-            - The full conversation history after the report was generated"""
+            - Recent dialogue plus retrieved relevant historical memory"""
             else:
                 context_section = f"""
             Research topic (main report question):
@@ -507,7 +518,7 @@ class ChatAgentWithMemory:
                 material_list = """
             - The research topic (main report question) — this is what the report will be about
             - Every user refinement in the preparation conversation (e.g. time range, scope, angle) — treat these as constraints ON the research topic, not separate unrelated questions
-            - The full conversation history including your prior replies
+            - Recent dialogue plus retrieved relevant historical memory
             - Any prior research context (sources, sub-queries, web search snippets from earlier chat)"""
 
             system_prompt = f"""
@@ -559,7 +570,7 @@ class ChatAgentWithMemory:
             })
             
             # Add user/assistant message history - filter out non-essential fields
-            for msg in messages:
+            for msg in _messages_for_model(messages, research_id=research_id):
                 if 'role' in msg and 'content' in msg:
                     formatted_messages.append({
                         "role": msg["role"],
