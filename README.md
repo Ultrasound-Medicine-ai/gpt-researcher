@@ -1,359 +1,311 @@
-<div align="center" id="top">
+# Research Agent Platform & Evaluation Harness
 
-<img src="https://github.com/assafelovic/gpt-researcher/assets/13554167/20af8286-b386-44a5-9a83-3be1365139c3" alt="Logo" width="80">
+一个面向技术调研场景的智能研究 Agent 平台，以及配套的自动化评测与发布门禁体系。
 
-####
-
-[![Website](https://img.shields.io/badge/Official%20Website-gptr.dev-teal?style=for-the-badge&logo=world&logoColor=white&color=0891b2)](https://gptr.dev)
-[![Documentation](https://img.shields.io/badge/Documentation-DOCS-f472b6?logo=googledocs&logoColor=white&style=for-the-badge)](https://docs.gptr.dev)
-[![Discord](https://img.shields.io/discord/1127851779011391548?logo=discord&logoColor=white&label=Discord&color=34b76a&style=for-the-badge)](https://discord.gg/QgZXvJAccX)
-
-
-[![PyPI version](https://img.shields.io/pypi/v/gpt-researcher?logo=pypi&logoColor=white&style=flat)](https://badge.fury.io/py/gpt-researcher)
-![GitHub Release](https://img.shields.io/github/v/release/assafelovic/gpt-researcher?style=flat&logo=github)
-[![Open In Colab](https://img.shields.io/static/v1?message=Open%20in%20Colab&logo=googlecolab&labelColor=grey&color=yellow&label=%20&style=flat&logoSize=40)](https://colab.research.google.com/github/assafelovic/gpt-researcher/blob/master/docs/docs/examples/pip-run.ipynb)
-[![Docker Image Version](https://img.shields.io/docker/v/elestio/gpt-researcher/latest?arch=amd64&style=flat&logo=docker&logoColor=white&color=1D63ED)](https://hub.docker.com/r/gptresearcher/gpt-researcher)
-[![Skill](https://img.shields.io/badge/Claude%20Skill-skills.sh-blueviolet?style=flat&logo=anthropic&logoColor=white)](https://skills.sh/assafelovic/gpt-researcher/gpt-researcher)
-[![Twitter Follow](https://img.shields.io/twitter/follow/assaf_elovic?style=social)](https://twitter.com/assaf_elovic)
-
-[English](README.md) | [中文](README-zh_CN.md) | [日本語](README-ja_JP.md) | [한국어](README-ko_KR.md)
-
-</div>
-
-# 🔎 GPT Researcher
-
-**GPT Researcher the first open deep research agent designed for both web and local research on any given task.** 
-
-The agent produces detailed, factual, and unbiased research reports with citations. GPT Researcher provides a full suite of customization options to create tailor made and domain specific research agents. Inspired by the recent [Plan-and-Solve](https://arxiv.org/abs/2305.04091) and [RAG](https://arxiv.org/abs/2005.11401) papers, GPT Researcher addresses misinformation, speed, determinism, and reliability by offering stable performance and increased speed through parallelized agent work.
-
-**Our mission is to empower individuals and organizations with accurate, unbiased, and factual information through AI.**
-
-## Why GPT Researcher?
-
-- Objective conclusions for manual research can take weeks, requiring vast resources and time.
-- LLMs trained on outdated information can hallucinate, becoming irrelevant for current research tasks.
-- Current LLMs have token limitations, insufficient for generating long research reports.
-- Limited web sources in existing services lead to misinformation and shallow results.
-- Selective web sources can introduce bias into research tasks.
-
-## Demo
-<a href="https://www.youtube.com/watch?v=f60rlc_QCxE" target="_blank" rel="noopener">
-  <img src="https://github.com/user-attachments/assets/ac2ec55f-b487-4b3f-ae6f-b8743ad296e4" alt="Demo video" width="800" target="_blank" />
-</a>
-
-## Install as Claude Skill
-
-Extend Claude's deep research capabilities by installing GPT Researcher as a [Claude Skill](https://skills.sh/assafelovic/gpt-researcher/gpt-researcher):
-
-```bash
-npx skills add assafelovic/gpt-researcher
-```
-
-Once installed, Claude can leverage GPT Researcher's deep research capabilities directly within your conversations.
-
-## Architecture
-
-The core idea is to utilize 'planner' and 'execution' agents. The planner generates research questions, while the execution agents gather relevant information. The publisher then aggregates all findings into a comprehensive report.
-
-<div align="center">
-<img align="center" height="600" src="https://github.com/assafelovic/gpt-researcher/assets/13554167/4ac896fd-63ab-4b77-9688-ff62aafcc527">
-</div>
-
-Steps:
-* Create a task-specific agent based on a research query.
-* Generate questions that collectively form an objective opinion on the task.
-* Use a crawler agent for gathering information for each question.
-* Summarize and source-track each resource.
-* Filter and aggregate summaries into a final research report.
-
-## Tutorials
- - [How it Works](https://docs.gptr.dev/blog/building-gpt-researcher)
- - [How to Install](https://www.loom.com/share/04ebffb6ed2a4520a27c3e3addcdde20?sid=da1848e8-b1f1-42d1-93c3-5b0b9c3b24ea)
- - [Live Demo](https://www.loom.com/share/6a3385db4e8747a1913dd85a7834846f?sid=a740fd5b-2aa3-457e-8fb7-86976f59f9b8)
-
-## Features
-
-- 📝 Generate detailed research reports using web and local documents.
-- 🖼️ Smart image scraping and filtering for reports.
-- 🍌 **AI-generated inline images** using Google Gemini (Nano Banana) for visual illustrations.
-- 📜 Generate detailed reports exceeding 2,000 words.
-- 🌐 Aggregate over 20 sources for objective conclusions.
-- 🖥️ Frontend available in lightweight (HTML/CSS/JS) and production-ready (NextJS + Tailwind) versions.
-- 🔍 JavaScript-enabled web scraping.
-- 📂 Maintains memory and context throughout research.
-- 📄 Export reports to PDF, Word, and other formats.
-
-## 📖 Documentation
-
-See the [Documentation](https://docs.gptr.dev/docs/gpt-researcher/getting-started) for:
-- Installation and setup guides
-- Configuration and customization options
-- How-To examples
-- Full API references
-
-## ⚙️ Getting Started
-
-### Installation
-
-1. Install Python 3.11 or later. [Guide](https://www.tutorialsteacher.com/python/install-python).
-2. Clone the project and navigate to the directory:
-
-    ```bash
-    git clone https://github.com/assafelovic/gpt-researcher.git
-    cd gpt-researcher
-    ```
-
-3. Set up API keys by exporting them or storing them in a `.env` file.
-
-    ```bash
-    export OPENAI_API_KEY={Your OpenAI API Key here}
-    export TAVILY_API_KEY={Your Tavily API Key here}
-    ```
-
-    (Optional) For enhanced tracing and observability, you can also set:
-    
-    ```bash
-    # export LANGCHAIN_TRACING_V2=true
-    # export LANGCHAIN_API_KEY={Your LangChain API Key here}
-    ```
-
-    For custom OpenAI-compatible APIs (e.g., local models, other providers), you can also set:
-    
-    ```bash
-    export OPENAI_BASE_URL={Your custom API base URL here}
-    ```
-
-4. Install dependencies and start the API server:
-
-    ```bash
-    pip install -r requirements.txt
-    python main.py
-    ```
-
-5. Start the Next.js UI (recommended):
-
-    ```bash
-    cd frontend/nextjs
-    npm install --legacy-peer-deps
-    npm run dev
-    ```
-
-Open [http://localhost:3000](http://localhost:3000) for the UI. The API runs at [http://localhost:8000](http://localhost:8000) (`/docs`, `/ws`, `/api/chat`).
-
-For other setups (e.g., Poetry or virtual environments), check the [Getting Started page](https://docs.gptr.dev/docs/gpt-researcher/getting-started).
-
-## Run as PIP package
-```bash
-pip install gpt-researcher
-
-```
-### Example Usage:
-```python
-...
-from gpt_researcher import GPTResearcher
-
-query = "why is Nvidia stock going up?"
-researcher = GPTResearcher(query=query)
-# Conduct research on the given query
-research_result = await researcher.conduct_research()
-# Write the report
-report = await researcher.write_report()
-...
-```
-
-**For more examples and configurations, please refer to the [PIP documentation](https://docs.gptr.dev/docs/gpt-researcher/gptr/pip-package) page.**
-
-### 🔧 MCP Client
-GPT Researcher supports MCP integration to connect with specialized data sources like GitHub repositories, databases, and custom APIs. This enables research from data sources alongside web search.
-
-```bash
-export RETRIEVER=tavily,mcp  # Enable hybrid web + MCP research
-```
-
-```python
-from gpt_researcher import GPTResearcher
-import asyncio
-import os
-
-async def mcp_research_example():
-    # Enable MCP with web search
-    os.environ["RETRIEVER"] = "tavily,mcp"
-    
-    researcher = GPTResearcher(
-        query="What are the top open source web research agents?",
-        mcp_configs=[
-            {
-                "name": "github",
-                "command": "npx",
-                "args": ["-y", "@modelcontextprotocol/server-github"],
-                "env": {"GITHUB_TOKEN": os.getenv("GITHUB_TOKEN")}
-            }
-        ]
-    )
-    
-    research_result = await researcher.conduct_research()
-    report = await researcher.write_report()
-    return report
-```
-
-> For comprehensive MCP documentation and advanced examples, visit the [MCP Integration Guide](https://docs.gptr.dev/docs/gpt-researcher/retrievers/mcp-configs).
-
-## 🍌 Inline Image Generation
-
-GPT Researcher can automatically generate and embed AI-created illustrations in your research reports using Google's Gemini models (Nano Banana).
-
-```bash
-# Enable in your .env file
-IMAGE_GENERATION_ENABLED=true
-GOOGLE_API_KEY=your_google_api_key
-IMAGE_GENERATION_MODEL=models/gemini-2.5-flash-image
-```
-
-When enabled, the system will:
-1. Analyze your research context to identify visualization opportunities
-2. Pre-generate 2-3 relevant images during the research phase
-3. Embed them inline as the report is written
-
-Images are generated with dark-mode styling that matches the GPT Researcher UI, featuring professional infographic aesthetics with teal accents.
-
-[Learn more about Image Generation](https://docs.gptr.dev/docs/gpt-researcher/gptr/image_generation) in our documentation.
-
-## ✨ Deep Research
-
-GPT Researcher now includes Deep Research - an advanced recursive research workflow that explores topics with agentic depth and breadth. This feature employs a tree-like exploration pattern, diving deeper into subtopics while maintaining a comprehensive view of the research subject.
-
-- 🌳 Tree-like exploration with configurable depth and breadth
-- ⚡️ Concurrent processing for faster results
-- 🤝 Smart context management across research branches
-- ⏱️ Takes ~5 minutes per deep research
-- 💰 Costs ~$0.4 per research (using `o3-mini` on "high" reasoning effort)
-
-[Learn more about Deep Research](https://docs.gptr.dev/docs/gpt-researcher/gptr/deep_research) in our documentation.
-
-## Run with Docker
-
-> **Step 1** - [Install Docker](https://docs.gptr.dev/docs/gpt-researcher/getting-started/getting-started-with-docker)
-
-> **Step 2** - Clone the '.env.example' file, add your API Keys to the cloned file and save the file as '.env'
-
-> **Step 3** - Within the docker-compose file comment out services that you don't want to run with Docker.
-
-```bash
-docker-compose up --build
-```
-
-If that doesn't work, try running it without the dash:
-```bash
-docker compose up --build
-```
-
-> **Step 4** - By default, if you haven't uncommented anything in your docker-compose file, this flow will start 2 processes:
- - the Python server running on localhost:8000<br>
- - the React app running on localhost:3000<br>
-
-Visit localhost:3000 on any browser and enjoy researching!
-
-
-## 📄 Research on Local Documents
-
-You can instruct the GPT Researcher to run research tasks based on your local documents. Currently supported file formats are: PDF, plain text, CSV, Excel, Markdown, PowerPoint, and Word documents.
-
-Step 1: Add the env variable `DOC_PATH` pointing to the folder where your documents are located.
-
-```bash
-export DOC_PATH="./my-docs"
-```
-
-Step 2: 
- - In the Next.js app at [http://localhost:3000](http://localhost:3000), select **My Documents** from the **Report Source** dropdown.
- - If you're running GPT Researcher with the [PIP package](https://docs.tavily.com/guides/gpt-researcher/gpt-researcher#pip-package), pass the `report_source` argument as "local" when you instantiate the `GPTResearcher` class [code sample here](https://docs.gptr.dev/docs/gpt-researcher/context/tailored-research).
-
-
-## 🤖 MCP Server
-
-We've moved our MCP server to a dedicated repository: [gptr-mcp](https://github.com/assafelovic/gptr-mcp).
-
-The GPT Researcher MCP Server enables AI applications like Claude to conduct deep research. While LLM apps can access web search tools with MCP, GPT Researcher MCP delivers deeper, more reliable research results.
-
-Features:
-- Deep research capabilities for AI assistants
-- Higher quality information with optimized context usage
-- Comprehensive results with better reasoning for LLMs
-- Claude Desktop integration
-
-For detailed installation and usage instructions, please visit the [official repository](https://github.com/assafelovic/gptr-mcp).
-
-
-## 👪 Multi-Agent Assistant
-As AI evolves from prompt engineering and RAG to multi-agent systems, we're excited to introduce multi-agent assistants built with [LangGraph](https://python.langchain.com/v0.1/docs/langgraph/) and [AG2](https://github.com/ag2ai/ag2).
-
-By using multi-agent frameworks, the research process can be significantly improved in depth and quality by leveraging multiple agents with specialized skills. Inspired by the recent [STORM](https://arxiv.org/abs/2402.14207) paper, this project showcases how a team of AI agents can work together to conduct research on a given topic, from planning to publication.
-
-An average run generates a 5-6 page research report in multiple formats such as PDF, Docx and Markdown.
-
-Check it out [here](https://github.com/assafelovic/gpt-researcher/tree/master/multi_agents) or head over to our documentation for [LangGraph](https://docs.gptr.dev/docs/gpt-researcher/multi_agents/langgraph) and [AG2](https://docs.gptr.dev/docs/gpt-researcher/multi_agents/ag2) for more information.
-
-## 🔍 Observability
-
-GPT Researcher supports **LangSmith** for enhanced tracing and observability, making it easier to debug and optimize complex multi-agent workflows.
-
-To enable tracing:
-1. Set the following environment variables:
-   ```bash
-   export LANGCHAIN_TRACING_V2=true
-   export LANGCHAIN_API_KEY=your_api_key
-   export LANGCHAIN_PROJECT="gpt-researcher"
-   ```
-2. Run your research tasks as usual. All LangGraph-based agent interactions will be automatically traced and visualized in your LangSmith dashboard.
-
-## 🖥️ Frontend Applications
-
-GPT-Researcher now features an enhanced frontend to improve the user experience and streamline the research process. The frontend offers:
-
-- An intuitive interface for inputting research queries
-- Real-time progress tracking of research tasks
-- Interactive display of research findings
-- Customizable settings for tailored research experiences
-
-Two deployment options are available:
-1. A lightweight static frontend served by FastAPI
-2. A feature-rich NextJS application for advanced functionality
-
-For detailed setup instructions and more information about the frontend features, please visit our [documentation page](https://docs.gptr.dev/docs/gpt-researcher/frontend/introduction).
-
-## 🚀 Contributing
-We highly welcome contributions! Please check out [contributing](https://github.com/assafelovic/gpt-researcher/blob/master/CONTRIBUTING.md) if you're interested.
-
-Please check out our [roadmap](https://trello.com/b/3O7KBePw/gpt-researcher-roadmap) page and reach out to us via our [Discord community](https://discord.gg/QgZXvJAccX) if you're interested in joining our mission.
-<a href="https://github.com/assafelovic/gpt-researcher/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=assafelovic/gpt-researcher&max=1000" />
-</a>
-## ✉️ Support / Contact us
-- [Community Discord](https://discord.gg/spBgZmm3Xe)
-- Author Email: assaf.elovic@gmail.com
-
-## 🛡 Disclaimer
-
-This project, GPT Researcher, is an experimental application and is provided "as-is" without any warranty, express or implied. We are sharing codes for academic purposes under the Apache 2 license. Nothing herein is academic advice, and NOT a recommendation to use in academic or research papers.
-
-Our view on unbiased research claims:
-1. The main goal of GPT Researcher is to reduce incorrect and biased facts. How? We assume that the more sites we scrape the less chances of incorrect data. By scraping multiple sites per research, and choosing the most frequent information, the chances that they are all wrong is extremely low.
-2. We do not aim to eliminate biases; we aim to reduce it as much as possible. **We are here as a community to figure out the most effective human/llm interactions.**
-3. In research, people also tend towards biases as most have already opinions on the topics they research about. This tool scrapes many opinions and will evenly explain diverse views that a biased person would never have read.
+项目目标是解决技术调研过程中**资料来源分散、人工整理效率低、大模型回答缺少来源依据，以及 Agent 质量难以系统评估**的问题，打通从问题输入、资料检索、证据整理、报告生成，到自动化评测、问题定位和回归验证的完整闭环。
 
 ---
 
-<p align="center">
-<a href="https://star-history.com/#assafelovic/gpt-researcher">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=assafelovic/gpt-researcher&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=assafelovic/gpt-researcher&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=assafelovic/gpt-researcher&type=Date" />
-  </picture>
-</a>
-</p>
+## 1. 项目亮点
 
+### 研究 Agent 平台
 
-<p align="right">
-  <a href="#top">⬆️ Back to Top</a>
-</p>
+* 支持即时问答与深度研究两类任务链路
+* 支持异步任务执行、状态恢复、进度查询与历史结果追踪
+* 基于 RAG 组织本地知识与 Web 检索
+* 支持向量检索、全文检索及 Hybrid 检索策略
+* 将检索证据关联至报告内容，提升结论可追溯性
+* 支持任务、报告、会话及文档的数据隔离
+* 对高成本研究任务增加确定性保护，避免意图误判直接触发任务
+
+### Agent Evaluation Harness
+
+* 覆盖 Intent、Multi-turn、Tool Use、Memory、Fuzz、Security、Planning、Fact Quality 等能力
+* 支持提交后快速回归、发版前验证和夜间评测
+* 基于 pytest + JSONL 管理测试集
+* 接入 GitHub Actions 与结果看板
+* 支持失败 Case 冻结、Replay、独立 Holdout 验证
+* 支持 LLM-as-Judge 与人工复核
+* 区分 Agent 缺陷、评分器缺陷和数据缺失问题
+
+---
+
+## 2. 关键结果
+
+### Agent 产品性能
+
+单机受控 Chat 压测：
+
+* 并发：5
+* 持续时间：30 分钟
+* 成功请求：5361
+* 错误率：0
+* 吞吐：约 2.98 req/s
+* P95 延迟：约 2.2s
+
+### 意图路由评测
+
+构建 80 条离线意图用例，并针对否定表达、歧义输入和上下文切换等边界场景进行受控 Live API 验证。
+
+首轮 24 条 Live Case 中：
+
+* Accuracy：70.83% → 95.83%
+* Macro F1：71.54% → 96.15%
+* 错误创建研究报告：3 → 0
+
+另外使用 12 条独立 Holdout Case 验证：
+
+* Accuracy：91.67%
+* 错误创建研究报告：0
+
+该过程形成了：
+
+**发现问题 → 冻结失败 Case → 修复 → 原集回归 → 独立 Holdout 验证**
+
+的完整闭环。
+
+### Planning 评测
+
+共构建 40 条复杂研究任务：
+
+* 主评测集：30 条
+* 独立 Holdout：10 条
+
+主评测：
+
+* Subgoal Coverage：88%
+* Constraint Retention：98%
+* Redundant Step Rate：0%
+* Irrelevant Step Rate：0%
+
+Holdout：
+
+* Subgoal Coverage：85%
+* Constraint Retention：96%
+
+失败主要集中在多约束叠加和多阶段任务拆解不完整。
+
+### 事实质量与评分校准
+
+使用 SimpleQA 和高风险开放问题分别评估事实准确性与证据一致性。
+
+在 LLM-as-Judge 重复评分过程中，曾发现评分结果出现系统性偏移。进一步通过 Trace 和 Replay 排查后，定位到历史样本保存的证据内容不完整，而不是模型随机性或评分规则本身的问题。
+
+后续改为：
+
+* 持久化完整检索证据
+* 证据不足时直接阻断评分
+* 保留人工复核样本进行校准
+
+该问题也体现了本项目不仅评估 Agent 本身，同时关注**评测系统自身是否可靠**。
+
+---
+
+## 3. 系统架构
+
+### Agent 平台
+
+```text
+User
+  ↓
+Next.js / TypeScript
+  ↓
+FastAPI
+  ↓
+Intent / Policy
+  ↓
+Chat / Research Job
+  ↓
+Redis + ARQ
+  ↓
+Planning
+  ↓
+RAG / Web Search / Tool Use
+  ↓
+Report Generation
+  ↓
+PostgreSQL / pgvector / MinIO
+```
+
+### Evaluation Harness
+
+```text
+JSONL Cases
+  ↓
+Runner
+  ↓
+Agent / API / Planner
+  ↓
+Scorer
+  ↓
+Metrics
+  ↓
+Dashboard
+  ↓
+Quality Gate
+  ↓
+Failure Queue / Replay / Holdout
+```
+
+---
+
+## 4. 技术栈
+
+### Agent Platform
+
+* Python
+* FastAPI
+* LangChain
+* PostgreSQL
+* pgvector
+* PostgreSQL FTS
+* Redis
+* ARQ
+* MinIO
+* Next.js
+* TypeScript
+* Docker
+
+### Evaluation
+
+* Python
+* pytest
+* JSONL
+* GitHub Actions
+* LLM-as-Judge
+* Tracing
+* Replay
+* Fuzz / Adversarial Testing
+
+---
+
+## 5. 评测覆盖
+
+当前 Evaluation Harness 主要覆盖以下能力：
+
+* 意图识别与路由
+* 多轮会话状态
+* 工具选择与参数生成
+* 返回结果解析
+* 超时与异常恢复
+* Memory 与跨轮引用
+* 模糊输入与噪声输入
+* Prompt Injection
+* 越权访问
+* 跨用户数据隔离
+* 事实准确性
+* 证据一致性
+* Planning 子目标拆解
+* 约束保留
+* 性能与稳定性
+
+---
+
+## 6. 工程设计思路
+
+这个项目并不是单纯追求“测试全部通过”，而是重点解决以下问题：
+
+### 1. 高成本动作不能完全依赖模型判断
+
+报告创建属于有明显成本和副作用的动作，因此采用：
+
+**LLM 负责语义判断 + 确定性规则负责最终保护**
+
+避免模型误判直接创建任务。
+
+### 2. 评测集需要防止过拟合
+
+失败 Case 不会删除，而是冻结进入回归集；修复后除了重新跑原 Case，还会增加独立 Holdout 验证，避免只针对原测试集调规则。
+
+### 3. Scorer 和 Judge 本身也需要被验证
+
+Planning 评测曾因字符串匹配和文本处理问题低估 Planner 能力；Judge Replay 也曾因历史证据保存不完整导致系统性误判。
+
+因此 Harness 不仅关注：
+
+> Agent 是否出错
+
+也关注：
+
+> 评分器是否可信
+> 数据是否完整
+> 指标是否能被正确解释
+
+### 4. 性能优化以重复验收为准
+
+性能优化过程中，不采用单次最好结果作为结论，而是通过固定输入重复测试和阶段耗时拆分，区分：
+
+* 稳定优化
+* 偶发快样本
+* 真正瓶颈
+* 外部依赖问题
+
+---
+
+## 7. 项目结构
+
+```text
+app / backend
+    Agent API 与业务逻辑
+
+evals/
+    datasets/
+    runners/
+    scorers/
+    planning_eval/
+    judge_eval/
+    results/
+    dashboard/
+
+tests/
+    自动化测试
+
+frontend/
+    Web 控制台
+```
+
+具体目录名称可能根据当前代码版本有所不同，以仓库实际结构为准。
+
+---
+
+## 8. 项目定位
+
+这个项目主要用于展示以下能力：
+
+* Agent 应用设计与工程化
+* RAG 与知识增强
+* Planning / Memory / Tool Use
+* 异步任务系统
+* Agent Evaluation Harness
+* LLM-as-Judge
+* Fuzz / Security Testing
+* Tracing / Replay
+* CI / Quality Gate
+* 性能分析与问题定位
+
+---
+
+## 9. 当前限制
+
+当前项目仍存在以下已知边界：
+
+* Multi-Agent 不是当前默认架构，当前主要采用可控的单 Agent Workflow
+* 部分 RAG 评测仍以本地受控数据为主，尚未覆盖大规模向量语料
+* Agent Evaluation 结果均为受控测试环境指标，不等同于生产流量表现
+* Planning 在多约束、多阶段任务中仍存在部分子目标拆解不完整问题
+* 历史评测中缺少完整证据的样本不支持可靠 Replay，会明确标记为 BLOCKED
+
+---
+
+## 10. Why this project
+
+这个项目的核心不是“调用一个大模型生成报告”，而是尝试回答两个更实际的问题：
+
+**如何把 Agent 做成一个可持续运行、可恢复、可追踪的产品？**
+
+以及：
+
+**如何知道这个 Agent 真的变好了，而不是只在 Demo 中看起来更好？**
+
+因此项目同时建设了 Agent 产品链路和 Evaluation Harness，并通过真实失败 Case 不断推动路由、评分、规划和可靠性机制迭代。
+
